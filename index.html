@@ -179,6 +179,14 @@ function updateBreadcrumb(){
   bc.innerHTML = html;
 }
 
+async function openDynamicSub(folderId, folderName, catName){
+  const main = document.getElementById('main');
+  const backBtn = `<button class="back-btn" onclick="history.back()">← ${catName}</button>`;
+  main.innerHTML = backBtn + `<div class="page-title">${getTeamIcon(folderName)} ${folderName}</div><div class="loading"><div class="spinner"></div>Caricamento foto...</div>`;
+  const imgs = await getImages(folderId);
+  renderPhotos(imgs, folderName, getTeamIcon(folderName), backBtn);
+}
+
 function goHome(){
   navStack = [];
   updateBreadcrumb();
@@ -218,7 +226,44 @@ async function renderCategory(cat){
   
   let backBtn = `<button class="back-btn" onclick="goHome()">← Indietro</button>`;
 
-  // Se non ha sottocartelle → mostra foto direttamente
+  // subs=null → carica sottocartelle dinamicamente da Drive
+  if(cat.subs === null){
+    if(!cat.id){
+      main.innerHTML = backBtn + `<div class="page-title">${cat.icon} ${cat.name}</div><div class="loading" style="color:var(--gray)">Prossimamente...</div>`;
+      return;
+    }
+    main.innerHTML = backBtn + `<div class="page-title">${cat.icon} ${cat.name}</div><div class="loading"><div class="spinner"></div>Caricamento...</div>`;
+    // Prova prima a caricare sottocartelle
+    const q = `'${cat.id}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`;
+    const url = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name)&orderBy=name&key=${API_KEY}`;
+    let subfolders = [];
+    try {
+      const r = await fetch(url);
+      const d = await r.json();
+      subfolders = d.files || [];
+    } catch(e){}
+    
+    if(subfolders.length > 0){
+      // Mostra griglia sottocartelle
+      let html = backBtn + `<div class="page-title">${cat.icon} ${cat.name}</div><div class="page-subtitle">${subfolders.length} elementi</div><div class="grid">`;
+      subfolders.forEach(sub => {
+        const icon = getTeamIcon(sub.name);
+        html += `<div class="card" onclick="openDynamicSub('${sub.id}', '${sub.name.replace(/'/g,"\'")}', '${cat.name.replace(/'/g,"\'")}')">
+          <span class="card-icon">${icon}</span>
+          <div class="card-name">${sub.name}</div>
+        </div>`;
+      });
+      html += `</div>`;
+      main.innerHTML = html;
+    } else {
+      // Nessuna sottocartella → mostra foto dirette
+      const imgs = await getImages(cat.id);
+      renderPhotos(imgs, cat.name, cat.icon, backBtn);
+    }
+    return;
+  }
+
+  // subs vuoto → foto dirette
   if(!cat.subs || cat.subs.length === 0){
     if(!cat.id){ 
       main.innerHTML = backBtn + `<div class="page-title">${cat.icon} ${cat.name}</div><div class="loading" style="color:var(--gray)">Prossimamente...</div>`;
