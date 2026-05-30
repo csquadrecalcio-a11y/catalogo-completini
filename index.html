@@ -101,19 +101,19 @@
 <script>
 // ── Struttura catalogo (da Google Drive) ─────────────
 const CATALOG = [
-  { name:"SERIE A", icon:"🇮🇹", id:"1PEPuubYWEiecIKwXbq9RZ1LuWNjEhzC2", subs:[
+  { name:"Serie A", icon:"🇮🇹", id:"1PEPuubYWEiecIKwXbq9RZ1LuWNjEhzC2", subs:[
     "Atalanta","Bologna","Como","Fiorentina","Inter","Juventus","Lazio","Milan","Napoli","Roma"
   ]},
-  { name:"PREMIER LEAGUE", icon:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", id:"1JWQkaYv5k_g3EDZid-fyuXtK0tG-6wNh", subs:[
+  { name:"Premier League", icon:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", id:"1JWQkaYv5k_g3EDZid-fyuXtK0tG-6wNh", subs:[
     "Arsenal","Aston Villa","Chelsea","Liverpool","Manchester city","Manchester United","Newcastle","Nottingham forest","Tottenham"
   ]},
-  { name:"LIGA SPAGNOLA", icon:"🇪🇸", id:"1U99k-2iplpo-SncvQB6NdAni6WwMTlvw", subs:[
+  { name:"Liga Spagnola", icon:"🇪🇸", id:"1U99k-2iplpo-SncvQB6NdAni6WwMTlvw", subs:[
     "Atletico Madrid","Barcellona","Betis","bilbao","Real Madrid","Valencia"
   ]},
-  { name:"BBUNDESLIGA", icon:"🇩🇪", id:"", subs:[
+  { name:"Bundesliga", icon:"🇩🇪", id:"", subs:[
     "Bayer leverkusen","Bayern monaco","Borussia Dortmund","Borussia Mönchengladbach","Eintracht Frankfurt","RB Leipzig","Shalke 04","VfB Stuttgart","Werder bremen"
   ]},
-  { name:"LIGUE 1 FRANCIA", icon:"🇫🇷", id:"15kPZPWyq9I7aUvGue95DuWoGK9MzDzz9", subs:[
+  { name:"Ligue 1 Francia", icon:"🇫🇷", id:"15kPZPWyq9I7aUvGue95DuWoGK9MzDzz9", subs:[
     "LOSC Lille","AS Monaco","Marsiglia","Olympique Lyonnais","Paris fc","Paris Saint Germain"
   ]},
   { name:"Eredivisie", icon:"🇳🇱", id:"1yOdpCveN3hA3_bFS8RHsUKHKsjXJXfq3", subs:["Ajax"]},
@@ -146,7 +146,8 @@ function fullUrl(id){ return `https://drive.google.com/uc?export=view&id=${id}`;
 // ── Fetch immagini da Drive ───────────────────────────
 async function getImages(folderId){
   try {
-    const url = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents+and+(mimeType='image/jpeg'+or+mimeType='image/png')+and+trashed=false&fields=files(id,name)&orderBy=name&key=${API_KEY}&pageSize=200`;
+    const q = `'${folderId}' in parents and (mimeType='image/jpeg' or mimeType='image/png' or mimeType='image/webp') and trashed=false`;
+    const url = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name)&orderBy=name&key=${API_KEY}&pageSize=200`;
     const r = await fetch(url);
     const d = await r.json();
     return d.files || [];
@@ -155,10 +156,14 @@ async function getImages(folderId){
 
 async function getSubfolderByName(parentId, name){
   try {
-    const url = `https://www.googleapis.com/drive/v3/files?q='${parentId}'+in+parents+and+mimeType='application/vnd.google-apps.folder'+and+name='${encodeURIComponent(name)}'+and+trashed=false&fields=files(id,name)&key=${API_KEY}`;
+    const q = `'${parentId}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`;
+    const url = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name)&key=${API_KEY}`;
     const r = await fetch(url);
     const d = await r.json();
-    return d.files && d.files[0] ? d.files[0].id : null;
+    if(!d.files) return null;
+    // cerca per nome case-insensitive
+    const found = d.files.find(f => f.name.toLowerCase() === name.toLowerCase());
+    return found ? found.id : null;
   } catch(e){ return null; }
 }
 
@@ -300,8 +305,8 @@ function renderPhotos(imgs, title, icon, backBtn){
 // ── Icone squadre ─────────────────────────────────────
 function getTeamIcon(name){
   const n = name.toLowerCase();
-  if(n.includes('NAPOLI')) return '🔵';
-  if(n.includes('INTER') && !n.includes('miami')) return '⚫';
+  if(n.includes('napoli')) return '🔵';
+  if(n.includes('inter') && !n.includes('miami')) return '⚫';
   if(n.includes('milan') && !n.includes('inter')) return '🔴';
   if(n.includes('juventus')) return '⚪';
   if(n.includes('roma')) return '🟡';
