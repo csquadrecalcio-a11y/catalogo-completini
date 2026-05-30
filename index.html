@@ -182,9 +182,35 @@ function updateBreadcrumb(){
 async function openDynamicSub(folderId, folderName, catName){
   const main = document.getElementById('main');
   const backBtn = `<button class="back-btn" onclick="history.back()">← ${catName}</button>`;
-  main.innerHTML = backBtn + `<div class="page-title">${getTeamIcon(folderName)} ${folderName}</div><div class="loading"><div class="spinner"></div>Caricamento foto...</div>`;
-  const imgs = await getImages(folderId);
-  renderPhotos(imgs, folderName, getTeamIcon(folderName), backBtn);
+  main.innerHTML = backBtn + `<div class="page-title">${getTeamIcon(folderName)} ${folderName}</div><div class="loading"><div class="spinner"></div>Caricamento...</div>`;
+
+  // Controlla se ci sono sottocartelle
+  const q = `'${folderId}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`;
+  const url = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name)&orderBy=name&key=${API_KEY}`;
+  let subfolders = [];
+  try {
+    const r = await fetch(url);
+    const d = await r.json();
+    subfolders = d.files || [];
+  } catch(e){}
+
+  if(subfolders.length > 0){
+    // Mostra griglia sottocartelle
+    let html = backBtn + `<div class="page-title">${getTeamIcon(folderName)} ${folderName}</div><div class="page-subtitle">${subfolders.length} elementi</div><div class="grid">`;
+    subfolders.forEach(sub => {
+      const icon = getTeamIcon(sub.name);
+      html += `<div class="card" onclick="openDynamicSub('${sub.id}', '${sub.name.replace(/'/g,"\'")}', '${folderName.replace(/'/g,"\'")}')">
+        <span class="card-icon">${icon}</span>
+        <div class="card-name">${sub.name}</div>
+      </div>`;
+    });
+    html += `</div>`;
+    main.innerHTML = html;
+  } else {
+    // Nessuna sottocartella → mostra foto
+    const imgs = await getImages(folderId);
+    renderPhotos(imgs, folderName, getTeamIcon(folderName), backBtn);
+  }
 }
 
 function goHome(){
