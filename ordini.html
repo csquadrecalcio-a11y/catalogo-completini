@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>CSC 2.0 - Ordini</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#060a12;color:#fff;font-family:'Segoe UI',sans-serif;min-height:100vh;padding-bottom:40px;}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%,rgba(26,127,212,.07) 0%,transparent 60%);pointer-events:none;}
+
+header{background:#0d1525;padding:16px 20px;border-bottom:2px solid #1a7fd4;text-align:center;}
+header h1{font-size:20px;letter-spacing:2px;color:#fff;}
+header p{font-size:11px;color:#4da6f5;letter-spacing:2px;margin-top:3px;}
+
+.container{max-width:500px;margin:0 auto;padding:16px;}
+
+.section{background:#0d1525;border:1px solid rgba(26,127,212,.2);border-radius:12px;padding:16px;margin-bottom:14px;}
+.section-title{font-size:14px;font-weight:700;color:#4da6f5;letter-spacing:1px;margin-bottom:12px;text-transform:uppercase;}
+
+.form-row{margin-bottom:10px;}
+label{display:block;font-size:12px;color:#8899bb;margin-bottom:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;}
+input,select,textarea{width:100%;background:#111e35;border:1px solid rgba(26,127,212,.2);border-radius:8px;padding:10px 12px;color:#fff;font-size:14px;outline:none;-webkit-appearance:none;}
+input:focus,select:focus{border-color:#1a7fd4;}
+select option{background:#111e35;}
+
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+
+.patch-row{display:flex;gap:10px;flex-wrap:wrap;}
+.patch-btn{padding:8px 14px;border-radius:8px;border:1px solid rgba(26,127,212,.3);background:transparent;color:#8899bb;font-size:12px;cursor:pointer;transition:all .2s;}
+.patch-btn.on{background:#1a7fd4;color:#fff;border-color:#1a7fd4;}
+
+.preview-box{background:#060a12;border:1px solid rgba(26,127,212,.2);border-radius:8px;padding:12px;min-height:60px;margin-bottom:10px;}
+.preview-box p{font-size:12px;color:#4da6f5;margin-bottom:4px;}
+.prod-item{background:#111e35;border-radius:6px;padding:8px 10px;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;font-size:13px;}
+.prod-item .del{color:#ef4444;cursor:pointer;font-size:16px;padding:0 4px;}
+
+.price-preview{background:#0a1f0a;border:1px solid rgba(34,197,94,.2);border-radius:8px;padding:10px 12px;margin-bottom:10px;font-size:12px;color:#22c55e;}
+
+.btn{width:100%;padding:14px;border-radius:10px;border:none;font-size:15px;font-weight:700;cursor:pointer;letter-spacing:1px;margin-bottom:10px;transition:all .2s;}
+.btn-blue{background:#1a7fd4;color:#fff;}
+.btn-blue:active{background:#4da6f5;}
+.btn-green{background:#25d366;color:#fff;}
+.btn-green:active{background:#1aab50;}
+.btn-gray{background:#111e35;color:#8899bb;border:1px solid rgba(26,127,212,.2);}
+
+.msg-area{width:100%;background:#060a12;border:1px solid rgba(26,127,212,.2);border-radius:8px;padding:12px;color:#fff;font-family:monospace;font-size:13px;min-height:180px;resize:none;outline:none;}
+
+.badge{display:inline-block;background:#1a7fd4;color:#fff;border-radius:12px;padding:2px 8px;font-size:11px;margin-left:6px;}
+
+.tot-pezzi{color:#f5c842;font-size:12px;margin-bottom:8px;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>⚽ CSC 2.0</h1>
+  <p>GENERATORE ORDINI</p>
+</header>
+
+<div class="container">
+
+  <!-- PRODOTTO -->
+  <div class="section">
+    <div class="section-title">📦 Aggiungi Prodotto</div>
+
+    <div class="form-row">
+      <label>Tipo</label>
+      <select id="tipo" onchange="updPreview()">
+        <option value="only jersey">only jersey</option>
+        <option value="kit adult">kit adult</option>
+        <option value="kids kit">kids kit</option>
+        <option value="tuta allenamento">tuta allenamento</option>
+        <option value="tuta passeggio">tuta passeggio</option>
+        <option value="maglia vintage">maglia vintage</option>
+        <option value="maglia player">maglia player</option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <label>Squadra</label>
+      <input type="text" id="squadra" placeholder="es. Napoli">
+    </div>
+
+    <div class="row2">
+      <div class="form-row">
+        <label>Giocatore</label>
+        <input type="text" id="giocatore" placeholder="es. Kvara">
+      </div>
+      <div class="form-row">
+        <label>Numero</label>
+        <input type="number" id="numero" placeholder="77" min="1" max="99">
+      </div>
+    </div>
+
+    <div class="row2">
+      <div class="form-row">
+        <label>Taglia</label>
+        <select id="taglia">
+          <option>XS</option><option>S</option><option>M</option>
+          <option selected>L</option><option>XL</option><option>XXL</option>
+          <option>3XL</option><option>4XL</option>
+          <option>Kids 16</option><option>Kids 18</option><option>Kids 20</option>
+          <option>Kids 22</option><option>Kids 24</option><option>Kids 26</option><option>Kids 28</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>Quantita</label>
+        <input type="number" id="qty" value="1" min="1" max="100" oninput="updPreview()">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label>Patch</label>
+      <div class="patch-row">
+        <button class="patch-btn" id="p_sa" onclick="togglePatch(this)">PATCH SERIE A</button>
+        <button class="patch-btn" id="p_ucl" onclick="togglePatch(this)">PATCH UCL</button>
+        <input type="text" id="p_altro" placeholder="altro patch..." style="flex:1;min-width:100px;">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label>Prezzo vendita EUR</label>
+      <input type="number" id="pv" value="30" min="1" step="0.5">
+    </div>
+
+    <div class="price-preview" id="price_prev">Seleziona tipo e quantita per vedere il guadagno</div>
+
+    <button class="btn btn-blue" onclick="addProd()">+ AGGIUNGI PRODOTTO</button>
+  </div>
+
+  <!-- LISTA PRODOTTI -->
+  <div class="section" id="lista_section" style="display:none">
+    <div class="section-title">🛒 Prodotti nell'ordine <span class="badge" id="n_prod">0</span></div>
+    <div class="tot-pezzi" id="tot_pezzi"></div>
+    <div id="prod_list"></div>
+  </div>
+
+  <!-- SPEDIZIONE -->
+  <div class="section">
+    <div class="section-title">📮 Dati Spedizione</div>
+    <div class="form-row"><label>Nome cliente</label><input type="text" id="s_nome" placeholder="Mario Rossi"></div>
+    <div class="form-row"><label>Indirizzo</label><input type="text" id="s_via" placeholder="Via Roma 1"></div>
+    <div class="row2">
+      <div class="form-row"><label>Citta</label><input type="text" id="s_citta" placeholder="Napoli"></div>
+      <div class="form-row"><label>Provincia</label><input type="text" id="s_prov" placeholder="NA" maxlength="2"></div>
+    </div>
+    <div class="row2">
+      <div class="form-row"><label>CAP</label><input type="text" id="s_cap" placeholder="80100" maxlength="5"></div>
+      <div class="form-row"><label>Telefono</label><input type="tel" id="s_tel" placeholder="3331234567"></div>
+    </div>
+  </div>
+
+  <!-- MESSAGGIO -->
+  <div class="section">
+    <div class="section-title">📋 Messaggio Fornitore</div>
+    <button class="btn btn-blue" onclick="genera()">⚡ GENERA MESSAGGIO</button>
+    <textarea class="msg-area" id="msg_out" placeholder="Il messaggio apparira qui..."></textarea>
+    <button class="btn btn-gray" onclick="copia()" style="margin-bottom:8px;">📋 COPIA MESSAGGIO</button>
+    <button class="btn btn-green" onclick="whatsapp()">📱 INVIA SU WHATSAPP</button>
+    <button class="btn btn-gray" onclick="pulisci()">🗑 PULISCI TUTTO</button>
+  </div>
+
+</div>
+
+<script>
+// ── Dati ──────────────────────────────────────────────
+const PREZZI_V_BASE = {
+  "only jersey":30,"kit adult":40,"kids kit":35,
+  "tuta allenamento":50,"tuta passeggio":60,
+  "maglia vintage":35,"maglia player":35
+};
+const PREZZI_V_5 = {
+  "only jersey":25,"kit adult":30,"kids kit":28,
+  "maglia vintage":28,"maglia player":28
+};
+const PREZZI_V_10 = {
+  "only jersey":20,"kit adult":25,"kids kit":23,
+  "maglia vintage":23,"maglia player":23
+};
+const PREZZI_A = {
+  "only jersey":    {1:13,3:12,5:11,10:10},
+  "kit adult":      {1:17,3:16,5:15,10:14},
+  "kids kit":       {1:15,3:15,5:14,10:13},
+  "tuta passeggio": {1:30,3:28,5:28,10:28},
+  "tuta allenamento":{1:30,3:28,5:28,10:28},
+  "maglia vintage": {1:16,3:16,5:15,10:14},
+  "maglia player":  {1:16,3:15,5:14,10:13},
+};
+
+let prodotti = [];
+
+function getPrezzoV(tipo, tot) {
+  if(tot>=10 && PREZZI_V_10[tipo]) return PREZZI_V_10[tipo];
+  if(tot>=5  && PREZZI_V_5[tipo])  return PREZZI_V_5[tipo];
+  return PREZZI_V_BASE[tipo] || 30;
+}
+
+function getPrezzoA(tipo, tot) {
+  const prezzi = PREZZI_A[tipo];
+  if(!prezzi) return 0;
+  const soglie = Object.keys(prezzi).map(Number).sort((a,b)=>b-a);
+  for(let s of soglie) { if(tot>=s) return prezzi[s]; }
+  return prezzi[Math.min(...soglie)];
+}
+
+function totPezzi(extra=0) {
+  return prodotti.reduce((s,p)=>s+(p.qty||1),0)+extra;
+}
+
+function updPreview() {
+  const tipo = document.getElementById('tipo').value;
+  const qty  = parseInt(document.getElementById('qty').value)||1;
+  const tot  = totPezzi(qty);
+  const _pv  = getPrezzoV(tipo, tot);
+  const _pa  = getPrezzoA(tipo, tot);
+  const g    = (_pv - _pa) * qty;
+  document.getElementById('pv').value = _pv;
+  document.getElementById('price_prev').textContent =
+    `Acquisto: EUR ${_pa}/pz  Vendita: EUR ${_pv}/pz  Guadagno: EUR ${g.toFixed(2)}  (tot ordine: ${tot} pz)`;
+}
+
+function togglePatch(btn) { btn.classList.toggle('on'); }
+
+function addProd() {
+  const tipo = document.getElementById('tipo').value;
+  const sq   = document.getElementById('squadra').value.trim();
+  const gk   = document.getElementById('giocatore').value.trim();
+  const num  = document.getElementById('numero').value.trim();
+  const tag  = document.getElementById('taglia').value;
+  const qty  = parseInt(document.getElementById('qty').value)||1;
+  const pvVal= parseFloat(document.getElementById('pv').value)||30;
+
+  const patches = [];
+  if(document.getElementById('p_sa').classList.contains('on'))  patches.push('PATCH SERIE A');
+  if(document.getElementById('p_ucl').classList.contains('on')) patches.push('PATCH UCL');
+  const altro = document.getElementById('p_altro').value.trim();
+  if(altro) patches.push(altro.toUpperCase());
+
+  prodotti.push({tipo,sq,gk,num,tag,patches,pv:pvVal,qty});
+  renderList();
+
+  // Reset
+  document.getElementById('squadra').value='';
+  document.getElementById('giocatore').value='';
+  document.getElementById('numero').value='';
+  document.getElementById('qty').value=1;
+  document.getElementById('p_sa').classList.remove('on');
+  document.getElementById('p_ucl').classList.remove('on');
+  document.getElementById('p_altro').value='';
+  updPreview();
+}
+
+function renderList() {
+  const tot = totPezzi();
+  const div = document.getElementById('prod_list');
+  document.getElementById('lista_section').style.display = prodotti.length ? 'block' : 'none';
+  document.getElementById('n_prod').textContent = prodotti.length;
+  document.getElementById('tot_pezzi').textContent = `Totale pezzi: ${tot} — prezzi al livello ${tot>=10?'10+':tot>=5?'5+':'1-4'}`;
+
+  div.innerHTML = prodotti.map((p,i)=>{
+    const _pa = getPrezzoA(p.tipo, tot);
+    const _pv = getPrezzoV(p.tipo, tot);
+    const g   = (_pv-_pa)*p.qty;
+    return `<div class="prod-item">
+      <div>
+        <b>x${p.qty} ${p.tipo}</b>${p.sq?' '+p.sq:''}${p.gk?' - '+p.gk:''}${p.num?' #'+p.num:''} - ${p.tag}
+        <div style="font-size:11px;color:#4da6f5;margin-top:2px">EUR ${_pa}/pz acq • EUR ${_pv}/pz vend • g: EUR ${g.toFixed(2)}</div>
+      </div>
+      <span class="del" onclick="delProd(${i})">✕</span>
+    </div>`;
+  }).join('');
+}
+
+function delProd(i) { prodotti.splice(i,1); renderList(); updPreview(); }
+
+function genera() {
+  if(!prodotti.length){ alert('Aggiungi almeno un prodotto!'); return; }
+  const tot = totPezzi();
+  let msg = '';
+  for(const p of prodotti){
+    msg += p.tipo;
+    if(p.sq) msg += ' '+p.sq;
+    msg += '\n';
+    if(p.gk) msg += p.gk;
+    if(p.num) msg += ' '+p.num;
+    if(p.gk||p.num) msg += '\n';
+    msg += 'size '+p.tag+'\n';
+    for(const pt of p.patches) msg += pt+'\n';
+    msg += '\n';
+  }
+  const nome = document.getElementById('s_nome').value.trim();
+  const via  = document.getElementById('s_via').value.trim();
+  const cit  = document.getElementById('s_citta').value.trim();
+  const prov = document.getElementById('s_prov').value.trim().toUpperCase();
+  const cap  = document.getElementById('s_cap').value.trim();
+  const tel  = document.getElementById('s_tel').value.trim();
+
+  msg += nome+'\n'+via+'\n'+cit+'\n';
+  if(prov) msg += prov+'\n';
+  msg += cap+'\n'+tel;
+
+  document.getElementById('msg_out').value = msg.trim();
+}
+
+function copia() {
+  const txt = document.getElementById('msg_out').value.trim();
+  if(!txt){ alert('Prima genera il messaggio!'); return; }
+  if(navigator.clipboard) {
+    navigator.clipboard.writeText(txt).then(()=>alert('Copiato! Incolla su WhatsApp.'));
+  } else {
+    const ta = document.getElementById('msg_out');
+    ta.select(); document.execCommand('copy');
+    alert('Copiato!');
+  }
+}
+
+function whatsapp() {
+  const txt = document.getElementById('msg_out').value.trim();
+  if(!txt){ alert('Prima genera il messaggio!'); return; }
+  window.open('https://wa.me/?text='+encodeURIComponent(txt));
+}
+
+function pulisci() {
+  prodotti=[];
+  renderList();
+  ['squadra','giocatore','numero','s_nome','s_via','s_citta','s_prov','s_cap','s_tel','p_altro','msg_out']
+    .forEach(id=>{ const el=document.getElementById(id); if(el) el.value=''; });
+  document.getElementById('p_sa').classList.remove('on');
+  document.getElementById('p_ucl').classList.remove('on');
+  updPreview();
+}
+
+updPreview();
+</script>
+</body>
+</html>
