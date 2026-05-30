@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Completini Squadre Calcio 2.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060a12;
+    --bg2: #0d1525;
+    --bg3: #111e35;
+    --blue: #1a7fd4;
+    --blue-light: #4da6f5;
+    --blue-glow: rgba(26,127,212,0.3);
+    --white: #ffffff;
+    --gray: #8899bb;
+    --gray-light: #c5d5ee;
+    --gold: #f5c842;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Animated background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(26,127,212,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(26,127,212,0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Header */
+  header {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 40px 20px 30px;
+    border-bottom: 1px solid rgba(26,127,212,0.2);
+    background: linear-gradient(180deg, rgba(13,21,37,0.9) 0%, transparent 100%);
+  }
+
+  .logo-wrap {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 16px;
+  }
+
+  .logo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+
+  .logo-wrap img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--blue);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 30px var(--blue-glow);
+  }
+
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 5vw, 52px);
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, var(--white) 0%, var(--blue-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+  }
+
+  header p {
+    color: var(--blue-light);
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    position: relative;
+    z-index: 10;
+    padding: 14px 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--gray);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .breadcrumb span { cursor: pointer; transition: color 0.2s; }
+  .breadcrumb span:hover { color: var(--blue-light); }
+  .breadcrumb .sep { color: var(--blue); }
+  .breadcrumb .current { color: var(--white); font-weight: 600; }
+
+  /* Main content */
+  main {
+    position: relative;
+    z-index: 10;
+    padding: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* Page title */
+  .page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 3px;
+    color: var(--white);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .page-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue) 0%, transparent 100%);
+    border-radius: 2px;
+  }
+
+  .page-subtitle {
+    color: var(--gray);
+    font-size: 14px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+  }
+
+  /* Grid categorie */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  /* Card categoria */
+  .card {
+    background: var(--bg2);
+    border: 1px solid rgba(26,127,212,0.15);
+    border-radius: 12px;
+    padding: 24px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--blue), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card:hover {
+    border-color: var(--blue);
+    background: var(--bg3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(26,127,212,0.2);
+  }
+
+  .card:hover::before { opacity: 1; }
+
+  .card-icon {
+    font-size: 42px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .card-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .card-count {
+    font-size: 12px;
+    color: var(--blue-light);
+    letter-spacing: 1px;
+  }
+
+  /* Card squadra con thumbnail */
+  .card-team {
+    background: var(--bg2);
+    border: 1px solid rgba(26,127,212,0.15);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .card-team:hover {
+    border-color: var(--blue);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(26,127,212,0.2);
+  }
+
+  .card-team-img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    background: var(--bg3);
+  }
+
+  .card-team-img-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--bg3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+  }
+
+  .card-team-info {
+    padding: 14px 16px;
+    border-top: 1px solid rgba(26,127,212,0.1);
+  }
+
+  .card-team-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: var(--white);
+  }
+
+  .card-team-count {
+    font-size: 12px;
+    color: var(--blue-light);
+    margin-top: 2px;
+  }
+
+  /* Galleria foto */
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  .photo-item {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(26,127,212,0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+    background: var(--bg2);
+    position: relative;
+  }
+
+  .photo-item:hover {
+    border-color: var(--blue);
+    transform: scale(1.03);
+    box-shadow: 0 8px 30px rgba(26,127,212,0.25);
+    z-index: 2;
+  }
+
+  .photo-item img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .lightbox.active { display: flex; }
+
+  .lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 0 60px rgba(26,127,212,0.3);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: var(--blue);
+    border: none;
+    color: white;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .lightbox-close:hover { background: var(--blue-light); }
+
+  .lightbox-prev, .lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(26,127,212,0.5);
+    border: none;
+    color: white;
+    width: 50px; height: 50px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .lightbox-prev { left: 20px; }
+  .lightbox-next { right: 20px; }
+  .lightbox-prev:hover, .lightbox-next:hover { background: var(--blue); }
+
+  /* Loading */
+  .loading {
+    text-align: center;
+    padding: 60px;
+    color: var(--gray);
+  }
+
+  .spinner {
+    width: 40px; height: 40px;
+    border: 3px solid rgba(26,127,212,0.2);
+    border-top-color: var(--blue);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 16px;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Back button */
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg3);
+    border: 1px solid rgba(26,127,212,0.3);
+    color: var(--blue-light);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+
+  .back-btn:hover {
+    background: var(--blue);
+    color: white;
+    border-color: var(--blue);
+  }
+
+  /* Footer */
+  footer {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 30px;
+    color: var(--gray);
+    font-size: 13px;
+    border-top: 1px solid rgba(26,127,212,0.1);
+    margin-top: 60px;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    main { padding: 16px; }
+    .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+    .photo-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <img src="https://drive.google.com/thumbnail?id=YOUR_LOGO_ID&sz=w200" 
+         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%230d1525%22/><text x=%2250%22 y=%2260%22 text-anchor=%22middle%22 font-size=%2240%22>⚽</text></svg>'"
+         alt="Logo">
+  </div>
+  <h1>Completini Squadre Calcio</h1>
+  <p>2.0 • Dal 2018 • Catalogo Ufficiale</p>
+</header>
+
+<nav class="breadcrumb" id="breadcrumb">
+  <span onclick="goHome()">🏠 Home</span>
+</nav>
+
+<main id="main">
+  <div class="loading"><div class="spinner"></div>Caricamento...</div>
+</main>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-prev" onclick="prevPhoto()">‹</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-next" onclick="nextPhoto()">›</button>
+</div>
+
+<footer>
+  © 2026 Completini Squadre Calcio 2.0 — Tutti i diritti riservati
+</footer>
+
+<script>
+// ── CONFIG ──────────────────────────────────────────
+const ROOT_FOLDER_ID = '1jVywqdMogdEF3MJ9hBUjETmgLEAY17T';
+const API_KEY = 'AIzaSyCJvxQiMV6TSFsvt01V19RHovuNBa-_HRQ'; // Da inserire
+
+// ── Icone per categoria ──────────────────────────────
+const ICONS = {
+  'serie a': '🇮🇹', 'premier league': '🏴󠁧󠁢󠁥󠁮󠁧󠁿', 'liga spagnola': '🇪🇸',
+  'bundesliga': '🇩🇪', 'ligue 1 francia': '🇫🇷', 'eredivisie': '🇳🇱',
+  'nazionali': '🌍', 'nba': '🏀', 'tute': '👕', 'vintage': '🏆',
+  'resto del mondo': '🌐', 'completi estivi': '☀️'
+};
+
+function getIcon(name) {
+  const lower = name.toLowerCase();
+  for (const [key, icon] of Object.entries(ICONS)) {
+    if (lower.includes(key)) return icon;
+  }
+  return '📁';
+}
+
+// ── Stato navigazione ────────────────────────────────
+let navStack = [{ id: ROOT_FOLDER_ID, name: 'Home', type: 'root' }];
+let currentPhotos = [];
+let currentPhotoIdx = 0;
+
+// ── API Google Drive ─────────────────────────────────
+async function listFolders(parentId) {
+  const url = `https://www.googleapis.com/drive/v3/files?q='${parentId}'+in+parents+and+mimeType='application/vnd.google-apps.folder'+and+trashed=false&fields=files(id,name)&orderBy=name&key=${API_KEY}`;
+  const r = await fetch(url);
+  const data = await r.json();
+  return data.files || [];
+}
+
+async function listImages(parentId) {
+  const url = `https://www.googleapis.com/drive/v3/files?q='${parentId}'+in+parents+and+(mimeType='image/jpeg'+or+mimeType='image/png')+and+trashed=false&fields=files(id,name)&orderBy=name&key=${API_KEY}&pageSize=100`;
+  const r = await fetch(url);
+  const data = await r.json();
+  return data.files || [];
+}
+
+function thumbUrl(id) {
+  return `https://drive.google.com/thumbnail?id=${id}&sz=w400`;
+}
+
+function fullUrl(id) {
+  return `https://drive.google.com/uc?export=view&id=${id}`;
+}
+
+// ── Rendering ────────────────────────────────────────
+async function renderFolders(folderId, title, subtitle) {
+  const main = document.getElementById('main');
+  main.innerHTML = '<div class="loading"><div class="spinner"></div>Caricamento...</div>';
+
+  try {
+    const folders = await listFolders(folderId);
+    
+    // Controlla se ci sono anche immagini dirette
+    const images = await listImages(folderId);
+
+    let html = `
+      <div class="page-title">${title}</div>
+      <div class="page-subtitle">${subtitle}</div>
+    `;
+
+    if (navStack.length > 1) {
+      html = `<button class="back-btn" onclick="goBack()">← Indietro</button>` + html;
+    }
+
+    if (images.length > 0) {
+      // Mostra foto dirette
+      currentPhotos = images;
+      html += `<div class="photo-grid">`;
+      images.forEach((img, i) => {
+        html += `
+          <div class="photo-item" onclick="openLightbox(${i})">
+            <img src="${thumbUrl(img.id)}" alt="${img.name}" loading="lazy">
+          </div>`;
+      });
+      html += `</div>`;
+    } else if (folders.length > 0) {
+      // Mostra cartelle
+      html += `<div class="grid">`;
+      for (const folder of folders) {
+        const icon = getIcon(folder.name);
+        html += `
+          <div class="card" onclick="navigateTo('${folder.id}', '${folder.name.replace(/'/g, "\\'")}')">
+            <span class="card-icon">${icon}</span>
+            <div class="card-name">${folder.name}</div>
+          </div>`;
+      }
+      html += `</div>`;
+    } else {
+      html += `<div class="loading" style="color:var(--gray)">Nessun contenuto trovato</div>`;
+    }
+
+    main.innerHTML = html;
+  } catch(e) {
+    main.innerHTML = `<div class="loading">❌ Errore caricamento. Controlla la API Key.<br><small>${e.message}</small></div>`;
+  }
+}
+
+// ── Navigazione ──────────────────────────────────────
+async function navigateTo(id, name) {
+  navStack.push({ id, name });
+  updateBreadcrumb();
+  
+  const title = name;
+  const subtitle = `${navStack.length - 1} livello${navStack.length > 2 ? 'i' : ''}`;
+  await renderFolders(id, title, subtitle);
+}
+
+function goBack() {
+  if (navStack.length > 1) {
+    navStack.pop();
+    updateBreadcrumb();
+    const current = navStack[navStack.length - 1];
+    renderFolders(current.id, current.name === 'Home' ? 'Catalogo' : current.name, '');
+  }
+}
+
+function goHome() {
+  navStack = [{ id: ROOT_FOLDER_ID, name: 'Home', type: 'root' }];
+  updateBreadcrumb();
+  renderFolders(ROOT_FOLDER_ID, 'Catalogo', 'Seleziona una categoria');
+}
+
+function updateBreadcrumb() {
+  const bc = document.getElementById('breadcrumb');
+  let html = `<span onclick="goHome()">🏠 Home</span>`;
+  for (let i = 1; i < navStack.length; i++) {
+    html += `<span class="sep">›</span>`;
+    if (i === navStack.length - 1) {
+      html += `<span class="current">${navStack[i].name}</span>`;
+    } else {
+      const idx = i;
+      html += `<span onclick="goToLevel(${idx})">${navStack[i].name}</span>`;
+    }
+  }
+  bc.innerHTML = html;
+}
+
+function goToLevel(idx) {
+  navStack = navStack.slice(0, idx + 1);
+  updateBreadcrumb();
+  const current = navStack[navStack.length - 1];
+  renderFolders(current.id, current.name, '');
+}
+
+// ── Lightbox ─────────────────────────────────────────
+function openLightbox(idx) {
+  currentPhotoIdx = idx;
+  document.getElementById('lightbox-img').src = fullUrl(currentPhotos[idx].id);
+  document.getElementById('lightbox').classList.add('active');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+
+function prevPhoto() {
+  currentPhotoIdx = (currentPhotoIdx - 1 + currentPhotos.length) % currentPhotos.length;
+  document.getElementById('lightbox-img').src = fullUrl(currentPhotos[currentPhotoIdx].id);
+}
+
+function nextPhoto() {
+  currentPhotoIdx = (currentPhotoIdx + 1) % currentPhotos.length;
+  document.getElementById('lightbox-img').src = fullUrl(currentPhotos[currentPhotoIdx].id);
+}
+
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') prevPhoto();
+  if (e.key === 'ArrowRight') nextPhoto();
+});
+
+// ── Init ─────────────────────────────────────────────
+renderFolders(ROOT_FOLDER_ID, 'Catalogo', 'Seleziona una categoria');
+</script>
+</body>
+</html>
