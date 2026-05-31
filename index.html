@@ -581,10 +581,6 @@ body.dark .completa-card{background:#1e1e1e;border-color:#333;}
 .completa-card-name{font-size:12px;font-weight:600;color:#333;}
 body.dark .completa-card-name{color:#ccc;}
 
-/* ── TRANSIZIONE PAGINA ── */
-#main{transition:opacity .22s ease;}
-#main.fading{opacity:0;}
-
 /* ── ANIMAZIONE VOLO CARRELLO ── */
 .fly-img{position:fixed;z-index:99999;border-radius:8px;pointer-events:none;transition:all .65s cubic-bezier(.25,.46,.45,.94);opacity:1;}
 .fly-img.landed{transform:scale(0) !important;opacity:0;}
@@ -2067,15 +2063,7 @@ function fadeContent(fn){
   },150);
 }
 
-// Wrappa le funzioni di navigazione con il fade
-const _goHome=goHome;
-goHome=()=>fadeContent(()=>{_goHome();setTimeout(animaContatori,400);setTimeout(creaParticelle,200);});
-
-const _openCategory=openCategory;
-openCategory=(ci)=>fadeContent(()=>_openCategory(ci));
-
-const _openSub=openSub;
-openSub=(ci,si)=>fadeContent(()=>_openSub(ci,si));
+// Navigazione con fade — gestita dal nuovo sistema
 
 // Effetto hover 3D sulle card
 document.addEventListener('mousemove',e=>{
@@ -3013,17 +3001,6 @@ function chiudiWelcome(){
   }
 })();
 function chiudiExit(){document.getElementById('exitPopup').classList.remove('active');}
-
-// ── TRANSIZIONE FLUIDA PAGINE ────────────────────────────────────────────────
-function fadeMain(fn){
-  const main=document.getElementById('main');
-  main.classList.add('fading');
-  setTimeout(()=>{fn();main.classList.remove('fading');},200);
-}
-// Wrap navigazione con fade
-const _goHome=goHome;goHome=function(fp){fadeMain(()=>_goHome(fp));};
-const _openCategory=openCategory;openCategory=function(ci,fp){fadeMain(()=>_openCategory(ci,fp));};
-const _openSub=openSub;openSub=function(ci,si,fp){fadeMain(()=>_openSub(ci,si,fp));};
 
 // ── ANIMAZIONE VOLO CARRELLO ─────────────────────────────────────────────────
 function flyToCart(imgEl){
