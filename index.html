@@ -845,6 +845,21 @@ body.dark .completa-card-name{color:#ccc;}
   <span class="wa-testo">Ordina su WhatsApp</span>
 </a>
 
+<!-- POPUP BENVENUTO -->
+<div class="exit-popup" id="welcomePopup">
+  <div class="exit-backdrop" onclick="chiudiWelcome()"></div>
+  <div class="exit-box">
+    <button class="exit-close" onclick="chiudiWelcome()">✕</button>
+    <div style="font-size:52px;margin-bottom:12px;">👋</div>
+    <h2 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:#0d47a1;margin-bottom:10px;">Benvenuto!</h2>
+    <p style="font-size:14px;color:#444;line-height:1.7;margin-bottom:22px;">Maglie da calcio di tutti i top club, personalizzazione e spedizione sempre gratuite. Dal 2018 al tuo servizio!</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <button onclick="chiudiWelcome();openCategory(1);" style="background:#0d47a1;color:#fff;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:800;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='#1565c0'" onmouseout="this.style.background='#0d47a1'">⚽ Sfoglia il catalogo</button>
+      <button onclick="chiudiWelcome()" style="background:none;border:none;color:#aaa;font-size:13px;cursor:pointer;text-decoration:underline;">Continua a guardare</button>
+    </div>
+  </div>
+</div>
+
 <!-- EXIT INTENT POPUP -->
 <div class="exit-popup" id="exitPopup">
   <div class="exit-backdrop" onclick="chiudiExit()"></div>
@@ -2871,6 +2886,19 @@ function renderHotStrip(){
     </div>`;
   });
   strip.innerHTML=`<div class="hot-strip-title">🔥 Appena ordinati</div><div class="hot-scroll">${cards}</div>`;
+}
+
+// ── POPUP BENVENUTO ───────────────────────────────────────────────────────────
+(function(){
+  if(!localStorage.getItem('welcomeSeen')){
+    setTimeout(()=>{
+      document.getElementById('welcomePopup').classList.add('active');
+    }, 2500); // appare dopo 2.5 secondi
+  }
+})();
+function chiudiWelcome(){
+  localStorage.setItem('welcomeSeen','1');
+  document.getElementById('welcomePopup').classList.remove('active');
 }
 
 // ── EXIT INTENT ──────────────────────────────────────────────────────────────
