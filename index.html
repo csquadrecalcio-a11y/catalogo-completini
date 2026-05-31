@@ -91,7 +91,7 @@ body.dark .faq-q.open{background:#1a2a4a;color:#90caf9;}
 .faq-q.open .faq-arrow{transform:rotate(180deg);}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:13px;color:#555;line-height:1.7;background:#fff;padding:0 20px;}
 body.dark .faq-a{background:#1e1e1e;color:#aaa;}
-.faq-a.open{max-height:200px;padding:0 20px 16px;}
+.faq-a.open{max-height:600px;padding:0 20px 16px;}
 
 /* ── WISHLIST ── */
 .photo-item{position:relative;}
@@ -918,13 +918,13 @@ body.dark .completa-card-name{color:#ccc;}
     </div>
     <div style="margin-bottom:14px;">
       <label style="display:block;font-size:12px;font-weight:700;color:#555;margin-bottom:6px;text-transform:uppercase;">📏 Taglia</label>
-      <select id="addCartTaglia" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;">
+      <select id="addCartTaglia" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;" onchange="const av=document.getElementById('avvisoBambino');if(av)av.style.display=this.value.toLowerCase().includes('bambino')?'block':'none';">
         <option value="">Seleziona taglia...</option>
         <optgroup label="👕 Adulto">
           <option>S</option><option>M</option><option>L</option>
           <option>XL</option><option>XXL</option><option>XXXL</option><option>XXXXL</option>
         </optgroup>
-        <optgroup label="👶 Bambino">
+        <optgroup label="👶 Bambino (verifica disponibilità su WhatsApp)">
           <option>Bambino 2-3 anni</option>
           <option>Bambino 4-5 anni</option>
           <option>Bambino 5-6 anni</option>
@@ -954,6 +954,11 @@ body.dark .completa-card-name{color:#ccc;}
       </div>
       <input type="text" id="addCartPatchLibera" placeholder="Altra patch? Scrivila qui..." maxlength="30"
         style="width:100%;padding:10px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;">
+    </div>
+    <div id="avvisoBambino" style="display:none;background:#fff8e1;border:1.5px solid #ffcc02;border-radius:10px;padding:12px 14px;margin-bottom:14px;">
+      <div style="font-size:13px;font-weight:700;color:#e65100;">⚠️ Taglia bambino selezionata</div>
+      <div style="font-size:12px;color:#555;margin-top:4px;line-height:1.5;">Non tutti i prodotti sono disponibili in taglie bambino. <b>Verifica la disponibilità su WhatsApp</b> prima di procedere con l'ordine.</div>
+      <a href="https://wa.me/393792126743" target="_blank" style="display:inline-block;margin-top:8px;background:#25d366;color:#fff;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;">💬 Verifica su WhatsApp</a>
     </div>
     <div style="background:#f5f9ff;border:1.5px solid #bbdefb;border-radius:10px;padding:14px;margin-bottom:16px;">
       <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;">
@@ -2422,6 +2427,10 @@ function paginaFaq(){
     {q:'Come faccio a vedere una maglia specifica?', a:'Usa la barra di ricerca in alto — digita il nome della squadra (es. "Napoli" o "Real Madrid") e premi Cerca. Oppure naviga per categoria dalla sidebar.'},
     {q:'Posso ordinare più maglie insieme?', a:'Certamente! Puoi ordinare quante maglie vuoi in un unico ordine. Scrivici su WhatsApp con l\'elenco delle maglie desiderate.'},
     {q:'Come posso contattarvi per info?', a:'Siamo disponibili su <b>WhatsApp</b> al +39 379 212 6743, su <b>Telegram</b> @csc2_0 e su <b>Instagram</b> @csc_duepuntozero. Rispondiamo sempre rapidamente!'},
+    {q:'Quanto costa la spedizione?', a:'La spedizione è <b>sempre gratuita</b> su tutti gli ordini, senza nessun costo aggiuntivo. 🚚'},
+    {q:'Posso restituire una maglia?', a:'Non accettiamo resi salvo in caso di <b>maglia difettata</b> o di <b>taglia diversa da quella concordata</b>. In questi casi ti verrà inviato il prodotto corretto senza costi aggiuntivi. Contattaci subito su WhatsApp con una foto del problema.'},
+    {q:'La personalizzazione (nome, numero, patch) ha un costo?', a:'No, la personalizzazione con nome, numero e patch è <b>completamente gratuita</b>! 🎉 Basta indicare le preferenze al momento dell\'ordine.'},
+    {q:'Tutti i prodotti sono disponibili anche per bambini?', a:'<b>Non tutti i prodotti sono disponibili in taglie bambino.</b> Prima di ordinare per un bambino, ti consigliamo di <b>verificare la disponibilità su WhatsApp</b> indicando il prodotto desiderato e l\'età del bambino. Risponderemo subito!'},
   ];
 
   let html=`<div style="max-width:750px;margin:0 auto;">
