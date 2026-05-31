@@ -10,15 +10,28 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#f0f2f5;color:#222;font-family:'Roboto',sans-serif;min-height:100vh;}
 
+/* ── CURSORE PALLONE ── */
+*{cursor:none !important;}
+.cursor-ball{position:fixed;width:28px;height:28px;font-size:22px;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:transform .1s ease;line-height:1;}
+.cursor-ball.click{transform:translate(-50%,-50%) scale(1.5) rotate(45deg);}
+
 /* ── SPLASH SCREEN ── */
-.splash{position:fixed;inset:0;background:#0d47a1;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .6s ease,visibility .6s ease;}
+.splash{position:fixed;inset:0;background:linear-gradient(135deg,#0a1628 0%,#0d47a1 60%,#1565c0 100%);z-index:9998;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;transition:opacity .8s ease,visibility .8s ease;overflow:hidden;}
 .splash.hide{opacity:0;visibility:hidden;}
-.splash img{width:90px;height:90px;border-radius:50%;border:3px solid rgba(255,255,255,.3);animation:splashPulse 1s ease infinite alternate;}
-.splash-title{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#fff;letter-spacing:2px;text-align:center;}
-.splash-bar{width:200px;height:3px;background:rgba(255,255,255,.2);border-radius:3px;overflow:hidden;}
-.splash-bar-fill{height:100%;background:#fff;border-radius:3px;animation:splashLoad 1.8s ease forwards;}
-@keyframes splashPulse{from{box-shadow:0 0 0 0 rgba(255,255,255,.4);}to{box-shadow:0 0 0 16px rgba(255,255,255,0);}}
-@keyframes splashLoad{from{width:0;}to{width:100%;}}
+.splash-particles{position:absolute;inset:0;pointer-events:none;}
+.splash-logo-wrap{position:relative;margin-bottom:24px;animation:splashLogoIn .8s cubic-bezier(.34,1.56,.64,1) both;}
+.splash-logo-wrap::before{content:'';position:absolute;inset:-16px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.15),transparent 70%);animation:splashPulse 1.5s ease infinite alternate;}
+.splash img{width:100px;height:100px;border-radius:50%;border:3px solid rgba(255,255,255,.4);position:relative;z-index:1;}
+.splash-title{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#fff;letter-spacing:3px;text-align:center;animation:fadeInUp .6s ease .3s both;margin-bottom:6px;}
+.splash-sub{font-size:12px;color:rgba(255,255,255,.6);letter-spacing:2px;text-align:center;animation:fadeInUp .6s ease .5s both;margin-bottom:28px;}
+.splash-bar{width:220px;height:3px;background:rgba(255,255,255,.15);border-radius:3px;overflow:hidden;animation:fadeInUp .6s ease .6s both;}
+.splash-bar-fill{height:100%;background:linear-gradient(90deg,#fff,#90caf9);border-radius:3px;animation:splashLoad 2s ease forwards;}
+@keyframes splashLogoIn{from{opacity:0;transform:scale(.5) rotate(-10deg);}to{opacity:1;transform:scale(1) rotate(0deg);}}
+@keyframes splashPulse{from{opacity:.5;transform:scale(1);}to{opacity:1;transform:scale(1.1);}}
+@keyframes splashLoad{0%{width:0;}60%{width:70%;}100%{width:100%;}}
+
+/* ── CONTATORI ANIMATI ── */
+.stat-counter{display:inline-block;}
 
 /* ── TRUST BADGES ── */
 .trust-strip{background:#fff;border-bottom:1px solid #e8e8e8;padding:12px 24px;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;overflow:hidden;}
@@ -443,10 +456,17 @@ body.dark .notifica-testo b{color:#90caf9;}
 </head>
 <body>
 
+<!-- CURSORE PALLONE -->
+<div class="cursor-ball" id="cursorBall">⚽</div>
+
 <!-- SPLASH SCREEN -->
 <div class="splash" id="splash">
-  <img src="logo.png" alt="logo" onerror="this.src='logo.jpg'">
+  <div class="splash-particles" id="splashParticles"></div>
+  <div class="splash-logo-wrap">
+    <img src="logo.png" alt="logo" onerror="this.src='logo.jpg'">
+  </div>
   <div class="splash-title">Completini Squadre Calcio 2.0</div>
+  <div class="splash-sub">DAL 2018 • CATALOGO UFFICIALE</div>
   <div class="splash-bar"><div class="splash-bar-fill"></div></div>
 </div>
 
@@ -795,9 +815,9 @@ function goHome(){
       <h1 class="hero-title">Completini<br><span>Squadre Calcio</span></h1>
       <div class="hero-sub">Le migliori maglie dei top club europei.<br>Qualità premium • Personalizzazione • Spedizione rapida in tutta Italia.</div>
       <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-num">500+</div><div class="hero-stat-label">Maglie</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">50+</div><div class="hero-stat-label">Club</div></div>
-        <div class="hero-stat"><div class="hero-stat-num">Dal 2018</div><div class="hero-stat-label">Online</div></div>
+        <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="500" data-suffix="+">0</span></div><div class="hero-stat-label">Maglie</div></div>
+        <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="50" data-suffix="+">0</span></div><div class="hero-stat-label">Club</div></div>
+        <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="2018" data-prefix="Dal ">0</span></div><div class="hero-stat-label">Online</div></div>
       </div>
       <button class="hero-btn-main" onclick="openCategory(1)">
         <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -1291,7 +1311,7 @@ function fadeContent(fn){
 
 // Wrappa le funzioni di navigazione con il fade
 const _goHome=goHome;
-goHome=()=>fadeContent(_goHome);
+goHome=()=>fadeContent(()=>{_goHome();setTimeout(animaContatori,400);setTimeout(creaParticelle,200);});
 
 const _openCategory=openCategory;
 openCategory=(ci)=>fadeContent(()=>_openCategory(ci));
@@ -1515,12 +1535,101 @@ function inviaPersonalizzazione(){
   }, 20000);
 })();
 
+// ── CURSORE PALLONE ──────────────────────────────────────────────────────────
+(function(){
+  const ball=document.getElementById('cursorBall');
+  let mx=0,my=0,cx=0,cy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  document.addEventListener('mousedown',()=>{ball.classList.add('click');});
+  document.addEventListener('mouseup',()=>{ball.classList.remove('click');});
+  function loop(){
+    cx+=(mx-cx)*.18; cy+=(my-cy)*.18;
+    ball.style.left=cx+'px'; ball.style.top=cy+'px';
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
 // ── SPLASH SCREEN ────────────────────────────────────────────────────────────
-window.addEventListener('load',()=>{
-  setTimeout(()=>{
-    document.getElementById('splash').classList.add('hide');
-  },1900);
-});
+(function(){
+  // Particelle splash
+  const container=document.getElementById('splashParticles');
+  if(container){
+    for(let i=0;i<20;i++){
+      const p=document.createElement('div');
+      p.style.cssText=`position:absolute;font-size:${12+Math.random()*16}px;left:${Math.random()*100}%;top:${Math.random()*100}%;opacity:${.1+Math.random()*.2};animation:floatUp ${3+Math.random()*4}s linear ${Math.random()*3}s infinite;`;
+      p.textContent='⚽';
+      container.appendChild(p);
+    }
+  }
+  window.addEventListener('load',()=>{
+    setTimeout(()=>document.getElementById('splash').classList.add('hide'),2200);
+  });
+})();
+
+// ── CONTATORI ANIMATI ────────────────────────────────────────────────────────
+function animaContatori(){
+  document.querySelectorAll('.stat-counter').forEach(el=>{
+    const target=+el.dataset.target;
+    const suffix=el.dataset.suffix||'';
+    const prefix=el.dataset.prefix||'';
+    const duration=1800;
+    const start=Date.now();
+    const startVal=target>100?target-200:0;
+    function step(){
+      const p=Math.min((Date.now()-start)/duration,1);
+      const ease=1-Math.pow(1-p,3);
+      const val=Math.round(startVal+(target-startVal)*ease);
+      el.textContent=prefix+val+suffix;
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+}
+
+// ── CALCOLA RISPARMIO ────────────────────────────────────────────────────────
+function calcolaRisparmio(){
+  const maglie=Math.max(0,+document.getElementById('calcMaglie').value||0);
+  const kit=Math.max(0,+document.getElementById('calcKit').value||0);
+  const result=document.getElementById('calcResult');
+
+  if(maglie===0&&kit===0){result.style.display='none';return;}
+
+  // Prezzi
+  const pMaglia=(maglie>=10?20:maglie>=5?25:30);
+  const pKit=(kit>=10?25:kit>=5?30:40);
+  const totScontato=maglie*pMaglia+kit*pKit;
+  const totBase=maglie*30+kit*40;
+  const risparmio=totBase-totScontato;
+  const sconto=totBase>0?Math.round((risparmio/totBase)*100):0;
+
+  // Barra progresso prossimo sconto
+  let prossimoMsg='';
+  const totPezzi=maglie+kit;
+  if(totPezzi<5){
+    const mancano=5-totPezzi;
+    const pct=(totPezzi/5)*100;
+    prossimoMsg=`<div style="margin-top:14px;"><div style="font-size:12px;color:#666;margin-bottom:6px;">📊 Ancora <b>${mancano} pezzi</b> per sbloccare lo sconto!</div><div style="background:#e0e0e0;border-radius:10px;height:8px;overflow:hidden;"><div style="height:100%;background:linear-gradient(90deg,#0d47a1,#42a5f5);border-radius:10px;width:${pct}%;transition:width .5s ease;"></div></div></div>`;
+  } else if(totPezzi<10){
+    const mancano=10-totPezzi;
+    const pct=((totPezzi-5)/5)*100;
+    prossimoMsg=`<div style="margin-top:14px;"><div style="font-size:12px;color:#666;margin-bottom:6px;">📊 Ancora <b>${mancano} pezzi</b> per lo sconto massimo!</div><div style="background:#e0e0e0;border-radius:10px;height:8px;overflow:hidden;"><div style="height:100%;background:linear-gradient(90deg,#ff6f00,#ffa726);border-radius:10px;width:${pct}%;transition:width .5s ease;"></div></div></div>`;
+  } else {
+    prossimoMsg=`<div style="margin-top:14px;text-align:center;font-size:13px;font-weight:700;color:#2e7d32;">🎉 Hai raggiunto lo sconto massimo!</div>`;
+  }
+
+  result.style.display='block';
+  result.innerHTML=`
+    <div style="background:${risparmio>0?'#e8f5e9':'#f5f9ff'};border-radius:10px;padding:16px;animation:fadeInUp .3s ease;">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center;margin-bottom:10px;">
+        <div><div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Pezzi</div><div style="font-size:20px;font-weight:900;color:#222;">${totPezzi}</div></div>
+        <div style="border-left:1px solid #ddd;border-right:1px solid #ddd;"><div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Sconto</div><div style="font-size:20px;font-weight:900;color:#0d47a1;">-${sconto}%</div></div>
+        <div><div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Risparmi</div><div style="font-size:20px;font-weight:900;color:#2e7d32;">€${risparmio}</div></div>
+      </div>
+      ${prossimoMsg}
+      ${risparmio>0?`<a href="https://wa.me/393792126743?text=${encodeURIComponent(`Ciao! Vorrei ordinare ${maglie>0?maglie+' maglie':''}${maglie>0&&kit>0?' e ':''}${kit>0?kit+' kit completi':''} — potete confermare disponibilità?`)}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#25d366;color:#fff;padding:10px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:700;margin-top:12px;">💬 Ordina ora su WhatsApp</a>`:''}
+    </div>`;
+}
 
 // ── FAQ ───────────────────────────────────────────────────────────────────────
 function toggleFaq(el){
@@ -1761,6 +1870,27 @@ function paginaPrezzi(){
       </div>
     </div>
 
+    <!-- CALCOLATORE RISPARMIO -->
+    <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:20px;">
+      <div style="font-family:'Montserrat',sans-serif;font-size:17px;font-weight:900;color:#0d47a1;margin-bottom:6px;">🧮 Calcola il tuo risparmio</div>
+      <p style="font-size:13px;color:#888;margin-bottom:18px;">Inserisci quante maglie o kit vuoi ordinare</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+        <div>
+          <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px;">👕 Numero maglie</label>
+          <input type="number" id="calcMaglie" min="0" value="0" oninput="calcolaRisparmio()"
+            style="width:100%;padding:10px 14px;border:2px solid #e0e0e0;border-radius:8px;font-size:16px;font-weight:700;outline:none;text-align:center;transition:border-color .2s;"
+            onfocus="this.style.borderColor='#0d47a1'" onblur="this.style.borderColor='#e0e0e0'">
+        </div>
+        <div>
+          <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px;">🩳 Numero kit completi</label>
+          <input type="number" id="calcKit" min="0" value="0" oninput="calcolaRisparmio()"
+            style="width:100%;padding:10px 14px;border:2px solid #e0e0e0;border-radius:8px;font-size:16px;font-weight:700;outline:none;text-align:center;transition:border-color .2s;"
+            onfocus="this.style.borderColor='#0d47a1'" onblur="this.style.borderColor='#e0e0e0'">
+        </div>
+      </div>
+      <div id="calcResult" style="display:none;"></div>
+    </div>
+
     <!-- CTA -->
     <div style="background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:14px;padding:28px 24px;text-align:center;">
       <div style="font-size:22px;font-weight:800;color:#fff;margin-bottom:8px;">Vuoi fare un ordine di gruppo?</div>
@@ -1876,6 +2006,7 @@ function updateOrderBtn(photoName){
 buildSidebar();
 goHome();
 setTimeout(creaParticelle, 100);
+setTimeout(animaContatori, 300);
 </script>
 </body>
 </html>
