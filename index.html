@@ -888,7 +888,11 @@ body.dark .completa-card-name{color:#ccc;}
       Compila i campi per vedere il riepilogo...
     </div>
 
-    <div class="custom-btns">
+    <div class="custom-btns" style="flex-direction:column;gap:8px;">
+      <button class="custom-send" style="background:#e53935;" onclick="aggiungiPersonalizzatoAlCarrello()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M19 7H16V6a4 4 0 0 0-8 0v1H5a1 1 0 0 0-1 1v11a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8a1 1 0 0 0-1-1zm-9-1a2 2 0 0 1 4 0v1h-4zm8 13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V9h2v1a1 1 0 0 0 2 0V9h4v1a1 1 0 0 0 2 0V9h2z"/></svg>
+        Aggiungi al carrello
+      </button>
       <button class="custom-cancel" onclick="chiudiPersonalizza()">Annulla</button>
       <button class="custom-send" onclick="inviaPersonalizzazione()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -914,14 +918,49 @@ body.dark .completa-card-name{color:#ccc;}
       <label style="display:block;font-size:12px;font-weight:700;color:#555;margin-bottom:6px;text-transform:uppercase;">📏 Taglia</label>
       <select id="addCartTaglia" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;">
         <option value="">Seleziona taglia...</option>
-        <option>XS</option><option>S</option><option>M</option><option>L</option>
-        <option>XL</option><option>XXL</option><option>XXXL</option>
-        <option>Bimbo 6-8 anni</option><option>Bimbo 8-10 anni</option><option>Bimbo 10-12 anni</option>
+        <optgroup label="👕 Adulto">
+          <option>S</option><option>M</option><option>L</option>
+          <option>XL</option><option>XXL</option><option>XXXL</option><option>XXXXL</option>
+        </optgroup>
+        <optgroup label="👶 Bambino">
+          <option>Bambino 2-3 anni</option>
+          <option>Bambino 4-5 anni</option>
+          <option>Bambino 5-6 anni</option>
+          <option>Bambino 7-8 anni</option>
+          <option>Bambino 9-10 anni</option>
+          <option>Bambino 11-12 anni</option>
+          <option>Bambino 12-13 anni</option>
+        </optgroup>
       </select>
     </div>
+    <div style="margin-bottom:14px;">
+      <label style="display:block;font-size:12px;font-weight:700;color:#555;margin-bottom:6px;text-transform:uppercase;">👤 Nome da stampare (opz.)</label>
+      <input type="text" id="addCartNome" placeholder="Es. ROSSI" maxlength="15" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;">
+    </div>
+    <div style="margin-bottom:14px;">
+      <label style="display:block;font-size:12px;font-weight:700;color:#555;margin-bottom:6px;text-transform:uppercase;">🔢 Numero da stampare (opz.)</label>
+      <input type="number" id="addCartNumero" placeholder="Es. 10" min="1" max="99" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;">
+    </div>
     <div style="margin-bottom:20px;">
-      <label style="display:block;font-size:12px;font-weight:700;color:#555;margin-bottom:6px;text-transform:uppercase;">✏️ Personalizzazione (opzionale)</label>
-      <input type="text" id="addCartPersonalizza" placeholder="Es. ROSSI 10" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;">
+      <label style="display:block;font-size:12px;font-weight:700;color:#555;margin-bottom:8px;text-transform:uppercase;">🏅 Patch (opz.)</label>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:8px;" id="addCartPatchGrid">
+        <div class="patch-btn" onclick="selAddPatch(this,'Champions League')">🏆 Champions</div>
+        <div class="patch-btn" onclick="selAddPatch(this,'Europa League')">🌍 Europa L.</div>
+        <div class="patch-btn" onclick="selAddPatch(this,'Conference League')">⭐ Conference</div>
+        <div class="patch-btn" onclick="selAddPatch(this,'Serie A')">🇮🇹 Serie A</div>
+        <div class="patch-btn" onclick="selAddPatch(this,'Nessuna patch')">❌ Nessuna</div>
+      </div>
+      <input type="text" id="addCartPatchLibera" placeholder="Altra patch? Scrivila qui..." maxlength="30"
+        style="width:100%;padding:10px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;">
+    </div>
+    <div style="background:#f5f9ff;border:1.5px solid #bbdefb;border-radius:10px;padding:14px;margin-bottom:16px;">
+      <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;">
+        <input type="checkbox" id="addCartKit" style="width:18px;height:18px;margin-top:2px;accent-color:#0d47a1;flex-shrink:0;">
+        <div>
+          <div style="font-size:14px;font-weight:700;color:#0d47a1;">🩳 Voglio il kit completo</div>
+          <div style="font-size:12px;color:#888;margin-top:2px;">Maglia + pantaloncino + calze<br>⚠️ Disponibilità verrà confermata su WhatsApp</div>
+        </div>
+      </label>
     </div>
     <button onclick="confermAggiungi()" style="width:100%;background:#0d47a1;color:#fff;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:800;cursor:pointer;transition:all .2s;">
       ✅ Aggiungi al carrello
@@ -1876,6 +1915,32 @@ function aggiornaPreview(){
   document.getElementById('customPreview').innerHTML=html;
 }
 
+function aggiungiPersonalizzatoAlCarrello(){
+  const nome=document.getElementById('customNome').value.trim().toUpperCase();
+  const numero=document.getElementById('customNumero').value.trim();
+  const patch=patchSelezionata;
+  const patchLibera=document.getElementById('customPatchLibera').value.trim();
+  const patchFinale=patchLibera||patch;
+  const photo=currentPhotos[currentPhotoIdx];
+  if(!photo) return;
+
+  let personalizza='';
+  if(nome) personalizza+=`Nome: ${nome}`;
+  if(numero) personalizza+=(personalizza?' | ':'')+`Numero: ${numero}`;
+  if(patchFinale&&patchFinale!=='Nessuna patch') personalizza+=(personalizza?' | ':'')+`Patch: ${patchFinale}`;
+
+  carrello.push({
+    id:photo.id,
+    name:photo.name||'Maglia',
+    thumb:thumbUrl(photo.id),
+    taglia:'da definire',
+    personalizza:personalizza||'Nessuna personalizzazione'
+  });
+  salvaCarrello();
+  chiudiPersonalizza();
+  mostraToast('✅ Aggiunto al carrello con personalizzazione!');
+}
+
 function inviaPersonalizzazione(){
   const nome=document.getElementById('customNome').value.trim().toUpperCase();
   const numero=document.getElementById('customNumero').value.trim();
@@ -2425,13 +2490,28 @@ function aggiornaCartBadge(){
   }
 }
 
+let addCartPatch='Nessuna patch';
+
+function selAddPatch(el,nome){
+  document.querySelectorAll('#addCartPatchGrid .patch-btn').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel');
+  addCartPatch=nome;
+  document.getElementById('addCartPatchLibera').value='';
+}
+
 function apriAddCart(){
   const photo=currentPhotos[currentPhotoIdx];
   if(!photo) return;
   document.getElementById('addCartImg').src=thumbUrl(photo.id);
   document.getElementById('addCartName').textContent=photo.name||'Maglia dal catalogo';
   document.getElementById('addCartTaglia').value='';
-  document.getElementById('addCartPersonalizza').value='';
+  document.getElementById('addCartNome').value='';
+  document.getElementById('addCartNumero').value='';
+  document.getElementById('addCartPatchLibera').value='';
+  document.getElementById('addCartKit').checked=false;
+  addCartPatch='Nessuna patch';
+  document.querySelectorAll('#addCartPatchGrid .patch-btn').forEach(b=>b.classList.remove('sel'));
+  document.querySelector('#addCartPatchGrid .patch-btn:last-child').classList.add('sel');
   document.getElementById('addCartModal').classList.add('active');
 }
 
@@ -2443,13 +2523,22 @@ function confermAggiungi(){
   const taglia=document.getElementById('addCartTaglia').value;
   if(!taglia){alert('Seleziona la taglia!');return;}
   const photo=currentPhotos[currentPhotoIdx];
-  const personalizza=document.getElementById('addCartPersonalizza').value.trim();
+  const nome=document.getElementById('addCartNome').value.trim().toUpperCase();
+  const numero=document.getElementById('addCartNumero').value.trim();
+  const patchLibera=document.getElementById('addCartPatchLibera').value.trim();
+  const patch=patchLibera||addCartPatch;
+  const kit=document.getElementById('addCartKit').checked;
+  let personalizza='';
+  if(nome) personalizza+=`Nome: ${nome}`;
+  if(numero) personalizza+=(personalizza?' | ':'')+`N°: ${numero}`;
+  if(patch&&patch!=='Nessuna patch') personalizza+=(personalizza?' | ':'')+`Patch: ${patch}`;
+  if(kit) personalizza+=(personalizza?' | ':'')+`KIT COMPLETO richiesto`;
   carrello.push({
     id:photo.id,
-    name:photo.name||'Maglia',
+    name:(kit?'🩳 KIT — ':'')+( photo.name||'Maglia'),
     thumb:thumbUrl(photo.id),
     taglia,
-    personalizza,
+    personalizza:personalizza||'',
     squadra:document.title||''
   });
   salvaCarrello();
