@@ -1042,7 +1042,9 @@ window.addEventListener('scroll',()=>{
 // ── BOTTONE ORDINA NEL LIGHTBOX ───────────────────────────────────────────────
 let currentPhotoName='';
 function updateOrderBtn(photoName){
-  const msg=encodeURIComponent(`Ciao! Sono interessato a questa maglia: ${photoName}\nPotete darmi info su disponibilità e taglie?`);
+  const photoId=currentPhotos[currentPhotoIdx]?.id||'';
+  const link=photoId?`https://drive.google.com/thumbnail?id=${photoId}&sz=w800`:'';
+  const msg=encodeURIComponent(`Ciao! Vorrei ordinare questa maglia 👇\n${link}\n\nPotete dirmi disponibilità e taglie?`);
   document.getElementById('lb-order-btn').href=`https://wa.me/393792126743?text=${msg}`;
 }
 
