@@ -660,6 +660,18 @@ body.dark .wa-bubble{background:#1e1e1e;color:#e0e0e0;}
 .cat-viewers{display:inline-flex;align-items:center;gap:6px;background:#fff3e0;color:#e65100;font-size:12px;font-weight:700;padding:5px 12px;border-radius:20px;margin-bottom:12px;border:1px solid #ffe0b2;}
 .cat-viewers-dot{width:7px;height:7px;background:#e65100;border-radius:50%;animation:online-pulse 1.5s ease infinite;}
 
+/* ── ZOOM FOTO DESKTOP ── */
+.photo-zoom-wrap{position:relative;overflow:hidden;}
+.photo-zoom-lens{display:none;position:absolute;width:100px;height:100px;border:2px solid var(--gold);border-radius:50%;cursor:none;z-index:5;pointer-events:none;background:rgba(245,166,35,.1);}
+.photo-zoom-result{display:none;position:fixed;width:320px;height:380px;border:2px solid #e0e0e0;border-radius:12px;z-index:9999;background-repeat:no-repeat;box-shadow:0 8px 32px rgba(0,0,0,.25);pointer-events:none;}
+@media(max-width:768px){.photo-zoom-lens,.photo-zoom-result{display:none!important;}}
+
+/* ── NOTIFICA DISPONIBILITA ── */
+.avvisa-modal{display:none;position:fixed;inset:0;z-index:6000;align-items:center;justify-content:center;padding:20px;}
+.avvisa-modal.active{display:flex;}
+.avvisa-box{position:relative;background:#fff;border-radius:16px;padding:28px 24px;max-width:380px;width:100%;z-index:1;animation:popIn .3s cubic-bezier(.34,1.56,.64,1);}
+body.dark .avvisa-box{background:#1e1e1e;}
+
 /* ── STELLE ANIMATE ── */
 @keyframes starFill{from{opacity:0;transform:scale(0) rotate(-30deg);}to{opacity:1;transform:scale(1) rotate(0deg);}}
 .stars-animated .star{display:inline-block;opacity:0;}
@@ -882,6 +894,7 @@ body.dark .wa-bubble{background:#1e1e1e;color:#e0e0e0;}
       🛒 <span>Carrello</span>
       <div class="cart-badge" id="cartBadge">0</div>
     </div>
+    <button class="dark-toggle" id="langToggle" onclick="toggleLang()" title="Cambia lingua" style="font-size:18px;">🇮🇹</button>
     <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" title="Tema chiaro/scuro">🌙</button>
   </div>
   <div class="search-pos">
@@ -922,6 +935,14 @@ body.dark .wa-bubble{background:#1e1e1e;color:#e0e0e0;}
       <span class="sb-flag">❤️</span>
       <span class="sb-name" id="sbWishlistLabel">Preferiti</span>
     </div>
+    <div class="sb-item" id="sb-ordini" onclick="paginaOrdini()">
+      <span class="sb-flag">📦</span>
+      <span class="sb-name">I miei ordini</span>
+    </div>
+    <div class="sb-item" id="sb-chisiamo" onclick="paginaChiSiamo()">
+      <span class="sb-flag">⚽</span>
+      <span class="sb-name">Chi siamo</span>
+    </div>
     <div class="sb-item" id="sb-tracking" onclick="paginaTracking()">
       <span class="sb-flag">📦</span>
       <span class="sb-name">Traccia pacco</span>
@@ -961,6 +982,24 @@ body.dark .wa-bubble{background:#1e1e1e;color:#e0e0e0;}
       <button onclick="chiudiWelcome();openCategory(1);" style="background:#0d47a1;color:#fff;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:800;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='#1565c0'" onmouseout="this.style.background='#0d47a1'">⚽ Sfoglia il catalogo</button>
       <button onclick="chiudiWelcome()" style="background:none;border:none;color:#aaa;font-size:13px;cursor:pointer;text-decoration:underline;">Continua a guardare</button>
     </div>
+  </div>
+</div>
+
+<!-- MODAL AVVISAMI DISPONIBILE -->
+<div class="avvisa-modal" id="avvisaModal">
+  <div style="position:absolute;inset:0;background:rgba(0,0,0,.6);" onclick="chiudiAvvisa()"></div>
+  <div class="avvisa-box">
+    <button onclick="chiudiAvvisa()" style="position:absolute;top:14px;right:14px;background:#f0f0f0;border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:15px;">✕</button>
+    <div style="font-size:36px;margin-bottom:10px;text-align:center;">🔔</div>
+    <h2 style="font-family:'Montserrat',sans-serif;font-size:17px;font-weight:900;color:#0d47a1;margin-bottom:6px;text-align:center;" id="avvisaTitolo">Avvisami quando disponibile</h2>
+    <p style="font-size:13px;color:#888;text-align:center;margin-bottom:18px;">Lascia il tuo numero — ti contatteremo su WhatsApp non appena la taglia sarà disponibile!</p>
+    <div style="margin-bottom:14px;">
+      <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px;text-transform:uppercase;">📱 Il tuo numero WhatsApp</label>
+      <input type="tel" id="avvisaTel" placeholder="Es. 333 1234567" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;">
+    </div>
+    <button onclick="inviaAvvisa()" style="width:100%;background:#25d366;color:#fff;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
+      💬 Avvisami su WhatsApp
+    </button>
   </div>
 </div>
 
@@ -1187,6 +1226,9 @@ body.dark .wa-bubble{background:#1e1e1e;color:#e0e0e0;}
       </div>
       <input type="text" id="addCartPatchLibera" placeholder="Altra patch? Scrivila qui..." maxlength="30"
         style="width:100%;padding:10px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;">
+    </div>
+    <div style="text-align:right;margin-top:6px;margin-bottom:4px;">
+      <span onclick="apriAvvisa()" style="font-size:11px;color:#e53935;cursor:pointer;font-weight:700;">🔔 Taglia non disponibile? Avvisami</span>
     </div>
     <div id="avvisoBambino" style="display:none;background:#fff8e1;border:1.5px solid #ffcc02;border-radius:10px;padding:12px 14px;margin-bottom:14px;">
       <div style="font-size:13px;font-weight:700;color:#e65100;">⚠️ Taglia bambino selezionata</div>
@@ -2147,13 +2189,33 @@ function showZoomHint(){
 // ── RICERCA FOTO ─────────────────────────────────────────────────────────────
 async function cercaFoto(query){
   if(!query.trim()) return;
+  const q=query.toLowerCase().trim();
   const main=document.getElementById('main');
   navStack=[];updateBreadcrumb();setSidebarActive(-1);
+
+  // ── Parole chiave speciali ──
+  const keywords={
+    'bambino':()=>openCategory(CATALOG.findIndex(c=>c.name&&c.name.toLowerCase().includes('nuovi'))||1),
+    'tuta':()=>openCategory(CATALOG.findIndex(c=>c.name&&c.name.toLowerCase().includes('tuta'))),
+    'home':null,'away':null,'terza':null,'portiere':null,
+    'serie a':()=>openCategory(CATALOG.findIndex(c=>c.name&&c.name.toLowerCase().includes('serie'))),
+    'premier':()=>openCategory(CATALOG.findIndex(c=>c.name&&c.name.toLowerCase().includes('premier'))),
+    'liga':()=>openCategory(CATALOG.findIndex(c=>c.name&&c.name.toLowerCase().includes('liga'))),
+    'champions':null,'personalizza':null,'spedizione':null,
+  };
+  // Suggerimenti intelligenti sotto la barra
+  const tips=['bambino','home','away','terza','tuta','portiere','serie a','premier','liga'];
+  const matchedTip=tips.find(t=>q.includes(t));
+  if(matchedTip&&keywords[matchedTip]&&typeof keywords[matchedTip]==='function'){
+    keywords[matchedTip]();
+    return;
+  }
+
   main.innerHTML=`<div class="content-header"><div class="content-title">Risultati per: <b>"${query}"</b></div></div><div class="loading"><div class="spinner"></div>Ricerca in corso...</div>`;
 
   // Cerca in tutte le cartelle che corrispondono alla query
   const risultati=[];
-  const matches=SEARCH_INDEX.filter(x=>x.label.toLowerCase().includes(query.toLowerCase()));
+  const matches=SEARCH_INDEX.filter(x=>x.label.toLowerCase().includes(q));
 
   for(const m of matches.slice(0,5)){
     // Trova l'id della cartella
@@ -3185,6 +3247,258 @@ function chiudiWelcome(){
 })();
 function chiudiExit(){document.getElementById('exitPopup').classList.remove('active');}
 
+// ── PAGINA CHI SIAMO ──────────────────────────────────────────────────────────
+function paginaChiSiamo(){
+  navStack=[];updateBreadcrumb();
+  document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('active'));
+  const sb=document.getElementById('sb-chisiamo');
+  if(sb) sb.classList.add('active');
+  if(window.innerWidth<=768) toggleSidebar();
+  document.getElementById('main').innerHTML=`
+  <div style="max-width:800px;margin:0 auto;padding-bottom:40px;">
+    <!-- HERO CHI SIAMO -->
+    <div style="background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:0 0 24px 24px;padding:40px 28px;text-align:center;margin-bottom:28px;">
+      <div style="font-size:52px;margin-bottom:14px;">⚽</div>
+      <h1 style="font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;color:#fff;margin-bottom:8px;">Completini Squadre Calcio 2.0</h1>
+      <div style="color:rgba(255,255,255,.7);font-size:14px;letter-spacing:2px;">DAL 2018 • IL TUO NEGOZIO DI FIDUCIA</div>
+    </div>
+
+    <!-- STORIA -->
+    <div style="background:#fff;border-radius:16px;padding:28px;margin-bottom:20px;border:1px solid #e8e8e8;">
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:19px;font-weight:900;color:#0d47a1;margin-bottom:16px;display:flex;align-items:center;gap:10px;">📖 La nostra storia</h2>
+      <p style="font-size:14px;color:#444;line-height:1.9;margin-bottom:12px;">
+        Tutto è iniziato nel <strong>2018</strong> con una semplice passione: il calcio. Quello che è partito come un hobby — trovare le maglie delle squadre preferite a prezzi accessibili — si è trasformato in un vero e proprio punto di riferimento per migliaia di appassionati in tutta Italia.
+      </p>
+      <p style="font-size:14px;color:#444;line-height:1.9;margin-bottom:12px;">
+        Il nostro segreto? Lavoriamo <strong>direttamente con le fabbriche produttrici</strong>, eliminando tutti gli intermediari. Questo ci permette di offrire maglie di ottima qualità a prezzi che nessun negozio fisico può eguagliare. La merce arriva direttamente alla fonte, senza ricarichi inutili.
+      </p>
+      <p style="font-size:14px;color:#444;line-height:1.9;">
+        Oggi, dopo oltre <strong>6 anni di attività</strong> e più di <strong>1200 ordini completati</strong>, siamo orgogliosi di essere il negozio di maglie da calcio preferito da tanti appassionati. Ogni ordine viene seguito personalmente — rispondiamo sempre su WhatsApp, perché per noi ogni cliente è importante.
+      </p>
+    </div>
+
+    <!-- NUMERI -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin-bottom:20px;">
+      <div style="background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:14px;padding:20px 14px;text-align:center;">
+        <div style="font-size:28px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">2018</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.85);margin-top:4px;text-transform:uppercase;letter-spacing:1px;">Online da</div>
+      </div>
+      <div style="background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:14px;padding:20px 14px;text-align:center;">
+        <div style="font-size:28px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">1200+</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.85);margin-top:4px;text-transform:uppercase;letter-spacing:1px;">Ordini</div>
+      </div>
+      <div style="background:linear-gradient(135deg,#2e7d32,#43a047);border-radius:14px;padding:20px 14px;text-align:center;">
+        <div style="font-size:28px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">500+</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.85);margin-top:4px;text-transform:uppercase;letter-spacing:1px;">Maglie</div>
+      </div>
+      <div style="background:linear-gradient(135deg,#c62828,#e53935);border-radius:14px;padding:20px 14px;text-align:center;">
+        <div style="font-size:28px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">★ 5.0</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.85);margin-top:4px;text-transform:uppercase;letter-spacing:1px;">Rating</div>
+      </div>
+    </div>
+
+    <!-- PERCHE SCEGLIERCI -->
+    <div style="background:#fff;border-radius:16px;padding:28px;margin-bottom:20px;border:1px solid #e8e8e8;">
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:19px;font-weight:900;color:#0d47a1;margin-bottom:18px;">💎 Perché sceglierci?</h2>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="width:40px;height:40px;background:#e3f2fd;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🏭</div>
+          <div><div style="font-size:14px;font-weight:700;color:#222;margin-bottom:3px;">Diretti dalla fabbrica</div><div style="font-size:13px;color:#666;">Nessun intermediario — la merce arriva direttamente dai produttori, risparmi davvero.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="width:40px;height:40px;background:#e8f5e9;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🚚</div>
+          <div><div style="font-size:14px;font-weight:700;color:#222;margin-bottom:3px;">Spedizione gratuita</div><div style="font-size:13px;color:#666;">Consegniamo in tutta Italia senza costi aggiuntivi, sempre.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="width:40px;height:40px;background:#fff8e1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">✏️</div>
+          <div><div style="font-size:14px;font-weight:700;color:#222;margin-bottom:3px;">Personalizzazione gratuita</div><div style="font-size:13px;color:#666;">Nome, numero e patch inclusi nel prezzo — nessun extra.</div></div>
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:14px;">
+          <div style="width:40px;height:40px;background:#fce4ec;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">💬</div>
+          <div><div style="font-size:14px;font-weight:700;color:#222;margin-bottom:3px;">Assistenza personale</div><div style="font-size:13px;color:#666;">Rispondiamo sempre su WhatsApp — sei seguito dall'ordine alla consegna.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTATTI -->
+    <div style="background:linear-gradient(135deg,#e3f2fd,#f5f9ff);border-radius:16px;padding:24px;text-align:center;border:1px solid #bbdefb;">
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:17px;font-weight:900;color:#0d47a1;margin-bottom:6px;">📲 Contattaci</h2>
+      <p style="font-size:13px;color:#555;margin-bottom:16px;">Siamo sempre disponibili per qualsiasi domanda!</p>
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <a href="https://wa.me/393792126743" target="_blank" style="background:#25d366;color:#fff;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">💬 WhatsApp</a>
+        <a href="https://instagram.com/csc_duepuntozero" target="_blank" style="background:#e1306c;color:#fff;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">📸 Instagram</a>
+        <a href="https://t.me/csc2_0" target="_blank" style="background:#0088cc;color:#fff;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">✈️ Telegram</a>
+      </div>
+    </div>
+  </div>`;
+  window.scrollTo(0,0);
+}
+
+// ── PAGINA I MIEI ORDINI ──────────────────────────────────────────────────────
+function paginaOrdini(){
+  navStack=[];updateBreadcrumb();
+  document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('active'));
+  const sb=document.getElementById('sb-ordini');
+  if(sb) sb.classList.add('active');
+  if(window.innerWidth<=768) toggleSidebar();
+  const storico=JSON.parse(localStorage.getItem('csc-storico')||'[]');
+  let html=`<div style="max-width:700px;margin:0 auto;padding-bottom:32px;">
+    <div style="text-align:center;padding:24px 0 20px;">
+      <div style="font-size:40px;margin-bottom:8px;">📦</div>
+      <h1 style="font-family:'Montserrat',sans-serif;font-size:24px;font-weight:900;color:#0d47a1;">I miei ordini</h1>
+      <p style="color:#888;font-size:13px;margin-top:4px;">Storico degli ordini inviati su WhatsApp</p>
+    </div>`;
+  if(!storico.length){
+    html+=`<div style="text-align:center;padding:40px 20px;color:#888;">
+      <div style="font-size:48px;margin-bottom:12px;">🛒</div>
+      <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Nessun ordine ancora</div>
+      <div style="font-size:13px;">Gli ordini inviati su WhatsApp appariranno qui</div>
+      <button onclick="openCategory(1)" style="margin-top:20px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:10px;padding:12px 24px;font-size:14px;font-weight:800;cursor:pointer;">⚽ Sfoglia il catalogo</button>
+    </div>`;
+  } else {
+    storico.slice().reverse().forEach((ordine,i)=>{
+      html+=`<div style="background:#fff;border-radius:12px;border:1px solid #e0e0e0;margin-bottom:14px;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,var(--navy),var(--navy2));padding:12px 16px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="color:#fff;font-size:13px;font-weight:700;">Ordine #${storico.length-i}</div>
+          <div style="color:rgba(255,255,255,.7);font-size:12px;">${ordine.data}</div>
+        </div>`;
+      ordine.items.forEach(item=>{
+        html+=`<div style="display:flex;gap:12px;padding:12px 16px;border-bottom:1px solid #f5f5f5;align-items:center;">
+          <img src="${item.thumb}" style="width:50px;height:62px;object-fit:cover;border-radius:6px;flex-shrink:0;" onerror="this.style.display='none'">
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#222;">${item.name}</div>
+            <div style="font-size:12px;color:#888;">📏 ${item.taglia}</div>
+            ${item.personalizza?`<div style="font-size:12px;color:#0d47a1;">✏️ ${item.personalizza}</div>`:''}
+          </div>
+        </div>`;
+      });
+      html+=`<div style="padding:10px 16px;background:#f9f9f9;font-size:12px;color:#888;">
+        ${ordine.nome?`👤 ${ordine.nome} • `:''}📦 ${ordine.items.length} articolo${ordine.items.length>1?'i':''} • 💳 ${ordine.pagamento||'—'}
+      </div></div>`;
+    });
+    html+=`<button onclick="if(confirm('Cancellare tutto lo storico?')){localStorage.removeItem('csc-storico');paginaOrdini();}" style="width:100%;background:none;border:1px solid #e0e0e0;color:#aaa;border-radius:8px;padding:10px;font-size:13px;cursor:pointer;">🗑️ Cancella storico</button>`;
+  }
+  html+=`</div>`;
+  document.getElementById('main').innerHTML=html;
+  window.scrollTo(0,0);
+}
+
+// ── AVVISAMI DISPONIBILE ──────────────────────────────────────────────────────
+let avvisaMaglia='';
+function apriAvvisa(){
+  const photo=currentPhotos&&currentPhotos[currentPhotoIdx];
+  avvisaMaglia=photo?photo.name||'maglia':'maglia';
+  const taglia=document.getElementById('addCartTaglia')?.value||'';
+  document.getElementById('avvisaTitolo').textContent=`🔔 Avvisami per: ${avvisaMaglia}${taglia?' - '+taglia:''}`;
+  document.getElementById('avvisaTel').value='';
+  document.getElementById('avvisaModal').classList.add('active');
+}
+function chiudiAvvisa(){document.getElementById('avvisaModal').classList.remove('active');}
+function inviaAvvisa(){
+  const tel=document.getElementById('avvisaTel').value.trim();
+  if(!tel){alert('Inserisci il numero!');return;}
+  const taglia=document.getElementById('addCartTaglia')?.value||'non specificata';
+  const msg=`Ciao! Vorrei essere avvisato quando la ${avvisaMaglia} (taglia ${taglia}) torna disponibile. Il mio numero è ${tel}. Grazie!`;
+  window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`,'_blank');
+  chiudiAvvisa();
+  mostraToast('✅ Richiesta inviata su WhatsApp!');
+}
+
+// ── ZOOM FOTO DESKTOP ────────────────────────────────────────────────────────
+(function(){
+  let zoomDiv=null;
+  function creaZoom(){
+    if(zoomDiv) return;
+    zoomDiv=document.createElement('div');
+    zoomDiv.className='photo-zoom-result';
+    zoomDiv.id='zoomResult';
+    document.body.appendChild(zoomDiv);
+  }
+  creaZoom();
+  document.addEventListener('mouseover',e=>{
+    const img=e.target.closest('.photo-item img');
+    if(!img||window.innerWidth<=768) return;
+    const result=document.getElementById('zoomResult');
+    if(!result) return;
+    result.style.display='block';
+    result.style.backgroundImage=`url(${img.src})`;
+    result.style.backgroundSize='250%';
+  });
+  document.addEventListener('mousemove',e=>{
+    const img=e.target.closest('.photo-item img');
+    const result=document.getElementById('zoomResult');
+    if(!result) return;
+    if(!img){result.style.display='none';return;}
+    const rect=img.getBoundingClientRect();
+    const x=((e.clientX-rect.left)/rect.width)*100;
+    const y=((e.clientY-rect.top)/rect.height)*100;
+    result.style.backgroundPosition=`${x}% ${y}%`;
+    // Posiziona la lente a destra dell'immagine
+    const left=rect.right+12;
+    const top=Math.max(10,e.clientY-190);
+    result.style.left=left+'px';
+    result.style.top=top+'px';
+    // Se non c'è spazio a destra, metti a sinistra
+    if(left+330>window.innerWidth) result.style.left=(rect.left-330)+'px';
+  });
+  document.addEventListener('mouseout',e=>{
+    const img=e.target.closest('.photo-item img');
+    if(img){const result=document.getElementById('zoomResult');if(result)result.style.display='none';}
+  });
+})();
+
+// ── LINGUA IT/EN ──────────────────────────────────────────────────────────────
+let langIT=true;
+const translations={
+  'Cerca squadra o categoria...':'Search team or category...',
+  'Cerca':'Search',
+  'Tutte le categorie':'All categories',
+  'Home':'Home',
+  'Come ordinare':'How to order',
+  'Traccia pacco':'Track package',
+  'Prezzi & Sconti':'Prices & Discounts',
+  'Guida Taglie':'Size Guide',
+  'Preferiti':'Favorites',
+  'I miei ordini':'My orders',
+  'Chi siamo':'About us',
+  'Spedizione GRATUITA su tutti gli ordini in Italia':'FREE SHIPPING on all orders in Italy',
+  'PERSONALIZZAZIONE GRATUITA':'FREE CUSTOMIZATION',
+  'Seleziona taglia...':'Select size...',
+  'Nome da stampare (opz.)':'Name to print (opt.)',
+  'Numero da stampare (opz.)':'Number to print (opt.)',
+  'Aggiungi al carrello':'Add to cart',
+  'Invia ordine su WhatsApp':'Send order on WhatsApp',
+  'Il tuo carrello':'Your cart',
+  'Carrello':'Cart',
+  'Svuota carrello':'Empty cart',
+};
+function toggleLang(){
+  langIT=!langIT;
+  document.getElementById('langToggle').textContent=langIT?'🇮🇹':'🇬🇧';
+  if(langIT){location.reload();return;}
+  // Traduce testi visibili
+  document.querySelectorAll('*').forEach(el=>{
+    if(el.children.length) return;
+    const t=el.textContent.trim();
+    if(translations[t]) el.textContent=translations[t];
+  });
+  // Placeholder
+  document.querySelectorAll('[placeholder]').forEach(el=>{
+    const t=el.placeholder;
+    if(translations[t]) el.placeholder=translations[t];
+  });
+  mostraToast('🇬🇧 English mode active');
+}
+
+// ── SALVA ORDINE NELLO STORICO ────────────────────────────────────────────────
+function salvaOrdineStorico(items,nome,pagamento){
+  const storico=JSON.parse(localStorage.getItem('csc-storico')||'[]');
+  const now=new Date();
+  const data=`${now.getDate().toString().padStart(2,'0')}/${(now.getMonth()+1).toString().padStart(2,'0')}/${now.getFullYear()} ${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}`;
+  storico.push({data,items:[...items],nome,pagamento});
+  localStorage.setItem('csc-storico',JSON.stringify(storico));
+}
+
 // ── ANIMAZIONE VOLO CARRELLO ─────────────────────────────────────────────────
 function flyToCart(imgEl){
   const cartIcon=document.querySelector('.cart-icon');
@@ -3892,6 +4206,9 @@ function checkoutCarrello(){
   msg+=`Potete comunicarmi il totale? Grazie! 😊`;
 
   window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`,'_blank');
+
+  // Salva nello storico
+  salvaOrdineStorico(carrello,`${nome} ${cognome}`,pag);
 
   // Svuota carrello dopo invio
   carrello=[];salvaCarrello();aggiornaCartBadge();
