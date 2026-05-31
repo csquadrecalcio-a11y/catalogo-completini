@@ -323,6 +323,50 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .exit-box{position:relative;background:#fff;border-radius:20px;padding:32px 28px;max-width:400px;width:100%;z-index:1;text-align:center;animation:popIn .35s cubic-bezier(.34,1.56,.64,1);}
 .exit-close{position:absolute;top:14px;right:14px;background:#f0f0f0;border:none;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;color:#555;display:flex;align-items:center;justify-content:center;}
 
+/* ── FEATURED INTER ── */
+.featured-inter{background:#fff;margin:0 0 0 0;position:relative;overflow:hidden;border-bottom:3px solid #0d47a1;}
+body.dark .featured-inter{background:#1a1a1a;}
+.featured-inter-badge{background:linear-gradient(90deg,#c62828,#e53935);color:#fff;text-align:center;padding:8px 16px;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;}
+.featured-inter-inner{display:flex;align-items:center;gap:0;max-width:900px;margin:0 auto;padding:28px 24px;gap:32px;flex-wrap:wrap;}
+.featured-inter-img-wrap{position:relative;flex-shrink:0;}
+.featured-inter-img{width:220px;height:260px;object-fit:contain;filter:drop-shadow(0 8px 24px rgba(0,0,0,.2));transition:transform .3s;}
+.featured-inter-img:hover{transform:scale(1.04);}
+.featured-inter-stock{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#c62828,#e53935);color:#fff;font-size:12px;font-weight:800;padding:6px 14px;border-radius:20px;white-space:nowrap;box-shadow:0 3px 12px rgba(198,40,40,.5);animation:pulse-stock 1.5s ease infinite;}
+@keyframes pulse-stock{0%,100%{transform:translateX(-50%) scale(1);}50%{transform:translateX(-50%) scale(1.05);}}
+.featured-inter-info{flex:1;min-width:220px;}
+.featured-inter-label{font-size:11px;font-weight:800;letter-spacing:3px;color:#0d47a1;text-transform:uppercase;margin-bottom:8px;}
+.featured-inter-title{font-family:'Montserrat',sans-serif;font-size:clamp(26px,4vw,38px);font-weight:900;color:#111;line-height:1.1;margin-bottom:10px;}
+body.dark .featured-inter-title{color:#e0e0e0;}
+.featured-inter-stars{font-size:16px;color:#f9a825;margin-bottom:16px;}
+.featured-inter-stars span{font-size:12px;color:#888;margin-left:6px;}
+.featured-inter-features{display:flex;flex-direction:column;gap:6px;margin-bottom:20px;}
+.featured-inter-features div{font-size:13px;color:#444;font-weight:500;}
+body.dark .featured-inter-features div{color:#bbb;}
+.featured-inter-btn{background:linear-gradient(135deg,#25d366,#1ebe5d);color:#fff;border:none;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:800;cursor:pointer;width:100%;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 4px 18px rgba(37,211,102,.45);transition:all .25s;margin-bottom:12px;}
+.featured-inter-btn:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(37,211,102,.6);}
+.featured-inter-urgency{font-size:12px;color:#888;text-align:center;}
+.featured-inter-urgency strong{color:#e53935;}
+@media(max-width:600px){.featured-inter-inner{padding:20px 16px;gap:20px;justify-content:center;text-align:center;}.featured-inter-img{width:160px;height:190px;}.featured-inter-features{align-items:center;}.featured-inter-stock{font-size:11px;}}
+
+/* ── NEWSLETTER ── */
+.newsletter-section{background:linear-gradient(135deg,#0d47a1 0%,#1565c0 60%,#0a1f6e 100%);padding:48px 24px;text-align:center;position:relative;overflow:hidden;}
+.newsletter-section::before{content:'⚽';position:absolute;font-size:180px;opacity:.05;top:-20px;right:-20px;line-height:1;}
+.newsletter-section::after{content:'🏆';position:absolute;font-size:180px;opacity:.05;bottom:-20px;left:-20px;line-height:1;}
+.newsletter-inner{max-width:560px;margin:0 auto;position:relative;z-index:1;}
+.newsletter-badge{display:inline-block;background:rgba(245,166,35,.2);border:1px solid rgba(245,166,35,.4);color:#f5a623;font-size:11px;font-weight:700;letter-spacing:2px;padding:4px 12px;border-radius:20px;margin-bottom:14px;text-transform:uppercase;}
+.newsletter-title{font-family:'Montserrat',sans-serif;font-size:clamp(22px,4vw,32px);font-weight:900;color:#fff;margin-bottom:10px;line-height:1.2;}
+.newsletter-sub{font-size:14px;color:rgba(255,255,255,.75);margin-bottom:28px;line-height:1.6;}
+.newsletter-form{display:flex;gap:10px;max-width:460px;margin:0 auto;}
+.newsletter-input{flex:1;padding:14px 18px;border-radius:8px;border:2px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:#fff;font-size:14px;outline:none;transition:border-color .2s;}
+.newsletter-input::placeholder{color:rgba(255,255,255,.5);}
+.newsletter-input:focus{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.15);}
+.newsletter-btn{background:linear-gradient(135deg,#f5a623,#e8940f);color:#fff;border:none;padding:14px 22px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .2s;box-shadow:0 4px 16px rgba(245,166,35,.4);}
+.newsletter-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(245,166,35,.6);}
+.newsletter-note{font-size:11px;color:rgba(255,255,255,.45);margin-top:12px;}
+.newsletter-success{display:none;background:rgba(46,125,50,.3);border:1px solid rgba(76,175,80,.5);border-radius:10px;padding:18px 24px;color:#a5d6a7;font-size:14px;font-weight:600;}
+.newsletter-success.show{display:block;}
+@media(max-width:500px){.newsletter-form{flex-direction:column;}.newsletter-btn{width:100%;}}
+
 /* ── FOOTER ── */
 footer{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;padding:32px 24px 20px;margin-top:auto;}
 .footer-inner{max-width:900px;margin:0 auto;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:flex-start;}
@@ -1049,6 +1093,21 @@ body.dark .avvisa-box{background:#1e1e1e;}
   </div>
 </div>
 
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <div class="newsletter-badge">📬 Newsletter Esclusiva</div>
+    <h2 class="newsletter-title">Rimani aggiornato su tutte le novità!</h2>
+    <p class="newsletter-sub">Nuovi arrivi, offerte speciali e sconti riservati solo agli iscritti.<br>Niente spam, solo calcio e affari.</p>
+    <div class="newsletter-form" id="newsletterForm">
+      <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="La tua email..." autocomplete="email">
+      <button class="newsletter-btn" onclick="iscriviNewsletter()">Iscriviti 🏆</button>
+    </div>
+    <div class="newsletter-success" id="newsletterSuccess">✅ Grazie! Sei iscritto alla newsletter. Preparati alle migliori offerte!</div>
+    <p class="newsletter-note">🔒 Nessuno spam. Puoi disiscriverti in qualsiasi momento.</p>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -1601,6 +1660,32 @@ function goHome(fromPopstate){
       <button class="na-btn">Vedi ora →</button>
     </div>
   </div>
+  <!-- FEATURED: MAGLIA INTER 26/27 -->
+  <div class="featured-inter">
+    <div class="featured-inter-badge">🔥 PIÙ CERCATA DEL MOMENTO</div>
+    <div class="featured-inter-inner">
+      <div class="featured-inter-img-wrap">
+        <img src="inter.png" alt="Maglia Inter 2026/2027" class="featured-inter-img">
+        <div class="featured-inter-stock" id="interStock">⚠️ Restano solo <span id="interStockNum">9</span> pezzi!</div>
+      </div>
+      <div class="featured-inter-info">
+        <div class="featured-inter-label">🔵⚫ FC INTERNAZIONALE</div>
+        <h2 class="featured-inter-title">Maglia Inter<br>2026/2027</h2>
+        <div class="featured-inter-stars">★★★★★ <span>4.9 (312 ordini)</span></div>
+        <div class="featured-inter-features">
+          <div>✅ Qualità premium</div>
+          <div>✅ Personalizzazione nome & numero</div>
+          <div>✅ Spedizione rapida in Italia</div>
+          <div>✅ Disponibile taglia S → XXL</div>
+        </div>
+        <button class="featured-inter-btn" onclick="apriWhatsApp('Ciao! Voglio ordinare la maglia Inter 2026/2027')">
+          🛒 Ordinala ora su WhatsApp
+        </button>
+        <div class="featured-inter-urgency" id="interUrgency">⏳ <strong>3 persone</strong> la stanno guardando adesso</div>
+      </div>
+    </div>
+  </div>
+
   <div class="content-header"><div class="content-title">Seleziona una categoria</div></div><div class="cat-grid">`;
   CATALOG.forEach((cat,i)=>{
     if(i===0) return;
@@ -4459,6 +4544,57 @@ function mostraCompletaLook(catIdx){
     }
   },{passive:true});
 })();
+
+// ── URGENZA INTER ────────────────────────────────────────────────────────────
+function avviaUrgenzaInter(){
+  // Pezzi in magazzino: scende lentamente tra 6 e 9
+  let pezzi = Math.floor(Math.random()*4)+6; // 6,7,8,9
+  const stockEl = document.getElementById('interStockNum');
+  if(stockEl) stockEl.textContent = pezzi;
+
+  setInterval(()=>{
+    const el = document.getElementById('interStockNum');
+    if(!el) return;
+    if(pezzi > 4 && Math.random() < 0.3){
+      pezzi--;
+      el.textContent = pezzi;
+    }
+  }, 18000); // ogni 18 sec potrebbe scendere
+
+  // Persone che guardano: varia tra 2 e 7
+  const urgEl = document.getElementById('interUrgency');
+  function aggiornaPersiane(){
+    if(!urgEl) return;
+    const n = Math.floor(Math.random()*6)+2;
+    urgEl.innerHTML = `⏳ <strong>${n} persone</strong> la stanno guardando adesso`;
+  }
+  setInterval(aggiornaPersiane, 8000);
+}
+// Ri-esegui ogni volta che si torna alla home
+const _origGoHomeInter = goHome;
+goHome = function(f){
+  _origGoHomeInter(f);
+  setTimeout(avviaUrgenzaInter, 300);
+};
+
+// ── NEWSLETTER ───────────────────────────────────────────────────────────────
+function iscriviNewsletter(){
+  const input=document.getElementById('newsletterEmail');
+  const email=input.value.trim();
+  if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    input.style.borderColor='#ef5350';
+    input.focus();
+    setTimeout(()=>input.style.borderColor='',1500);
+    return;
+  }
+  document.getElementById('newsletterForm').style.display='none';
+  document.getElementById('newsletterSuccess').classList.add('show');
+  // Qui puoi integrare Mailchimp, Brevo o altro servizio
+  console.log('Newsletter iscrizione:', email);
+}
+document.getElementById('newsletterEmail')?.addEventListener('keydown',e=>{
+  if(e.key==='Enter') iscriviNewsletter();
+});
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
 buildSidebar();
