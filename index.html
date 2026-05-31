@@ -511,31 +511,129 @@ body.dark .completa-card-name{color:#ccc;}
 .sidebar-overlay.open{display:block;}
 
 @media(max-width:768px){
+  /* ── GENERALI ── */
+  *{cursor:auto !important;}
+  .cursor-ball{display:none !important;}
   .trust-strip{display:none;}
-  .ham{display:block;}
+
+  /* ── TOPBAR ── */
   .topbar{padding:0 12px;gap:8px;height:54px;}
   .topbar-logo span{display:none;}
   .topbar-logo{min-width:auto;}
-  /* Nascondi icone social su mobile, restano nel footer */
   .topbar > div:first-of-type{display:none !important;}
   .search-pos{flex:1;}
-  .search-wrap input{font-size:13px;}
-  .dark-toggle{width:32px;height:32px;font-size:14px;flex-shrink:0;}
+  .search-wrap input{font-size:14px;padding:10px 12px;}
+  .search-wrap button{padding:10px 14px;font-size:13px;}
+  .dark-toggle{width:34px;height:34px;font-size:14px;flex-shrink:0;}
+  .ham{display:block;}
+
+  /* ── SIDEBAR ── */
   .sidebar{position:fixed;left:-260px;top:54px;height:calc(100vh - 54px);z-index:95;transition:left .3s;width:240px;}
   .sidebar.open{left:0;}
   .layout{min-height:calc(100vh - 54px);}
-  .content{padding:10px;}
-  .album-grid,.photo-grid,.cat-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;}
-  .na-banner{height:170px;}
-  .na-title{font-size:24px;}
-  .na-content{padding:16px 20px;}
-  .na-btn{padding:7px 14px;font-size:12px;}
-  .wa-btn{border-radius:50%;padding:0;width:52px;height:52px;justify-content:center;bottom:16px;right:16px;}
+
+  /* ── CONTENT ── */
+  .content{padding:12px 10px;}
+  .breadcrumb{font-size:12px;margin-bottom:10px;}
+
+  /* ── GRIGLIE ── */
+  .photo-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+  .album-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+  .cat-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+  .album-card-img{aspect-ratio:1;}
+  .completa-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+
+  /* ── HERO ── */
+  .hero-banner{height:280px;margin-bottom:0;border-radius:0;}
+  .hero-content{padding:20px 18px;max-width:100%;}
+  .hero-badge{font-size:10px;padding:4px 10px;margin-bottom:10px;}
+  .hero-title{font-size:30px;margin-bottom:8px;}
+  .hero-sub,.hero-stats{display:none;}
+  .hero-btn-main{padding:12px 20px;font-size:13px;width:100%;}
+
+  /* ── BANNER NUOVI ARRIVI ── */
+  .na-banner{height:140px;border-radius:0 !important;margin-top:0;}
+  .na-title{font-size:22px;}
+  .na-content{padding:14px 16px;}
+  .na-btn{display:none;}
+  .na-badge{font-size:9px;padding:3px 8px;}
+
+  /* ── COUNTDOWN ── */
+  .countdown-strip{padding:8px 12px;gap:10px;}
+  .countdown-label{font-size:11px;}
+  .countdown-block{min-width:38px;padding:5px 8px;}
+  .countdown-num{font-size:16px;}
+
+  /* ── LIGHTBOX BOTTONI ── */
+  .lb-order-btn{font-size:11px;padding:7px 10px;gap:5px;top:10px;left:10px;}
+  .lb-order-btn svg{width:14px;height:14px;}
+  .lb-custom-btn{font-size:11px;padding:7px 10px;top:46px;left:10px;}
+  [style*="top:108px"]{top:82px !important;font-size:11px !important;padding:7px 10px !important;}
+  .lb-prev{left:8px;width:38px;height:38px;}
+  .lb-next{right:8px;width:38px;height:38px;}
+  .lb-close{top:10px;right:10px;width:36px;height:36px;}
+  .lb-counter{font-size:11px;bottom:10px;}
+
+  /* ── WISH / SHARE BOTTONI ── */
+  .wish-btn,.share-btn{opacity:1 !important;width:28px;height:28px;font-size:13px;}
+
+  /* ── MODULO ORDINE ── */
+  .order-box{border-radius:16px 16px 0 0;position:fixed;bottom:0;left:0;right:0;max-height:90vh;margin:0;}
+  .order-modal{align-items:flex-end;padding:0;}
+  .order-row{grid-template-columns:1fr;}
+  .order-body{padding:16px;}
+
+  /* ── PERSONALIZZA MODAL ── */
+  .custom-box{border-radius:16px 16px 0 0;position:fixed;bottom:0;left:0;right:0;max-height:90vh;}
+  .custom-modal{align-items:flex-end;padding:0;}
+  .patch-grid{grid-template-columns:repeat(2,1fr);}
+
+  /* ── CONDIVIDI ── */
+  .share-box{padding:20px 16px;}
+
+  /* ── POPUP NOTIFICHE ── */
+  .recensione-popup{max-width:240px;right:10px;bottom:76px;}
+  .notifica-acquisto{max-width:220px;left:10px;bottom:76px;}
+  .rec-testo{font-size:12px;}
+
+  /* ── WHATSAPP BTN ── */
+  .wa-btn{width:50px;height:50px;border-radius:50%;padding:0;justify-content:center;bottom:14px;right:14px;}
   .wa-testo{display:none;}
-  .recensione-popup{max-width:260px;right:12px;}
-  .notifica-acquisto{max-width:240px;left:12px;}
-  .ticker{font-size:12px;}
-  footer .footer-inner{flex-direction:column;gap:20px;}
+
+  /* ── TORNA SU ── */
+  .scroll-top{bottom:14px;left:14px;width:38px;height:38px;font-size:16px;}
+
+  /* ── TICKER ── */
+  .ticker{font-size:11px;}
+  .ticker-item{padding:0 16px;}
+
+  /* ── RECENSIONI ── */
+  .reviews-section{padding:20px 12px;}
+  .reviews-grid{grid-template-columns:1fr;}
+
+  /* ── FAQ ── */
+  .faq-section{padding:20px 12px;}
+  .faq-q{font-size:13px;padding:14px 14px;}
+  .faq-a{font-size:13px;}
+
+  /* ── FOOTER ── */
+  footer{padding:20px 16px 16px;}
+  .footer-inner{flex-direction:column;gap:16px;}
+  .footer-links{flex-direction:row;flex-wrap:wrap;gap:8px;}
+
+  /* ── CATEGORIE CARD ── */
+  .cat-card{padding:14px 10px;}
+  .cat-icon{font-size:26px;margin-bottom:6px;}
+  .cat-icon img{width:36px;}
+  .cat-name{font-size:12px;}
+  .cat-count{font-size:11px;}
+
+  /* ── BACK BTN ── */
+  .back-btn{padding:8px 14px;font-size:12px;margin-bottom:10px;}
+
+  /* ── CONTENT HEADER ── */
+  .content-header{margin-bottom:12px;padding-bottom:8px;}
+  .content-title{font-size:13px;}
 }
 </style>
 </head>
