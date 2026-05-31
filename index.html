@@ -4545,6 +4545,12 @@ function mostraCompletaLook(catIdx){
   },{passive:true});
 })();
 
+// ── WHATSAPP HELPER ──────────────────────────────────────────────────────────
+function apriWhatsApp(msg){
+  const numero='393792126743';
+  window.open('https://wa.me/'+numero+'?text='+encodeURIComponent(msg),'_blank');
+}
+
 // ── URGENZA INTER ────────────────────────────────────────────────────────────
 function avviaUrgenzaInter(){
   // Pezzi in magazzino: scende lentamente tra 6 e 9
