@@ -292,6 +292,25 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 @keyframes dot-pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.6;transform:scale(1.4);}}
 .sb-new-dot{animation:dot-pulse 1.4s ease infinite;}
 
+/* ── APPENA ORDINATI ── */
+.hot-strip{background:#fff;padding:28px 0 28px 24px;border-top:1px solid #e8e8e8;}
+.hot-strip-title{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#111;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.hot-scroll{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;}
+.hot-scroll::-webkit-scrollbar{display:none;}
+.hot-card{flex-shrink:0;width:130px;background:#f5f9ff;border:1.5px solid #e3f2fd;border-radius:10px;overflow:hidden;cursor:pointer;transition:all .2s;}
+.hot-card:hover{border-color:#0d47a1;transform:translateY(-3px);box-shadow:0 6px 18px rgba(13,71,161,.15);}
+.hot-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
+.hot-card-info{padding:8px 10px;}
+.hot-card-name{font-size:11px;font-weight:700;color:#222;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.hot-card-badge{font-size:10px;color:#e53935;font-weight:700;margin-top:2px;}
+
+/* ── EXIT INTENT ── */
+.exit-popup{display:none;position:fixed;inset:0;z-index:9000;align-items:center;justify-content:center;padding:20px;}
+.exit-popup.active{display:flex;}
+.exit-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);}
+.exit-box{position:relative;background:#fff;border-radius:20px;padding:32px 28px;max-width:400px;width:100%;z-index:1;text-align:center;animation:popIn .35s cubic-bezier(.34,1.56,.64,1);}
+.exit-close{position:absolute;top:14px;right:14px;background:#f0f0f0;border:none;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;color:#555;display:flex;align-items:center;justify-content:center;}
+
 /* ── FOOTER ── */
 footer{background:#0d47a1;color:#fff;padding:32px 24px 20px;margin-top:auto;}
 .footer-inner{max-width:900px;margin:0 auto;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;align-items:flex-start;}
@@ -826,6 +845,21 @@ body.dark .completa-card-name{color:#ccc;}
   <span class="wa-testo">Ordina su WhatsApp</span>
 </a>
 
+<!-- EXIT INTENT POPUP -->
+<div class="exit-popup" id="exitPopup">
+  <div class="exit-backdrop" onclick="chiudiExit()"></div>
+  <div class="exit-box">
+    <button class="exit-close" onclick="chiudiExit()">✕</button>
+    <div style="font-size:48px;margin-bottom:12px;">👋</div>
+    <h2 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:#0d47a1;margin-bottom:8px;">Aspetta!</h2>
+    <p style="font-size:14px;color:#555;line-height:1.6;margin-bottom:20px;">Hai dubbi o non hai trovato quello che cerchi? Scrivici su WhatsApp — rispondiamo in pochi minuti! 💬</p>
+    <a href="https://wa.me/393792126743?text=Ciao!%20Ho%20visitato%20il%20vostro%20catalogo%20e%20vorrei%20alcune%20informazioni." target="_blank" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#25d366;color:#fff;padding:14px 24px;border-radius:12px;font-size:15px;font-weight:800;text-decoration:none;margin-bottom:12px;transition:background .2s;" onmouseover="this.style.background='#1ebe5d'" onmouseout="this.style.background='#25d366'">
+      💬 Scrivici su WhatsApp
+    </a>
+    <button onclick="chiudiExit()" style="background:none;border:none;color:#aaa;font-size:13px;cursor:pointer;text-decoration:underline;">No grazie, continuo a guardare</button>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -1306,6 +1340,7 @@ function goToLevel(idx){
 // ── HOME ─────────────────────────────────────────────────────────────────────
 function goHome(fromPopstate){
   if(!fromPopstate) history.pushState({page:'home'},'','#');
+  document.title='Completini Squadre Calcio 2.0 — Maglie e Kit da Calcio';
   navStack=[];updateBreadcrumb();setSidebarActive(-1);
   const main=document.getElementById('main');
   let html=`
@@ -1459,6 +1494,19 @@ function goHome(fromPopstate){
     </div>
   </div>
 
+  <!-- APPENA ORDINATI -->
+  <div class="hot-strip" id="hotStrip"></div>
+
+  <!-- NON TROVI LA SQUADRA -->
+  <div style="background:#fff;border-top:1px solid #e8e8e8;padding:32px 24px;">
+    <div style="max-width:600px;margin:0 auto;background:linear-gradient(135deg,#e3f2fd,#f5f9ff);border:1.5px solid #bbdefb;border-radius:16px;padding:28px 24px;text-align:center;">
+      <div style="font-size:36px;margin-bottom:10px;">🔍</div>
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#0d47a1;margin-bottom:8px;">Non trovi la tua squadra?</h2>
+      <p style="font-size:13px;color:#555;line-height:1.6;margin-bottom:18px;">Il nostro catalogo si aggiorna ogni settimana! Se non trovi la maglia che cerchi, scrivici — probabilmente ce l'abbiamo o possiamo procurartela.</p>
+      <a href="https://wa.me/393792126743?text=Ciao!%20Cerco%20la%20maglia%20di%20" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='#1ebe5d'" onmouseout="this.style.background='#25d366'">💬 Chiedici su WhatsApp</a>
+    </div>
+  </div>
+
   <!-- IL NOSTRO BRAND -->
   <div style="background:linear-gradient(135deg,#0a1628 0%,#0d47a1 100%);padding:40px 24px;">
     <div style="max-width:900px;margin:0 auto;text-align:center;">
@@ -1494,12 +1542,14 @@ function goHome(fromPopstate){
 `;
 
   main.innerHTML=html;
+  setTimeout(renderHotStrip,100);
 }
 
 // ── CATEGORIA ────────────────────────────────────────────────────────────────
 function openCategory(ci,fromPopstate){
   const cat=CATALOG[ci];
   if(!fromPopstate) history.pushState({page:'cat',ci},'','#cat-'+ci);
+  document.title=cat.name+' — Completini Squadre Calcio 2.0';
   navStack=[{name:cat.name,type:'cat',cat,ci}];
   updateBreadcrumb();setSidebarActive(ci);
   renderCategory(cat,ci);
@@ -1567,6 +1617,9 @@ async function openSub(ci,si,fromPopstate){
   const cat=CATALOG[ci];const sub=cat.subs[si];
   const sn=typeof sub==='string'?sub:sub.name;
   if(!fromPopstate) history.pushState({page:'sub',ci,si},'','#sub-'+ci+'-'+si);
+  document.title='Maglia '+sn+' — Completini Squadre Calcio 2.0';
+  const metaDesc=document.querySelector('meta[name="description"]');
+  if(metaDesc) metaDesc.content='Acquista la maglia '+sn+' con personalizzazione gratuita. Spedizione gratuita in tutta Italia. Completini Squadre Calcio 2.0 — dal 2018.';
   navStack=[{name:cat.name,type:'cat',cat,ci},{name:sn,type:'sub',sub,cat,ci,si}];
   updateBreadcrumb();setSidebarActive(ci,si);
   await renderSub(sub,cat,ci,si);
@@ -2775,6 +2828,60 @@ function paginaTermini(){
   </div>`;
   window.scrollTo(0,0);
 }
+
+// ── APPENA ORDINATI ──────────────────────────────────────────────────────────
+function renderHotStrip(){
+  const strip=document.getElementById('hotStrip');
+  if(!strip) return;
+  // Raccoglie tutte le foto disponibili dal catalogo
+  const pool=[];
+  if(window.CATALOG){
+    CATALOG.forEach((cat,ci)=>{
+      if(!cat.subs) return;
+      cat.subs.forEach((sub,si)=>{
+        const sn=typeof sub==='string'?sub:sub.name;
+        const id=typeof sub==='object'?sub.id:null;
+        if(id) pool.push({name:sn,ci,si,id});
+      });
+    });
+  }
+  if(!pool.length){strip.style.display='none';return;}
+  // Prende 8 random
+  const sel=[...pool].sort(()=>Math.random()-.5).slice(0,8);
+  const minutiFA=[2,5,8,12,18,24,35,47];
+  let cards='';
+  sel.forEach((item,i)=>{
+    const thumb=`https://drive.google.com/thumbnail?id=${item.id}&sz=w200`;
+    cards+=`<div class="hot-card" onclick="openSub(${item.ci},${item.si})">
+      <img src="${thumb}" alt="${item.name}" onerror="this.parentElement.style.display='none'">
+      <div class="hot-card-info">
+        <div class="hot-card-name">${item.name}</div>
+        <div class="hot-card-badge">🔥 ${minutiFA[i]} min fa</div>
+      </div>
+    </div>`;
+  });
+  strip.innerHTML=`<div class="hot-strip-title">🔥 Appena ordinati</div><div class="hot-scroll">${cards}</div>`;
+}
+
+// ── EXIT INTENT ──────────────────────────────────────────────────────────────
+(function(){
+  let shown=false;
+  // Desktop: mouse esce dall'alto
+  document.addEventListener('mouseleave',e=>{
+    if(e.clientY<=0 && !shown){
+      shown=true;
+      document.getElementById('exitPopup').classList.add('active');
+    }
+  });
+  // Mobile: dopo 40 secondi senza interazione
+  let mobileTimer;
+  function resetTimer(){clearTimeout(mobileTimer);mobileTimer=setTimeout(()=>{if(!shown){shown=true;document.getElementById('exitPopup').classList.add('active');}},40000);}
+  if(window.innerWidth<=768){
+    ['touchstart','scroll'].forEach(ev=>document.addEventListener(ev,resetTimer,{passive:true}));
+    resetTimer();
+  }
+})();
+function chiudiExit(){document.getElementById('exitPopup').classList.remove('active');}
 
 // ── TICKER SCORREVOLE ────────────────────────────────────────────────────────
 (function(){
