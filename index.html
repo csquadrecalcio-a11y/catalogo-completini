@@ -364,8 +364,8 @@ body.dark .custom-preview b{color:#90caf9;}
 .custom-cancel{background:#f0f0f0;color:#666;border:none;border-radius:8px;padding:12px 18px;font-size:14px;cursor:pointer;transition:all .2s;}
 body.dark .custom-cancel{background:#333;color:#aaa;}
 .custom-cancel:hover{background:#e0e0e0;}
-.custom-close{position:absolute;top:14px;right:14px;background:none;border:none;font-size:20px;color:#aaa;cursor:pointer;transition:color .2s;}
-.custom-close:hover{color:#333;}
+.custom-close{position:absolute;top:14px;right:14px;background:#f0f0f0;border:none;border-radius:50%;width:32px;height:32px;font-size:16px;color:#555;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;}
+.custom-close:hover{background:#e0e0e0;color:#222;}
 .patch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px;}
 .patch-btn{padding:8px 6px;border:1.5px solid #e0e0e0;border-radius:8px;background:#fff;font-size:12px;cursor:pointer;text-align:center;transition:all .2s;color:#444;}
 body.dark .patch-btn{background:#2a2a2a;border-color:#444;color:#ccc;}
@@ -908,9 +908,9 @@ body.dark .completa-card-name{color:#ccc;}
 <div class="add-cart-modal" id="addCartModal">
   <div class="cart-backdrop" onclick="chiudiAddCart()"></div>
   <div class="add-cart-box">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;position:sticky;top:0;background:#fff;z-index:10;padding:4px 0 12px;border-bottom:1px solid #f0f0f0;">
       <h3 style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:900;color:#0d47a1;">🛒 Aggiungi al carrello</h3>
-      <button onclick="chiudiAddCart()" style="background:none;border:none;font-size:20px;cursor:pointer;color:#aaa;">✕</button>
+      <button onclick="chiudiAddCart()" style="background:#f0f0f0;border:none;border-radius:50%;width:34px;height:34px;font-size:18px;cursor:pointer;color:#555;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✕</button>
     </div>
     <div id="addCartPreview" style="display:flex;gap:12px;align-items:center;background:#f5f9ff;border-radius:10px;padding:10px;margin-bottom:16px;">
       <img id="addCartImg" src="" style="width:60px;height:75px;object-fit:cover;border-radius:6px;">
@@ -1874,7 +1874,7 @@ function apriPersonalizza(){
   document.querySelector('.patch-btn:last-child').classList.add('sel');
   aggiornaPreview();
   document.getElementById('customModal').classList.add('active');
-  setTimeout(()=>document.getElementById('customNome').focus(),400);
+  if(window.innerWidth>768) setTimeout(()=>document.getElementById('customNome').focus(),400);
 }
 
 function chiudiPersonalizza(){
