@@ -1314,6 +1314,16 @@ function setSidebarActive(ci,si=-1){
 }
 
 function toggleSidebar(){
+  // Calcola la posizione corretta sotto la topbar
+  const topbar=document.querySelector('.topbar');
+  if(topbar){
+    const rect=topbar.getBoundingClientRect();
+    const bottom=Math.round(rect.bottom);
+    const sidebar=document.getElementById('sidebar');
+    sidebar.style.top=bottom+'px';
+    sidebar.style.height='calc(100vh - '+bottom+'px)';
+    document.getElementById('overlay').style.top=bottom+'px';
+  }
   document.getElementById('sidebar').classList.toggle('open');
   document.getElementById('overlay').classList.toggle('open');
 }
