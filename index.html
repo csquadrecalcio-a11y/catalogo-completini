@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Completini Squadre Calcio 2.0</title>
+<title>Completini Squadre Calcio 2.0 — Maglie e Kit da Calcio</title>
+<meta name="description" content="Acquista maglie e completini da calcio di tutti i top club europei. Serie A, Premier League, Liga, Bundesliga. Personalizzazione con nome e numero. Spedizione in tutta Italia.">
+<meta name="keywords" content="maglie calcio, completini calcio, maglia napoli, maglia inter, maglia milan, maglia juventus, maglia real madrid, maglia barcellona, kit calcio, personalizzazione maglia">
+<meta name="author" content="Completini Squadre Calcio 2.0">
+<meta property="og:title" content="Completini Squadre Calcio 2.0">
+<meta property="og:description" content="Le migliori maglie dei top club europei. Qualità premium, personalizzazione e spedizione rapida in tutta Italia.">
+<meta property="og:image" content="hero.jpg">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="logo.png">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 <style>
@@ -419,6 +427,72 @@ body.dark .notifica-testo b{color:#90caf9;}
 .scroll-top.show{display:flex;}
 .scroll-top:hover{background:#1565c0;transform:translateY(-3px);}
 
+/* ── MODULO ORDINE ── */
+.order-modal{display:none;position:fixed;inset:0;z-index:3000;align-items:center;justify-content:center;padding:16px;}
+.order-modal.active{display:flex;}
+.order-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);}
+.order-box{position:relative;background:#fff;border-radius:16px;width:100%;max-width:500px;max-height:90vh;overflow-y:auto;z-index:1;animation:popIn .35s cubic-bezier(.34,1.56,.64,1);}
+body.dark .order-box{background:#1e1e1e;}
+.order-header{background:linear-gradient(135deg,#0d47a1,#1565c0);padding:20px 24px;border-radius:16px 16px 0 0;display:flex;align-items:center;justify-content:space-between;}
+.order-header h2{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#fff;}
+.order-close{background:rgba(255,255,255,.2);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;}
+.order-body{padding:20px 24px;}
+.order-field{margin-bottom:14px;}
+.order-field label{display:block;font-size:12px;font-weight:700;color:#555;margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px;}
+body.dark .order-field label{color:#aaa;}
+.order-field input,.order-field select,.order-field textarea{width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;transition:border-color .2s;background:#fff;color:#222;font-family:'Roboto',sans-serif;}
+body.dark .order-field input,body.dark .order-field select,body.dark .order-field textarea{background:#2a2a2a;border-color:#444;color:#e0e0e0;}
+.order-field input:focus,.order-field select:focus,.order-field textarea:focus{border-color:#0d47a1;}
+.order-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.order-maglia-preview{background:#f5f9ff;border-radius:8px;padding:10px 14px;font-size:13px;color:#0d47a1;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+body.dark .order-maglia-preview{background:#1a2a4a;color:#90caf9;}
+.order-submit{width:100%;background:#25d366;color:#fff;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all .2s;margin-top:4px;}
+.order-submit:hover{background:#1ebe5d;transform:translateY(-2px);}
+.order-steps{display:flex;gap:0;margin-bottom:20px;border-bottom:2px solid #f0f0f0;}
+.order-step-tab{flex:1;padding:10px;text-align:center;font-size:12px;font-weight:700;color:#aaa;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;}
+.order-step-tab.active{color:#0d47a1;border-bottom-color:#0d47a1;}
+
+/* ── TIMER COUNTDOWN ── */
+.countdown-strip{background:linear-gradient(135deg,#b71c1c,#e53935);color:#fff;padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;}
+.countdown-label{font-size:13px;font-weight:700;letter-spacing:.5px;}
+.countdown-timer{display:flex;align-items:center;gap:6px;}
+.countdown-block{background:rgba(0,0,0,.25);border-radius:6px;padding:6px 10px;text-align:center;min-width:48px;}
+.countdown-num{font-size:20px;font-weight:900;font-family:'Montserrat',sans-serif;line-height:1;}
+.countdown-unit{font-size:9px;letter-spacing:1px;opacity:.8;text-transform:uppercase;}
+.countdown-sep{font-size:20px;font-weight:900;opacity:.6;}
+
+/* ── CONDIVIDI ── */
+.share-btn{position:absolute;bottom:8px;left:8px;background:rgba(255,255,255,.9);border:none;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px;transition:all .2s;z-index:3;opacity:0;}
+.photo-item:hover .share-btn{opacity:1;}
+.share-modal{display:none;position:fixed;inset:0;z-index:4000;align-items:flex-end;justify-content:center;padding:0;}
+.share-modal.active{display:flex;}
+.share-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.5);}
+.share-box{position:relative;background:#fff;border-radius:20px 20px 0 0;padding:24px;width:100%;max-width:480px;z-index:1;animation:slideUp .3s ease;}
+body.dark .share-box{background:#1e1e1e;}
+@keyframes slideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
+.share-title{font-size:16px;font-weight:700;color:#222;margin-bottom:16px;text-align:center;}
+body.dark .share-title{color:#e0e0e0;}
+.share-options{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.share-option{background:#f5f5f5;border:none;border-radius:12px;padding:14px 8px;cursor:pointer;text-align:center;transition:all .2s;}
+body.dark .share-option{background:#2a2a2a;}
+.share-option:hover{transform:translateY(-3px);}
+.share-option-icon{font-size:28px;display:block;margin-bottom:6px;}
+.share-option-label{font-size:12px;font-weight:600;color:#444;}
+body.dark .share-option-label{color:#ccc;}
+
+/* ── COMPLETA IL LOOK ── */
+.completa-section{margin-top:24px;padding-top:20px;border-top:1px solid #e0e0e0;}
+body.dark .completa-section{border-color:#333;}
+.completa-title{font-size:16px;font-weight:700;color:#222;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+body.dark .completa-title{color:#e0e0e0;}
+.completa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;}
+.completa-card{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px;cursor:pointer;text-align:center;transition:all .2s;}
+body.dark .completa-card{background:#1e1e1e;border-color:#333;}
+.completa-card:hover{border-color:#0d47a1;transform:translateY(-2px);box-shadow:0 4px 12px rgba(13,71,161,.15);}
+.completa-card-icon{font-size:28px;margin-bottom:6px;}
+.completa-card-name{font-size:12px;font-weight:600;color:#333;}
+body.dark .completa-card-name{color:#ccc;}
+
 /* ── ANIMAZIONI MOBILE ── */
 @media(max-width:768px){
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;}
@@ -606,6 +680,7 @@ body.dark .notifica-testo b{color:#90caf9;}
   <button class="lb-next" onclick="nextPhoto()">›</button>
   <div class="lb-counter" id="lb-counter"></div>
   <button class="lb-custom-btn" onclick="apriPersonalizza()">✏️ Personalizza</button>
+  <button class="lb-custom-btn" onclick="apriOrdine()" style="top:108px;background:#ff6f00;">📋 Ordina ora</button>
   <a class="lb-order-btn" id="lb-order-btn" href="#" target="_blank">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     Ordina su WhatsApp
@@ -676,6 +751,93 @@ body.dark .notifica-testo b{color:#90caf9;}
       <button class="custom-send" onclick="inviaPersonalizzazione()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Invia su WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL ORDINE -->
+<div class="order-modal" id="orderModal">
+  <div class="order-backdrop" onclick="chiudiOrdine()"></div>
+  <div class="order-box">
+    <div class="order-header">
+      <h2>📋 Modulo d'ordine</h2>
+      <button class="order-close" onclick="chiudiOrdine()">✕</button>
+    </div>
+    <div class="order-body">
+      <div class="order-maglia-preview" id="orderMagliaPreview">👕 Maglia selezionata dal catalogo</div>
+      <div class="order-row">
+        <div class="order-field">
+          <label>👤 Nome</label>
+          <input type="text" id="orderNome" placeholder="Mario">
+        </div>
+        <div class="order-field">
+          <label>👤 Cognome</label>
+          <input type="text" id="orderCognome" placeholder="Rossi">
+        </div>
+      </div>
+      <div class="order-field">
+        <label>📱 WhatsApp / Telefono</label>
+        <input type="tel" id="orderTel" placeholder="+39 333 1234567">
+      </div>
+      <div class="order-field">
+        <label>📍 Indirizzo spedizione</label>
+        <input type="text" id="orderIndirizzo" placeholder="Via Roma 1, 80100 Napoli (NA)">
+      </div>
+      <div class="order-row">
+        <div class="order-field">
+          <label>📏 Taglia</label>
+          <select id="orderTaglia">
+            <option value="">Seleziona...</option>
+            <option>XS</option><option>S</option><option>M</option>
+            <option>L</option><option>XL</option><option>XXL</option>
+            <option>XXXL</option><option>Bambino 6-8 anni</option>
+            <option>Bambino 8-10 anni</option><option>Bambino 10-12 anni</option>
+          </select>
+        </div>
+        <div class="order-field">
+          <label>💳 Pagamento</label>
+          <select id="orderPagamento">
+            <option value="">Seleziona...</option>
+            <option>PostePay</option>
+            <option>Bonifico bancario</option>
+            <option>PayPal Amici e Familiari</option>
+          </select>
+        </div>
+      </div>
+      <div class="order-field">
+        <label>✏️ Personalizzazione (opzionale)</label>
+        <input type="text" id="orderPersonalizza" placeholder="Es. ROSSI 10 — Champions League">
+      </div>
+      <div class="order-field">
+        <label>📝 Note aggiuntive</label>
+        <textarea id="orderNote" rows="2" placeholder="Eventuali richieste speciali..."></textarea>
+      </div>
+      <button class="order-submit" onclick="inviaOrdine()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Invia ordine su WhatsApp
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CONDIVIDI -->
+<div class="share-modal" id="shareModal">
+  <div class="share-backdrop" onclick="chiudiCondividi()"></div>
+  <div class="share-box">
+    <div class="share-title">📤 Condividi questa maglia</div>
+    <div class="share-options">
+      <button class="share-option" onclick="condividiWhatsApp()">
+        <span class="share-option-icon">💬</span>
+        <span class="share-option-label">WhatsApp</span>
+      </button>
+      <button class="share-option" onclick="condividiInstagram()">
+        <span class="share-option-icon">📸</span>
+        <span class="share-option-label">Instagram</span>
+      </button>
+      <button class="share-option" onclick="copiaLink()">
+        <span class="share-option-icon">🔗</span>
+        <span class="share-option-label">Copia link</span>
       </button>
     </div>
   </div>
@@ -833,6 +995,18 @@ function goHome(){
         <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         Sfoglia il catalogo
       </button>
+    </div>
+  </div>
+
+  <!-- TIMER OFFERTA -->
+  <div class="countdown-strip">
+    <span class="countdown-label">🔥 OFFERTA SPECIALE — Termina tra:</span>
+    <div class="countdown-timer">
+      <div class="countdown-block"><div class="countdown-num" id="cdOre">00</div><div class="countdown-unit">ore</div></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-block"><div class="countdown-num" id="cdMin">00</div><div class="countdown-unit">min</div></div>
+      <span class="countdown-sep">:</span>
+      <div class="countdown-block"><div class="countdown-num" id="cdSec">00</div><div class="countdown-unit">sec</div></div>
     </div>
   </div>
 
@@ -1053,9 +1227,10 @@ function renderPhotos(imgs,title,back){
     html+=`<div class="photo-item" onclick="openLightbox(${i})">
       <img src="${thumbUrl(img.id)}" alt="${img.name}" loading="lazy">
       <button class="wish-btn ${isWished?'wished':''}" onclick="toggleWish(event,'${img.id}')"></button>
+      <button class="share-btn" onclick="apriCondividi(event,${i})">↗️</button>
     </div>`;
   });
-  main.innerHTML=html+`</div>`;
+  main.innerHTML=html+`</div>`+mostraCompletaLook(0);
 }
 
 // ── RICERCA ──────────────────────────────────────────────────────────────────
@@ -1605,9 +1780,9 @@ function calcolaRisparmio(){
 
   if(maglie===0&&kit===0){result.style.display='none';return;}
 
-  // Prezzi
-  const pMaglia=(maglie>=10?20:maglie>=5?25:30);
-  const pKit=(kit>=10?25:kit>=5?30:40);
+  // Prezzi basati sul TOTALE pezzi combinati
+  const pMaglia=(totPezzi>=10?20:totPezzi>=5?25:30);
+  const pKit=(totPezzi>=10?25:totPezzi>=5?30:40);
   const totScontato=maglie*pMaglia+kit*pKit;
   const totBase=maglie*30+kit*40;
   const risparmio=totBase-totScontato;
@@ -1992,6 +2167,155 @@ function updateOrderBtn(photoName){
   const link=photoId?`https://drive.google.com/thumbnail?id=${photoId}&sz=w800`:'';
   const msg=encodeURIComponent(`Ciao! Vorrei ordinare questa maglia 👇\n${link}\n\nPotete dirmi disponibilità e taglie?`);
   document.getElementById('lb-order-btn').href=`https://wa.me/393792126743?text=${msg}`;
+}
+
+// ── MODULO ORDINE ────────────────────────────────────────────────────────────
+let currentOrderPhotoId='';
+let currentOrderPhotoName='';
+
+function apriOrdine(){
+  const photo=currentPhotos[currentPhotoIdx];
+  currentOrderPhotoId=photo?.id||'';
+  currentOrderPhotoName=photo?.name||'Maglia dal catalogo';
+  const link=currentOrderPhotoId?`https://drive.google.com/thumbnail?id=${currentOrderPhotoId}&sz=w800`:'';
+  document.getElementById('orderMagliaPreview').innerHTML=`👕 ${currentOrderPhotoName}${link?` — <a href="${link}" target="_blank" style="color:#0d47a1;">vedi foto</a>`:''}`;
+  document.getElementById('orderModal').classList.add('active');
+}
+
+function chiudiOrdine(){
+  document.getElementById('orderModal').classList.remove('active');
+}
+
+function inviaOrdine(){
+  const nome=document.getElementById('orderNome').value.trim();
+  const cognome=document.getElementById('orderCognome').value.trim();
+  const tel=document.getElementById('orderTel').value.trim();
+  const indirizzo=document.getElementById('orderIndirizzo').value.trim();
+  const taglia=document.getElementById('orderTaglia').value;
+  const pagamento=document.getElementById('orderPagamento').value;
+  const personalizza=document.getElementById('orderPersonalizza').value.trim();
+  const note=document.getElementById('orderNote').value.trim();
+
+  if(!nome||!tel||!indirizzo||!taglia||!pagamento){
+    alert('Per favore compila tutti i campi obbligatori!');return;
+  }
+
+  // Salva contatto cliente
+  salvaContatto(nome+' '+cognome, tel);
+
+  const link=currentOrderPhotoId?`https://drive.google.com/thumbnail?id=${currentOrderPhotoId}&sz=w800`:'';
+  let msg=`🛒 *NUOVO ORDINE*\n\n`;
+  msg+=`👤 *Cliente:* ${nome} ${cognome}\n`;
+  msg+=`📱 *Tel:* ${tel}\n`;
+  msg+=`📍 *Indirizzo:* ${indirizzo}\n`;
+  msg+=`📏 *Taglia:* ${taglia}\n`;
+  msg+=`💳 *Pagamento:* ${pagamento}\n`;
+  if(personalizza) msg+=`✏️ *Personalizzazione:* ${personalizza}\n`;
+  if(link) msg+=`🖼️ *Maglia:* ${link}\n`;
+  if(note) msg+=`📝 *Note:* ${note}\n`;
+
+  window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`, '_blank');
+  chiudiOrdine();
+}
+
+// ── CONTATTI CLIENTI ─────────────────────────────────────────────────────────
+function salvaContatto(nome, tel){
+  const clienti=JSON.parse(localStorage.getItem('csc-clienti')||'[]');
+  const esiste=clienti.find(c=>c.tel===tel);
+  if(!esiste){
+    clienti.push({nome,tel,data:new Date().toLocaleDateString('it-IT')});
+    localStorage.setItem('csc-clienti',JSON.stringify(clienti));
+  }
+}
+
+// ── TIMER COUNTDOWN ───────────────────────────────────────────────────────────
+(function(){
+  // Timer che si resetta ogni giorno a mezzanotte
+  function aggiornaTimer(){
+    const ora=new Date();
+    const fine=new Date();
+    fine.setHours(23,59,59,0);
+    const diff=fine-ora;
+    const h=Math.floor(diff/3600000);
+    const m=Math.floor((diff%3600000)/60000);
+    const s=Math.floor((diff%60000)/1000);
+    const fmt=n=>String(n).padStart(2,'0');
+    const elOre=document.getElementById('cdOre');
+    const elMin=document.getElementById('cdMin');
+    const elSec=document.getElementById('cdSec');
+    if(elOre) elOre.textContent=fmt(h);
+    if(elMin) elMin.textContent=fmt(m);
+    if(elSec) elSec.textContent=fmt(s);
+  }
+  aggiornaTimer();
+  setInterval(aggiornaTimer,1000);
+})();
+
+// ── CONDIVIDI ────────────────────────────────────────────────────────────────
+let sharePhotoIdx=-1;
+
+function apriCondividi(e,idx){
+  e.stopPropagation();
+  sharePhotoIdx=idx;
+  document.getElementById('shareModal').classList.add('active');
+}
+
+function chiudiCondividi(){
+  document.getElementById('shareModal').classList.remove('active');
+}
+
+function condividiWhatsApp(){
+  const photo=currentPhotos[sharePhotoIdx];
+  const link=photo?`https://drive.google.com/thumbnail?id=${photo.id}&sz=w800`:'';
+  const msg=`👀 Guarda questa maglia che ho trovato su Completini Squadre Calcio 2.0!\n${link}\n\nOrdina su: https://csquadrecalcio-a11y.github.io/catalogo-completini/`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`,'_blank');
+  chiudiCondividi();
+}
+
+function condividiInstagram(){
+  const photo=currentPhotos[sharePhotoIdx];
+  const link=photo?`https://drive.google.com/thumbnail?id=${photo.id}&sz=w800`:'';
+  // Su mobile apre Instagram, su desktop copia il link
+  if(navigator.share){
+    navigator.share({title:'Maglia dal catalogo CSC 2.0',url:link});
+  } else {
+    navigator.clipboard.writeText(link);
+    alert('Link copiato! Aprilo su Instagram.');
+  }
+  chiudiCondividi();
+}
+
+function copiaLink(){
+  const photo=currentPhotos[sharePhotoIdx];
+  const link=photo?`https://drive.google.com/thumbnail?id=${photo.id}&sz=w800`:'https://csquadrecalcio-a11y.github.io/catalogo-completini/';
+  navigator.clipboard.writeText(link).then(()=>{
+    alert('✅ Link copiato negli appunti!');
+  });
+  chiudiCondividi();
+}
+
+// ── COMPLETA IL LOOK ─────────────────────────────────────────────────────────
+function mostraCompletaLook(catIdx){
+  const correlate=[
+    {idx:9,icon:'👕',name:'Tute'},
+    {idx:10,icon:'☀️',name:'Completi Estivi'},
+    {idx:12,icon:'🏆',name:'Vintage'},
+  ].filter(c=>c.idx!==catIdx);
+
+  return `<div class="completa-section">
+    <div class="completa-title">👟 Completa il look</div>
+    <div class="completa-grid">
+      ${correlate.map(c=>`
+        <div class="completa-card" onclick="openCategory(${c.idx})">
+          <div class="completa-card-icon">${c.icon}</div>
+          <div class="completa-card-name">${c.name}</div>
+        </div>`).join('')}
+      <div class="completa-card" onclick="paginaPrezzi()">
+        <div class="completa-card-icon">🏷️</div>
+        <div class="completa-card-name">Sconti quantità</div>
+      </div>
+    </div>
+  </div>`;
 }
 
 // ── SCROLL REVEAL MOBILE ─────────────────────────────────────────────────────
