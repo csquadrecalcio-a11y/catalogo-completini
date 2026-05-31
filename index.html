@@ -406,7 +406,7 @@ let navStack=[], currentPhotos=[], currentPhotoIdx=0;
 
 // ── DRIVE API ────────────────────────────────────────────────────────────────
 function thumbUrl(id){return `https://drive.google.com/thumbnail?id=${id}&sz=w400`;}
-function fullUrl(id){return `https://drive.google.com/uc?export=view&id=${id}`;}
+function fullUrl(id){return `https://drive.google.com/thumbnail?id=${id}&sz=w1600`;}
 
 async function getImages(folderId){
   try{
