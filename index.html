@@ -1250,7 +1250,8 @@ function goToLevel(idx){
 }
 
 // ── HOME ─────────────────────────────────────────────────────────────────────
-function goHome(){
+function goHome(fromPopstate){
+  if(!fromPopstate) history.pushState({page:'home'},'','#');
   navStack=[];updateBreadcrumb();setSidebarActive(-1);
   const main=document.getElementById('main');
   let html=`
@@ -1373,8 +1374,9 @@ function goHome(){
 }
 
 // ── CATEGORIA ────────────────────────────────────────────────────────────────
-function openCategory(ci){
+function openCategory(ci,fromPopstate){
   const cat=CATALOG[ci];
+  if(!fromPopstate) history.pushState({page:'cat',ci},'','#cat-'+ci);
   navStack=[{name:cat.name,type:'cat',cat,ci}];
   updateBreadcrumb();setSidebarActive(ci);
   renderCategory(cat,ci);
@@ -1438,9 +1440,10 @@ async function renderCategory(cat,ci){
 }
 
 // ── SOTTOCATEGORIA ───────────────────────────────────────────────────────────
-async function openSub(ci,si){
+async function openSub(ci,si,fromPopstate){
   const cat=CATALOG[ci];const sub=cat.subs[si];
   const sn=typeof sub==='string'?sub:sub.name;
+  if(!fromPopstate) history.pushState({page:'sub',ci,si},'','#sub-'+ci+'-'+si);
   navStack=[{name:cat.name,type:'cat',cat,ci},{name:sn,type:'sub',sub,cat,ci,si}];
   updateBreadcrumb();setSidebarActive(ci,si);
   await renderSub(sub,cat,ci,si);
@@ -2051,6 +2054,15 @@ function inviaPersonalizzazione(){
   }
   window.addEventListener('load',()=>{
     setTimeout(()=>document.getElementById('splash').classList.add('hide'),2200);
+  });
+
+  // ── TASTO ← BROWSER ──────────────────────────────────────────────────────
+  history.replaceState({page:'home'},'','#');
+  window.addEventListener('popstate',e=>{
+    const s=e.state;
+    if(!s||s.page==='home'){goHome(true);}
+    else if(s.page==='cat'){openCategory(s.ci,true);}
+    else if(s.page==='sub'){openSub(s.ci,s.si,true);}
   });
 })();
 
