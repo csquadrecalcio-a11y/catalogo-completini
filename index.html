@@ -4,423 +4,541 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Completini Squadre Calcio 2.0</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #060a12;
-    --bg2: #0d1525;
-    --bg3: #111e35;
-    --blue: #1a7fd4;
-    --blue-light: #4da6f5;
-    --blue-glow: rgba(26,127,212,0.3);
-    --white: #ffffff;
-    --gray: #8899bb;
-    --gray-light: #c5d5ee;
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body { background:var(--bg); color:var(--white); font-family:'Rajdhani',sans-serif; min-height:100vh; overflow-x:hidden; }
-  body::before { content:''; position:fixed; top:0;left:0;right:0;bottom:0; background:radial-gradient(ellipse at 20% 50%,rgba(26,127,212,.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(26,127,212,.05) 0%,transparent 50%); pointer-events:none; z-index:0; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#f5f5f5;color:#222;font-family:'Roboto',sans-serif;min-height:100vh;}
 
-  header { position:relative; z-index:10; text-align:center; padding:40px 20px 30px; border-bottom:1px solid rgba(26,127,212,.2); }
-  .logo-wrap { display:inline-block; position:relative; margin-bottom:16px; }
-  .logo-wrap::before { content:''; position:absolute; inset:-8px; border-radius:50%; background:radial-gradient(circle,var(--blue-glow) 0%,transparent 70%); animation:pulse 3s ease-in-out infinite; }
-  @keyframes pulse { 0%,100%{opacity:.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
-  .logo-wrap img { width:120px; height:120px; border-radius:50%; border:3px solid var(--blue); position:relative; z-index:1; box-shadow:0 0 30px var(--blue-glow); }
-  header h1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(28px,5vw,52px); letter-spacing:4px; background:linear-gradient(135deg,var(--white) 0%,var(--blue-light) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-  header p { color:var(--blue-light); font-size:13px; letter-spacing:3px; text-transform:uppercase; margin-top:6px; }
+/* ── TOP BAR ── */
+.topbar{background:#0d47a1;padding:0 24px;height:58px;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+.topbar-logo{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:200px;}
+.topbar-logo img{width:38px;height:38px;border-radius:50%;border:2px solid rgba(255,255,255,.5);}
+.topbar-logo span{color:#fff;font-size:16px;font-weight:700;letter-spacing:.5px;white-space:nowrap;}
+.search-wrap{flex:1;max-width:500px;display:flex;gap:0;}
+.search-wrap input{flex:1;padding:9px 14px;border:none;border-radius:4px 0 0 4px;font-size:14px;outline:none;background:#fff;}
+.search-wrap button{background:#1565c0;color:#fff;border:none;padding:9px 20px;border-radius:0 4px 4px 0;cursor:pointer;font-size:14px;font-weight:500;white-space:nowrap;}
+.search-wrap button:hover{background:#0d47a1;}
+.search-results{position:absolute;top:calc(100% + 2px);left:0;right:72px;background:#fff;border:1px solid #ddd;border-radius:4px;max-height:300px;overflow-y:auto;display:none;z-index:200;box-shadow:0 4px 12px rgba(0,0,0,.1);}
+.search-results.open{display:block;}
+.search-item{padding:10px 14px;cursor:pointer;display:flex;align-items:center;gap:10px;font-size:14px;border-bottom:1px solid #f0f0f0;}
+.search-item:hover{background:#f5f5f5;}
+.search-item .si-path{color:#888;font-size:12px;}
+.search-pos{position:relative;flex:1;max-width:500px;}
 
-  .breadcrumb { position:relative; z-index:10; padding:14px 30px; display:flex; align-items:center; gap:8px; font-size:13px; color:var(--gray); border-bottom:1px solid rgba(255,255,255,.05); flex-wrap:wrap; }
-  .breadcrumb span { cursor:pointer; transition:color .2s; }
-  .breadcrumb span:hover { color:var(--blue-light); }
-  .breadcrumb .sep { color:var(--blue); }
-  .breadcrumb .current { color:var(--white); font-weight:600; }
+/* ── LAYOUT ── */
+.layout{display:flex;min-height:calc(100vh - 58px);}
 
-  main { position:relative; z-index:10; padding:30px; max-width:1400px; margin:0 auto; }
-  .page-title { font-family:'Bebas Neue',sans-serif; font-size:36px; letter-spacing:3px; color:var(--white); margin-bottom:8px; display:flex; align-items:center; gap:12px; }
-  .page-title::after { content:''; flex:1; height:2px; background:linear-gradient(90deg,var(--blue) 0%,transparent 100%); border-radius:2px; }
-  .page-subtitle { color:var(--gray); font-size:14px; margin-bottom:30px; letter-spacing:1px; }
+/* ── SIDEBAR ── */
+.sidebar{width:200px;background:#fff;border-right:1px solid #e0e0e0;flex-shrink:0;position:sticky;top:58px;height:calc(100vh - 58px);overflow-y:auto;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:#ccc;}
+.sb-header{padding:12px 16px;font-size:13px;font-weight:700;color:#333;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;}
+.sb-item{display:flex;align-items:center;gap:8px;padding:10px 16px;cursor:pointer;font-size:13px;color:#333;border-bottom:1px solid #f0f0f0;transition:background .15s;}
+.sb-item:hover{background:#e3f2fd;}
+.sb-item.active{background:#e3f2fd;color:#0d47a1;font-weight:500;}
+.sb-item .sb-flag{font-size:13px;min-width:24px;}
+.sb-item .sb-name{flex:1;}
+.sb-item .sb-arrow{color:#aaa;font-size:12px;}
+.sb-item.active .sb-arrow{color:#0d47a1;}
+.sb-sub{display:none;background:#fafafa;}
+.sb-sub.open{display:block;}
+.sb-subitem{padding:8px 16px 8px 40px;cursor:pointer;font-size:13px;color:#555;border-bottom:1px solid #f0f0f0;transition:background .15s;}
+.sb-subitem:hover{background:#e3f2fd;color:#0d47a1;}
+.sb-subitem.active{background:#e3f2fd;color:#0d47a1;font-weight:500;}
 
-  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:20px; }
-  .card { background:var(--bg2); border:1px solid rgba(26,127,212,.15); border-radius:12px; padding:24px 20px; cursor:pointer; transition:all .3s; text-align:center; position:relative; overflow:hidden; }
-  .card::before { content:''; position:absolute; top:0;left:0;right:0; height:3px; background:linear-gradient(90deg,transparent,var(--blue),transparent); opacity:0; transition:opacity .3s; }
-  .card:hover { border-color:var(--blue); background:var(--bg3); transform:translateY(-4px); box-shadow:0 12px 40px rgba(26,127,212,.2); }
-  .card:hover::before { opacity:1; }
-  .card-icon { font-size:42px; margin-bottom:12px; display:block; }
-  .card-name { font-family:'Bebas Neue',sans-serif; font-size:20px; letter-spacing:2px; color:var(--white); margin-bottom:4px; }
-  .card-count { font-size:12px; color:var(--blue-light); letter-spacing:1px; }
+/* ── CONTENT ── */
+.content{flex:1;padding:16px 20px;min-width:0;}
+.breadcrumb{display:flex;align-items:center;gap:6px;font-size:13px;color:#666;margin-bottom:12px;flex-wrap:wrap;}
+.breadcrumb span{cursor:pointer;color:#0d47a1;}
+.breadcrumb span:hover{text-decoration:underline;}
+.breadcrumb .sep{color:#aaa;}
+.breadcrumb .cur{color:#333;cursor:default;}
+.breadcrumb .cur:hover{text-decoration:none;}
 
-  .photo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:16px; }
-  .photo-item { border-radius:10px; overflow:hidden; border:1px solid rgba(26,127,212,.1); cursor:pointer; transition:all .3s; background:var(--bg2); }
-  .photo-item:hover { border-color:var(--blue); transform:scale(1.03); box-shadow:0 8px 30px rgba(26,127,212,.25); z-index:2; position:relative; }
-  .photo-item img { width:100%; aspect-ratio:1; object-fit:cover; display:block; }
+.content-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #e0e0e0;}
+.content-title{font-size:14px;color:#555;}
+.content-title b{color:#222;}
 
-  .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.95); z-index:1000; align-items:center; justify-content:center; padding:20px; }
-  .lightbox.active { display:flex; }
-  .lightbox img { max-width:90vw; max-height:90vh; object-fit:contain; border-radius:8px; box-shadow:0 0 60px rgba(26,127,212,.3); }
-  .lightbox-close { position:absolute; top:20px;right:20px; background:var(--blue); border:none; color:white; width:44px;height:44px; border-radius:50%; font-size:20px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
-  .lightbox-prev,.lightbox-next { position:absolute; top:50%; transform:translateY(-50%); background:rgba(26,127,212,.5); border:none; color:white; width:50px;height:50px; border-radius:50%; font-size:22px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
-  .lightbox-prev { left:20px; } .lightbox-next { right:20px; }
+/* ── GRIGLIA ALBUM ── */
+.album-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;}
+.album-card{background:#fff;border:1px solid #e0e0e0;border-radius:4px;cursor:pointer;transition:box-shadow .2s;overflow:hidden;}
+.album-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.15);border-color:#aaa;}
+.album-thumb{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#f0f0f0;}
+.album-thumb-placeholder{width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:#f0f0f0;font-size:40px;}
+.album-info{padding:8px 10px;}
+.album-name{font-size:13px;color:#333;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.album-count{font-size:12px;color:#888;margin-top:3px;}
 
-  .loading { text-align:center; padding:60px; color:var(--gray); }
-  .spinner { width:40px;height:40px; border:3px solid rgba(26,127,212,.2); border-top-color:var(--blue); border-radius:50%; animation:spin .8s linear infinite; margin:0 auto 16px; }
-  @keyframes spin { to{transform:rotate(360deg)} }
+/* ── GRIGLIA FOTO ── */
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;}
+.photo-item{background:#fff;border:1px solid #e0e0e0;border-radius:4px;cursor:pointer;overflow:hidden;transition:box-shadow .2s;}
+.photo-item:hover{box-shadow:0 4px 16px rgba(0,0,0,.15);}
+.photo-item img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
 
-  .back-btn { display:inline-flex; align-items:center; gap:8px; background:var(--bg3); border:1px solid rgba(26,127,212,.3); color:var(--blue-light); padding:10px 20px; border-radius:8px; cursor:pointer; font-family:'Rajdhani',sans-serif; font-size:14px; font-weight:600; letter-spacing:1px; margin-bottom:24px; transition:all .2s; text-transform:uppercase; }
-  .back-btn:hover { background:var(--blue); color:white; border-color:var(--blue); }
+/* ── CATEGORY GRID (home) ── */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;}
+.cat-card{background:#fff;border:1px solid #e0e0e0;border-radius:4px;padding:20px 16px;cursor:pointer;text-align:center;transition:box-shadow .2s;}
+.cat-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12);border-color:#0d47a1;}
+.cat-icon{font-size:32px;margin-bottom:8px;}
+.cat-name{font-size:13px;font-weight:500;color:#333;}
+.cat-count{font-size:12px;color:#888;margin-top:2px;}
 
-  footer { position:relative; z-index:10; text-align:center; padding:30px; color:var(--gray); font-size:13px; border-top:1px solid rgba(26,127,212,.1); margin-top:60px; }
-  @media(max-width:600px) { main{padding:16px;} .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;} .photo-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));} }
+/* ── BACK BTN ── */
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #ddd;color:#0d47a1;padding:7px 14px;border-radius:4px;cursor:pointer;font-size:13px;font-weight:500;margin-bottom:14px;transition:all .2s;}
+.back-btn:hover{background:#e3f2fd;border-color:#0d47a1;}
+
+/* ── LOADING ── */
+.loading{text-align:center;padding:60px 20px;color:#888;}
+.spinner{width:32px;height:32px;border:3px solid #e0e0e0;border-top-color:#0d47a1;border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── LIGHTBOX ── */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:1000;align-items:center;justify-content:center;padding:20px;}
+.lightbox.active{display:flex;}
+.lightbox img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px;}
+.lb-close{position:absolute;top:16px;right:16px;background:#0d47a1;border:none;color:white;width:40px;height:40px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:white;width:46px;height:46px;border-radius:50%;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.3);}
+.lb-prev{left:16px;}.lb-next{right:16px;}
+.lb-counter{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.5);color:#fff;padding:4px 12px;border-radius:20px;font-size:13px;}
+
+/* ── HAMBURGER ── */
+.ham{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;}
+.sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:90;}
+.sidebar-overlay.open{display:block;}
+
+@media(max-width:768px){
+  .ham{display:block;}
+  .topbar-logo span{display:none;}
+  .sidebar{position:fixed;left:-210px;top:58px;height:calc(100vh - 58px);z-index:95;transition:left .3s;}
+  .sidebar.open{left:0;}
+  .content{padding:12px;}
+  .album-grid,.photo-grid,.cat-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;}
+}
 </style>
 </head>
 <body>
-<header>
-  <div class="logo-wrap">
-    <img src="logo.jpg" alt="Completini Squadre Calcio 2.0">
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <button class="ham" onclick="toggleSidebar()">☰</button>
+  <a class="topbar-logo" href="#" onclick="goHome();return false;">
+    <img src="logo.png" alt="logo" onerror="this.src='logo.jpg'">
+    <span>Completini Squadre Calcio 2.0</span>
+  </a>
+  <div class="search-pos">
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="Cerca squadra o categoria..." oninput="onSearch(this.value)" onblur="setTimeout(closeSearch,200)">
+      <button onclick="onSearch(document.getElementById('searchInput').value)">Cerca</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
   </div>
-  <h1>Completini Squadre Calcio</h1>
-  <p>2.0 • Dal 2018 • Catalogo Ufficiale</p>
-</header>
-
-<nav class="breadcrumb" id="breadcrumb">
-  <span onclick="goHome()">🏠 Home</span>
-</nav>
-
-<main id="main"></main>
-
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <button class="lightbox-prev" onclick="prevPhoto()">‹</button>
-  <img id="lightbox-img" src="" alt="">
-  <button class="lightbox-next" onclick="nextPhoto()">›</button>
 </div>
 
-<footer>© 2026 Completini Squadre Calcio 2.0 — Tutti i diritti riservati</footer>
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <div class="sb-header">
+      <span>Tutte le categorie</span>
+      <span>≡</span>
+    </div>
+    <div class="sb-item active" id="sb-home" onclick="goHome()">
+      <span class="sb-flag">🏠</span>
+      <span class="sb-name">Home</span>
+    </div>
+    <div id="sb-cats"></div>
+  </div>
+
+  <div class="sidebar-overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <nav class="breadcrumb" id="breadcrumb"></nav>
+    <div id="main"></div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-prev" onclick="prevPhoto()">‹</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-next" onclick="nextPhoto()">›</button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
 
 <script>
-// ── Struttura catalogo (da Google Drive) ─────────────
+// ── CATALOGO ─────────────────────────────────────────────────────────────────
 const CATALOG = [
-  { name:"Serie A", icon:"<img src='https://flagcdn.com/w40/it.png' style='width:50px;border-radius:4px'>", id:"1PEPuubYWEiecIKwXbq9RZ1LuWNjEhzC2", subs:[
-    "Atalanta","Bologna","Como","Fiorentina","Inter","Juventus","Lazio","Milan","Napoli","Roma"
+  { name:"Serie A", flag:"🇮🇹", id:"1PEPuubYWEiecIKwXbq9RZ1LuWNjEhzC2", subs:[
+    "Atalanta","Bologna","Cagliari","Como","Fiorentina","Inter","Juventus","Lazio","Milan","Napoli","Parma","Roma","Torino","Udinese","Venezia"
   ]},
-  { name:"Premier League", icon:"<img src='https://flagcdn.com/w40/gb-eng.png' style='width:50px;border-radius:4px'>", id:"1JWQkaYv5k_g3EDZid-fyuXtK0tG-6wNh", subs:[
-    "Arsenal","Aston Villa","Chelsea","Liverpool","Manchester city","Manchester United","Newcastle","Nottingham forest","Tottenham"
+  { name:"Premier League", flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", id:"1JWQkaYv5k_g3EDZid-fyuXtK0tG-6wNh", subs:[
+    "Arsenal","Aston Villa","Chelsea","Liverpool","Manchester City","Manchester United","Newcastle","Nottingham Forest","Tottenham"
   ]},
-  { name:"Liga Spagnola", icon:"<img src='https://flagcdn.com/w40/es.png' style='width:50px;border-radius:4px'>", id:"1U99k-2ipIpo-SncvQB6NdAni6WwMTtvw", subs:[
-    "Atletico Madrid","Barcellona","Betis","bilbao","Real Madrid","Valencia"
+  { name:"Liga Spagnola", flag:"🇪🇸", id:"1U99k-2ipIpo-SncvQB6NdAni6WwMTtvw", subs:[
+    "Atletico Bilbao","Atletico Madrid","Barcellona","Betis","Bilbao","Real Madrid","Siviglia","Valencia"
   ]},
-  { name:"Bundesliga", icon:"<img src='https://flagcdn.com/w40/de.png' style='width:50px;border-radius:4px'>", id:"1ZLOCMotAK94cXh3NbHxTYWVn5-fnpS0R", subs:[
-    "Bayer leverkusen","Bayern monaco","Borussia Dortmund","Borussia Mönchengladbach","Eintracht Frankfurt","RB Leipzig","Shalke 04","VfB Stuttgart","Werder bremen"
+  { name:"Bundesliga", flag:"🇩🇪", id:"1ZLOCMotAK94cXh3NbHxTYWVn5-fnpS0R", subs:[
+    "Bayer Leverkusen","Bayern Monaco","Borussia Dortmund","Borussia Mönchengladbach","Eintracht Frankfurt","RB Leipzig","Schalke 04","VfB Stuttgart","Werder Bremen"
   ]},
-  { name:"Ligue 1 Francia", icon:"<img src='https://flagcdn.com/w40/fr.png' style='width:50px;border-radius:4px'>", id:"15kPZPWyq9I7aUvGue95DuWoGK9MzDzz9", subs:[
-    "LOSC Lille","AS Monaco","Marsiglia","Olympique Lyonnais","Paris fc","Paris Saint Germain"
+  { name:"Ligue 1 Francia", flag:"🇫🇷", id:"15kPZPWyq9I7aUvGue95DuWoGK9MzDzz9", subs:[
+    "LOSC Lille","AS Monaco","Marsiglia","Olympique Lyonnais","Paris FC","Paris Saint-Germain"
   ]},
-  { name:"Eredivisie", icon:"<img src='https://flagcdn.com/w40/nl.png' style='width:50px;border-radius:4px'>", id:"1yOdpCveN3hA3_bFS8RHsUKHKsjXJXfq3", subs:["Ajax"]},
-  { name:"Nazionali 2026/2027", icon:"🌍", id:"17CcRia7q_4dViHPP93Tm0bfbm605gsmV", subs:null},
-  { name:"NBA", icon:"🏀", id:"1tVjyRRsb8Jh0L6--dkaQyQfoZKvEEir_", subs:null},
-  { name:"Tute", icon:"👕", id:"1A8ExrH2C2MA0HtiHeHMaW6zt058_6Oqm", subs:[
-    {name:"tuta allenamento", subs:[]},
-    {name:"tuta da passeggio", subs:[]},
-    {name:"tute con cappuccio", subs:[]}
+  { name:"Eredivisie", flag:"🇳🇱", id:"1yOdpCveN3hA3_bFS8RHsUKHKsjXJXfq3", subs:["Ajax"]},
+  { name:"Nazionali 2026/2027", flag:"🌍", id:"17CcRia7q_4dViHPP93Tm0bfbm605gsmV", subs:null},
+  { name:"Resto del Mondo", flag:"🌐", id:"13NLaWPvV-9ldy2e5jofbogaXKKT87o2G", subs:[
+    "Boca Juniors","Inter Miami","River Plate","Santos","Saudi Pro League"
   ]},
-  { name:"Completi estivi da passeggio", icon:"☀️", id:"1atP3ewNSScU2eR8RlHWBqs5lVci5HhEp", subs:null},
-  { name:"Resto del Mondo", icon:"🌐", id:"13NLaWPvV-9ldy2e5jofbogaXKKT87o2G", subs:[
-    "Boca juniors","Inter Miami","River Plate","Santos","Saudi Pro League"
+  { name:"NBA", flag:"🏀", id:"1tVjyRRsb8Jh0L6--dkaQyQfoZKvEEir_", subs:null},
+  { name:"Tute", flag:"👕", id:"1A8ExrH2C2MA0HtiHeHMaW6zt058_6Oqm", subs:[
+    "Tuta Allenamento","Tuta da Passeggio","Tute con Cappuccio"
   ]},
-  { name:"Vintage", icon:"🏆", id:"1zI1CEJ4f8RXTovUzkfZoY_ifAUW5X9jS", subs:null},
-  { name:"Scarpe", icon:"👟", id:"1MW7kVEJQW4lsh5cOLTZ0VvRGUkRMzVj1", subs:null},
+  { name:"Completi Estivi", flag:"☀️", id:"1atP3ewNSScU2eR8RlHWBqs5lVci5HhEp", subs:null},
+  { name:"Vintage", flag:"🏆", id:"1zI1CEJ4f8RXTovUzkfZoY_ifAUW5X9jS", subs:null},
+  { name:"Scarpe", flag:"👟", id:"1MW7kVEJQW4lsh5cOLTZ0VvRGUkRMzVj1", subs:null},
 ];
 
 const API_KEY = 'AIzaSyBFjNAIrUyOZeI7c3OxdD1gOtUeHlMjRjk';
+let navStack=[], currentPhotos=[], currentPhotoIdx=0;
 
-// Stato navigazione
-let navStack = [];
-let currentPhotos = [];
-let currentPhotoIdx = 0;
+// ── DRIVE API ────────────────────────────────────────────────────────────────
+function thumbUrl(id){return `https://drive.google.com/thumbnail?id=${id}&sz=w400`;}
+function fullUrl(id){return `https://drive.google.com/uc?export=view&id=${id}`;}
 
-function thumbUrl(id){ return `https://drive.google.com/thumbnail?id=${id}&sz=w400`; }
-function fullUrl(id){ return `https://drive.google.com/uc?export=view&id=${id}`; }
-
-// ── Fetch immagini da Drive ───────────────────────────
 async function getImages(folderId){
-  try {
-    const q = `'${folderId}' in parents and (mimeType='image/jpeg' or mimeType='image/png' or mimeType='image/webp') and trashed=false`;
-    const url = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name)&orderBy=name&key=${API_KEY}&pageSize=200`;
-    const r = await fetch(url);
-    const d = await r.json();
-    return d.files || [];
-  } catch(e){ return []; }
+  try{
+    const q=`'${folderId}' in parents and (mimeType='image/jpeg' or mimeType='image/png' or mimeType='image/webp') and trashed=false`;
+    const url=`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name)&orderBy=name&key=${API_KEY}&pageSize=200`;
+    const r=await fetch(url);const d=await r.json();return d.files||[];
+  }catch(e){return[];}
 }
 
-async function getSubfolderByName(parentId, name){
-  try {
-    const q = `'${parentId}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`;
-    const url = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name)&key=${API_KEY}`;
-    const r = await fetch(url);
-    const d = await r.json();
-    if(!d.files) return null;
-    // cerca per nome case-insensitive
-    const found = d.files.find(f => f.name.toLowerCase() === name.toLowerCase());
-    return found ? found.id : null;
-  } catch(e){ return null; }
+async function getSubfolders(parentId){
+  try{
+    const q=`'${parentId}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`;
+    const url=`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name)&orderBy=name&key=${API_KEY}`;
+    const r=await fetch(url);const d=await r.json();return d.files||[];
+  }catch(e){return[];}
 }
 
-// ── Rendering ─────────────────────────────────────────
-function updateBreadcrumb(){
-  const bc = document.getElementById('breadcrumb');
-  let html = `<span onclick="goHome()">🏠 Home</span>`;
-  navStack.forEach((item, i) => {
-    html += `<span class="sep">›</span>`;
-    if(i === navStack.length-1){
-      html += `<span class="current">${item.name}</span>`;
-    } else {
-      html += `<span onclick="goToLevel(${i})">${item.name}</span>`;
+async function getSubfolderByName(parentId,name){
+  const subs=await getSubfolders(parentId);
+  return subs.find(f=>f.name.toLowerCase()===name.toLowerCase())||null;
+}
+
+async function getFirstImage(folderId){
+  try{
+    const q=`'${folderId}' in parents and (mimeType='image/jpeg' or mimeType='image/png') and trashed=false`;
+    const url=`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id)&orderBy=name&key=${API_KEY}&pageSize=1`;
+    const r=await fetch(url);const d=await r.json();
+    return d.files&&d.files.length?d.files[0].id:null;
+  }catch(e){return null;}
+}
+
+// ── SIDEBAR ──────────────────────────────────────────────────────────────────
+function buildSidebar(){
+  const el=document.getElementById('sb-cats');
+  let html='';
+  CATALOG.forEach((cat,i)=>{
+    html+=`<div class="sb-item" id="sb-${i}" onclick="openCatSidebar(${i})">
+      <span class="sb-flag">${cat.flag}</span>
+      <span class="sb-name">${cat.name}</span>
+      <span class="sb-arrow">›</span>
+    </div>`;
+    if(cat.subs&&cat.subs.length){
+      html+=`<div class="sb-sub" id="sb-sub-${i}">`;
+      cat.subs.forEach((s,j)=>{
+        const sn=typeof s==='string'?s:s.name;
+        html+=`<div class="sb-subitem" id="sb-sub-${i}-${j}" onclick="openSubSidebar(${i},${j})">${sn}</div>`;
+      });
+      html+=`</div>`;
     }
   });
-  bc.innerHTML = html;
+  el.innerHTML=html;
 }
 
-async function openDynamicSub(folderId, folderName, catName){
-  const main = document.getElementById('main');
-  const backBtn = `<button class="back-btn" onclick="history.back()">← ${catName}</button>`;
-  main.innerHTML = backBtn + `<div class="page-title">${getTeamIcon(folderName)} ${folderName}</div><div class="loading"><div class="spinner"></div>Caricamento...</div>`;
-
-  // Controlla se ci sono sottocartelle
-  const q = `'${folderId}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`;
-  const url = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name)&orderBy=name&key=${API_KEY}`;
-  let subfolders = [];
-  try {
-    const r = await fetch(url);
-    const d = await r.json();
-    subfolders = d.files || [];
-  } catch(e){}
-
-  if(subfolders.length > 0){
-    // Mostra griglia sottocartelle
-    let html = backBtn + `<div class="page-title">${getTeamIcon(folderName)} ${folderName}</div><div class="page-subtitle">${subfolders.length} elementi</div><div class="grid">`;
-    subfolders.forEach(sub => {
-      const icon = getTeamIcon(sub.name);
-      html += `<div class="card" onclick="openDynamicSub('${sub.id}', '${sub.name.replace(/'/g,"\'")}', '${folderName.replace(/'/g,"\'")}')">
-        <span class="card-icon">${icon}</span>
-        <div class="card-name">${sub.name}</div>
-      </div>`;
-    });
-    html += `</div>`;
-    main.innerHTML = html;
-  } else {
-    // Nessuna sottocartella → mostra foto
-    const imgs = await getImages(folderId);
-    renderPhotos(imgs, folderName, getTeamIcon(folderName), backBtn);
-  }
+function setSidebarActive(ci,si=-1){
+  document.querySelectorAll('.sb-item,.sb-subitem').forEach(e=>e.classList.remove('active'));
+  document.querySelectorAll('.sb-sub').forEach(e=>e.classList.remove('open'));
+  document.getElementById('sb-home').classList.remove('active');
+  if(ci===-1){document.getElementById('sb-home').classList.add('active');return;}
+  document.getElementById(`sb-${ci}`)?.classList.add('active');
+  document.getElementById(`sb-sub-${ci}`)?.classList.add('open');
+  if(si>=0) document.getElementById(`sb-sub-${ci}-${si}`)?.classList.add('active');
 }
 
-function goHome(){
-  navStack = [];
-  updateBreadcrumb();
-  renderHome();
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
+}
+
+// ── BREADCRUMB ───────────────────────────────────────────────────────────────
+function updateBreadcrumb(){
+  let html=`<span onclick="goHome()">Home</span>`;
+  navStack.forEach((item,i)=>{
+    html+=`<span class="sep"> › </span>`;
+    if(i===navStack.length-1) html+=`<span class="cur">${item.name}</span>`;
+    else html+=`<span onclick="goToLevel(${i})">${item.name}</span>`;
+  });
+  document.getElementById('breadcrumb').innerHTML=html;
 }
 
 function goToLevel(idx){
-  navStack = navStack.slice(0, idx+1);
+  navStack=navStack.slice(0,idx+1);
   updateBreadcrumb();
-  const item = navStack[navStack.length-1];
-  if(item.type === 'category') renderCategory(item.data);
-  else if(item.type === 'sub') renderSub(item.data, item.parentData);
+  const item=navStack[navStack.length-1];
+  if(item.type==='cat') renderCategory(item.cat,item.ci);
+  else if(item.type==='sub') renderSub(item.sub,item.cat,item.ci,item.si);
 }
 
-function renderHome(){
-  const main = document.getElementById('main');
-  let html = `<div class="page-title">Catalogo</div><div class="page-subtitle">Seleziona una categoria</div><div class="grid">`;
-  CATALOG.forEach((cat, i) => {
-    html += `<div class="card" onclick="openCategory(${i})">
-      <span class="card-icon">${cat.icon}</span>
-      <div class="card-name">${cat.name}</div>
+// ── HOME ─────────────────────────────────────────────────────────────────────
+function goHome(){
+  navStack=[];updateBreadcrumb();setSidebarActive(-1);
+  const main=document.getElementById('main');
+  let html=`<div class="content-header"><div class="content-title">Seleziona una categoria</div></div><div class="cat-grid">`;
+  CATALOG.forEach((cat,i)=>{
+    html+=`<div class="cat-card" onclick="openCategory(${i})">
+      <div class="cat-icon">${cat.flag}</div>
+      <div class="cat-name">${cat.name}</div>
+      <div class="cat-count">${cat.subs?cat.subs.length+' squadre':'Sfoglia'}</div>
     </div>`;
   });
-  html += `</div>`;
-  main.innerHTML = html;
+  main.innerHTML=html+`</div>`;
 }
 
-function openCategory(idx){
-  const cat = CATALOG[idx];
-  navStack = [{ name: cat.name, type:'category', data: cat }];
-  updateBreadcrumb();
-  renderCategory(cat);
+// ── CATEGORIA ────────────────────────────────────────────────────────────────
+function openCategory(ci){
+  const cat=CATALOG[ci];
+  navStack=[{name:cat.name,type:'cat',cat,ci}];
+  updateBreadcrumb();setSidebarActive(ci);
+  renderCategory(cat,ci);
 }
+function openCatSidebar(ci){openCategory(ci);if(window.innerWidth<=768)toggleSidebar();}
+function openSubSidebar(ci,si){openSub(ci,si);if(window.innerWidth<=768)toggleSidebar();}
 
-async function renderCategory(cat){
-  const main = document.getElementById('main');
-  
-  let backBtn = `<button class="back-btn" onclick="goHome()">← Indietro</button>`;
+async function renderCategory(cat,ci){
+  const main=document.getElementById('main');
+  const back=`<button class="back-btn" onclick="goHome()">← Indietro</button>`;
 
-  // subs=null → carica sottocartelle dinamicamente da Drive
-  if(cat.subs === null){
-    if(!cat.id){
-      main.innerHTML = backBtn + `<div class="page-title">${cat.icon} ${cat.name}</div><div class="loading" style="color:var(--gray)">Prossimamente...</div>`;
-      return;
-    }
-    main.innerHTML = backBtn + `<div class="page-title">${cat.icon} ${cat.name}</div><div class="loading"><div class="spinner"></div>Caricamento...</div>`;
-    // Prova prima a caricare sottocartelle
-    const q = `'${cat.id}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`;
-    const url = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name)&orderBy=name&key=${API_KEY}`;
-    let subfolders = [];
-    try {
-      const r = await fetch(url);
-      const d = await r.json();
-      subfolders = d.files || [];
-    } catch(e){}
-    
-    if(subfolders.length > 0){
-      // Mostra griglia sottocartelle
-      let html = backBtn + `<div class="page-title">${cat.icon} ${cat.name}</div><div class="page-subtitle">${subfolders.length} elementi</div><div class="grid">`;
-      subfolders.forEach(sub => {
-        const icon = getTeamIcon(sub.name);
-        html += `<div class="card" onclick="openDynamicSub('${sub.id}', '${sub.name.replace(/'/g,"\'")}', '${cat.name.replace(/'/g,"\'")}')">
-          <span class="card-icon">${icon}</span>
-          <div class="card-name">${sub.name}</div>
-        </div>`;
-      });
-      html += `</div>`;
-      main.innerHTML = html;
+  if(cat.subs===null){
+    if(!cat.id){main.innerHTML=back+`<div class="loading">Prossimamente...</div>`;return;}
+    main.innerHTML=back+`<div class="loading"><div class="spinner"></div>Caricamento...</div>`;
+    const subs=await getSubfolders(cat.id);
+    if(subs.length>0){
+      main.innerHTML=back+`<div class="content-header"><div class="content-title">In totale <b>${subs.length}</b> elementi</div></div>`+await buildAlbumGrid(subs,async(sub)=>`openDynamicSub('${sub.id}','${esc(sub.name)}','${esc(cat.name)}')`);
     } else {
-      // Nessuna sottocartella → mostra foto dirette
-      const imgs = await getImages(cat.id);
-      renderPhotos(imgs, cat.name, cat.icon, backBtn);
+      const imgs=await getImages(cat.id);
+      renderPhotos(imgs,cat.name,back);
     }
     return;
   }
 
-  // subs vuoto → foto dirette
-  if(!cat.subs || cat.subs.length === 0){
-    if(!cat.id){ 
-      main.innerHTML = backBtn + `<div class="page-title">${cat.icon} ${cat.name}</div><div class="loading" style="color:var(--gray)">Prossimamente...</div>`;
-      return;
-    }
-    main.innerHTML = backBtn + `<div class="page-title">${cat.icon} ${cat.name}</div><div class="loading"><div class="spinner"></div>Caricamento foto...</div>`;
-    const imgs = await getImages(cat.id);
-    renderPhotos(imgs, cat.name, cat.icon, backBtn);
+  if(!cat.subs||!cat.subs.length){
+    if(!cat.id){main.innerHTML=back+`<div class="loading">Prossimamente...</div>`;return;}
+    main.innerHTML=back+`<div class="loading"><div class="spinner"></div>Caricamento...</div>`;
+    const imgs=await getImages(cat.id);
+    renderPhotos(imgs,cat.name,back);
     return;
   }
 
-  // Ha sottocartelle → mostra griglia
-  let html = backBtn + `<div class="page-title">${cat.icon} ${cat.name}</div><div class="page-subtitle">${cat.subs.length} elementi</div><div class="grid">`;
-  cat.subs.forEach((sub, i) => {
-    const subName = typeof sub === 'string' ? sub : sub.name;
-    const icon = getTeamIcon(subName);
-    html += `<div class="card" onclick="openSub(${CATALOG.indexOf(cat)}, ${i})">
-      <span class="card-icon">${icon}</span>
-      <div class="card-name">${subName}</div>
-    </div>`;
+  main.innerHTML=back+`<div class="content-header"><div class="content-title">In totale <b>${cat.subs.length}</b> squadre</div></div><div class="album-grid">`;
+  const grid=document.querySelector('.album-grid');
+  cat.subs.forEach((sub,si)=>{
+    const sn=typeof sub==='string'?sub:sub.name;
+    const card=document.createElement('div');
+    card.className='album-card';
+    card.onclick=()=>openSub(ci,si);
+    card.innerHTML=`<div class="album-thumb-placeholder">${teamIcon(sn)}</div><div class="album-info"><div class="album-name">${sn}</div></div>`;
+    grid.appendChild(card);
   });
-  html += `</div>`;
-  main.innerHTML = html;
 }
 
-async function openSub(catIdx, subIdx){
-  const cat = CATALOG[catIdx];
-  const sub = cat.subs[subIdx];
-  const subName = typeof sub === 'string' ? sub : sub.name;
-  
-  navStack = [
-    { name: cat.name, type:'category', data: cat },
-    { name: subName, type:'sub', data: sub, parentData: cat }
-  ];
-  updateBreadcrumb();
-  await renderSub(sub, cat);
+// ── SOTTOCATEGORIA ───────────────────────────────────────────────────────────
+async function openSub(ci,si){
+  const cat=CATALOG[ci];const sub=cat.subs[si];
+  const sn=typeof sub==='string'?sub:sub.name;
+  navStack=[{name:cat.name,type:'cat',cat,ci},{name:sn,type:'sub',sub,cat,ci,si}];
+  updateBreadcrumb();setSidebarActive(ci,si);
+  await renderSub(sub,cat,ci,si);
 }
 
-async function renderSub(sub, cat){
-  const main = document.getElementById('main');
-  const subName = typeof sub === 'string' ? sub : sub.name;
-  const backBtn = `<button class="back-btn" onclick="goToLevel(0)">← ${cat.name}</button>`;
+async function renderSub(sub,cat,ci,si){
+  const main=document.getElementById('main');
+  const sn=typeof sub==='string'?sub:sub.name;
+  const back=`<button class="back-btn" onclick="goToLevel(0)">← ${cat.name}</button>`;
+  main.innerHTML=back+`<div class="loading"><div class="spinner"></div>Caricamento...</div>`;
+  if(!cat.id){main.innerHTML=back+`<div class="loading">Prossimamente...</div>`;return;}
+  const found=await getSubfolderByName(cat.id,sn);
+  if(!found){main.innerHTML=back+`<div class="loading">Nessuna foto trovata</div>`;return;}
 
-  main.innerHTML = backBtn + `<div class="page-title">${getTeamIcon(subName)} ${subName}</div><div class="loading"><div class="spinner"></div>Caricamento foto...</div>`;
-
-  if(!cat.id){ 
-    main.innerHTML = backBtn + `<div class="page-title">${getTeamIcon(subName)} ${subName}</div><div class="loading" style="color:var(--gray)">Prossimamente...</div>`;
-    return;
+  // Controlla se ci sono sottocartelle (es. home/away/third)
+  const subsubs=await getSubfolders(found.id);
+  if(subsubs.length>0){
+    main.innerHTML=back+`<div class="content-header"><div class="content-title"><b>${sn}</b> — ${subsubs.length} elementi</div></div>`+await buildAlbumGrid(subsubs,async(s)=>`openDynamicSub('${s.id}','${esc(s.name)}','${esc(sn)}')`);
+  } else {
+    const imgs=await getImages(found.id);
+    renderPhotos(imgs,sn,back);
   }
-
-  // Cerca la sottocartella per nome
-  const subFolderId = await getSubfolderByName(cat.id, subName);
-  if(!subFolderId){
-    main.innerHTML = backBtn + `<div class="page-title">${getTeamIcon(subName)} ${subName}</div><div class="loading" style="color:var(--gray)">Nessuna foto trovata</div>`;
-    return;
-  }
-
-  const imgs = await getImages(subFolderId);
-  renderPhotos(imgs, subName, getTeamIcon(subName), backBtn);
 }
 
-function renderPhotos(imgs, title, icon, backBtn){
-  const main = document.getElementById('main');
-  currentPhotos = imgs;
-
-  if(!imgs || imgs.length === 0){
-    main.innerHTML = backBtn + `<div class="page-title">${icon} ${title}</div><div class="loading" style="color:var(--gray)">Nessuna foto disponibile</div>`;
-    return;
+async function openDynamicSub(folderId,folderName,catName){
+  const main=document.getElementById('main');
+  const back=`<button class="back-btn" onclick="history.back()">← ${catName}</button>`;
+  main.innerHTML=back+`<div class="loading"><div class="spinner"></div>Caricamento...</div>`;
+  const subs=await getSubfolders(folderId);
+  if(subs.length>0){
+    main.innerHTML=back+`<div class="content-header"><div class="content-title"><b>${folderName}</b> — ${subs.length} elementi</div></div>`+await buildAlbumGrid(subs,async(s)=>`openDynamicSub('${s.id}','${esc(s.name)}','${esc(folderName)}')`);
+  } else {
+    const imgs=await getImages(folderId);
+    renderPhotos(imgs,folderName,back);
   }
+}
 
-  let html = backBtn + `<div class="page-title">${icon} ${title}</div><div class="page-subtitle">${imgs.length} foto</div><div class="photo-grid">`;
-  imgs.forEach((img, i) => {
-    html += `<div class="photo-item" onclick="openLightbox(${i})">
+async function buildAlbumGrid(items,actionFn){
+  let html=`<div class="album-grid">`;
+  for(const item of items){
+    const action=await actionFn(item);
+    html+=`<div class="album-card" onclick="${action}">
+      <div class="album-thumb-placeholder">${teamIcon(item.name)}</div>
+      <div class="album-info"><div class="album-name">${item.name}</div></div>
+    </div>`;
+  }
+  return html+`</div>`;
+}
+
+// ── FOTO ─────────────────────────────────────────────────────────────────────
+function renderPhotos(imgs,title,back){
+  const main=document.getElementById('main');
+  currentPhotos=imgs;
+  if(!imgs||!imgs.length){
+    main.innerHTML=back+`<div class="loading">Nessuna foto disponibile</div>`;return;
+  }
+  let html=back+`<div class="content-header"><div class="content-title"><b>${title}</b> — ${imgs.length} foto</div></div><div class="photo-grid">`;
+  imgs.forEach((img,i)=>{
+    html+=`<div class="photo-item" onclick="openLightbox(${i})">
       <img src="${thumbUrl(img.id)}" alt="${img.name}" loading="lazy">
     </div>`;
   });
-  html += `</div>`;
-  main.innerHTML = html;
+  main.innerHTML=html+`</div>`;
 }
 
-// ── Icone squadre ─────────────────────────────────────
-function getTeamIcon(name){
-  const n = name.toLowerCase();
-  if(n.includes('napoli')) return '🔵';
-  if(n.includes('inter') && !n.includes('miami')) return '⚫';
-  if(n.includes('milan') && !n.includes('inter')) return '🔴';
-  if(n.includes('juventus')) return '⚪';
-  if(n.includes('roma')) return '🟡';
-  if(n.includes('lazio')) return '🩵';
-  if(n.includes('atalanta')) return '🔵';
-  if(n.includes('fiorentina')) return '💜';
-  if(n.includes('bologna')) return '🔴';
-  if(n.includes('como')) return '🔵';
-  if(n.includes('arsenal')) return '🔴';
-  if(n.includes('liverpool')) return '❤️';
-  if(n.includes('manchester city')) return '🩵';
-  if(n.includes('manchester united')) return '🔴';
-  if(n.includes('chelsea')) return '🔵';
-  if(n.includes('tottenham')) return '⚪';
-  if(n.includes('newcastle')) return '⚫';
-  if(n.includes('aston')) return '🟣';
-  if(n.includes('real madrid')) return '⚪';
-  if(n.includes('barcellon')) return '🔵';
-  if(n.includes('atletico')) return '🔴';
-  if(n.includes('paris') || n.includes('psg')) return '🔵';
-  if(n.includes('bayern')) return '🔴';
-  if(n.includes('borussia dortmund')) return '🟡';
-  if(n.includes('ajax')) return '🔴';
-  if(n.includes('boca')) return '🔵';
-  if(n.includes('river')) return '⚪';
-  if(n.includes('tuta') || n.includes('tute')) return '👕';
-  if(n.includes('canotta')) return '🎽';
-  if(n.includes('polo')) return '👔';
-  return '⚽';
-}
+// ── RICERCA ──────────────────────────────────────────────────────────────────
+const SEARCH_INDEX=(()=>{
+  const idx=[];
+  CATALOG.forEach((cat,ci)=>{
+    idx.push({label:cat.name,path:'',flag:cat.flag,action:()=>openCategory(ci)});
+    if(cat.subs) cat.subs.forEach((s,si)=>{
+      const sn=typeof s==='string'?s:s.name;
+      idx.push({label:sn,path:cat.name,flag:teamIcon(sn),action:()=>openSub(ci,si)});
+    });
+  });
+  return idx;
+})();
 
-// ── Lightbox ──────────────────────────────────────────
+function onSearch(q){
+  const el=document.getElementById('searchResults');
+  if(!q.trim()){el.classList.remove('open');return;}
+  const matches=SEARCH_INDEX.filter(x=>x.label.toLowerCase().includes(q.toLowerCase())).slice(0,8);
+  if(!matches.length){el.classList.remove('open');return;}
+  el.innerHTML=matches.map((m,i)=>`
+    <div class="search-item" onmousedown="searchGo(${i})">
+      <span>${m.flag}</span>
+      <div><div>${m.label}</div>${m.path?`<div class="si-path">${m.path}</div>`:''}</div>
+    </div>`).join('');
+  el._m=matches;el.classList.add('open');
+}
+function searchGo(i){
+  document.getElementById('searchResults')._m[i].action();
+  document.getElementById('searchInput').value='';
+  closeSearch();
+}
+function closeSearch(){document.getElementById('searchResults').classList.remove('open');}
+
+// ── LIGHTBOX ─────────────────────────────────────────────────────────────────
 function openLightbox(idx){
-  currentPhotoIdx = idx;
-  document.getElementById('lightbox-img').src = fullUrl(currentPhotos[idx].id);
+  currentPhotoIdx=idx;
+  document.getElementById('lb-img').src=fullUrl(currentPhotos[idx].id);
+  document.getElementById('lb-counter').textContent=`${idx+1} / ${currentPhotos.length}`;
   document.getElementById('lightbox').classList.add('active');
 }
-function closeLightbox(){ document.getElementById('lightbox').classList.remove('active'); }
-function prevPhoto(){ currentPhotoIdx=(currentPhotoIdx-1+currentPhotos.length)%currentPhotos.length; document.getElementById('lightbox-img').src=fullUrl(currentPhotos[currentPhotoIdx].id); }
-function nextPhoto(){ currentPhotoIdx=(currentPhotoIdx+1)%currentPhotos.length; document.getElementById('lightbox-img').src=fullUrl(currentPhotos[currentPhotoIdx].id); }
+function closeLightbox(){document.getElementById('lightbox').classList.remove('active');}
+function prevPhoto(){
+  currentPhotoIdx=(currentPhotoIdx-1+currentPhotos.length)%currentPhotos.length;
+  document.getElementById('lb-img').src=fullUrl(currentPhotos[currentPhotoIdx].id);
+  document.getElementById('lb-counter').textContent=`${currentPhotoIdx+1} / ${currentPhotos.length}`;
+}
+function nextPhoto(){
+  currentPhotoIdx=(currentPhotoIdx+1)%currentPhotos.length;
+  document.getElementById('lb-img').src=fullUrl(currentPhotos[currentPhotoIdx].id);
+  document.getElementById('lb-counter').textContent=`${currentPhotoIdx+1} / ${currentPhotos.length}`;
+}
+document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===e.currentTarget)closeLightbox();});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape')closeLightbox();
+  if(e.key==='ArrowLeft')prevPhoto();
+  if(e.key==='ArrowRight')nextPhoto();
+});
 
-document.getElementById('lightbox').addEventListener('click', function(e){ if(e.target===this) closeLightbox(); });
-document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLightbox(); if(e.key==='ArrowLeft') prevPhoto(); if(e.key==='ArrowRight') nextPhoto(); });
+// ── ICONE ────────────────────────────────────────────────────────────────────
+function teamIcon(n){
+  n=n.toLowerCase();
+  if(n.includes('napoli'))return'🔵';
+  if(n.includes('inter')&&!n.includes('miami'))return'⚫';
+  if(n.includes('milan')&&!n.includes('inter'))return'🔴';
+  if(n.includes('juventus'))return'⚪';
+  if(n.includes('roma'))return'🟡';
+  if(n.includes('lazio'))return'🩵';
+  if(n.includes('atalanta'))return'🔵';
+  if(n.includes('fiorentina'))return'💜';
+  if(n.includes('bologna'))return'🔴';
+  if(n.includes('cagliari'))return'🔴';
+  if(n.includes('como'))return'🔵';
+  if(n.includes('parma'))return'🟡';
+  if(n.includes('torino'))return'🔴';
+  if(n.includes('udinese'))return'⚫';
+  if(n.includes('venezia'))return'🟠';
+  if(n.includes('arsenal'))return'🔴';
+  if(n.includes('liverpool'))return'❤️';
+  if(n.includes('manchester city'))return'🩵';
+  if(n.includes('manchester united'))return'🔴';
+  if(n.includes('chelsea'))return'🔵';
+  if(n.includes('tottenham'))return'⚪';
+  if(n.includes('newcastle'))return'⚫';
+  if(n.includes('aston'))return'🟣';
+  if(n.includes('nottingham'))return'🔴';
+  if(n.includes('real madrid'))return'⚪';
+  if(n.includes('barcellon'))return'🔵';
+  if(n.includes('atletico'))return'🔴';
+  if(n.includes('siviglia'))return'🔴';
+  if(n.includes('betis'))return'🟢';
+  if(n.includes('valencia'))return'🦇';
+  if(n.includes('paris')||n.includes('psg'))return'🔵';
+  if(n.includes('monaco'))return'🔴';
+  if(n.includes('marsiglia'))return'🩵';
+  if(n.includes('lyon'))return'🔴';
+  if(n.includes('lille'))return'🔴';
+  if(n.includes('bayern'))return'🔴';
+  if(n.includes('dortmund'))return'🟡';
+  if(n.includes('leverkusen'))return'🔴';
+  if(n.includes('ajax'))return'🔴';
+  if(n.includes('boca'))return'🔵';
+  if(n.includes('river'))return'⚪';
+  if(n.includes('miami'))return'🩷';
+  if(n.includes('tuta')||n.includes('tute'))return'👕';
+  if(n.includes('scarpe'))return'👟';
+  if(n.includes('vintage'))return'🏆';
+  if(n.includes('nba'))return'🏀';
+  return'⚽';
+}
 
-// ── Init ──────────────────────────────────────────────
-renderHome();
+function esc(s){return s.replace(/'/g,"\\'");}
+
+// ── INIT ─────────────────────────────────────────────────────────────────────
+buildSidebar();
+goHome();
 </script>
 </body>
 </html>
