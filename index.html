@@ -206,10 +206,47 @@ body.dark .search-foto-item{background:#1e1e1e;border-color:#333;}
 .lb-zoom-hint{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.5);color:#fff;padding:4px 12px;border-radius:20px;font-size:12px;opacity:0;transition:opacity .3s;pointer-events:none;}
 .lb-zoom-hint.show{opacity:1;}
 
-/* ── LIGHTBOX ORDINA BTN ── */
+/* ── LIGHTBOX BOTTONI ── */
 .lb-order-btn{position:absolute;top:16px;left:16px;background:#25d366;color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;text-decoration:none;transition:all .2s;z-index:10;}
 .lb-order-btn:hover{background:#1ebe5d;transform:scale(1.05);}
 .lb-order-btn svg{width:18px;height:18px;fill:#fff;flex-shrink:0;}
+.lb-custom-btn{position:absolute;top:16px;left:170px;background:#0d47a1;color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .2s;z-index:10;}
+.lb-custom-btn:hover{background:#1565c0;transform:scale(1.05);}
+
+/* ── MODAL PERSONALIZZA ── */
+.custom-modal{display:none;position:fixed;inset:0;z-index:2000;align-items:center;justify-content:center;padding:20px;}
+.custom-modal.active{display:flex;}
+.custom-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);}
+.custom-box{position:relative;background:#fff;border-radius:16px;padding:28px 24px;width:100%;max-width:420px;z-index:1;animation:popIn .35s cubic-bezier(.34,1.56,.64,1);}
+body.dark .custom-box{background:#1e1e1e;}
+@keyframes popIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+.custom-box h2{font-size:18px;font-weight:800;color:#0d47a1;margin-bottom:4px;display:flex;align-items:center;gap:8px;}
+body.dark .custom-box h2{color:#90caf9;}
+.custom-box p{font-size:13px;color:#888;margin-bottom:20px;}
+.custom-field{margin-bottom:16px;}
+.custom-field label{display:block;font-size:13px;font-weight:600;color:#444;margin-bottom:6px;}
+body.dark .custom-field label{color:#ccc;}
+.custom-field input,.custom-field select{width:100%;padding:10px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;transition:border-color .2s;background:#fff;color:#222;}
+body.dark .custom-field input,body.dark .custom-field select{background:#2a2a2a;border-color:#444;color:#e0e0e0;}
+.custom-field input:focus,.custom-field select:focus{border-color:#0d47a1;}
+.custom-field input::placeholder{color:#bbb;}
+.custom-preview{background:#f5f9ff;border:1px solid #e3f2fd;border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:13px;color:#444;line-height:1.6;}
+body.dark .custom-preview{background:#1a2a4a;border-color:#2a3a5c;color:#ccc;}
+.custom-preview b{color:#0d47a1;}
+body.dark .custom-preview b{color:#90caf9;}
+.custom-btns{display:flex;gap:10px;}
+.custom-send{flex:1;background:#25d366;color:#fff;border:none;border-radius:8px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;}
+.custom-send:hover{background:#1ebe5d;transform:translateY(-2px);}
+.custom-cancel{background:#f0f0f0;color:#666;border:none;border-radius:8px;padding:12px 18px;font-size:14px;cursor:pointer;transition:all .2s;}
+body.dark .custom-cancel{background:#333;color:#aaa;}
+.custom-cancel:hover{background:#e0e0e0;}
+.custom-close{position:absolute;top:14px;right:14px;background:none;border:none;font-size:20px;color:#aaa;cursor:pointer;transition:color .2s;}
+.custom-close:hover{color:#333;}
+.patch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px;}
+.patch-btn{padding:8px 6px;border:1.5px solid #e0e0e0;border-radius:8px;background:#fff;font-size:12px;cursor:pointer;text-align:center;transition:all .2s;color:#444;}
+body.dark .patch-btn{background:#2a2a2a;border-color:#444;color:#ccc;}
+.patch-btn:hover,.patch-btn.sel{border-color:#0d47a1;background:#e3f2fd;color:#0d47a1;font-weight:600;}
+body.dark .patch-btn.sel{background:#1a2a4a;}
 
 /* ── COME ORDINARE ── */
 .how-section{background:#fff;border-radius:10px;padding:28px 24px;margin-bottom:24px;border:1px solid #e0e0e0;}
@@ -407,6 +444,7 @@ body.dark .notifica-testo b{color:#90caf9;}
   <img id="lb-img" src="" alt="">
   <button class="lb-next" onclick="nextPhoto()">›</button>
   <div class="lb-counter" id="lb-counter"></div>
+  <button class="lb-custom-btn" onclick="apriPersonalizza()">✏️ Personalizza</button>
   <a class="lb-order-btn" id="lb-order-btn" href="#" target="_blank">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     Ordina su WhatsApp
@@ -435,6 +473,50 @@ body.dark .notifica-testo b{color:#90caf9;}
     <div class="notifica-testo"><b id="notificaNome"></b> ha appena acquistato</div>
     <div class="notifica-testo" id="notificaMaglia"></div>
     <div class="notifica-tempo" id="notificaTempo"></div>
+  </div>
+</div>
+
+<!-- MODAL PERSONALIZZA -->
+<div class="custom-modal" id="customModal">
+  <div class="custom-backdrop" onclick="chiudiPersonalizza()"></div>
+  <div class="custom-box">
+    <button class="custom-close" onclick="chiudiPersonalizza()">✕</button>
+    <h2>✏️ Personalizza la maglia</h2>
+    <p>Aggiungi nome, numero e patch — invieremo il messaggio su WhatsApp</p>
+
+    <div class="custom-field">
+      <label>👤 Nome da stampare</label>
+      <input type="text" id="customNome" placeholder="Es. ROSSI" maxlength="15" oninput="aggiornaPreview()">
+    </div>
+
+    <div class="custom-field">
+      <label>🔢 Numero da stampare</label>
+      <input type="number" id="customNumero" placeholder="Es. 10" min="1" max="99" oninput="aggiornaPreview()">
+    </div>
+
+    <div class="custom-field">
+      <label>🏅 Patch da aggiungere</label>
+      <div class="patch-grid" id="patchGrid">
+        <div class="patch-btn" onclick="selPatch(this,'Champions League')">🏆 Champions</div>
+        <div class="patch-btn" onclick="selPatch(this,'Europa League')">🌍 Europa L.</div>
+        <div class="patch-btn" onclick="selPatch(this,'Conference League')">⭐ Conference</div>
+        <div class="patch-btn" onclick="selPatch(this,'Serie A')">🇮🇹 Serie A</div>
+        <div class="patch-btn" onclick="selPatch(this,'Scudetto')">🏅 Scudetto</div>
+        <div class="patch-btn" onclick="selPatch(this,'Nessuna patch')">❌ Nessuna</div>
+      </div>
+    </div>
+
+    <div class="custom-preview" id="customPreview">
+      Compila i campi per vedere il riepilogo...
+    </div>
+
+    <div class="custom-btns">
+      <button class="custom-cancel" onclick="chiudiPersonalizza()">Annulla</button>
+      <button class="custom-send" onclick="inviaPersonalizzazione()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Invia su WhatsApp
+      </button>
+    </div>
   </div>
 </div>
 
@@ -1083,6 +1165,70 @@ function paginaComeOrdinare(){
     </div>
 
   </div>`;
+}
+
+// ── PERSONALIZZA MAGLIA ──────────────────────────────────────────────────────
+let patchSelezionata = 'Nessuna patch';
+
+function apriPersonalizza(){
+  document.getElementById('customNome').value='';
+  document.getElementById('customNumero').value='';
+  patchSelezionata='Nessuna patch';
+  document.querySelectorAll('.patch-btn').forEach(b=>b.classList.remove('sel'));
+  document.querySelector('.patch-btn:last-child').classList.add('sel');
+  aggiornaPreview();
+  document.getElementById('customModal').classList.add('active');
+  setTimeout(()=>document.getElementById('customNome').focus(),400);
+}
+
+function chiudiPersonalizza(){
+  const modal=document.getElementById('customModal');
+  modal.querySelector('.custom-box').style.animation='popIn .25s cubic-bezier(.34,1.56,.64,1) reverse';
+  setTimeout(()=>{
+    modal.classList.remove('active');
+    modal.querySelector('.custom-box').style.animation='';
+  },220);
+}
+
+function selPatch(el,nome){
+  document.querySelectorAll('.patch-btn').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel');
+  patchSelezionata=nome;
+  aggiornaPreview();
+}
+
+function aggiornaPreview(){
+  const nome=document.getElementById('customNome').value.trim().toUpperCase();
+  const numero=document.getElementById('customNumero').value.trim();
+  const patch=patchSelezionata;
+  const photoId=currentPhotos[currentPhotoIdx]?.id||'';
+  const link=photoId?`https://drive.google.com/thumbnail?id=${photoId}&sz=w800`:'';
+
+  let html='📋 <b>Riepilogo ordine:</b><br>';
+  html+=`🖼️ Maglia: <b>${link?'<a href="'+link+'" target="_blank">Vedi foto</a>':'selezionata'}</b><br>`;
+  if(nome) html+=`👤 Nome: <b>${nome}</b><br>`;
+  if(numero) html+=`🔢 Numero: <b>${numero}</b><br>`;
+  html+=`🏅 Patch: <b>${patch}</b>`;
+  document.getElementById('customPreview').innerHTML=html;
+}
+
+function inviaPersonalizzazione(){
+  const nome=document.getElementById('customNome').value.trim().toUpperCase();
+  const numero=document.getElementById('customNumero').value.trim();
+  const patch=patchSelezionata;
+  const photoId=currentPhotos[currentPhotoIdx]?.id||'';
+  const link=photoId?`https://drive.google.com/thumbnail?id=${photoId}&sz=w800`:'';
+
+  let msg=`Ciao! Vorrei ordinare questa maglia con personalizzazione 👇\n`;
+  if(link) msg+=`${link}\n\n`;
+  msg+=`📋 Dettagli personalizzazione:\n`;
+  if(nome) msg+=`👤 Nome: ${nome}\n`;
+  if(numero) msg+=`🔢 Numero: ${numero}\n`;
+  msg+=`🏅 Patch: ${patch}\n\n`;
+  msg+=`Potete confermare disponibilità e prezzo?`;
+
+  window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`, '_blank');
+  chiudiPersonalizza();
 }
 
 // ── POPUP RECENSIONI ─────────────────────────────────────────────────────────
