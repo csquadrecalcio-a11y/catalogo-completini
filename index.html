@@ -623,11 +623,13 @@ body.dark .order-summary-item{border-color:#333;}
 /* ── FOTO RECENSIONI CLIENTI ── */
 .clienti-section{background:#f8f9fa;padding:36px 24px;border-top:1px solid #e8e8e8;}
 body.dark .clienti-section{background:#111;}
-.clienti-scroll{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none;margin-top:20px;}
+.clienti-scroll{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none;margin-top:20px;cursor:grab;}
 .clienti-scroll::-webkit-scrollbar{display:none;}
+.clienti-scroll:active{cursor:grabbing;}
 .cliente-card{flex-shrink:0;width:260px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);border:1px solid #eee;}
 body.dark .cliente-card{background:#1e1e1e;border-color:#333;}
 .cliente-card img{width:100%;height:220px;object-fit:cover;display:block;}
+.cliente-card.hidden{display:none;}
 .cliente-card-text{padding:14px 16px;}
 .cliente-card-text p{font-size:13px;color:#444;line-height:1.65;font-style:italic;}
 body.dark .cliente-card-text p{color:#bbb;}
@@ -1624,15 +1626,15 @@ function goHome(fromPopstate){
     </div>
     <div class="clienti-scroll">
       <div class="cliente-card">
-        <img src="recensione1.jpg" alt="Cliente soddisfatto" onerror="this.parentElement.style.display='none'">
+        <img src="recensione1.jpg" alt="Cliente soddisfatto" onerror="this.closest('.cliente-card').style.display='none'">
         <div class="cliente-card-text">
           <div class="cliente-card-stars">★★★★★</div>
-          <p>"Arrivato grazie bellissimo! Qualità, precisione e rapidità sempre il top. Grazie al prossimo acquisto, che sono sicura non passerà tanto tempo 😊"</p>
+          <p>"Maglietta arrivata... molto bella, spettacolare! Qualità incredibile, sono rimasto senza parole 🔥"</p>
           <div class="cliente-badge">✔ Acquisto verificato</div>
         </div>
       </div>
       <div class="cliente-card">
-        <img src="recensione2.jpg" alt="Ordine multiplo" onerror="this.parentElement.style.display='none'">
+        <img src="recensione2.jpg" alt="Ordine multiplo" onerror="this.closest('.cliente-card').style.display='none'">
         <div class="cliente-card-text">
           <div class="cliente-card-stars">★★★★★</div>
           <p>"Ordine arrivato in tempi rapidissimi. Consiglio vivamente! Materiali eccellenti e servizio clienti di prim'ordine. Non rimarrete delusi. Alla prossima! 💛❤️"</p>
@@ -1640,7 +1642,7 @@ function goHome(fromPopstate){
         </div>
       </div>
       <div class="cliente-card">
-        <img src="recensione3.jpg" alt="Maglie Napoli" onerror="this.parentElement.style.display='none'">
+        <img src="recensione3.jpg" alt="Maglie Napoli" onerror="this.closest('.cliente-card').style.display='none'">
         <div class="cliente-card-text">
           <div class="cliente-card-stars">★★★★★</div>
           <p>"Perfette e puntualissimo, grazie ancora 💪"</p>
@@ -1648,7 +1650,7 @@ function goHome(fromPopstate){
         </div>
       </div>
       <div class="cliente-card">
-        <img src="recensione4.jpg" alt="Bambino Juventus" onerror="this.parentElement.style.display='none'">
+        <img src="recensione4.jpg" alt="Bambino Juventus" onerror="this.closest('.cliente-card').style.display='none'">
         <div class="cliente-card-text">
           <div class="cliente-card-stars">★★★★★</div>
           <p>"Il mio bambino è felicissimo con la sua maglia della Juventus personalizzata! Qualità eccellente 👏"</p>
@@ -1656,7 +1658,7 @@ function goHome(fromPopstate){
         </div>
       </div>
       <div class="cliente-card">
-        <img src="recensione5.jpg" alt="Completino Roma" onerror="this.parentElement.style.display='none'">
+        <img src="recensione5.jpg" alt="Completino Roma" onerror="this.closest('.cliente-card').style.display='none'">
         <div class="cliente-card-text">
           <div class="cliente-card-stars">★★★★★</div>
           <p>"Completino veramente bellissimo, Tommaso è contentissimo e ha detto che non vede l'ora di fare il cucchiaio!! Grazie di cuore 💛❤️"</p>
@@ -1664,42 +1666,82 @@ function goHome(fromPopstate){
         </div>
       </div>
       <div class="cliente-card">
-        <img src="recensione6.jpg" alt="Kit River Plate" onerror="this.parentElement.style.display='none'">
+        <img src="recensione6.jpg" alt="Maglia Zaccagni" onerror="this.closest('.cliente-card').style.display='none'">
         <div class="cliente-card-text">
           <div class="cliente-card-stars">★★★★★</div>
-          <p>"Qualità e serietà!!!! Siete il TOP!!!! Kit arrivati prima del previsto! Semplicemente Spettacolari.....a breve riordino 👍 Grazie"</p>
+          <p>"Grazie caro come il sempre il top 🙏"</p>
           <div class="cliente-badge">✔ Acquisto verificato</div>
         </div>
       </div>
       <div class="cliente-card">
-        <img src="recensione7.jpg" alt="Maglia Napoli" onerror="this.parentElement.style.display='none'">
+        <img src="recensione7.jpg" alt="Kit Napoli bambino" onerror="this.closest('.cliente-card').style.display='none'">
         <div class="cliente-card-text">
           <div class="cliente-card-stars">★★★★★</div>
-          <p>"Come sempre tt ok 👌"</p>
+          <p>"Completo kit Napoli bambino. Qualità eccezionale. Garantito. Alla prossima 💙"</p>
           <div class="cliente-badge">✔ Acquisto verificato</div>
         </div>
       </div>
       <div class="cliente-card">
-        <img src="recensione8.jpg" alt="Completi Inter e Milan" onerror="this.parentElement.style.display='none'">
+        <img src="recensione8.jpg" alt="Bambino Inter THURAM 9" onerror="this.closest('.cliente-card').style.display='none'">
         <div class="cliente-card-text">
           <div class="cliente-card-stars">★★★★★</div>
-          <p>"Completi bellissimo e tutto perfetto come al solito 👏"</p>
+          <p>"Kit completo Inter bambino, spettacolare! Qualità top 🖤💙"</p>
           <div class="cliente-badge">✔ Acquisto verificato</div>
         </div>
       </div>
       <div class="cliente-card">
-        <img src="recensione9.jpg" alt="Real Madrid e Manchester United" onerror="this.parentElement.style.display='none'">
+        <img src="recensione9.jpg" alt="Completini multipli" onerror="this.closest('.cliente-card').style.display='none'">
         <div class="cliente-card-text">
           <div class="cliente-card-stars">★★★★★</div>
-          <p>"Mamma mia sei il top dei top complimenti sempre 🔥"</p>
+          <p>"Qualità top, completini meravigliosi!! Alla prossima! 🧡🤍💙"</p>
           <div class="cliente-badge">✔ Acquisto verificato</div>
         </div>
       </div>
       <div class="cliente-card">
-        <img src="recensione10.jpg" alt="Maglia PSG" onerror="this.parentElement.style.display='none'">
+        <img src="recensione10.jpg" alt="Nike scarpe" onerror="this.closest('.cliente-card').style.display='none'">
         <div class="cliente-card-text">
           <div class="cliente-card-stars">★★★★★</div>
-          <p>"@completinisquadrecalcio2.0 — #iltopdeltop 🏆"</p>
+          <p>"Grazie come sempre!! Qualità speciale! ❤️"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+      <div class="cliente-card">
+        <img src="recensione11.jpg" alt="Kit Inter giallo" onerror="this.closest('.cliente-card').style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"Kit top, spedizione top, venditore top...sono anni che compro kit e tute da maglie calcio 2.0 ed è sempre tutto perfetto 🙏👍"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+      <div class="cliente-card">
+        <img src="recensione12.jpg" alt="Maglie personalizzate ANGUISSA ZIDANE" onerror="this.closest('.cliente-card').style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"Arrivate oggi, prodotto di qualità e grazie per la grande professionalità e disponibilità da parte vostra 👍"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+      <div class="cliente-card">
+        <img src="recensione13.jpg" alt="Pantaloncini rossi e neri" onerror="this.closest('.cliente-card').style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"Come sempre una garanzia 👌"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+      <div class="cliente-card">
+        <img src="recensione14.jpg" alt="Completino e tuta Juventus bambino" onerror="this.closest('.cliente-card').style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"Grazie mille, completino e tuta SPAZIALI, bellissimi, in più bambino super felice 💪💪💪👍 top"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+      <div class="cliente-card">
+        <img src="recensione15.jpg" alt="Maglia Milan" onerror="this.closest('.cliente-card').style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"Maglia del Milan bellissima, qualità top come sempre! ⚫🔴"</p>
           <div class="cliente-badge">✔ Acquisto verificato</div>
         </div>
       </div>
@@ -1792,6 +1834,7 @@ function goHome(fromPopstate){
 
   main.innerHTML=html;
   setTimeout(renderHotStrip,100);
+  setTimeout(()=>document.dispatchEvent(new Event('homepageReady')),600);
 }
 
 // ── CATEGORIA ────────────────────────────────────────────────────────────────
@@ -3099,7 +3142,7 @@ function renderHotStrip(){
   sel.forEach((item,i)=>{
     const thumb=`https://drive.google.com/thumbnail?id=${item.id}&sz=w200`;
     cards+=`<div class="hot-card" onclick="openSub(${item.ci},${item.si})">
-      <img src="${thumb}" alt="${item.name}" onerror="this.parentElement.style.display='none'">
+      <img src="${thumb}" alt="${item.name}" onerror="this.closest('.cliente-card').style.display='none'">
       <div class="hot-card-info">
         <div class="hot-card-name">${item.name}</div>
         <div class="hot-card-badge">🔥 ${minutiFA[i]} min fa</div>
@@ -3428,6 +3471,51 @@ function addGaranziaLightbox(){
     <div class="garanzia-item"><span>⭐</span>Dal 2018</div>`;
   lb.appendChild(div);
 }
+
+// ── AUTO-SCROLL RECENSIONI ────────────────────────────────────────────────────
+(function(){
+  function initAutoScroll(){
+    const el=document.querySelector('.clienti-scroll');
+    if(!el) return;
+    let paused=false;
+    let scrollInterval;
+
+    function startScroll(){
+      scrollInterval=setInterval(()=>{
+        if(paused) return;
+        // Se arrivato alla fine, torna all'inizio dolcemente
+        if(el.scrollLeft+el.clientWidth>=el.scrollWidth-10){
+          el.scrollTo({left:0,behavior:'smooth'});
+        } else {
+          el.scrollBy({left:1,behavior:'auto'});
+        }
+      },20);
+    }
+
+    startScroll();
+
+    // Pausa su touch/mouse
+    el.addEventListener('mouseenter',()=>paused=true);
+    el.addEventListener('mouseleave',()=>paused=false);
+    el.addEventListener('touchstart',()=>paused=true,{passive:true});
+    el.addEventListener('touchend',()=>{
+      setTimeout(()=>paused=false,2000); // riprende dopo 2 sec
+    },{passive:true});
+
+    // Swipe manuale con il dito su mobile
+    let startX=0;
+    el.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;},{passive:true});
+    el.addEventListener('touchmove',e=>{
+      const dx=startX-e.touches[0].clientX;
+      el.scrollLeft+=dx*0.5;
+      startX=e.touches[0].clientX;
+    },{passive:true});
+  }
+
+  // Inizializza subito e anche quando la homepage viene ricaricata
+  setTimeout(initAutoScroll, 500);
+  document.addEventListener('homepageReady', initAutoScroll);
+})();
 
 // ── INTERSECTION OBSERVER per animazioni al scroll ────────────────────────────
 const scrollObserver=new IntersectionObserver((entries)=>{
