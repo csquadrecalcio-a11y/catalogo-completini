@@ -163,6 +163,47 @@ footer{background:#0d47a1;color:#fff;padding:32px 24px 20px;margin-top:auto;}
 /* ── FOTO REALI CARD ── */
 .album-card-img{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#f0f0f0;}
 
+/* ── DARK MODE ── */
+body.dark{background:#121212;color:#e0e0e0;}
+body.dark .sidebar{background:#1e1e1e;border-color:#333;}
+body.dark .sb-header{border-color:#333;color:#ccc;}
+body.dark .sb-item{color:#ccc;border-color:#2a2a2a;}
+body.dark .sb-item:hover,body.dark .sb-item.active{background:#2a3a5c;color:#90caf9;}
+body.dark .sb-sub{background:#181818;}
+body.dark .sb-subitem{color:#aaa;border-color:#2a2a2a;}
+body.dark .sb-subitem:hover,body.dark .sb-subitem.active{background:#2a3a5c;color:#90caf9;}
+body.dark .content-header{border-color:#333;}
+body.dark .album-card,body.dark .photo-item,body.dark .cat-card,body.dark .back-btn{background:#1e1e1e;border-color:#333;}
+body.dark .album-card:hover,body.dark .cat-card:hover{border-color:#1565c0;box-shadow:0 4px 16px rgba(21,101,192,.3);}
+body.dark .album-name,body.dark .cat-name{color:#e0e0e0;}
+body.dark .album-count,body.dark .cat-count,body.dark .content-title{color:#888;}
+body.dark .breadcrumb .cur{color:#e0e0e0;}
+body.dark .loading{color:#666;}
+body.dark .album-thumb-placeholder{background:#2a2a2a;}
+body.dark footer{background:#0a2a6e;}
+body.dark .search-wrap input{background:#2a2a2a;color:#e0e0e0;}
+body.dark .search-results{background:#1e1e1e;border-color:#333;}
+body.dark .search-item{border-color:#2a2a2a;}
+body.dark .search-item:hover{background:#2a2a2a;}
+
+/* ── TOGGLE DARK ── */
+.dark-toggle{background:none;border:1px solid rgba(255,255,255,.3);color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s;margin-left:auto;}
+.dark-toggle:hover{background:rgba(255,255,255,.15);}
+
+/* ── RISULTATI RICERCA FOTO ── */
+.search-foto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;margin-top:8px;}
+.search-foto-item{background:#fff;border:1px solid #e0e0e0;border-radius:4px;overflow:hidden;cursor:pointer;transition:box-shadow .2s;}
+body.dark .search-foto-item{background:#1e1e1e;border-color:#333;}
+.search-foto-item:hover{box-shadow:0 4px 16px rgba(0,0,0,.15);}
+.search-foto-item img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
+.search-foto-label{padding:6px 8px;font-size:12px;color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+/* ── ZOOM LIGHTBOX ── */
+.lightbox img{cursor:zoom-in;transition:transform .3s ease;}
+.lightbox img.zoomed{cursor:zoom-out;transform:scale(2);transform-origin:var(--zoom-x,50%) var(--zoom-y,50%);}
+.lb-zoom-hint{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.5);color:#fff;padding:4px 12px;border-radius:20px;font-size:12px;opacity:0;transition:opacity .3s;pointer-events:none;}
+.lb-zoom-hint.show{opacity:1;}
+
 /* ── HAMBURGER ── */
 .ham{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;}
 .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:90;}
@@ -187,10 +228,11 @@ footer{background:#0d47a1;color:#fff;padding:32px 24px 20px;margin-top:auto;}
     <img src="logo.png" alt="logo" onerror="this.src='logo.jpg'">
     <span>Completini Squadre Calcio 2.0</span>
   </a>
+  <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" title="Tema chiaro/scuro">🌙</button>
   <div class="search-pos">
     <div class="search-wrap">
       <input type="text" id="searchInput" placeholder="Cerca squadra o categoria..." oninput="onSearch(this.value)" onblur="setTimeout(closeSearch,200)">
-      <button onclick="onSearch(document.getElementById('searchInput').value)">Cerca</button>
+      <button onclick="cercaFoto(document.getElementById('searchInput').value)">Cerca</button>
     </div>
     <div class="search-results" id="searchResults"></div>
   </div>
@@ -262,6 +304,7 @@ footer{background:#0d47a1;color:#fff;padding:32px 24px 20px;margin-top:auto;}
   <img id="lb-img" src="" alt="">
   <button class="lb-next" onclick="nextPhoto()">›</button>
   <div class="lb-counter" id="lb-counter"></div>
+  <div class="lb-zoom-hint" id="lb-zoom-hint">Doppio click per zoom</div>
 </div>
 
 <script>
@@ -588,9 +631,12 @@ function closeSearch(){document.getElementById('searchResults').classList.remove
 // ── LIGHTBOX ─────────────────────────────────────────────────────────────────
 function openLightbox(idx){
   currentPhotoIdx=idx;
-  document.getElementById('lb-img').src=fullUrl(currentPhotos[idx].id);
+  const img=document.getElementById('lb-img');
+  img.classList.remove('zoomed');
+  img.src=fullUrl(currentPhotos[idx].id);
   document.getElementById('lb-counter').textContent=`${idx+1} / ${currentPhotos.length}`;
   document.getElementById('lightbox').classList.add('active');
+  showZoomHint();
 }
 function closeLightbox(){document.getElementById('lightbox').classList.remove('active');}
 function prevPhoto(){
@@ -663,6 +709,98 @@ function teamIcon(n){
 }
 
 function esc(s){return s.replace(/'/g,"\\'");}
+
+// ── DARK MODE ────────────────────────────────────────────────────────────────
+function toggleDark(){
+  const dark=document.body.classList.toggle('dark');
+  document.getElementById('darkToggle').textContent=dark?'☀️':'🌙';
+  localStorage.setItem('csc-dark',dark?'1':'0');
+}
+// Ripristina preferenza salvata
+if(localStorage.getItem('csc-dark')==='1'){
+  document.body.classList.add('dark');
+  document.getElementById('darkToggle').textContent='☀️';
+}
+
+// ── ZOOM LIGHTBOX ────────────────────────────────────────────────────────────
+const lbImg=document.getElementById('lb-img');
+const lbHint=document.getElementById('lb-zoom-hint');
+
+lbImg.addEventListener('dblclick',function(e){
+  if(this.classList.contains('zoomed')){
+    this.classList.remove('zoomed');
+    return;
+  }
+  const rect=this.getBoundingClientRect();
+  const x=((e.clientX-rect.left)/rect.width*100).toFixed(1)+'%';
+  const y=((e.clientY-rect.top)/rect.height*100).toFixed(1)+'%';
+  this.style.setProperty('--zoom-x',x);
+  this.style.setProperty('--zoom-y',y);
+  this.classList.add('zoomed');
+});
+
+// Mostra hint zoom quando apri il lightbox
+function showZoomHint(){
+  lbHint.classList.add('show');
+  setTimeout(()=>lbHint.classList.remove('show'),2500);
+}
+
+// ── RICERCA FOTO ─────────────────────────────────────────────────────────────
+async function cercaFoto(query){
+  if(!query.trim()) return;
+  const main=document.getElementById('main');
+  navStack=[];updateBreadcrumb();setSidebarActive(-1);
+  main.innerHTML=`<div class="content-header"><div class="content-title">Risultati per: <b>"${query}"</b></div></div><div class="loading"><div class="spinner"></div>Ricerca in corso...</div>`;
+
+  // Cerca in tutte le cartelle che corrispondono alla query
+  const risultati=[];
+  const matches=SEARCH_INDEX.filter(x=>x.label.toLowerCase().includes(query.toLowerCase()));
+
+  for(const m of matches.slice(0,5)){
+    // Trova l'id della cartella
+    let folderId=null;
+    CATALOG.forEach((cat,ci)=>{
+      if(cat.name.toLowerCase()===m.label.toLowerCase()) folderId=cat.id;
+      if(cat.subs) cat.subs.forEach((s)=>{
+        const sn=typeof s==='string'?s:s.name;
+        if(sn.toLowerCase()===m.label.toLowerCase()) folderId=null; // gestito sotto
+      });
+    });
+
+    if(!folderId){
+      // È una sottocategoria, cerca la cartella
+      for(const cat of CATALOG){
+        if(!cat.subs||!cat.id) continue;
+        const sub=cat.subs.find(s=>(typeof s==='string'?s:s.name).toLowerCase()===m.label.toLowerCase());
+        if(sub){
+          const sn=typeof sub==='string'?sub:sub.name;
+          const found=await getSubfolderByName(cat.id,sn);
+          if(found) folderId=found.id;
+          break;
+        }
+      }
+    }
+    if(!folderId) continue;
+    const imgs=await getImages(folderId);
+    imgs.forEach(img=>risultati.push({img,label:m.label}));
+    if(risultati.length>=40) break;
+  }
+
+  currentPhotos=risultati.map(r=>r.img);
+  if(!risultati.length){
+    main.innerHTML=`<div class="content-header"><div class="content-title">Risultati per: <b>"${query}"</b></div></div><div class="loading">Nessuna foto trovata</div>`;
+    return;
+  }
+  let html=`<div class="content-header"><div class="content-title"><b>${risultati.length}</b> foto trovate per "${query}"</div></div><div class="search-foto-grid">`;
+  risultati.forEach((r,i)=>{
+    html+=`<div class="search-foto-item" onclick="openLightbox(${i})">
+      <img src="${thumbUrl(r.img.id)}" alt="${r.label}" loading="lazy">
+      <div class="search-foto-label">${r.label}</div>
+    </div>`;
+  });
+  main.innerHTML=html+`</div>`;
+  setTimeout(animateGrid,50);
+}
 
 // ── ANIMAZIONI ───────────────────────────────────────────────────────────────
 
