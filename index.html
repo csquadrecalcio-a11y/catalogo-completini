@@ -517,6 +517,10 @@ body.dark .notifica-testo b{color:#90caf9;}
       <span class="sb-flag">📦</span>
       <span class="sb-name">Traccia pacco</span>
     </div>
+    <div class="sb-item" id="sb-prezzi" onclick="paginaPrezzi()">
+      <span class="sb-flag">💰</span>
+      <span class="sb-name">Prezzi & Sconti</span>
+    </div>
     <div class="sb-divider" style="height:1px;background:#e0e0e0;margin:4px 0;"></div>
     <div id="sb-cats"></div>
   </div>
@@ -802,7 +806,19 @@ function goHome(){
     </div>
   </div>
 
-  <div class="na-banner" onclick="openCategory(0)" style="margin-top:16px;">
+  <!-- BANNER SCONTI -->
+  <div onclick="paginaPrezzi()" style="background:linear-gradient(135deg,#0d47a1 0%,#1565c0 50%,#0d47a1 100%);border-radius:0;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;flex-wrap:wrap;gap:10px;margin-bottom:0;">
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span style="font-size:28px;">🏷️</span>
+      <div>
+        <div style="font-size:15px;font-weight:800;color:#fff;letter-spacing:.5px;">PIÙ ORDINI, PIÙ RISPARMI!</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.8);margin-top:1px;">Da 5 pezzi: sconto -17% • Da 10 pezzi: sconto -33%</div>
+      </div>
+    </div>
+    <div style="background:#fff;color:#0d47a1;padding:8px 18px;border-radius:6px;font-size:13px;font-weight:800;white-space:nowrap;">Vedi i prezzi →</div>
+  </div>
+
+  <div class="na-banner" onclick="openCategory(0)" style="margin-top:0;">
     <img src="nuovi_arrivi.jpg.webp" alt="Nuovi Arrivi">
     <div class="na-overlay"></div>
     <div class="na-shine"></div>
@@ -1666,6 +1682,98 @@ function tracciaCon(corriere){
         Traccia ora →
       </a>
     </div>`;
+}
+
+// ── PAGINA PREZZI & SCONTI ───────────────────────────────────────────────────
+function paginaPrezzi(){
+  navStack=[];updateBreadcrumb();
+  document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('active'));
+  document.getElementById('sb-prezzi').classList.add('active');
+
+  document.getElementById('main').innerHTML=`
+  <div style="max-width:700px;margin:0 auto;">
+
+    <div style="text-align:center;padding:28px 0 24px;">
+      <div style="font-size:48px;margin-bottom:10px;">🏷️</div>
+      <h1 style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#0d47a1;">Sconti per quantità</h1>
+      <p style="color:#888;font-size:14px;margin-top:6px;">Più ordini, più risparmi — contattaci per il prezzo finale</p>
+    </div>
+
+    <!-- MAGLIE -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:20px;">
+      <div style="background:linear-gradient(135deg,#0d47a1,#1976d2);padding:18px 24px;display:flex;align-items:center;gap:12px;">
+        <span style="font-size:28px;">👕</span>
+        <div>
+          <div style="font-size:18px;font-weight:800;color:#fff;">Maglie</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.75);">Home, away, third — tutti i club</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);">
+        <div style="padding:24px 16px;text-align:center;border-right:1px solid #f0f0f0;">
+          <div style="font-size:13px;color:#888;font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">1 maglia</div>
+          <div style="font-size:40px;">😊</div>
+          <div style="font-size:14px;font-weight:700;color:#555;margin-top:8px;">Prezzo base</div>
+          <div style="font-size:12px;color:#aaa;margin-top:4px;">Contattaci</div>
+        </div>
+        <div style="padding:24px 16px;text-align:center;border-right:1px solid #f0f0f0;background:#f5f9ff;position:relative;">
+          <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);background:#ff6f00;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:0 0 6px 6px;letter-spacing:1px;">POPOLARE</div>
+          <div style="font-size:13px;color:#0d47a1;font-weight:700;margin-bottom:12px;margin-top:14px;text-transform:uppercase;letter-spacing:1px;">5 maglie</div>
+          <div style="font-size:40px;font-weight:900;color:#0d47a1;">-17%</div>
+          <div style="font-size:13px;color:#0d47a1;margin-top:8px;font-weight:700;">di sconto</div>
+        </div>
+        <div style="padding:24px 16px;text-align:center;background:#fff8e1;position:relative;">
+          <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);background:#f9a825;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:0 0 6px 6px;letter-spacing:1px;">MIGLIOR SCONTO</div>
+          <div style="font-size:13px;color:#e65100;font-weight:700;margin-bottom:12px;margin-top:14px;text-transform:uppercase;letter-spacing:1px;">10 maglie</div>
+          <div style="font-size:40px;font-weight:900;color:#e65100;">-33%</div>
+          <div style="font-size:13px;color:#e65100;margin-top:8px;font-weight:700;">di sconto</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KIT COMPLETI -->
+    <div style="background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:28px;">
+      <div style="background:linear-gradient(135deg,#1b5e20,#388e3c);padding:18px 24px;display:flex;align-items:center;gap:12px;">
+        <span style="font-size:28px;">🩳</span>
+        <div>
+          <div style="font-size:18px;font-weight:800;color:#fff;">Kit Completi</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.75);">Maglia + pantaloncino</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);">
+        <div style="padding:24px 16px;text-align:center;border-right:1px solid #f0f0f0;">
+          <div style="font-size:13px;color:#888;font-weight:600;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">1 kit</div>
+          <div style="font-size:40px;">😊</div>
+          <div style="font-size:14px;font-weight:700;color:#555;margin-top:8px;">Prezzo base</div>
+          <div style="font-size:12px;color:#aaa;margin-top:4px;">Contattaci</div>
+        </div>
+        <div style="padding:24px 16px;text-align:center;border-right:1px solid #f0f0f0;background:#f1f8e9;position:relative;">
+          <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);background:#ff6f00;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:0 0 6px 6px;letter-spacing:1px;">POPOLARE</div>
+          <div style="font-size:13px;color:#2e7d32;font-weight:700;margin-bottom:12px;margin-top:14px;text-transform:uppercase;letter-spacing:1px;">5 kit</div>
+          <div style="font-size:40px;font-weight:900;color:#2e7d32;">-25%</div>
+          <div style="font-size:13px;color:#2e7d32;margin-top:8px;font-weight:700;">di sconto</div>
+        </div>
+        <div style="padding:24px 16px;text-align:center;background:#fff8e1;position:relative;">
+          <div style="position:absolute;top:0;left:50%;transform:translateX(-50%);background:#f9a825;color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:0 0 6px 6px;letter-spacing:1px;">MIGLIOR SCONTO</div>
+          <div style="font-size:13px;color:#e65100;font-weight:700;margin-bottom:12px;margin-top:14px;text-transform:uppercase;letter-spacing:1px;">10 kit</div>
+          <div style="font-size:40px;font-weight:900;color:#e65100;">-37%</div>
+          <div style="font-size:13px;color:#e65100;margin-top:8px;font-weight:700;">di sconto</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:14px;padding:28px 24px;text-align:center;">
+      <div style="font-size:22px;font-weight:800;color:#fff;margin-bottom:8px;">Vuoi fare un ordine di gruppo?</div>
+      <p style="font-size:14px;color:rgba(255,255,255,.8);margin-bottom:20px;">Contattaci su WhatsApp con la lista delle maglie e ti facciamo subito il preventivo!</p>
+      <a href="https://wa.me/393792126743?text=${encodeURIComponent('Ciao! Vorrei fare un ordine multiplo. Potete farmi un preventivo?')}" target="_blank"
+        style="display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:800;text-decoration:none;transition:all .2s;"
+        onmouseover="this.style.background='#1ebe5d'" onmouseout="this.style.background='#25d366'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Richiedi preventivo su WhatsApp
+      </a>
+    </div>
+
+  </div>`;
 }
 
 // ── PAGINA FAQ ───────────────────────────────────────────────────────────────
