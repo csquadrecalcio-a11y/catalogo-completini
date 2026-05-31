@@ -2603,11 +2603,42 @@ function renderCarrello(){
     </div>`;
   });
 
-  html+=`<div style="border-top:1px solid #f0f0f0;padding-top:16px;margin-top:8px;">
-    <div style="font-size:13px;color:#888;margin-bottom:14px;">Totale articoli: <b style="color:#0d47a1;">${carrello.length}</b> — Per il prezzo contattaci su WhatsApp</div>
+  html+=`<div style="border-top:2px solid #e3f2fd;padding-top:20px;margin-top:8px;">
+    <div style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:900;color:#0d47a1;margin-bottom:16px;">📦 Dati di spedizione</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+      <div><label style="font-size:11px;font-weight:700;color:#666;display:block;margin-bottom:4px;text-transform:uppercase;">👤 Nome</label>
+        <input id="cNome" type="text" placeholder="Mario" style="width:100%;padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;"></div>
+      <div><label style="font-size:11px;font-weight:700;color:#666;display:block;margin-bottom:4px;text-transform:uppercase;">👤 Cognome</label>
+        <input id="cCognome" type="text" placeholder="Rossi" style="width:100%;padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;"></div>
+    </div>
+    <div style="margin-bottom:10px;"><label style="font-size:11px;font-weight:700;color:#666;display:block;margin-bottom:4px;text-transform:uppercase;">📍 Indirizzo</label>
+      <input id="cIndirizzo" type="text" placeholder="Via Roma 1" style="width:100%;padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;"></div>
+    <div style="display:grid;grid-template-columns:1fr 60px 80px;gap:8px;margin-bottom:10px;">
+      <div><label style="font-size:11px;font-weight:700;color:#666;display:block;margin-bottom:4px;text-transform:uppercase;">🏙️ Città</label>
+        <input id="cCitta" type="text" placeholder="Napoli" style="width:100%;padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;"></div>
+      <div><label style="font-size:11px;font-weight:700;color:#666;display:block;margin-bottom:4px;text-transform:uppercase;">Prov.</label>
+        <input id="cProv" type="text" placeholder="NA" maxlength="2" style="width:100%;padding:10px 8px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;text-align:center;text-transform:uppercase;"></div>
+      <div><label style="font-size:11px;font-weight:700;color:#666;display:block;margin-bottom:4px;text-transform:uppercase;">📮 CAP</label>
+        <input id="cCap" type="text" placeholder="80100" maxlength="5" style="width:100%;padding:10px 8px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+      <div><label style="font-size:11px;font-weight:700;color:#666;display:block;margin-bottom:4px;text-transform:uppercase;">📱 Telefono</label>
+        <input id="cTel" type="tel" placeholder="333 1234567" style="width:100%;padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;"></div>
+      <div><label style="font-size:11px;font-weight:700;color:#666;display:block;margin-bottom:4px;text-transform:uppercase;">💳 Pagamento</label>
+        <select id="cPag" style="width:100%;padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;">
+          <option value="">Seleziona...</option>
+          <option>PostePay</option>
+          <option>Bonifico bancario</option>
+          <option>PayPal Amici e Familiari</option>
+        </select></div>
+    </div>
+
+    <div style="font-size:12px;color:#888;margin-bottom:12px;">Totale articoli: <b style="color:#0d47a1;">${carrello.length}</b> — Il prezzo verrà comunicato su WhatsApp</div>
+
     <button class="cart-checkout" onclick="checkoutCarrello()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Ordina tutto su WhatsApp
+      Invia ordine su WhatsApp
     </button>
     <button onclick="svuotaCarrello()" style="width:100%;background:none;border:1px solid #e0e0e0;color:#888;border-radius:10px;padding:10px;font-size:13px;cursor:pointer;margin-top:8px;">🗑️ Svuota carrello</button>
   </div>`;
