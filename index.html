@@ -419,6 +419,16 @@ body.dark .notifica-testo b{color:#90caf9;}
 .scroll-top.show{display:flex;}
 .scroll-top:hover{background:#1565c0;transform:translateY(-3px);}
 
+/* ── ANIMAZIONI MOBILE ── */
+@media(max-width:768px){
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+  .cat-card,.album-card,.photo-item,.review-card,.faq-item,.trust-item{transition:transform .15s ease,box-shadow .15s ease;}
+  .cat-card:active,.album-card:active,.photo-item:active{transform:scale(.95) !important;}
+  .hero-banner img{transition:transform .1s linear;}
+  .back-btn:active,.hero-btn-main:active,.wa-btn:active{transform:scale(.93);}
+}
+
 /* ── SWIPE MOBILE ── */
 
 /* ── HAMBURGER ── */
@@ -1983,6 +1993,46 @@ function updateOrderBtn(photoName){
   const msg=encodeURIComponent(`Ciao! Vorrei ordinare questa maglia 👇\n${link}\n\nPotete dirmi disponibilità e taglie?`);
   document.getElementById('lb-order-btn').href=`https://wa.me/393792126743?text=${msg}`;
 }
+
+// ── SCROLL REVEAL MOBILE ─────────────────────────────────────────────────────
+(function(){
+  if(window.innerWidth>768) return;
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:.12});
+
+  function applicaReveal(){
+    document.querySelectorAll('.cat-card,.album-card,.photo-item,.review-card,.faq-item,.trust-item,.how-step').forEach((el,i)=>{
+      el.classList.add('reveal');
+      el.style.transitionDelay=(i%6)*60+'ms';
+      obs.observe(el);
+    });
+  }
+
+  // Ri-applica ad ogni cambio pagina
+  const origAnima=window.animateGrid||function(){};
+  window.animateGrid=function(){
+    origAnima();
+    setTimeout(applicaReveal,100);
+  };
+  setTimeout(applicaReveal,600);
+})();
+
+// ── PARALLAX HERO MOBILE ──────────────────────────────────────────────────────
+(function(){
+  if(window.innerWidth>768) return;
+  window.addEventListener('scroll',()=>{
+    const hero=document.querySelector('.hero-banner img');
+    if(!hero) return;
+    const scroll=window.scrollY;
+    hero.style.transform=`translateY(${scroll*0.3}px)`;
+  },{passive:true});
+})();
 
 // ── SWIPE MOBILE LIGHTBOX ────────────────────────────────────────────────────
 (function(){
