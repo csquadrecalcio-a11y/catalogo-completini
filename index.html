@@ -206,6 +206,42 @@ body.dark .search-foto-item{background:#1e1e1e;border-color:#333;}
 .lb-zoom-hint{position:absolute;bottom:50px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.5);color:#fff;padding:4px 12px;border-radius:20px;font-size:12px;opacity:0;transition:opacity .3s;pointer-events:none;}
 .lb-zoom-hint.show{opacity:1;}
 
+/* ── LIGHTBOX ORDINA BTN ── */
+.lb-order-btn{position:absolute;top:16px;left:16px;background:#25d366;color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;text-decoration:none;transition:all .2s;z-index:10;}
+.lb-order-btn:hover{background:#1ebe5d;transform:scale(1.05);}
+.lb-order-btn svg{width:18px;height:18px;fill:#fff;flex-shrink:0;}
+
+/* ── COME ORDINARE ── */
+.how-section{background:#fff;border-radius:10px;padding:28px 24px;margin-bottom:24px;border:1px solid #e0e0e0;}
+body.dark .how-section{background:#1e1e1e;border-color:#333;}
+.how-title{font-size:18px;font-weight:700;color:#0d47a1;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+body.dark .how-title{color:#90caf9;}
+.how-steps{display:flex;gap:16px;flex-wrap:wrap;}
+.how-step{flex:1;min-width:160px;text-align:center;padding:16px 12px;background:#f5f9ff;border-radius:8px;border:1px solid #e3f2fd;position:relative;}
+body.dark .how-step{background:#1a2a4a;border-color:#2a3a5c;}
+.how-step-num{width:32px;height:32px;background:#0d47a1;color:#fff;border-radius:50%;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;}
+.how-step-icon{font-size:28px;margin-bottom:8px;}
+.how-step-title{font-size:14px;font-weight:700;color:#222;margin-bottom:4px;}
+body.dark .how-step-title{color:#e0e0e0;}
+.how-step-desc{font-size:12px;color:#666;}
+body.dark .how-step-desc{color:#888;}
+.how-step-arrow{position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:#0d47a1;font-size:20px;font-weight:700;z-index:1;}
+
+/* ── BANNER SCORREVOLE ── */
+.ticker{background:#0d47a1;color:#fff;padding:7px 0;overflow:hidden;white-space:nowrap;font-size:13px;font-weight:500;letter-spacing:.5px;}
+.ticker-inner{display:inline-flex;gap:0;animation:ticker 25s linear infinite;}
+.ticker-inner:hover{animation-play-state:paused;}
+.ticker-item{padding:0 32px;}
+.ticker-sep{opacity:.5;}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ── TORNA SU ── */
+.scroll-top{position:fixed;bottom:24px;left:24px;z-index:500;background:#0d47a1;color:#fff;border:none;width:42px;height:42px;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(13,71,161,.4);transition:all .2s;}
+.scroll-top.show{display:flex;}
+.scroll-top:hover{background:#1565c0;transform:translateY(-3px);}
+
+/* ── SWIPE MOBILE ── */
+
 /* ── HAMBURGER ── */
 .ham{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;}
 .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:90;}
@@ -222,6 +258,11 @@ body.dark .search-foto-item{background:#1e1e1e;border-color:#333;}
 </style>
 </head>
 <body>
+
+<!-- BANNER SCORREVOLE -->
+<div class="ticker">
+  <div class="ticker-inner" id="tickerInner"></div>
+</div>
 
 <!-- TOP BAR -->
 <div class="topbar">
@@ -317,8 +358,15 @@ body.dark .search-foto-item{background:#1e1e1e;border-color:#333;}
   <img id="lb-img" src="" alt="">
   <button class="lb-next" onclick="nextPhoto()">›</button>
   <div class="lb-counter" id="lb-counter"></div>
+  <a class="lb-order-btn" id="lb-order-btn" href="#" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Ordina su WhatsApp
+  </a>
   <div class="lb-zoom-hint" id="lb-zoom-hint">Doppio click per zoom</div>
 </div>
+
+<!-- TORNA SU -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
 // ── CATALOGO ─────────────────────────────────────────────────────────────────
@@ -472,7 +520,33 @@ function goHome(){
       <div class="cat-count">${cat.subs?cat.subs.length+' squadre':'Sfoglia'}</div>
     </div>`;
   });
-  main.innerHTML=html+`</div>`;
+  html+=`</div>
+  <div class="how-section">
+    <div class="how-title">🛒 Come ordinare</div>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-step-num">1</div>
+        <div class="how-step-icon">👀</div>
+        <div class="how-step-title">Scegli</div>
+        <div class="how-step-desc">Sfoglia il catalogo e trova la maglia che ti piace</div>
+        <span class="how-step-arrow">›</span>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">2</div>
+        <div class="how-step-icon">💬</div>
+        <div class="how-step-title">Contattaci</div>
+        <div class="how-step-desc">Scrivici su WhatsApp con il nome della maglia e la taglia</div>
+        <span class="how-step-arrow">›</span>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">3</div>
+        <div class="how-step-icon">📦</div>
+        <div class="how-step-title">Ricevi</div>
+        <div class="how-step-desc">Spedizione rapida direttamente a casa tua</div>
+      </div>
+    </div>
+  </div>`;
+  main.innerHTML=html;
 }
 
 // ── CATEGORIA ────────────────────────────────────────────────────────────────
@@ -649,18 +723,28 @@ function openLightbox(idx){
   img.src=fullUrl(currentPhotos[idx].id);
   document.getElementById('lb-counter').textContent=`${idx+1} / ${currentPhotos.length}`;
   document.getElementById('lightbox').classList.add('active');
+  updateOrderBtn(currentPhotos[idx].name||'maglia');
   showZoomHint();
 }
-function closeLightbox(){document.getElementById('lightbox').classList.remove('active');}
+function closeLightbox(){
+  document.getElementById('lb-img').classList.remove('zoomed');
+  document.getElementById('lightbox').classList.remove('active');
+}
 function prevPhoto(){
   currentPhotoIdx=(currentPhotoIdx-1+currentPhotos.length)%currentPhotos.length;
-  document.getElementById('lb-img').src=fullUrl(currentPhotos[currentPhotoIdx].id);
+  const img=document.getElementById('lb-img');
+  img.classList.remove('zoomed');
+  img.src=fullUrl(currentPhotos[currentPhotoIdx].id);
   document.getElementById('lb-counter').textContent=`${currentPhotoIdx+1} / ${currentPhotos.length}`;
+  updateOrderBtn(currentPhotos[currentPhotoIdx].name||'maglia');
 }
 function nextPhoto(){
   currentPhotoIdx=(currentPhotoIdx+1)%currentPhotos.length;
-  document.getElementById('lb-img').src=fullUrl(currentPhotos[currentPhotoIdx].id);
+  const img=document.getElementById('lb-img');
+  img.classList.remove('zoomed');
+  img.src=fullUrl(currentPhotos[currentPhotoIdx].id);
   document.getElementById('lb-counter').textContent=`${currentPhotoIdx+1} / ${currentPhotos.length}`;
+  updateOrderBtn(currentPhotos[currentPhotoIdx].name||'maglia');
 }
 document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===e.currentTarget)closeLightbox();});
 document.addEventListener('keydown',e=>{
@@ -886,6 +970,53 @@ document.addEventListener('mouseleave',e=>{
 
 // Animazione logo topbar al caricamento
 document.querySelector('.topbar-logo img').style.animation='pulse-blue 2s ease 1s 2';
+
+// ── TICKER SCORREVOLE ────────────────────────────────────────────────────────
+(function(){
+  const items=[
+    '🆕 Nuovi arrivi ogni settimana',
+    '⚡ Risposta rapida su WhatsApp',
+    '🌍 Spedizione in tutta Italia',
+    '✅ Catalogo sempre aggiornato',
+    '👕 Maglie • Tute • Completi',
+    '📲 Contattaci su WhatsApp o Telegram',
+  ];
+  const html=items.map(i=>`<span class="ticker-item">${i}</span><span class="ticker-sep">•</span>`).join('');
+  // Duplica per loop infinito
+  document.getElementById('tickerInner').innerHTML=html+html;
+})();
+
+// ── TORNA SU ─────────────────────────────────────────────────────────────────
+window.addEventListener('scroll',()=>{
+  const btn=document.getElementById('scrollTop');
+  if(window.scrollY>300) btn.classList.add('show');
+  else btn.classList.remove('show');
+});
+
+// ── BOTTONE ORDINA NEL LIGHTBOX ───────────────────────────────────────────────
+let currentPhotoName='';
+function updateOrderBtn(photoName){
+  const msg=encodeURIComponent(`Ciao! Sono interessato a questa maglia: ${photoName}\nPotete darmi info su disponibilità e taglie?`);
+  document.getElementById('lb-order-btn').href=`https://wa.me/393792126743?text=${msg}`;
+}
+
+// ── SWIPE MOBILE LIGHTBOX ────────────────────────────────────────────────────
+(function(){
+  const lb=document.getElementById('lightbox');
+  let startX=0,startY=0;
+  lb.addEventListener('touchstart',e=>{
+    startX=e.touches[0].clientX;
+    startY=e.touches[0].clientY;
+  },{passive:true});
+  lb.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-startX;
+    const dy=e.changedTouches[0].clientY-startY;
+    if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>50){
+      if(dx<0) nextPhoto();
+      else prevPhoto();
+    }
+  },{passive:true});
+})();
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
 buildSidebar();
