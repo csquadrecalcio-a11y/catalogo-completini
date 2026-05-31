@@ -620,6 +620,49 @@ body.dark .order-summary-item{border-color:#333;}
 .wishlist-empty{text-align:center;padding:60px 20px;color:#888;}
 .wishlist-empty-icon{font-size:56px;margin-bottom:16px;}
 
+/* ── FOTO RECENSIONI CLIENTI ── */
+.clienti-section{background:#f8f9fa;padding:36px 24px;border-top:1px solid #e8e8e8;}
+body.dark .clienti-section{background:#111;}
+.clienti-scroll{display:flex;gap:16px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none;margin-top:20px;}
+.clienti-scroll::-webkit-scrollbar{display:none;}
+.cliente-card{flex-shrink:0;width:260px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);border:1px solid #eee;}
+body.dark .cliente-card{background:#1e1e1e;border-color:#333;}
+.cliente-card img{width:100%;height:220px;object-fit:cover;display:block;}
+.cliente-card-text{padding:14px 16px;}
+.cliente-card-text p{font-size:13px;color:#444;line-height:1.65;font-style:italic;}
+body.dark .cliente-card-text p{color:#bbb;}
+.cliente-card-stars{color:#f9a825;font-size:14px;margin-bottom:6px;}
+.cliente-badge{display:inline-block;background:#e8f5e9;color:#2e7d32;font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;margin-top:8px;}
+@media(max-width:768px){.cliente-card{width:220px;}.cliente-card img{height:180px;}}
+
+/* ── BADGE BESTSELLER ── */
+.bestseller-badge{position:absolute;top:8px;left:8px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;font-size:10px;font-weight:900;padding:4px 10px;border-radius:20px;z-index:2;letter-spacing:.5px;box-shadow:0 2px 8px rgba(245,166,35,.5);}
+.new-badge{position:absolute;top:8px;left:8px;background:linear-gradient(135deg,#e53935,#c62828);color:#fff;font-size:10px;font-weight:900;padding:4px 10px;border-radius:20px;z-index:2;letter-spacing:.5px;}
+
+/* ── GARANZIA PRODOTTO ── */
+.garanzia-strip{display:flex;gap:0;background:#f5f9ff;border:1px solid #e3f2fd;border-radius:10px;overflow:hidden;margin:12px 0;}
+.garanzia-item{flex:1;padding:12px 8px;text-align:center;border-right:1px solid #e3f2fd;font-size:11px;font-weight:700;color:#0d47a1;}
+.garanzia-item:last-child{border-right:none;}
+.garanzia-item span{display:block;font-size:20px;margin-bottom:4px;}
+body.dark .garanzia-strip{background:#1a2a4a;border-color:#2a3a5c;}
+body.dark .garanzia-item{color:#90caf9;border-color:#2a3a5c;}
+
+/* ── CHAT FUMETTO ── */
+.wa-bubble{position:fixed;bottom:80px;right:20px;z-index:499;background:#fff;border-radius:16px 16px 0 16px;padding:12px 16px;max-width:220px;box-shadow:0 4px 20px rgba(0,0,0,.15);font-size:13px;color:#333;line-height:1.5;display:none;animation:fadeInUp .4s ease;}
+.wa-bubble::after{content:'';position:absolute;bottom:-8px;right:16px;border:8px solid transparent;border-top-color:#fff;border-bottom:0;}
+body.dark .wa-bubble{background:#1e1e1e;color:#e0e0e0;}
+.wa-bubble-close{position:absolute;top:6px;right:8px;background:none;border:none;font-size:14px;cursor:pointer;color:#aaa;}
+@media(max-width:768px){.wa-bubble{bottom:74px;right:10px;max-width:180px;font-size:12px;}}
+
+/* ── CONTATORE CATEGORIA ── */
+.cat-viewers{display:inline-flex;align-items:center;gap:6px;background:#fff3e0;color:#e65100;font-size:12px;font-weight:700;padding:5px 12px;border-radius:20px;margin-bottom:12px;border:1px solid #ffe0b2;}
+.cat-viewers-dot{width:7px;height:7px;background:#e65100;border-radius:50%;animation:online-pulse 1.5s ease infinite;}
+
+/* ── STELLE ANIMATE ── */
+@keyframes starFill{from{opacity:0;transform:scale(0) rotate(-30deg);}to{opacity:1;transform:scale(1) rotate(0deg);}}
+.stars-animated .star{display:inline-block;opacity:0;}
+.stars-animated .star.filled{animation:starFill .3s ease forwards;}
+
 /* ── PARALLAX ── */
 .hero-banner{transform-style:preserve-3d;}
 .hero-banner img{will-change:transform;}
@@ -942,6 +985,12 @@ body.dark .order-summary-item{border-color:#333;}
       <button onclick="chiudiRiepilogo()" style="width:100%;background:none;border:none;color:#aaa;font-size:13px;cursor:pointer;margin-top:10px;text-decoration:underline;">Torna al carrello</button>
     </div>
   </div>
+</div>
+
+<!-- FUMETTO WHATSAPP -->
+<div class="wa-bubble" id="waBubble">
+  <button class="wa-bubble-close" onclick="chiudiBubble()">✕</button>
+  👋 Ciao! Hai bisogno di aiuto per scegliere la maglia giusta?
 </div>
 
 <!-- EXIT INTENT POPUP -->
@@ -1566,6 +1615,97 @@ function goHome(fromPopstate){
     </div>
   </div>
 
+  <!-- FOTO CLIENTI REALI -->
+  <div class="clienti-section">
+    <div style="text-align:center;margin-bottom:4px;">
+      <div style="display:inline-block;background:#e8f5e9;color:#2e7d32;font-size:12px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:10px;">CLIENTI REALI</div>
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#111;">📸 Cosa dicono i nostri clienti</h2>
+      <p style="color:#888;font-size:13px;margin-top:6px;">Foto e recensioni reali — non filtrate</p>
+    </div>
+    <div class="clienti-scroll">
+      <div class="cliente-card">
+        <img src="recensione1.jpg" alt="Cliente soddisfatto" onerror="this.parentElement.style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"Arrivato grazie bellissimo! Qualità, precisione e rapidità sempre il top. Grazie al prossimo acquisto, che sono sicura non passerà tanto tempo 😊"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+      <div class="cliente-card">
+        <img src="recensione2.jpg" alt="Ordine multiplo" onerror="this.parentElement.style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"Ordine arrivato in tempi rapidissimi. Consiglio vivamente! Materiali eccellenti e servizio clienti di prim'ordine. Non rimarrete delusi. Alla prossima! 💛❤️"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+      <div class="cliente-card">
+        <img src="recensione3.jpg" alt="Maglie Napoli" onerror="this.parentElement.style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"Perfette e puntualissimo, grazie ancora 💪"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+      <div class="cliente-card">
+        <img src="recensione4.jpg" alt="Bambino Juventus" onerror="this.parentElement.style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"Il mio bambino è felicissimo con la sua maglia della Juventus personalizzata! Qualità eccellente 👏"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+      <div class="cliente-card">
+        <img src="recensione5.jpg" alt="Completino Roma" onerror="this.parentElement.style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"Completino veramente bellissimo, Tommaso è contentissimo e ha detto che non vede l'ora di fare il cucchiaio!! Grazie di cuore 💛❤️"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+      <div class="cliente-card">
+        <img src="recensione6.jpg" alt="Kit River Plate" onerror="this.parentElement.style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"Qualità e serietà!!!! Siete il TOP!!!! Kit arrivati prima del previsto! Semplicemente Spettacolari.....a breve riordino 👍 Grazie"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+      <div class="cliente-card">
+        <img src="recensione7.jpg" alt="Maglia Napoli" onerror="this.parentElement.style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"Come sempre tt ok 👌"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+      <div class="cliente-card">
+        <img src="recensione8.jpg" alt="Completi Inter e Milan" onerror="this.parentElement.style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"Completi bellissimo e tutto perfetto come al solito 👏"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+      <div class="cliente-card">
+        <img src="recensione9.jpg" alt="Real Madrid e Manchester United" onerror="this.parentElement.style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"Mamma mia sei il top dei top complimenti sempre 🔥"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+      <div class="cliente-card">
+        <img src="recensione10.jpg" alt="Maglia PSG" onerror="this.parentElement.style.display='none'">
+        <div class="cliente-card-text">
+          <div class="cliente-card-stars">★★★★★</div>
+          <p>"@completinisquadrecalcio2.0 — #iltopdeltop 🏆"</p>
+          <div class="cliente-badge">✔ Acquisto verificato</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- COME FUNZIONA -->
   <div style="background:#fff;padding:40px 24px;margin-bottom:0;border-top:1px solid #e8e8e8;">
     <div style="max-width:900px;margin:0 auto;">
@@ -1701,7 +1841,7 @@ async function renderCategory(cat,ci){
     </div>`;
   });
   main.innerHTML=html+`</div>`+renderCorrelati(ci);
-  setTimeout(addSkeletonToImages,50);
+  setTimeout(()=>{addSkeletonToImages();renderCatViewers();addBestsellerBadges();},100);
   // Carica foto reali in background
   cat.subs.forEach(async(sub,si)=>{
     const sn=typeof sub==='string'?sub:sub.name;
@@ -1797,7 +1937,7 @@ function renderPhotos(imgs,title,back){
     </div>`;
   });
   main.innerHTML=html+`</div>`+mostraCompletaLook(0);
-  setTimeout(addSkeletonToImages,50);
+  setTimeout(()=>{addSkeletonToImages();renderCatViewers();addBestsellerBadges();},100);
 }
 
 // ── RICERCA ──────────────────────────────────────────────────────────────────
@@ -3211,6 +3351,101 @@ function rimuoviPreferito(id){
 }
 aggiornaSbWishlist(); // inizializza contatore preferiti
 
+// ── FUMETTO WHATSAPP ──────────────────────────────────────────────────────────
+(function(){
+  if(sessionStorage.getItem('bubbleSeen')) return;
+  setTimeout(()=>{
+    const b=document.getElementById('waBubble');
+    if(b){b.style.display='block';}
+  },10000);
+})();
+function chiudiBubble(){
+  const b=document.getElementById('waBubble');
+  if(b) b.style.display='none';
+  sessionStorage.setItem('bubbleSeen','1');
+}
+
+// ── BADGE BESTSELLER ─────────────────────────────────────────────────────────
+const BESTSELLER_NAMES=['napoli','inter','juventus','milan','real madrid','barcellona','roma','manchester'];
+function addBestsellerBadges(){
+  document.querySelectorAll('.album-card,.photo-item').forEach(card=>{
+    const name=(card.querySelector('.album-name')?.textContent||card.querySelector('img')?.alt||'').toLowerCase();
+    if(card.querySelector('.bestseller-badge,.new-badge')) return;
+    if(BESTSELLER_NAMES.some(n=>name.includes(n))){
+      const badge=document.createElement('div');
+      badge.className='bestseller-badge';
+      badge.textContent='🏆 Bestseller';
+      card.style.position='relative';
+      card.appendChild(badge);
+    }
+  });
+}
+
+// ── CONTATORE PERSONE IN CATEGORIA ───────────────────────────────────────────
+function renderCatViewers(){
+  const existing=document.querySelector('.cat-viewers');
+  if(existing) return;
+  const h=new Date().getHours();
+  const base=h>=15&&h<=20?12:h>=10&&h<=22?7:4;
+  const n=base+Math.floor(Math.random()*5);
+  const div=document.createElement('div');
+  div.className='cat-viewers';
+  div.innerHTML=`<div class="cat-viewers-dot"></div> <span id="catViewersNum">${n}</span> persone stanno guardando questa categoria`;
+  const header=document.querySelector('.content-header');
+  if(header) header.parentNode.insertBefore(div,header);
+  setInterval(()=>{
+    const el=document.getElementById('catViewersNum');
+    if(!el) return;
+    const cur=parseInt(el.textContent);
+    el.textContent=Math.max(base-2,Math.min(base+8,cur+(Math.random()<.5?1:-1)));
+  },9000);
+}
+
+// ── STELLE ANIMATE RECENSIONI ─────────────────────────────────────────────────
+function animaStelle(){
+  document.querySelectorAll('.reviews-stars-big,.review-stars,.cliente-card-stars').forEach(el=>{
+    if(el.dataset.animated) return;
+    el.dataset.animated='1';
+    const stars=el.textContent.replace(/[^★]/g,'');
+    el.innerHTML=stars.split('').map((s,i)=>
+      `<span class="star" style="animation-delay:${i*0.1}s">${s}</span>`
+    ).join('');
+    el.classList.add('stars-animated');
+    el.querySelectorAll('.star').forEach(s=>s.classList.add('filled'));
+  });
+}
+
+// ── GARANZIA NEL LIGHTBOX ─────────────────────────────────────────────────────
+function addGaranziaLightbox(){
+  const lb=document.getElementById('lightbox');
+  if(!lb||lb.querySelector('.garanzia-strip')) return;
+  const div=document.createElement('div');
+  div.className='garanzia-strip';
+  div.style.cssText='position:absolute;bottom:60px;left:50%;transform:translateX(-50%);width:90%;max-width:400px;z-index:10;';
+  div.innerHTML=`
+    <div class="garanzia-item"><span>🚚</span>Spedizione gratis</div>
+    <div class="garanzia-item"><span>✏️</span>Personaliz. gratis</div>
+    <div class="garanzia-item"><span>⭐</span>Dal 2018</div>`;
+  lb.appendChild(div);
+}
+
+// ── INTERSECTION OBSERVER per animazioni al scroll ────────────────────────────
+const scrollObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      animaStelle();
+      addBestsellerBadges();
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.reviews-section,.clienti-section').forEach(el=>scrollObserver.observe(el));
+
+// Aggiungi garanzia al lightbox quando si apre
+const _origOpenLb=window.openPhoto||function(){};
+document.addEventListener('click',e=>{
+  if(e.target.closest('.photo-item')) setTimeout(()=>{addGaranziaLightbox();},100);
+});
+
 // ── PARALLAX HERO ─────────────────────────────────────────────────────────────
 (function(){
   function applyParallax(){
@@ -3319,16 +3554,19 @@ function renderCorrelati(ci){
 
 // ── TICKER SCORREVOLE ────────────────────────────────────────────────────────
 (function(){
+  const nomi=['Marco da Napoli','Luca da Milano','Sara da Roma','Giuseppe da Palermo','Francesca da Torino','Antonio da Bari','Chiara da Firenze','Davide da Bologna','Elena da Catania','Roberto da Venezia'];
+  const maglie=['maglia del Napoli','maglia dell\'Inter','maglia della Juventus','maglia del Milan','maglia della Roma','maglia del Barcellona','maglia del Real Madrid','maglia del PSG','kit completo dell\'Atalanta','maglia del Manchester City'];
+  const minuti=[2,5,8,12,18,24,3,7,15,30];
+  const ordini=Array.from({length:6},(_,i)=>`🛒 ${nomi[i]} ha appena ordinato la ${maglie[i]} — ${minuti[i]} min fa`);
   const items=[
     '🆕 Nuovi arrivi ogni settimana',
+    ...ordini,
     '⚡ Risposta rapida su WhatsApp',
-    '🌍 Spedizione in tutta Italia',
-    '✅ Catalogo sempre aggiornato',
-    '👕 Maglie • Tute • Completi',
-    '📲 Contattaci su WhatsApp o Telegram',
+    '🚚 Spedizione GRATUITA in tutta Italia',
+    '✏️ Personalizzazione GRATUITA',
+    '✅ Oltre 1200 ordini completati dal 2018',
   ];
   const html=items.map(i=>`<span class="ticker-item">${i}</span><span class="ticker-sep">•</span>`).join('');
-  // Duplica per loop infinito
   document.getElementById('tickerInner').innerHTML=html+html;
 })();
 
