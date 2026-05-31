@@ -131,7 +131,12 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .online-dot{width:8px;height:8px;background:#4caf50;border-radius:50%;flex-shrink:0;}
 @keyframes online-pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(76,175,80,.6);}50%{opacity:.8;box-shadow:0 0 0 4px rgba(76,175,80,0);}}
 .online-dot{animation:online-pulse 2s ease infinite;}
-@media(max-width:768px){.online-counter{display:none;}}
+.online-bar-mobile{display:none;align-items:center;justify-content:center;gap:8px;background:#1b5e20;color:#fff;font-size:12px;font-weight:700;padding:6px 16px;letter-spacing:.3px;}
+.online-bar-mobile .online-dot{width:7px;height:7px;}
+@media(max-width:768px){
+  .online-counter{display:none;}
+  .online-bar-mobile{display:flex;}
+}
 
 /* ── TOP BAR ── */
 .topbar{background:#0d47a1;padding:0 24px;height:58px;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2);}
@@ -700,6 +705,12 @@ body.dark .completa-card-name{color:#ccc;}
   <div class="splash-title">Completini Squadre Calcio 2.0</div>
   <div class="splash-sub">DAL 2018 • CATALOGO UFFICIALE</div>
   <div class="splash-bar"><div class="splash-bar-fill"></div></div>
+</div>
+
+<!-- BARRA ONLINE MOBILE -->
+<div class="online-bar-mobile" id="onlineBarMobile">
+  <div class="online-dot"></div>
+  <span id="onlineNumMobile">--</span> persone stanno guardando il catalogo ora
 </div>
 
 <!-- TRUST BADGES -->
@@ -2615,14 +2626,19 @@ function paginaTaglie(){
     if(h>=15&&h<20) return 35; // pomeriggio (picco)
     return 22;                  // sera
   }
+  const elM=document.getElementById('onlineNumMobile');
   let current=getBase()+Math.floor(Math.random()*6);
-  el.textContent=current;
+  function update(n){
+    el.textContent=n;
+    if(elM) elM.textContent=n;
+  }
+  update(current);
   setInterval(()=>{
     const base=getBase();
     const delta=Math.random()<.5?1:-1;
     current=Math.max(base-5, Math.min(base+12, current+delta));
-    el.textContent=current;
-  }, 8000); // cambia ogni 8 secondi
+    update(current);
+  }, 8000);
 })();
 
 // ── TICKER SCORREVOLE ────────────────────────────────────────────────────────
