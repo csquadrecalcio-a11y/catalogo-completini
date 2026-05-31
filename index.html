@@ -3150,19 +3150,24 @@ function inviaRiepilogoWA(){
 }
 
 // ── PAGINA PREFERITI ─────────────────────────────────────────────────────────
-let wishlist=JSON.parse(localStorage.getItem('wishlist')||'[]');
-function salvaWishlist(){localStorage.setItem('wishlist',JSON.stringify(wishlist));}
-function toggleWish(photoId,photoName,thumbSrc,el){
-  const idx=wishlist.findIndex(w=>w.id===photoId);
-  if(idx>=0){wishlist.splice(idx,1);el.classList.remove('wished');}
-  else{wishlist.push({id:photoId,name:photoName,thumb:thumbSrc});el.classList.add('wished');}
-  salvaWishlist();
-  aggiornaSbWishlist();
-}
+function salvaWishlist(){localStorage.setItem('csc-wishlist',JSON.stringify(wishlist));}
+// Aggiunge supporto nomi/thumb alla wishlist esistente
+let wishlistMeta=JSON.parse(localStorage.getItem('csc-wishlist-meta')||'{}');
 function aggiornaSbWishlist(){
   const lbl=document.getElementById('sbWishlistLabel');
   if(lbl) lbl.textContent=wishlist.length>0?`Preferiti (${wishlist.length})`:'Preferiti';
 }
+// Salva meta dati (nome+thumb) quando si aggiunge ai preferiti
+const _origToggleWish=toggleWish;
+toggleWish=function(e,photoId){
+  const photo=currentPhotos&&currentPhotos[currentPhotoIdx];
+  if(photo&&photo.id===photoId){
+    wishlistMeta[photoId]={name:photo.name||'Maglia',thumb:thumbUrl(photoId)};
+    localStorage.setItem('csc-wishlist-meta',JSON.stringify(wishlistMeta));
+  }
+  _origToggleWish(e,photoId);
+  aggiornaSbWishlist();
+};
 function paginaWishlist(){
   navStack=[];updateBreadcrumb();
   document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('active'));
@@ -3184,12 +3189,15 @@ function paginaWishlist(){
       <p style="color:#888;font-size:13px;margin-top:4px;">${wishlist.length} maglia${wishlist.length>1?'e':''} salvata${wishlist.length>1?'e':''}</p>
     </div>
     <div class="photo-grid">`;
-  wishlist.forEach(item=>{
+  wishlist.forEach(id=>{
+    const meta=wishlistMeta[id]||{};
+    const thumb=`https://drive.google.com/thumbnail?id=${id}&sz=w400`;
+    const name=meta.name||'Maglia';
     html+=`<div class="photo-item">
-      <img src="${item.thumb}" alt="${item.name}" loading="lazy">
+      <img src="${thumb}" alt="${name}" loading="lazy">
       <div style="padding:8px 10px;display:flex;align-items:center;justify-content:space-between;">
-        <span style="font-size:12px;font-weight:600;color:#333;">${item.name}</span>
-        <button onclick="rimuoviPreferito('${item.id}')" style="background:none;border:none;cursor:pointer;font-size:16px;">🗑️</button>
+        <span style="font-size:12px;font-weight:600;color:#333;">${name}</span>
+        <button onclick="rimuoviPreferito('${id}')" style="background:none;border:none;cursor:pointer;font-size:16px;">🗑️</button>
       </div>
     </div>`;
   });
@@ -3198,10 +3206,10 @@ function paginaWishlist(){
   window.scrollTo(0,0);
 }
 function rimuoviPreferito(id){
-  wishlist=wishlist.filter(w=>w.id!==id);
+  wishlist=wishlist.filter(w=>w!==id);
   salvaWishlist();aggiornaSbWishlist();paginaWishlist();
 }
-aggiornaSbWishlist();
+aggiornaSbWishlist(); // inizializza contatore preferiti
 
 // ── PARALLAX HERO ─────────────────────────────────────────────────────────────
 (function(){
