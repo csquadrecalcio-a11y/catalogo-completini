@@ -3513,7 +3513,7 @@ function renderCarrello(){
 
     <div style="font-size:12px;color:#888;margin-bottom:12px;">Totale articoli: <b style="color:#0d47a1;">${carrello.length}</b> — Il prezzo verrà comunicato su WhatsApp</div>
 
-    <button class="cart-checkout" onclick="apriRiepilogo()">
+    <button class="cart-checkout" onclick="checkoutCarrello()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Invia ordine su WhatsApp
     </button>
@@ -3525,15 +3525,52 @@ function renderCarrello(){
 
 function checkoutCarrello(){
   if(!carrello.length) return;
-  let msg=`🛒 *ORDINE MULTIPLO — ${carrello.length} articoli*\n\n`;
+
+  // Leggi dati spedizione
+  const nome=(document.getElementById('cNome')?.value||'').trim();
+  const cognome=(document.getElementById('cCognome')?.value||'').trim();
+  const indirizzo=(document.getElementById('cIndirizzo')?.value||'').trim();
+  const citta=(document.getElementById('cCitta')?.value||'').trim();
+  const prov=(document.getElementById('cProv')?.value||'').trim();
+  const cap=(document.getElementById('cCap')?.value||'').trim();
+  const tel=(document.getElementById('cTel')?.value||'').trim();
+  const pag=(document.getElementById('cPag')?.value||'').trim();
+
+  // Validazione campi obbligatori
+  if(!nome||!cognome){mostraToast('⚠️ Inserisci nome e cognome!');document.getElementById('cNome')?.focus();return;}
+  if(!indirizzo||!citta||!cap){mostraToast('⚠️ Inserisci i dati di spedizione!');document.getElementById('cIndirizzo')?.focus();return;}
+  if(!tel){mostraToast('⚠️ Inserisci il numero di telefono!');document.getElementById('cTel')?.focus();return;}
+  if(!pag){mostraToast('⚠️ Seleziona il metodo di pagamento!');document.getElementById('cPag')?.focus();return;}
+
+  // Costruisci messaggio
+  let msg=`🛒 *NUOVO ORDINE — Completini Squadre Calcio 2.0*\n`;
+  msg+=`━━━━━━━━━━━━━━━━━━━━━\n\n`;
+
+  msg+=`📦 *ARTICOLI (${carrello.length}):*\n`;
   carrello.forEach((item,i)=>{
-    msg+=`*${i+1}.* ${item.name}\n`;
+    msg+=`\n*${i+1}. ${item.name}*\n`;
     msg+=`   📏 Taglia: ${item.taglia}\n`;
     if(item.personalizza) msg+=`   ✏️ ${item.personalizza}\n`;
-    msg+=`   🖼️ https://drive.google.com/thumbnail?id=${item.id}&sz=w800\n\n`;
+    msg+=`   🖼️ https://drive.google.com/thumbnail?id=${item.id}&sz=w800\n`;
   });
-  msg+=`---\nPer favore comunicatemi il totale e i dati per la spedizione.`;
+
+  msg+=`\n━━━━━━━━━━━━━━━━━━━━━\n`;
+  msg+=`📍 *DATI DI SPEDIZIONE:*\n`;
+  msg+=`👤 ${nome} ${cognome}\n`;
+  msg+=`🏠 ${indirizzo}\n`;
+  msg+=`🏙️ ${citta}${prov?' ('+prov+')':''} — ${cap}\n`;
+  msg+=`📱 ${tel}\n`;
+  msg+=`💳 Pagamento: ${pag}\n`;
+  msg+=`🚚 Spedizione: GRATUITA\n`;
+  msg+=`\n━━━━━━━━━━━━━━━━━━━━━\n`;
+  msg+=`Potete comunicarmi il totale? Grazie! 😊`;
+
   window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`,'_blank');
+
+  // Svuota carrello dopo invio
+  carrello=[];salvaCarrello();aggiornaCartBadge();
+  chiudiCarrello();
+  mostraToast('✅ Ordine inviato su WhatsApp!');
 }
 
 function svuotaCarrello(){
