@@ -105,27 +105,30 @@ body{background:#f5f5f5;color:#222;font-family:'Roboto',sans-serif;min-height:10
 .cat-count{font-size:12px;color:#888;margin-top:2px;}
 
 /* ── HERO BANNER ── */
-.hero-banner{position:relative;width:100%;height:380px;border-radius:12px;overflow:hidden;margin-bottom:16px;box-shadow:0 8px 32px rgba(0,0,0,.3);}
-.hero-banner img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform 8s ease;}
-.hero-banner:hover img{transform:scale(1.04);}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,30,.75) 0%,rgba(13,71,161,.4) 50%,rgba(0,0,0,.2) 100%);}
+.hero-banner{position:relative;width:100%;height:460px;overflow:hidden;margin-bottom:20px;box-shadow:0 8px 40px rgba(0,0,0,.35);}
+.hero-banner img{width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;transition:transform 10s ease;}
+.hero-banner:hover img{transform:scale(1.03);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,20,.85) 0%,rgba(0,0,20,.6) 50%,rgba(0,0,20,.15) 100%);}
 .hero-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
-.hero-particle{position:absolute;width:3px;height:3px;background:rgba(255,255,255,.6);border-radius:50%;animation:floatUp linear infinite;}
-@keyframes floatUp{0%{transform:translateY(100%) translateX(0);opacity:0;}10%{opacity:1;}90%{opacity:.5;}100%{transform:translateY(-100px) translateX(20px);opacity:0;}}
-.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:40px 44px;}
-.hero-badge{display:inline-block;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:12px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:14px;width:fit-content;animation:fadeInUp .6s ease both;}
-.hero-title{font-family:'Roboto',sans-serif;font-size:clamp(32px,5vw,58px);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-1px;text-shadow:0 4px 20px rgba(0,0,0,.4);margin-bottom:12px;animation:fadeInUp .6s ease .15s both;}
-.hero-sub{font-size:14px;color:rgba(255,255,255,.85);letter-spacing:.5px;margin-bottom:24px;max-width:500px;animation:fadeInUp .6s ease .3s both;}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fadeInUp .6s ease .45s both;}
-.hero-btn-main{background:#0d47a1;color:#fff;border:none;padding:13px 26px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;transition:all .25s;box-shadow:0 4px 16px rgba(13,71,161,.5);}
-.hero-btn-main:hover{background:#1565c0;transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,71,161,.6);}
-.hero-btn-sec{background:rgba(255,255,255,.15);backdrop-filter:blur(8px);color:#fff;border:1px solid rgba(255,255,255,.4);padding:13px 22px;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:all .25s;}
-.hero-btn-sec:hover{background:rgba(255,255,255,.25);transform:translateY(-2px);}
+.hero-particle{position:absolute;width:3px;height:3px;background:rgba(255,255,255,.5);border-radius:50%;animation:floatUp linear infinite;}
+@keyframes floatUp{0%{transform:translateY(100%);opacity:0;}10%{opacity:1;}90%{opacity:.4;}100%{transform:translateY(-120px) translateX(15px);opacity:0;}}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:50px 54px;max-width:620px;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(13,71,161,.7);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:18px;width:fit-content;animation:fadeInUp .5s ease both;}
+.hero-title{font-size:clamp(36px,4.5vw,64px);font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;text-shadow:0 2px 30px rgba(0,0,0,.5);margin-bottom:14px;animation:fadeInUp .5s ease .1s both;}
+.hero-title span{color:#4da6f5;}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.8);line-height:1.6;margin-bottom:28px;animation:fadeInUp .5s ease .2s both;}
+.hero-stats{display:flex;gap:24px;margin-bottom:28px;animation:fadeInUp .5s ease .3s both;}
+.hero-stat{text-align:center;}
+.hero-stat-num{font-size:22px;font-weight:900;color:#fff;}
+.hero-stat-label{font-size:11px;color:rgba(255,255,255,.6);letter-spacing:1px;text-transform:uppercase;}
+.hero-btn-main{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#0d47a1;border:none;padding:15px 32px;border-radius:8px;font-size:15px;font-weight:800;cursor:pointer;transition:all .25s;box-shadow:0 4px 20px rgba(0,0,0,.3);width:fit-content;animation:fadeInUp .5s ease .35s both;letter-spacing:.5px;}
+.hero-btn-main:hover{background:#e3f2fd;transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.4);}
+.hero-btn-main svg{width:18px;height:18px;fill:#0d47a1;}
 @media(max-width:768px){
-  .hero-banner{height:240px;}
-  .hero-content{padding:20px 20px;}
-  .hero-sub{display:none;}
-  .hero-btn-main,.hero-btn-sec{padding:10px 16px;font-size:13px;}
+  .hero-banner{height:260px;}
+  .hero-content{padding:24px 20px;max-width:100%;}
+  .hero-sub,.hero-stats{display:none;}
+  .hero-btn-main{padding:12px 22px;font-size:13px;}
 }
 
 /* ── BANNER NUOVI ARRIVI ── */
@@ -685,12 +688,17 @@ function goHome(){
     <div class="hero-particles" id="heroParticles"></div>
     <div class="hero-content">
       <div class="hero-badge">⚽ Catalogo Ufficiale 2025/2026</div>
-      <h1 class="hero-title">Completini<br>Squadre Calcio</h1>
-      <div class="hero-sub">Le migliori maglie dei top club europei • Qualità premium • Spedizione rapida</div>
-      <div class="hero-btns">
-        <button class="hero-btn-main" onclick="openCategory(1)">Sfoglia il catalogo →</button>
-        <button class="hero-btn-sec" onclick="openCategory(0)">🆕 Nuovi arrivi</button>
+      <h1 class="hero-title">Completini<br><span>Squadre Calcio</span></h1>
+      <div class="hero-sub">Le migliori maglie dei top club europei.<br>Qualità premium • Personalizzazione • Spedizione rapida in tutta Italia.</div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num">500+</div><div class="hero-stat-label">Maglie</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">50+</div><div class="hero-stat-label">Club</div></div>
+        <div class="hero-stat"><div class="hero-stat-num">Dal 2018</div><div class="hero-stat-label">Online</div></div>
       </div>
+      <button class="hero-btn-main" onclick="openCategory(1)">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        Sfoglia il catalogo
+      </button>
     </div>
   </div>
 
