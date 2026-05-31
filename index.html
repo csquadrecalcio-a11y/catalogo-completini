@@ -509,6 +509,14 @@ body.dark .notifica-testo b{color:#90caf9;}
       <span class="sb-flag">ℹ️</span>
       <span class="sb-name">Come ordinare</span>
     </div>
+    <div class="sb-item" id="sb-faq" onclick="paginaFaq()">
+      <span class="sb-flag">❓</span>
+      <span class="sb-name">FAQ</span>
+    </div>
+    <div class="sb-item" id="sb-tracking" onclick="paginaTracking()">
+      <span class="sb-flag">📦</span>
+      <span class="sb-name">Traccia pacco</span>
+    </div>
     <div class="sb-divider" style="height:1px;background:#e0e0e0;margin:4px 0;"></div>
     <div id="sb-cats"></div>
   </div>
@@ -863,36 +871,7 @@ function goHome(){
     </div>
   </div>
 
-  <!-- FAQ -->
-  <div class="faq-section">
-    <div class="faq-title">❓ Domande frequenti</div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Quanto tempo ci vuole per la spedizione? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">La spedizione avviene generalmente entro 3-7 giorni lavorativi in tutta Italia. Riceverai un messaggio di conferma con il tracking non appena il pacco viene spedito.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Come faccio a scegliere la taglia giusta? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Le taglie seguono lo standard europeo (S, M, L, XL, XXL). Se hai dubbi, contattaci su WhatsApp con le tue misure e ti consigliamo noi la taglia più adatta.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Posso personalizzare la maglia con nome e numero? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Sì! Basta aprire una foto dal catalogo e premere "✏️ Personalizza". Puoi scegliere nome, numero e patch. Il costo della personalizzazione verrà comunicato su WhatsApp.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Come si effettua il pagamento? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Il pagamento avviene tramite bonifico bancario, PayPal o contanti alla consegna. Tutti i dettagli ti verranno comunicati su WhatsApp dopo aver confermato l'ordine.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Le maglie sono di buona qualità? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Offriamo maglie di alta qualità, molto simili alle originali. Ogni prodotto viene controllato prima della spedizione. Oltre 500 clienti soddisfatti dal 2018 parlano per noi!</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">Posso ordinare per un bambino? <span class="faq-arrow">▾</span></div>
-        <div class="faq-a">Sì, abbiamo anche taglie per bambini. Contattaci su WhatsApp indicando l'età del bambino e ti indicheremo le taglie disponibili.</div>
-      </div>
-    </div>
-  </div>`;
+`;
 
   main.innerHTML=html;
 }
@@ -1574,6 +1553,175 @@ function creaParticelle(){
 // Richiama quando si torna alla home
 const _origGoHome=goHome;
 // le particelle vengono create dopo il render
+
+// ── PAGINA TRACCIA PACCO ─────────────────────────────────────────────────────
+function paginaTracking(){
+  navStack=[];updateBreadcrumb();
+  document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('active'));
+  document.getElementById('sb-tracking').classList.add('active');
+
+  document.getElementById('main').innerHTML=`
+  <div style="max-width:600px;margin:0 auto;">
+
+    <div style="text-align:center;padding:28px 0 28px;">
+      <div style="font-size:48px;margin-bottom:12px;">📦</div>
+      <h1 style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#0d47a1;">Traccia il tuo pacco</h1>
+      <p style="color:#888;font-size:14px;margin-top:6px;">Inserisci il codice di tracking che ti abbiamo inviato su WhatsApp</p>
+    </div>
+
+    <div style="background:#fff;border-radius:14px;padding:28px 24px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:20px;">
+      <label style="display:block;font-size:13px;font-weight:700;color:#444;margin-bottom:10px;">🔢 Codice di tracking</label>
+      <div style="display:flex;gap:0;">
+        <input id="trackingInput" type="text" placeholder="Es. RA123456789IT oppure 1234567890"
+          style="flex:1;padding:14px 18px;border:2px solid #e0e0e0;border-radius:8px 0 0 8px;font-size:15px;outline:none;transition:border-color .2s;"
+          onfocus="this.style.borderColor='#0d47a1'" onblur="this.style.borderColor='#e0e0e0'"
+          onkeydown="if(event.key==='Enter')cercaPacco()">
+        <button onclick="cercaPacco()" style="background:#0d47a1;color:#fff;border:none;padding:14px 24px;border-radius:0 8px 8px 0;font-size:14px;font-weight:700;cursor:pointer;transition:background .2s;white-space:nowrap;" onmouseover="this.style.background='#1565c0'" onmouseout="this.style.background='#0d47a1'">
+          Traccia →
+        </button>
+      </div>
+      <div id="trackingResult" style="margin-top:16px;display:none;"></div>
+    </div>
+
+    <div style="background:#fff;border-radius:14px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,0,0,.06);">
+      <div style="font-size:14px;font-weight:700;color:#333;margin-bottom:14px;">ℹ️ Come funziona</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;align-items:flex-start;gap:12px;font-size:13px;color:#555;">
+          <span style="background:#e3f2fd;color:#0d47a1;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;">1</span>
+          Dopo aver ordinato, ti inviamo il codice tracking su WhatsApp
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px;font-size:13px;color:#555;">
+          <span style="background:#e3f2fd;color:#0d47a1;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;">2</span>
+          Il tracking si attiva dopo <b>10-15 giorni lavorativi</b> dalla spedizione
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:12px;font-size:13px;color:#555;">
+          <span style="background:#e3f2fd;color:#0d47a1;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;">3</span>
+          Inserisci il codice qui sopra e ti portiamo direttamente alla pagina del corriere
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
+      <a href="https://www.poste.it/cerca/index.html#/risultati-spedizioni" target="_blank"
+        style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:16px;text-align:center;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow=''">
+        <div style="font-size:28px;margin-bottom:6px;">📮</div>
+        <div style="font-size:13px;font-weight:700;color:#222;">Poste Italiane</div>
+        <div style="font-size:11px;color:#888;margin-top:2px;">Traccia direttamente →</div>
+      </a>
+      <a href="https://www.dhl.com/it-it/home/tracking.html" target="_blank"
+        style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:16px;text-align:center;text-decoration:none;transition:box-shadow .2s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow=''">
+        <div style="font-size:28px;margin-bottom:6px;">🚚</div>
+        <div style="font-size:13px;font-weight:700;color:#222;">DHL</div>
+        <div style="font-size:11px;color:#888;margin-top:2px;">Traccia direttamente →</div>
+      </a>
+    </div>
+
+  </div>`;
+}
+
+function cercaPacco(){
+  const codice=document.getElementById('trackingInput').value.trim().toUpperCase();
+  const result=document.getElementById('trackingResult');
+
+  if(!codice){
+    result.style.display='block';
+    result.innerHTML=`<div style="background:#fff3e0;border:1px solid #ffcc02;border-radius:8px;padding:12px 16px;font-size:13px;color:#e65100;">⚠️ Inserisci il codice di tracking prima di procedere.</div>`;
+    return;
+  }
+
+  // Riconosce il corriere dal formato del codice
+  let url='';
+  let corriere='';
+  let icona='';
+
+  // Poste Italiane: inizia con 2 lettere + 9 cifre + 2 lettere (es. RA123456789IT)
+  if(/^[A-Z]{2}\d{9}[A-Z]{2}$/.test(codice)){
+    url=`https://www.poste.it/cerca/index.html#/risultati-spedizioni/${codice}`;
+    corriere='Poste Italiane';
+    icona='📮';
+  }
+  // DHL: numeri (10-12 cifre) o codice alfanumerico
+  else if(/^\d{10,12}$/.test(codice)||/^[A-Z0-9]{10,15}$/.test(codice)){
+    url=`https://www.dhl.com/it-it/home/tracking/tracking-parcel.html?submit=1&tracking-id=${codice}`;
+    corriere='DHL';
+    icona='🚚';
+  }
+  // Formato non riconosciuto — mostra entrambi
+  else{
+    result.style.display='block';
+    result.innerHTML=`
+      <div style="background:#f5f9ff;border:1px solid #bbdefb;border-radius:8px;padding:14px 16px;">
+        <div style="font-size:13px;font-weight:700;color:#0d47a1;margin-bottom:10px;">Seleziona il corriere manualmente:</div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="https://www.poste.it/cerca/index.html#/risultati-spedizioni/${codice}" target="_blank"
+            style="flex:1;background:#0d47a1;color:#fff;padding:10px 16px;border-radius:8px;text-align:center;text-decoration:none;font-size:13px;font-weight:700;">📮 Poste Italiane</a>
+          <a href="https://www.dhl.com/it-it/home/tracking/tracking-parcel.html?submit=1&tracking-id=${codice}" target="_blank"
+            style="flex:1;background:#FFCC00;color:#222;padding:10px 16px;border-radius:8px;text-align:center;text-decoration:none;font-size:13px;font-weight:700;">🚚 DHL</a>
+        </div>
+      </div>`;
+    return;
+  }
+
+  result.style.display='block';
+  result.innerHTML=`
+    <div style="background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <div>
+        <div style="font-size:13px;font-weight:700;color:#2e7d32;">${icona} Corriere rilevato: <b>${corriere}</b></div>
+        <div style="font-size:12px;color:#555;margin-top:3px;">Codice: ${codice}</div>
+      </div>
+      <a href="${url}" target="_blank"
+        style="background:#2e7d32;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:700;white-space:nowrap;">
+        Traccia ora →
+      </a>
+    </div>`;
+}
+
+// ── PAGINA FAQ ───────────────────────────────────────────────────────────────
+function paginaFaq(){
+  navStack=[];updateBreadcrumb();
+  document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('active'));
+  document.getElementById('sb-faq').classList.add('active');
+
+  const faqs=[
+    {q:'Quanto tempo ci vuole per la spedizione?', a:'La spedizione avviene generalmente entro <b>10-15 giorni lavorativi</b> in tutta Italia, a seconda del corriere utilizzato. Riceverai un messaggio con il tracking non appena il pacco viene spedito.'},
+    {q:'Come si effettua il pagamento?', a:'Accettiamo: <b>ricarica PostePay</b>, <b>bonifico bancario</b> e <b>PayPal Amici e Familiari</b>. I dettagli ti vengono comunicati su WhatsApp dopo aver confermato l\'ordine.'},
+    {q:'Come scelgo la taglia giusta?', a:'Le taglie seguono lo standard europeo (S, M, L, XL, XXL). Se hai dubbi, contattaci su WhatsApp con le tue misure e ti consigliamo noi la taglia più adatta.'},
+    {q:'Posso personalizzare la maglia con nome e numero?', a:'Sì! Apri una foto dal catalogo e premi <b>"✏️ Personalizza"</b>. Puoi scegliere nome, numero e patch. Il costo della personalizzazione verrà comunicato su WhatsApp.'},
+    {q:'Posso ordinare per un bambino?', a:'Sì, abbiamo taglie per bambini. Contattaci su WhatsApp indicando l\'età del bambino e ti indicheremo le taglie disponibili.'},
+    {q:'Come faccio a vedere una maglia specifica?', a:'Usa la barra di ricerca in alto — digita il nome della squadra (es. "Napoli" o "Real Madrid") e premi Cerca. Oppure naviga per categoria dalla sidebar.'},
+    {q:'Posso ordinare più maglie insieme?', a:'Certamente! Puoi ordinare quante maglie vuoi in un unico ordine. Scrivici su WhatsApp con l\'elenco delle maglie desiderate.'},
+    {q:'Come posso contattarvi per info?', a:'Siamo disponibili su <b>WhatsApp</b> al +39 379 212 6743, su <b>Telegram</b> @csc2_0 e su <b>Instagram</b> @csc_duepuntozero. Rispondiamo sempre rapidamente!'},
+  ];
+
+  let html=`<div style="max-width:750px;margin:0 auto;">
+    <div style="text-align:center;padding:28px 0 24px;">
+      <div style="font-size:44px;margin-bottom:10px;">❓</div>
+      <h1 style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#0d47a1;">Domande Frequenti</h1>
+      <p style="color:#888;font-size:14px;margin-top:6px;">Trova risposta alle domande più comuni</p>
+    </div>
+    <div class="faq-list" style="margin-bottom:32px;">`;
+
+  faqs.forEach(f=>{
+    html+=`<div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">${f.q} <span class="faq-arrow">▾</span></div>
+      <div class="faq-a">${f.a}</div>
+    </div>`;
+  });
+
+  html+=`</div>
+    <div style="background:#e3f2fd;border-radius:12px;padding:24px;text-align:center;">
+      <div style="font-size:18px;font-weight:700;color:#0d47a1;margin-bottom:8px;">Non hai trovato risposta?</div>
+      <p style="font-size:13px;color:#555;margin-bottom:16px;">Contattaci direttamente — rispondiamo in pochi minuti!</p>
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <a href="https://wa.me/393792126743" target="_blank" style="background:#25d366;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">💬 WhatsApp</a>
+        <a href="https://t.me/csc2_0" target="_blank" style="background:#0088cc;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">✈️ Telegram</a>
+        <a href="https://instagram.com/csc_duepuntozero" target="_blank" style="background:#e1306c;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">📸 Instagram</a>
+      </div>
+    </div>
+  </div>`;
+
+  document.getElementById('main').innerHTML=html;
+}
 
 // ── TICKER SCORREVOLE ────────────────────────────────────────────────────────
 (function(){
