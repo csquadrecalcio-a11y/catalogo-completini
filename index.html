@@ -5,10 +5,86 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Completini Squadre Calcio 2.0</title>
 <link rel="icon" type="image/png" href="logo.png">
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{background:#f5f5f5;color:#222;font-family:'Roboto',sans-serif;min-height:100vh;}
+body{background:#f0f2f5;color:#222;font-family:'Roboto',sans-serif;min-height:100vh;}
+
+/* ── SPLASH SCREEN ── */
+.splash{position:fixed;inset:0;background:#0d47a1;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;transition:opacity .6s ease,visibility .6s ease;}
+.splash.hide{opacity:0;visibility:hidden;}
+.splash img{width:90px;height:90px;border-radius:50%;border:3px solid rgba(255,255,255,.3);animation:splashPulse 1s ease infinite alternate;}
+.splash-title{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#fff;letter-spacing:2px;text-align:center;}
+.splash-bar{width:200px;height:3px;background:rgba(255,255,255,.2);border-radius:3px;overflow:hidden;}
+.splash-bar-fill{height:100%;background:#fff;border-radius:3px;animation:splashLoad 1.8s ease forwards;}
+@keyframes splashPulse{from{box-shadow:0 0 0 0 rgba(255,255,255,.4);}to{box-shadow:0 0 0 16px rgba(255,255,255,0);}}
+@keyframes splashLoad{from{width:0;}to{width:100%;}}
+
+/* ── TRUST BADGES ── */
+.trust-strip{background:#fff;border-bottom:1px solid #e8e8e8;padding:12px 24px;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;overflow:hidden;}
+body.dark .trust-strip{background:#1a1a1a;border-color:#333;}
+.trust-item{display:flex;align-items:center;gap:8px;padding:8px 24px;font-size:13px;font-weight:600;color:#333;border-right:1px solid #eee;white-space:nowrap;}
+body.dark .trust-item{color:#ccc;border-color:#333;}
+.trust-item:last-child{border-right:none;}
+.trust-item span{font-size:20px;}
+@media(max-width:768px){.trust-strip{gap:0;}.trust-item{padding:6px 12px;font-size:11px;}}
+
+/* ── SEZIONE RECENSIONI ── */
+.reviews-section{background:#fff;padding:32px 24px;margin-bottom:20px;}
+body.dark .reviews-section{background:#1a1a1a;}
+.reviews-header{text-align:center;margin-bottom:24px;}
+.reviews-header h2{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#222;margin-bottom:4px;}
+body.dark .reviews-header h2{color:#e0e0e0;}
+.reviews-header p{font-size:13px;color:#888;}
+.reviews-stars-big{font-size:28px;color:#f9a825;margin-bottom:4px;}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;max-width:1100px;margin:0 auto;}
+.review-card{background:#f8f9fa;border-radius:10px;padding:18px;border:1px solid #eee;transition:box-shadow .2s;}
+body.dark .review-card{background:#242424;border-color:#333;}
+.review-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.08);}
+.review-top{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0d47a1,#42a5f5);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0;}
+.review-name{font-weight:700;font-size:14px;color:#222;}
+body.dark .review-name{color:#e0e0e0;}
+.review-location{font-size:11px;color:#888;}
+.review-stars{color:#f9a825;font-size:13px;margin-left:auto;}
+.review-text{font-size:13px;color:#555;line-height:1.6;font-style:italic;}
+body.dark .review-text{color:#aaa;}
+.review-badge{display:inline-block;background:#e8f5e9;color:#2e7d32;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:8px;}
+
+/* ── FAQ ── */
+.faq-section{background:#fff;padding:32px 24px;margin-bottom:20px;}
+body.dark .faq-section{background:#1a1a1a;}
+.faq-title{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#222;margin-bottom:20px;text-align:center;}
+body.dark .faq-title{color:#e0e0e0;}
+.faq-list{max-width:750px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.faq-item{border:1px solid #e8e8e8;border-radius:10px;overflow:hidden;transition:box-shadow .2s;}
+body.dark .faq-item{border-color:#333;}
+.faq-item:hover{box-shadow:0 2px 12px rgba(0,0,0,.06);}
+.faq-q{padding:16px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:14px;font-weight:600;color:#222;background:#fff;transition:background .2s;}
+body.dark .faq-q{background:#1e1e1e;color:#e0e0e0;}
+.faq-q:hover{background:#f5f9ff;}
+body.dark .faq-q:hover{background:#252525;}
+.faq-q.open{background:#f5f9ff;color:#0d47a1;}
+body.dark .faq-q.open{background:#1a2a4a;color:#90caf9;}
+.faq-arrow{font-size:18px;transition:transform .3s;flex-shrink:0;}
+.faq-q.open .faq-arrow{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:13px;color:#555;line-height:1.7;background:#fff;padding:0 20px;}
+body.dark .faq-a{background:#1e1e1e;color:#aaa;}
+.faq-a.open{max-height:200px;padding:0 20px 16px;}
+
+/* ── WISHLIST ── */
+.photo-item{position:relative;}
+.wish-btn{position:absolute;top:8px;right:8px;background:rgba(255,255,255,.9);border:none;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;transition:all .2s;z-index:3;opacity:0;}
+.photo-item:hover .wish-btn{opacity:1;}
+.wish-btn.wished{opacity:1;background:#fff;}
+.wish-btn.wished::after{content:'❤️';}
+.wish-btn:not(.wished)::after{content:'🤍';}
+
+/* ── NA BANNER FULL WIDTH ── */
+.na-banner{border-radius:0 !important;}
+
+/* ── CONTENT WRAPPER ── */
+.content-wrap{max-width:1400px;margin:0 auto;}
 
 /* ── ANIMAZIONI ── */
 @keyframes fadeInUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
@@ -114,7 +190,7 @@ body{background:#f5f5f5;color:#222;font-family:'Roboto',sans-serif;min-height:10
 @keyframes floatUp{0%{transform:translateY(100%);opacity:0;}10%{opacity:1;}90%{opacity:.4;}100%{transform:translateY(-120px) translateX(15px);opacity:0;}}
 .hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:50px 54px;max-width:620px;}
 .hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(13,71,161,.7);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:18px;width:fit-content;animation:fadeInUp .5s ease both;}
-.hero-title{font-size:clamp(36px,4.5vw,64px);font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;text-shadow:0 2px 30px rgba(0,0,0,.5);margin-bottom:14px;animation:fadeInUp .5s ease .1s both;}
+.hero-title{font-family:'Montserrat',sans-serif;font-size:clamp(36px,4.5vw,64px);font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;text-shadow:0 2px 30px rgba(0,0,0,.5);margin-bottom:14px;animation:fadeInUp .5s ease .1s both;}
 .hero-title span{color:#4da6f5;}
 .hero-sub{font-size:15px;color:rgba(255,255,255,.8);line-height:1.6;margin-bottom:28px;animation:fadeInUp .5s ease .2s both;}
 .hero-stats{display:flex;gap:24px;margin-bottom:28px;animation:fadeInUp .5s ease .3s both;}
@@ -366,6 +442,22 @@ body.dark .notifica-testo b{color:#90caf9;}
 </style>
 </head>
 <body>
+
+<!-- SPLASH SCREEN -->
+<div class="splash" id="splash">
+  <img src="logo.png" alt="logo" onerror="this.src='logo.jpg'">
+  <div class="splash-title">Completini Squadre Calcio 2.0</div>
+  <div class="splash-bar"><div class="splash-bar-fill"></div></div>
+</div>
+
+<!-- TRUST BADGES -->
+<div class="trust-strip">
+  <div class="trust-item"><span>🚚</span> Spedizione rapida in Italia</div>
+  <div class="trust-item"><span>✅</span> Qualità garantita</div>
+  <div class="trust-item"><span>✏️</span> Personalizzazione inclusa</div>
+  <div class="trust-item"><span>💬</span> Supporto su WhatsApp</div>
+  <div class="trust-item"><span>🔄</span> Aggiornato ogni settimana</div>
+</div>
 
 <!-- BANNER SCORREVOLE -->
 <div class="ticker">
@@ -722,7 +814,86 @@ function goHome(){
       <div class="cat-count">${cat.subs?cat.subs.length+' squadre':'Sfoglia'}</div>
     </div>`;
   });
-  html+=`</div>`;
+  html+=`</div>
+
+  <!-- RECENSIONI -->
+  <div class="reviews-section">
+    <div class="reviews-header">
+      <div class="reviews-stars-big">★★★★★</div>
+      <h2>Cosa dicono i nostri clienti</h2>
+      <p>Oltre 500 clienti soddisfatti dal 2018</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">M</div>
+          <div><div class="review-name">Marco R.</div><div class="review-location">📍 Napoli</div></div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <div class="review-text">"Maglia arrivata in 3 giorni, qualità fantastica! Identica all'originale. Consiglio a tutti!"</div>
+        <div class="review-badge">✔ Acquisto verificato</div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#c62828,#ef9a9a)">L</div>
+          <div><div class="review-name">Luca M.</div><div class="review-location">📍 Milano</div></div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <div class="review-text">"Ho ordinato la maglia dell'Inter e sono rimasto stupito dalla qualità. Spedizione super veloce 👏"</div>
+        <div class="review-badge">✔ Acquisto verificato</div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#2e7d32,#81c784)">D</div>
+          <div><div class="review-name">Davide F.</div><div class="review-location">📍 Roma</div></div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <div class="review-text">"Già al terzo ordine, ogni volta ottimo prodotto. Il prezzo è imbattibile! Risponde sempre su WhatsApp."</div>
+        <div class="review-badge">✔ Acquisto verificato</div>
+      </div>
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#6a1b9a,#ce93d8)">S</div>
+          <div><div class="review-name">Simone T.</div><div class="review-location">📍 Torino</div></div>
+          <div class="review-stars">★★★★★</div>
+        </div>
+        <div class="review-text">"Ottimo venditore, risponde subito e risolve tutto. Ho personalizzato la maglia con nome e numero, perfetta!"</div>
+        <div class="review-badge">✔ Acquisto verificato</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section">
+    <div class="faq-title">❓ Domande frequenti</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Quanto tempo ci vuole per la spedizione? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">La spedizione avviene generalmente entro 3-7 giorni lavorativi in tutta Italia. Riceverai un messaggio di conferma con il tracking non appena il pacco viene spedito.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Come faccio a scegliere la taglia giusta? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Le taglie seguono lo standard europeo (S, M, L, XL, XXL). Se hai dubbi, contattaci su WhatsApp con le tue misure e ti consigliamo noi la taglia più adatta.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Posso personalizzare la maglia con nome e numero? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Sì! Basta aprire una foto dal catalogo e premere "✏️ Personalizza". Puoi scegliere nome, numero e patch. Il costo della personalizzazione verrà comunicato su WhatsApp.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Come si effettua il pagamento? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Il pagamento avviene tramite bonifico bancario, PayPal o contanti alla consegna. Tutti i dettagli ti verranno comunicati su WhatsApp dopo aver confermato l'ordine.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Le maglie sono di buona qualità? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Offriamo maglie di alta qualità, molto simili alle originali. Ogni prodotto viene controllato prima della spedizione. Oltre 500 clienti soddisfatti dal 2018 parlano per noi!</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Posso ordinare per un bambino? <span class="faq-arrow">▾</span></div>
+        <div class="faq-a">Sì, abbiamo anche taglie per bambini. Contattaci su WhatsApp indicando l'età del bambino e ti indicheremo le taglie disponibili.</div>
+      </div>
+    </div>
+  </div>`;
+
   main.innerHTML=html;
 }
 
@@ -853,8 +1024,10 @@ function renderPhotos(imgs,title,back){
   }
   let html=back+`<div class="content-header"><div class="content-title"><b>${title}</b> — ${imgs.length} foto</div></div><div class="photo-grid">`;
   imgs.forEach((img,i)=>{
+    const isWished=wishlist.includes(img.id);
     html+=`<div class="photo-item" onclick="openLightbox(${i})">
       <img src="${thumbUrl(img.id)}" alt="${img.name}" loading="lazy">
+      <button class="wish-btn ${isWished?'wished':''}" onclick="toggleWish(event,'${img.id}')"></button>
     </div>`;
   });
   main.innerHTML=html+`</div>`;
@@ -1346,6 +1519,45 @@ function inviaPersonalizzazione(){
     setInterval(mostra, Math.random()*60000+60000);
   }, 20000);
 })();
+
+// ── SPLASH SCREEN ────────────────────────────────────────────────────────────
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('splash').classList.add('hide');
+  },1900);
+});
+
+// ── FAQ ───────────────────────────────────────────────────────────────────────
+function toggleFaq(el){
+  const isOpen=el.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.classList.remove('open');
+    q.nextElementSibling.classList.remove('open');
+  });
+  if(!isOpen){
+    el.classList.add('open');
+    el.nextElementSibling.classList.add('open');
+  }
+}
+
+// ── WISHLIST ──────────────────────────────────────────────────────────────────
+let wishlist=JSON.parse(localStorage.getItem('csc-wishlist')||'[]');
+
+function toggleWish(e,photoId){
+  e.stopPropagation();
+  const btn=e.currentTarget;
+  if(wishlist.includes(photoId)){
+    wishlist=wishlist.filter(id=>id!==photoId);
+    btn.classList.remove('wished');
+  } else {
+    wishlist.push(photoId);
+    btn.classList.add('wished');
+    // Animazione cuore
+    btn.style.transform='scale(1.4)';
+    setTimeout(()=>btn.style.transform='',300);
+  }
+  localStorage.setItem('csc-wishlist',JSON.stringify(wishlist));
+}
 
 // ── PARTICELLE HERO ──────────────────────────────────────────────────────────
 function creaParticelle(){
