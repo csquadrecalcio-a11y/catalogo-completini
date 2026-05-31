@@ -1570,14 +1570,25 @@ function paginaTracking(){
     </div>
 
     <div style="background:#fff;border-radius:14px;padding:28px 24px;box-shadow:0 4px 20px rgba(0,0,0,.08);margin-bottom:20px;">
-      <label style="display:block;font-size:13px;font-weight:700;color:#444;margin-bottom:10px;">🔢 Codice di tracking</label>
-      <div style="display:flex;gap:0;">
-        <input id="trackingInput" type="text" placeholder="Es. RA123456789IT oppure 1234567890"
-          style="flex:1;padding:14px 18px;border:2px solid #e0e0e0;border-radius:8px 0 0 8px;font-size:15px;outline:none;transition:border-color .2s;"
-          onfocus="this.style.borderColor='#0d47a1'" onblur="this.style.borderColor='#e0e0e0'"
-          onkeydown="if(event.key==='Enter')cercaPacco()">
-        <button onclick="cercaPacco()" style="background:#0d47a1;color:#fff;border:none;padding:14px 24px;border-radius:0 8px 8px 0;font-size:14px;font-weight:700;cursor:pointer;transition:background .2s;white-space:nowrap;" onmouseover="this.style.background='#1565c0'" onmouseout="this.style.background='#0d47a1'">
-          Traccia →
+      <label style="display:block;font-size:13px;font-weight:700;color:#444;margin-bottom:10px;">🔢 Inserisci il codice di tracking</label>
+      <input id="trackingInput" type="text" placeholder="Incolla qui il tuo codice..."
+        style="width:100%;padding:14px 18px;border:2px solid #e0e0e0;border-radius:8px;font-size:15px;outline:none;transition:border-color .2s;margin-bottom:16px;"
+        onfocus="this.style.borderColor='#0d47a1'" onblur="this.style.borderColor='#e0e0e0'">
+      <label style="display:block;font-size:13px;font-weight:700;color:#444;margin-bottom:10px;">📦 Seleziona il corriere</label>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <button onclick="tracciaCon('poste')"
+          style="background:#fff;border:2px solid #e0e0e0;border-radius:10px;padding:18px 12px;cursor:pointer;transition:all .2s;text-align:center;"
+          onmouseover="this.style.borderColor='#0d47a1';this.style.background='#f5f9ff'" onmouseout="this.style.borderColor='#e0e0e0';this.style.background='#fff'">
+          <div style="font-size:32px;margin-bottom:6px;">📮</div>
+          <div style="font-size:14px;font-weight:700;color:#222;">Poste Italiane</div>
+          <div style="font-size:11px;color:#888;margin-top:3px;">Traccia su poste.it</div>
+        </button>
+        <button onclick="tracciaCon('dhl')"
+          style="background:#fff;border:2px solid #e0e0e0;border-radius:10px;padding:18px 12px;cursor:pointer;transition:all .2s;text-align:center;"
+          onmouseover="this.style.borderColor='#FFCC00';this.style.background='#fffde7'" onmouseout="this.style.borderColor='#e0e0e0';this.style.background='#fff'">
+          <div style="font-size:32px;margin-bottom:6px;">🚚</div>
+          <div style="font-size:14px;font-weight:700;color:#222;">DHL</div>
+          <div style="font-size:11px;color:#888;margin-top:3px;">Traccia su dhl.com</div>
         </button>
       </div>
       <div id="trackingResult" style="margin-top:16px;display:none;"></div>
@@ -1619,58 +1630,39 @@ function paginaTracking(){
   </div>`;
 }
 
-function cercaPacco(){
-  const codice=document.getElementById('trackingInput').value.trim().toUpperCase();
+function tracciaCon(corriere){
+  const codice=document.getElementById('trackingInput').value.trim();
   const result=document.getElementById('trackingResult');
 
   if(!codice){
     result.style.display='block';
-    result.innerHTML=`<div style="background:#fff3e0;border:1px solid #ffcc02;border-radius:8px;padding:12px 16px;font-size:13px;color:#e65100;">⚠️ Inserisci il codice di tracking prima di procedere.</div>`;
+    result.innerHTML=`<div style="background:#fff3e0;border:1px solid #ffcc02;border-radius:8px;padding:12px 16px;font-size:13px;color:#e65100;">⚠️ Inserisci prima il codice di tracking.</div>`;
     return;
   }
 
-  // Riconosce il corriere dal formato del codice
   let url='';
-  let corriere='';
+  let nome='';
   let icona='';
+  let colore='';
 
-  // Poste Italiane: inizia con 2 lettere + 9 cifre + 2 lettere (es. RA123456789IT)
-  if(/^[A-Z]{2}\d{9}[A-Z]{2}$/.test(codice)){
+  if(corriere==='poste'){
     url=`https://www.poste.it/cerca/index.html#/risultati-spedizioni/${codice}`;
-    corriere='Poste Italiane';
-    icona='📮';
-  }
-  // DHL: numeri (10-12 cifre) o codice alfanumerico
-  else if(/^\d{10,12}$/.test(codice)||/^[A-Z0-9]{10,15}$/.test(codice)){
+    nome='Poste Italiane'; icona='📮'; colore='#0d47a1';
+  } else {
     url=`https://www.dhl.com/it-it/home/tracking/tracking-parcel.html?submit=1&tracking-id=${codice}`;
-    corriere='DHL';
-    icona='🚚';
-  }
-  // Formato non riconosciuto — mostra entrambi
-  else{
-    result.style.display='block';
-    result.innerHTML=`
-      <div style="background:#f5f9ff;border:1px solid #bbdefb;border-radius:8px;padding:14px 16px;">
-        <div style="font-size:13px;font-weight:700;color:#0d47a1;margin-bottom:10px;">Seleziona il corriere manualmente:</div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a href="https://www.poste.it/cerca/index.html#/risultati-spedizioni/${codice}" target="_blank"
-            style="flex:1;background:#0d47a1;color:#fff;padding:10px 16px;border-radius:8px;text-align:center;text-decoration:none;font-size:13px;font-weight:700;">📮 Poste Italiane</a>
-          <a href="https://www.dhl.com/it-it/home/tracking/tracking-parcel.html?submit=1&tracking-id=${codice}" target="_blank"
-            style="flex:1;background:#FFCC00;color:#222;padding:10px 16px;border-radius:8px;text-align:center;text-decoration:none;font-size:13px;font-weight:700;">🚚 DHL</a>
-        </div>
-      </div>`;
-    return;
+    nome='DHL'; icona='🚚'; colore='#D40511';
   }
 
   result.style.display='block';
   result.innerHTML=`
-    <div style="background:#e8f5e9;border:1px solid #a5d6a7;border-radius:8px;padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+    <div style="background:#e8f5e9;border:1px solid #a5d6a7;border-radius:10px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;animation:fadeInUp .3s ease;">
       <div>
-        <div style="font-size:13px;font-weight:700;color:#2e7d32;">${icona} Corriere rilevato: <b>${corriere}</b></div>
-        <div style="font-size:12px;color:#555;margin-top:3px;">Codice: ${codice}</div>
+        <div style="font-size:13px;font-weight:700;color:#2e7d32;">${icona} Corriere: <b>${nome}</b></div>
+        <div style="font-size:12px;color:#555;margin-top:3px;word-break:break-all;">Codice: <b>${codice}</b></div>
       </div>
       <a href="${url}" target="_blank"
-        style="background:#2e7d32;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:700;white-space:nowrap;">
+        style="background:${colore};color:#fff;padding:12px 22px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:700;white-space:nowrap;transition:opacity .2s;"
+        onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
         Traccia ora →
       </a>
     </div>`;
