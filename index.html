@@ -275,11 +275,29 @@ body.dark .notifica-testo b{color:#90caf9;}
 
 @media(max-width:768px){
   .ham{display:block;}
+  .topbar{padding:0 12px;gap:8px;height:54px;}
   .topbar-logo span{display:none;}
-  .sidebar{position:fixed;left:-210px;top:58px;height:calc(100vh - 58px);z-index:95;transition:left .3s;}
+  .topbar-logo{min-width:auto;}
+  /* Nascondi icone social su mobile, restano nel footer */
+  .topbar > div:first-of-type{display:none !important;}
+  .search-pos{flex:1;}
+  .search-wrap input{font-size:13px;}
+  .dark-toggle{width:32px;height:32px;font-size:14px;flex-shrink:0;}
+  .sidebar{position:fixed;left:-260px;top:54px;height:calc(100vh - 54px);z-index:95;transition:left .3s;width:240px;}
   .sidebar.open{left:0;}
-  .content{padding:12px;}
-  .album-grid,.photo-grid,.cat-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;}
+  .layout{min-height:calc(100vh - 54px);}
+  .content{padding:10px;}
+  .album-grid,.photo-grid,.cat-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;}
+  .na-banner{height:170px;}
+  .na-title{font-size:24px;}
+  .na-content{padding:16px 20px;}
+  .na-btn{padding:7px 14px;font-size:12px;}
+  .wa-btn span{display:none;}
+  .wa-btn{border-radius:50%;padding:14px;width:52px;height:52px;justify-content:center;}
+  .recensione-popup{max-width:260px;right:12px;}
+  .notifica-acquisto{max-width:240px;left:12px;}
+  .ticker{font-size:12px;}
+  footer .footer-inner{flex-direction:column;gap:20px;}
 }
 </style>
 </head>
@@ -427,22 +445,22 @@ body.dark .notifica-testo b{color:#90caf9;}
 // ── CATALOGO ─────────────────────────────────────────────────────────────────
 const CATALOG = [
   { name:"Nuovi Arrivi", flag:"🆕", id:"1mNzocO2ltOMXmIlk6ygdQa7KaT93wV4M", subs:null},
-  { name:"Serie A", flag:"<img src='https://flagcdn.com/w80/it.png' alt='Italia'>", id:"1PEPuubYWEiecIKwXbq9RZ1LuWNjEhzC2", subs:[
+  { name:"Serie A", flag:"<img src='https://flagcdn.com/w80/it.png' alt='🇮🇹' onerror=\"this.outerHTML='🇮🇹'\">", id:"1PEPuubYWEiecIKwXbq9RZ1LuWNjEhzC2", subs:[
     "Atalanta","Bologna","Cagliari","Como","Fiorentina","Inter","Juventus","Lazio","Milan","Napoli","Parma","Roma","Torino","Udinese","Venezia"
   ]},
-  { name:"Premier League", flag:"<img src='https://flagcdn.com/w80/gb-eng.png' alt='Inghilterra'>", id:"1JWQkaYv5k_g3EDZid-fyuXtK0tG-6wNh", subs:[
+  { name:"Premier League", flag:"<img src='https://flagcdn.com/w80/gb-eng.png' alt='🏴󠁧󠁢󠁥󠁮󠁧󠁿' onerror=\"this.outerHTML='🏴󠁧󠁢󠁥󠁮󠁧󠁿'\">", id:"1JWQkaYv5k_g3EDZid-fyuXtK0tG-6wNh", subs:[
     "Arsenal","Aston Villa","Chelsea","Liverpool","Manchester City","Manchester United","Newcastle","Nottingham Forest","Tottenham"
   ]},
-  { name:"Liga Spagnola", flag:"<img src='https://flagcdn.com/w80/es.png' alt='Spagna'>", id:"1U99k-2ipIpo-SncvQB6NdAni6WwMTtvw", subs:[
+  { name:"Liga Spagnola", flag:"<img src='https://flagcdn.com/w80/es.png' alt='🇪🇸' onerror=\"this.outerHTML='🇪🇸'\">", id:"1U99k-2ipIpo-SncvQB6NdAni6WwMTtvw", subs:[
     "Atletico Bilbao","Atletico Madrid","Barcellona","Betis","Bilbao","Real Madrid","Siviglia","Valencia"
   ]},
-  { name:"Bundesliga", flag:"<img src='https://flagcdn.com/w80/de.png' alt='Germania'>", id:"1ZLOCMotAK94cXh3NbHxTYWVn5-fnpS0R", subs:[
+  { name:"Bundesliga", flag:"<img src='https://flagcdn.com/w80/de.png' alt='🇩🇪' onerror=\"this.outerHTML='🇩🇪'\">", id:"1ZLOCMotAK94cXh3NbHxTYWVn5-fnpS0R", subs:[
     "Bayer Leverkusen","Bayern Monaco","Borussia Dortmund","Borussia Mönchengladbach","Eintracht Frankfurt","RB Leipzig","Schalke 04","VfB Stuttgart","Werder Bremen"
   ]},
-  { name:"Ligue 1 Francia", flag:"<img src='https://flagcdn.com/w80/fr.png' alt='Francia'>", id:"15kPZPWyq9I7aUvGue95DuWoGK9MzDzz9", subs:[
+  { name:"Ligue 1 Francia", flag:"<img src='https://flagcdn.com/w80/fr.png' alt='🇫🇷' onerror=\"this.outerHTML='🇫🇷'\">", id:"15kPZPWyq9I7aUvGue95DuWoGK9MzDzz9", subs:[
     "LOSC Lille","AS Monaco","Marsiglia","Olympique Lyonnais","Paris FC","Paris Saint-Germain"
   ]},
-  { name:"Eredivisie", flag:"<img src='https://flagcdn.com/w80/nl.png' alt='Olanda'>", id:"1yOdpCveN3hA3_bFS8RHsUKHKsjXJXfq3", subs:["Ajax"]},
+  { name:"Eredivisie", flag:"<img src='https://flagcdn.com/w80/nl.png' alt='🇳🇱' onerror=\"this.outerHTML='🇳🇱'\">", id:"1yOdpCveN3hA3_bFS8RHsUKHKsjXJXfq3", subs:["Ajax"]},
   { name:"Nazionali 2026/2027", flag:"🌍", id:"17CcRia7q_4dViHPP93Tm0bfbm605gsmV", subs:null},
   { name:"Resto del Mondo", flag:"🌐", id:"13NLaWPvV-9ldy2e5jofbogaXKKT87o2G", subs:[
     "Boca Juniors","Inter Miami","River Plate","Santos","Saudi Pro League"
