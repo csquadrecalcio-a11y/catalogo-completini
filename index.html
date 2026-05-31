@@ -19,6 +19,11 @@
 html,body{overflow-x:hidden;max-width:100%;}
 body{background:#f0f2f5;color:#222;font-family:'Roboto',sans-serif;min-height:100vh;}
 
+/* ── BARRA SPEDIZIONE GRATUITA ── */
+.free-ship-bar{background:linear-gradient(90deg,#1b5e20,#2e7d32,#1b5e20);color:#fff;text-align:center;padding:8px 16px;font-size:13px;font-weight:700;letter-spacing:.5px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;}
+.free-ship-bar span{opacity:.85;font-size:12px;}
+@media(max-width:768px){.free-ship-bar{font-size:11px;padding:7px 12px;gap:6px;}}
+
 /* ── CURSORE PALLONE ── */
 *{cursor:none !important;}
 .cursor-ball{position:fixed;width:28px;height:28px;font-size:22px;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:transform .1s ease;line-height:1;}
@@ -191,8 +196,8 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 
 /* ── GRIGLIA ALBUM ── */
 .album-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;}
-.album-card{background:#fff;border:1px solid #e0e0e0;border-radius:4px;cursor:pointer;transition:box-shadow .2s;overflow:hidden;}
-.album-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.15);border-color:#aaa;}
+.album-card{background:#fff;border:1px solid #e0e0e0;border-radius:8px;cursor:pointer;transition:box-shadow .25s ease,transform .25s ease,border-color .25s ease;overflow:hidden;}
+.album-card:hover{box-shadow:0 8px 28px rgba(13,71,161,.15);border-color:#0d47a1;transform:translateY(-4px);}
 .album-thumb{width:100%;aspect-ratio:1;object-fit:cover;display:block;background:#f0f0f0;}
 .album-thumb-placeholder{width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:#f0f0f0;font-size:40px;}
 .album-info{padding:8px 10px;}
@@ -201,14 +206,14 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 
 /* ── GRIGLIA FOTO ── */
 .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;}
-.photo-item{background:#fff;border:1px solid #e0e0e0;border-radius:4px;cursor:pointer;overflow:hidden;transition:box-shadow .2s;}
-.photo-item:hover{box-shadow:0 4px 16px rgba(0,0,0,.15);}
+.photo-item{background:#fff;border:1px solid #e0e0e0;border-radius:8px;cursor:pointer;overflow:hidden;transition:box-shadow .25s ease,transform .25s ease,border-color .25s ease;}
+.photo-item:hover{box-shadow:0 8px 28px rgba(13,71,161,.15);transform:translateY(-4px);border-color:#0d47a1;}
 .photo-item img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
 
 /* ── CATEGORY GRID (home) ── */
 .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;}
-.cat-card{background:#fff;border:1px solid #e0e0e0;border-radius:4px;padding:20px 16px;cursor:pointer;text-align:center;transition:box-shadow .2s;}
-.cat-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.12);border-color:#0d47a1;}
+.cat-card{background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:20px 16px;cursor:pointer;text-align:center;transition:box-shadow .25s ease,transform .25s ease,border-color .25s ease;}
+.cat-card:hover{box-shadow:0 8px 28px rgba(13,71,161,.15);border-color:#0d47a1;transform:translateY(-4px);}
 .cat-icon{font-size:32px;margin-bottom:8px;display:flex;align-items:center;justify-content:center;}
 .cat-icon img{width:52px;height:auto;border-radius:4px;box-shadow:0 2px 6px rgba(0,0,0,.2);}
 .cat-name{font-size:13px;font-weight:500;color:#333;}
@@ -707,6 +712,13 @@ body.dark .completa-card-name{color:#ccc;}
   <div class="splash-bar"><div class="splash-bar-fill"></div></div>
 </div>
 
+<!-- BARRA SPEDIZIONE GRATUITA -->
+<div class="free-ship-bar">
+  🚚 <strong>SPEDIZIONE GRATUITA</strong> su tutti gli ordini in Italia
+  <span>• Nessun costo nascosto •</span>
+  ✅ <strong>PERSONALIZZAZIONE GRATUITA</strong>
+</div>
+
 <!-- BARRA ONLINE MOBILE -->
 <div class="online-bar-mobile" id="onlineBarMobile">
   <div class="online-dot"></div>
@@ -839,7 +851,15 @@ body.dark .completa-card-name{color:#ccc;}
       </a>
     </div>
   </div>
-  <div class="footer-bottom">© 2026 Completini Squadre Calcio 2.0 — Tutti i diritti riservati</div>
+  <div class="footer-bottom">
+    <div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:10px;">
+      <span onclick="paginaPrivacy()" style="cursor:pointer;color:rgba(255,255,255,.6);font-size:12px;text-decoration:underline;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Privacy Policy</span>
+      <span onclick="paginaTermini()" style="cursor:pointer;color:rgba(255,255,255,.6);font-size:12px;text-decoration:underline;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Termini e Condizioni</span>
+      <span onclick="paginaTaglie()" style="cursor:pointer;color:rgba(255,255,255,.6);font-size:12px;text-decoration:underline;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Guida Taglie</span>
+      <span onclick="paginaFaq()" style="cursor:pointer;color:rgba(255,255,255,.6);font-size:12px;text-decoration:underline;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">FAQ</span>
+    </div>
+    © 2026 Completini Squadre Calcio 2.0 — Tutti i diritti riservati
+  </div>
 </footer>
 
 <!-- LIGHTBOX -->
@@ -1398,6 +1418,75 @@ function goHome(fromPopstate){
         </div>
         <div class="review-text">"Ottimo venditore, risponde subito e risolve tutto. Ho personalizzato la maglia con nome e numero, perfetta!"</div>
         <div class="review-badge">✔ Acquisto verificato</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COME FUNZIONA -->
+  <div style="background:#fff;padding:40px 24px;margin-bottom:0;border-top:1px solid #e8e8e8;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:32px;">
+        <div style="display:inline-block;background:#e3f2fd;color:#0d47a1;font-size:12px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:10px;">SEMPLICE E VELOCE</div>
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:24px;font-weight:900;color:#111;">Come funziona?</h2>
+        <p style="color:#888;font-size:14px;margin-top:6px;">Ordinare è semplicissimo, ci vogliono meno di 2 minuti</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;">
+        <div style="text-align:center;padding:24px 16px;border-radius:14px;border:1.5px solid #e3f2fd;background:#f5f9ff;position:relative;">
+          <div style="width:44px;height:44px;background:#0d47a1;color:#fff;border-radius:50%;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">1</div>
+          <div style="font-size:32px;margin-bottom:10px;">🔍</div>
+          <div style="font-size:15px;font-weight:800;color:#111;margin-bottom:6px;">Scegli la maglia</div>
+          <div style="font-size:12px;color:#777;line-height:1.6;">Sfoglia il catalogo e trova la maglia della tua squadra del cuore</div>
+        </div>
+        <div style="text-align:center;padding:24px 16px;border-radius:14px;border:1.5px solid #e3f2fd;background:#f5f9ff;">
+          <div style="width:44px;height:44px;background:#0d47a1;color:#fff;border-radius:50%;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">2</div>
+          <div style="font-size:32px;margin-bottom:10px;">✏️</div>
+          <div style="font-size:15px;font-weight:800;color:#111;margin-bottom:6px;">Personalizza</div>
+          <div style="font-size:12px;color:#777;line-height:1.6;">Aggiungi nome, numero e patch gratuitamente — come un pro</div>
+        </div>
+        <div style="text-align:center;padding:24px 16px;border-radius:14px;border:1.5px solid #e3f2fd;background:#f5f9ff;">
+          <div style="width:44px;height:44px;background:#0d47a1;color:#fff;border-radius:50%;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">3</div>
+          <div style="font-size:32px;margin-bottom:10px;">💬</div>
+          <div style="font-size:15px;font-weight:800;color:#111;margin-bottom:6px;">Ordina su WhatsApp</div>
+          <div style="font-size:12px;color:#777;line-height:1.6;">Inviaci il tuo ordine direttamente su WhatsApp — rispondiamo subito</div>
+        </div>
+        <div style="text-align:center;padding:24px 16px;border-radius:14px;border:1.5px solid #e3f2fd;background:#f5f9ff;">
+          <div style="width:44px;height:44px;background:#0d47a1;color:#fff;border-radius:50%;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">4</div>
+          <div style="font-size:32px;margin-bottom:10px;">📦</div>
+          <div style="font-size:15px;font-weight:800;color:#111;margin-bottom:6px;">Ricevi a casa</div>
+          <div style="font-size:12px;color:#777;line-height:1.6;">Spedizione gratuita in tutta Italia, tracking incluso</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IL NOSTRO BRAND -->
+  <div style="background:linear-gradient(135deg,#0a1628 0%,#0d47a1 100%);padding:40px 24px;">
+    <div style="max-width:900px;margin:0 auto;text-align:center;">
+      <div style="font-size:36px;margin-bottom:10px;">⚽</div>
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#fff;margin-bottom:6px;">Completini Squadre Calcio 2.0</h2>
+      <p style="color:rgba(255,255,255,.7);font-size:13px;margin-bottom:28px;">Dal 2018 portiamo le maglie dei tuoi campioni direttamente a casa tua</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;max-width:600px;margin:0 auto 32px;">
+        <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:18px 12px;text-align:center;">
+          <div style="font-size:26px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">1200+</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:4px;letter-spacing:1px;text-transform:uppercase;">Ordini</div>
+        </div>
+        <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:18px 12px;text-align:center;">
+          <div style="font-size:26px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">Dal 2018</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:4px;letter-spacing:1px;text-transform:uppercase;">Online</div>
+        </div>
+        <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:18px 12px;text-align:center;">
+          <div style="font-size:26px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">500+</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:4px;letter-spacing:1px;text-transform:uppercase;">Maglie</div>
+        </div>
+        <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:18px 12px;text-align:center;">
+          <div style="font-size:26px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">★ 5.0</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:4px;letter-spacing:1px;text-transform:uppercase;">Rating</div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
+        <a href="https://instagram.com/csc_duepuntozero" target="_blank" style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;padding:10px 18px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">📸 Instagram</a>
+        <a href="https://t.me/csc2_0" target="_blank" style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;padding:10px 18px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">✈️ Telegram</a>
+        <a href="https://wa.me/393792126743" target="_blank" style="display:flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:10px 18px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700;transition:background .2s;" onmouseover="this.style.background='#1ebe5d'" onmouseout="this.style.background='#25d366'">💬 WhatsApp</a>
       </div>
     </div>
   </div>
@@ -2640,6 +2729,52 @@ function paginaTaglie(){
     update(current);
   }, 8000);
 })();
+
+// ── PRIVACY POLICY ───────────────────────────────────────────────────────────
+function paginaPrivacy(){
+  navStack=[];updateBreadcrumb();
+  document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('active'));
+  const box=s=>`<div style="background:#fff;border-radius:12px;border:1px solid #e0e0e0;padding:24px;margin-bottom:16px;">${s}</div>`;
+  const h2=s=>`<h2 style="font-size:16px;font-weight:800;color:#0d47a1;margin-bottom:10px;">${s}</h2>`;
+  const p=s=>`<p style="font-size:13px;color:#555;line-height:1.8;margin-bottom:8px;">${s}</p>`;
+  document.getElementById('main').innerHTML=`<div style="max-width:750px;margin:0 auto;padding-bottom:32px;">
+    <div style="text-align:center;padding:28px 0 24px;">
+      <div style="font-size:40px;margin-bottom:10px;">🔒</div>
+      <h1 style="font-family:'Montserrat',sans-serif;font-size:24px;font-weight:900;color:#0d47a1;">Privacy Policy</h1>
+      <p style="color:#888;font-size:13px;margin-top:6px;">Ultimo aggiornamento: gennaio 2026</p>
+    </div>
+    ${box(h2('1. Titolare del trattamento')+p('Il titolare del trattamento è Completini Squadre Calcio 2.0, contattabile tramite WhatsApp al +39 379 212 6743 o via Instagram @csc_duepuntozero.'))}
+    ${box(h2('2. Dati raccolti')+p('Raccogliamo esclusivamente i dati che ci fornisci volontariamente per completare un ordine: nome e cognome, indirizzo di spedizione, numero di telefono. Non raccogliamo dati di pagamento — i pagamenti avvengono tramite canali separati (PostePay, bonifico, PayPal).'))}
+    ${box(h2('3. Finalità del trattamento')+p('I tuoi dati vengono utilizzati esclusivamente per: elaborare e spedire il tuo ordine, comunicarti lo stato della spedizione, rispondere alle tue richieste di assistenza.'))}
+    ${box(h2('4. Conservazione dei dati')+p('I dati vengono conservati per il tempo necessario a completare l\'ordine e per eventuali garanzie post-vendita (massimo 24 mesi).'))}
+    ${box(h2('5. I tuoi diritti')+p('Hai il diritto di accedere, rettificare o cancellare i tuoi dati in qualsiasi momento. Per esercitare questi diritti contattaci su WhatsApp al +39 379 212 6743.'))}
+    ${box(h2('6. Cookie')+p('Questo sito non utilizza cookie di profilazione. Potrebbero essere utilizzati cookie tecnici essenziali per il corretto funzionamento del sito.'))}
+  </div>`;
+  window.scrollTo(0,0);
+}
+
+// ── TERMINI E CONDIZIONI ─────────────────────────────────────────────────────
+function paginaTermini(){
+  navStack=[];updateBreadcrumb();
+  document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('active'));
+  const box=s=>`<div style="background:#fff;border-radius:12px;border:1px solid #e0e0e0;padding:24px;margin-bottom:16px;">${s}</div>`;
+  const h2=s=>`<h2 style="font-size:16px;font-weight:800;color:#0d47a1;margin-bottom:10px;">${s}</h2>`;
+  const p=s=>`<p style="font-size:13px;color:#555;line-height:1.8;margin-bottom:8px;">${s}</p>`;
+  document.getElementById('main').innerHTML=`<div style="max-width:750px;margin:0 auto;padding-bottom:32px;">
+    <div style="text-align:center;padding:28px 0 24px;">
+      <div style="font-size:40px;margin-bottom:10px;">📄</div>
+      <h1 style="font-family:'Montserrat',sans-serif;font-size:24px;font-weight:900;color:#0d47a1;">Termini e Condizioni</h1>
+      <p style="color:#888;font-size:13px;margin-top:6px;">Ultimo aggiornamento: gennaio 2026</p>
+    </div>
+    ${box(h2('1. Ordini')+p('Gli ordini vengono effettuati tramite WhatsApp. L\'ordine si considera confermato solo dopo la nostra risposta scritta di conferma. Ci riserviamo il diritto di rifiutare ordini in caso di indisponibilità del prodotto.'))}
+    ${box(h2('2. Pagamenti')+p('Accettiamo: ricarica PostePay, bonifico bancario e PayPal Amici e Familiari. Il pagamento deve essere completato prima della spedizione. Le coordinate per il pagamento vengono comunicate su WhatsApp.'))}
+    ${box(h2('3. Spedizioni')+p('La spedizione è <strong>gratuita</strong> su tutti gli ordini in Italia. I tempi di consegna sono generalmente di 10-15 giorni lavorativi dal pagamento. Un codice di tracking verrà inviato non appena il pacco è spedito.'))}
+    ${box(h2('4. Personalizzazione')+p('La personalizzazione (nome, numero, patch) è <strong>completamente gratuita</strong>. Le personalizzazioni sono definitive e non possono essere modificate dopo la conferma dell\'ordine.'))}
+    ${box(h2('5. Resi e rimborsi')+p('Non accettiamo resi salvo nei seguenti casi: prodotto ricevuto difettato, taglia diversa da quella concordata. In questi casi il cliente deve contattarci entro 7 giorni dalla ricezione con foto del problema. Provvederemo alla sostituzione senza costi aggiuntivi.'))}
+    ${box(h2('6. Responsabilità')+p('Completini Squadre Calcio 2.0 non è responsabile per ritardi causati dal corriere o da eventi fuori dal nostro controllo. Le immagini del catalogo sono rappresentative e i colori reali potrebbero variare leggermente rispetto allo schermo.'))}
+  </div>`;
+  window.scrollTo(0,0);
+}
 
 // ── TICKER SCORREVOLE ────────────────────────────────────────────────────────
 (function(){
