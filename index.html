@@ -210,7 +210,7 @@ body.dark .search-foto-item{background:#1e1e1e;border-color:#333;}
 .lb-order-btn{position:absolute;top:16px;left:16px;background:#25d366;color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;text-decoration:none;transition:all .2s;z-index:10;}
 .lb-order-btn:hover{background:#1ebe5d;transform:scale(1.05);}
 .lb-order-btn svg{width:18px;height:18px;fill:#fff;flex-shrink:0;}
-.lb-custom-btn{position:absolute;top:16px;left:170px;background:#0d47a1;color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .2s;z-index:10;}
+.lb-custom-btn{position:absolute;top:62px;left:16px;background:#0d47a1;color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .2s;z-index:10;}
 .lb-custom-btn:hover{background:#1565c0;transform:scale(1.05);}
 
 /* ── MODAL PERSONALIZZA ── */
@@ -501,9 +501,9 @@ body.dark .notifica-testo b{color:#90caf9;}
         <div class="patch-btn" onclick="selPatch(this,'Europa League')">🌍 Europa L.</div>
         <div class="patch-btn" onclick="selPatch(this,'Conference League')">⭐ Conference</div>
         <div class="patch-btn" onclick="selPatch(this,'Serie A')">🇮🇹 Serie A</div>
-        <div class="patch-btn" onclick="selPatch(this,'Scudetto')">🏅 Scudetto</div>
         <div class="patch-btn" onclick="selPatch(this,'Nessuna patch')">❌ Nessuna</div>
       </div>
+      <input type="text" id="customPatchLibera" placeholder="Altra patch? Scrivila qui..." maxlength="30" oninput="selPatchLibera(this.value)" style="margin-top:8px;width:100%;padding:10px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#0d47a1'" onblur="this.style.borderColor='#e0e0e0'">
     </div>
 
     <div class="custom-preview" id="customPreview">
@@ -1194,6 +1194,15 @@ function selPatch(el,nome){
   document.querySelectorAll('.patch-btn').forEach(b=>b.classList.remove('sel'));
   el.classList.add('sel');
   patchSelezionata=nome;
+  document.getElementById('customPatchLibera').value='';
+  aggiornaPreview();
+}
+
+function selPatchLibera(val){
+  if(val.trim()){
+    document.querySelectorAll('.patch-btn').forEach(b=>b.classList.remove('sel'));
+    patchSelezionata=val.trim();
+  }
   aggiornaPreview();
 }
 
