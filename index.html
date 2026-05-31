@@ -427,6 +427,45 @@ body.dark .notifica-testo b{color:#90caf9;}
 .scroll-top.show{display:flex;}
 .scroll-top:hover{background:#1565c0;transform:translateY(-3px);}
 
+/* ── CARRELLO ── */
+.cart-icon{position:relative;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:8px;padding:7px 12px;cursor:pointer;display:flex;align-items:center;gap:6px;color:#fff;font-size:13px;font-weight:700;transition:all .2s;white-space:nowrap;}
+.cart-icon:hover{background:rgba(255,255,255,.25);}
+.cart-badge{position:absolute;top:-6px;right:-6px;background:#e53935;color:#fff;border-radius:50%;width:18px;height:18px;font-size:10px;font-weight:900;display:none;align-items:center;justify-content:center;}
+.cart-badge.show{display:flex;}
+.cart-modal{display:none;position:fixed;inset:0;z-index:3000;align-items:center;justify-content:center;padding:16px;}
+.cart-modal.active{display:flex;}
+.cart-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(4px);}
+.cart-box{position:relative;background:#fff;border-radius:16px;width:100%;max-width:560px;max-height:90vh;overflow-y:auto;z-index:1;animation:popIn .35s cubic-bezier(.34,1.56,.64,1);}
+body.dark .cart-box{background:#1e1e1e;}
+.cart-header{background:linear-gradient(135deg,#0d47a1,#1565c0);padding:18px 24px;border-radius:16px 16px 0 0;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;}
+.cart-header h2{font-family:'Montserrat',sans-serif;font-size:17px;font-weight:900;color:#fff;display:flex;align-items:center;gap:8px;}
+.cart-close{background:rgba(255,255,255,.2);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px;}
+.cart-body{padding:16px 20px;}
+.cart-empty{text-align:center;padding:40px 20px;color:#888;}
+.cart-empty-icon{font-size:48px;margin-bottom:12px;}
+.cart-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid #f0f0f0;align-items:flex-start;}
+body.dark .cart-item{border-color:#333;}
+.cart-item-img{width:70px;height:90px;object-fit:cover;border-radius:8px;flex-shrink:0;background:#f0f0f0;}
+.cart-item-info{flex:1;}
+.cart-item-name{font-size:13px;font-weight:700;color:#222;margin-bottom:4px;}
+body.dark .cart-item-name{color:#e0e0e0;}
+.cart-item-detail{font-size:12px;color:#888;margin-bottom:2px;}
+.cart-item-remove{background:none;border:none;color:#e53935;cursor:pointer;font-size:20px;flex-shrink:0;}
+.cart-checkout{width:100%;background:#25d366;color:#fff;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all .2s;margin-top:12px;}
+.cart-checkout:hover{background:#1ebe5d;}
+.add-cart-modal{display:none;position:fixed;inset:0;z-index:4000;align-items:center;justify-content:center;padding:16px;}
+.add-cart-modal.active{display:flex;}
+.add-cart-box{position:relative;background:#fff;border-radius:16px;width:100%;max-width:380px;padding:24px;z-index:1;animation:popIn .3s cubic-bezier(.34,1.56,.64,1);}
+body.dark .add-cart-box{background:#1e1e1e;}
+@media(max-width:768px){
+  .cart-icon span{display:none;}
+  .cart-icon{padding:7px 10px;}
+  .cart-modal{padding:0;align-items:flex-end;}
+  .cart-box{border-radius:16px 16px 0 0;max-height:92vh;}
+  .add-cart-modal{padding:0;align-items:flex-end;}
+  .add-cart-box{border-radius:16px 16px 0 0;max-width:100%;}
+}
+
 /* ── MODULO ORDINE ── */
 .order-modal{display:none;position:fixed;inset:0;z-index:3000;align-items:center;justify-content:center;padding:16px;}
 .order-modal.active{display:flex;}
@@ -684,6 +723,10 @@ body.dark .completa-card-name{color:#ccc;}
     <a href="https://wa.me/393792126743" target="_blank" title="WhatsApp" style="color:#fff;opacity:.85;transition:opacity .2s;display:flex;align-items:center;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.85">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
+    <div class="cart-icon" onclick="apriCarrello()">
+      🛒 <span>Carrello</span>
+      <div class="cart-badge" id="cartBadge">0</div>
+    </div>
     <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" title="Tema chiaro/scuro">🌙</button>
   </div>
   <div class="search-pos">
@@ -778,8 +821,8 @@ body.dark .completa-card-name{color:#ccc;}
   <img id="lb-img" src="" alt="">
   <button class="lb-next" onclick="nextPhoto()">›</button>
   <div class="lb-counter" id="lb-counter"></div>
-  <button class="lb-custom-btn" onclick="apriPersonalizza()">✏️ Personalizza</button>
-  <button class="lb-custom-btn" onclick="apriOrdine()" style="top:108px;background:#ff6f00;">📋 Ordina ora</button>
+  <button class="lb-custom-btn" onclick="apriAddCart()" style="background:#e53935;">🛒 Aggiungi</button>
+  <button class="lb-custom-btn" onclick="apriPersonalizza()" style="top:108px;">✏️ Personalizza</button>
   <a class="lb-order-btn" id="lb-order-btn" href="#" target="_blank">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     Ordina su WhatsApp
@@ -855,6 +898,49 @@ body.dark .completa-card-name{color:#ccc;}
   </div>
 </div>
 
+<!-- MODAL AGGIUNGI AL CARRELLO -->
+<div class="add-cart-modal" id="addCartModal">
+  <div class="cart-backdrop" onclick="chiudiAddCart()"></div>
+  <div class="add-cart-box">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+      <h3 style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:900;color:#0d47a1;">🛒 Aggiungi al carrello</h3>
+      <button onclick="chiudiAddCart()" style="background:none;border:none;font-size:20px;cursor:pointer;color:#aaa;">✕</button>
+    </div>
+    <div id="addCartPreview" style="display:flex;gap:12px;align-items:center;background:#f5f9ff;border-radius:10px;padding:10px;margin-bottom:16px;">
+      <img id="addCartImg" src="" style="width:60px;height:75px;object-fit:cover;border-radius:6px;">
+      <div style="font-size:13px;font-weight:600;color:#333;" id="addCartName">Maglia</div>
+    </div>
+    <div style="margin-bottom:14px;">
+      <label style="display:block;font-size:12px;font-weight:700;color:#555;margin-bottom:6px;text-transform:uppercase;">📏 Taglia</label>
+      <select id="addCartTaglia" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;">
+        <option value="">Seleziona taglia...</option>
+        <option>XS</option><option>S</option><option>M</option><option>L</option>
+        <option>XL</option><option>XXL</option><option>XXXL</option>
+        <option>Bimbo 6-8 anni</option><option>Bimbo 8-10 anni</option><option>Bimbo 10-12 anni</option>
+      </select>
+    </div>
+    <div style="margin-bottom:20px;">
+      <label style="display:block;font-size:12px;font-weight:700;color:#555;margin-bottom:6px;text-transform:uppercase;">✏️ Personalizzazione (opzionale)</label>
+      <input type="text" id="addCartPersonalizza" placeholder="Es. ROSSI 10" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;">
+    </div>
+    <button onclick="confermAggiungi()" style="width:100%;background:#0d47a1;color:#fff;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:800;cursor:pointer;transition:all .2s;">
+      ✅ Aggiungi al carrello
+    </button>
+  </div>
+</div>
+
+<!-- MODAL CARRELLO -->
+<div class="cart-modal" id="cartModal">
+  <div class="cart-backdrop" onclick="chiudiCarrello()"></div>
+  <div class="cart-box">
+    <div class="cart-header">
+      <h2>🛒 Il tuo carrello</h2>
+      <button class="cart-close" onclick="chiudiCarrello()">✕</button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+  </div>
+</div>
+
 <!-- MODAL ORDINE -->
 <div class="order-modal" id="orderModal">
   <div class="order-backdrop" onclick="chiudiOrdine()"></div>
@@ -865,57 +951,107 @@ body.dark .completa-card-name{color:#ccc;}
     </div>
     <div class="order-body">
       <div class="order-maglia-preview" id="orderMagliaPreview">👕 Maglia selezionata dal catalogo</div>
-      <div class="order-row">
-        <div class="order-field">
-          <label>👤 Nome</label>
-          <input type="text" id="orderNome" placeholder="Mario">
+
+      <!-- TAB scelta -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
+        <button id="tabOrdine" onclick="switchTab('ordine')"
+          style="padding:12px;border-radius:10px;border:2px solid #0d47a1;background:#0d47a1;color:#fff;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;">
+          📋 Ordine completo
+        </button>
+        <button id="tabInfo" onclick="switchTab('info')"
+          style="padding:12px;border-radius:10px;border:2px solid #e0e0e0;background:#fff;color:#555;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;">
+          💬 Chiedi info
+        </button>
+      </div>
+
+      <!-- FORM ORDINE COMPLETO -->
+      <div id="formOrdine">
+        <div class="order-row">
+          <div class="order-field">
+            <label>👤 Nome</label>
+            <input type="text" id="orderNome" placeholder="Mario">
+          </div>
+          <div class="order-field">
+            <label>👤 Cognome</label>
+            <input type="text" id="orderCognome" placeholder="Rossi">
+          </div>
         </div>
         <div class="order-field">
-          <label>👤 Cognome</label>
-          <input type="text" id="orderCognome" placeholder="Rossi">
+          <label>📍 Indirizzo</label>
+          <input type="text" id="orderIndirizzo" placeholder="Via Roma 1">
         </div>
-      </div>
-      <div class="order-field">
-        <label>📱 WhatsApp / Telefono</label>
-        <input type="tel" id="orderTel" placeholder="+39 333 1234567">
-      </div>
-      <div class="order-field">
-        <label>📍 Indirizzo spedizione</label>
-        <input type="text" id="orderIndirizzo" placeholder="Via Roma 1, 80100 Napoli (NA)">
-      </div>
-      <div class="order-row">
+        <div class="order-row">
+          <div class="order-field">
+            <label>🏙️ Città</label>
+            <input type="text" id="orderCitta" placeholder="Napoli">
+          </div>
+          <div class="order-field">
+            <label>🗺️ Provincia</label>
+            <input type="text" id="orderProvincia" placeholder="NA" maxlength="2">
+          </div>
+        </div>
+        <div class="order-row">
+          <div class="order-field">
+            <label>📮 CAP</label>
+            <input type="text" id="orderCap" placeholder="80100" maxlength="5">
+          </div>
+          <div class="order-field">
+            <label>📱 Telefono</label>
+            <input type="tel" id="orderTel" placeholder="333 1234567">
+          </div>
+        </div>
+        <div class="order-row">
+          <div class="order-field">
+            <label>📏 Taglia</label>
+            <select id="orderTaglia">
+              <option value="">Seleziona...</option>
+              <option>XS</option><option>S</option><option>M</option>
+              <option>L</option><option>XL</option><option>XXL</option>
+              <option>XXXL</option><option>Bimbo 6-8 anni</option>
+              <option>Bimbo 8-10 anni</option><option>Bimbo 10-12 anni</option>
+            </select>
+          </div>
+          <div class="order-field">
+            <label>💳 Pagamento</label>
+            <select id="orderPagamento">
+              <option value="">Seleziona...</option>
+              <option>PostePay</option>
+              <option>Bonifico bancario</option>
+              <option>PayPal Amici e Familiari</option>
+            </select>
+          </div>
+        </div>
         <div class="order-field">
-          <label>📏 Taglia</label>
-          <select id="orderTaglia">
-            <option value="">Seleziona...</option>
-            <option>XS</option><option>S</option><option>M</option>
-            <option>L</option><option>XL</option><option>XXL</option>
-            <option>XXXL</option><option>Bambino 6-8 anni</option>
-            <option>Bambino 8-10 anni</option><option>Bambino 10-12 anni</option>
-          </select>
+          <label>✏️ Personalizzazione (opzionale)</label>
+          <input type="text" id="orderPersonalizza" placeholder="Es. ROSSI 10 — Champions League">
         </div>
         <div class="order-field">
-          <label>💳 Pagamento</label>
-          <select id="orderPagamento">
-            <option value="">Seleziona...</option>
-            <option>PostePay</option>
-            <option>Bonifico bancario</option>
-            <option>PayPal Amici e Familiari</option>
-          </select>
+          <label>📝 Note</label>
+          <textarea id="orderNote" rows="2" placeholder="Eventuali richieste speciali..."></textarea>
         </div>
+        <button class="order-submit" onclick="inviaOrdine()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Invia ordine su WhatsApp
+        </button>
       </div>
-      <div class="order-field">
-        <label>✏️ Personalizzazione (opzionale)</label>
-        <input type="text" id="orderPersonalizza" placeholder="Es. ROSSI 10 — Champions League">
+
+      <!-- FORM CHIEDI INFO -->
+      <div id="formInfo" style="display:none;">
+        <div style="text-align:center;padding:10px 0 20px;">
+          <div style="font-size:40px;margin-bottom:10px;">💬</div>
+          <div style="font-size:15px;font-weight:700;color:#222;margin-bottom:6px;">Hai domande su questa maglia?</div>
+          <div style="font-size:13px;color:#888;margin-bottom:20px;">Scrivici su WhatsApp, rispondiamo subito!</div>
+        </div>
+        <div class="order-field">
+          <label>📝 Il tuo messaggio (opzionale)</label>
+          <textarea id="infoMessaggio" rows="3" placeholder="Es. Avete disponibile in taglia L? Quanto tempo ci vuole la spedizione?"></textarea>
+        </div>
+        <button class="order-submit" onclick="inviaInfo()" style="background:#0d47a1;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Contattaci su WhatsApp
+        </button>
       </div>
-      <div class="order-field">
-        <label>📝 Note aggiuntive</label>
-        <textarea id="orderNote" rows="2" placeholder="Eventuali richieste speciali..."></textarea>
-      </div>
-      <button class="order-submit" onclick="inviaOrdine()">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Invia ordine su WhatsApp
-      </button>
+
     </div>
   </div>
 </div>
@@ -2270,6 +2406,150 @@ function updateOrderBtn(photoName){
   document.getElementById('lb-order-btn').href=`https://wa.me/393792126743?text=${msg}`;
 }
 
+// ── CARRELLO ─────────────────────────────────────────────────────────────────
+let carrello=JSON.parse(localStorage.getItem('csc-cart')||'[]');
+
+function salvaCarrello(){
+  localStorage.setItem('csc-cart',JSON.stringify(carrello));
+  aggiornaCartBadge();
+}
+
+function aggiornaCartBadge(){
+  const badge=document.getElementById('cartBadge');
+  if(!badge) return;
+  if(carrello.length>0){
+    badge.textContent=carrello.length;
+    badge.classList.add('show');
+  } else {
+    badge.classList.remove('show');
+  }
+}
+
+function apriAddCart(){
+  const photo=currentPhotos[currentPhotoIdx];
+  if(!photo) return;
+  document.getElementById('addCartImg').src=thumbUrl(photo.id);
+  document.getElementById('addCartName').textContent=photo.name||'Maglia dal catalogo';
+  document.getElementById('addCartTaglia').value='';
+  document.getElementById('addCartPersonalizza').value='';
+  document.getElementById('addCartModal').classList.add('active');
+}
+
+function chiudiAddCart(){
+  document.getElementById('addCartModal').classList.remove('active');
+}
+
+function confermAggiungi(){
+  const taglia=document.getElementById('addCartTaglia').value;
+  if(!taglia){alert('Seleziona la taglia!');return;}
+  const photo=currentPhotos[currentPhotoIdx];
+  const personalizza=document.getElementById('addCartPersonalizza').value.trim();
+  carrello.push({
+    id:photo.id,
+    name:photo.name||'Maglia',
+    thumb:thumbUrl(photo.id),
+    taglia,
+    personalizza,
+    squadra:document.title||''
+  });
+  salvaCarrello();
+  chiudiAddCart();
+  // Feedback animato
+  const badge=document.getElementById('cartBadge');
+  badge.style.transform='scale(1.8)';
+  setTimeout(()=>badge.style.transform='',300);
+  // Toast
+  mostraToast('✅ Aggiunto al carrello!');
+}
+
+function mostraToast(msg){
+  let toast=document.getElementById('cartToast');
+  if(!toast){
+    toast=document.createElement('div');
+    toast.id='cartToast';
+    toast.style.cssText='position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#0d47a1;color:#fff;padding:10px 22px;border-radius:20px;font-size:13px;font-weight:700;z-index:9999;opacity:0;transition:opacity .3s;white-space:nowrap;';
+    document.body.appendChild(toast);
+  }
+  toast.textContent=msg;
+  toast.style.opacity='1';
+  setTimeout(()=>toast.style.opacity='0',2000);
+}
+
+function apriCarrello(){
+  renderCarrello();
+  document.getElementById('cartModal').classList.add('active');
+}
+
+function chiudiCarrello(){
+  document.getElementById('cartModal').classList.remove('active');
+}
+
+function rimuoviDalCarrello(idx){
+  carrello.splice(idx,1);
+  salvaCarrello();
+  renderCarrello();
+}
+
+function renderCarrello(){
+  const body=document.getElementById('cartBody');
+  if(!carrello.length){
+    body.innerHTML=`<div class="cart-empty">
+      <div class="cart-empty-icon">🛒</div>
+      <div style="font-size:15px;font-weight:700;color:#555;margin-bottom:8px;">Il carrello è vuoto</div>
+      <div style="font-size:13px;color:#aaa;">Sfoglia il catalogo e aggiungi le maglie che ti piacciono</div>
+    </div>`;
+    return;
+  }
+
+  let html='';
+  carrello.forEach((item,i)=>{
+    html+=`<div class="cart-item">
+      <img class="cart-item-img" src="${item.thumb}" alt="${item.name}">
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-detail">📏 Taglia: <b>${item.taglia}</b></div>
+        ${item.personalizza?`<div class="cart-item-detail">✏️ ${item.personalizza}</div>`:''}
+      </div>
+      <button class="cart-item-remove" onclick="rimuoviDalCarrello(${i})">🗑️</button>
+    </div>`;
+  });
+
+  html+=`<div style="border-top:1px solid #f0f0f0;padding-top:16px;margin-top:8px;">
+    <div style="font-size:13px;color:#888;margin-bottom:14px;">Totale articoli: <b style="color:#0d47a1;">${carrello.length}</b> — Per il prezzo contattaci su WhatsApp</div>
+    <button class="cart-checkout" onclick="checkoutCarrello()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Ordina tutto su WhatsApp
+    </button>
+    <button onclick="svuotaCarrello()" style="width:100%;background:none;border:1px solid #e0e0e0;color:#888;border-radius:10px;padding:10px;font-size:13px;cursor:pointer;margin-top:8px;">🗑️ Svuota carrello</button>
+  </div>`;
+
+  body.innerHTML=html;
+}
+
+function checkoutCarrello(){
+  if(!carrello.length) return;
+  let msg=`🛒 *ORDINE MULTIPLO — ${carrello.length} articoli*\n\n`;
+  carrello.forEach((item,i)=>{
+    msg+=`*${i+1}.* ${item.name}\n`;
+    msg+=`   📏 Taglia: ${item.taglia}\n`;
+    if(item.personalizza) msg+=`   ✏️ ${item.personalizza}\n`;
+    msg+=`   🖼️ https://drive.google.com/thumbnail?id=${item.id}&sz=w800\n\n`;
+  });
+  msg+=`---\nPer favore comunicatemi il totale e i dati per la spedizione.`;
+  window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
+function svuotaCarrello(){
+  if(confirm('Svuotare il carrello?')){
+    carrello=[];
+    salvaCarrello();
+    renderCarrello();
+  }
+}
+
+// Init carrello
+aggiornaCartBadge();
+
 // ── MODULO ORDINE ────────────────────────────────────────────────────────────
 let currentOrderPhotoId='';
 let currentOrderPhotoName='';
@@ -2287,21 +2567,46 @@ function chiudiOrdine(){
   document.getElementById('orderModal').classList.remove('active');
 }
 
+function switchTab(tab){
+  const isOrdine=tab==='ordine';
+  document.getElementById('formOrdine').style.display=isOrdine?'block':'none';
+  document.getElementById('formInfo').style.display=isOrdine?'none':'block';
+  document.getElementById('tabOrdine').style.cssText=isOrdine?
+    'padding:12px;border-radius:10px;border:2px solid #0d47a1;background:#0d47a1;color:#fff;font-size:13px;font-weight:700;cursor:pointer;':
+    'padding:12px;border-radius:10px;border:2px solid #e0e0e0;background:#fff;color:#555;font-size:13px;font-weight:700;cursor:pointer;';
+  document.getElementById('tabInfo').style.cssText=isOrdine?
+    'padding:12px;border-radius:10px;border:2px solid #e0e0e0;background:#fff;color:#555;font-size:13px;font-weight:700;cursor:pointer;':
+    'padding:12px;border-radius:10px;border:2px solid #0d47a1;background:#0d47a1;color:#fff;font-size:13px;font-weight:700;cursor:pointer;';
+}
+
+function inviaInfo(){
+  const msg=document.getElementById('infoMessaggio').value.trim();
+  const link=currentOrderPhotoId?`https://drive.google.com/thumbnail?id=${currentOrderPhotoId}&sz=w800`:'';
+  let testo=`Ciao! Sono interessato a questa maglia 👇\n`;
+  if(link) testo+=`${link}\n\n`;
+  if(msg) testo+=`${msg}`;
+  else testo+=`Potete darmi informazioni su disponibilità e taglie?`;
+  window.open(`https://wa.me/393792126743?text=${encodeURIComponent(testo)}`,'_blank');
+  chiudiOrdine();
+}
+
 function inviaOrdine(){
   const nome=document.getElementById('orderNome').value.trim();
   const cognome=document.getElementById('orderCognome').value.trim();
   const tel=document.getElementById('orderTel').value.trim();
   const indirizzo=document.getElementById('orderIndirizzo').value.trim();
+  const citta=document.getElementById('orderCitta').value.trim();
+  const provincia=document.getElementById('orderProvincia').value.trim().toUpperCase();
+  const cap=document.getElementById('orderCap').value.trim();
   const taglia=document.getElementById('orderTaglia').value;
   const pagamento=document.getElementById('orderPagamento').value;
   const personalizza=document.getElementById('orderPersonalizza').value.trim();
   const note=document.getElementById('orderNote').value.trim();
 
-  if(!nome||!tel||!indirizzo||!taglia||!pagamento){
+  if(!nome||!tel||!indirizzo||!citta||!cap||!taglia||!pagamento){
     alert('Per favore compila tutti i campi obbligatori!');return;
   }
 
-  // Salva contatto cliente
   salvaContatto(nome+' '+cognome, tel);
 
   const link=currentOrderPhotoId?`https://drive.google.com/thumbnail?id=${currentOrderPhotoId}&sz=w800`:'';
@@ -2309,6 +2614,7 @@ function inviaOrdine(){
   msg+=`👤 *Cliente:* ${nome} ${cognome}\n`;
   msg+=`📱 *Tel:* ${tel}\n`;
   msg+=`📍 *Indirizzo:* ${indirizzo}\n`;
+  msg+=`🏙️ *Città:* ${citta} (${provincia}) — ${cap}\n`;
   msg+=`📏 *Taglia:* ${taglia}\n`;
   msg+=`💳 *Pagamento:* ${pagamento}\n`;
   if(personalizza) msg+=`✏️ *Personalizzazione:* ${personalizza}\n`;
