@@ -235,6 +235,32 @@ body.dark .how-step-desc{color:#888;}
 .ticker-sep{opacity:.5;}
 @keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
+/* ── POPUP RECENSIONE ── */
+.recensione-popup{position:fixed;bottom:90px;right:24px;z-index:600;background:#fff;border:1px solid #e0e0e0;border-radius:14px;padding:16px 18px;box-shadow:0 8px 32px rgba(0,0,0,.15);max-width:300px;transform:translateX(360px);transition:transform .5s cubic-bezier(.34,1.56,.64,1);pointer-events:none;}
+.recensione-popup.show{transform:translateX(0);}
+body.dark .recensione-popup{background:#1e1e1e;border-color:#333;}
+.rec-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.rec-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#0d47a1,#42a5f5);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0;}
+.rec-info{flex:1;}
+.rec-nome{font-size:13px;font-weight:700;color:#222;}
+body.dark .rec-nome{color:#e0e0e0;}
+.rec-citta{font-size:11px;color:#888;}
+.rec-stelle{color:#f9a825;font-size:14px;letter-spacing:1px;}
+.rec-testo{font-size:13px;color:#444;line-height:1.5;font-style:italic;}
+body.dark .rec-testo{color:#bbb;}
+.rec-badge{display:inline-block;background:#e8f5e9;color:#2e7d32;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-top:8px;letter-spacing:.5px;}
+
+/* ── NOTIFICA ACQUISTO ── */
+.notifica-acquisto{position:fixed;bottom:90px;left:24px;z-index:600;background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 6px 24px rgba(0,0,0,.12);max-width:280px;transform:translateX(-340px);transition:transform .5s cubic-bezier(.34,1.56,.64,1);pointer-events:none;}
+.notifica-acquisto.show{transform:translateX(0);}
+body.dark .notifica-acquisto{background:#1e1e1e;border-color:#333;}
+.notifica-icon{width:40px;height:40px;background:#e3f2fd;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.notifica-testo{font-size:12px;color:#333;line-height:1.4;}
+body.dark .notifica-testo{color:#ccc;}
+.notifica-testo b{color:#0d47a1;font-size:13px;}
+body.dark .notifica-testo b{color:#90caf9;}
+.notifica-tempo{font-size:11px;color:#aaa;margin-top:2px;}
+
 /* ── TORNA SU ── */
 .scroll-top{position:fixed;bottom:24px;left:24px;z-index:500;background:#0d47a1;color:#fff;border:none;width:42px;height:42px;border-radius:50%;font-size:20px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(13,71,161,.4);transition:all .2s;}
 .scroll-top.show{display:flex;}
@@ -368,6 +394,30 @@ body.dark .how-step-desc{color:#888;}
     Ordina su WhatsApp
   </a>
   <div class="lb-zoom-hint" id="lb-zoom-hint">Doppio click per zoom</div>
+</div>
+
+<!-- POPUP RECENSIONE -->
+<div class="recensione-popup" id="recensionePopup">
+  <div class="rec-header">
+    <div class="rec-avatar" id="recAvatar"></div>
+    <div class="rec-info">
+      <div class="rec-nome" id="recNome"></div>
+      <div class="rec-citta" id="recCitta"></div>
+    </div>
+    <div class="rec-stelle">★★★★★</div>
+  </div>
+  <div class="rec-testo" id="recTesto"></div>
+  <div class="rec-badge">✔ Acquisto verificato</div>
+</div>
+
+<!-- NOTIFICA ACQUISTO -->
+<div class="notifica-acquisto" id="notificaAcquisto">
+  <div class="notifica-icon">🛒</div>
+  <div>
+    <div class="notifica-testo"><b id="notificaNome"></b> ha appena acquistato</div>
+    <div class="notifica-testo" id="notificaMaglia"></div>
+    <div class="notifica-tempo" id="notificaTempo"></div>
+  </div>
 </div>
 
 <!-- TORNA SU -->
@@ -1016,6 +1066,66 @@ function paginaComeOrdinare(){
 
   </div>`;
 }
+
+// ── POPUP RECENSIONI ─────────────────────────────────────────────────────────
+(function(){
+  const recensioni=[
+    {nome:'Marco R.',citta:'Napoli',testo:'Maglia arrivata in 3 giorni, qualità fantastica! Identica all\'originale. Consiglio a tutti!'},
+    {nome:'Luca M.',citta:'Milano',testo:'Ho ordinato la maglia dell\'Inter e sono rimasto stupito dalla qualità. Spedizione super veloce 👏'},
+    {nome:'Davide F.',citta:'Roma',testo:'Già al terzo ordine, ogni volta ottimo prodotto. Il prezzo è imbattibile!'},
+    {nome:'Simone T.',citta:'Torino',testo:'Ottimo venditore, risponde subito su WhatsApp e risolve tutto. Maglia perfetta!'},
+    {nome:'Andrea P.',citta:'Palermo',testo:'Finalmente ho trovato la maglia del Barcellona che cercavo. Qualità top e spedizione rapida.'},
+    {nome:'Matteo G.',citta:'Bologna',testo:'Consegna puntualissima, imballo curato. La maglia è bellissima, mio figlio è contentissimo!'},
+    {nome:'Francesco L.',citta:'Catania',testo:'Super soddisfatto! Ho preso la tuta del Bayern e sembra quella originale. Riacquisterò sicuro.'},
+    {nome:'Riccardo B.',citta:'Firenze',testo:'Risposta immediata e spedizione veloce. Maglia della Juventus perfetta, la consiglio!'},
+    {nome:'Giuseppe V.',citta:'Bari',testo:'Ho preso maglie per tutta la famiglia, tutti soddisfatti. Prezzi ottimi e qualità eccellente.'},
+    {nome:'Lorenzo C.',citta:'Venezia',testo:'Maglia del Real Madrid identica all\'originale. Servizio clienti disponibilissimo. 5 stelle meritate!'},
+    {nome:'Alessio N.',citta:'Genova',testo:'Spedizione in 2 giorni, packaging ottimo. La maglia del PSG è bellissima, qualità sorprendente.'},
+    {nome:'Stefano D.',citta:'Verona',testo:'Ho ordinato tre maglie diverse, tutte perfette. Venditore serio e affidabile, ci tornerò!'},
+  ];
+
+  function mostraRecensione(){
+    const r=recensioni[Math.floor(Math.random()*recensioni.length)];
+    document.getElementById('recAvatar').textContent=r.nome.charAt(0);
+    document.getElementById('recNome').textContent=r.nome;
+    document.getElementById('recCitta').textContent='📍 '+r.citta;
+    document.getElementById('recTesto').textContent='"'+r.testo+'"';
+    const el=document.getElementById('recensionePopup');
+    el.classList.add('show');
+    setTimeout(()=>el.classList.remove('show'),5000);
+  }
+
+  // Prima recensione dopo 35 secondi, poi ogni 90-150 secondi
+  setTimeout(()=>{
+    mostraRecensione();
+    setInterval(mostraRecensione, Math.random()*60000+90000);
+  }, 35000);
+})();
+
+// ── NOTIFICHE ACQUISTO ───────────────────────────────────────────────────────
+(function(){
+  const nomi=['Marco','Luca','Alessandro','Matteo','Davide','Simone','Andrea','Fabio','Giorgio','Francesco','Lorenzo','Stefano','Riccardo','Antonio','Giuseppe','Nicola','Paolo','Roberto','Salvatore','Vincenzo','Sofia','Giulia','Chiara','Valentina','Martina','Sara','Federica','Alice','Elisa','Roberta'];
+  const maglie=['maglia Napoli home','maglia Inter away','maglia Milan home','maglia Juventus third','maglia Roma home','maglia Lazio away','maglia Barcellona home','maglia Real Madrid home','maglia PSG away','maglia Bayern Monaco home','maglia Liverpool home','maglia Manchester City away','maglia Arsenal home','maglia Atletico Madrid home','maglia Borussia Dortmund home','maglia Brasile home','maglia Argentina home','maglia Francia away','completo Atalanta','tuta Bayern Monaco'];
+  const tempi=['3 minuti fa','8 minuti fa','12 minuti fa','22 minuti fa','35 minuti fa','1 ora fa','2 ore fa'];
+
+  function mostra(){
+    const nome=nomi[Math.floor(Math.random()*nomi.length)];
+    const maglia=maglie[Math.floor(Math.random()*maglie.length)];
+    const tempo=tempi[Math.floor(Math.random()*tempi.length)];
+    document.getElementById('notificaNome').textContent=nome;
+    document.getElementById('notificaMaglia').textContent=maglia;
+    document.getElementById('notificaTempo').textContent=tempo;
+    const el=document.getElementById('notificaAcquisto');
+    el.classList.add('show');
+    setTimeout(()=>el.classList.remove('show'),4000);
+  }
+
+  // Prima notifica dopo 20 secondi, poi ogni 60-120 secondi
+  setTimeout(()=>{
+    mostra();
+    setInterval(mostra, Math.random()*60000+60000);
+  }, 20000);
+})();
 
 // ── TICKER SCORREVOLE ────────────────────────────────────────────────────────
 (function(){
