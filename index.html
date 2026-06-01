@@ -2316,8 +2316,8 @@ function openCategory(ci,fromPopstate){
   document.title=cat.name+' — Completini Squadre Calcio 2.0';
   navStack=[{name:cat.name,type:'cat',cat,ci}];
   updateBreadcrumb();setSidebarActive(ci);
-  window.scrollTo({top:0,behavior:'smooth'});
-  renderCategory(cat,ci);
+  window.scrollTo(0,0);
+  renderCategory(cat,ci).then(()=>window.scrollTo(0,0));
 }
 function openCatSidebar(ci){openCategory(ci);if(window.innerWidth<=768)toggleSidebar();}
 function openSubSidebar(ci,si){openSub(ci,si);if(window.innerWidth<=768)toggleSidebar();}
@@ -2398,8 +2398,9 @@ async function openSub(ci,si,fromPopstate){
   if(metaDesc) metaDesc.content='Acquista la maglia '+sn+' con personalizzazione gratuita. Spedizione gratuita in tutta Italia. Completini Squadre Calcio 2.0 — dal 2018.';
   navStack=[{name:cat.name,type:'cat',cat,ci},{name:sn,type:'sub',sub,cat,ci,si}];
   updateBreadcrumb();setSidebarActive(ci,si);
-  window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo(0,0);
   await renderSub(sub,cat,ci,si);
+  window.scrollTo(0,0);
 }
 
 async function renderSub(sub,cat,ci,si){
@@ -2422,7 +2423,7 @@ async function renderSub(sub,cat,ci,si){
 }
 
 async function openDynamicSub(folderId,folderName,catName){
-  window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo(0,0);
   const main=document.getElementById('main');
   const back=`<button class="back-btn" onclick="history.back()">← ${catName}</button>`;
   main.innerHTML=back+`<div class="loading"><div class="spinner"></div>Caricamento...</div>`;
@@ -2433,6 +2434,7 @@ async function openDynamicSub(folderId,folderName,catName){
     const imgs=await getImages(folderId);
     renderPhotos(imgs,folderName,back);
   }
+  window.scrollTo(0,0);
 }
 
 const BRAND_NAMES=['nike','adidas','puma','mizuno','new balance','asics','umbro','hummel','kappa','jordan','air jordan','under armour','diadora','scarpe da calcio','sneakers'];
