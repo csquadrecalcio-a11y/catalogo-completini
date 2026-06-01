@@ -4838,8 +4838,7 @@ function apriAddCart(){
 
     // Restrizioni per maglie specifiche
     const _nomeF=(photo.name||'').toLowerCase();
-    const _soloPlayerVersion=['inter away 2026'];
-    const _èRistretto=_soloPlayerVersion.some(k=>_nomeF.includes(k));
+    const _èRistretto=_nomeF.includes(' pv')||_nomeF.includes('_pv')||_nomeF.endsWith('pv')||_nomeF.includes('player version');
     document.querySelectorAll('.tipo-card').forEach(c=>{
       const val=(c.querySelector('input[name="addCartTipo"]')?.value||'').toLowerCase();
       if(_èRistretto){
