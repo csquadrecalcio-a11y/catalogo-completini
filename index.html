@@ -4298,7 +4298,8 @@ function inviaRiepilogoWA(){
     msg+=`*${i+1}. ${item.name}*\n`;
     msg+=`   📏 Taglia: ${item.taglia}\n`;
     if(item.personalizza) msg+=`   ✏️ Personalizzazione: ${item.personalizza}\n`;
-    msg+=`   🖼️ Foto: https://drive.google.com/thumbnail?id=${item.id}&sz=w800\n\n`;
+    const siteBase=location.origin+location.pathname;
+    msg+=`   🔗 Maglia: ${siteBase}#photo-${item.id}\n\n`;
   });
   msg+=`━━━━━━━━━━━━━━━━━━━━━\n`;
   msg+=`📦 Articoli totali: ${carrello.length}\n`;
@@ -4881,7 +4882,7 @@ function checkoutCarrello(){
     msg+=`\n*${i+1}. ${item.name}*\n`;
     msg+=`   📏 Taglia: ${item.taglia}\n`;
     if(item.personalizza) msg+=`   ✏️ ${item.personalizza}\n`;
-    msg+=`   🖼️ https://drive.google.com/thumbnail?id=${item.id}&sz=w800\n`;
+    msg+=`   🔗 ${location.origin}${location.pathname}#photo-${item.id}\n`;
   });
 
   msg+=`\n━━━━━━━━━━━━━━━━━━━━━\n`;
@@ -5482,7 +5483,14 @@ function inviaOrdineWa(){
   }
   // Aggiungi anche la thumbnail della foto specifica
   const photoId=currentPhotos[currentPhotoIdx]?.id||'';
-  if(photoId) linkMaglia+=`\n🖼️ Foto: https://drive.google.com/thumbnail?id=${photoId}&sz=w600`;
+  // Link diretto alla maglia sul sito
+  if(photoId){
+    const base=location.origin+location.pathname;
+    let fotoHash=`#photo-${photoId}`;
+    if(navStack.length>=2&&navStack[0]?.ci!==undefined&&navStack[1]?.si!==undefined)
+      fotoHash=`#sub-${navStack[0].ci}-${navStack[1].si}-photo-${photoId}`;
+    linkMaglia+=`\n🔗 Maglia: ${base}${fotoHash}`;
+  }
 
   const msg=`Ciao! Voglio ordinare:\n\n`+
     `👕 Prodotto: ${_ordineNome}${linkMaglia}\n`+
