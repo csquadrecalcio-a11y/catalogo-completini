@@ -779,26 +779,8 @@ body.dark .completa-card{background:#1e1e1e;border-color:#333;}
 body.dark .completa-card-name{color:#ccc;}
 
 /* ── ANIMAZIONE VOLO CARRELLO ── */
-.fly-img{position:fixed;z-index:99999;border-radius:8px;pointer-events:none;opacity:1;box-shadow:0 8px 24px rgba(0,0,0,.35);}
-@keyframes flyArc{
-  0%  {transform:scale(1) rotate(0deg);}
-  40% {transform:scale(.85) rotate(-15deg);}
-  80% {transform:scale(.4) rotate(-30deg);}
-  100%{transform:scale(0) rotate(-45deg);opacity:0;}
-}
-@keyframes cartBounce{
-  0%,100%{transform:scale(1);}
-  30%{transform:scale(1.35) rotate(-8deg);}
-  60%{transform:scale(1.2) rotate(6deg);}
-  80%{transform:scale(1.1) rotate(-3deg);}
-}
-@keyframes plusOne{
-  0%  {opacity:1;transform:translateY(0) scale(1);}
-  100%{opacity:0;transform:translateY(-40px) scale(1.4);}
-}
-.fly-anim{animation:flyArc .7s cubic-bezier(.4,0,.2,1) forwards;}
-.cart-bounce{animation:cartBounce .5s ease !important;}
-.plus-one{position:fixed;z-index:99999;font-size:18px;font-weight:900;color:#f5a623;pointer-events:none;text-shadow:0 2px 8px rgba(0,0,0,.4);animation:plusOne .8s ease forwards;}
+.fly-img{position:fixed;z-index:99999;border-radius:8px;pointer-events:none;transition:all .65s cubic-bezier(.25,.46,.45,.94);opacity:1;}
+.fly-img.landed{transform:scale(0) !important;opacity:0;}
 
 /* ── SKELETON LOADING ── */
 @keyframes shimmer{0%{background-position:-400px 0;}100%{background-position:400px 0;}}
@@ -4195,55 +4177,22 @@ function flyToCart(imgEl){
   if(!cartIcon||!imgEl) return;
   const srcRect=imgEl.getBoundingClientRect();
   const dstRect=cartIcon.getBoundingClientRect();
-
-  // Crea immagine volante
   const fly=document.createElement('img');
   fly.className='fly-img';
   fly.src=imgEl.src;
-  const size=Math.min(srcRect.width,80);
-  fly.style.cssText=`left:${srcRect.left+(srcRect.width-size)/2}px;top:${srcRect.top+(srcRect.height-size)/2}px;width:${size}px;height:${size}px;`;
+  fly.style.cssText=`left:${srcRect.left}px;top:${srcRect.top}px;width:${srcRect.width}px;height:${srcRect.height}px;`;
   document.body.appendChild(fly);
-
-  // Calcola punto di destinazione (centro carrello)
-  const dstX=dstRect.left+dstRect.width/2;
-  const dstY=dstRect.top+dstRect.height/2;
-  const startX=srcRect.left+(srcRect.width-size)/2;
-  const startY=srcRect.top+(srcRect.height-size)/2;
-
-  // Anima con keyframes JS lungo un arco curvo
-  const dur=650;
-  const start=performance.now();
-  function step(now){
-    const t=Math.min((now-start)/dur,1);
-    const ease=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2; // easeInOutQuad
-    // Arco parabolico: punto medio sollevato
-    const arcH=(startY-dstY-80)*Math.sin(Math.PI*t);
-    const x=startX+(dstX-startX)*ease;
-    const y=startY+(dstY-startY)*ease - arcH*Math.sin(Math.PI*t);
-    const scale=1-ease*0.95;
-    const rot=-45*ease;
-    fly.style.left=x+'px';
-    fly.style.top=y+'px';
-    fly.style.transform=`scale(${scale}) rotate(${rot}deg)`;
-    fly.style.opacity=t<.8?'1':String(1-(t-.8)/.2);
-    if(t<1) requestAnimationFrame(step);
-    else {
-      fly.remove();
-      // Carrello rimbalza
-      cartIcon.classList.remove('cart-bounce');
-      void cartIcon.offsetWidth;
-      cartIcon.classList.add('cart-bounce');
-      setTimeout(()=>cartIcon.classList.remove('cart-bounce'),500);
-      // +1 che sale
-      const plus=document.createElement('div');
-      plus.className='plus-one';
-      plus.textContent='+1 🛒';
-      plus.style.cssText=`left:${dstX-20}px;top:${dstY-10}px;`;
-      document.body.appendChild(plus);
-      setTimeout(()=>plus.remove(),800);
-    }
-  }
-  requestAnimationFrame(step);
+  requestAnimationFrame(()=>{
+    requestAnimationFrame(()=>{
+      fly.style.left=dstRect.left+'px';
+      fly.style.top=dstRect.top+'px';
+      fly.style.width='30px';
+      fly.style.height='30px';
+      fly.style.borderRadius='50%';
+      fly.classList.add('landed');
+      setTimeout(()=>fly.remove(),700);
+    });
+  });
 }
 
 // ── FILTRI CATEGORIA ─────────────────────────────────────────────────────────
