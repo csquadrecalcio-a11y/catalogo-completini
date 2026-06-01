@@ -5012,15 +5012,24 @@ document.getElementById('newsletterEmail')?.addEventListener('keydown',e=>{
 const INTER_PHOTO_ID='1nJhrON4rdO99quD6i5BJ-NulRTMmFUg4';
 
 async function apriMagliaInter(){
-  await restorePhotoFromHash(INTER_PHOTO_ID);
-  // Aspetta che le foto vengano caricate poi apre il modal Aggiungi
-  setTimeout(()=>{
-    if(currentPhotos&&currentPhotos.length>0){
-      const idx=currentPhotos.findIndex(p=>p.id===INTER_PHOTO_ID);
-      if(idx>=0) openLightbox(idx);
-      setTimeout(()=>apriAddCart(),300);
-    }
-  },1500);
+  // Naviga a Serie A (ci=1) → Inter
+  const ci=1;
+  const cat=CATALOG[ci];
+  const si=cat.subs.findIndex(s=>(typeof s==='string'?s:s.name).toLowerCase()==='inter');
+  if(si<0) return;
+  await openSub(ci,si);
+  // Poll finché non trova le foto caricate, poi apre la foto specifica
+  let tentativi=0;
+  const poll=setInterval(()=>{
+    tentativi++;
+    if(tentativi>20){clearInterval(poll);return;}
+    if(!currentPhotos||currentPhotos.length===0) return;
+    clearInterval(poll);
+    const idx=currentPhotos.findIndex(p=>p.id===INTER_PHOTO_ID);
+    const i=idx>=0?idx:0;
+    openLightbox(i);
+    setTimeout(()=>apriAddCart(),400);
+  },200);
 }
 
 // ── PAGINA PREZZI ────────────────────────────────────────────────────────────
