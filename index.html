@@ -1433,7 +1433,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
         <div style="width:24px;height:24px;background:#0d47a1;color:#fff;border-radius:50%;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
         <span style="font-size:13px;font-weight:800;color:#222;">Seleziona la taglia</span>
-        <span onclick="chiudiAddCart();paginaTaglie();" style="font-size:11px;color:#0d47a1;cursor:pointer;font-weight:600;text-decoration:underline;margin-left:auto;">Guida →</span>
+        <span onclick="apriGuidaTaglie()" style="font-size:11px;color:#0d47a1;cursor:pointer;font-weight:600;text-decoration:underline;margin-left:auto;">Guida →</span>
       </div>
       <select id="addCartTaglia" style="width:100%;padding:12px 14px;border:2px solid #e0e0e0;border-radius:10px;font-size:15px;outline:none;font-weight:600;" onchange="const av=document.getElementById('avvisoBambino');if(av)av.style.display=this.value.toLowerCase().includes('bambino')?'block':'none';">
         <option value="">Tocca per scegliere...</option>
@@ -3643,7 +3643,22 @@ function paginaFaq(){
 }
 
 // ── PAGINA GUIDA TAGLIE ──────────────────────────────────────────────────────
-function paginaTaglie(){
+// Salva contesto ordine per tornare dopo la guida taglie
+let _savedOrderContext=null;
+
+function apriGuidaTaglie(){
+  // Salva foto e indice corrente
+  _savedOrderContext={
+    photoIdx: currentPhotoIdx,
+    photos: currentPhotos,
+    navStack: [...navStack],
+  };
+  chiudiAddCart();
+  closeLightbox();
+  paginaTaglie(true);
+}
+
+function paginaTaglie(daOrdine=false){
   navStack=[];updateBreadcrumb();
   document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('active'));
   const sb=document.getElementById('sb-taglie');
@@ -3655,7 +3670,16 @@ function paginaTaglie(){
   const tdStyle=`style="padding:10px 12px;text-align:center;border-bottom:1px solid #e8e8e8;color:#333;"`;
   const tdBStyle=`style="padding:10px 12px;text-align:center;border-bottom:1px solid #e8e8e8;color:#333;font-weight:700;font-size:15px;"`;
 
+  // Bottone torna all'ordine se si è arrivati dal modal ordine
+  const tornaBtn=daOrdine&&_savedOrderContext?`
+    <div style="position:sticky;top:0;z-index:10;background:#fff;padding:10px 0;margin-bottom:4px;border-bottom:1px solid #eee;">
+      <button onclick="tornaAllOrdine()" style="display:flex;align-items:center;gap:8px;background:#0d47a1;color:#fff;border:none;border-radius:8px;padding:10px 18px;font-size:14px;font-weight:700;cursor:pointer;width:100%;justify-content:center;">
+        ← Torna all'ordine
+      </button>
+    </div>`:'';
+
   const html=`<div style="max-width:820px;margin:0 auto;padding-bottom:32px;">
+    ${tornaBtn}
     <div style="text-align:center;padding:28px 0 24px;">
       <div style="font-size:44px;margin-bottom:10px;">📏</div>
       <h1 style="font-family:'Montserrat',sans-serif;font-size:26px;font-weight:900;color:#0d47a1;">Guida alle Taglie</h1>
@@ -5315,6 +5339,22 @@ function paginaPrezzi(){
     </a>
   </div>`;
   window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── TORNA ALL'ORDINE DALLA GUIDA TAGLIE ──────────────────────────────────────
+function tornaAllOrdine(){
+  if(!_savedOrderContext) return;
+  const ctx=_savedOrderContext;
+  _savedOrderContext=null;
+  // Ripristina contesto navigazione
+  navStack=ctx.navStack;
+  currentPhotos=ctx.photos;
+  currentPhotoIdx=ctx.photoIdx;
+  // Riapre il lightbox e poi il modal ordine
+  if(currentPhotos&&currentPhotos.length>0){
+    openLightbox(currentPhotoIdx);
+    setTimeout(()=>apriAddCart(), 300);
+  }
 }
 
 // ── MODAL ORDINE ─────────────────────────────────────────────────────────────
