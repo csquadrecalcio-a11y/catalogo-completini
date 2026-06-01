@@ -5062,6 +5062,10 @@ function paginaPrezzi(){
         <div class="prezzi-nota">🧥 Tuta allenamento <b>50€</b></div>
         <div class="prezzi-nota">🧥 Tuta passeggio <b>60€</b></div>
         <div class="prezzi-nota">🧥 Tuta con cappuccio <b>65€</b></div>
+        <div class="prezzi-nota">🎽 Completino con canotta <b>35€</b></div>
+        <div class="prezzi-nota">👕 Completino con t-shirt <b>38€</b></div>
+        <div class="prezzi-nota">👔 Completino con polo <b>40€</b></div>
+        <div class="prezzi-nota">🐆 Completino Jordan <b>45€</b></div>
         <div class="prezzi-nota">👟 Scarpe <b>da 90€</b></div>
         <div class="prezzi-nota">🚚 Spedizione <b>GRATUITA</b></div>
       </div>
@@ -5117,19 +5121,37 @@ const OPZIONI_TUTA=[
 const OPZIONI_VINTAGE=[
   {icon:'🏆', nome:'Maglia Vintage',   desc:'Edizione storica, taglia S→XXL',  prezzo:35},
 ];
+// Opzioni per completini estivi
+const OPZIONI_ESTIVI=[
+  {icon:'🎽', nome:'Con Canotta',      desc:'Completino estivo con canotta',    prezzo:35},
+  {icon:'👕', nome:'Con T-Shirt',      desc:'Completino estivo con t-shirt',    prezzo:38},
+  {icon:'👔', nome:'Con Polo',         desc:'Completino estivo con polo',       prezzo:40},
+  {icon:'🐆', nome:'Jordan',           desc:'Completino estivo Jordan',         prezzo:45},
+];
 
 function _isTuta(nome){return nome&&nome.toLowerCase().includes('tuta');}
-function _isVintage(nome){
+function _isVintage(nome){return (nome||'').toLowerCase().includes('vintage');}
+function _isEstivo(nome){
   const n=(nome||'').toLowerCase();
-  return n.includes('vintage');
+  return n.includes('estiv')||n.includes('passeggio')||n.includes('canotta')||n.includes('polo');
+}
+
+function _getOpzioni(nome){
+  if(_isTuta(nome)) return OPZIONI_TUTA;
+  if(_isVintage(nome)) return OPZIONI_VINTAGE;
+  if(_isEstivo(nome)) return OPZIONI_ESTIVI;
+  // controlla anche la categoria corrente nel navStack
+  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  if(stack.includes('estiv')||stack.includes('completini estivi')) return OPZIONI_ESTIVI;
+  if(stack.includes('tuta')) return OPZIONI_TUTA;
+  if(stack.includes('vintage')) return OPZIONI_VINTAGE;
+  return OPZIONI_MAGLIA;
 }
 
 function apriOrdine(nomeProdotto){
   _ordineNome=nomeProdotto||'maglia';
   _ordineSelIdx=0;
-  const isTuta=_isTuta(_ordineNome);
-  const isVintage=_isVintage(_ordineNome);
-  const opzioni=isTuta?OPZIONI_TUTA:isVintage?OPZIONI_VINTAGE:OPZIONI_MAGLIA;
+  const opzioni=_getOpzioni(_ordineNome);
 
   document.getElementById('ordine-title').textContent='🛒 '+_ordineNome.slice(0,40);
   document.getElementById('ordine-sub').textContent='Seleziona il tipo e premi Ordina';
@@ -5162,9 +5184,7 @@ function chiudiOrdine(){
 }
 
 function inviaOrdineWa(){
-  const isTuta=_isTuta(_ordineNome);
-  const isVintage=_isVintage(_ordineNome);
-  const opzioni=isTuta?OPZIONI_TUTA:isVintage?OPZIONI_VINTAGE:OPZIONI_MAGLIA;
+  const opzioni=_getOpzioni(_ordineNome);
   const op=opzioni[_ordineSelIdx];
   const msg=`Ciao! Voglio ordinare:\n\n👕 Prodotto: ${_ordineNome}\n📦 Tipo: ${op.nome}\n💰 Prezzo: ${op.prezzo}€\n\nPotete confermare disponibilità?`;
   window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`,'_blank');
