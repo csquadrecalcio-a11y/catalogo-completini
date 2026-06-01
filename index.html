@@ -216,6 +216,27 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .album-name{font-size:13px;color:#333;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .album-count{font-size:12px;color:#888;margin-top:3px;}
 
+/* ── BRAND CARD ── */
+.brand-card{background:#111;border:none;border-radius:10px;cursor:pointer;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;position:relative;}
+.brand-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,0,0,.5);}
+.brand-card-inner{aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:20px;}
+.brand-card-bg{position:absolute;inset:0;background:linear-gradient(160deg,#2a2a2a 0%,#111 60%,#000 100%);}
+.brand-card-name{position:relative;z-index:1;font-family:'Montserrat',sans-serif;font-size:clamp(22px,4vw,36px);font-weight:900;color:#fff;letter-spacing:3px;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.8);text-align:center;}
+.brand-card-sub{position:relative;z-index:1;font-size:11px;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase;margin-top:6px;}
+.brand-card-btn{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.08);backdrop-filter:blur(4px);color:#fff;font-size:12px;font-weight:800;letter-spacing:3px;text-align:center;padding:12px;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.1);transition:background .2s;}
+.brand-card:hover .brand-card-btn{background:rgba(255,255,255,.18);}
+.brand-card-accent{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);width:40px;height:2px;border-radius:2px;background:rgba(255,255,255,.3);}
+/* colori accent per brand */
+.brand-nike .brand-card-bg{background:linear-gradient(160deg,#1a1a1a 0%,#111 100%);}
+.brand-nike .brand-card-name{color:#fff;}
+.brand-nike .brand-card-accent{background:#fff;}
+.brand-adidas .brand-card-bg{background:linear-gradient(160deg,#0a0a0a 0%,#1a1a2e 100%);}
+.brand-adidas .brand-card-name{color:#fff;}
+.brand-adidas .brand-card-accent{background:#4fc3f7;}
+.brand-puma .brand-card-bg{background:linear-gradient(160deg,#1a0a0a 0%,#2d0000 100%);}
+.brand-puma .brand-card-name{color:#fff;}
+.brand-puma .brand-card-accent{background:#ef5350;}
+
 /* ── GRIGLIA FOTO ── */
 .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;}
 .photo-item{background:#fff;border:1px solid #e0e0e0;border-radius:8px;cursor:pointer;overflow:hidden;transition:box-shadow .25s ease,transform .25s ease,border-color .25s ease;}
@@ -2081,22 +2102,45 @@ async function openDynamicSub(folderId,folderName,catName){
   }
 }
 
+const BRAND_NAMES=['nike','adidas','puma','mizuno','new balance','asics','umbro','hummel','kappa'];
+function isBrand(name){return BRAND_NAMES.some(b=>name.toLowerCase().includes(b));}
+function brandClass(name){
+  const n=name.toLowerCase();
+  if(n.includes('nike')) return 'brand-nike';
+  if(n.includes('adidas')) return 'brand-adidas';
+  if(n.includes('puma')) return 'brand-puma';
+  return '';
+}
+
 async function buildAlbumGrid(items,actionFn){
-  // Carica la prima foto di ogni cartella in parallelo
-  const firstImgs=await Promise.all(items.map(item=>getFirstImage(item.id)));
+  // Carica la prima foto di ogni cartella in parallelo (solo per le non-brand)
+  const firstImgs=await Promise.all(items.map(item=>isBrand(item.name)?null:getFirstImage(item.id)));
   let html=`<div class="album-grid">`;
   for(let i=0;i<items.length;i++){
     const item=items[i];
     const action=await actionFn(item);
-    const imgId=firstImgs[i];
-    const thumb=imgId
-      ?`<img class="album-thumb" src="${thumbUrl(imgId)}" alt="${item.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-      :'';
-    const placeholder=`<div class="album-thumb-placeholder" style="${imgId?'display:none':''}'">${teamIcon(item.name)}</div>`;
-    html+=`<div class="album-card" onclick="${action}">
-      ${thumb}${placeholder}
-      <div class="album-info"><div class="album-name">${item.name}</div></div>
-    </div>`;
+    if(isBrand(item.name)){
+      // Card stile brand professionale
+      html+=`<div class="brand-card ${brandClass(item.name)}" onclick="${action}">
+        <div class="brand-card-inner">
+          <div class="brand-card-bg"></div>
+          <div class="brand-card-name">${item.name}</div>
+          <div class="brand-card-sub">Collezione 2025</div>
+          <div class="brand-card-accent"></div>
+        </div>
+        <div class="brand-card-btn">Scopri ora</div>
+      </div>`;
+    } else {
+      const imgId=firstImgs[i];
+      const thumb=imgId
+        ?`<img class="album-thumb" src="${thumbUrl(imgId)}" alt="${item.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+        :'';
+      const placeholder=`<div class="album-thumb-placeholder" style="${imgId?'display:none':''}">${teamIcon(item.name)}</div>`;
+      html+=`<div class="album-card" onclick="${action}">
+        ${thumb}${placeholder}
+        <div class="album-info"><div class="album-name">${item.name}</div></div>
+      </div>`;
+    }
   }
   return html+`</div>`;
 }
