@@ -4736,7 +4736,8 @@ document.getElementById('newsletterEmail')?.addEventListener('keydown',e=>{
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
 buildSidebar();
-goHome();
+// Vai alla home solo se non c'è un hash nell'URL (es. #cat-10, #photo-xxx)
+if(!location.hash || location.hash==='#') goHome();
 setTimeout(creaParticelle, 100);
 setTimeout(animaContatori, 300);
 </script>
