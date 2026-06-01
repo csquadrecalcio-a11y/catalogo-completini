@@ -5366,11 +5366,20 @@ function inviaOrdineWa(){
     return;
   }
 
-  // Link diretto alla maglia
+  // Link diretto alla categoria (più affidabile del link alla singola foto)
+  const navItem=navStack[navStack.length-1];
+  let linkMaglia='';
+  if(navStack.length>=2){
+    const ci=navStack[0]?.ci??'';
+    const si=navStack[1]?.si??'';
+    if(ci!==''&&si!=='')
+      linkMaglia=`\n🔗 Categoria: ${location.origin}${location.pathname}#sub-${ci}-${si}`;
+  } else if(navStack.length===1&&navStack[0]?.ci!==undefined){
+    linkMaglia=`\n🔗 Categoria: ${location.origin}${location.pathname}#cat-${navStack[0].ci}`;
+  }
+  // Aggiungi anche la thumbnail della foto specifica
   const photoId=currentPhotos[currentPhotoIdx]?.id||'';
-  const linkMaglia=photoId
-    ?`\n🔗 Maglia: ${location.origin}${location.pathname}#photo-${photoId}`
-    :'';
+  if(photoId) linkMaglia+=`\n🖼️ Foto: https://drive.google.com/thumbnail?id=${photoId}&sz=w600`;
 
   const msg=`Ciao! Voglio ordinare:\n\n`+
     `👕 Prodotto: ${_ordineNome}${linkMaglia}\n`+
