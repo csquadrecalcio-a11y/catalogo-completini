@@ -239,6 +239,9 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .brand-newbalance .brand-card-bg{background:linear-gradient(160deg,#0a0a1a 0%,#1a001a 100%);}
 .brand-newbalance .brand-card-name{color:#fff;font-size:clamp(16px,3vw,24px);}
 .brand-newbalance .brand-card-accent{background:#c62828;}
+.brand-jordan .brand-card-bg{background:linear-gradient(160deg,#1a0000 0%,#3d0000 100%);}
+.brand-jordan .brand-card-name{color:#fff;}
+.brand-jordan .brand-card-accent{background:#e53935;}
 .brand-calcio .brand-card-bg{background:linear-gradient(160deg,#0d2137 0%,#0a3d62 100%);}
 .brand-calcio .brand-card-name{color:#fff;font-size:clamp(18px,3vw,28px);}
 .brand-calcio .brand-card-accent{background:#4fc3f7;}
@@ -2123,13 +2126,14 @@ async function openDynamicSub(folderId,folderName,catName){
   }
 }
 
-const BRAND_NAMES=['nike','adidas','puma','mizuno','new balance','asics','umbro','hummel','kappa','jordan','under armour','diadora','scarpe da calcio','sneakers'];
+const BRAND_NAMES=['nike','adidas','puma','mizuno','new balance','asics','umbro','hummel','kappa','jordan','air jordan','under armour','diadora','scarpe da calcio','sneakers'];
 function isBrand(name){return BRAND_NAMES.some(b=>name.toLowerCase().includes(b));}
 function brandClass(name){
   const n=name.toLowerCase();
   if(n.includes('nike')) return 'brand-nike';
   if(n.includes('adidas')) return 'brand-adidas';
   if(n.includes('puma')) return 'brand-puma';
+  if(n.includes('air jordan')||n.includes('jordan')) return 'brand-jordan';
   if(n.includes('new balance')) return 'brand-newbalance';
   if(n.includes('scarpe da calcio')) return 'brand-calcio';
   if(n.includes('sneakers')) return 'brand-sneakers';
