@@ -1891,6 +1891,32 @@ function goHome(fromPopstate){
     </div>
   </div>
 
+  <!-- FEATURED: MAGLIA JUVENTUS -->
+  <div class="featured-inter" style="border-bottom:3px solid #111;margin-top:12px;">
+    <div class="featured-inter-badge" style="background:linear-gradient(90deg,#111,#444);">⭐ TOP SELLER SERIE A</div>
+    <div class="featured-inter-inner">
+      <div class="featured-inter-img-wrap">
+        <img src="juve-featured.jpg" alt="Maglia Juventus" class="featured-inter-img">
+        <div class="featured-inter-stock" style="background:linear-gradient(135deg,#111,#333);">⚠️ Restano solo <span>7</span> pezzi!</div>
+      </div>
+      <div class="featured-inter-info">
+        <div class="featured-inter-label" style="color:#555;">⚫⚪ JUVENTUS FC</div>
+        <h2 class="featured-inter-title">Maglia Juventus<br>2026/2027</h2>
+        <div class="featured-inter-stars">★★★★★ <span>4.8 (287 ordini)</span></div>
+        <div class="featured-inter-features">
+          <div>✅ Qualità premium</div>
+          <div>✅ Personalizzazione nome & numero</div>
+          <div>✅ Spedizione rapida in Italia</div>
+          <div>✅ Disponibile taglia S → XXL</div>
+        </div>
+        <button class="featured-inter-btn" style="background:linear-gradient(135deg,#111,#333);box-shadow:0 4px 18px rgba(0,0,0,.4);" onclick="apriMagliaJuve()">
+          🛒 Ordina subito
+        </button>
+        <div class="featured-inter-urgency">⏳ <strong>2 persone</strong> la stanno guardando adesso</div>
+      </div>
+    </div>
+  </div>
+
   <div class="scarpe-banner" onclick="openCategory(${CATALOG.findIndex(c=>c.name==='Scarpe')})">
     <img src="sneakers.png" alt="Scarpe & Sneakers" loading="lazy">
     <div class="scarpe-banner-overlay"></div>
@@ -5006,6 +5032,7 @@ document.getElementById('newsletterEmail')?.addEventListener('keydown',e=>{
 
 // ── BOTTONE FEATURED INTER → apre direttamente la maglia specifica ──────────
 const INTER_PHOTO_ID='1nJhrON4rdO99quD6i5BJ-NulRTMmFUg4';
+const JUVE_PHOTO_ID='1BF-4k7r8PfvBVIB3a2z58t5H9KXBEsUV';
 
 async function apriMagliaInter(){
   // Naviga a Serie A (ci=1) → Inter
@@ -5024,6 +5051,24 @@ async function apriMagliaInter(){
     const idx=currentPhotos.findIndex(p=>p.id===INTER_PHOTO_ID);
     const i=idx>=0?idx:0;
     openLightbox(i);
+    setTimeout(()=>apriAddCart(),400);
+  },200);
+}
+
+async function apriMagliaJuve(){
+  const ci=1; // Serie A
+  const cat=CATALOG[ci];
+  const si=cat.subs.findIndex(s=>(typeof s==='string'?s:s.name).toLowerCase()==='juventus');
+  if(si<0) return;
+  await openSub(ci,si);
+  let tentativi=0;
+  const poll=setInterval(()=>{
+    tentativi++;
+    if(tentativi>20){clearInterval(poll);return;}
+    if(!currentPhotos||currentPhotos.length===0) return;
+    clearInterval(poll);
+    const idx=currentPhotos.findIndex(p=>p.id===JUVE_PHOTO_ID);
+    openLightbox(idx>=0?idx:0);
     setTimeout(()=>apriAddCart(),400);
   },200);
 }
