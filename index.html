@@ -919,9 +919,10 @@ body.dark .avvisa-box{background:#1e1e1e;}
   .ham{display:block;flex-shrink:0;}
 
   /* ── SIDEBAR ── */
-  .sidebar{position:fixed;left:-105%;top:0;height:100vh;z-index:995;transition:left .3s ease;width:100%;max-width:320px;box-shadow:4px 0 20px rgba(0,0,0,.3);}
+  .sidebar{position:fixed;left:-105%;top:0;height:100vh;z-index:995;transition:left .3s ease;width:85%;max-width:320px;box-shadow:4px 0 20px rgba(0,0,0,.3);overflow-y:auto;}
   .sidebar.open{left:0;}
   .sidebar-overlay.open{z-index:994;}
+  body.sidebar-open{overflow:hidden;}
   .layout{min-height:calc(100vh - 54px);}
 
   /* ── CONTENT ── */
@@ -1911,18 +1912,30 @@ function setSidebarActive(ci,si=-1){
 }
 
 function toggleSidebar(){
-  // Calcola la posizione corretta sotto la topbar
-  const topbar=document.querySelector('.topbar');
-  if(topbar){
-    const rect=topbar.getBoundingClientRect();
-    const bottom=Math.round(rect.bottom);
-    const sidebar=document.getElementById('sidebar');
-    sidebar.style.top=bottom+'px';
-    sidebar.style.height='calc(100vh - '+bottom+'px)';
-    document.getElementById('overlay').style.top=bottom+'px';
+  const sidebar=document.getElementById('sidebar');
+  const overlay=document.getElementById('overlay');
+  const isOpening=!sidebar.classList.contains('open');
+
+  // Su mobile: sidebar a schermo intero dall'alto
+  if(window.innerWidth<=768){
+    sidebar.style.top='0';
+    sidebar.style.height='100vh';
+    overlay.style.top='0';
+  } else {
+    // Desktop: sotto la topbar
+    const topbar=document.querySelector('.topbar');
+    if(topbar){
+      const bottom=Math.round(topbar.getBoundingClientRect().bottom);
+      sidebar.style.top=bottom+'px';
+      sidebar.style.height='calc(100vh - '+bottom+'px)';
+      overlay.style.top=bottom+'px';
+    }
   }
-  document.getElementById('sidebar').classList.toggle('open');
-  document.getElementById('overlay').classList.toggle('open');
+
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('open');
+  // Blocca scroll del body quando la sidebar è aperta
+  document.body.classList.toggle('sidebar-open', isOpening);
 }
 
 // ── BREADCRUMB ───────────────────────────────────────────────────────────────
