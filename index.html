@@ -332,6 +332,57 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 @keyframes wa-pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.5);}50%{box-shadow:0 4px 30px rgba(37,211,102,.9);}}
 .wa-btn{animation:wa-pulse 2s ease infinite;}
 
+/* ── TORNA SU ── */
+.scroll-top-btn{position:fixed;bottom:90px;right:24px;z-index:499;width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;border:none;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(13,71,161,.4);opacity:0;transform:translateY(20px);transition:opacity .3s,transform .3s;pointer-events:none;}
+.scroll-top-btn.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
+.scroll-top-btn:hover{background:var(--blue2);transform:translateY(-3px);}
+
+/* ── BADGE NUOVO ── */
+.badge-nuovo{position:absolute;top:8px;left:8px;background:linear-gradient(135deg,#e53935,#c62828);color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;z-index:4;animation:badge-pulse 2s ease infinite;}
+@keyframes badge-pulse{0%,100%{box-shadow:0 0 0 0 rgba(229,57,53,.5);}50%{box-shadow:0 0 0 6px rgba(229,57,53,0);}}
+
+/* ── ZOOM HOVER CARD ── */
+.photo-item img{transition:transform .4s ease;}
+.photo-item:hover img{transform:scale(1.07);}
+.album-card .album-thumb{transition:transform .4s ease;}
+.album-card:hover .album-thumb{transform:scale(1.05);}
+
+/* ── WA DIRETTO SULLA FOTO ── */
+.quick-order-btn{position:absolute;bottom:8px;left:0;right:0;margin:0 8px;background:#25d366;color:#fff;border:none;border-radius:8px;padding:8px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;opacity:0;transform:translateY(6px);transition:all .25s;z-index:4;}
+.photo-item:hover .quick-order-btn{opacity:1;transform:translateY(0);}
+.quick-order-btn:hover{background:#1ebe5d;}
+
+/* ── BOTTOM BAR MOBILE ── */
+.mobile-bottom-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:600;background:#fff;border-top:1px solid #e0e0e0;padding:8px 0 env(safe-area-inset-bottom,8px);box-shadow:0 -4px 20px rgba(0,0,0,.1);}
+body.dark .mobile-bottom-bar{background:#1e1e1e;border-color:#333;}
+.mbb-inner{display:flex;align-items:center;justify-content:space-around;}
+.mbb-btn{display:flex;flex-direction:column;align-items:center;gap:3px;background:none;border:none;cursor:pointer;color:#666;font-size:10px;font-weight:600;padding:4px 12px;border-radius:8px;transition:color .2s;}
+body.dark .mbb-btn{color:#aaa;}
+.mbb-btn.active,.mbb-btn:hover{color:#0d47a1;}
+body.dark .mbb-btn.active{color:#90caf9;}
+.mbb-icon{font-size:22px;line-height:1;}
+.mbb-wa{background:#25d366;color:#fff!important;border-radius:50%;width:52px;height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-top:-18px;box-shadow:0 4px 16px rgba(37,211,102,.5);font-size:10px;font-weight:700;}
+.mbb-wa .mbb-icon{font-size:26px;}
+@media(max-width:768px){
+  .mobile-bottom-bar{display:block;}
+  .wa-btn{bottom:80px;}
+  .scroll-top-btn{bottom:170px;}
+  body{padding-bottom:60px;}
+}
+
+/* ── SWIPE LIGHTBOX MOBILE ── */
+.lightbox{touch-action:pan-y;}
+
+/* ── PREZZI HOME ── */
+.prezzi-strip{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:20px 24px;margin-bottom:20px;border-radius:10px;}
+.prezzi-strip-title{font-size:14px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;text-align:center;}
+.prezzi-grid{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.prezzo-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:14px 20px;text-align:center;min-width:120px;}
+.prezzo-card-tipo{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:4px;}
+.prezzo-card-val{font-size:24px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;}
+.prezzo-card-val span{font-size:13px;font-weight:400;color:rgba(255,255,255,.5);}
+.prezzo-card-note{font-size:10px;color:rgba(255,255,255,.4);margin-top:3px;}
+
 /* ── PALLINO NUOVI ARRIVI SIDEBAR ── */
 .sb-new-dot{width:8px;height:8px;background:#e53935;border-radius:50%;flex-shrink:0;}
 @keyframes dot-pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.6;transform:scale(1.4);}}
@@ -1469,6 +1520,35 @@ body.dark .avvisa-box{background:#1e1e1e;}
   </div>
 </div>
 
+<!-- TORNA SU -->
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Torna su">↑</button>
+
+<!-- BOTTOM BAR MOBILE -->
+<div class="mobile-bottom-bar">
+  <div class="mbb-inner">
+    <button class="mbb-btn" onclick="goHome()">
+      <span class="mbb-icon">🏠</span>
+      <span>Home</span>
+    </button>
+    <button class="mbb-btn" onclick="document.getElementById('searchInput').focus();if(window.innerWidth<=768)window.scrollTo({top:0})">
+      <span class="mbb-icon">🔍</span>
+      <span>Cerca</span>
+    </button>
+    <a class="mbb-btn mbb-wa" href="https://wa.me/393792126743" target="_blank">
+      <span class="mbb-icon">💬</span>
+      <span>Ordina</span>
+    </a>
+    <button class="mbb-btn" onclick="toggleDark()">
+      <span class="mbb-icon">🌙</span>
+      <span>Tema</span>
+    </button>
+    <button class="mbb-btn" onclick="toggleSidebar()">
+      <span class="mbb-icon">☰</span>
+      <span>Menu</span>
+    </button>
+  </div>
+</div>
+
 <!-- MODAL CONDIVIDI -->
 <div class="share-modal" id="shareModal">
   <div class="share-backdrop" onclick="chiudiCondividi()"></div>
@@ -1719,6 +1799,26 @@ function goHome(fromPopstate){
     </div>
   </div>
 
+  <div class="prezzi-strip">
+    <div class="prezzi-strip-title">💰 Listino Prezzi</div>
+    <div class="prezzi-grid">
+      <div class="prezzo-card">
+        <div class="prezzo-card-tipo">👕 Maglia</div>
+        <div class="prezzo-card-val">30€ <span>/ cad</span></div>
+        <div class="prezzo-card-note">da 5 pz → 25€</div>
+      </div>
+      <div class="prezzo-card">
+        <div class="prezzo-card-tipo">👕⚽ Kit Completo</div>
+        <div class="prezzo-card-val">40€ <span>/ cad</span></div>
+        <div class="prezzo-card-note">da 5 pz → 30€</div>
+      </div>
+      <div class="prezzo-card">
+        <div class="prezzo-card-tipo">🚚 Spedizione</div>
+        <div class="prezzo-card-val">GRATIS <span></span></div>
+        <div class="prezzo-card-note">su tutti gli ordini</div>
+      </div>
+    </div>
+  </div>
   <div class="content-header"><div class="content-title">Seleziona una categoria</div></div><div class="cat-grid">`;
   CATALOG.forEach((cat,i)=>{
     if(i===0) return;
@@ -2181,12 +2281,20 @@ function renderPhotos(imgs,title,back){
     main.innerHTML=back+`<div class="loading">Nessuna foto disponibile</div>`;return;
   }
   let html=back+`<div class="content-header"><div class="content-title"><b>${title}</b> — ${imgs.length} foto</div></div><div class="photo-grid">`;
+  const now=Date.now();
   imgs.forEach((img,i)=>{
     const isWished=wishlist.includes(img.id);
+    // Badge "Nuovo" per le prime 6 foto (simulate come recenti)
+    const isNuovo=(i<6);
+    const nomeWa=encodeURIComponent(`Ciao! Voglio ordinare: ${img.name||title}`);
     html+=`<div class="photo-item" onclick="openLightbox(${i})">
       <img src="${thumbUrl(img.id)}" alt="${img.name}" loading="lazy">
+      ${isNuovo?'<div class="badge-nuovo">Nuovo</div>':''}
       <button class="wish-btn ${isWished?'wished':''}" onclick="toggleWish(event,'${img.id}')"></button>
       <button class="share-btn" onclick="apriCondividi(event,${i})">↗️</button>
+      <a class="quick-order-btn" href="https://wa.me/393792126743?text=${nomeWa}" target="_blank" onclick="event.stopPropagation()">
+        💬 Ordina subito
+      </a>
     </div>`;
   });
   main.innerHTML=html+`</div>`+mostraCompletaLook(0);
@@ -2320,6 +2428,23 @@ document.addEventListener('keydown',e=>{
   if(e.key==='ArrowLeft')prevPhoto();
   if(e.key==='ArrowRight')nextPhoto();
 });
+
+// ── SWIPE MOBILE LIGHTBOX ─────────────────────────────────────────────────────
+(()=>{
+  let startX=0;
+  const lb=document.getElementById('lightbox');
+  lb.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;},{passive:true});
+  lb.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-startX;
+    if(Math.abs(dx)>50){dx<0?nextPhoto():prevPhoto();}
+  },{passive:true});
+})();
+
+// ── TORNA SU ─────────────────────────────────────────────────────────────────
+window.addEventListener('scroll',()=>{
+  const btn=document.getElementById('scrollTopBtn');
+  if(btn) btn.classList.toggle('visible',window.scrollY>400);
+},{ passive:true });
 
 // ── ICONE ────────────────────────────────────────────────────────────────────
 function teamIcon(n){
