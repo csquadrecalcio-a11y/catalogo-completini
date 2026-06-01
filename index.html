@@ -2152,11 +2152,67 @@ function openLightbox(idx){
   document.getElementById('lightbox').classList.add('active');
   updateOrderBtn(currentPhotos[idx].name||'maglia');
   showZoomHint();
+  history.replaceState(null,'','#photo-'+currentPhotos[idx].id);
 }
 function closeLightbox(){
   document.getElementById('lb-img').classList.remove('zoomed');
   document.getElementById('lightbox').classList.remove('active');
+  // Ripristina l'URL alla pagina corrente
+  if(navStack.length===0) history.replaceState({page:'home'},'','#');
+  else{
+    const last=navStack[navStack.length-1];
+    if(last.type==='cat') history.replaceState({page:'cat',ci:last.ci},'','#cat-'+last.ci);
+    else if(last.type==='sub') history.replaceState({page:'sub',ci:last.ci,si:last.si},'','#sub-'+last.ci+'-'+last.si);
+    else history.replaceState({page:'home'},'','#');
+  }
 }
+// ── RIPRISTINO MAGLIA DA LINK DIRETTO ────────────────────────────────────────
+async function restorePhotoFromHash(fileId){
+  document.getElementById('main').innerHTML='<div class="loading"><div class="spinner"></div>Caricamento maglia...</div>';
+  try{
+    // Ottieni info file (nome + cartella padre)
+    const fRes=await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?fields=id,name,parents&key=${API_KEY}`);
+    const fData=await fRes.json();
+    if(!fData.parents||!fData.id){goHome();return;}
+
+    let folderId=fData.parents[0];
+    for(let depth=0;depth<4;depth++){
+      // Controlla se folderId corrisponde direttamente a un CATALOG
+      const ci=CATALOG.findIndex(c=>c.id===folderId);
+      if(ci>=0){await openCategory(ci,true);openPhotoById(fileId);return;}
+
+      // Ottieni info sulla cartella padre
+      const pRes=await fetch(`https://www.googleapis.com/drive/v3/files/${folderId}?fields=id,name,parents&key=${API_KEY}`);
+      const pData=await pRes.json();
+      if(!pData.parents)break;
+
+      // Controlla se il padre del padre è un CATALOG
+      const ci2=CATALOG.findIndex(c=>c.id===pData.parents[0]);
+      if(ci2>=0){
+        const subs=CATALOG[ci2].subs;
+        if(subs){
+          const si=subs.findIndex(s=>(typeof s==='string'?s:s.name).toLowerCase()===pData.name.toLowerCase());
+          if(si>=0){await openSub(ci2,si,true);openPhotoById(fileId);return;}
+        }
+        await openCategory(ci2,true);
+        openPhotoById(fileId);
+        return;
+      }
+      folderId=pData.parents[0];
+    }
+    goHome();
+  }catch(e){goHome();}
+}
+
+function openPhotoById(fileId){
+  // Aspetta un attimo che le foto siano caricate poi apre il lightbox
+  const tryOpen=()=>{
+    const idx=currentPhotos.findIndex(p=>p.id===fileId);
+    if(idx>=0){openLightbox(idx);}
+  };
+  setTimeout(tryOpen,600);
+}
+
 function prevPhoto(){
   currentPhotoIdx=(currentPhotoIdx-1+currentPhotos.length)%currentPhotos.length;
   const img=document.getElementById('lb-img');
@@ -2668,8 +2724,20 @@ function inviaPersonalizzazione(){
     setTimeout(()=>document.getElementById('splash').classList.add('hide'),2200);
   });
 
+  // ── RIPRISTINO URL ALL'AVVIO ─────────────────────────────────────────────
+  (async function restoreFromHash(){
+    const hash=location.hash;
+    if(!hash||hash==='#') return;
+    const catMatch=hash.match(/^#cat-(\d+)$/);
+    const subMatch=hash.match(/^#sub-(\d+)-(\d+)$/);
+    const photoMatch=hash.match(/^#photo-(.+)$/);
+    if(catMatch) { openCategory(+catMatch[1],true); return; }
+    if(subMatch) { openSub(+subMatch[1],+subMatch[2],true); return; }
+    if(photoMatch) { await restorePhotoFromHash(photoMatch[1]); return; }
+  })();
+
   // ── TASTO ← BROWSER ──────────────────────────────────────────────────────
-  history.replaceState({page:'home'},'','#');
+  if(!location.hash||location.hash==='#') history.replaceState({page:'home'},'','#');
   window.addEventListener('popstate',e=>{
     const s=e.state;
     if(!s||s.page==='home'){goHome(true);}
@@ -4435,8 +4503,9 @@ function chiudiCondividi(){
 
 function condividiWhatsApp(){
   const photo=currentPhotos[sharePhotoIdx];
-  const link=photo?`https://drive.google.com/thumbnail?id=${photo.id}&sz=w800`:'';
-  const msg=`👀 Guarda questa maglia che ho trovato su Completini Squadre Calcio 2.0!\n${link}\n\nOrdina su: https://csquadrecalcio-a11y.github.io/catalogo-completini/`;
+  const base=location.origin+location.pathname;
+  const link=photo?`${base}#photo-${photo.id}`:base;
+  const msg=`👀 Guarda questa maglia su Completini Squadre Calcio 2.0!\n${link}`;
   window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`,'_blank');
   chiudiCondividi();
 }
@@ -4456,7 +4525,8 @@ function condividiInstagram(){
 
 function copiaLink(){
   const photo=currentPhotos[sharePhotoIdx];
-  const link=photo?`https://drive.google.com/thumbnail?id=${photo.id}&sz=w800`:'https://csquadrecalcio-a11y.github.io/catalogo-completini/';
+  const base=location.origin+location.pathname;
+  const link=photo?`${base}#photo-${photo.id}`:base;
   navigator.clipboard.writeText(link).then(()=>{
     alert('✅ Link copiato negli appunti!');
   });
