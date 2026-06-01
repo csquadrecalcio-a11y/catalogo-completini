@@ -2128,6 +2128,7 @@ function goHome(fromPopstate){
   };
   CATALOG.forEach((cat,i)=>{
     if(i===0) return;
+    if(cat.name==='Scarpe') return;
     const bg=CAT_COLORS[cat.name]||'linear-gradient(160deg,#1a1a1a 0%,#111 100%)';
     const accent=CAT_ACCENT[cat.name]||'#fff';
     const count=cat.subs?cat.subs.length+' squadre':'Sfoglia';
