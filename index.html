@@ -4753,6 +4753,12 @@ function _isTute(){
   const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
   return stack.includes('tute')||stack.includes('tuta');
 }
+function _prezzoTuta(){
+  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  if(stack.includes('passeggio')) return 60;
+  if(stack.includes('cappuccio')) return 65;
+  return 50;
+}
 function _isEstivi(){
   const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
   return stack.includes('estivi')||stack.includes('estivo');
@@ -4800,7 +4806,7 @@ function apriAddCart(){
   } else if(_isTute()){
     if(formTute) formTute.style.display='';
     document.getElementById('tuteTagliaVal').value='';
-    document.getElementById('addCartPrezzoTot').textContent='50€';
+    document.getElementById('addCartPrezzoTot').textContent=_prezzoTuta()+'€';
   } else if(_isEstivi()){
     if(formEstivi) formEstivi.style.display='';
     document.getElementById('estagiTagliaVal').value='';
@@ -4849,8 +4855,7 @@ function confermAggiungi(){
     if(!taglia){alert('Seleziona la taglia!');return;}
     const tipoSel=document.querySelector('.tipo-card.sel input[name="addCartTipo"],.tipo-opzione.sel input[name="addCartTipo"]');
     const tipo=tipoSel?tipoSel.value:'Tuta';
-    const prezzoSel=document.querySelector('.tipo-card.sel,.tipo-opzione.sel');
-    const prezzo=prezzoSel?parseInt(prezzoSel.dataset.prezzo)||50:50;
+    const prezzo=_prezzoTuta();
     carrello.push({id:photo.id,name:`🧥 ${tipo} — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia,prezzo,personalizza:'',squadra:squadraNome});
     salvaCarrello();flyToCart(document.getElementById('addCartImg'));
     chiudiAddCart();closeLightbox();aggiornaCartBadge();
