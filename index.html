@@ -4826,6 +4826,26 @@ function apriAddCart(){
     const primaCard=document.querySelector('.tipo-card');
     if(primaCard) primaCard.classList.add('sel');
     document.getElementById('addCartPrezzoTot').textContent='30€';
+
+    // Restrizioni per maglie specifiche
+    const _nomeF=(photo.name||'').toLowerCase();
+    const _soloPlayerVersion=['inter away 2026'];
+    const _èRistretto=_soloPlayerVersion.some(k=>_nomeF.includes(k));
+    document.querySelectorAll('.tipo-card').forEach(c=>{
+      const val=(c.querySelector('input[name="addCartTipo"]')?.value||'').toLowerCase();
+      if(_èRistretto){
+        if(val==='player version'){
+          c.style.display='';c.classList.add('sel');
+          document.getElementById('addCartPrezzoTot').textContent='35€';
+        } else {
+          c.style.display='none';c.classList.remove('sel');
+        }
+      } else {
+        c.style.display='';
+      }
+    });
+    const _bambGrp=document.querySelector('#addCartTaglia optgroup[label*="Bambino"]');
+    if(_bambGrp) _bambGrp.style.display=_èRistretto?'none':'';
   }
   document.getElementById('addCartModal').classList.add('active');
 }
