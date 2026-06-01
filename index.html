@@ -374,14 +374,48 @@ body.dark .mbb-btn.active{color:#90caf9;}
 .lightbox{touch-action:pan-y;}
 
 /* ── PREZZI HOME ── */
-.prezzi-strip{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:20px 24px;margin-bottom:20px;border-radius:10px;}
-.prezzi-strip-title{font-size:14px;font-weight:700;color:rgba(255,255,255,.7);letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;text-align:center;}
-.prezzi-grid{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.prezzo-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:14px 20px;text-align:center;min-width:120px;}
-.prezzo-card-tipo{font-size:12px;color:rgba(255,255,255,.6);margin-bottom:4px;}
-.prezzo-card-val{font-size:24px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;}
-.prezzo-card-val span{font-size:13px;font-weight:400;color:rgba(255,255,255,.5);}
-.prezzo-card-note{font-size:10px;color:rgba(255,255,255,.4);margin-top:3px;}
+.prezzi-strip{background:linear-gradient(135deg,var(--navy),var(--navy2));padding:24px;margin-bottom:20px;border-radius:10px;overflow:hidden;position:relative;}
+.prezzi-strip::before{content:'💰';position:absolute;font-size:120px;opacity:.05;right:-10px;top:-10px;line-height:1;}
+.prezzi-strip-title{font-size:13px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;text-align:center;}
+.prezzi-strip-sub{font-size:11px;color:rgba(255,255,255,.35);text-align:center;margin-bottom:16px;}
+/* Tabella prezzi */
+.prezzi-table{width:100%;border-collapse:collapse;margin-bottom:16px;}
+.prezzi-table th{font-size:11px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase;padding:6px 10px;text-align:center;}
+.prezzi-table td{padding:8px 10px;text-align:center;font-size:14px;color:#fff;border-top:1px solid rgba(255,255,255,.08);}
+.prezzi-table td:first-child{text-align:left;font-weight:600;font-size:13px;color:rgba(255,255,255,.8);}
+.prezzi-table .price-val{font-weight:800;font-size:16px;font-family:'Montserrat',sans-serif;}
+.prezzi-table .price-old{font-size:11px;color:rgba(255,255,255,.3);text-decoration:line-through;display:block;}
+.badge-sconto{display:inline-block;background:#e53935;color:#fff;font-size:10px;font-weight:800;padding:2px 6px;border-radius:10px;margin-left:4px;vertical-align:middle;}
+.badge-best{background:linear-gradient(135deg,#f5a623,#e8940f);}
+.prezzi-note{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;}
+.prezzi-nota{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:8px 14px;font-size:12px;color:rgba(255,255,255,.7);text-align:center;}
+.prezzi-nota b{color:#fff;}
+/* Modal ordine */
+.ordine-modal{display:none;position:fixed;inset:0;z-index:3000;align-items:flex-end;justify-content:center;padding:0;}
+.ordine-modal.active{display:flex;}
+.ordine-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);}
+.ordine-box{position:relative;background:#fff;border-radius:20px 20px 0 0;padding:24px;width:100%;max-width:500px;z-index:1;animation:slideUp .3s ease;max-height:85vh;overflow-y:auto;}
+body.dark .ordine-box{background:#1e1e1e;}
+.ordine-title{font-size:16px;font-weight:800;color:#222;margin-bottom:4px;}
+body.dark .ordine-title{color:#e0e0e0;}
+.ordine-sub{font-size:12px;color:#888;margin-bottom:18px;}
+.ordine-opzioni{display:flex;flex-direction:column;gap:10px;margin-bottom:18px;}
+.ordine-opzione{display:flex;align-items:center;justify-content:space-between;border:2px solid #e0e0e0;border-radius:12px;padding:14px 16px;cursor:pointer;transition:all .2s;background:#fff;}
+body.dark .ordine-opzione{background:#2a2a2a;border-color:#444;}
+.ordine-opzione:hover,.ordine-opzione.sel{border-color:#0d47a1;background:#e3f2fd;}
+body.dark .ordine-opzione.sel{background:#1a2a4a;border-color:#1565c0;}
+.ordine-opzione-left{display:flex;align-items:center;gap:10px;}
+.ordine-opzione-icon{font-size:24px;}
+.ordine-opzione-nome{font-size:14px;font-weight:700;color:#222;}
+body.dark .ordine-opzione-nome{color:#e0e0e0;}
+.ordine-opzione-desc{font-size:11px;color:#888;margin-top:1px;}
+.ordine-opzione-prezzo{font-size:20px;font-weight:900;color:#0d47a1;font-family:'Montserrat',sans-serif;}
+body.dark .ordine-opzione-prezzo{color:#90caf9;}
+.ordine-btn-wa{width:100%;background:#25d366;color:#fff;border:none;border-radius:12px;padding:16px;font-size:16px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all .2s;box-shadow:0 4px 18px rgba(37,211,102,.4);}
+.ordine-btn-wa:hover{background:#1ebe5d;transform:translateY(-2px);}
+.ordine-close{position:absolute;top:14px;right:14px;background:#f0f0f0;border:none;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;color:#555;display:flex;align-items:center;justify-content:center;}
+body.dark .ordine-close{background:#333;color:#aaa;}
+@media(max-width:480px){.prezzi-table td,.prezzi-table th{padding:6px 4px;font-size:12px;}.prezzi-table .price-val{font-size:14px;}}
 
 /* ── PALLINO NUOVI ARRIVI SIDEBAR ── */
 .sb-new-dot{width:8px;height:8px;background:#e53935;border-radius:50%;flex-shrink:0;}
@@ -1520,6 +1554,18 @@ body.dark .avvisa-box{background:#1e1e1e;}
   </div>
 </div>
 
+<!-- MODAL ORDINE -->
+<div class="ordine-modal" id="ordineModal">
+  <div class="ordine-backdrop" onclick="chiudiOrdine()"></div>
+  <div class="ordine-box">
+    <button class="ordine-close" onclick="chiudiOrdine()">✕</button>
+    <div class="ordine-title" id="ordine-title">🛒 Scegli il prodotto</div>
+    <div class="ordine-sub" id="ordine-sub">Seleziona il tipo che vuoi ordinare</div>
+    <div class="ordine-opzioni" id="ordine-opzioni"></div>
+    <button class="ordine-btn-wa" onclick="inviaOrdineWa()">💬 Ordina su WhatsApp</button>
+  </div>
+</div>
+
 <!-- TORNA SU -->
 <button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Torna su">↑</button>
 
@@ -1801,22 +1847,55 @@ function goHome(fromPopstate){
 
   <div class="prezzi-strip">
     <div class="prezzi-strip-title">💰 Listino Prezzi</div>
-    <div class="prezzi-grid">
-      <div class="prezzo-card">
-        <div class="prezzo-card-tipo">👕 Maglia</div>
-        <div class="prezzo-card-val">30€ <span>/ cad</span></div>
-        <div class="prezzo-card-note">da 5 pz → 25€</div>
-      </div>
-      <div class="prezzo-card">
-        <div class="prezzo-card-tipo">👕⚽ Kit Completo</div>
-        <div class="prezzo-card-val">40€ <span>/ cad</span></div>
-        <div class="prezzo-card-note">da 5 pz → 30€</div>
-      </div>
-      <div class="prezzo-card">
-        <div class="prezzo-card-tipo">🚚 Spedizione</div>
-        <div class="prezzo-card-val">GRATIS <span></span></div>
-        <div class="prezzo-card-note">su tutti gli ordini</div>
-      </div>
+    <div class="prezzi-strip-sub">Più ordini, più risparmi • Spedizione GRATIS su tutto</div>
+    <table class="prezzi-table">
+      <thead>
+        <tr>
+          <th>Prodotto</th>
+          <th>1 pezzo</th>
+          <th>5+ pezzi</th>
+          <th>10+ pezzi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>👕 Maglia</td>
+          <td><span class="price-val">30€</span></td>
+          <td><span class="price-val">25€</span><span class="badge-sconto">-17%</span></td>
+          <td><span class="price-val">20€</span><span class="badge-sconto badge-best">-33%</span></td>
+        </tr>
+        <tr>
+          <td>🧒 Kit Bambino</td>
+          <td><span class="price-val">35€</span></td>
+          <td><span class="price-val">30€</span><span class="badge-sconto">-14%</span></td>
+          <td><span class="price-val">25€</span><span class="badge-sconto badge-best">-29%</span></td>
+        </tr>
+        <tr>
+          <td>👨 Kit Adulto</td>
+          <td><span class="price-val">40€</span></td>
+          <td><span class="price-val">30€</span><span class="badge-sconto">-25%</span></td>
+          <td><span class="price-val">25€</span><span class="badge-sconto badge-best">-38%</span></td>
+        </tr>
+        <tr>
+          <td>⭐ Player Version</td>
+          <td><span class="price-val">35€</span></td>
+          <td><span class="price-val">28€</span><span class="badge-sconto">-20%</span></td>
+          <td><span class="price-val">22€</span><span class="badge-sconto badge-best">-37%</span></td>
+        </tr>
+        <tr>
+          <td>🏆 Maglia Vintage</td>
+          <td><span class="price-val">35€</span></td>
+          <td><span class="price-val">28€</span><span class="badge-sconto">-20%</span></td>
+          <td><span class="price-val">22€</span><span class="badge-sconto badge-best">-37%</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="prezzi-note">
+      <div class="prezzi-nota">👟 Scarpe da calcio <b>prezzi su richiesta</b></div>
+      <div class="prezzi-nota">🧥 Tuta allenamento <b>50€</b></div>
+      <div class="prezzi-nota">🧥 Tuta passeggio <b>60€</b></div>
+      <div class="prezzi-nota">🧥 Tuta con cappuccio <b>65€</b></div>
+      <div class="prezzi-nota">🚚 Spedizione <b>GRATUITA</b> ovunque</div>
     </div>
   </div>
   <div class="content-header"><div class="content-title">Seleziona una categoria</div></div><div class="cat-grid">`;
@@ -2292,9 +2371,9 @@ function renderPhotos(imgs,title,back){
       ${isNuovo?'<div class="badge-nuovo">Nuovo</div>':''}
       <button class="wish-btn ${isWished?'wished':''}" onclick="toggleWish(event,'${img.id}')"></button>
       <button class="share-btn" onclick="apriCondividi(event,${i})">↗️</button>
-      <a class="quick-order-btn" href="https://wa.me/393792126743?text=${nomeWa}" target="_blank" onclick="event.stopPropagation()">
+      <button class="quick-order-btn" onclick="event.stopPropagation();apriOrdine('${img.name||title}')">
         💬 Ordina subito
-      </a>
+      </button>
     </div>`;
   });
   main.innerHTML=html+`</div>`+mostraCompletaLook(0);
@@ -2334,6 +2413,13 @@ function searchGo(i){
 function closeSearch(){document.getElementById('searchResults').classList.remove('open');}
 
 // ── LIGHTBOX ─────────────────────────────────────────────────────────────────
+function _noPersonalizzazione(){
+  // Restituisce true se la categoria corrente NON supporta personalizzazione
+  const nomiNoPerso=['scarpe','nba','tuta','sneakers','calcio'];
+  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  return nomiNoPerso.some(k=>stack.includes(k));
+}
+
 function openLightbox(idx){
   currentPhotoIdx=idx;
   const img=document.getElementById('lb-img');
@@ -2344,6 +2430,9 @@ function openLightbox(idx){
   updateOrderBtn(currentPhotos[idx].name||'maglia');
   showZoomHint();
   history.replaceState(null,'','#photo-'+currentPhotos[idx].id);
+  // Mostra/nascondi bottone personalizzazione in base alla categoria
+  const btnPerso=document.querySelector('.lb-custom-btn[onclick*="apriPersonalizza"]');
+  if(btnPerso) btnPerso.style.display=_noPersonalizzazione()?'none':'flex';
 }
 function closeLightbox(){
   document.getElementById('lb-img').classList.remove('zoomed');
@@ -4347,10 +4436,12 @@ window.addEventListener('scroll',()=>{
 // ── BOTTONE ORDINA NEL LIGHTBOX ───────────────────────────────────────────────
 let currentPhotoName='';
 function updateOrderBtn(photoName){
-  const photoId=currentPhotos[currentPhotoIdx]?.id||'';
-  const link=photoId?`https://drive.google.com/thumbnail?id=${photoId}&sz=w800`:'';
-  const msg=encodeURIComponent(`Ciao! Vorrei ordinare questa maglia 👇\n${link}\n\nPotete dirmi disponibilità e taglie?`);
-  document.getElementById('lb-order-btn').href=`https://wa.me/393792126743?text=${msg}`;
+  const btn=document.getElementById('lb-order-btn');
+  btn.onclick=(e)=>{
+    e.preventDefault();
+    closeLightbox();
+    apriOrdine(photoName||'maglia');
+  };
 }
 
 // ── CARRELLO ─────────────────────────────────────────────────────────────────
@@ -4883,6 +4974,81 @@ function iscriviNewsletter(){
 document.getElementById('newsletterEmail')?.addEventListener('keydown',e=>{
   if(e.key==='Enter') iscriviNewsletter();
 });
+
+// ── MODAL ORDINE ─────────────────────────────────────────────────────────────
+let _ordineNome='';
+let _ordineSelIdx=0;
+
+// Opzioni per maglie normali
+const OPZIONI_MAGLIA=[
+  {icon:'👕', nome:'Maglia',          desc:'Solo maglia, taglia S→XXL',        prezzo:30},
+  {icon:'🧒', nome:'Kit Bambino',     desc:'Maglia + pantaloncino bambino',     prezzo:35},
+  {icon:'👨', nome:'Kit Adulto',      desc:'Maglia + pantaloncino adulto',      prezzo:40},
+  {icon:'⭐', nome:'Player Version',  desc:'Versione giocatore, qualità top',   prezzo:35},
+];
+// Opzioni per tute
+const OPZIONI_TUTA=[
+  {icon:'🏃', nome:'Tuta Allenamento', desc:'Leggera, perfetta per allenarsi',  prezzo:50},
+  {icon:'🚶', nome:'Tuta Passeggio',   desc:'Elegante per il tempo libero',     prezzo:60},
+  {icon:'🧥', nome:'Tuta con Cappuccio',desc:'Calda e comoda, con zip',         prezzo:65},
+];
+// Opzioni per vintage
+const OPZIONI_VINTAGE=[
+  {icon:'🏆', nome:'Maglia Vintage',   desc:'Edizione storica, taglia S→XXL',  prezzo:35},
+];
+
+function _isTuta(nome){return nome&&nome.toLowerCase().includes('tuta');}
+function _isVintage(nome){
+  const n=(nome||'').toLowerCase();
+  return n.includes('vintage');
+}
+
+function apriOrdine(nomeProdotto){
+  _ordineNome=nomeProdotto||'maglia';
+  _ordineSelIdx=0;
+  const isTuta=_isTuta(_ordineNome);
+  const isVintage=_isVintage(_ordineNome);
+  const opzioni=isTuta?OPZIONI_TUTA:isVintage?OPZIONI_VINTAGE:OPZIONI_MAGLIA;
+
+  document.getElementById('ordine-title').textContent='🛒 '+_ordineNome.slice(0,40);
+  document.getElementById('ordine-sub').textContent='Seleziona il tipo e premi Ordina';
+
+  const cont=document.getElementById('ordine-opzioni');
+  cont.innerHTML=opzioni.map((op,i)=>`
+    <div class="ordine-opzione${i===0?' sel':''}" onclick="selOrdine(this,${i})">
+      <div class="ordine-opzione-left">
+        <span class="ordine-opzione-icon">${op.icon}</span>
+        <div>
+          <div class="ordine-opzione-nome">${op.nome}</div>
+          <div class="ordine-opzione-desc">${op.desc}</div>
+        </div>
+      </div>
+      <div class="ordine-opzione-prezzo">${op.prezzo}€</div>
+    </div>
+  `).join('');
+
+  document.getElementById('ordineModal').classList.add('active');
+}
+
+function selOrdine(el, idx){
+  document.querySelectorAll('.ordine-opzione').forEach(e=>e.classList.remove('sel'));
+  el.classList.add('sel');
+  _ordineSelIdx=idx;
+}
+
+function chiudiOrdine(){
+  document.getElementById('ordineModal').classList.remove('active');
+}
+
+function inviaOrdineWa(){
+  const isTuta=_isTuta(_ordineNome);
+  const isVintage=_isVintage(_ordineNome);
+  const opzioni=isTuta?OPZIONI_TUTA:isVintage?OPZIONI_VINTAGE:OPZIONI_MAGLIA;
+  const op=opzioni[_ordineSelIdx];
+  const msg=`Ciao! Voglio ordinare:\n\n👕 Prodotto: ${_ordineNome}\n📦 Tipo: ${op.nome}\n💰 Prezzo: ${op.prezzo}€\n\nPotete confermare disponibilità?`;
+  window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`,'_blank');
+  chiudiOrdine();
+}
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
 buildSidebar();
