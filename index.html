@@ -113,11 +113,6 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 
 /* ── WISHLIST ── */
 .photo-item{position:relative;}
-.wish-btn{position:absolute;top:8px;right:8px;background:rgba(255,255,255,.9);border:none;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;transition:all .2s;z-index:3;opacity:0;}
-.photo-item:hover .wish-btn{opacity:1;}
-.wish-btn.wished{opacity:1;background:#fff;}
-.wish-btn.wished::after{content:'❤️';}
-.wish-btn:not(.wished)::after{content:'🤍';}
 
 /* ── NA BANNER FULL WIDTH ── */
 .na-banner{border-radius:0 !important;}
@@ -1133,10 +1128,6 @@ body.dark .avvisa-box{background:#1e1e1e;}
     <div class="sb-item" id="sb-taglie" onclick="paginaTaglie()">
       <span class="sb-flag">📏</span>
       <span class="sb-name">Guida Taglie</span>
-    </div>
-    <div class="sb-item" id="sb-wishlist" onclick="paginaWishlist()">
-      <span class="sb-flag">❤️</span>
-      <span class="sb-name" id="sbWishlistLabel">Preferiti</span>
     </div>
     <div class="sb-item" id="sb-ordini" onclick="paginaOrdini()">
       <span class="sb-flag">📦</span>
@@ -2576,7 +2567,6 @@ function renderPhotos(imgs,title,back){
   let html=back+`<div class="content-header"><div class="content-title"><b>${title}</b> — ${imgs.length} foto</div></div><div class="photo-grid">`;
   const now=Date.now();
   imgs.forEach((img,i)=>{
-    const isWished=wishlist.includes(img.id);
     // Badge "Nuovo" per le prime 6 foto (simulate come recenti)
     const isNuoviArrivi=navStack.some(s=>(s.name||'').toLowerCase().includes('nuovi arrivi'));
     const isNuovo=isNuoviArrivi&&(i<6);
@@ -2584,7 +2574,6 @@ function renderPhotos(imgs,title,back){
     html+=`<div class="photo-item" onclick="openLightbox(${i})">
       <img src="${thumbUrl(img.id)}" alt="${img.name}" loading="lazy">
       ${isNuovo?'<div class="badge-nuovo">Nuovo</div>':''}
-      <button class="wish-btn ${isWished?'wished':''}" onclick="toggleWish(event,'${img.id}')"></button>
       <button class="share-btn" onclick="apriCondividi(event,${i})">↗️</button>
       <button class="quick-order-btn" onclick="event.stopPropagation();apriOrdine('${img.name||title}')">
         💬 Ordina subito
@@ -3422,23 +3411,7 @@ function toggleFaq(el){
 }
 
 // ── WISHLIST ──────────────────────────────────────────────────────────────────
-let wishlist=JSON.parse(localStorage.getItem('csc-wishlist')||'[]');
-
-function toggleWish(e,photoId){
-  e.stopPropagation();
-  const btn=e.currentTarget;
-  if(wishlist.includes(photoId)){
-    wishlist=wishlist.filter(id=>id!==photoId);
-    btn.classList.remove('wished');
-  } else {
-    wishlist.push(photoId);
-    btn.classList.add('wished');
-    // Animazione cuore
-    btn.style.transform='scale(1.4)';
-    setTimeout(()=>btn.style.transform='',300);
-  }
-  localStorage.setItem('csc-wishlist',JSON.stringify(wishlist));
-}
+let wishlist=[];
 
 // ── PARTICELLE HERO ──────────────────────────────────────────────────────────
 function creaParticelle(){
@@ -4403,67 +4376,6 @@ function inviaRiepilogoWA(){
   mostraToast('✅ Ordine inviato su WhatsApp!');
 }
 
-// ── PAGINA PREFERITI ─────────────────────────────────────────────────────────
-function salvaWishlist(){localStorage.setItem('csc-wishlist',JSON.stringify(wishlist));}
-// Aggiunge supporto nomi/thumb alla wishlist esistente
-let wishlistMeta=JSON.parse(localStorage.getItem('csc-wishlist-meta')||'{}');
-function aggiornaSbWishlist(){
-  const lbl=document.getElementById('sbWishlistLabel');
-  if(lbl) lbl.textContent=wishlist.length>0?`Preferiti (${wishlist.length})`:'Preferiti';
-}
-// Salva meta dati (nome+thumb) quando si aggiunge ai preferiti
-const _origToggleWish=toggleWish;
-toggleWish=function(e,photoId){
-  const photo=currentPhotos&&currentPhotos[currentPhotoIdx];
-  if(photo&&photo.id===photoId){
-    wishlistMeta[photoId]={name:photo.name||'Maglia',thumb:thumbUrl(photoId)};
-    localStorage.setItem('csc-wishlist-meta',JSON.stringify(wishlistMeta));
-  }
-  _origToggleWish(e,photoId);
-  aggiornaSbWishlist();
-};
-function paginaWishlist(){
-  navStack=[];updateBreadcrumb();
-  document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('active'));
-  document.getElementById('sb-wishlist').classList.add('active');
-  if(window.innerWidth<=768) toggleSidebar();
-  if(!wishlist.length){
-    document.getElementById('main').innerHTML=`<div class="wishlist-empty">
-      <div class="wishlist-empty-icon">💔</div>
-      <h2 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:#0d47a1;margin-bottom:8px;">Nessun preferito</h2>
-      <p style="font-size:14px;color:#888;margin-bottom:20px;">Sfoglia il catalogo e premi ❤️ sulle maglie che ti piacciono!</p>
-      <button onclick="openCategory(1)" style="background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:10px;padding:12px 24px;font-size:14px;font-weight:800;cursor:pointer;">⚽ Sfoglia il catalogo</button>
-    </div>`;
-    return;
-  }
-  let html=`<div style="max-width:900px;margin:0 auto;padding-bottom:32px;">
-    <div style="text-align:center;padding:24px 0 20px;">
-      <div style="font-size:40px;margin-bottom:8px;">❤️</div>
-      <h1 style="font-family:'Montserrat',sans-serif;font-size:24px;font-weight:900;color:#0d47a1;">Le mie maglie preferite</h1>
-      <p style="color:#888;font-size:13px;margin-top:4px;">${wishlist.length} maglia${wishlist.length>1?'e':''} salvata${wishlist.length>1?'e':''}</p>
-    </div>
-    <div class="photo-grid">`;
-  wishlist.forEach(id=>{
-    const meta=wishlistMeta[id]||{};
-    const thumb=`https://drive.google.com/thumbnail?id=${id}&sz=w400`;
-    const name=meta.name||'Maglia';
-    html+=`<div class="photo-item">
-      <img src="${thumb}" alt="${name}" loading="lazy">
-      <div style="padding:8px 10px;display:flex;align-items:center;justify-content:space-between;">
-        <span style="font-size:12px;font-weight:600;color:#333;">${name}</span>
-        <button onclick="rimuoviPreferito('${id}')" style="background:none;border:none;cursor:pointer;font-size:16px;">🗑️</button>
-      </div>
-    </div>`;
-  });
-  html+=`</div></div>`;
-  document.getElementById('main').innerHTML=html;
-  window.scrollTo(0,0);
-}
-function rimuoviPreferito(id){
-  wishlist=wishlist.filter(w=>w!==id);
-  salvaWishlist();aggiornaSbWishlist();paginaWishlist();
-}
-aggiornaSbWishlist(); // inizializza contatore preferiti
 
 // ── FUMETTO WHATSAPP ──────────────────────────────────────────────────────────
 (function(){
