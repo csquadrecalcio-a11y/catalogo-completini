@@ -2976,11 +2976,7 @@ function inviaPersonalizzazione(){
     setTimeout(()=>el.classList.remove('show'),5000);
   }
 
-  // Prima recensione dopo 35 secondi, poi ogni 90-150 secondi
-  setTimeout(()=>{
-    mostraRecensione();
-    setInterval(mostraRecensione, Math.random()*60000+90000);
-  }, 35000);
+  // Popup recensioni disabilitato
 })();
 
 // ── NOTIFICHE ACQUISTO ───────────────────────────────────────────────────────
