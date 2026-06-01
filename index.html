@@ -607,6 +607,11 @@ body.dark .tipo-opzione.sel{background:#1a2a4a;border-color:#1565c0;}
 .tipo-left{display:flex;align-items:center;gap:10px;}
 .tipo-prezzo{font-size:18px;font-weight:900;color:#0d47a1;font-family:'Montserrat',sans-serif;}
 body.dark .tipo-prezzo{color:#90caf9;}
+/* Nuove card tipo quadrate */
+.tipo-card{display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px solid #e0e0e0;border-radius:12px;padding:14px 8px;cursor:pointer;transition:all .2s;background:#fff;text-align:center;}
+body.dark .tipo-card{background:#2a2a2a;border-color:#444;}
+.tipo-card:hover,.tipo-card.sel{border-color:#0d47a1;background:#e3f2fd;transform:translateY(-2px);box-shadow:0 4px 14px rgba(13,71,161,.15);}
+body.dark .tipo-card.sel{background:#1a2a4a;border-color:#1565c0;}
 body.dark .patch-btn.sel{background:#1a2a4a;}
 
 /* ── COME ORDINARE ── */
@@ -1372,104 +1377,132 @@ body.dark .avvisa-box{background:#1e1e1e;}
   </div>
 </div>
 
-<!-- MODAL AGGIUNGI AL CARRELLO -->
+<!-- MODAL AGGIUNGI AL CARRELLO — 3 PASSI -->
 <div class="add-cart-modal" id="addCartModal">
   <div class="cart-backdrop" onclick="chiudiAddCart()"></div>
   <div class="add-cart-box">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;position:sticky;top:0;background:#fff;z-index:10;padding:4px 0 12px;border-bottom:1px solid #f0f0f0;">
-      <h3 style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:900;color:#0d47a1;">🛒 Aggiungi al carrello</h3>
+
+    <!-- HEADER STICKY -->
+    <div style="display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#fff;z-index:10;padding:0 0 12px;border-bottom:2px solid #f0f0f0;margin-bottom:16px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img id="addCartImg" src="" style="width:44px;height:54px;object-fit:cover;border-radius:6px;flex-shrink:0;">
+        <div>
+          <div style="font-size:11px;color:#888;font-weight:600;">Stai ordinando</div>
+          <div style="font-size:13px;font-weight:800;color:#0d47a1;" id="addCartName">Maglia</div>
+        </div>
+      </div>
       <button onclick="chiudiAddCart()" style="background:#f0f0f0;border:none;border-radius:50%;width:34px;height:34px;font-size:18px;cursor:pointer;color:#555;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✕</button>
     </div>
-    <div id="addCartPreview" style="display:flex;gap:12px;align-items:center;background:#f5f9ff;border-radius:10px;padding:10px;margin-bottom:16px;">
-      <img id="addCartImg" src="" style="width:60px;height:75px;object-fit:cover;border-radius:6px;">
-      <div style="font-size:13px;font-weight:600;color:#333;" id="addCartName">Maglia</div>
-    </div>
-    <div style="margin-bottom:14px;">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
-        <label style="font-size:12px;font-weight:700;color:#555;text-transform:uppercase;">📏 Taglia</label>
-        <span onclick="chiudiAddCart();paginaTaglie();" style="font-size:11px;color:#0d47a1;cursor:pointer;font-weight:600;text-decoration:underline;">Guida alle taglie →</span>
+
+    <!-- PASSO 1: TIPO PRODOTTO -->
+    <div style="margin-bottom:20px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <div style="width:24px;height:24px;background:#0d47a1;color:#fff;border-radius:50%;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
+        <span style="font-size:13px;font-weight:800;color:#222;">Cosa vuoi ordinare?</span>
       </div>
-      <select id="addCartTaglia" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;" onchange="const av=document.getElementById('avvisoBambino');if(av)av.style.display=this.value.toLowerCase().includes('bambino')?'block':'none';">
-        <option value="">Seleziona taglia...</option>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;" id="addCartTipoGrid">
+        <label class="tipo-card sel" onclick="selTipoCard(this,30,'Maglia')" data-prezzo="30">
+          <input type="radio" name="addCartTipo" value="Maglia" checked style="display:none">
+          <div style="font-size:26px;margin-bottom:4px;">👕</div>
+          <div style="font-size:13px;font-weight:800;">Maglia</div>
+          <div style="font-size:16px;font-weight:900;color:#0d47a1;margin-top:2px;">30€</div>
+        </label>
+        <label class="tipo-card" onclick="selTipoCard(this,35,'Kit Bambino')" data-prezzo="35">
+          <input type="radio" name="addCartTipo" value="Kit Bambino" style="display:none">
+          <div style="font-size:26px;margin-bottom:4px;">🧒</div>
+          <div style="font-size:13px;font-weight:800;">Kit Bambino</div>
+          <div style="font-size:16px;font-weight:900;color:#0d47a1;margin-top:2px;">35€</div>
+        </label>
+        <label class="tipo-card" onclick="selTipoCard(this,40,'Kit Adulto')" data-prezzo="40">
+          <input type="radio" name="addCartTipo" value="Kit Adulto" style="display:none">
+          <div style="font-size:26px;margin-bottom:4px;">👨</div>
+          <div style="font-size:13px;font-weight:800;">Kit Adulto</div>
+          <div style="font-size:16px;font-weight:900;color:#0d47a1;margin-top:2px;">40€</div>
+        </label>
+        <label class="tipo-card" onclick="selTipoCard(this,35,'Player Version')" data-prezzo="35">
+          <input type="radio" name="addCartTipo" value="Player Version" style="display:none">
+          <div style="font-size:26px;margin-bottom:4px;">⭐</div>
+          <div style="font-size:13px;font-weight:800;">Player Version</div>
+          <div style="font-size:16px;font-weight:900;color:#0d47a1;margin-top:2px;">35€</div>
+        </label>
+      </div>
+    </div>
+
+    <!-- PASSO 2: TAGLIA -->
+    <div style="margin-bottom:20px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <div style="width:24px;height:24px;background:#0d47a1;color:#fff;border-radius:50%;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
+        <span style="font-size:13px;font-weight:800;color:#222;">Seleziona la taglia</span>
+        <span onclick="chiudiAddCart();paginaTaglie();" style="font-size:11px;color:#0d47a1;cursor:pointer;font-weight:600;text-decoration:underline;margin-left:auto;">Guida →</span>
+      </div>
+      <select id="addCartTaglia" style="width:100%;padding:12px 14px;border:2px solid #e0e0e0;border-radius:10px;font-size:15px;outline:none;font-weight:600;" onchange="const av=document.getElementById('avvisoBambino');if(av)av.style.display=this.value.toLowerCase().includes('bambino')?'block':'none';">
+        <option value="">Tocca per scegliere...</option>
         <optgroup label="👕 Adulto">
           <option>S</option><option>M</option><option>L</option>
           <option>XL</option><option>XXL</option><option>XXXL</option><option>XXXXL</option>
         </optgroup>
-        <optgroup label="👶 Bambino (verifica disponibilità su WhatsApp)">
-          <option>Bambino XXS — 2-4 anni (90-105 cm)</option>
-          <option>Bambino XS — 4-5 anni (105-115 cm)</option>
-          <option>Bambino S — 5-6 anni (115-135 cm)</option>
-          <option>Bambino M — 7-8 anni (125-135 cm)</option>
-          <option>Bambino L — 8-9 anni (135-145 cm)</option>
-          <option>Bambino XL — 10-11 anni (145-155 cm)</option>
-          <option>Bambino XXL — 12-13 anni (155-165 cm)</option>
+        <optgroup label="🧒 Bambino">
+          <option>Bambino XXS — 2-4 anni</option>
+          <option>Bambino XS — 4-5 anni</option>
+          <option>Bambino S — 5-6 anni</option>
+          <option>Bambino M — 7-8 anni</option>
+          <option>Bambino L — 8-9 anni</option>
+          <option>Bambino XL — 10-11 anni</option>
+          <option>Bambino XXL — 12-13 anni</option>
         </optgroup>
       </select>
+      <div id="avvisoBambino" style="display:none;background:#fff8e1;border:1.5px solid #ffcc02;border-radius:8px;padding:10px 12px;margin-top:8px;font-size:12px;color:#e65100;font-weight:600;">
+        ⚠️ Verifica disponibilità taglia bambino su WhatsApp prima di ordinare.
+      </div>
+      <div style="text-align:right;margin-top:6px;">
+        <span onclick="apriAvvisa()" style="font-size:11px;color:#e53935;cursor:pointer;font-weight:700;">🔔 Taglia non disponibile? Avvisami</span>
+      </div>
     </div>
-    <div style="margin-bottom:14px;">
-      <label style="display:block;font-size:12px;font-weight:700;color:#555;margin-bottom:6px;text-transform:uppercase;">👤 Nome da stampare (opz.)</label>
-      <input type="text" id="addCartNome" placeholder="Es. ROSSI" maxlength="15" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;">
-    </div>
-    <div style="margin-bottom:14px;">
-      <label style="display:block;font-size:12px;font-weight:700;color:#555;margin-bottom:6px;text-transform:uppercase;">🔢 Numero da stampare (opz.)</label>
-      <input type="number" id="addCartNumero" placeholder="Es. 10" min="1" max="99" style="width:100%;padding:11px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;">
-    </div>
+
+    <!-- PASSO 3: PERSONALIZZAZIONE -->
     <div style="margin-bottom:20px;">
-      <label style="display:block;font-size:12px;font-weight:700;color:#555;margin-bottom:8px;text-transform:uppercase;">🏅 Patch (opz.)</label>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:8px;" id="addCartPatchGrid">
-        <div class="patch-btn" onclick="selAddPatch(this,'Champions League')">🏆 Champions</div>
-        <div class="patch-btn" onclick="selAddPatch(this,'Europa League')">🌍 Europa L.</div>
-        <div class="patch-btn" onclick="selAddPatch(this,'Conference League')">⭐ Conference</div>
-        <div class="patch-btn" onclick="selAddPatch(this,'Serie A')">🇮🇹 Serie A</div>
-        <div class="patch-btn" onclick="selAddPatch(this,'Nessuna patch')">❌ Nessuna</div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <div style="width:24px;height:24px;background:#0d47a1;color:#fff;border-radius:50%;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
+        <span style="font-size:13px;font-weight:800;color:#222;">Personalizzazione</span>
+        <span style="font-size:11px;color:#888;margin-left:4px;">(opzionale)</span>
       </div>
-      <input type="text" id="addCartPatchLibera" placeholder="Altra patch? Scrivila qui..." maxlength="30"
-        style="width:100%;padding:10px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;">
-    </div>
-    <div style="text-align:right;margin-top:6px;margin-bottom:4px;">
-      <span onclick="apriAvvisa()" style="font-size:11px;color:#e53935;cursor:pointer;font-weight:700;">🔔 Taglia non disponibile? Avvisami</span>
-    </div>
-    <div id="avvisoBambino" style="display:none;background:#fff8e1;border:1.5px solid #ffcc02;border-radius:10px;padding:12px 14px;margin-bottom:14px;">
-      <div style="font-size:13px;font-weight:700;color:#e65100;">⚠️ Taglia bambino selezionata</div>
-      <div style="font-size:12px;color:#555;margin-top:4px;line-height:1.5;">Non tutti i prodotti sono disponibili in taglie bambino. <b>Verifica la disponibilità su WhatsApp</b> prima di procedere con l'ordine.</div>
-      <a href="https://wa.me/393792126743" target="_blank" style="display:inline-block;margin-top:8px;background:#25d366;color:#fff;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;">💬 Verifica su WhatsApp</a>
-    </div>
-    <!-- SCELTA TIPO PRODOTTO CON PREZZO -->
-    <div style="margin-bottom:16px;">
-      <label style="display:block;font-size:12px;font-weight:700;color:#555;margin-bottom:8px;text-transform:uppercase;">📦 Tipo prodotto</label>
-      <div style="display:flex;flex-direction:column;gap:8px;" id="addCartTipoGrid">
-        <label class="tipo-opzione" onclick="selTipo(this,30)" data-prezzo="30">
-          <input type="radio" name="addCartTipo" value="Maglia" checked style="display:none">
-          <div class="tipo-left"><span style="font-size:20px;">👕</span><div><div style="font-size:13px;font-weight:700;color:#222;">Maglia</div><div style="font-size:11px;color:#888;">Solo maglia, taglia S→XXL</div></div></div>
-          <div class="tipo-prezzo">30€</div>
-        </label>
-        <label class="tipo-opzione" onclick="selTipo(this,35)" data-prezzo="35">
-          <input type="radio" name="addCartTipo" value="Kit Bambino" style="display:none">
-          <div class="tipo-left"><span style="font-size:20px;">🧒</span><div><div style="font-size:13px;font-weight:700;color:#222;">Kit Bambino</div><div style="font-size:11px;color:#888;">Maglia + pantaloncino bambino</div></div></div>
-          <div class="tipo-prezzo">35€</div>
-        </label>
-        <label class="tipo-opzione" onclick="selTipo(this,40)" data-prezzo="40">
-          <input type="radio" name="addCartTipo" value="Kit Adulto" style="display:none">
-          <div class="tipo-left"><span style="font-size:20px;">👨</span><div><div style="font-size:13px;font-weight:700;color:#222;">Kit Adulto</div><div style="font-size:11px;color:#888;">Maglia + pantaloncino adulto</div></div></div>
-          <div class="tipo-prezzo">40€</div>
-        </label>
-        <label class="tipo-opzione" onclick="selTipo(this,35)" data-prezzo="35">
-          <input type="radio" name="addCartTipo" value="Player Version" style="display:none">
-          <div class="tipo-left"><span style="font-size:20px;">⭐</span><div><div style="font-size:13px;font-weight:700;color:#222;">Player Version</div><div style="font-size:11px;color:#888;">Versione giocatore, qualità top</div></div></div>
-          <div class="tipo-prezzo">35€</div>
-        </label>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+        <input type="text" id="addCartNome" placeholder="👤 Nome (es. ROSSI)" maxlength="15"
+          style="padding:11px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;width:100%;">
+        <input type="number" id="addCartNumero" placeholder="🔢 Numero (es. 10)" min="1" max="99"
+          style="padding:11px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;width:100%;">
+      </div>
+      <!-- Patch collassabile -->
+      <div style="border:1.5px solid #e0e0e0;border-radius:8px;overflow:hidden;">
+        <div onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.querySelector('.patch-arrow').textContent=this.nextElementSibling.style.display==='none'?'▼':'▲'"
+          style="padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;color:#555;background:#fafafa;">
+          🏅 Aggiungi patch <span class="patch-arrow">▼</span>
+        </div>
+        <div style="display:none;padding:12px;">
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:8px;" id="addCartPatchGrid">
+            <div class="patch-btn" onclick="selAddPatch(this,'Champions League')">🏆 Champions</div>
+            <div class="patch-btn" onclick="selAddPatch(this,'Europa League')">🌍 Europa L.</div>
+            <div class="patch-btn" onclick="selAddPatch(this,'Conference League')">⭐ Conference</div>
+            <div class="patch-btn" onclick="selAddPatch(this,'Serie A')">🇮🇹 Serie A</div>
+            <div class="patch-btn sel" onclick="selAddPatch(this,'Nessuna patch')">❌ Nessuna</div>
+          </div>
+          <input type="text" id="addCartPatchLibera" placeholder="Altra patch? Scrivila qui..." maxlength="30"
+            style="width:100%;padding:9px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:12px;outline:none;">
+        </div>
       </div>
     </div>
-    <!-- RIEPILOGO PREZZO -->
-    <div style="background:#f5f9ff;border:1.5px solid #bbdefb;border-radius:10px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;">
-      <span style="font-size:13px;color:#555;font-weight:600;">💰 Totale ordine</span>
-      <span id="addCartPrezzoTot" style="font-size:22px;font-weight:900;color:#0d47a1;font-family:'Montserrat',sans-serif;">30€</span>
+
+    <!-- TOTALE + BOTTONE -->
+    <div style="background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:12px;padding:14px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:13px;color:rgba(255,255,255,.8);font-weight:600;">💰 Totale</span>
+      <span id="addCartPrezzoTot" style="font-size:26px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">30€</span>
     </div>
-    <!-- campo nascosto per compatibilità -->
     <input type="checkbox" id="addCartKit" style="display:none">
-    <button id="btnAggiungi" onclick="confermAggiungi()" style="width:100%;background:linear-gradient(135deg,#f5a623,#e8940f);color:#fff;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:800;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(245,166,35,.4);letter-spacing:.3px;">
-      🛒 Aggiungi al carrello
+    <button id="btnAggiungi" onclick="confermAggiungi()"
+      style="width:100%;background:linear-gradient(135deg,#25d366,#1ebe5d);color:#fff;border:none;border-radius:12px;padding:16px;font-size:16px;font-weight:800;cursor:pointer;transition:all .2s;box-shadow:0 4px 18px rgba(37,211,102,.4);letter-spacing:.3px;">
+      ✅ Conferma e vai al carrello
     </button>
+
   </div>
 </div>
 
@@ -4631,6 +4664,11 @@ function selTipo(el, prezzo){
   el.classList.add('sel');
   document.getElementById('addCartPrezzoTot').textContent=prezzo+'€';
 }
+function selTipoCard(el, prezzo, value){
+  document.querySelectorAll('.tipo-card').forEach(e=>e.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('addCartPrezzoTot').textContent=prezzo+'€';
+}
 
 function apriAddCart(){
   const photo=currentPhotos[currentPhotoIdx];
@@ -4646,9 +4684,9 @@ function apriAddCart(){
   document.querySelectorAll('#addCartPatchGrid .patch-btn').forEach(b=>b.classList.remove('sel'));
   document.querySelector('#addCartPatchGrid .patch-btn:last-child').classList.add('sel');
   // Reset selezione tipo → default Maglia 30€
-  const tipoOpzioni=document.querySelectorAll('.tipo-opzione');
-  tipoOpzioni.forEach(e=>e.classList.remove('sel'));
-  if(tipoOpzioni[0]) tipoOpzioni[0].classList.add('sel');
+  document.querySelectorAll('.tipo-opzione,.tipo-card').forEach(e=>e.classList.remove('sel'));
+  const primaCard=document.querySelector('.tipo-card');
+  if(primaCard) primaCard.classList.add('sel');
   document.getElementById('addCartPrezzoTot').textContent='30€';
   document.getElementById('addCartModal').classList.add('active');
 }
@@ -4665,10 +4703,10 @@ function confermAggiungi(){
   const numero=document.getElementById('addCartNumero').value.trim();
   const patchLibera=document.getElementById('addCartPatchLibera').value.trim();
   const patch=patchLibera||addCartPatch;
-  // Leggi tipo selezionato e prezzo
-  const tipoSel=document.querySelector('.tipo-opzione.sel input[name="addCartTipo"]');
+  // Leggi tipo selezionato e prezzo (supporta sia tipo-card che tipo-opzione)
+  const tipoSel=document.querySelector('.tipo-card.sel input[name="addCartTipo"],.tipo-opzione.sel input[name="addCartTipo"]');
   const tipo=tipoSel?tipoSel.value:'Maglia';
-  const prezzoSel=document.querySelector('.tipo-opzione.sel');
+  const prezzoSel=document.querySelector('.tipo-card.sel,.tipo-opzione.sel');
   const prezzo=prezzoSel?parseInt(prezzoSel.dataset.prezzo)||30:30;
   const kit=(tipo==='Kit Adulto'||tipo==='Kit Bambino');
   let personalizza='';
