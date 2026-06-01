@@ -1131,8 +1131,6 @@ body.dark .avvisa-box{background:#1e1e1e;}
       🛒 <span>Carrello</span>
       <div class="cart-badge" id="cartBadge">0</div>
     </div>
-    <button class="dark-toggle" id="langToggle" onclick="toggleLang()" title="Cambia lingua" style="font-size:18px;">🇮🇹</button>
-    <button class="dark-toggle" id="darkToggle" onclick="toggleDark()" title="Tema chiaro/scuro">🌙</button>
   </div>
   <div class="search-pos">
     <div class="search-wrap">
@@ -1818,10 +1816,6 @@ body.dark .avvisa-box{background:#1e1e1e;}
       <span class="mbb-icon">💬</span>
       <span>Ordina</span>
     </a>
-    <button class="mbb-btn" onclick="toggleDark()">
-      <span class="mbb-icon">🌙</span>
-      <span>Tema</span>
-    </button>
     <button class="mbb-btn" onclick="toggleSidebar()">
       <span class="mbb-icon">☰</span>
       <span>Menu</span>
@@ -2918,17 +2912,13 @@ function teamIcon(n){
 
 function esc(s){return s.replace(/'/g,"\\'");}
 
-// ── DARK MODE ────────────────────────────────────────────────────────────────
-function toggleDark(){
-  const dark=document.body.classList.toggle('dark');
-  document.getElementById('darkToggle').textContent=dark?'☀️':'🌙';
-  localStorage.setItem('csc-dark',dark?'1':'0');
+// ── DARK MODE AUTOMATICO (segue il sistema) ───────────────────────────────────
+function applicaDarkMode(dark){
+  document.body.classList.toggle('dark', dark);
 }
-// Ripristina preferenza salvata
-if(localStorage.getItem('csc-dark')==='1'){
-  document.body.classList.add('dark');
-  document.getElementById('darkToggle').textContent='☀️';
-}
+const _mq=window.matchMedia('(prefers-color-scheme: dark)');
+applicaDarkMode(_mq.matches);
+_mq.addEventListener('change', e=>applicaDarkMode(e.matches));
 
 // ── ZOOM LIGHTBOX ────────────────────────────────────────────────────────────
 const lbImg=document.getElementById('lb-img');
@@ -4236,8 +4226,7 @@ function inviaAvvisa(){
   });
 })();
 
-// ── LINGUA IT/EN ──────────────────────────────────────────────────────────────
-let langIT=true;
+// ── LINGUA IT/EN (rimossa) ────────────────────────────────────────────────────
 const translations={
   'Cerca squadra o categoria...':'Search team or category...',
   'Cerca':'Search',
@@ -4261,23 +4250,6 @@ const translations={
   'Carrello':'Cart',
   'Svuota carrello':'Empty cart',
 };
-function toggleLang(){
-  langIT=!langIT;
-  document.getElementById('langToggle').textContent=langIT?'🇮🇹':'🇬🇧';
-  if(langIT){location.reload();return;}
-  // Traduce testi visibili
-  document.querySelectorAll('*').forEach(el=>{
-    if(el.children.length) return;
-    const t=el.textContent.trim();
-    if(translations[t]) el.textContent=translations[t];
-  });
-  // Placeholder
-  document.querySelectorAll('[placeholder]').forEach(el=>{
-    const t=el.placeholder;
-    if(translations[t]) el.placeholder=translations[t];
-  });
-  mostraToast('🇬🇧 English mode active');
-}
 
 // ── SALVA ORDINE NELLO STORICO ────────────────────────────────────────────────
 function salvaOrdineStorico(items,nome,pagamento){
