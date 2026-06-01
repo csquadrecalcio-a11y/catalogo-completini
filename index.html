@@ -5400,11 +5400,11 @@ const OPZIONI_ESTIVI=[
   {icon:'🐆', nome:'Jordan',           desc:'Completino estivo Jordan',         prezzo:45},
 ];
 
-function _isTuta(nome){return nome&&(nome.toLowerCase().includes('tuta')||nome.toLowerCase().includes('tute'));}
+function _isTuta(nome){return nome&&nome.toLowerCase().includes('tuta');}
 function _isVintage(nome){return (nome||'').toLowerCase().includes('vintage');}
 function _isEstivo(nome){
   const n=(nome||'').toLowerCase();
-  return n.includes('estiv')||n.includes('canotta')||n.includes('polo');
+  return n.includes('estiv')||n.includes('passeggio')||n.includes('canotta')||n.includes('polo');
 }
 
 function _getOpzioni(nome){
