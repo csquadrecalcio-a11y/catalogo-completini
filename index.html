@@ -915,8 +915,9 @@ body.dark .avvisa-box{background:#1e1e1e;}
   .ham{display:block;flex-shrink:0;}
 
   /* ── SIDEBAR ── */
-  .sidebar{position:fixed;left:-260px;top:54px;height:calc(100vh - 54px);z-index:95;transition:left .3s;width:240px;}
+  .sidebar{position:fixed;left:-105%;top:0;height:100vh;z-index:995;transition:left .3s ease;width:100%;max-width:320px;box-shadow:4px 0 20px rgba(0,0,0,.3);}
   .sidebar.open{left:0;}
+  .sidebar-overlay.open{z-index:994;}
   .layout{min-height:calc(100vh - 54px);}
 
   /* ── CONTENT ── */
@@ -1110,7 +1111,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
   <div class="sidebar" id="sidebar">
     <div class="sb-header">
       <span>Tutte le categorie</span>
-      <span>≡</span>
+      <button onclick="toggleSidebar()" style="background:#f0f0f0;border:none;border-radius:50%;width:32px;height:32px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✕</button>
     </div>
     <div class="sb-item active" id="sb-home" onclick="goHome()">
       <span class="sb-flag">🏠</span>
