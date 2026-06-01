@@ -2520,7 +2520,14 @@ function openLightbox(idx){
   document.getElementById('lightbox').classList.add('active');
   updateOrderBtn(currentPhotos[idx].name||'maglia');
   showZoomHint();
-  history.replaceState(null,'','#photo-'+currentPhotos[idx].id);
+  // Costruisce hash con info categoria per navigazione affidabile
+  let hash='#photo-'+currentPhotos[idx].id;
+  if(navStack.length>=2&&navStack[0]?.ci!==undefined&&navStack[1]?.si!==undefined){
+    hash=`#sub-${navStack[0].ci}-${navStack[1].si}-photo-${currentPhotos[idx].id}`;
+  } else if(navStack.length>=1&&navStack[0]?.ci!==undefined){
+    hash=`#cat-${navStack[0].ci}-photo-${currentPhotos[idx].id}`;
+  }
+  history.replaceState(null,'',hash);
   // Mostra/nascondi bottone personalizzazione in base alla categoria
   const btnPerso=document.querySelector('.lb-custom-btn[onclick*="apriPersonalizza"]');
   if(btnPerso) btnPerso.style.display=_noPersonalizzazione()?'none':'flex';
@@ -3177,6 +3184,23 @@ function inviaPersonalizzazione(){
     const catMatch=hash.match(/^#cat-(\d+)$/);
     const subMatch=hash.match(/^#sub-(\d+)-(\d+)$/);
     const photoMatch=hash.match(/^#photo-(.+)$/);
+    // Nuovi formati con categoria inclusa
+    const subPhotoMatch=hash.match(/^#sub-(\d+)-(\d+)-photo-(.+)$/);
+    const catPhotoMatch=hash.match(/^#cat-(\d+)-photo-(.+)$/);
+
+    if(subPhotoMatch){
+      // Naviga alla sottocategoria e apre la foto specifica
+      await openSub(+subPhotoMatch[1],+subPhotoMatch[2],true);
+      const photoId=subPhotoMatch[3];
+      setTimeout(()=>openPhotoById(photoId),800);
+      return true;
+    }
+    if(catPhotoMatch){
+      openCategory(+catPhotoMatch[1],true);
+      const photoId=catPhotoMatch[2];
+      setTimeout(()=>openPhotoById(photoId),800);
+      return true;
+    }
     if(catMatch) { openCategory(+catMatch[1],true); return true; }
     if(subMatch) { await openSub(+subMatch[1],+subMatch[2],true); return true; }
     if(photoMatch) { await restorePhotoFromHash(photoMatch[1]); return true; }
@@ -5152,7 +5176,7 @@ async function apriMagliaJuve(){
   const cat=CATALOG[ci];
   const si=cat.subs.findIndex(s=>(typeof s==='string'?s:s.name).toLowerCase()==='juventus');
   if(si<0) return;
-  await openSub(ci,si);
+  await openSub(ci,si,true);
   let tentativi=0;
   const poll=setInterval(()=>{
     tentativi++;
