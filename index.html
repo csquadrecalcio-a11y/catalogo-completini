@@ -1865,55 +1865,45 @@ function goHome(fromPopstate){
       <button class="na-btn">Vedi ora →</button>
     </div>
   </div>
-  <!-- FEATURED: MAGLIA INTER 26/27 -->
+  <!-- FEATURED: MAGLIE IN EVIDENZA -->
   <div class="featured-inter">
-    <div class="featured-inter-badge">🔥 PIÙ CERCATA DEL MOMENTO</div>
-    <div class="featured-inter-inner">
-      <div class="featured-inter-img-wrap">
-        <img src="inter.png" alt="Maglia Inter 2026/2027" class="featured-inter-img">
-        <div class="featured-inter-stock" id="interStock">⚠️ Restano solo <span id="interStockNum">9</span> pezzi!</div>
-      </div>
-      <div class="featured-inter-info">
-        <div class="featured-inter-label">🔵⚫ FC INTERNAZIONALE</div>
-        <h2 class="featured-inter-title">Maglia Inter<br>2026/2027</h2>
-        <div class="featured-inter-stars">★★★★★ <span>4.9 (312 ordini)</span></div>
-        <div class="featured-inter-features">
-          <div>✅ Qualità premium</div>
-          <div>✅ Personalizzazione nome & numero</div>
-          <div>✅ Spedizione rapida in Italia</div>
-          <div>✅ Disponibile taglia S → XXL</div>
-        </div>
-        <button class="featured-inter-btn" onclick="apriMagliaInter()">
-          🛒 Ordina subito
-        </button>
-        <div class="featured-inter-urgency" id="interUrgency">⏳ <strong>3 persone</strong> la stanno guardando adesso</div>
-      </div>
-    </div>
-  </div>
+    <div class="featured-inter-badge">🔥 PIÙ CERCATE DEL MOMENTO</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid rgba(255,255,255,.08);">
 
-  <!-- FEATURED: MAGLIA JUVENTUS -->
-  <div class="featured-inter" style="border-bottom:3px solid #111;margin-top:12px;">
-    <div class="featured-inter-badge" style="background:linear-gradient(90deg,#111,#444);">⭐ TOP SELLER SERIE A</div>
-    <div class="featured-inter-inner">
-      <div class="featured-inter-img-wrap">
-        <img src="juve-featured.jpg" alt="Maglia Juventus" class="featured-inter-img">
-        <div class="featured-inter-stock" style="background:linear-gradient(135deg,#111,#333);">⚠️ Restano solo <span>7</span> pezzi!</div>
-      </div>
-      <div class="featured-inter-info">
-        <div class="featured-inter-label" style="color:#555;">⚫⚪ JUVENTUS FC</div>
-        <h2 class="featured-inter-title">Maglia Juventus<br>2026/2027</h2>
-        <div class="featured-inter-stars">★★★★★ <span>4.8 (287 ordini)</span></div>
-        <div class="featured-inter-features">
-          <div>✅ Qualità premium</div>
-          <div>✅ Personalizzazione nome & numero</div>
-          <div>✅ Spedizione rapida in Italia</div>
-          <div>✅ Disponibile taglia S → XXL</div>
+      <!-- INTER -->
+      <div style="padding:24px;border-right:1px solid rgba(255,255,255,.08);">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px;">
+          <div style="position:relative;flex-shrink:0;">
+            <img src="inter.png" alt="Inter" style="width:90px;height:110px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));">
+            <div class="featured-inter-stock" id="interStock" style="font-size:10px;padding:4px 10px;">⚠️ Solo <span id="interStockNum">9</span> pz!</div>
+          </div>
+          <div>
+            <div class="featured-inter-label">🔵⚫ FC INTER</div>
+            <h2 class="featured-inter-title" style="font-size:clamp(18px,2.5vw,26px);">Maglia Inter<br>2026/2027</h2>
+            <div class="featured-inter-stars" style="font-size:13px;">★★★★★ <span>4.9 (312)</span></div>
+          </div>
         </div>
-        <button class="featured-inter-btn" style="background:linear-gradient(135deg,#111,#333);box-shadow:0 4px 18px rgba(0,0,0,.4);" onclick="apriMagliaJuve()">
-          🛒 Ordina subito
-        </button>
-        <div class="featured-inter-urgency">⏳ <strong>2 persone</strong> la stanno guardando adesso</div>
+        <button class="featured-inter-btn" onclick="apriMagliaInter()" style="margin-bottom:6px;">🛒 Ordina subito</button>
+        <div class="featured-inter-urgency" id="interUrgency">⏳ <strong>3 persone</strong> la stanno guardando</div>
       </div>
+
+      <!-- JUVENTUS -->
+      <div style="padding:24px;">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px;">
+          <div style="position:relative;flex-shrink:0;">
+            <img src="juve-featured.jpg" alt="Juventus" style="width:90px;height:110px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));">
+            <div class="featured-inter-stock" style="font-size:10px;padding:4px 10px;background:linear-gradient(135deg,#111,#333);">⚠️ Solo <span>7</span> pz!</div>
+          </div>
+          <div>
+            <div class="featured-inter-label" style="color:#aaa;">⚫⚪ JUVENTUS</div>
+            <h2 class="featured-inter-title" style="font-size:clamp(18px,2.5vw,26px);">Maglia Juve<br>2026/2027</h2>
+            <div class="featured-inter-stars" style="font-size:13px;">★★★★★ <span>4.8 (287)</span></div>
+          </div>
+        </div>
+        <button class="featured-inter-btn" onclick="apriMagliaJuve()" style="background:linear-gradient(135deg,#222,#444);box-shadow:0 4px 18px rgba(0,0,0,.4);margin-bottom:6px;">🛒 Ordina subito</button>
+        <div class="featured-inter-urgency">⏳ <strong>2 persone</strong> la stanno guardando</div>
+      </div>
+
     </div>
   </div>
 
@@ -3718,24 +3708,7 @@ function chiudiWelcome(){
   document.getElementById('welcomePopup').classList.remove('active');
 }
 
-// ── EXIT INTENT ──────────────────────────────────────────────────────────────
-(function(){
-  let shown=false;
-  // Desktop: mouse esce dall'alto
-  document.addEventListener('mouseleave',e=>{
-    if(e.clientY<=0 && !shown){
-      shown=true;
-      document.getElementById('exitPopup').classList.add('active');
-    }
-  });
-  // Mobile: dopo 40 secondi senza interazione
-  let mobileTimer;
-  function resetTimer(){clearTimeout(mobileTimer);mobileTimer=setTimeout(()=>{if(!shown){shown=true;document.getElementById('exitPopup').classList.add('active');}},40000);}
-  if(window.innerWidth<=768){
-    ['touchstart','scroll'].forEach(ev=>document.addEventListener(ev,resetTimer,{passive:true}));
-    resetTimer();
-  }
-})();
+// ── EXIT INTENT (disabilitato) ───────────────────────────────────────────────
 function chiudiExit(){document.getElementById('exitPopup').classList.remove('active');}
 
 // ── PAGINA CHI SIAMO ──────────────────────────────────────────────────────────
