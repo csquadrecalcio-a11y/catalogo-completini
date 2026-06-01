@@ -2786,17 +2786,18 @@ function inviaPersonalizzazione(){
     setTimeout(()=>document.getElementById('splash').classList.add('hide'),2200);
   });
 
-  // ── RIPRISTINO URL ALL'AVVIO ─────────────────────────────────────────────
-  (async function restoreFromHash(){
+  // ── RIPRISTINO URL ALL'AVVIO (eseguito dopo init) ────────────────────────
+  window._restoreHash = async function(){
     const hash=location.hash;
-    if(!hash||hash==='#') return;
+    if(!hash||hash==='#') return false;
     const catMatch=hash.match(/^#cat-(\d+)$/);
     const subMatch=hash.match(/^#sub-(\d+)-(\d+)$/);
     const photoMatch=hash.match(/^#photo-(.+)$/);
-    if(catMatch) { openCategory(+catMatch[1],true); return; }
-    if(subMatch) { openSub(+subMatch[1],+subMatch[2],true); return; }
-    if(photoMatch) { await restorePhotoFromHash(photoMatch[1]); return; }
-  })();
+    if(catMatch) { openCategory(+catMatch[1],true); return true; }
+    if(subMatch) { await openSub(+subMatch[1],+subMatch[2],true); return true; }
+    if(photoMatch) { await restorePhotoFromHash(photoMatch[1]); return true; }
+    return false;
+  };
 
   // ── TASTO ← BROWSER ──────────────────────────────────────────────────────
   if(!location.hash||location.hash==='#') history.replaceState({page:'home'},'','#');
@@ -4736,8 +4737,11 @@ document.getElementById('newsletterEmail')?.addEventListener('keydown',e=>{
 
 // ── INIT ─────────────────────────────────────────────────────────────────────
 buildSidebar();
-// Vai alla home solo se non c'è un hash nell'URL (es. #cat-10, #photo-xxx)
-if(!location.hash || location.hash==='#') goHome();
+// Se c'è un hash nell'URL ripristina la pagina, altrimenti vai alla home
+(async()=>{
+  const restored = window._restoreHash ? await window._restoreHash() : false;
+  if(!restored) goHome();
+})();
 setTimeout(creaParticelle, 100);
 setTimeout(animaContatori, 300);
 </script>
