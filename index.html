@@ -3099,9 +3099,10 @@ function aggiungiPersonalizzatoAlCarrello(){
   if(numero) personalizza+=(personalizza?' | ':'')+`Numero: ${numero}`;
   if(patchFinale&&patchFinale!=='Nessuna patch') personalizza+=(personalizza?' | ':'')+`Patch: ${patchFinale}`;
 
+  const squadraPerso=navStack.length>=1?navStack[navStack.length-1].name:'Maglia';
   carrello.push({
     id:photo.id,
-    name:photo.name||'Maglia',
+    name:'👕 Maglia — '+squadraPerso,
     thumb:thumbUrl(photo.id),
     taglia:'da definire',
     personalizza:personalizza||'Nessuna personalizzazione'
@@ -4747,14 +4748,20 @@ function confermAggiungi(){
   if(patch&&patch!=='Nessuna patch') personalizza+=(personalizza?' | ':'')+`Patch: ${patch}`;
   const icone={'Maglia':'👕','Kit Bambino':'🧒','Kit Adulto':'👨','Player Version':'⭐'};
   const icona=icone[tipo]||'👕';
+  // Usa il nome della squadra/categoria invece del filename della foto
+  const squadraNome=navStack.length>=2
+    ? navStack[navStack.length-1].name   // es. "Inter"
+    : navStack.length===1
+      ? navStack[0].name                  // es. "Serie A"
+      : 'Maglia';
   carrello.push({
     id:photo.id,
-    name:`${icona} ${tipo} — ${photo.name||'Maglia'}`,
+    name:`${icona} ${tipo} — ${squadraNome}`,
     thumb:thumbUrl(photo.id),
     taglia,
     prezzo,
     personalizza:personalizza||'',
-    squadra:document.title||''
+    squadra:squadraNome
   });
   salvaCarrello();
   const addImg=document.getElementById('addCartImg');
