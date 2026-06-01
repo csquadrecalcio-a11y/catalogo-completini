@@ -236,6 +236,9 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .brand-puma .brand-card-bg{background:linear-gradient(160deg,#1a0a0a 0%,#2d0000 100%);}
 .brand-puma .brand-card-name{color:#fff;}
 .brand-puma .brand-card-accent{background:#ef5350;}
+.brand-newbalance .brand-card-bg{background:linear-gradient(160deg,#0a0a1a 0%,#1a001a 100%);}
+.brand-newbalance .brand-card-name{color:#fff;font-size:clamp(16px,3vw,24px);}
+.brand-newbalance .brand-card-accent{background:#c62828;}
 
 /* ── GRIGLIA FOTO ── */
 .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;}
@@ -1512,7 +1515,7 @@ const CATALOG = [
   ]},
   { name:"Completi Estivi", flag:"☀️", id:"1atP3ewNSScU2eR8RlHWBqs5lVci5HhEp", subs:null},
   { name:"Vintage", flag:"🏆", id:"1zI1CEJ4f8RXTovUzkfZoY_ifAUW5X9jS", subs:null},
-  { name:"Scarpe", flag:"👟", id:"1MW7kVEJQW4lsh5cOLTZ0VvRGUkRMzVj1", subs:["Scarpe da Calcio"]},
+  { name:"Scarpe", flag:"👟", id:"1MW7kVEJQW4lsh5cOLTZ0VvRGUkRMzVj1", subs:["Scarpe da Calcio","Sneakers"]},
 ];
 
 const API_KEY = 'AIzaSyBFjNAIrUyOZeI7c3OxdD1gOtUeHlMjRjk';
@@ -2102,13 +2105,14 @@ async function openDynamicSub(folderId,folderName,catName){
   }
 }
 
-const BRAND_NAMES=['nike','adidas','puma','mizuno','new balance','asics','umbro','hummel','kappa'];
+const BRAND_NAMES=['nike','adidas','puma','mizuno','new balance','asics','umbro','hummel','kappa','jordan','under armour','diadora'];
 function isBrand(name){return BRAND_NAMES.some(b=>name.toLowerCase().includes(b));}
 function brandClass(name){
   const n=name.toLowerCase();
   if(n.includes('nike')) return 'brand-nike';
   if(n.includes('adidas')) return 'brand-adidas';
   if(n.includes('puma')) return 'brand-puma';
+  if(n.includes('new balance')) return 'brand-newbalance';
   return '';
 }
 
