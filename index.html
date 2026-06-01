@@ -1558,7 +1558,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
         <option value="">Tocca per scegliere...</option>
         <optgroup label="👕 Adulto">
           <option>S</option><option>M</option><option>L</option>
-          <option>XL</option><option>XXL</option><option>XXXL</option><option>XXXXL</option>
+          <option>XL</option><option>XXL</option><option id="opt-XXXL">XXXL</option><option id="opt-XXXXL">XXXXL</option>
         </optgroup>
         <optgroup label="🧒 Bambino">
           <option>Bambino XXS — 2-4 anni</option>
@@ -4781,6 +4781,15 @@ function selTipoCard(el, prezzo, value){
   document.querySelectorAll('.tipo-card').forEach(e=>e.classList.remove('sel'));
   el.classList.add('sel');
   document.getElementById('addCartPrezzoTot').textContent=prezzo+'€';
+  // Player Version: taglia massima XXL
+  const soloXXL=(value||'').toLowerCase()==='player version';
+  const oXXXL=document.getElementById('opt-XXXL');
+  const oXXXXL=document.getElementById('opt-XXXXL');
+  if(oXXXL) oXXXL.style.display=soloXXL?'none':'';
+  if(oXXXXL) oXXXXL.style.display=soloXXL?'none':'';
+  // Se era selezionata una taglia non disponibile, resetta
+  const sel=document.getElementById('addCartTaglia');
+  if(soloXXL&&sel&&(sel.value==='XXXL'||sel.value==='XXXXL')) sel.value='';
 }
 
 function apriAddCart(){
@@ -4846,6 +4855,11 @@ function apriAddCart(){
     });
     const _bambGrp=document.querySelector('#addCartTaglia optgroup[label*="Bambino"]');
     if(_bambGrp) _bambGrp.style.display=_èRistretto?'none':'';
+    // Se solo Player Version: nascondi XXXL e XXXXL
+    const _oXXXL=document.getElementById('opt-XXXL');
+    const _oXXXXL=document.getElementById('opt-XXXXL');
+    if(_oXXXL) _oXXXL.style.display=_èRistretto?'none':'';
+    if(_oXXXXL) _oXXXXL.style.display=_èRistretto?'none':'';
   }
   document.getElementById('addCartModal').classList.add('active');
 }
