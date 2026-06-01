@@ -4687,12 +4687,13 @@ function confermAggiungi(){
     squadra:document.title||''
   });
   salvaCarrello();
-  // Volo al carrello
   const addImg=document.getElementById('addCartImg');
   if(addImg) flyToCart(addImg);
   chiudiAddCart();
+  closeLightbox();
   aggiornaCartBadge();
-  mostraToast('✅ Aggiunto al carrello!');
+  // Apre automaticamente il carrello dopo 400ms
+  setTimeout(()=>{renderCarrello();document.getElementById('cartModal').classList.add('active');}, 400);
 }
 
 function mostraToast(msg){
