@@ -1615,7 +1615,10 @@ body.dark .avvisa-box{background:#1e1e1e;}
     <!-- TOTALE + BOTTONE -->
     <div style="background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:12px;padding:14px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;">
       <span style="font-size:13px;color:rgba(255,255,255,.8);font-weight:600;">💰 Totale</span>
-      <span id="addCartPrezzoTot" style="font-size:26px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">30€</span>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:2px;">
+        <span id="addCartPrezzoBarrato" style="font-size:14px;color:rgba(255,255,255,.5);text-decoration:line-through;font-family:'Montserrat',sans-serif;">45€</span>
+        <span id="addCartPrezzoTot" style="font-size:26px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">30€</span>
+      </div>
     </div>
     <input type="checkbox" id="addCartKit" style="display:none">
     <button id="btnAggiungi" onclick="confermAggiungi()"
@@ -4745,6 +4748,7 @@ function selTipo(el, prezzo){
   document.querySelectorAll('.tipo-opzione').forEach(e=>e.classList.remove('sel'));
   el.classList.add('sel');
   document.getElementById('addCartPrezzoTot').textContent=prezzo+'€';
+  aggiornaBarrato(prezzo);
 }
 function _isScarpe(){
   const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
@@ -4778,10 +4782,21 @@ function selTagliaSemplice(el, taglia){
   else if(_isEstivi()) document.getElementById('estagiTagliaVal').value=taglia;
 }
 
+const PREZZI_BARRATI={
+  30:45, 35:50, 40:55, // maglie
+  50:70, 60:80, 65:85, // tute
+  90:130               // scarpe
+};
+function aggiornaBarrato(prezzo){
+  const b=document.getElementById('addCartPrezzoBarrato');
+  if(b) b.textContent=(PREZZI_BARRATI[prezzo]||Math.round(prezzo*1.5))+'€';
+}
+
 function selTipoCard(el, prezzo, value){
   document.querySelectorAll('.tipo-card').forEach(e=>e.classList.remove('sel'));
   el.classList.add('sel');
   document.getElementById('addCartPrezzoTot').textContent=prezzo+'€';
+  aggiornaBarrato(prezzo);
   // Player Version: taglia massima XXL
   const soloXXL=(value||'').toLowerCase()==='player version';
   const oXXXL=document.getElementById('opt-XXXL');
@@ -4813,14 +4828,18 @@ function apriAddCart(){
     if(formScarpe) formScarpe.style.display='';
     document.getElementById('scarpeNumero').value='';
     document.getElementById('addCartPrezzoTot').textContent='da 90€';
+    aggiornaBarrato(90);
   } else if(_isTute()){
     if(formTute) formTute.style.display='';
     document.getElementById('tuteTagliaVal').value='';
-    document.getElementById('addCartPrezzoTot').textContent=_prezzoTuta()+'€';
+    const _pt=_prezzoTuta();
+    document.getElementById('addCartPrezzoTot').textContent=_pt+'€';
+    aggiornaBarrato(_pt);
   } else if(_isEstivi()){
     if(formEstivi) formEstivi.style.display='';
     document.getElementById('estagiTagliaVal').value='';
     document.getElementById('addCartPrezzoTot').textContent='35€';
+    aggiornaBarrato(35);
   } else {
     // Modalità MAGLIA
     if(formMaglia) formMaglia.style.display='';
@@ -4836,6 +4855,7 @@ function apriAddCart(){
     const primaCard=document.querySelector('.tipo-card');
     if(primaCard) primaCard.classList.add('sel');
     document.getElementById('addCartPrezzoTot').textContent='30€';
+    aggiornaBarrato(30);
 
     // Restrizioni per maglie specifiche
     const _nomeF=(photo.name||'').toLowerCase();
@@ -4846,6 +4866,7 @@ function apriAddCart(){
         if(val==='player version'){
           c.style.display='';c.classList.add('sel');
           document.getElementById('addCartPrezzoTot').textContent='35€';
+          aggiornaBarrato(35);
         } else {
           c.style.display='none';c.classList.remove('sel');
         }
