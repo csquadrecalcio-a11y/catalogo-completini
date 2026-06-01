@@ -1429,6 +1429,44 @@ body.dark .avvisa-box{background:#1e1e1e;}
       <input type="hidden" id="scarpeNumero" value="">
     </div>
 
+    <!-- FORM TUTE (nascosto di default) -->
+    <div id="addCartFormTute" style="display:none;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <div style="width:24px;height:24px;background:#0d47a1;color:#fff;border-radius:50%;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;">1</div>
+        <span style="font-size:13px;font-weight:800;color:#222;">Seleziona la taglia</span>
+        <span onclick="chiudiAddCart();paginaTaglie();" style="font-size:11px;color:#0d47a1;cursor:pointer;font-weight:600;text-decoration:underline;margin-left:auto;">Guida →</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px;">
+        <button class="scarpa-num-btn" onclick="selTagliaSemplice(this,'S')">S</button>
+        <button class="scarpa-num-btn" onclick="selTagliaSemplice(this,'M')">M</button>
+        <button class="scarpa-num-btn" onclick="selTagliaSemplice(this,'L')">L</button>
+        <button class="scarpa-num-btn" onclick="selTagliaSemplice(this,'XL')">XL</button>
+        <button class="scarpa-num-btn" onclick="selTagliaSemplice(this,'XXL')" style="grid-column:span 2;">XXL</button>
+        <button class="scarpa-num-btn" onclick="selTagliaSemplice(this,'XXXL')" style="grid-column:span 2;">XXXL</button>
+      </div>
+      <div style="background:#fff8e1;border:1.5px solid #ffcc02;border-radius:8px;padding:10px 12px;font-size:12px;color:#e65100;font-weight:600;margin-bottom:16px;">
+        🧒 Taglie bambino disponibili — <a href="https://wa.me/393792126743" target="_blank" style="color:#0d47a1;font-weight:800;">Verifica disponibilità su WhatsApp</a>
+      </div>
+      <input type="hidden" id="tuteTagliaVal" value="">
+    </div>
+
+    <!-- FORM COMPLETINI ESTIVI (nascosto di default) -->
+    <div id="addCartFormEstivi" style="display:none;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <div style="width:24px;height:24px;background:#0d47a1;color:#fff;border-radius:50%;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;">1</div>
+        <span style="font-size:13px;font-weight:800;color:#222;">Seleziona la taglia</span>
+        <span onclick="chiudiAddCart();paginaTaglie();" style="font-size:11px;color:#0d47a1;cursor:pointer;font-weight:600;text-decoration:underline;margin-left:auto;">Guida →</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px;">
+        <button class="scarpa-num-btn" onclick="selTagliaSemplice(this,'S')">S</button>
+        <button class="scarpa-num-btn" onclick="selTagliaSemplice(this,'M')">M</button>
+        <button class="scarpa-num-btn" onclick="selTagliaSemplice(this,'L')">L</button>
+        <button class="scarpa-num-btn" onclick="selTagliaSemplice(this,'XL')">XL</button>
+        <button class="scarpa-num-btn" onclick="selTagliaSemplice(this,'XXL')" style="grid-column:span 2;">XXL</button>
+      </div>
+      <input type="hidden" id="estagiTagliaVal" value="">
+    </div>
+
     <!-- FORM MAGLIA (visibile di default) -->
     <div id="addCartFormMaglia">
     <!-- PASSO 1: TIPO PRODOTTO -->
@@ -4734,11 +4772,26 @@ function _isScarpe(){
   const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
   return stack.includes('scarpe')||stack.includes('sneakers');
 }
+function _isTute(){
+  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  return stack.includes('tute')||stack.includes('tuta');
+}
+function _isEstivi(){
+  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  return stack.includes('estivi')||stack.includes('estivo');
+}
 
 function selNumScarpa(el, num){
   document.querySelectorAll('.scarpa-num-btn').forEach(b=>b.classList.remove('sel'));
   el.classList.add('sel');
   document.getElementById('scarpeNumero').value=num;
+}
+function selTagliaSemplice(el, taglia){
+  document.querySelectorAll('.scarpa-num-btn').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel');
+  // Salva nel campo corretto in base alla categoria
+  if(_isTute()) document.getElementById('tuteTagliaVal').value=taglia;
+  else if(_isEstivi()) document.getElementById('estagiTagliaVal').value=taglia;
 }
 
 function selTipoCard(el, prezzo, value){
@@ -4757,18 +4810,27 @@ function apriAddCart(){
 
   const formMaglia=document.getElementById('addCartFormMaglia');
   const formScarpe=document.getElementById('addCartFormScarpe');
+  const formTute=document.getElementById('addCartFormTute');
+  const formEstivi=document.getElementById('addCartFormEstivi');
+  // Nascondi tutti i form
+  [formMaglia,formScarpe,formTute,formEstivi].forEach(f=>{if(f)f.style.display='none';});
+  document.querySelectorAll('.scarpa-num-btn').forEach(b=>b.classList.remove('sel'));
 
   if(_isScarpe()){
-    // Modalità SCARPE
-    if(formMaglia) formMaglia.style.display='none';
     if(formScarpe) formScarpe.style.display='';
-    document.querySelectorAll('.scarpa-num-btn').forEach(b=>b.classList.remove('sel'));
     document.getElementById('scarpeNumero').value='';
     document.getElementById('addCartPrezzoTot').textContent='da 90€';
+  } else if(_isTute()){
+    if(formTute) formTute.style.display='';
+    document.getElementById('tuteTagliaVal').value='';
+    document.getElementById('addCartPrezzoTot').textContent='50€';
+  } else if(_isEstivi()){
+    if(formEstivi) formEstivi.style.display='';
+    document.getElementById('estagiTagliaVal').value='';
+    document.getElementById('addCartPrezzoTot').textContent='35€';
   } else {
     // Modalità MAGLIA
     if(formMaglia) formMaglia.style.display='';
-    if(formScarpe) formScarpe.style.display='none';
     document.getElementById('addCartTaglia').value='';
     document.getElementById('addCartNome').value='';
     document.getElementById('addCartNumero').value='';
@@ -4792,15 +4854,42 @@ function chiudiAddCart(){
 function confermAggiungi(){
   const photo=currentPhotos[currentPhotoIdx];
 
+  const squadraNome=navStack.length>=1?navStack[navStack.length-1].name:'Prodotto';
+
   // Modalità SCARPE
   if(_isScarpe()){
     const numScarpa=document.getElementById('scarpeNumero').value;
     if(!numScarpa){alert('Seleziona il numero di scarpa!');return;}
-    const squadraNome=navStack.length>=1?navStack[navStack.length-1].name:'Scarpa';
     carrello.push({id:photo.id,name:`👟 Scarpa — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia:`N° ${numScarpa}`,prezzo:90,personalizza:'',squadra:squadraNome});
-    salvaCarrello();
-    const addImg=document.getElementById('addCartImg');
-    if(addImg) flyToCart(addImg);
+    salvaCarrello();flyToCart(document.getElementById('addCartImg'));
+    chiudiAddCart();closeLightbox();aggiornaCartBadge();
+    setTimeout(()=>{renderCarrello();document.getElementById('cartModal').classList.add('active');},400);
+    return;
+  }
+  // Modalità TUTE
+  if(_isTute()){
+    const taglia=document.getElementById('tuteTagliaVal').value;
+    if(!taglia){alert('Seleziona la taglia!');return;}
+    const tipoSel=document.querySelector('.tipo-card.sel input[name="addCartTipo"],.tipo-opzione.sel input[name="addCartTipo"]');
+    const tipo=tipoSel?tipoSel.value:'Tuta';
+    const prezzoSel=document.querySelector('.tipo-card.sel,.tipo-opzione.sel');
+    const prezzo=prezzoSel?parseInt(prezzoSel.dataset.prezzo)||50:50;
+    carrello.push({id:photo.id,name:`🧥 ${tipo} — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia,prezzo,personalizza:'',squadra:squadraNome});
+    salvaCarrello();flyToCart(document.getElementById('addCartImg'));
+    chiudiAddCart();closeLightbox();aggiornaCartBadge();
+    setTimeout(()=>{renderCarrello();document.getElementById('cartModal').classList.add('active');},400);
+    return;
+  }
+  // Modalità COMPLETINI ESTIVI
+  if(_isEstivi()){
+    const taglia=document.getElementById('estagiTagliaVal').value;
+    if(!taglia){alert('Seleziona la taglia!');return;}
+    const tipoSel=document.querySelector('.tipo-card.sel input[name="addCartTipo"],.tipo-opzione.sel input[name="addCartTipo"]');
+    const tipo=tipoSel?tipoSel.value:'Completino';
+    const prezzoSel=document.querySelector('.tipo-card.sel,.tipo-opzione.sel');
+    const prezzo=prezzoSel?parseInt(prezzoSel.dataset.prezzo)||35:35;
+    carrello.push({id:photo.id,name:`☀️ ${tipo} — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia,prezzo,personalizza:'',squadra:squadraNome});
+    salvaCarrello();flyToCart(document.getElementById('addCartImg'));
     chiudiAddCart();closeLightbox();aggiornaCartBadge();
     setTimeout(()=>{renderCarrello();document.getElementById('cartModal').classList.add('active');},400);
     return;
@@ -4824,12 +4913,7 @@ function confermAggiungi(){
   if(patch&&patch!=='Nessuna patch') personalizza+=(personalizza?' | ':'')+`Patch: ${patch}`;
   const icone={'Maglia':'👕','Kit Bambino':'🧒','Kit Adulto':'👨','Player Version':'⭐'};
   const icona=icone[tipo]||'👕';
-  // Usa il nome della squadra/categoria invece del filename della foto
-  const squadraNome=navStack.length>=2
-    ? navStack[navStack.length-1].name   // es. "Inter"
-    : navStack.length===1
-      ? navStack[0].name                  // es. "Serie A"
-      : 'Maglia';
+  // squadraNome già definito sopra
   carrello.push({
     id:photo.id,
     name:`${icona} ${tipo} — ${squadraNome}`,
