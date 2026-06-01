@@ -206,28 +206,27 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .search-pos{position:relative;flex:1;max-width:500px;}
 
 /* ── LAYOUT ── */
-.layout{display:block;min-height:calc(100vh - 58px);}
+.layout{display:flex;min-height:calc(100vh - 58px);}
 
-/* ── MENU FULL SCREEN ── */
-.sidebar{position:fixed;inset:0;z-index:995;background:#0a0a0a;transform:translateY(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);overflow-y:auto;width:100%;height:100%;}
-.sidebar.open{transform:translateY(0);}
+/* ── SIDEBAR ── */
+.sidebar{width:200px;background:#fff;border-right:1px solid #e0e0e0;flex-shrink:0;position:sticky;top:58px;height:calc(100vh - 58px);overflow-y:auto;}
 .sidebar::-webkit-scrollbar{width:4px;}
-.sidebar::-webkit-scrollbar-thumb{background:#333;}
-.sb-header{padding:20px 24px;font-size:11px;font-weight:800;color:#666;letter-spacing:3px;text-transform:uppercase;border-bottom:1px solid #1a1a1a;display:flex;align-items:center;justify-content:space-between;font-family:'Poppins',sans-serif;}
-.sb-item{display:flex;align-items:center;gap:14px;padding:16px 24px;cursor:pointer;font-size:18px;font-family:'Poppins',sans-serif;font-weight:700;color:#fff;border-bottom:1px solid #1a1a1a;transition:all .2s ease;letter-spacing:.5px;text-transform:uppercase;}
-.sb-item:hover{background:#111;padding-left:32px;color:#4da6f5;}
-.sb-item.active{color:#4da6f5;}
-.sb-item .sb-flag{font-size:20px;min-width:28px;}
-.sb-item .sb-flag img{width:26px;height:auto;border-radius:2px;display:block;}
-.sb-item .sb-name{flex:1;}
-.sb-item .sb-arrow{color:#444;font-size:16px;transition:transform .2s;}
-.sb-item:hover .sb-arrow{transform:translateX(4px);color:#4da6f5;}
-.sb-item.active .sb-arrow{color:#4da6f5;}
-.sb-sub{display:none;background:#0d0d0d;}
+.sidebar::-webkit-scrollbar-thumb{background:#ccc;}
+.sb-header{padding:12px 16px;font-size:13px;font-weight:700;color:#333;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;}
+.sb-item{display:flex;align-items:center;gap:8px;padding:11px 16px;cursor:pointer;font-size:13px;font-family:'Poppins',sans-serif;font-weight:500;color:#333;border-bottom:1px solid #f0f0f0;border-left:3px solid transparent;transition:all .2s ease;}
+.sb-item:hover{background:linear-gradient(90deg,#e3f2fd,#f8fbff);border-left:3px solid #0d47a1;padding-left:20px;color:#0d47a1;}
+.sb-item.active{background:linear-gradient(90deg,#dbeafe,#f0f7ff);border-left:3px solid #0d47a1;color:#0d47a1;font-weight:600;}
+.sb-item .sb-flag{font-size:13px;min-width:24px;max-width:24px;}
+.sb-item .sb-flag img{width:24px;height:auto;border-radius:2px;display:block;}
+.sb-item .sb-name{flex:1;letter-spacing:.01em;}
+.sb-item .sb-arrow{color:#aaa;font-size:12px;transition:transform .2s;}
+.sb-item:hover .sb-arrow{transform:translateX(3px);color:#0d47a1;}
+.sb-item.active .sb-arrow{color:#0d47a1;}
+.sb-sub{display:none;background:#f8fafd;}
 .sb-sub.open{display:block;}
-.sb-subitem{padding:12px 24px 12px 64px;cursor:pointer;font-size:13px;font-family:'Poppins',sans-serif;font-weight:500;color:#888;border-bottom:1px solid #1a1a1a;transition:all .2s ease;letter-spacing:.3px;text-transform:uppercase;}
-.sb-subitem:hover{color:#fff;padding-left:72px;background:#111;}
-.sb-subitem.active{color:#4da6f5;font-weight:700;}
+.sb-subitem{padding:9px 16px 9px 40px;cursor:pointer;font-size:12px;font-family:'Poppins',sans-serif;font-weight:500;color:#555;border-bottom:1px solid #f0f0f0;border-left:3px solid transparent;transition:all .2s ease;}
+.sb-subitem:hover{background:linear-gradient(90deg,#e3f2fd,#f8fbff);border-left:3px solid #42a5f5;padding-left:44px;color:#0d47a1;}
+.sb-subitem.active{background:linear-gradient(90deg,#dbeafe,#f0f7ff);border-left:3px solid #0d47a1;color:#0d47a1;font-weight:600;}
 
 /* ── CONTENT ── */
 .content{flex:1;padding:16px 20px;min-width:0;}
@@ -556,7 +555,14 @@ footer{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color
 
 /* ── DARK MODE ── */
 body.dark{background:#121212;color:#e0e0e0;}
-/* dark mode non serve per il menu — è già scuro di default */
+body.dark .sidebar{background:#1e1e1e;border-color:#333;}
+body.dark .sb-header{border-color:#333;color:#ccc;}
+body.dark .sb-item{color:#ccc;border-color:#2a2a2a;border-left-color:transparent;}
+body.dark .sb-item:hover{background:linear-gradient(90deg,#1e3a5f,#1a2a4a);border-left-color:#90caf9;color:#90caf9;}
+body.dark .sb-item.active{background:linear-gradient(90deg,#1e3a5f,#1a2a4a);border-left-color:#90caf9;color:#90caf9;}
+body.dark .sb-sub{background:#181818;}
+body.dark .sb-subitem{color:#aaa;border-color:#2a2a2a;border-left-color:transparent;}
+body.dark .sb-subitem:hover,body.dark .sb-subitem.active{background:linear-gradient(90deg,#1e3a5f,#1a2a4a);border-left-color:#42a5f5;color:#90caf9;}
 body.dark .sb-subitem{color:#aaa;border-color:#2a2a2a;}
 body.dark .sb-subitem:hover,body.dark .sb-subitem.active{background:#2a3a5c;color:#90caf9;}
 body.dark .content-header{border-color:#333;}
@@ -950,7 +956,10 @@ body.dark .avvisa-box{background:#1e1e1e;}
   .dark-toggle{width:34px;height:34px;font-size:14px;flex-shrink:0;}
   .ham{display:block;flex-shrink:0;}
 
-  /* ── MENU FULLSCREEN ── */
+  /* ── SIDEBAR ── */
+  .sidebar{position:fixed;left:-105%;top:0;height:100vh;z-index:995;transition:left .3s ease;width:85%;max-width:320px;box-shadow:4px 0 20px rgba(0,0,0,.3);overflow-y:auto;}
+  .sidebar.open{left:0;}
+  .sidebar-overlay.open{z-index:994;}
   body.sidebar-open{overflow:hidden;}
   .layout{min-height:calc(100vh - 54px);}
 
@@ -1142,8 +1151,8 @@ body.dark .avvisa-box{background:#1e1e1e;}
   <!-- SIDEBAR -->
   <div class="sidebar" id="sidebar">
     <div class="sb-header">
-      <span>Menu</span>
-      <button onclick="toggleSidebar()" style="background:transparent;border:1px solid #333;border-radius:0;width:36px;height:36px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;">✕</button>
+      <span>Tutte le categorie</span>
+      <button onclick="toggleSidebar()" style="background:#f0f0f0;border:none;border-radius:50%;width:32px;height:32px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✕</button>
     </div>
     <div class="sb-item active" id="sb-home" onclick="goHome()">
       <span class="sb-flag">🏠</span>
@@ -1948,8 +1957,28 @@ function setSidebarActive(ci,si=-1){
 
 function toggleSidebar(){
   const sidebar=document.getElementById('sidebar');
+  const overlay=document.getElementById('overlay');
   const isOpening=!sidebar.classList.contains('open');
+
+  // Su mobile: sidebar a schermo intero dall'alto
+  if(window.innerWidth<=768){
+    sidebar.style.top='0';
+    sidebar.style.height='100vh';
+    overlay.style.top='0';
+  } else {
+    // Desktop: sotto la topbar
+    const topbar=document.querySelector('.topbar');
+    if(topbar){
+      const bottom=Math.round(topbar.getBoundingClientRect().bottom);
+      sidebar.style.top=bottom+'px';
+      sidebar.style.height='calc(100vh - '+bottom+'px)';
+      overlay.style.top=bottom+'px';
+    }
+  }
+
   sidebar.classList.toggle('open');
+  overlay.classList.toggle('open');
+  // Blocca scroll del body quando la sidebar è aperta
   document.body.classList.toggle('sidebar-open', isOpening);
 }
 
