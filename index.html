@@ -2344,14 +2344,7 @@ async function renderCategory(cat,ci){
     const found=await getSubfolderByName(cat.id,sn);
     if(!found) return;
     const imgs=await getImages(found.id);
-    if(!imgs||!imgs.length) return;
-    // Mostra la foto reale come sfondo della brand card
-    const bgEl=document.getElementById(`thumb-${ci}-${si}`);
-    if(!bgEl) return;
-    bgEl.style.backgroundImage=`url(${thumbUrl(imgs[0].id)})`;
-    bgEl.style.backgroundSize='cover';
-    bgEl.style.backgroundPosition='center top';
-    bgEl.style.filter='brightness(0.42)';
+    // Foto non usata come sfondo — stile card puro
   });
 }
 
