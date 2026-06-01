@@ -1845,59 +1845,6 @@ function goHome(fromPopstate){
     </div>
   </div>
 
-  <div class="prezzi-strip">
-    <div class="prezzi-strip-title">💰 Listino Prezzi</div>
-    <div class="prezzi-strip-sub">Più ordini, più risparmi • Spedizione GRATIS su tutto</div>
-    <table class="prezzi-table">
-      <thead>
-        <tr>
-          <th>Prodotto</th>
-          <th>1 pezzo</th>
-          <th>5+ pezzi</th>
-          <th>10+ pezzi</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>👕 Maglia</td>
-          <td><span class="price-val">30€</span></td>
-          <td><span class="price-val">25€</span><span class="badge-sconto">-17%</span></td>
-          <td><span class="price-val">20€</span><span class="badge-sconto badge-best">-33%</span></td>
-        </tr>
-        <tr>
-          <td>🧒 Kit Bambino</td>
-          <td><span class="price-val">35€</span></td>
-          <td><span class="price-val">30€</span><span class="badge-sconto">-14%</span></td>
-          <td><span class="price-val">25€</span><span class="badge-sconto badge-best">-29%</span></td>
-        </tr>
-        <tr>
-          <td>👨 Kit Adulto</td>
-          <td><span class="price-val">40€</span></td>
-          <td><span class="price-val">30€</span><span class="badge-sconto">-25%</span></td>
-          <td><span class="price-val">25€</span><span class="badge-sconto badge-best">-38%</span></td>
-        </tr>
-        <tr>
-          <td>⭐ Player Version</td>
-          <td><span class="price-val">35€</span></td>
-          <td><span class="price-val">28€</span><span class="badge-sconto">-20%</span></td>
-          <td><span class="price-val">22€</span><span class="badge-sconto badge-best">-37%</span></td>
-        </tr>
-        <tr>
-          <td>🏆 Maglia Vintage</td>
-          <td><span class="price-val">35€</span></td>
-          <td><span class="price-val">28€</span><span class="badge-sconto">-20%</span></td>
-          <td><span class="price-val">22€</span><span class="badge-sconto badge-best">-37%</span></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="prezzi-note">
-      <div class="prezzi-nota">👟 Scarpe da calcio <b>prezzi su richiesta</b></div>
-      <div class="prezzi-nota">🧥 Tuta allenamento <b>50€</b></div>
-      <div class="prezzi-nota">🧥 Tuta passeggio <b>60€</b></div>
-      <div class="prezzi-nota">🧥 Tuta con cappuccio <b>65€</b></div>
-      <div class="prezzi-nota">🚚 Spedizione <b>GRATUITA</b> ovunque</div>
-    </div>
-  </div>
   <div class="content-header"><div class="content-title">Seleziona una categoria</div></div><div class="cat-grid">`;
   CATALOG.forEach((cat,i)=>{
     if(i===0) return;
@@ -4974,6 +4921,91 @@ function iscriviNewsletter(){
 document.getElementById('newsletterEmail')?.addEventListener('keydown',e=>{
   if(e.key==='Enter') iscriviNewsletter();
 });
+
+// ── PAGINA PREZZI ────────────────────────────────────────────────────────────
+function paginaPrezzi(){
+  if(window.innerWidth<=768) toggleSidebar();
+  navStack=[];
+  updateBreadcrumb();
+  setSidebarActive(-1);
+  document.getElementById('sb-prezzi')?.classList.add('active');
+  document.getElementById('main').innerHTML=`
+  <div style="max-width:700px;margin:0 auto;">
+    <div class="prezzi-strip" style="border-radius:12px;margin-bottom:20px;">
+      <div class="prezzi-strip-title">💰 Listino Prezzi</div>
+      <div class="prezzi-strip-sub">Più ordini, più risparmi • Spedizione GRATIS su tutto 🚚</div>
+      <table class="prezzi-table">
+        <thead><tr><th>Prodotto</th><th>1 pezzo</th><th>5+ pezzi</th><th>10+ pezzi</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>👕 Maglia</td>
+            <td><span class="price-val">30€</span></td>
+            <td><span class="price-val">25€</span><span class="badge-sconto">-17%</span></td>
+            <td><span class="price-val">20€</span><span class="badge-sconto badge-best">-33%</span></td>
+          </tr>
+          <tr>
+            <td>🧒 Kit Bambino</td>
+            <td><span class="price-val">35€</span></td>
+            <td><span class="price-val">30€</span><span class="badge-sconto">-14%</span></td>
+            <td><span class="price-val">25€</span><span class="badge-sconto badge-best">-29%</span></td>
+          </tr>
+          <tr>
+            <td>👨 Kit Adulto</td>
+            <td><span class="price-val">40€</span></td>
+            <td><span class="price-val">30€</span><span class="badge-sconto">-25%</span></td>
+            <td><span class="price-val">25€</span><span class="badge-sconto badge-best">-38%</span></td>
+          </tr>
+          <tr>
+            <td>⭐ Player Version</td>
+            <td><span class="price-val">35€</span></td>
+            <td><span class="price-val">28€</span><span class="badge-sconto">-20%</span></td>
+            <td><span class="price-val">22€</span><span class="badge-sconto badge-best">-37%</span></td>
+          </tr>
+          <tr>
+            <td>🏆 Maglia Vintage</td>
+            <td><span class="price-val">35€</span></td>
+            <td><span class="price-val">28€</span><span class="badge-sconto">-20%</span></td>
+            <td><span class="price-val">22€</span><span class="badge-sconto badge-best">-37%</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="prezzi-note">
+        <div class="prezzi-nota">🧥 Tuta allenamento <b>50€</b></div>
+        <div class="prezzi-nota">🧥 Tuta passeggio <b>60€</b></div>
+        <div class="prezzi-nota">🧥 Tuta con cappuccio <b>65€</b></div>
+        <div class="prezzi-nota">👟 Scarpe <b>da 90€</b></div>
+        <div class="prezzi-nota">🚚 Spedizione <b>GRATUITA</b></div>
+      </div>
+    </div>
+
+    <div class="how-section">
+      <div class="how-title">💬 Come risparmiare di più</div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-icon">👥</div>
+          <div class="how-step-title">Ordine di gruppo</div>
+          <div class="how-step-desc">Raggruppa con amici per arrivare a 5 o 10 pezzi e risparmiare fino al 38%</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-icon">📦</div>
+          <div class="how-step-title">Mix prodotti</div>
+          <div class="how-step-desc">Puoi mescolare maglie e kit per raggiungere la soglia sconto</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-icon">💬</div>
+          <div class="how-step-title">Contattaci</div>
+          <div class="how-step-desc">Per ordini grandi o rivenditori contattaci su WhatsApp per prezzi dedicati</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="https://wa.me/393792126743?text=Ciao!%20Vorrei%20informazioni%20sui%20prezzi" target="_blank"
+       style="display:flex;align-items:center;justify-content:center;gap:10px;background:#25d366;color:#fff;border-radius:12px;padding:16px;font-size:16px;font-weight:800;text-decoration:none;margin-top:8px;box-shadow:0 4px 18px rgba(37,211,102,.4);">
+      💬 Chiedici un preventivo su WhatsApp
+    </a>
+  </div>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 
 // ── MODAL ORDINE ─────────────────────────────────────────────────────────────
 let _ordineNome='';
