@@ -239,6 +239,12 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .brand-newbalance .brand-card-bg{background:linear-gradient(160deg,#0a0a1a 0%,#1a001a 100%);}
 .brand-newbalance .brand-card-name{color:#fff;font-size:clamp(16px,3vw,24px);}
 .brand-newbalance .brand-card-accent{background:#c62828;}
+.brand-calcio .brand-card-bg{background:linear-gradient(160deg,#0d2137 0%,#0a3d62 100%);}
+.brand-calcio .brand-card-name{color:#fff;font-size:clamp(18px,3vw,28px);}
+.brand-calcio .brand-card-accent{background:#4fc3f7;}
+.brand-sneakers .brand-card-bg{background:linear-gradient(160deg,#1a0a2e 0%,#2d1b4e 100%);}
+.brand-sneakers .brand-card-name{color:#fff;font-size:clamp(18px,3vw,28px);}
+.brand-sneakers .brand-card-accent{background:#ce93d8;}
 
 /* ── GRIGLIA FOTO ── */
 .photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px;}
@@ -2030,10 +2036,22 @@ async function renderCategory(cat,ci){
   let html=back+renderFiltri(ci)+`<div class="content-header"><div class="content-title">In totale <b>${cat.subs.length}</b> squadre</div></div><div class="album-grid">`;
   cat.subs.forEach((sub,si)=>{
     const sn=typeof sub==='string'?sub:sub.name;
-    html+=`<div class="album-card" id="card-${ci}-${si}" onclick="openSub(${ci},${si})">
-      <div class="album-thumb-placeholder" id="thumb-${ci}-${si}">${teamIcon(sn)}</div>
-      <div class="album-info"><div class="album-name">${sn}</div></div>
-    </div>`;
+    if(isBrand(sn)){
+      html+=`<div class="brand-card ${brandClass(sn)}" id="card-${ci}-${si}" onclick="openSub(${ci},${si})">
+        <div class="brand-card-inner">
+          <div class="brand-card-bg"></div>
+          <div class="brand-card-name">${sn}</div>
+          <div class="brand-card-sub">Collezione 2025</div>
+          <div class="brand-card-accent"></div>
+        </div>
+        <div class="brand-card-btn">Scopri ora</div>
+      </div>`;
+    } else {
+      html+=`<div class="album-card" id="card-${ci}-${si}" onclick="openSub(${ci},${si})">
+        <div class="album-thumb-placeholder" id="thumb-${ci}-${si}">${teamIcon(sn)}</div>
+        <div class="album-info"><div class="album-name">${sn}</div></div>
+      </div>`;
+    }
   });
   main.innerHTML=html+`</div>`+renderCorrelati(ci);
   setTimeout(()=>{addSkeletonToImages();renderCatViewers();addBestsellerBadges();},100);
@@ -2105,7 +2123,7 @@ async function openDynamicSub(folderId,folderName,catName){
   }
 }
 
-const BRAND_NAMES=['nike','adidas','puma','mizuno','new balance','asics','umbro','hummel','kappa','jordan','under armour','diadora'];
+const BRAND_NAMES=['nike','adidas','puma','mizuno','new balance','asics','umbro','hummel','kappa','jordan','under armour','diadora','scarpe da calcio','sneakers'];
 function isBrand(name){return BRAND_NAMES.some(b=>name.toLowerCase().includes(b));}
 function brandClass(name){
   const n=name.toLowerCase();
@@ -2113,6 +2131,8 @@ function brandClass(name){
   if(n.includes('adidas')) return 'brand-adidas';
   if(n.includes('puma')) return 'brand-puma';
   if(n.includes('new balance')) return 'brand-newbalance';
+  if(n.includes('scarpe da calcio')) return 'brand-calcio';
+  if(n.includes('sneakers')) return 'brand-sneakers';
   return '';
 }
 
