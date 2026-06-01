@@ -2325,9 +2325,8 @@ async function renderCategory(cat,ci){
       const [bg,accent]=teamGradient(sn);
       html+=`<div class="brand-card" id="card-${ci}-${si}" onclick="openSub(${ci},${si})" style="border-radius:10px;">
         <div class="brand-card-inner" style="aspect-ratio:1;" id="inner-${ci}-${si}">
-          <div class="brand-card-bg" style="background:${bg};"></div>
-          <div style="position:relative;z-index:1;text-align:center;">
-            <div style="font-size:32px;margin-bottom:8px;" id="thumb-${ci}-${si}">${teamIcon(sn)}</div>
+          <div class="brand-card-bg" id="thumb-${ci}-${si}" style="background:${bg};"></div>
+          <div style="position:relative;z-index:1;text-align:center;padding:0 8px;">
             <div class="brand-card-name" style="font-size:clamp(12px,2vw,15px);letter-spacing:.5px;">${sn}</div>
           </div>
           <div class="brand-card-accent" style="background:${accent};"></div>
@@ -2347,15 +2346,12 @@ async function renderCategory(cat,ci){
     const imgs=await getImages(found.id);
     if(!imgs||!imgs.length) return;
     // Mostra la foto reale come sfondo della brand card
-    const inner=document.getElementById(`inner-${ci}-${si}`);
-    if(!inner) return;
-    const bg=inner.querySelector('.brand-card-bg');
-    if(bg){
-      bg.style.backgroundImage=`url(${thumbUrl(imgs[0].id)})`;
-      bg.style.backgroundSize='cover';
-      bg.style.backgroundPosition='center';
-      bg.style.filter='brightness(0.45)';
-    }
+    const bgEl=document.getElementById(`thumb-${ci}-${si}`);
+    if(!bgEl) return;
+    bgEl.style.backgroundImage=`url(${thumbUrl(imgs[0].id)})`;
+    bgEl.style.backgroundSize='cover';
+    bgEl.style.backgroundPosition='center top';
+    bgEl.style.filter='brightness(0.42)';
   });
 }
 
@@ -4135,7 +4131,7 @@ function renderFiltri(ci){
 function setFiltro(key,ci){
   filtroAttivo=key;
   // Filtra le card visibili
-  document.querySelectorAll('.album-card,.photo-item').forEach(card=>{
+  document.querySelectorAll('.album-card,.brand-card,.photo-item').forEach(card=>{
     const name=(card.querySelector('.album-name')?.textContent||card.querySelector('img')?.alt||'').toLowerCase();
     if(key==='tutti'){card.style.display='';}
     else if(key==='home'){card.style.display=name.includes('home')||name.includes('casa')?'':'none';}
@@ -4319,7 +4315,7 @@ function chiudiBubble(){
 // ── BADGE BESTSELLER ─────────────────────────────────────────────────────────
 const BESTSELLER_NAMES=['napoli','inter','juventus','milan','real madrid','barcellona','roma','manchester'];
 function addBestsellerBadges(){
-  document.querySelectorAll('.album-card,.photo-item').forEach(card=>{
+  document.querySelectorAll('.album-card,.brand-card,.photo-item').forEach(card=>{
     const name=(card.querySelector('.album-name')?.textContent||card.querySelector('img')?.alt||'').toLowerCase();
     if(card.querySelector('.bestseller-badge,.new-badge')) return;
     if(BESTSELLER_NAMES.some(n=>name.includes(n))){
