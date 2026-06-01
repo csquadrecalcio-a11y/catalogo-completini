@@ -1491,7 +1491,7 @@ const CATALOG = [
   ]},
   { name:"Completi Estivi", flag:"☀️", id:"1atP3ewNSScU2eR8RlHWBqs5lVci5HhEp", subs:null},
   { name:"Vintage", flag:"🏆", id:"1zI1CEJ4f8RXTovUzkfZoY_ifAUW5X9jS", subs:null},
-  { name:"Scarpe", flag:"👟", id:"1MW7kVEJQW4lsh5cOLTZ0VvRGUkRMzVj1", subs:null},
+  { name:"Scarpe", flag:"👟", id:"1MW7kVEJQW4lsh5cOLTZ0VvRGUkRMzVj1", subs:["Scarpe da Calcio"]},
 ];
 
 const API_KEY = 'AIzaSyBFjNAIrUyOZeI7c3OxdD1gOtUeHlMjRjk';
@@ -2079,11 +2079,19 @@ async function openDynamicSub(folderId,folderName,catName){
 }
 
 async function buildAlbumGrid(items,actionFn){
+  // Carica la prima foto di ogni cartella in parallelo
+  const firstImgs=await Promise.all(items.map(item=>getFirstImage(item.id)));
   let html=`<div class="album-grid">`;
-  for(const item of items){
+  for(let i=0;i<items.length;i++){
+    const item=items[i];
     const action=await actionFn(item);
+    const imgId=firstImgs[i];
+    const thumb=imgId
+      ?`<img class="album-thumb" src="${thumbUrl(imgId)}" alt="${item.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+      :'';
+    const placeholder=`<div class="album-thumb-placeholder" style="${imgId?'display:none':''}'">${teamIcon(item.name)}</div>`;
     html+=`<div class="album-card" onclick="${action}">
-      <div class="album-thumb-placeholder">${teamIcon(item.name)}</div>
+      ${thumb}${placeholder}
       <div class="album-info"><div class="album-name">${item.name}</div></div>
     </div>`;
   }
@@ -2283,6 +2291,9 @@ function teamIcon(n){
   if(n.includes('boca'))return'🔵';
   if(n.includes('river'))return'⚪';
   if(n.includes('miami'))return'🩷';
+  if(n.includes('nike'))return'✔️';
+  if(n.includes('adidas'))return'🔱';
+  if(n.includes('puma'))return'🐆';
   if(n.includes('tuta')||n.includes('tute'))return'👕';
   if(n.includes('scarpe'))return'👟';
   if(n.includes('vintage'))return'🏆';
