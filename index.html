@@ -237,8 +237,8 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .breadcrumb .cur{color:#333;cursor:default;}
 .breadcrumb .cur:hover{text-decoration:none;}
 
-.content-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding:32px 0 16px;}
-.content-title{font-size:11px;color:#999;letter-spacing:3px;text-transform:uppercase;font-weight:700;font-family:'Montserrat',sans-serif;}
+.content-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #e0e0e0;}
+.content-title{font-size:14px;color:#555;}
 .content-title b{color:#222;}
 
 /* ── GRIGLIA ALBUM ── */
@@ -252,17 +252,15 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .album-count{font-size:12px;color:#888;margin-top:3px;}
 
 /* ── BRAND CARD ── */
-.brand-card{background:#000;border:none;border-radius:0;cursor:pointer;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;position:relative;}
-.brand-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.4);}
-.brand-card-inner{aspect-ratio:4/5;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;position:relative;padding:20px;}
-.brand-card-bg{position:absolute;inset:0;background:linear-gradient(160deg,#2a2a2a 0%,#111 60%,#000 100%);transition:transform .5s ease;}
-.brand-card:hover .brand-card-bg{transform:scale(1.04);}
-.brand-card-name{position:relative;z-index:1;font-family:'Montserrat',sans-serif;font-size:clamp(14px,2.5vw,18px);font-weight:900;color:#fff;letter-spacing:2px;text-transform:uppercase;text-align:left;line-height:1.1;}
-.brand-card-sub{position:relative;z-index:1;font-size:10px;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;margin-top:5px;}
-.brand-card-btn{position:relative;z-index:1;margin-top:12px;display:inline-flex;align-items:center;gap:6px;background:transparent;color:#fff;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(255,255,255,.4);padding:7px 14px;transition:all .2s;}
-.brand-card:hover .brand-card-btn{background:#fff;color:#000;border-color:#fff;}
-.brand-card-accent{position:absolute;top:16px;right:16px;font-size:28px;opacity:.5;z-index:1;transition:opacity .2s;}
-.brand-card:hover .brand-card-accent{opacity:.9;}
+.brand-card{background:#111;border:none;border-radius:10px;cursor:pointer;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;position:relative;}
+.brand-card:hover{transform:translateY(-5px);box-shadow:0 12px 32px rgba(0,0,0,.5);}
+.brand-card-inner{aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:20px;}
+.brand-card-bg{position:absolute;inset:0;background:linear-gradient(160deg,#2a2a2a 0%,#111 60%,#000 100%);}
+.brand-card-name{position:relative;z-index:1;font-family:'Montserrat',sans-serif;font-size:clamp(22px,4vw,36px);font-weight:900;color:#fff;letter-spacing:3px;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.8);text-align:center;}
+.brand-card-sub{position:relative;z-index:1;font-size:11px;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase;margin-top:6px;}
+.brand-card-btn{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.08);backdrop-filter:blur(4px);color:#fff;font-size:12px;font-weight:800;letter-spacing:3px;text-align:center;padding:12px;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.1);transition:background .2s;}
+.brand-card:hover .brand-card-btn{background:rgba(255,255,255,.18);}
+.brand-card-accent{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);width:40px;height:2px;border-radius:2px;background:rgba(255,255,255,.3);}
 /* colori accent per brand */
 .brand-nike .brand-card-bg{background:linear-gradient(160deg,#1a1a1a 0%,#111 100%);}
 .brand-nike .brand-card-name{color:#fff;}
@@ -301,33 +299,31 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .cat-name{font-size:13px;font-weight:500;color:#333;}
 .cat-count{font-size:12px;color:#888;margin-top:2px;}
 
-/* ── HERO BANNER — Nike/Adidas style ── */
-.hero-banner{position:relative;width:100%;height:560px;overflow:hidden;margin-bottom:0;}
-.hero-banner img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;transition:transform 12s ease;}
-.hero-banner:hover img{transform:scale(1.04);}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.5) 55%,rgba(0,0,0,.1) 100%);}
+/* ── HERO BANNER ── */
+.hero-banner{position:relative;width:100%;height:460px;overflow:hidden;margin-bottom:20px;box-shadow:0 8px 40px rgba(0,0,0,.35);}
+.hero-banner img{width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;transition:transform 10s ease;}
+.hero-banner:hover img{transform:scale(1.03);}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,20,.85) 0%,rgba(0,0,20,.6) 50%,rgba(0,0,20,.15) 100%);}
 .hero-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
-.hero-particle{position:absolute;width:2px;height:2px;background:rgba(255,255,255,.4);border-radius:50%;animation:floatUp linear infinite;}
-@keyframes floatUp{0%{transform:translateY(100%);opacity:0;}10%{opacity:1;}90%{opacity:.3;}100%{transform:translateY(-120px) translateX(15px);opacity:0;}}
-.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:54px 56px;max-width:680px;}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;color:#000;font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;padding:5px 14px;margin-bottom:20px;width:fit-content;animation:fadeInUp .5s ease both;}
-.hero-title{font-family:'Montserrat',sans-serif;font-size:clamp(48px,7vw,96px);font-weight:900;color:#fff;line-height:.92;letter-spacing:-3px;text-transform:uppercase;margin-bottom:20px;animation:fadeInUp .5s ease .1s both;}
-.hero-title span{color:#fff;display:block;}
-.hero-title em{color:#4da6f5;font-style:normal;}
-.hero-sub{font-size:14px;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:32px;animation:fadeInUp .5s ease .2s both;font-weight:400;letter-spacing:.3px;max-width:420px;}
-.hero-stats{display:flex;gap:32px;margin-bottom:36px;animation:fadeInUp .5s ease .3s both;}
-.hero-stat{text-align:left;}
-.hero-stat-num{font-size:28px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;letter-spacing:-1px;}
-.hero-stat-label{font-size:10px;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
-.hero-btn-main{display:inline-flex;align-items:center;gap:12px;background:#fff;color:#000;border:none;padding:16px 36px;font-size:13px;font-weight:800;cursor:pointer;transition:all .2s;width:fit-content;animation:fadeInUp .5s ease .35s both;letter-spacing:2px;text-transform:uppercase;}
-.hero-btn-main:hover{background:#000;color:#fff;transform:translateY(-2px);}
-.hero-btn-main svg{width:16px;height:16px;fill:currentColor;}
+.hero-particle{position:absolute;width:3px;height:3px;background:rgba(255,255,255,.5);border-radius:50%;animation:floatUp linear infinite;}
+@keyframes floatUp{0%{transform:translateY(100%);opacity:0;}10%{opacity:1;}90%{opacity:.4;}100%{transform:translateY(-120px) translateX(15px);opacity:0;}}
+.hero-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:50px 54px;max-width:620px;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(13,71,161,.7);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:18px;width:fit-content;animation:fadeInUp .5s ease both;}
+.hero-title{font-family:'Montserrat',sans-serif;font-size:clamp(36px,4.5vw,64px);font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;text-shadow:0 2px 30px rgba(0,0,0,.5);margin-bottom:14px;animation:fadeInUp .5s ease .1s both;}
+.hero-title span{color:#4da6f5;}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.8);line-height:1.6;margin-bottom:28px;animation:fadeInUp .5s ease .2s both;}
+.hero-stats{display:flex;gap:24px;margin-bottom:28px;animation:fadeInUp .5s ease .3s both;}
+.hero-stat{text-align:center;}
+.hero-stat-num{font-size:22px;font-weight:900;color:#fff;}
+.hero-stat-label{font-size:11px;color:rgba(255,255,255,.6);letter-spacing:1px;text-transform:uppercase;}
+.hero-btn-main{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;padding:15px 32px;border-radius:8px;font-size:15px;font-weight:800;cursor:pointer;transition:all .25s;box-shadow:0 4px 24px rgba(245,166,35,.5);width:fit-content;animation:fadeInUp .5s ease .35s both;letter-spacing:.5px;}
+.hero-btn-main:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(245,166,35,.7);}
+.hero-btn-main svg{width:18px;height:18px;fill:#fff;}
 @media(max-width:768px){
-  .hero-banner{height:420px;}
-  .hero-content{padding:28px 22px;justify-content:flex-end;}
-  .hero-title{font-size:clamp(38px,11vw,56px);letter-spacing:-2px;}
+  .hero-banner{height:260px;}
+  .hero-content{padding:24px 20px;max-width:100%;}
   .hero-sub,.hero-stats{display:none;}
-  .hero-btn-main{padding:14px 26px;font-size:12px;}
+  .hero-btn-main{padding:12px 22px;font-size:13px;}
 }
 
 /* ── BANNER NUOVI ARRIVI ── */
@@ -2017,9 +2013,9 @@ function goHome(fromPopstate){
     <div class="hero-overlay"></div>
     <div class="hero-particles" id="heroParticles"></div>
     <div class="hero-content">
-      <div class="hero-badge">Catalogo Ufficiale 2026 / 2027</div>
-      <h1 class="hero-title"><span>Maglie</span><em>Calcio</em></h1>
-      <div class="hero-sub">Le migliori maglie dei top club europei. Qualità premium, personalizzazione gratuita e spedizione rapida in tutta Italia.</div>
+      <div class="hero-badge">⚽ Catalogo Ufficiale 2026/2027</div>
+      <h1 class="hero-title">Completini<br><span>Squadre Calcio</span></h1>
+      <div class="hero-sub">Le migliori maglie dei top club europei.<br>Qualità premium • Personalizzazione • Spedizione rapida in tutta Italia.</div>
       <div class="hero-stats">
         <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="500" data-suffix="+">0</span></div><div class="hero-stat-label">Maglie</div></div>
         <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="50" data-suffix="+">0</span></div><div class="hero-stat-label">Club</div></div>
@@ -2137,14 +2133,17 @@ function goHome(fromPopstate){
     const bg=CAT_COLORS[cat.name]||'linear-gradient(160deg,#1a1a1a 0%,#111 100%)';
     const accent=CAT_ACCENT[cat.name]||'#fff';
     const count=cat.subs?cat.subs.length+' squadre':'Sfoglia';
-    html+=`<div class="brand-card" onclick="openCategory(${i})">
-      <div class="brand-card-inner">
+    html+=`<div class="brand-card" onclick="openCategory(${i})" style="border-radius:10px;">
+      <div class="brand-card-inner" style="aspect-ratio:1;">
         <div class="brand-card-bg" style="background:${bg};"></div>
-        <div class="brand-card-accent">${cat.flag}</div>
-        <div class="brand-card-name">${cat.name}</div>
-        <div class="brand-card-sub">${count}</div>
-        <div class="brand-card-btn">Scopri <span style="font-size:12px;">→</span></div>
+        <div style="position:relative;z-index:1;text-align:center;">
+          <div style="font-size:36px;margin-bottom:8px;">${cat.flag}</div>
+          <div class="brand-card-name" style="font-size:clamp(13px,2vw,16px);letter-spacing:1px;">${cat.name}</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px;">${count}</div>
+        </div>
+        <div class="brand-card-accent" style="background:${accent};"></div>
       </div>
+      <div class="brand-card-btn">Scopri ora</div>
     </div>`;
   });
   html+=`</div>
