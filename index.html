@@ -4009,6 +4009,10 @@ function renderHotStrip(){
       <img src="${thumb}" alt="${item.name}" onerror="this.closest('.cliente-card').style.display='none'">
       <div class="hot-card-info">
         <div class="hot-card-name">${item.name}</div>
+        <div style="display:flex;align-items:center;gap:5px;margin-top:3px;">
+          <span style="font-size:10px;color:#aaa;text-decoration:line-through;">45€</span>
+          <span style="font-size:13px;font-weight:900;color:#0d47a1;">30€</span>
+        </div>
         <div class="hot-card-badge">🔥 ${minutiFA[i]} min fa</div>
       </div>
     </div>`;
