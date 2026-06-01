@@ -1894,7 +1894,7 @@ function fullUrl(id){return `https://drive.google.com/thumbnail?id=${id}&sz=w160
 async function getImages(folderId){
   try{
     const q=`'${folderId}' in parents and (mimeType='image/jpeg' or mimeType='image/png' or mimeType='image/webp') and trashed=false`;
-    const url=`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name)&orderBy=name&key=${API_KEY}&pageSize=200`;
+    const url=`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name)&orderBy=createdTime desc&key=${API_KEY}&pageSize=200`;
     const r=await fetch(url);const d=await r.json();return d.files||[];
   }catch(e){return[];}
 }
