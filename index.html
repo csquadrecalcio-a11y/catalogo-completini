@@ -599,6 +599,14 @@ body.dark .custom-cancel{background:#333;color:#aaa;}
 .patch-btn{padding:8px 6px;border:1.5px solid #e0e0e0;border-radius:8px;background:#fff;font-size:12px;cursor:pointer;text-align:center;transition:all .2s;color:#444;}
 body.dark .patch-btn{background:#2a2a2a;border-color:#444;color:#ccc;}
 .patch-btn:hover,.patch-btn.sel{border-color:#0d47a1;background:#e3f2fd;color:#0d47a1;font-weight:600;}
+/* Tipo prodotto nel modal carrello */
+.tipo-opzione{display:flex;align-items:center;justify-content:space-between;border:2px solid #e0e0e0;border-radius:10px;padding:11px 14px;cursor:pointer;transition:all .2s;background:#fff;}
+body.dark .tipo-opzione{background:#2a2a2a;border-color:#444;}
+.tipo-opzione:hover,.tipo-opzione.sel{border-color:#0d47a1;background:#e3f2fd;}
+body.dark .tipo-opzione.sel{background:#1a2a4a;border-color:#1565c0;}
+.tipo-left{display:flex;align-items:center;gap:10px;}
+.tipo-prezzo{font-size:18px;font-weight:900;color:#0d47a1;font-family:'Montserrat',sans-serif;}
+body.dark .tipo-prezzo{color:#90caf9;}
 body.dark .patch-btn.sel{background:#1a2a4a;}
 
 /* ── COME ORDINARE ── */
@@ -1430,15 +1438,39 @@ body.dark .avvisa-box{background:#1e1e1e;}
       <div style="font-size:12px;color:#555;margin-top:4px;line-height:1.5;">Non tutti i prodotti sono disponibili in taglie bambino. <b>Verifica la disponibilità su WhatsApp</b> prima di procedere con l'ordine.</div>
       <a href="https://wa.me/393792126743" target="_blank" style="display:inline-block;margin-top:8px;background:#25d366;color:#fff;padding:6px 14px;border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;">💬 Verifica su WhatsApp</a>
     </div>
-    <div style="background:#f5f9ff;border:1.5px solid #bbdefb;border-radius:10px;padding:14px;margin-bottom:16px;">
-      <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;">
-        <input type="checkbox" id="addCartKit" style="width:18px;height:18px;margin-top:2px;accent-color:#0d47a1;flex-shrink:0;">
-        <div>
-          <div style="font-size:14px;font-weight:700;color:#0d47a1;">🩳 Voglio il kit completo</div>
-          <div style="font-size:12px;color:#888;margin-top:2px;">Maglia + pantaloncino + calze<br>⚠️ Disponibilità verrà confermata su WhatsApp</div>
-        </div>
-      </label>
+    <!-- SCELTA TIPO PRODOTTO CON PREZZO -->
+    <div style="margin-bottom:16px;">
+      <label style="display:block;font-size:12px;font-weight:700;color:#555;margin-bottom:8px;text-transform:uppercase;">📦 Tipo prodotto</label>
+      <div style="display:flex;flex-direction:column;gap:8px;" id="addCartTipoGrid">
+        <label class="tipo-opzione" onclick="selTipo(this,30)" data-prezzo="30">
+          <input type="radio" name="addCartTipo" value="Maglia" checked style="display:none">
+          <div class="tipo-left"><span style="font-size:20px;">👕</span><div><div style="font-size:13px;font-weight:700;color:#222;">Maglia</div><div style="font-size:11px;color:#888;">Solo maglia, taglia S→XXL</div></div></div>
+          <div class="tipo-prezzo">30€</div>
+        </label>
+        <label class="tipo-opzione" onclick="selTipo(this,35)" data-prezzo="35">
+          <input type="radio" name="addCartTipo" value="Kit Bambino" style="display:none">
+          <div class="tipo-left"><span style="font-size:20px;">🧒</span><div><div style="font-size:13px;font-weight:700;color:#222;">Kit Bambino</div><div style="font-size:11px;color:#888;">Maglia + pantaloncino bambino</div></div></div>
+          <div class="tipo-prezzo">35€</div>
+        </label>
+        <label class="tipo-opzione" onclick="selTipo(this,40)" data-prezzo="40">
+          <input type="radio" name="addCartTipo" value="Kit Adulto" style="display:none">
+          <div class="tipo-left"><span style="font-size:20px;">👨</span><div><div style="font-size:13px;font-weight:700;color:#222;">Kit Adulto</div><div style="font-size:11px;color:#888;">Maglia + pantaloncino adulto</div></div></div>
+          <div class="tipo-prezzo">40€</div>
+        </label>
+        <label class="tipo-opzione" onclick="selTipo(this,35)" data-prezzo="35">
+          <input type="radio" name="addCartTipo" value="Player Version" style="display:none">
+          <div class="tipo-left"><span style="font-size:20px;">⭐</span><div><div style="font-size:13px;font-weight:700;color:#222;">Player Version</div><div style="font-size:11px;color:#888;">Versione giocatore, qualità top</div></div></div>
+          <div class="tipo-prezzo">35€</div>
+        </label>
+      </div>
     </div>
+    <!-- RIEPILOGO PREZZO -->
+    <div style="background:#f5f9ff;border:1.5px solid #bbdefb;border-radius:10px;padding:12px 16px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;">
+      <span style="font-size:13px;color:#555;font-weight:600;">💰 Totale ordine</span>
+      <span id="addCartPrezzoTot" style="font-size:22px;font-weight:900;color:#0d47a1;font-family:'Montserrat',sans-serif;">30€</span>
+    </div>
+    <!-- campo nascosto per compatibilità -->
+    <input type="checkbox" id="addCartKit" style="display:none">
     <button id="btnAggiungi" onclick="confermAggiungi()" style="width:100%;background:linear-gradient(135deg,#f5a623,#e8940f);color:#fff;border:none;border-radius:10px;padding:14px;font-size:15px;font-weight:800;cursor:pointer;transition:all .2s;box-shadow:0 4px 16px rgba(245,166,35,.4);letter-spacing:.3px;">
       🛒 Aggiungi al carrello
     </button>
@@ -1864,7 +1896,7 @@ function goHome(fromPopstate){
   </div>
 
   <div class="scarpe-banner" onclick="openCategory(${CATALOG.findIndex(c=>c.name==='Scarpe')})">
-    <img src="sneakers.jpg" alt="Scarpe & Sneakers" loading="lazy">
+    <img src="sneakers.png" alt="Scarpe & Sneakers" loading="lazy">
     <div class="scarpe-banner-overlay"></div>
     <div class="scarpe-banner-content">
       <div class="scarpe-banner-badge">🔥 Nuova collezione</div>
@@ -4459,6 +4491,12 @@ function selAddPatch(el,nome){
   document.getElementById('addCartPatchLibera').value='';
 }
 
+function selTipo(el, prezzo){
+  document.querySelectorAll('.tipo-opzione').forEach(e=>e.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('addCartPrezzoTot').textContent=prezzo+'€';
+}
+
 function apriAddCart(){
   const photo=currentPhotos[currentPhotoIdx];
   if(!photo) return;
@@ -4472,6 +4510,11 @@ function apriAddCart(){
   addCartPatch='Nessuna patch';
   document.querySelectorAll('#addCartPatchGrid .patch-btn').forEach(b=>b.classList.remove('sel'));
   document.querySelector('#addCartPatchGrid .patch-btn:last-child').classList.add('sel');
+  // Reset selezione tipo → default Maglia 30€
+  const tipoOpzioni=document.querySelectorAll('.tipo-opzione');
+  tipoOpzioni.forEach(e=>e.classList.remove('sel'));
+  if(tipoOpzioni[0]) tipoOpzioni[0].classList.add('sel');
+  document.getElementById('addCartPrezzoTot').textContent='30€';
   document.getElementById('addCartModal').classList.add('active');
 }
 
@@ -4487,17 +4530,24 @@ function confermAggiungi(){
   const numero=document.getElementById('addCartNumero').value.trim();
   const patchLibera=document.getElementById('addCartPatchLibera').value.trim();
   const patch=patchLibera||addCartPatch;
-  const kit=document.getElementById('addCartKit').checked;
+  // Leggi tipo selezionato e prezzo
+  const tipoSel=document.querySelector('.tipo-opzione.sel input[name="addCartTipo"]');
+  const tipo=tipoSel?tipoSel.value:'Maglia';
+  const prezzoSel=document.querySelector('.tipo-opzione.sel');
+  const prezzo=prezzoSel?parseInt(prezzoSel.dataset.prezzo)||30:30;
+  const kit=(tipo==='Kit Adulto'||tipo==='Kit Bambino');
   let personalizza='';
   if(nome) personalizza+=`Nome: ${nome}`;
   if(numero) personalizza+=(personalizza?' | ':'')+`N°: ${numero}`;
   if(patch&&patch!=='Nessuna patch') personalizza+=(personalizza?' | ':'')+`Patch: ${patch}`;
-  if(kit) personalizza+=(personalizza?' | ':'')+`KIT COMPLETO richiesto`;
+  const icone={'Maglia':'👕','Kit Bambino':'🧒','Kit Adulto':'👨','Player Version':'⭐'};
+  const icona=icone[tipo]||'👕';
   carrello.push({
     id:photo.id,
-    name:(kit?'🩳 KIT — ':'')+( photo.name||'Maglia'),
+    name:`${icona} ${tipo} — ${photo.name||'Maglia'}`,
     thumb:thumbUrl(photo.id),
     taglia,
+    prezzo,
     personalizza:personalizza||'',
     squadra:document.title||''
   });
