@@ -3117,7 +3117,7 @@ function inviaPersonalizzazione(){
   if(nome) msg+=`👤 Nome: ${nome}\n`;
   if(numero) msg+=`🔢 Numero: ${numero}\n`;
   msg+=`🏅 Patch: ${patch}\n\n`;
-  msg+=`Potete confermare disponibilità e prezzo?`;
+  msg+=`Potete confermare disponibilità?`;
 
   window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`, '_blank');
   chiudiPersonalizza();
@@ -4893,8 +4893,7 @@ function checkoutCarrello(){
   msg+=`📱 ${tel}\n`;
   msg+=`💳 Pagamento: ${pag}\n`;
   msg+=`🚚 Spedizione: GRATUITA\n`;
-  msg+=`\n━━━━━━━━━━━━━━━━━━━━━\n`;
-  msg+=`Potete comunicarmi il totale? Grazie! 😊`;
+  msg+=`\n━━━━━━━━━━━━━━━━━━━━━`;
 
   window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`,'_blank');
 
