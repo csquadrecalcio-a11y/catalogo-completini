@@ -1883,8 +1883,8 @@ function goHome(fromPopstate){
           <div>✅ Spedizione rapida in Italia</div>
           <div>✅ Disponibile taglia S → XXL</div>
         </div>
-        <button class="featured-inter-btn" onclick="vaiInterEAggiungi()">
-          🛒 Vedi e ordina questa maglia
+        <button class="featured-inter-btn" onclick="apriMagliaInter()">
+          ⚡ Voglio questa maglia!
         </button>
         <div class="featured-inter-urgency" id="interUrgency">⏳ <strong>3 persone</strong> la stanno guardando adesso</div>
       </div>
@@ -5008,21 +5008,19 @@ document.getElementById('newsletterEmail')?.addEventListener('keydown',e=>{
   if(e.key==='Enter') iscriviNewsletter();
 });
 
-// ── BOTTONE FEATURED INTER → naviga a Serie A/Inter e apre Aggiungi ─────────
-async function vaiInterEAggiungi(){
-  // Trova Serie A (ci=1) e Inter (si)
-  const ci=1; // Serie A
-  const cat=CATALOG[ci];
-  const si=cat.subs.findIndex(s=>(typeof s==='string'?s:s.name).toLowerCase()==='inter');
-  if(si<0){openSub(ci,0);return;}
-  await openSub(ci,si);
-  // Aspetta che le foto vengano caricate poi apre il modal Aggiungi sulla prima
+// ── BOTTONE FEATURED INTER → apre direttamente la maglia specifica ──────────
+const INTER_PHOTO_ID='1nJhrON4rdO99quD6i5BJ-NulRTMmFUg4';
+
+async function apriMagliaInter(){
+  await restorePhotoFromHash(INTER_PHOTO_ID);
+  // Aspetta che le foto vengano caricate poi apre il modal Aggiungi
   setTimeout(()=>{
     if(currentPhotos&&currentPhotos.length>0){
-      openLightbox(0);
+      const idx=currentPhotos.findIndex(p=>p.id===INTER_PHOTO_ID);
+      if(idx>=0) openLightbox(idx);
       setTimeout(()=>apriAddCart(),300);
     }
-  },1200);
+  },1500);
 }
 
 // ── PAGINA PREZZI ────────────────────────────────────────────────────────────
