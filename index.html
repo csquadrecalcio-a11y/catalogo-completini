@@ -2473,7 +2473,7 @@ async function renderCategory(cat,ci){
   }
 
   filtroAttivo='tutti';
-  let html=back+renderFiltri(ci)+`<div class="content-header"><div class="content-title">In totale <b>${cat.subs.length}</b> squadre</div></div><div class="album-grid">`;
+  let html=back+`<div class="content-header"><div class="content-title">In totale <b>${cat.subs.length}</b> squadre</div></div><div class="album-grid">`;
   cat.subs.forEach((sub,si)=>{
     const sn=typeof sub==='string'?sub:sub.name;
     if(isBrand(sn)){
