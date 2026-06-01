@@ -1961,12 +1961,43 @@ function goHome(fromPopstate){
   </div>
 
   <div class="content-header"><div class="content-title">Seleziona una categoria</div></div><div class="cat-grid">`;
+  const CAT_COLORS={
+    'Serie A':             'linear-gradient(160deg,#0d2137 0%,#0a3d62 100%)',
+    'Premier League':      'linear-gradient(160deg,#1a0505 0%,#8b0000 100%)',
+    'Liga Spagnola':       'linear-gradient(160deg,#1a0a00 0%,#c62828 100%)',
+    'Bundesliga':          'linear-gradient(160deg,#1a1200 0%,#bf360c 100%)',
+    'Ligue 1 Francia':     'linear-gradient(160deg,#00001a 0%,#1565c0 100%)',
+    'Eredivisie':          'linear-gradient(160deg,#1a0800 0%,#e65100 100%)',
+    'Nazionali 2026/2027': 'linear-gradient(160deg,#0a1a0a 0%,#1b5e20 100%)',
+    'Resto del Mondo':     'linear-gradient(160deg,#0a0a1a 0%,#4a148c 100%)',
+    'NBA':                 'linear-gradient(160deg,#1a0500 0%,#b71c1c 100%)',
+    'Tute':                'linear-gradient(160deg,#0a0a1a 0%,#1565c0 100%)',
+    'Completi Estivi':     'linear-gradient(160deg,#1a1000 0%,#f57f17 100%)',
+    'Vintage':             'linear-gradient(160deg,#1a1500 0%,#795548 100%)',
+    'Scarpe':              'linear-gradient(160deg,#0a0a0a 0%,#212121 100%)',
+  };
+  const CAT_ACCENT={
+    'Serie A':'#4fc3f7','Premier League':'#ef5350','Liga Spagnola':'#ef5350',
+    'Bundesliga':'#ffa726','Ligue 1 Francia':'#42a5f5','Eredivisie':'#ff7043',
+    'Nazionali 2026/2027':'#66bb6a','Resto del Mondo':'#ce93d8','NBA':'#ff7043',
+    'Tute':'#4fc3f7','Completi Estivi':'#ffca28','Vintage':'#a1887f','Scarpe':'#90caf9',
+  };
   CATALOG.forEach((cat,i)=>{
     if(i===0) return;
-    html+=`<div class="cat-card" onclick="openCategory(${i})">
-      <div class="cat-icon">${cat.flag}</div>
-      <div class="cat-name">${cat.name}</div>
-      <div class="cat-count">${cat.subs?cat.subs.length+' squadre':'Sfoglia'}</div>
+    const bg=CAT_COLORS[cat.name]||'linear-gradient(160deg,#1a1a1a 0%,#111 100%)';
+    const accent=CAT_ACCENT[cat.name]||'#fff';
+    const count=cat.subs?cat.subs.length+' squadre':'Sfoglia';
+    html+=`<div class="brand-card" onclick="openCategory(${i})" style="border-radius:10px;">
+      <div class="brand-card-inner" style="aspect-ratio:1;">
+        <div class="brand-card-bg" style="background:${bg};"></div>
+        <div style="position:relative;z-index:1;text-align:center;">
+          <div style="font-size:36px;margin-bottom:8px;">${cat.flag}</div>
+          <div class="brand-card-name" style="font-size:clamp(13px,2vw,16px);letter-spacing:1px;">${cat.name}</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px;">${count}</div>
+        </div>
+        <div class="brand-card-accent" style="background:${accent};"></div>
+      </div>
+      <div class="brand-card-btn">Scopri ora</div>
     </div>`;
   });
   html+=`</div>
@@ -2291,9 +2322,17 @@ async function renderCategory(cat,ci){
         <div class="brand-card-btn">Scopri ora</div>
       </div>`;
     } else {
-      html+=`<div class="album-card" id="card-${ci}-${si}" onclick="openSub(${ci},${si})">
-        <div class="album-thumb-placeholder" id="thumb-${ci}-${si}">${teamIcon(sn)}</div>
-        <div class="album-info"><div class="album-name">${sn}</div></div>
+      const [bg,accent]=teamGradient(sn);
+      html+=`<div class="brand-card" id="card-${ci}-${si}" onclick="openSub(${ci},${si})" style="border-radius:10px;">
+        <div class="brand-card-inner" style="aspect-ratio:1;" id="inner-${ci}-${si}">
+          <div class="brand-card-bg" style="background:${bg};"></div>
+          <div style="position:relative;z-index:1;text-align:center;">
+            <div style="font-size:32px;margin-bottom:8px;" id="thumb-${ci}-${si}">${teamIcon(sn)}</div>
+            <div class="brand-card-name" style="font-size:clamp(12px,2vw,15px);letter-spacing:.5px;">${sn}</div>
+          </div>
+          <div class="brand-card-accent" style="background:${accent};"></div>
+        </div>
+        <div class="brand-card-btn">Scopri ora</div>
       </div>`;
     }
   });
@@ -2307,16 +2346,16 @@ async function renderCategory(cat,ci){
     if(!found) return;
     const imgs=await getImages(found.id);
     if(!imgs||!imgs.length) return;
-    const el=document.getElementById(`thumb-${ci}-${si}`);
-    if(!el) return;
-    const img=document.createElement('img');
-    img.className='album-card-img';
-    img.src=thumbUrl(imgs[0].id);
-    img.alt=sn;
-    img.loading='lazy';
-    img.style.cssText='opacity:0;transition:opacity .4s;';
-    img.onload=()=>{img.style.opacity='1';};
-    el.replaceWith(img);
+    // Mostra la foto reale come sfondo della brand card
+    const inner=document.getElementById(`inner-${ci}-${si}`);
+    if(!inner) return;
+    const bg=inner.querySelector('.brand-card-bg');
+    if(bg){
+      bg.style.backgroundImage=`url(${thumbUrl(imgs[0].id)})`;
+      bg.style.backgroundSize='cover';
+      bg.style.backgroundPosition='center';
+      bg.style.filter='brightness(0.45)';
+    }
   });
 }
 
@@ -2599,6 +2638,65 @@ window.addEventListener('scroll',()=>{
 },{ passive:true });
 
 // ── ICONE ────────────────────────────────────────────────────────────────────
+function teamGradient(n){
+  const t=n.toLowerCase();
+  if(t.includes('napoli'))       return ['linear-gradient(160deg,#002060,#0d47a1)','#4fc3f7'];
+  if(t.includes('inter')&&!t.includes('miami')) return ['linear-gradient(160deg,#000428,#1a237e)','#42a5f5'];
+  if(t.includes('milan')&&!t.includes('inter')) return ['linear-gradient(160deg,#1a0000,#c62828)','#ef9a9a'];
+  if(t.includes('juventus'))     return ['linear-gradient(160deg,#111,#333)','#fff'];
+  if(t.includes('roma'))         return ['linear-gradient(160deg,#1a0800,#bf360c)','#ffcc02'];
+  if(t.includes('lazio'))        return ['linear-gradient(160deg,#001a3a,#0277bd)','#80d8ff'];
+  if(t.includes('atalanta'))     return ['linear-gradient(160deg,#00001a,#1565c0)','#42a5f5'];
+  if(t.includes('fiorentina'))   return ['linear-gradient(160deg,#1a0040,#4a148c)','#ce93d8'];
+  if(t.includes('bologna'))      return ['linear-gradient(160deg,#1a0000,#b71c1c)','#ffcc02'];
+  if(t.includes('cagliari'))     return ['linear-gradient(160deg,#1a0000,#b71c1c)','#90caf9'];
+  if(t.includes('como'))         return ['linear-gradient(160deg,#001a3a,#0d47a1)','#fff'];
+  if(t.includes('parma'))        return ['linear-gradient(160deg,#1a1200,#f9a825)','#fff'];
+  if(t.includes('torino'))       return ['linear-gradient(160deg,#1a0500,#bf360c)','#ffa726'];
+  if(t.includes('udinese'))      return ['linear-gradient(160deg,#111,#333)','#fff'];
+  if(t.includes('venezia'))      return ['linear-gradient(160deg,#1a0800,#e65100)','#42a5f5'];
+  if(t.includes('arsenal'))      return ['linear-gradient(160deg,#1a0000,#b71c1c)','#fff'];
+  if(t.includes('liverpool'))    return ['linear-gradient(160deg,#1a0000,#c62828)','#fff'];
+  if(t.includes('manchester city')) return ['linear-gradient(160deg,#001a3a,#0277bd)','#80d8ff'];
+  if(t.includes('manchester united')) return ['linear-gradient(160deg,#1a0000,#b71c1c)','#ffcc02'];
+  if(t.includes('chelsea'))      return ['linear-gradient(160deg,#001a3a,#1565c0)','#fff'];
+  if(t.includes('tottenham'))    return ['linear-gradient(160deg,#001a3a,#1a237e)','#fff'];
+  if(t.includes('newcastle'))    return ['linear-gradient(160deg,#111,#1a1a1a)','#fff'];
+  if(t.includes('aston'))        return ['linear-gradient(160deg,#1a0040,#4a148c)','#80cbc4'];
+  if(t.includes('nottingham'))   return ['linear-gradient(160deg,#1a0000,#bf360c)','#fff'];
+  if(t.includes('real madrid'))  return ['linear-gradient(160deg,#001a3a,#1565c0)','#fff'];
+  if(t.includes('barcellon'))    return ['linear-gradient(160deg,#001a3a,#1565c0)','#ef9a9a'];
+  if(t.includes('atletico'))     return ['linear-gradient(160deg,#1a0000,#b71c1c)','#90caf9'];
+  if(t.includes('siviglia'))     return ['linear-gradient(160deg,#1a0000,#b71c1c)','#fff'];
+  if(t.includes('betis'))        return ['linear-gradient(160deg,#0a1a0a,#1b5e20)','#fff'];
+  if(t.includes('valencia'))     return ['linear-gradient(160deg,#111,#1a1a1a)','#ffcc02'];
+  if(t.includes('paris')||t.includes('psg')) return ['linear-gradient(160deg,#001a0a,#1b5e20)','#ef9a9a'];
+  if(t.includes('monaco'))       return ['linear-gradient(160deg,#1a0000,#b71c1c)','#fff'];
+  if(t.includes('marsiglia'))    return ['linear-gradient(160deg,#001a3a,#0277bd)','#fff'];
+  if(t.includes('lyon'))         return ['linear-gradient(160deg,#001a3a,#0d47a1)','#ef9a9a'];
+  if(t.includes('lille'))        return ['linear-gradient(160deg,#1a0000,#b71c1c)','#90caf9'];
+  if(t.includes('bayern'))       return ['linear-gradient(160deg,#1a0000,#b71c1c)','#fff'];
+  if(t.includes('dortmund'))     return ['linear-gradient(160deg,#1a1200,#f9a825)','#111'];
+  if(t.includes('leverkusen'))   return ['linear-gradient(160deg,#1a0000,#b71c1c)','#111'];
+  if(t.includes('ajax'))         return ['linear-gradient(160deg,#1a0000,#b71c1c)','#fff'];
+  if(t.includes('psv'))          return ['linear-gradient(160deg,#1a0000,#b71c1c)','#fff'];
+  if(t.includes('feyenoord'))    return ['linear-gradient(160deg,#1a0000,#b71c1c)','#fff'];
+  if(t.includes('az alkmaar'))   return ['linear-gradient(160deg,#1a0000,#b71c1c)','#fff'];
+  if(t.includes('boca'))         return ['linear-gradient(160deg,#001a3a,#1565c0)','#ffcc02'];
+  if(t.includes('river'))        return ['linear-gradient(160deg,#001a3a,#1565c0)','#ef9a9a'];
+  if(t.includes('miami'))        return ['linear-gradient(160deg,#1a0040,#880e4f)','#f48fb1'];
+  if(t.includes('saudi'))        return ['linear-gradient(160deg,#0a1a0a,#1b5e20)','#fff'];
+  if(t.includes('tuta'))         return ['linear-gradient(160deg,#0a0a1a,#1565c0)','#4fc3f7'];
+  if(t.includes('scarpe')||t.includes('calcio')) return ['linear-gradient(160deg,#0a0a0a,#212121)','#90caf9'];
+  if(t.includes('sneakers'))     return ['linear-gradient(160deg,#1a0a2e,#2d1b4e)','#ce93d8'];
+  if(t.includes('air jordan')||t.includes('jordan')) return ['linear-gradient(160deg,#1a0000,#3d0000)','#e53935'];
+  if(t.includes('nike'))         return ['linear-gradient(160deg,#1a1a1a,#111)','#fff'];
+  if(t.includes('adidas'))       return ['linear-gradient(160deg,#0a0a1a,#1a1a2e)','#4fc3f7'];
+  if(t.includes('puma'))         return ['linear-gradient(160deg,#1a0a0a,#2d0000)','#ef5350'];
+  if(t.includes('new balance'))  return ['linear-gradient(160deg,#0a0a1a,#1a001a)','#c62828'];
+  return ['linear-gradient(160deg,#1a1a2e,#0d1b4a)','#4fc3f7'];
+}
+
 function teamIcon(n){
   n=n.toLowerCase();
   if(n.includes('napoli'))return'🔵';
