@@ -1971,6 +1971,7 @@ function openCategory(ci,fromPopstate){
   document.title=cat.name+' — Completini Squadre Calcio 2.0';
   navStack=[{name:cat.name,type:'cat',cat,ci}];
   updateBreadcrumb();setSidebarActive(ci);
+  window.scrollTo({top:0,behavior:'smooth'});
   renderCategory(cat,ci);
 }
 function openCatSidebar(ci){openCategory(ci);if(window.innerWidth<=768)toggleSidebar();}
@@ -2043,6 +2044,7 @@ async function openSub(ci,si,fromPopstate){
   if(metaDesc) metaDesc.content='Acquista la maglia '+sn+' con personalizzazione gratuita. Spedizione gratuita in tutta Italia. Completini Squadre Calcio 2.0 — dal 2018.';
   navStack=[{name:cat.name,type:'cat',cat,ci},{name:sn,type:'sub',sub,cat,ci,si}];
   updateBreadcrumb();setSidebarActive(ci,si);
+  window.scrollTo({top:0,behavior:'smooth'});
   await renderSub(sub,cat,ci,si);
 }
 
@@ -2066,6 +2068,7 @@ async function renderSub(sub,cat,ci,si){
 }
 
 async function openDynamicSub(folderId,folderName,catName){
+  window.scrollTo({top:0,behavior:'smooth'});
   const main=document.getElementById('main');
   const back=`<button class="back-btn" onclick="history.back()">← ${catName}</button>`;
   main.innerHTML=back+`<div class="loading"><div class="spinner"></div>Caricamento...</div>`;
