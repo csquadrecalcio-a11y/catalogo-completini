@@ -1608,7 +1608,39 @@ body.dark .avvisa-box{background:#1e1e1e;}
     <div class="ordine-title" id="ordine-title">🛒 Scegli il prodotto</div>
     <div class="ordine-sub" id="ordine-sub">Seleziona il tipo che vuoi ordinare</div>
     <div class="ordine-opzioni" id="ordine-opzioni"></div>
-    <button class="ordine-btn-wa" onclick="inviaOrdineWa()">💬 Ordina su WhatsApp</button>
+
+    <!-- DATI SPEDIZIONE -->
+    <div style="margin-top:16px;border-top:1px solid #eee;padding-top:16px;">
+      <div style="font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">📦 Dati per la spedizione</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+        <input id="ordine-nome" type="text" placeholder="Nome *" style="padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;width:100%;">
+        <input id="ordine-cognome" type="text" placeholder="Cognome *" style="padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;width:100%;">
+      </div>
+      <input id="ordine-indirizzo" type="text" placeholder="Via e numero civico *" style="width:100%;padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;margin-bottom:8px;">
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:8px;margin-bottom:8px;">
+        <input id="ordine-citta" type="text" placeholder="Città *" style="padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;width:100%;">
+        <input id="ordine-cap" type="text" placeholder="CAP *" maxlength="5" style="padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;width:100%;">
+      </div>
+      <input id="ordine-telefono" type="tel" placeholder="Numero di telefono *" style="width:100%;padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;margin-bottom:12px;">
+    </div>
+
+    <!-- METODO PAGAMENTO -->
+    <div style="margin-bottom:16px;">
+      <div style="font-size:12px;font-weight:700;color:#555;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">💳 Metodo di pagamento</div>
+      <div style="display:flex;flex-direction:column;gap:8px;" id="ordine-pagamento-grid">
+        <label class="tipo-opzione" onclick="selPagamento(this)" style="cursor:pointer;">
+          <div class="tipo-left"><span style="font-size:20px;">🏦</span><div><div style="font-size:13px;font-weight:700;">Bonifico Bancario</div><div style="font-size:11px;color:#888;">Pagamento anticipato tramite banca</div></div></div>
+        </label>
+        <label class="tipo-opzione" onclick="selPagamento(this)" style="cursor:pointer;">
+          <div class="tipo-left"><span style="font-size:20px;">💙</span><div><div style="font-size:13px;font-weight:700;">PayPal</div><div style="font-size:11px;color:#888;">Pagamento sicuro online</div></div></div>
+        </label>
+        <label class="tipo-opzione" onclick="selPagamento(this)" style="cursor:pointer;">
+          <div class="tipo-left"><span style="font-size:20px;">💵</span><div><div style="font-size:13px;font-weight:700;">Contrassegno</div><div style="font-size:11px;color:#888;">Paghi al ritiro del pacco (+5€)</div></div></div>
+        </label>
+      </div>
+    </div>
+
+    <button class="ordine-btn-wa" onclick="inviaOrdineWa()">💬 Invia ordine su WhatsApp</button>
   </div>
 </div>
 
@@ -5218,10 +5250,53 @@ function chiudiOrdine(){
   document.getElementById('ordineModal').classList.remove('active');
 }
 
+let _pагаmento='';
+function selPagamento(el){
+  document.querySelectorAll('#ordine-pagamento-grid .tipo-opzione').forEach(e=>e.classList.remove('sel'));
+  el.classList.add('sel');
+  _pагаmento=el.querySelector('[style*="font-weight:700"]')?.textContent||'';
+}
+
 function inviaOrdineWa(){
   const opzioni=_getOpzioni(_ordineNome);
   const op=opzioni[_ordineSelIdx];
-  const msg=`Ciao! Voglio ordinare:\n\n👕 Prodotto: ${_ordineNome}\n📦 Tipo: ${op.nome}\n💰 Prezzo: ${op.prezzo}€\n\nPotete confermare disponibilità?`;
+
+  // Leggi dati spedizione
+  const nome=(document.getElementById('ordine-nome')?.value||'').trim();
+  const cognome=(document.getElementById('ordine-cognome')?.value||'').trim();
+  const indirizzo=(document.getElementById('ordine-indirizzo')?.value||'').trim();
+  const citta=(document.getElementById('ordine-citta')?.value||'').trim();
+  const cap=(document.getElementById('ordine-cap')?.value||'').trim();
+  const telefono=(document.getElementById('ordine-telefono')?.value||'').trim();
+
+  // Validazione campi obbligatori
+  if(!nome||!cognome||!indirizzo||!citta||!cap||!telefono){
+    alert('⚠️ Compila tutti i campi obbligatori per la spedizione!');
+    return;
+  }
+  if(!_pагаmento){
+    alert('⚠️ Seleziona un metodo di pagamento!');
+    return;
+  }
+
+  // Link diretto alla maglia
+  const photoId=currentPhotos[currentPhotoIdx]?.id||'';
+  const linkMaglia=photoId
+    ?`\n🔗 Maglia: ${location.origin}${location.pathname}#photo-${photoId}`
+    :'';
+
+  const msg=`Ciao! Voglio ordinare:\n\n`+
+    `👕 Prodotto: ${_ordineNome}${linkMaglia}\n`+
+    `📦 Tipo: ${op.nome}\n`+
+    `💰 Prezzo: ${op.prezzo}€\n\n`+
+    `📮 INDIRIZZO DI SPEDIZIONE:\n`+
+    `👤 ${nome} ${cognome}\n`+
+    `🏠 ${indirizzo}\n`+
+    `📍 ${citta} ${cap}\n`+
+    `📞 ${telefono}\n\n`+
+    `💳 Pagamento: ${_pагаmento}\n\n`+
+    `Potete confermare disponibilità e procedere?`;
+
   window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`,'_blank');
   chiudiOrdine();
 }
