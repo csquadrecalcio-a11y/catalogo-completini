@@ -5252,9 +5252,9 @@ function chiudiDopoCarrello(){
   const p=document.getElementById('dopoCarrelloPopup');
   if(p) p.style.display='none';
   if(_dopoCarrelloTimer) clearTimeout(_dopoCarrelloTimer);
-  // Assicura che lightbox e modal siano chiusi e si torni al catalogo
-  closeLightbox();
-  chiudiAddCart();
+  // Chiude il lightbox se ancora aperto
+  const lb=document.getElementById('lightbox');
+  if(lb&&lb.classList.contains('active')) lb.classList.remove('active');
 }
 
 // ── FORM CONTATTO ─────────────────────────────────────────────────────────────
