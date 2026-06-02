@@ -341,6 +341,29 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .na-banner:hover .na-shine{left:130%;}
 @media(max-width:600px){.na-banner{height:160px;}.na-content{padding:16px 20px;}.na-btn{display:none;}}
 
+/* ── BANNER MONDIALI 2026 ── */
+.mondiali-banner{position:relative;width:100%;height:320px;overflow:hidden;cursor:pointer;margin-bottom:24px;box-shadow:0 8px 40px rgba(0,0,0,.45);}
+.mondiali-banner img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s ease;}
+.mondiali-banner:hover img{transform:scale(1.04);}
+.mondiali-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(0,40,0,.93) 0%,rgba(0,80,20,.82) 40%,rgba(160,110,0,.65) 70%,rgba(180,130,0,.25) 100%);}
+.mondiali-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:40px 48px;}
+.mondiali-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,200,0,.15);border:1px solid rgba(255,200,0,.5);color:#ffd700;font-size:10px;font-weight:800;letter-spacing:3px;padding:4px 14px;border-radius:20px;width:fit-content;margin-bottom:14px;text-transform:uppercase;animation:mondialiBadgePulse 2s ease infinite;}
+@keyframes mondialiBadgePulse{0%,100%{box-shadow:0 0 0 0 rgba(255,200,0,.4);}50%{box-shadow:0 0 0 10px rgba(255,200,0,0);}}
+.mondiali-title{font-family:'Montserrat',sans-serif;font-size:clamp(38px,6vw,74px);font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;text-transform:uppercase;text-shadow:0 2px 30px rgba(0,0,0,.5);margin-bottom:8px;animation:mondialiGlow 3s ease infinite alternate;}
+.mondiali-title span{color:#ffd700;}
+@keyframes mondialiGlow{from{text-shadow:0 2px 30px rgba(0,0,0,.5),0 0 20px rgba(255,215,0,0);}to{text-shadow:0 2px 30px rgba(0,0,0,.5),0 0 50px rgba(255,215,0,.5);}}
+.mondiali-sub{font-size:13px;color:rgba(255,255,255,.75);letter-spacing:4px;text-transform:uppercase;margin-bottom:18px;}
+.mondiali-countdown{display:flex;gap:12px;margin-bottom:22px;}
+.mondiali-count-item{text-align:center;background:rgba(0,0,0,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,200,0,.3);border-radius:8px;padding:8px 14px;min-width:58px;}
+.mondiali-count-num{font-family:'Montserrat',sans-serif;font-size:24px;font-weight:900;color:#ffd700;line-height:1;}
+.mondiali-count-label{font-size:9px;color:rgba(255,255,255,.55);letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
+.mondiali-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#ffd700,#f59e0b);color:#111;border:none;padding:13px 28px;border-radius:8px;font-size:13px;font-weight:800;letter-spacing:.5px;cursor:pointer;transition:all .25s;width:fit-content;box-shadow:0 4px 20px rgba(255,215,0,.4);}
+.mondiali-banner:hover .mondiali-btn{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,215,0,.65);}
+.mondiali-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.mondiali-star{position:absolute;font-size:16px;animation:mondialiStarFloat linear infinite;opacity:0;}
+@keyframes mondialiStarFloat{0%{transform:translateY(110%) rotate(0deg);opacity:0;}10%{opacity:.9;}90%{opacity:.3;}100%{transform:translateY(-120%) rotate(360deg);opacity:0;}}
+@media(max-width:600px){.mondiali-banner{height:200px;}.mondiali-content{padding:18px 22px;}.mondiali-sub,.mondiali-countdown{display:none;}}
+
 /* ── BACK BTN ── */
 .back-btn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #ddd;color:#0d47a1;padding:7px 14px;border-radius:4px;cursor:pointer;font-size:13px;font-weight:500;margin-bottom:14px;transition:all .2s;}
 .back-btn:hover{background:#e3f2fd;border-color:#0d47a1;}
@@ -2084,6 +2107,26 @@ function goHome(fromPopstate){
       <button class="na-btn">Vedi ora →</button>
     </div>
   </div>
+
+  <!-- BANNER MONDIALI 2026 -->
+  <div class="mondiali-banner" onclick="openCategory(7)">
+    <img src="coppa-del-mondo.webp" alt="Mondiali 2026">
+    <div class="mondiali-overlay"></div>
+    <div class="mondiali-particles" id="mondialiParticles"></div>
+    <div class="mondiali-content">
+      <div class="mondiali-badge">🏆 Evento Esclusivo</div>
+      <div class="mondiali-title">Mondiali <span>2026</span></div>
+      <div class="mondiali-sub">USA &bull; Canada &bull; Messico</div>
+      <div class="mondiali-countdown">
+        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mDays">--</div><div class="mondiali-count-label">Giorni</div></div>
+        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mHours">--</div><div class="mondiali-count-label">Ore</div></div>
+        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mMins">--</div><div class="mondiali-count-label">Min</div></div>
+        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mSecs">--</div><div class="mondiali-count-label">Sec</div></div>
+      </div>
+      <button class="mondiali-btn">🌍 Vedi Maglie Nazionali →</button>
+    </div>
+  </div>
+
   <!-- FEATURED: MAGLIE IN EVIDENZA -->
   <div class="featured-inter">
     <div class="featured-inter-badge">🔥 PIÙ CERCATE DEL MOMENTO</div>
@@ -5837,6 +5880,45 @@ buildSidebar();
 })();
 setTimeout(creaParticelle, 100);
 setTimeout(animaContatori, 300);
+
+// ── MONDIALI 2026 COUNTDOWN + STELLE ──
+(function(){
+  const TARGET = new Date('2026-06-11T18:00:00Z');
+  function updateCountdown(){
+    const now = new Date();
+    let diff = TARGET - now;
+    if(diff < 0){ diff = 0; }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const pad = n => String(n).padStart(2,'0');
+    const el = id => document.getElementById(id);
+    if(el('mDays'))  el('mDays').textContent  = d;
+    if(el('mHours')) el('mHours').textContent = pad(h);
+    if(el('mMins'))  el('mMins').textContent  = pad(m);
+    if(el('mSecs'))  el('mSecs').textContent  = pad(s);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  function creaStelle(){
+    const container = document.getElementById('mondialiParticles');
+    if(!container) return;
+    const symbols = ['⭐','🌟','✨','🏆','⚽'];
+    for(let i=0;i<14;i++){
+      const s = document.createElement('span');
+      s.className = 'mondiali-star';
+      s.textContent = symbols[Math.floor(Math.random()*symbols.length)];
+      s.style.left = Math.random()*100+'%';
+      s.style.animationDuration = (5+Math.random()*8)+'s';
+      s.style.animationDelay = (Math.random()*8)+'s';
+      s.style.fontSize = (12+Math.random()*14)+'px';
+      container.appendChild(s);
+    }
+  }
+  setTimeout(creaStelle, 200);
+})();
 </script>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
