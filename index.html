@@ -549,10 +549,8 @@ body.dark .sf-btn.active{background:#1565c0;border-color:#1565c0;color:#fff;}
 
 
 /* ── BANNER SCROLL REVEAL (verticali, animati) ── */
-.banner-reveal{opacity:0;transform:translateY(32px) scale(.98);transition:opacity .6s cubic-bezier(.25,.46,.45,.94),transform .6s cubic-bezier(.25,.46,.45,.94);}
-.banner-reveal.revealed{opacity:1;transform:none;}
-.banner-reveal:nth-child(odd){transform:translateX(-24px) scale(.98);}
-.banner-reveal:nth-child(even){transform:translateX(24px) scale(.98);}
+.banner-reveal{opacity:0;transform:translateY(28px) scale(.99);transition:opacity .55s cubic-bezier(.25,.46,.45,.94),transform .55s cubic-bezier(.25,.46,.45,.94);}
+.banner-reveal.revealed{opacity:1;transform:translateY(0) scale(1);}
 
 /* ── PERSONE GUARDANDO — dinamico ── */
 .live-viewers{font-size:11px;color:#e53935;font-weight:700;display:flex;align-items:center;gap:4px;margin-top:4px;}
@@ -6420,8 +6418,6 @@ function initBannerReveal(){
   },{threshold:0.12});
   banners.forEach((b,i)=>{
     b.classList.add('banner-reveal');
-    // Alterna direzione: dispari da sinistra, pari da destra
-    b.style.transform = i%2===0 ? 'translateX(-28px) scale(.98)' : 'translateX(28px) scale(.98)';
     obs.observe(b);
   });
 }
