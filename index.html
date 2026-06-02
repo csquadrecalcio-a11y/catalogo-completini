@@ -4812,6 +4812,10 @@ function _isEstivi(){
   const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
   return stack.includes('estivi')||stack.includes('estivo');
 }
+function _isVintageCategoria(){
+  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  return stack.includes('vintage');
+}
 
 function selNumScarpa(el, num){
   document.querySelectorAll('.scarpa-num-btn').forEach(b=>b.classList.remove('sel'));
@@ -4891,8 +4895,41 @@ function apriAddCart(){
     document.getElementById('estagiTagliaVal').value='';
     document.getElementById('addCartPrezzoTot').textContent='35€';
     aggiornaBarrato(35);
+  } else if(_isVintageCategoria()){
+    // Modalità VINTAGE — solo Maglia Vintage a 35€
+    if(formMaglia) formMaglia.style.display='';
+    document.getElementById('addCartTaglia').value='';
+    document.getElementById('addCartNome').value='';
+    document.getElementById('addCartNumero').value='';
+    if(document.getElementById('addCartPatchLibera')) document.getElementById('addCartPatchLibera').value='';
+    addCartPatch='Nessuna patch';
+    document.querySelectorAll('#addCartPatchGrid .patch-btn').forEach(b=>b.classList.remove('sel'));
+    const _upVintage=document.querySelector('#addCartPatchGrid .patch-btn:last-child');
+    if(_upVintage) _upVintage.classList.add('sel');
+    document.querySelectorAll('.tipo-opzione,.tipo-card').forEach(e=>e.classList.remove('sel'));
+    document.querySelectorAll('.tipo-card').forEach(c=>{
+      const val=(c.querySelector('input[name="addCartTipo"]')?.value||'').toLowerCase();
+      if(val==='maglia'){
+        c.style.display='';c.classList.add('sel');
+        c.dataset.prezzo='35';
+        const titolo=c.querySelector('div[style*="font-weight:800"]');
+        if(titolo) titolo.textContent='Maglia Vintage';
+        const prezzoDiv=c.querySelector('div[style*="font-weight:900"]');
+        if(prezzoDiv) prezzoDiv.textContent='35€';
+      } else {
+        c.style.display='none';c.classList.remove('sel');
+      }
+    });
+    const _bambGrpV=document.querySelector('#addCartTaglia optgroup[label*="Bambino"]');
+    if(_bambGrpV) _bambGrpV.style.display='none';
+    const _oXXXLv=document.getElementById('opt-XXXL');
+    const _oXXXXLv=document.getElementById('opt-XXXXL');
+    if(_oXXXLv) _oXXXLv.style.display='';
+    if(_oXXXXLv) _oXXXXLv.style.display='';
+    document.getElementById('addCartPrezzoTot').textContent='35€';
+    aggiornaBarrato(35);
   } else {
-    // Modalità MAGLIA
+    // Modalità MAGLIA — ripristina card al valore originale
     if(formMaglia) formMaglia.style.display='';
     document.getElementById('addCartTaglia').value='';
     document.getElementById('addCartNome').value='';
@@ -4902,6 +4939,17 @@ function apriAddCart(){
     document.querySelectorAll('#addCartPatchGrid .patch-btn').forEach(b=>b.classList.remove('sel'));
     const ultimaPatch=document.querySelector('#addCartPatchGrid .patch-btn:last-child');
     if(ultimaPatch) ultimaPatch.classList.add('sel');
+    // Ripristina card Maglia ai valori originali (in caso venisse da una sessione Vintage)
+    document.querySelectorAll('.tipo-card').forEach(c=>{
+      const inp=c.querySelector('input[name="addCartTipo"]');
+      if(inp&&inp.value==='Maglia'){
+        c.dataset.prezzo='30';
+        const titolo=c.querySelector('div[style*="font-weight:800"]');
+        if(titolo) titolo.textContent='Maglia';
+        const prezzoDiv=c.querySelector('div[style*="font-weight:900"]');
+        if(prezzoDiv) prezzoDiv.textContent='30€';
+      }
+    });
     document.querySelectorAll('.tipo-opzione,.tipo-card').forEach(e=>e.classList.remove('sel'));
     const primaCard=document.querySelector('.tipo-card');
     if(primaCard) primaCard.classList.add('sel');
@@ -5003,9 +5051,9 @@ function confermAggiungi(){
   const patch=patchLibera||addCartPatch;
   // Leggi tipo selezionato e prezzo (supporta sia tipo-card che tipo-opzione)
   const tipoSel=document.querySelector('.tipo-card.sel input[name="addCartTipo"],.tipo-opzione.sel input[name="addCartTipo"]');
-  const tipo=tipoSel?tipoSel.value:'Maglia';
+  const tipo=_isVintageCategoria()?'Maglia Vintage':(tipoSel?tipoSel.value:'Maglia');
   const prezzoSel=document.querySelector('.tipo-card.sel,.tipo-opzione.sel');
-  const prezzo=prezzoSel?parseInt(prezzoSel.dataset.prezzo)||30:30;
+  const prezzo=_isVintageCategoria()?35:(prezzoSel?parseInt(prezzoSel.dataset.prezzo)||30:30);
   const kit=(tipo==='Kit Adulto'||tipo==='Kit Bambino');
   const lvSelezionato=document.getElementById('addCartLV')?.checked||false;
   const prezzoFinale=prezzo+(lvSelezionato?5:0);
