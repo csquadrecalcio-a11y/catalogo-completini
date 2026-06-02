@@ -4916,7 +4916,7 @@ function confermAggiungi(){
   if(_isScarpe()){
     const numScarpa=document.getElementById('scarpeNumero').value;
     if(!numScarpa){alert('Seleziona il numero di scarpa!');return;}
-    carrello.push({id:photo.id,name:`👟 Scarpa — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia:`N° ${numScarpa}`,prezzo:90,personalizza:'',squadra:squadraNome});
+    carrello.push({id:photo.id,name:`👟 Scarpa — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia:`N° ${numScarpa}`,prezzo:90,personalizza:'',squadra:squadraNome,ci:navStack[0]?.ci??'',si:navStack[1]?.si??''});
     salvaCarrello();flyToCart(document.getElementById('addCartImg'));
     chiudiAddCart();closeLightbox();aggiornaCartBadge();
     mostraDopoCarrello(`Scarpa — ${squadraNome}`);
@@ -4929,7 +4929,7 @@ function confermAggiungi(){
     const tipoSel=document.querySelector('.tipo-card.sel input[name="addCartTipo"],.tipo-opzione.sel input[name="addCartTipo"]');
     const tipo=tipoSel?tipoSel.value:'Tuta';
     const prezzo=_prezzoTuta();
-    carrello.push({id:photo.id,name:`🧥 ${tipo} — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia,prezzo,personalizza:'',squadra:squadraNome});
+    carrello.push({id:photo.id,name:`🧥 ${tipo} — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia,prezzo,personalizza:'',squadra:squadraNome,ci:navStack[0]?.ci??'',si:navStack[1]?.si??''});
     salvaCarrello();flyToCart(document.getElementById('addCartImg'));
     chiudiAddCart();closeLightbox();aggiornaCartBadge();
     mostraDopoCarrello(`${tipo} — ${squadraNome}`);
@@ -4944,7 +4944,7 @@ function confermAggiungi(){
     const tipo=tipoSel?tipoSel.value:'Completino';
     const prezzoSel=document.querySelector('.tipo-card.sel,.tipo-opzione.sel');
     const prezzo=prezzoSel?parseInt(prezzoSel.dataset.prezzo)||35:35;
-    carrello.push({id:photo.id,name:`☀️ ${tipo} — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia,prezzo,personalizza:'',squadra:squadraNome});
+    carrello.push({id:photo.id,name:`☀️ ${tipo} — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia,prezzo,personalizza:'',squadra:squadraNome,ci:navStack[0]?.ci??'',si:navStack[1]?.si??''});
     salvaCarrello();flyToCart(document.getElementById('addCartImg'));
     chiudiAddCart();closeLightbox();aggiornaCartBadge();
     mostraDopoCarrello(`${tipo} — ${squadraNome}`);
@@ -4981,7 +4981,7 @@ function confermAggiungi(){
     taglia,
     prezzo:prezzoFinale,
     personalizza:personalizza||'',
-    squadra:squadraNome
+    squadra:squadraNome,ci:navStack[0]?.ci??'',si:navStack[1]?.si??''
   });
   salvaCarrello();
   const addImg=document.getElementById('addCartImg');
@@ -5117,7 +5117,12 @@ function checkoutCarrello(){
     msg+=`\n*${i+1}. ${item.name}*\n`;
     msg+=`   📏 Taglia: ${item.taglia}\n`;
     if(item.personalizza) msg+=`   ✏️ ${item.personalizza}\n`;
-    msg+=`   🔗 ${location.origin}${location.pathname}#photo-${item.id}\n`;
+    const _base=location.origin+location.pathname;
+    let _link='';
+    if(item.ci!==''&&item.si!=='') _link=`${_base}#sub-${item.ci}-${item.si}-photo-${item.id}`;
+    else if(item.ci!=='') _link=`${_base}#cat-${item.ci}-photo-${item.id}`;
+    else _link=`${_base}#photo-${item.id}`;
+    msg+=`   🔗 ${_link}\n`;
   });
 
   msg+=`\n━━━━━━━━━━━━━━━━━━━━━\n`;
