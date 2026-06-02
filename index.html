@@ -419,6 +419,52 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 @keyframes mondialiStarFloat{0%{transform:translateY(110%) rotate(0deg);opacity:0;}10%{opacity:.9;}90%{opacity:.3;}100%{transform:translateY(-120%) rotate(360deg);opacity:0;}}
 @media(max-width:600px){.mondiali-banner{height:200px;}.mondiali-content{padding:18px 22px;}.mondiali-sub,.mondiali-countdown{display:none;}}
 
+/* ── SEZIONE COME ORDINARE ── */
+.come-ordinare-section{position:relative;background:linear-gradient(160deg,#061236 0%,#0a1f6e 50%,#0d47a1 100%);padding:52px 24px 44px;border-top:none;overflow:hidden;}
+.come-ordinare-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(255,255,255,.04) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(245,166,35,.06) 0%,transparent 50%);pointer-events:none;}
+.come-ordinare-bg::after{content:'⚽';position:absolute;font-size:320px;opacity:.025;bottom:-60px;right:-40px;line-height:1;animation:coBgSpin 30s linear infinite;}
+@keyframes coBgSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.come-ordinare-inner{position:relative;z-index:1;max-width:860px;margin:0 auto;}
+.come-ordinare-header{text-align:center;margin-bottom:40px;}
+.come-ordinare-tag{display:inline-block;background:rgba(245,166,35,.15);border:1px solid rgba(245,166,35,.4);color:#f5a623;font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;padding:5px 16px;border-radius:20px;margin-bottom:14px;animation:coTagPulse 2.5s ease infinite;}
+@keyframes coTagPulse{0%,100%{box-shadow:0 0 0 0 rgba(245,166,35,.3);}50%{box-shadow:0 0 0 8px rgba(245,166,35,0);}}
+.come-ordinare-title{font-family:'Montserrat',sans-serif;font-size:clamp(24px,4vw,36px);font-weight:900;color:#fff;margin-bottom:8px;letter-spacing:-.5px;}
+.come-ordinare-sub{font-size:13px;color:rgba(255,255,255,.55);letter-spacing:1px;}
+.come-ordinare-steps{display:flex;align-items:flex-start;justify-content:center;gap:0;margin-bottom:36px;}
+.co-step{flex:1;max-width:220px;text-align:center;padding:0 12px;opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.co-step.visible{opacity:1;transform:none;}
+.co-step:nth-child(1){transition-delay:.1s;}
+.co-step:nth-child(3){transition-delay:.25s;}
+.co-step:nth-child(5){transition-delay:.4s;}
+.co-step-icon-wrap{position:relative;width:72px;height:72px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;}
+.co-step-ring{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(245,166,35,.35);animation:coRingPulse 2.5s ease infinite;}
+.co-step:nth-child(3) .co-step-ring{animation-delay:.8s;}
+.co-step:nth-child(5) .co-step-ring{animation-delay:1.6s;}
+@keyframes coRingPulse{0%,100%{transform:scale(1);opacity:.5;}50%{transform:scale(1.18);opacity:1;}}
+.co-step-icon{width:60px;height:60px;background:rgba(255,255,255,.08);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.12);transition:background .3s,transform .3s;}
+.co-step:hover .co-step-icon{background:rgba(245,166,35,.2);transform:scale(1.08);}
+.co-step-num{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:900;color:rgba(245,166,35,.7);letter-spacing:2px;margin-bottom:8px;}
+.co-step-title{font-size:15px;font-weight:800;color:#fff;margin-bottom:8px;}
+.co-step-desc{font-size:12px;color:rgba(255,255,255,.55);line-height:1.6;}
+.co-connector{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:36px;flex-shrink:0;width:40px;}
+.co-connector-line{width:100%;height:1px;background:linear-gradient(90deg,rgba(245,166,35,.2),rgba(245,166,35,.6),rgba(245,166,35,.2));position:relative;overflow:hidden;}
+.co-connector-line::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(245,166,35,.9),transparent);animation:coLineSweep 2s ease infinite;}
+@keyframes coLineSweep{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+.co-connector-ball{width:6px;height:6px;border-radius:50%;background:#f5a623;margin-top:4px;animation:coBallPulse 2s ease infinite;}
+@keyframes coBallPulse{0%,100%{transform:scale(1);opacity:.6;}50%{transform:scale(1.5);opacity:1;}}
+.co-footer-strip{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.08);padding-top:28px;}
+.co-footer-item{display:flex;align-items:center;gap:8px;padding:8px 24px;font-size:12px;font-weight:700;color:rgba(255,255,255,.7);border-right:1px solid rgba(255,255,255,.08);}
+.co-footer-item:last-child{border-right:none;}
+.co-footer-item span{font-size:18px;}
+@media(max-width:600px){
+  .come-ordinare-steps{flex-direction:column;align-items:center;gap:8px;}
+  .co-connector{flex-direction:row;padding-top:0;width:100%;height:28px;}
+  .co-connector-line{height:1px;width:60px;flex-shrink:0;}
+  .co-connector-ball{margin-top:0;margin-left:4px;}
+  .co-step{max-width:100%;padding:4px 0;}
+  .co-footer-item{padding:6px 14px;font-size:11px;}
+}
+
 /* ── BACK BTN ── */
 .back-btn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #ddd;color:#0d47a1;padding:7px 14px;border-radius:4px;cursor:pointer;font-size:13px;font-weight:500;margin-bottom:14px;transition:all .2s;}
 .back-btn:hover{background:#e3f2fd;border-color:#0d47a1;}
@@ -1351,38 +1397,50 @@ body.dark .avvisa-box{background:#1e1e1e;}
   </div>
 </div>
 
-<!-- SEZIONE CONTATTO -->
-<section id="sezContatto" style="background:#f8f9fa;padding:48px 24px;border-top:1px solid #e0e0e0;">
-  <div style="max-width:560px;margin:0 auto;">
-    <div style="text-align:center;margin-bottom:28px;">
-      <div style="font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#0d47a1;margin-bottom:8px;">ASSISTENZA</div>
-      <h2 style="font-family:'Montserrat',sans-serif;font-size:clamp(20px,4vw,28px);font-weight:900;color:#111;margin-bottom:8px;">Hai una domanda?</h2>
-      <p style="font-size:14px;color:#777;line-height:1.6;">Compila il form e ti risponderemo entro poche ore.<br>Per gli ordini usa il pulsante nel carrello.</p>
+<!-- SEZIONE COME ORDINARE -->
+<section id="sezContatto" class="come-ordinare-section">
+  <div class="come-ordinare-bg"></div>
+  <div class="come-ordinare-inner">
+    <div class="come-ordinare-header">
+      <div class="come-ordinare-tag">⚡ Semplice e Veloce</div>
+      <h2 class="come-ordinare-title">Come ordinare</h2>
+      <p class="come-ordinare-sub">Ricevi la tua maglia in pochi passi</p>
     </div>
-    <div style="background:#fff;border-radius:14px;padding:24px;box-shadow:0 2px 16px rgba(0,0,0,.06);">
-      <div style="margin-bottom:14px;">
-        <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">👤 Nome</label>
-        <input type="text" id="contNome" placeholder="Il tuo nome" maxlength="50"
-          style="width:100%;padding:12px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;transition:border-color .2s;"
-          onfocus="this.style.borderColor='#0d47a1'" onblur="this.style.borderColor='#e0e0e0'">
+    <div class="come-ordinare-steps">
+      <div class="co-step" data-step="1">
+        <div class="co-step-icon-wrap">
+          <div class="co-step-ring"></div>
+          <div class="co-step-icon">👕</div>
+        </div>
+        <div class="co-step-num">01</div>
+        <div class="co-step-title">Scegli la maglia</div>
+        <div class="co-step-desc">Sfoglia il catalogo, trova la tua squadra e seleziona taglia e tipo</div>
       </div>
-      <div style="margin-bottom:14px;">
-        <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">📧 Email</label>
-        <input type="email" id="contEmail" placeholder="La tua email" maxlength="80"
-          style="width:100%;padding:12px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;transition:border-color .2s;"
-          onfocus="this.style.borderColor='#0d47a1'" onblur="this.style.borderColor='#e0e0e0'">
+      <div class="co-connector"><div class="co-connector-line"></div><div class="co-connector-ball"></div></div>
+      <div class="co-step" data-step="2">
+        <div class="co-step-icon-wrap">
+          <div class="co-step-ring"></div>
+          <div class="co-step-icon">🛒</div>
+        </div>
+        <div class="co-step-num">02</div>
+        <div class="co-step-title">Aggiungi al carrello</div>
+        <div class="co-step-desc">Inserisci nome e numero per la personalizzazione, poi conferma l'ordine</div>
       </div>
-      <div style="margin-bottom:20px;">
-        <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;">💬 Messaggio</label>
-        <textarea id="contMessaggio" placeholder="Scrivi la tua domanda..." maxlength="500" rows="4"
-          style="width:100%;padding:12px 14px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;resize:vertical;transition:border-color .2s;font-family:'Roboto',sans-serif;"
-          onfocus="this.style.borderColor='#0d47a1'" onblur="this.style.borderColor='#e0e0e0'"></textarea>
+      <div class="co-connector"><div class="co-connector-line"></div><div class="co-connector-ball"></div></div>
+      <div class="co-step" data-step="3">
+        <div class="co-step-icon-wrap">
+          <div class="co-step-ring"></div>
+          <div class="co-step-icon">🚚</div>
+        </div>
+        <div class="co-step-num">03</div>
+        <div class="co-step-title">Ricevi a casa</div>
+        <div class="co-step-desc">Spedizione rapida in tutta Italia — tracciabile dal primo giorno</div>
       </div>
-      <button onclick="inviaContatto()"
-        style="width:100%;background:linear-gradient(135deg,#0d47a1,#1565c0);color:#fff;border:none;border-radius:10px;padding:15px;font-size:15px;font-weight:800;cursor:pointer;transition:all .2s;letter-spacing:.3px;">
-        ✉️ Invia messaggio
-      </button>
-      <p style="font-size:11px;color:#aaa;text-align:center;margin-top:12px;">Per gli ordini usa il pulsante "Aggiungi al carrello" — WhatsApp è riservato solo alla conferma ordine.</p>
+    </div>
+    <div class="co-footer-strip">
+      <div class="co-footer-item"><span>⏱️</span> Consegna in 7-12 giorni</div>
+      <div class="co-footer-item"><span>🔒</span> Pagamento sicuro</div>
+      <div class="co-footer-item"><span>💬</span> Supporto su WhatsApp</div>
     </div>
   </div>
 </section>
@@ -6030,6 +6088,18 @@ setTimeout(animaContatori, 300);
     }
   }
   setTimeout(creaStelle, 200);
+})();
+
+// ── COME ORDINARE — ANIMAZIONE SCROLL ──
+(function(){
+  function checkCoSteps(){
+    document.querySelectorAll('.co-step').forEach(el=>{
+      const r=el.getBoundingClientRect();
+      if(r.top < window.innerHeight - 60) el.classList.add('visible');
+    });
+  }
+  window.addEventListener('scroll', checkCoSteps, {passive:true});
+  setTimeout(checkCoSteps, 500);
 })();
 
 // ── VINTAGE BANNER — PARTICELLE DORATE ──
