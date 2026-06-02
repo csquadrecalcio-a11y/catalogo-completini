@@ -524,6 +524,59 @@ body.dark .skel-line{background:linear-gradient(90deg,#2a2a2a 25%,#333 50%,#2a2a
   .co-footer-item{padding:6px 14px;font-size:11px;}
 }
 
+/* ── WISHLIST ❤️ ── */
+.wish-btn{position:absolute;top:8px;right:8px;width:34px;height:34px;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;z-index:4;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:transform .3s cubic-bezier(.34,1.56,.64,1),background .2s;opacity:0;}
+.photo-item:hover .wish-btn,.wish-btn.saved{opacity:1;}
+.wish-btn.saved{background:#fff0f0;}
+.wish-btn:active{transform:scale(1.3);}
+@media(max-width:768px){.wish-btn{opacity:1;width:30px;height:30px;font-size:14px;}}
+/* Sezione preferiti in home */
+.wishlist-home{background:#fff;padding:20px 16px;margin-bottom:20px;border-bottom:1px solid #f0f0f0;}
+body.dark .wishlist-home{background:#1a1a1a;border-color:#333;}
+.wishlist-home-title{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:900;color:#222;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+body.dark .wishlist-home-title{color:#e0e0e0;}
+.wishlist-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.wishlist-scroll::-webkit-scrollbar{display:none;}
+.wl-mini-card{flex-shrink:0;width:90px;border-radius:10px;overflow:hidden;cursor:pointer;position:relative;box-shadow:0 2px 10px rgba(0,0,0,.1);transition:transform .3s cubic-bezier(.34,1.56,.64,1);}
+.wl-mini-card:active{transform:scale(.93);}
+.wl-mini-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
+.wl-mini-remove{position:absolute;top:4px;right:4px;width:20px;height:20px;background:rgba(0,0,0,.5);border:none;border-radius:50%;color:#fff;font-size:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+
+/* ── FILTRO TAGLIE ── */
+.size-filter-bar{display:flex;gap:8px;padding:0 0 14px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+.size-filter-bar::-webkit-scrollbar{display:none;}
+.sf-btn{flex-shrink:0;padding:6px 16px;border-radius:20px;border:1.5px solid #e0e0e0;background:#fff;font-size:12px;font-weight:700;color:#555;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.sf-btn.active{background:#0d47a1;border-color:#0d47a1;color:#fff;}
+body.dark .sf-btn{background:#2a2a2a;border-color:#444;color:#ccc;}
+body.dark .sf-btn.active{background:#1565c0;border-color:#1565c0;color:#fff;}
+
+/* ── VISTI DI RECENTE ── */
+.recenti-home{background:#f8f9fa;padding:20px 16px;margin-bottom:4px;}
+body.dark .recenti-home{background:#111;}
+.recenti-title{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:900;color:#222;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+body.dark .recenti-title{color:#e0e0e0;}
+.recenti-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.recenti-scroll::-webkit-scrollbar{display:none;}
+.recenti-card{flex-shrink:0;width:90px;border-radius:10px;overflow:hidden;cursor:pointer;position:relative;box-shadow:0 2px 10px rgba(0,0,0,.1);transition:transform .3s cubic-bezier(.34,1.56,.64,1);}
+.recenti-card:active{transform:scale(.93);}
+.recenti-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
+.recenti-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);padding:8px 6px 5px;font-size:9px;color:#fff;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+/* ── BANNER CAROUSEL ── */
+.banners-carousel{position:relative;overflow:hidden;touch-action:pan-y;}
+.banners-track{display:flex;transition:transform .35s cubic-bezier(.25,.46,.45,.94);will-change:transform;}
+.banners-track > *{flex-shrink:0;width:100%;}
+.banners-dots{display:flex;justify-content:center;gap:6px;padding:10px 0 4px;}
+.bdot{width:6px;height:6px;border-radius:50%;background:rgba(0,0,0,.2);transition:all .3s;cursor:pointer;}
+.bdot.active{width:18px;border-radius:3px;background:#0d47a1;}
+body.dark .bdot{background:rgba(255,255,255,.2);}
+body.dark .bdot.active{background:#42a5f5;}
+
+/* ── PERSONE GUARDANDO — dinamico ── */
+.live-viewers{font-size:11px;color:#e53935;font-weight:700;display:flex;align-items:center;gap:4px;margin-top:4px;}
+.live-dot{width:6px;height:6px;background:#e53935;border-radius:50%;animation:liveDotPulse 1.2s ease infinite;}
+@keyframes liveDotPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
+
 /* ── BACK BTN ── */
 .back-btn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #ddd;color:#0d47a1;padding:7px 14px;border-radius:4px;cursor:pointer;font-size:13px;font-weight:500;margin-bottom:14px;transition:all .2s;}
 .back-btn:hover{background:#e3f2fd;border-color:#0d47a1;}
@@ -2870,9 +2923,12 @@ function renderPhotos(imgs,title,back){
     const isNuoviArrivi=navStack.some(s=>(s.name||'').toLowerCase().includes('nuovi arrivi'));
     const isNuovo=isNuoviArrivi&&(i<6);
     const nomeWa=encodeURIComponent(`Ciao! Voglio ordinare: ${img.name||title}`);
-    html+=`<div class="photo-item" onclick="openLightbox(${i})">
+    const isWished=_wishlist.has(img.id);
+    const viewers=2+Math.floor(Math.random()*6);
+    html+=`<div class="photo-item" onclick="openLightbox(${i})" data-photoid="${img.id}">
       <img src="${thumbUrl(img.id)}" alt="${img.name}" loading="lazy">
       ${isNuovo?'<div class="badge-nuovo">Nuovo</div>':''}
+      <button class="wish-btn${isWished?' saved':''}" onclick="toggleWish(event,'${img.id}','${thumbUrl(img.id)}','${(img.name||title).replace(/'/g,"\\'")}',this)" title="Salva nei preferiti">${isWished?'❤️':'🤍'}</button>
       <button class="share-btn" onclick="apriCondividi(event,${i})">↗️</button>
       <button class="quick-order-btn" onclick="event.stopPropagation();currentPhotoIdx=${i};apriAddCart()">
         🛒 Aggiungi al carrello
@@ -6147,6 +6203,306 @@ setTimeout(animaContatori, 300);
     }
   }
   setTimeout(creaStelle, 200);
+})();
+
+// ════════════════════════════════════════════════════
+//  SUPER FEATURES — wishlist · recenti · carousel
+//  pinch-zoom · filtro · share · service worker
+// ════════════════════════════════════════════════════
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ① WISHLIST ❤️
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+const _wishlist = new Set(JSON.parse(localStorage.getItem('wl_ids')||'[]'));
+function _saveWishlist(){ localStorage.setItem('wl_ids', JSON.stringify([..._wishlist])); }
+function _getWishlistItems(){ return JSON.parse(localStorage.getItem('wl_items')||'[]'); }
+function _saveWishlistItems(items){ localStorage.setItem('wl_items', JSON.stringify(items)); }
+
+function toggleWish(e, id, thumb, name, btn){
+  e.stopPropagation();
+  if(_wishlist.has(id)){
+    _wishlist.delete(id);
+    let items = _getWishlistItems().filter(x=>x.id!==id);
+    _saveWishlistItems(items);
+    btn.textContent='🤍'; btn.classList.remove('saved');
+  } else {
+    _wishlist.add(id);
+    let items = _getWishlistItems();
+    if(!items.find(x=>x.id===id)) items.unshift({id,thumb,name});
+    if(items.length>20) items=items.slice(0,20);
+    _saveWishlistItems(items);
+    btn.textContent='❤️'; btn.classList.add('saved');
+    // Animazione cuore
+    btn.style.transform='scale(1.5)';
+    setTimeout(()=>btn.style.transform='',300);
+  }
+  _saveWishlist();
+}
+
+function renderWishlistHome(){
+  const items = _getWishlistItems();
+  if(!items.length) return '';
+  const cards = items.map(it=>`
+    <div class="wl-mini-card" onclick="openLightboxById('${it.id}')">
+      <img src="${it.thumb}" alt="${it.name}" loading="lazy">
+      <button class="wl-mini-remove" onclick="event.stopPropagation();removeWishItem('${it.id}',this)">✕</button>
+    </div>`).join('');
+  return `<div class="wishlist-home">
+    <div class="wishlist-home-title">❤️ I tuoi preferiti <span style="font-size:12px;color:#888;font-weight:500;margin-left:auto;">${items.length} maglia${items.length!==1?'e':''}</span></div>
+    <div class="wishlist-scroll">${cards}</div>
+  </div>`;
+}
+
+function removeWishItem(id, btn){
+  _wishlist.delete(id);
+  let items = _getWishlistItems().filter(x=>x.id!==id);
+  _saveWishlistItems(items); _saveWishlist();
+  const card = btn.closest('.wl-mini-card');
+  if(card){ card.style.transform='scale(0)'; card.style.opacity='0'; card.style.transition='.25s'; setTimeout(()=>card.remove(),250); }
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ② VISTI DI RECENTE 🕐
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+function _addRecente(id, thumb, name){
+  let items = JSON.parse(localStorage.getItem('recenti')||'[]');
+  items = items.filter(x=>x.id!==id);
+  items.unshift({id,thumb,name});
+  if(items.length>12) items=items.slice(0,12);
+  localStorage.setItem('recenti', JSON.stringify(items));
+}
+
+function renderRecentiHome(){
+  const items = JSON.parse(localStorage.getItem('recenti')||'[]');
+  if(!items.length) return '';
+  const cards = items.map(it=>`
+    <div class="recenti-card" onclick="openLightboxById('${it.id}')">
+      <img src="${it.thumb}" alt="${it.name}" loading="lazy">
+      <div class="recenti-label">${it.name}</div>
+    </div>`).join('');
+  return `<div class="recenti-home">
+    <div class="recenti-title">🕐 Visti di recente</div>
+    <div class="recenti-scroll">${cards}</div>
+  </div>`;
+}
+
+// Apre lightbox da ID (per wishlist/recenti)
+function openLightboxById(id){
+  const idx = currentPhotos.findIndex(p=>p.id===id);
+  if(idx>=0){ openLightbox(idx); return; }
+  // Se non è nella griglia attuale, cerca nella cache Drive
+  const cached = window._driveCache;
+  if(cached){
+    for(const [fid,imgs] of Object.entries(cached)){
+      const i = imgs.findIndex(p=>p.id===id);
+      if(i>=0){ currentPhotos=imgs; openLightbox(i); return; }
+    }
+  }
+}
+
+// Patch openLightbox per salvare nei recenti
+const _origOpenLightbox = window.openLightbox;
+window.openLightbox = function(i){
+  const photo = currentPhotos[i];
+  if(photo){
+    _addRecente(photo.id, thumbUrl(photo.id), photo.name||'Maglia');
+  }
+  return _origOpenLightbox?.apply(this, arguments);
+};
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ③ BANNER CAROUSEL SWIPEABLE 🎠
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+function initCarousel(){
+  const track = document.querySelector('.banners-track');
+  if(!track || track._carouselInit) return;
+  track._carouselInit = true;
+  const slides = track.children;
+  const total = slides.length;
+  let cur = 0, startX = 0, isDrag = false;
+  const dots = document.querySelector('.banners-dots');
+
+  function goTo(n){
+    cur = (n+total)%total;
+    track.style.transform = `translateX(-${cur*100}%)`;
+    if(dots) dots.querySelectorAll('.bdot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+  }
+
+  // Dots
+  if(dots){
+    dots.innerHTML = Array(total).fill(0).map((_,i)=>`<div class="bdot${i===0?' active':''}" onclick=""></div>`).join('');
+    dots.querySelectorAll('.bdot').forEach((d,i)=>d.addEventListener('click',()=>goTo(i)));
+  }
+
+  // Touch swipe
+  track.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; isDrag=true; },{passive:true});
+  track.addEventListener('touchend', e=>{
+    if(!isDrag) return; isDrag=false;
+    const dx = e.changedTouches[0].clientX - startX;
+    if(Math.abs(dx)>40) goTo(dx<0?cur+1:cur-1);
+  },{passive:true});
+
+  // Auto-avanzamento ogni 5s
+  let autoTimer = setInterval(()=>goTo(cur+1), 5000);
+  track.addEventListener('touchstart',()=>clearInterval(autoTimer),{passive:true});
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ④ PINCH TO ZOOM nel lightbox 🔍
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+(function initPinchZoom(){
+  let scale=1, startDist=0, startScale=1, tx=0, ty=0, startTx=0, startTy=0, panning=false, startMidX=0, startMidY=0;
+
+  function dist(t){ return Math.hypot(t[0].clientX-t[1].clientX, t[0].clientY-t[1].clientY); }
+  function mid(t){ return {x:(t[0].clientX+t[1].clientX)/2, y:(t[0].clientY+t[1].clientY)/2}; }
+
+  function getImg(){ return document.querySelector('.lb-img'); }
+  function applyTransform(){ const img=getImg(); if(img) img.style.transform=`translate(${tx}px,${ty}px) scale(${scale})`; }
+  function resetZoom(){ scale=1;tx=0;ty=0;applyTransform(); }
+
+  document.addEventListener('touchstart', e=>{
+    const img = getImg(); if(!img) return;
+    if(e.touches.length===2){
+      startDist=dist(e.touches); startScale=scale;
+      const m=mid(e.touches); startMidX=m.x; startMidY=m.y; startTx=tx; startTy=ty;
+    } else if(e.touches.length===1 && scale>1){
+      panning=true; startMidX=e.touches[0].clientX-tx; startMidY=e.touches[0].clientY-ty;
+    }
+  },{passive:true});
+
+  document.addEventListener('touchmove', e=>{
+    const img=getImg(); if(!img) return;
+    if(e.touches.length===2){
+      e.preventDefault();
+      scale = Math.min(4, Math.max(1, startScale * dist(e.touches)/startDist));
+      applyTransform();
+    } else if(panning && e.touches.length===1 && scale>1){
+      tx=e.touches[0].clientX-startMidX; ty=e.touches[0].clientY-startMidY; applyTransform();
+    }
+  },{passive:false});
+
+  document.addEventListener('touchend', e=>{ if(e.touches.length===0){ panning=false; if(scale<1.1) resetZoom(); } },{passive:true});
+
+  // Doppio tap per zoom/reset
+  let lastTap=0;
+  document.addEventListener('touchend', e=>{
+    const img=getImg(); if(!img) return;
+    const now=Date.now();
+    if(now-lastTap<300){ scale=scale>1?1:2.5; tx=0; ty=0; applyTransform(); }
+    lastTap=now;
+  },{passive:true});
+
+  // Reset zoom quando si cambia foto
+  const _orig=window.openLightbox;
+  window.openLightbox=function(){ resetZoom(); return _orig?.apply(this,arguments); };
+})();
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ⑤ FILTRO TAGLIA RAPIDO 👕
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+let _sizeFilter = 'tutti';
+function renderSizeFilter(){
+  if(_isVintageCategoria()||_isScarpe()||_isTute()||_isEstivi()) return '';
+  return `<div class="size-filter-bar" id="sizeFilterBar">
+    <button class="sf-btn active" onclick="setSizeFilter('tutti',this)">👕 Tutti</button>
+    <button class="sf-btn" onclick="setSizeFilter('adulto',this)">🧑 Adulto</button>
+    <button class="sf-btn" onclick="setSizeFilter('bambino',this)">🧒 Bambino</button>
+    <button class="sf-btn" onclick="setSizeFilter('pv',this)">⭐ Player Version</button>
+  </div>`;
+}
+function setSizeFilter(f, btn){
+  _sizeFilter = f;
+  document.querySelectorAll('.sf-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.photo-item').forEach(card=>{
+    const name=(card.querySelector('img')?.alt||'').toLowerCase();
+    let show=true;
+    if(f==='adulto')  show=!name.includes('bambino')&&!name.includes(' pv')&&!name.includes('_pv');
+    if(f==='bambino') show=name.includes('bambino')||name.includes('kids')||name.includes('kid');
+    if(f==='pv')      show=name.includes(' pv')||name.includes('_pv')||name.includes('player');
+    card.style.display=show?'':'none';
+  });
+}
+
+// Inietta filtro dopo render foto
+const _origRP2 = window.renderPhotos;
+window.renderPhotos = function(imgs, title, back){
+  _sizeFilter = 'tutti';
+  const r = _origRP2?.apply(this,arguments);
+  const main = document.getElementById('main');
+  const grid = main?.querySelector('.photo-grid');
+  if(grid && !_isVintageCategoria() && !_isScarpe()){
+    const bar = document.createElement('div');
+    bar.innerHTML = renderSizeFilter();
+    main.insertBefore(bar.firstElementChild, grid);
+  }
+  return r;
+};
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ⑥ CONDIVISIONE NATIVA 📤
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+const _origApriCondividi = window.apriCondividi;
+window.apriCondividi = function(e, idx){
+  e?.stopPropagation?.();
+  const photo = currentPhotos[idx];
+  if(!photo) return;
+  const url = location.href;
+  const text = `Guarda questa maglia su Completini Squadre Calcio! 🔥⚽`;
+  if(navigator.share){
+    navigator.share({title:'Completini Squadre Calcio 2.0', text, url}).catch(()=>{});
+  } else {
+    _origApriCondividi?.apply(this, arguments);
+  }
+};
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// ⑦ SERVICE WORKER 📦
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('/catalogo-completini/sw.js').catch(()=>{});
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// HOME — inietta wishlist + recenti + carousel
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+(function patchGoHomeSuper(){
+  const _gh = window.goHome;
+  window.goHome = function(fp){
+    const r = _gh?.apply(this,arguments);
+    setTimeout(()=>{
+      const main = document.getElementById('main');
+      if(!main) return;
+      // Inietta wishlist e recenti prima del banner sconti
+      const bannerSconti = main.querySelector('[onclick="paginaPrezzi()"]');
+      if(bannerSconti){
+        const wlHtml = renderWishlistHome();
+        const recHtml = renderRecentiHome();
+        if(wlHtml){ const el=document.createElement('div'); el.innerHTML=wlHtml; main.insertBefore(el.firstElementChild, bannerSconti); }
+        if(recHtml){ const el=document.createElement('div'); el.innerHTML=recHtml; main.insertBefore(el.firstElementChild, bannerSconti); }
+      }
+      // Avvolgi i banner nel carousel
+      const naBanner = main.querySelector('.na-banner');
+      const mondBanner = main.querySelector('.mondiali-banner');
+      const vintBanner = main.querySelector('.vintage-banner');
+      if(naBanner && mondBanner && vintBanner && !main.querySelector('.banners-track')){
+        const wrap = document.createElement('div');
+        wrap.className = 'banners-carousel';
+        const track = document.createElement('div');
+        track.className = 'banners-track';
+        const dots = document.createElement('div');
+        dots.className = 'banners-dots';
+        [naBanner, mondBanner, vintBanner].forEach(b=>track.appendChild(b));
+        wrap.appendChild(track);
+        // Inserisci prima del featured
+        const featured = main.querySelector('.featured-inter');
+        if(featured){ main.insertBefore(wrap, featured); main.insertBefore(dots, featured); }
+        else main.appendChild(wrap);
+        setTimeout(initCarousel, 50);
+      }
+    }, 60);
+    return r;
+  };
 })();
 
 // ══════════════════════════════════════════
