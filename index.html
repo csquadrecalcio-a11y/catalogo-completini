@@ -342,21 +342,59 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 @media(max-width:600px){.na-banner{height:160px;}.na-content{padding:16px 20px;}.na-btn{display:none;}}
 
 /* ── BANNER VINTAGE ── */
-.vintage-banner{position:relative;width:100%;height:260px;overflow:hidden;cursor:pointer;margin-bottom:24px;box-shadow:0 6px 32px rgba(0,0,0,.4);}
-.vintage-banner img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s ease;filter:sepia(.25) contrast(1.05);}
-.vintage-banner:hover img{transform:scale(1.04);}
-.vintage-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(20,10,0,.92) 0%,rgba(50,25,0,.80) 45%,rgba(80,45,5,.4) 75%,rgba(100,60,10,.1) 100%);}
-.vintage-grain{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");opacity:.5;pointer-events:none;}
-.vintage-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:36px 44px;}
-.vintage-eyebrow{display:inline-flex;align-items:center;gap:8px;color:rgba(210,170,80,.9);font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;margin-bottom:12px;}
-.vintage-eyebrow::before,.vintage-eyebrow::after{content:'';display:block;width:28px;height:1px;background:rgba(210,170,80,.6);}
-.vintage-title{font-family:'Montserrat',sans-serif;font-size:clamp(32px,5.5vw,60px);font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;text-transform:uppercase;text-shadow:0 2px 24px rgba(0,0,0,.6);margin-bottom:6px;}
-.vintage-title em{color:#d4a84b;font-style:normal;position:relative;}
-.vintage-sub{font-size:12px;color:rgba(255,255,255,.6);letter-spacing:3px;text-transform:uppercase;margin-bottom:22px;}
-.vintage-btn{display:inline-flex;align-items:center;gap:10px;background:transparent;border:1.5px solid rgba(212,168,75,.7);color:#d4a84b;padding:11px 24px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .3s;width:fit-content;}
-.vintage-banner:hover .vintage-btn{background:rgba(212,168,75,.15);border-color:#d4a84b;color:#fff;}
-.vintage-deco{position:absolute;right:40px;top:50%;transform:translateY(-50%);font-size:110px;opacity:.06;line-height:1;pointer-events:none;user-select:none;}
-@media(max-width:600px){.vintage-banner{height:180px;}.vintage-content{padding:18px 22px;}.vintage-sub,.vintage-eyebrow::before,.vintage-eyebrow::after{display:none;}.vintage-deco{font-size:70px;right:16px;}}
+.vintage-banner{position:relative;width:100%;height:300px;overflow:hidden;cursor:pointer;margin-bottom:24px;box-shadow:0 8px 40px rgba(0,0,0,.5);}
+.vintage-banner img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 8s ease;filter:sepia(.3) contrast(1.08) brightness(.95);}
+.vintage-banner:hover img{transform:scale(1.06);}
+/* Overlay multi-strato */
+.vintage-overlay{position:absolute;inset:0;background:linear-gradient(110deg,rgba(10,5,0,.95) 0%,rgba(35,18,0,.88) 40%,rgba(60,35,5,.55) 65%,rgba(80,50,10,.15) 100%);}
+.vintage-overlay2{position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(212,168,75,.08) 0%,transparent 60%);animation:vintageRadialPulse 4s ease infinite alternate;}
+@keyframes vintageRadialPulse{from{opacity:.5;}to{opacity:1;}}
+/* Grain animato */
+.vintage-grain{position:absolute;inset:-50%;width:200%;height:200%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");opacity:.7;pointer-events:none;animation:vintageGrainShift 0.12s steps(1) infinite;}
+@keyframes vintageGrainShift{0%{transform:translate(0,0);}25%{transform:translate(-5%,-5%);}50%{transform:translate(-10%,5%);}75%{transform:translate(5%,-10%);}100%{transform:translate(-5%,3%);}}
+/* Shimmer orizzontale */
+.vintage-shimmer{position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(212,168,75,.07) 50%,transparent 60%);background-size:200% 100%;animation:vintageShimmer 3.5s ease infinite;}
+@keyframes vintageShimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+/* Bordi interni decorativi */
+.vintage-frame{position:absolute;inset:12px;border:1px solid rgba(212,168,75,.18);pointer-events:none;animation:vintageFramePulse 3s ease infinite alternate;}
+.vintage-frame::before,.vintage-frame::after{content:'';position:absolute;width:18px;height:18px;border-color:rgba(212,168,75,.5);border-style:solid;}
+.vintage-frame::before{top:-1px;left:-1px;border-width:2px 0 0 2px;}
+.vintage-frame::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0;}
+@keyframes vintageFramePulse{from{border-color:rgba(212,168,75,.12);}to{border-color:rgba(212,168,75,.30);}}
+/* Particelle dorate */
+.vintage-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.vintage-particle{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(212,168,75,.9),transparent);animation:vintageParticleFloat linear infinite;opacity:0;}
+@keyframes vintageParticleFloat{0%{transform:translateY(110%) translateX(0) scale(0);opacity:0;}15%{opacity:1;transform:translateY(85%) translateX(8px) scale(1);}85%{opacity:.6;transform:translateY(15%) translateX(-8px) scale(.8);}100%{transform:translateY(-10%) translateX(4px) scale(.3);opacity:0;}}
+/* Contenuto */
+.vintage-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:38px 48px;}
+.vintage-eyebrow{display:inline-flex;align-items:center;gap:10px;color:rgba(212,168,75,.95);font-size:9px;font-weight:800;letter-spacing:5px;text-transform:uppercase;margin-bottom:14px;animation:vintageEyebrowIn .8s ease both;}
+.vintage-eyebrow::before,.vintage-eyebrow::after{content:'';display:block;height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,75,.7),transparent);flex:1;min-width:20px;max-width:40px;}
+@keyframes vintageEyebrowIn{from{opacity:0;letter-spacing:8px;}to{opacity:1;letter-spacing:5px;}}
+.vintage-title{font-family:'Montserrat',sans-serif;font-size:clamp(34px,5.5vw,62px);font-weight:900;color:#fff;line-height:1.0;letter-spacing:-1px;text-transform:uppercase;text-shadow:0 2px 30px rgba(0,0,0,.7),0 0 60px rgba(212,168,75,.1);margin-bottom:8px;animation:vintageTitleIn 1s cubic-bezier(.22,1,.36,1) .1s both;}
+@keyframes vintageTitleIn{from{opacity:0;transform:translateX(-24px);}to{opacity:1;transform:none;}}
+.vintage-title em{color:#d4a84b;font-style:normal;text-shadow:0 0 30px rgba(212,168,75,.4);animation:vintageGoldGlow 3s ease infinite alternate;}
+@keyframes vintageGoldGlow{from{text-shadow:0 0 20px rgba(212,168,75,.2);}to{text-shadow:0 0 40px rgba(212,168,75,.6),0 0 80px rgba(212,168,75,.2);}}
+.vintage-sub{font-size:11px;color:rgba(255,255,255,.55);letter-spacing:4px;text-transform:uppercase;margin-bottom:24px;animation:vintageSubIn 1s ease .25s both;}
+@keyframes vintageSubIn{from{opacity:0;transform:translateX(-16px);}to{opacity:1;transform:none;}}
+.vintage-btn{display:inline-flex;align-items:center;gap:10px;background:transparent;border:1.5px solid rgba(212,168,75,.6);color:#d4a84b;padding:12px 26px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .35s;width:fit-content;position:relative;overflow:hidden;animation:vintageBtnIn 1s ease .4s both;}
+.vintage-btn::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(212,168,75,.12),transparent);transform:translateX(-100%);transition:transform .5s ease;}
+.vintage-banner:hover .vintage-btn{border-color:#d4a84b;color:#fff;box-shadow:0 0 20px rgba(212,168,75,.3);}
+.vintage-banner:hover .vintage-btn::before{transform:translateX(100%);}
+@keyframes vintageBtnIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+/* Anno decorativo a destra */
+.vintage-year{position:absolute;right:44px;top:50%;transform:translateY(-50%);text-align:center;pointer-events:none;}
+.vintage-year-num{font-family:'Montserrat',sans-serif;font-size:clamp(60px,10vw,110px);font-weight:900;color:rgba(212,168,75,.08);line-height:1;letter-spacing:-4px;animation:vintageYearPulse 4s ease infinite alternate;}
+.vintage-year-trophy{font-size:36px;display:block;text-align:center;opacity:.15;margin-top:-10px;animation:vintageTrophySpin 8s linear infinite;}
+@keyframes vintageYearPulse{from{opacity:.06;}to{opacity:.12;}}
+@keyframes vintageTrophySpin{0%,100%{transform:rotate(-4deg);}50%{transform:rotate(4deg);}}
+@media(max-width:600px){
+  .vintage-banner{height:190px;}
+  .vintage-content{padding:18px 22px;}
+  .vintage-sub{display:none;}
+  .vintage-eyebrow::before,.vintage-eyebrow::after{display:none;}
+  .vintage-year{right:14px;}
+  .vintage-frame{inset:8px;}
+}
 
 /* ── BANNER MONDIALI 2026 ── */
 .mondiali-banner{position:relative;width:100%;height:320px;overflow:hidden;cursor:pointer;margin-bottom:24px;box-shadow:0 8px 40px rgba(0,0,0,.45);}
@@ -2136,12 +2174,19 @@ function goHome(fromPopstate){
   <div class="vintage-banner" onclick="openCategory(12)">
     <img src="vintage-banner.png" alt="Maglie Vintage">
     <div class="vintage-overlay"></div>
+    <div class="vintage-overlay2"></div>
     <div class="vintage-grain"></div>
-    <div class="vintage-deco">🏆</div>
+    <div class="vintage-shimmer"></div>
+    <div class="vintage-frame"></div>
+    <div class="vintage-particles" id="vintageParticles"></div>
+    <div class="vintage-year">
+      <div class="vintage-year-num">1950</div>
+      <span class="vintage-year-trophy">🏆</span>
+    </div>
     <div class="vintage-content">
       <div class="vintage-eyebrow">Collezione Esclusiva</div>
       <div class="vintage-title">Maglie<br><em>Vintage</em></div>
-      <div class="vintage-sub">Edizioni Storiche • Dal 1950 ad Oggi</div>
+      <div class="vintage-sub">Edizioni Storiche &bull; Dal 1950 ad Oggi</div>
       <button class="vintage-btn">Scopri la collezione →</button>
     </div>
   </div>
@@ -5985,6 +6030,27 @@ setTimeout(animaContatori, 300);
     }
   }
   setTimeout(creaStelle, 200);
+})();
+
+// ── VINTAGE BANNER — PARTICELLE DORATE ──
+(function(){
+  function creaPartVintage(){
+    const container = document.getElementById('vintageParticles');
+    if(!container) return;
+    for(let i = 0; i < 18; i++){
+      const p = document.createElement('div');
+      p.className = 'vintage-particle';
+      const size = 2 + Math.random() * 4;
+      p.style.cssText = `
+        width:${size}px;height:${size}px;
+        left:${Math.random()*100}%;
+        animation-duration:${6+Math.random()*10}s;
+        animation-delay:${Math.random()*10}s;
+      `;
+      container.appendChild(p);
+    }
+  }
+  setTimeout(creaPartVintage, 300);
 })();
 </script>
 <!--Start of Tawk.to Script-->
