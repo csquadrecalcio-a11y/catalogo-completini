@@ -341,6 +341,23 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .na-banner:hover .na-shine{left:130%;}
 @media(max-width:600px){.na-banner{height:160px;}.na-content{padding:16px 20px;}.na-btn{display:none;}}
 
+/* ── BANNER VINTAGE ── */
+.vintage-banner{position:relative;width:100%;height:260px;overflow:hidden;cursor:pointer;margin-bottom:24px;box-shadow:0 6px 32px rgba(0,0,0,.4);}
+.vintage-banner img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s ease;filter:sepia(.25) contrast(1.05);}
+.vintage-banner:hover img{transform:scale(1.04);}
+.vintage-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(20,10,0,.92) 0%,rgba(50,25,0,.80) 45%,rgba(80,45,5,.4) 75%,rgba(100,60,10,.1) 100%);}
+.vintage-grain{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");opacity:.5;pointer-events:none;}
+.vintage-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:36px 44px;}
+.vintage-eyebrow{display:inline-flex;align-items:center;gap:8px;color:rgba(210,170,80,.9);font-size:10px;font-weight:800;letter-spacing:4px;text-transform:uppercase;margin-bottom:12px;}
+.vintage-eyebrow::before,.vintage-eyebrow::after{content:'';display:block;width:28px;height:1px;background:rgba(210,170,80,.6);}
+.vintage-title{font-family:'Montserrat',sans-serif;font-size:clamp(32px,5.5vw,60px);font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;text-transform:uppercase;text-shadow:0 2px 24px rgba(0,0,0,.6);margin-bottom:6px;}
+.vintage-title em{color:#d4a84b;font-style:normal;position:relative;}
+.vintage-sub{font-size:12px;color:rgba(255,255,255,.6);letter-spacing:3px;text-transform:uppercase;margin-bottom:22px;}
+.vintage-btn{display:inline-flex;align-items:center;gap:10px;background:transparent;border:1.5px solid rgba(212,168,75,.7);color:#d4a84b;padding:11px 24px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .3s;width:fit-content;}
+.vintage-banner:hover .vintage-btn{background:rgba(212,168,75,.15);border-color:#d4a84b;color:#fff;}
+.vintage-deco{position:absolute;right:40px;top:50%;transform:translateY(-50%);font-size:110px;opacity:.06;line-height:1;pointer-events:none;user-select:none;}
+@media(max-width:600px){.vintage-banner{height:180px;}.vintage-content{padding:18px 22px;}.vintage-sub,.vintage-eyebrow::before,.vintage-eyebrow::after{display:none;}.vintage-deco{font-size:70px;right:16px;}}
+
 /* ── BANNER MONDIALI 2026 ── */
 .mondiali-banner{position:relative;width:100%;height:320px;overflow:hidden;cursor:pointer;margin-bottom:24px;box-shadow:0 8px 40px rgba(0,0,0,.45);}
 .mondiali-banner img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s ease;}
@@ -2072,18 +2089,6 @@ function goHome(fromPopstate){
     </div>
   </div>
 
-  <!-- TIMER OFFERTA -->
-  <div class="countdown-strip">
-    <span class="countdown-label">🔥 OFFERTA SPECIALE — Termina tra:</span>
-    <div class="countdown-timer">
-      <div class="countdown-block"><div class="countdown-num" id="cdOre">00</div><div class="countdown-unit">ore</div></div>
-      <span class="countdown-sep">:</span>
-      <div class="countdown-block"><div class="countdown-num" id="cdMin">00</div><div class="countdown-unit">min</div></div>
-      <span class="countdown-sep">:</span>
-      <div class="countdown-block"><div class="countdown-num" id="cdSec">00</div><div class="countdown-unit">sec</div></div>
-    </div>
-  </div>
-
   <!-- BANNER SCONTI -->
   <div onclick="paginaPrezzi()" style="background:linear-gradient(135deg,#0d47a1 0%,#1565c0 50%,#0d47a1 100%);border-radius:0;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;flex-wrap:wrap;gap:10px;margin-bottom:0;">
     <div style="display:flex;align-items:center;gap:14px;">
@@ -2124,6 +2129,20 @@ function goHome(fromPopstate){
         <div class="mondiali-count-item"><div class="mondiali-count-num" id="mSecs">--</div><div class="mondiali-count-label">Sec</div></div>
       </div>
       <button class="mondiali-btn">🌍 Vedi Maglie Nazionali →</button>
+    </div>
+  </div>
+
+  <!-- BANNER VINTAGE -->
+  <div class="vintage-banner" onclick="openCategory(12)">
+    <img src="vintage-banner.png" alt="Maglie Vintage">
+    <div class="vintage-overlay"></div>
+    <div class="vintage-grain"></div>
+    <div class="vintage-deco">🏆</div>
+    <div class="vintage-content">
+      <div class="vintage-eyebrow">Collezione Esclusiva</div>
+      <div class="vintage-title">Maglie<br><em>Vintage</em></div>
+      <div class="vintage-sub">Edizioni Storiche • Dal 1950 ad Oggi</div>
+      <button class="vintage-btn">Scopri la collezione →</button>
     </div>
   </div>
 
