@@ -5665,11 +5665,18 @@ function _getOpzioni(nome){
 }
 
 function _tipoEstivo(nome){
+  // Controlla nel nome del file
   const n=(nome||'').toLowerCase();
   if(n.includes('jordan')) return 'jordan';
   if(n.includes('polo')) return 'polo';
   if(n.includes('t-shirt')||n.includes('t shirt')) return 'tshirt';
   if(n.includes('canotta')) return 'canotta';
+  // Controlla nella cartella corrente (navStack)
+  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  if(stack.includes('jordan')) return 'jordan';
+  if(stack.includes('polo')) return 'polo';
+  if(stack.includes('t shirt')||stack.includes('t-shirt')) return 'tshirt';
+  if(stack.includes('canotta')) return 'canotta';
   return null;
 }
 
