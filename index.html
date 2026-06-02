@@ -419,6 +419,32 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 @keyframes mondialiStarFloat{0%{transform:translateY(110%) rotate(0deg);opacity:0;}10%{opacity:.9;}90%{opacity:.3;}100%{transform:translateY(-120%) rotate(360deg);opacity:0;}}
 @media(max-width:600px){.mondiali-banner{height:200px;}.mondiali-content{padding:18px 22px;}.mondiali-sub,.mondiali-countdown{display:none;}}
 
+/* ══════════════════════════════════════════
+   MOBILE UX — skeleton · stagger · slide
+   ══════════════════════════════════════════ */
+
+/* Skeleton cards nella griglia foto */
+.skel-card{background:#fff;border:1px solid #e8e8e8;border-radius:8px;overflow:hidden;pointer-events:none;}
+body.dark .skel-card{background:#1e1e1e;border-color:#333;}
+.skel-img-block{aspect-ratio:3/4;width:100%;background:linear-gradient(90deg,#f0f0f0 25%,#e4e4e4 50%,#f0f0f0 75%);background-size:200% 100%;animation:skelShimmer 1.5s ease infinite;}
+body.dark .skel-img-block{background:linear-gradient(90deg,#2a2a2a 25%,#333 50%,#2a2a2a 75%);background-size:200% 100%;}
+.skel-line{height:30px;margin:8px 8px 10px;border-radius:6px;background:linear-gradient(90deg,#f0f0f0 25%,#e4e4e4 50%,#f0f0f0 75%);background-size:200% 100%;animation:skelShimmer 1.5s ease .18s infinite;}
+body.dark .skel-line{background:linear-gradient(90deg,#2a2a2a 25%,#333 50%,#2a2a2a 75%);background-size:200% 100%;}
+@keyframes skelShimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+
+/* Entrata a cascata delle card (stagger) */
+.stagger-item{opacity:0;transform:translateY(22px);}
+.stagger-item.stagger-in{opacity:1;transform:translateY(0);transition:opacity .35s ease,transform .35s cubic-bezier(.25,.46,.45,.94);}
+
+/* Transizione di pagina slide (avanti / indietro) */
+@keyframes pageSlideRight{from{opacity:0;transform:translateX(28px);}to{opacity:1;transform:none;}}
+@keyframes pageSlideLeft{from{opacity:0;transform:translateX(-28px);}to{opacity:1;transform:none;}}
+#main.page-forward{animation:pageSlideRight .26s cubic-bezier(.25,.46,.45,.94) both;}
+#main.page-back{animation:pageSlideLeft .26s cubic-bezier(.25,.46,.45,.94) both;}
+
+/* Tap ripple più visibile su mobile */
+.photo-item,.album-card,.brand-card,.cat-card{-webkit-tap-highlight-color:transparent;user-select:none;}
+
 /* ── SEZIONE COME ORDINARE ── */
 .come-ordinare-section{position:relative;background:linear-gradient(160deg,#061236 0%,#0a1f6e 50%,#0d47a1 100%);padding:52px 24px 44px;border-top:none;overflow:hidden;}
 .come-ordinare-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(255,255,255,.04) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(245,166,35,.06) 0%,transparent 50%);pointer-events:none;}
@@ -6088,6 +6114,106 @@ setTimeout(animaContatori, 300);
     }
   }
   setTimeout(creaStelle, 200);
+})();
+
+// ══════════════════════════════════════════
+//  MOBILE UX — stagger · skeleton · slide
+// ══════════════════════════════════════════
+
+// Direzione navigazione per slide (forward = destra, back = sinistra)
+let _navDir = 'forward';
+
+// Applica slide su #main con la direzione corrente
+function _slideMain(){
+  const m = document.getElementById('main');
+  if(!m) return;
+  m.classList.remove('page-forward','page-back');
+  void m.offsetWidth; // reflow
+  m.classList.add(_navDir === 'forward' ? 'page-forward' : 'page-back');
+}
+
+// Entrata a cascata per tutte le card della griglia visibile
+function staggerGrid(){
+  const items = document.querySelectorAll(
+    '.photo-item:not(.stagger-item), .album-card:not(.stagger-item), .brand-card:not(.stagger-item), .cat-card:not(.stagger-item)'
+  );
+  items.forEach((el, i) => {
+    el.classList.add('stagger-item');
+    const delay = Math.min(i * 48, 480);
+    setTimeout(() => el.classList.add('stagger-in'), delay + 30);
+  });
+}
+
+// Skeleton grid — N card placeholder prima del fetch
+function skelGrid(n = 8){
+  return `<div class="photo-grid">${Array(n).fill(0).map(() =>
+    `<div class="skel-card"><div class="skel-img-block"></div><div class="skel-line"></div></div>`
+  ).join('')}</div>`;
+}
+
+// Patch renderPhotos: aggiunge stagger dopo il render
+const _origRenderPhotos = window.renderPhotos;
+(function patchNav(){
+  // Patch goHome → slide sinistra (torna indietro)
+  const _origGoHome = window.goHome;
+  window.goHome = function(fp){
+    _navDir = 'back';
+    const r = _origGoHome ? _origGoHome.apply(this, arguments) : undefined;
+    _slideMain();
+    setTimeout(staggerGrid, 60);
+    return r;
+  };
+
+  // Patch openCategory → slide destra (avanti)
+  const _origOpenCat = window.openCategory;
+  window.openCategory = function(ci, fp){
+    _navDir = 'forward';
+    const r = _origOpenCat ? _origOpenCat.apply(this, arguments) : undefined;
+    _slideMain();
+    setTimeout(staggerGrid, 80);
+    return r;
+  };
+
+  // Patch openSub → slide destra (avanti)
+  const _origOpenSub = window.openSub;
+  window.openSub = function(){
+    _navDir = 'forward';
+    const r = _origOpenSub ? _origOpenSub.apply(this, arguments) : undefined;
+    _slideMain();
+    setTimeout(staggerGrid, 80);
+    return r;
+  };
+
+  // Skeleton nelle schermate di caricamento foto
+  const _origRenderPhotos2 = window.renderPhotos;
+  window.renderPhotos = function(imgs, title, back){
+    const r = _origRenderPhotos2 ? _origRenderPhotos2.apply(this, arguments) : undefined;
+    setTimeout(staggerGrid, 60);
+    return r;
+  };
+
+  // Stagger su back button
+  document.addEventListener('click', e => {
+    if(e.target.closest('.back-btn')){
+      _navDir = 'back';
+      setTimeout(() => { _slideMain(); staggerGrid(); }, 10);
+    }
+  });
+})();
+
+// Sostituisce spinner con skeleton nell'area caricamento foto
+(function patchSkeleton(){
+  const main = document.getElementById('main');
+  if(!main) return;
+  const obs = new MutationObserver(() => {
+    // Se vedo il testo "Caricamento..." sostituiscilo con skeleton
+    const loadDiv = main.querySelector('.loading');
+    if(loadDiv && loadDiv.querySelector('.spinner')){
+      const back = main.querySelector('.back-btn')?.outerHTML || '';
+      main.innerHTML = back + skelGrid(10);
+    }
+  });
+  obs.observe(main, { childList: true });
 })();
 
 // ── COME ORDINARE — ANIMAZIONE SCROLL ──
