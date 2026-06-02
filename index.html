@@ -1621,6 +1621,18 @@ body.dark .avvisa-box{background:#1e1e1e;}
       </div>
     </div>
 
+    <!-- OPZIONE MANICHE LUNGHE -->
+    <div id="addCartLVBox" style="display:none;margin-bottom:14px;">
+      <label style="display:flex;align-items:center;gap:12px;background:#fff8e1;border:1.5px solid #ffcc02;border-radius:10px;padding:12px 14px;cursor:pointer;">
+        <input type="checkbox" id="addCartLV" onchange="aggiornaPrezzLV()" style="width:18px;height:18px;accent-color:#0d47a1;cursor:pointer;flex-shrink:0;">
+        <div>
+          <div style="font-size:13px;font-weight:700;color:#333;">🧥 Maniche Lunghe</div>
+          <div style="font-size:11px;color:#888;">Aggiungi +5€ per la versione maniche lunghe</div>
+        </div>
+        <div style="margin-left:auto;font-size:15px;font-weight:900;color:#0d47a1;">+5€</div>
+      </label>
+    </div>
+
     </div><!-- fine addCartFormMaglia -->
     <!-- TOTALE + BOTTONE -->
     <div style="background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:12px;padding:14px 16px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;">
@@ -4803,6 +4815,11 @@ function apriAddCart(){
   document.getElementById('addCartImg').src=thumbUrl(photo.id);
   document.getElementById('addCartName').textContent=squadraNome;
   document.getElementById('addCartKit').checked=false;
+  // Maniche lunghe
+  const lvBox=document.getElementById('addCartLVBox');
+  const lvCb=document.getElementById('addCartLV');
+  if(lvBox) lvBox.style.display=_isLV()?'block':'none';
+  if(lvCb) lvCb.checked=false;
 
   const formMaglia=document.getElementById('addCartFormMaglia');
   const formScarpe=document.getElementById('addCartFormScarpe');
@@ -4934,8 +4951,11 @@ function confermAggiungi(){
   const prezzoSel=document.querySelector('.tipo-card.sel,.tipo-opzione.sel');
   const prezzo=prezzoSel?parseInt(prezzoSel.dataset.prezzo)||30:30;
   const kit=(tipo==='Kit Adulto'||tipo==='Kit Bambino');
+  const lvSelezionato=document.getElementById('addCartLV')?.checked||false;
+  const prezzoFinale=prezzo+(lvSelezionato?5:0);
   let personalizza='';
-  if(nome) personalizza+=`Nome: ${nome}`;
+  if(lvSelezionato) personalizza+='Maniche Lunghe';
+  if(nome) personalizza+=(personalizza?' | ':'')+`Nome: ${nome}`;
   if(numero) personalizza+=(personalizza?' | ':'')+`N°: ${numero}`;
   if(patch&&patch!=='Nessuna patch') personalizza+=(personalizza?' | ':'')+`Patch: ${patch}`;
   const icone={'Maglia':'👕','Kit Bambino':'🧒','Kit Adulto':'👨','Player Version':'⭐'};
@@ -4943,10 +4963,10 @@ function confermAggiungi(){
   // squadraNome già definito sopra
   carrello.push({
     id:photo.id,
-    name:`${icona} ${tipo} — ${squadraNome}`,
+    name:`${icona} ${tipo}${lvSelezionato?' 🧥ML':''} — ${squadraNome}`,
     thumb:thumbUrl(photo.id),
     taglia,
-    prezzo,
+    prezzo:prezzoFinale,
     personalizza:personalizza||'',
     squadra:squadraNome
   });
@@ -5192,6 +5212,24 @@ function inviaOrdine(){
 
   window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`, '_blank');
   chiudiOrdine();
+}
+
+// ── MANICHE LUNGHE ───────────────────────────────────────────────────────────
+function _isLV(){
+  const photo=currentPhotos[currentPhotoIdx];
+  return photo&&(photo.name||'').toLowerCase().includes(' lv');
+}
+function aggiornaPrezzLV(){
+  const cb=document.getElementById('addCartLV');
+  const prezzoBase=parseInt(document.getElementById('addCartPrezzoTot').textContent)||30;
+  const barrato=document.getElementById('addCartPrezzoBarrato');
+  if(cb&&cb.checked){
+    document.getElementById('addCartPrezzoTot').textContent=(prezzoBase+5)+'€';
+    if(barrato) barrato.textContent=(parseInt(barrato.textContent)+5)+'€';
+  } else {
+    document.getElementById('addCartPrezzoTot').textContent=(prezzoBase-5)+'€';
+    if(barrato) barrato.textContent=(parseInt(barrato.textContent)-5)+'€';
+  }
 }
 
 // ── POPUP DOPO CARRELLO ───────────────────────────────────────────────────────
