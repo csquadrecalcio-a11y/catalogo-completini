@@ -4796,8 +4796,9 @@ function aggiornaBarrato(prezzo){
 function selTipoCard(el, prezzo, value){
   document.querySelectorAll('.tipo-card').forEach(e=>e.classList.remove('sel'));
   el.classList.add('sel');
-  document.getElementById('addCartPrezzoTot').textContent=prezzo+'€';
-  aggiornaBarrato(prezzo);
+  const prezzoLV=prezzo+(_isLV()?5:0);
+  document.getElementById('addCartPrezzoTot').textContent=prezzoLV+'€';
+  aggiornaBarrato(prezzoLV);
   // Player Version: taglia massima XXL
   const soloXXL=(value||'').toLowerCase()==='player version';
   const oXXXL=document.getElementById('opt-XXXL');
@@ -4873,8 +4874,9 @@ function apriAddCart(){
       if(_èRistretto){
         if(val==='player version'){
           c.style.display='';c.classList.add('sel');
-          document.getElementById('addCartPrezzoTot').textContent='35€';
-          aggiornaBarrato(35);
+          const _pvPrezzo=35+(_isLV()?5:0);
+          document.getElementById('addCartPrezzoTot').textContent=_pvPrezzo+'€';
+          aggiornaBarrato(_pvPrezzo);
         } else {
           c.style.display='none';c.classList.remove('sel');
         }
@@ -5666,6 +5668,7 @@ function apriOrdine(nomeProdotto){
   _ordineNome=nomeProdotto||'maglia';
   _ordineSelIdx=0;
   const opzioni=_getOpzioni(_ordineNome);
+  const lvExtra=_isLV()?5:0;
 
   document.getElementById('ordine-title').textContent='🛒 '+_ordineNome.slice(0,40);
   document.getElementById('ordine-sub').textContent='Seleziona il tipo e premi Ordina';
@@ -5680,9 +5683,9 @@ function apriOrdine(nomeProdotto){
           <div class="ordine-opzione-desc">${op.desc}</div>
         </div>
       </div>
-      <div class="ordine-opzione-prezzo">${op.prezzo}€</div>
+      <div class="ordine-opzione-prezzo">${op.prezzo+lvExtra}€</div>
     </div>
-  `).join('');
+  `).join('')+(lvExtra?`<div style="background:#fff8e1;border:1.5px solid #ffcc02;border-radius:10px;padding:10px 14px;margin-top:8px;font-size:12px;font-weight:700;color:#333;display:flex;align-items:center;gap:8px;">🧥 Maniche Lunghe incluse <span style="margin-left:auto;color:#0d47a1;">+5€</span></div>`:'');
 
   document.getElementById('ordineModal').classList.add('active');
 }
