@@ -5563,8 +5563,8 @@ function paginaPrezzi(){
         <div class="prezzi-nota">🧥 Tuta passeggio <b>60€</b></div>
         <div class="prezzi-nota">🧥 Tuta con cappuccio <b>65€</b></div>
         <div class="prezzi-nota">🎽 Completino con canotta <b>35€</b></div>
-        <div class="prezzi-nota">👕 Completino con t-shirt <b>38€</b></div>
-        <div class="prezzi-nota">👔 Completino con polo <b>40€</b></div>
+        <div class="prezzi-nota">👕 Completino con t-shirt <b>35€</b></div>
+        <div class="prezzi-nota">👔 Completino con polo <b>38€</b></div>
         <div class="prezzi-nota">🐆 Completino Jordan <b>45€</b></div>
         <div class="prezzi-nota">👟 Scarpe <b>da 90€</b></div>
         <div class="prezzi-nota">🚚 Spedizione <b>GRATUITA</b></div>
@@ -5640,8 +5640,8 @@ const OPZIONI_VINTAGE=[
 // Opzioni per completini estivi
 const OPZIONI_ESTIVI=[
   {icon:'🎽', nome:'Con Canotta',      desc:'Completino estivo con canotta',    prezzo:35},
-  {icon:'👕', nome:'Con T-Shirt',      desc:'Completino estivo con t-shirt',    prezzo:38},
-  {icon:'👔', nome:'Con Polo',         desc:'Completino estivo con polo',       prezzo:40},
+  {icon:'👕', nome:'Con T-Shirt',      desc:'Completino estivo con t-shirt',    prezzo:35},
+  {icon:'👔', nome:'Con Polo',         desc:'Completino estivo con polo',       prezzo:38},
   {icon:'🐆', nome:'Jordan',           desc:'Completino estivo Jordan',         prezzo:45},
 ];
 
@@ -5664,11 +5664,34 @@ function _getOpzioni(nome){
   return OPZIONI_MAGLIA;
 }
 
+function _tipoEstivo(nome){
+  const n=(nome||'').toLowerCase();
+  if(n.includes('jordan')) return 'jordan';
+  if(n.includes('polo')) return 'polo';
+  if(n.includes('t-shirt')||n.includes('t shirt')) return 'tshirt';
+  if(n.includes('canotta')) return 'canotta';
+  return null;
+}
+
 function apriOrdine(nomeProdotto){
   _ordineNome=nomeProdotto||'maglia';
   _ordineSelIdx=0;
-  const opzioni=_getOpzioni(_ordineNome);
+  let opzioni=_getOpzioni(_ordineNome);
   const lvExtra=_isLV()?5:0;
+
+  // Se è un completino estivo specifico, mostra solo quell'opzione
+  const tipoEst=_tipoEstivo(_ordineNome);
+  if(tipoEst&&opzioni===OPZIONI_ESTIVI){
+    const match=OPZIONI_ESTIVI.findIndex(o=>{
+      const n=o.nome.toLowerCase();
+      if(tipoEst==='jordan') return n.includes('jordan');
+      if(tipoEst==='polo') return n.includes('polo');
+      if(tipoEst==='tshirt') return n.includes('t-shirt')||n.includes('t shirt');
+      if(tipoEst==='canotta') return n.includes('canotta');
+      return false;
+    });
+    if(match>=0) opzioni=[OPZIONI_ESTIVI[match]];
+  }
 
   document.getElementById('ordine-title').textContent='🛒 '+_ordineNome.slice(0,40);
   document.getElementById('ordine-sub').textContent='Seleziona il tipo e premi Ordina';
