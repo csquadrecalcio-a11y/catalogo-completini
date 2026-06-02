@@ -4868,29 +4868,66 @@ function apriAddCart(){
 
     // Restrizioni per maglie specifiche
     const _nomeF=(photo.name||'').toLowerCase();
-    const _èRistretto=_nomeF.includes(' pv')||_nomeF.includes('_pv')||_nomeF.endsWith('pv')||_nomeF.includes('player version');
+    const _èPV=_nomeF.includes(' pv')||_nomeF.includes('_pv')||_nomeF.endsWith('pv')||_nomeF.includes('player version');
+    const _èKit=_nomeF.includes('kit');
+    const _èKidKit=_nomeF.includes('kids kit')||_nomeF.includes('kid kit')||_nomeF.includes('kit kids')||_nomeF.includes('kit kid')||_nomeF.includes('kit bambino');
+    const _èAdultKit=_nomeF.includes('kit adulto')||_nomeF.includes('adult kit')||_nomeF.includes('kit adult');
+
     document.querySelectorAll('.tipo-card').forEach(c=>{
       const val=(c.querySelector('input[name="addCartTipo"]')?.value||'').toLowerCase();
-      if(_èRistretto){
+      c.style.display='none'; c.classList.remove('sel');
+
+      if(_èPV){
+        // Solo Player Version
         if(val==='player version'){
           c.style.display='';c.classList.add('sel');
           const _pvPrezzo=35+(_isLV()?5:0);
           document.getElementById('addCartPrezzoTot').textContent=_pvPrezzo+'€';
           aggiornaBarrato(_pvPrezzo);
-        } else {
-          c.style.display='none';c.classList.remove('sel');
+        }
+      } else if(_èKidKit){
+        // Solo Kit Bambino
+        if(val==='kit bambino'){
+          c.style.display='';c.classList.add('sel');
+          document.getElementById('addCartPrezzoTot').textContent='35€';
+          aggiornaBarrato(35);
+        }
+      } else if(_èAdultKit){
+        // Solo Kit Adulto
+        if(val==='kit adulto'){
+          c.style.display='';c.classList.add('sel');
+          document.getElementById('addCartPrezzoTot').textContent='40€';
+          aggiornaBarrato(40);
+        }
+      } else if(_èKit){
+        // Kit Bambino + Kit Adulto
+        if(val==='kit bambino'){
+          c.style.display='';c.classList.add('sel');
+          document.getElementById('addCartPrezzoTot').textContent='35€';
+          aggiornaBarrato(35);
+        } else if(val==='kit adulto'){
+          c.style.display='';
         }
       } else {
+        // Maglia normale — tutto visibile
         c.style.display='';
       }
     });
+
+    // Prima card visibile diventa selezionata se nessuna lo è
+    const selezionata=document.querySelector('.tipo-card.sel');
+    if(!selezionata){
+      const primaVisibile=document.querySelector('.tipo-card:not([style*="display: none"]):not([style*="display:none"])');
+      if(primaVisibile) primaVisibile.classList.add('sel');
+    }
+
     const _bambGrp=document.querySelector('#addCartTaglia optgroup[label*="Bambino"]');
-    if(_bambGrp) _bambGrp.style.display=_èRistretto?'none':'';
-    // Se solo Player Version: nascondi XXXL e XXXXL
+    if(_bambGrp) _bambGrp.style.display=(_èPV||_èAdultKit)?'none':'';
+    // Player Version: nascondi XXXL e XXXXL
     const _oXXXL=document.getElementById('opt-XXXL');
     const _oXXXXL=document.getElementById('opt-XXXXL');
-    if(_oXXXL) _oXXXL.style.display=_èRistretto?'none':'';
-    if(_oXXXXL) _oXXXXL.style.display=_èRistretto?'none':'';
+    if(_oXXXL) _oXXXL.style.display=_èPV?'none':'';
+    if(_oXXXXL) _oXXXXL.style.display=_èPV?'none':'';
   }
   document.getElementById('addCartModal').classList.add('active');
 }
