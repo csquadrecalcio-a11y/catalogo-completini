@@ -433,10 +433,6 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .photo-item{position:relative;border-radius:12px!important;border:none!important;box-shadow:0 2px 12px rgba(0,0,0,.08)!important;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease!important;overflow:hidden;background:#fff;}
 .photo-item:active{transform:scale(.96)!important;box-shadow:0 1px 4px rgba(0,0,0,.1)!important;}
 .photo-item img{border-radius:12px 12px 0 0;display:block;width:100%;aspect-ratio:3/4;object-fit:cover;}
-/* Gradiente prezzo sempre visibile */
-.photo-price-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.2) 60%,transparent 100%);padding:28px 10px 10px;display:flex;align-items:center;justify-content:space-between;pointer-events:none;border-radius:0 0 12px 12px;}
-.photo-price-tag{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:900;color:#fff;letter-spacing:-.3px;text-shadow:0 1px 4px rgba(0,0,0,.4);}
-.photo-price-cart{width:30px;height:30px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;border:1px solid rgba(255,255,255,.2);pointer-events:all;cursor:pointer;}
 /* Ripple al tocco */
 .ripple-touch{position:absolute;border-radius:50%;background:rgba(255,255,255,.3);transform:scale(0);animation:ripplePop .5s cubic-bezier(.25,.46,.45,.94) forwards;pointer-events:none;}
 @keyframes ripplePop{to{transform:scale(4);opacity:0;}}
@@ -6494,24 +6490,6 @@ const NProgress = (function(){
   return {start, done};
 })();
 
-// ② PREZZO SULLE CARD FOTO — aggiunto dopo ogni renderPhotos
-function addPriceOverlays(){
-  document.querySelectorAll('.photo-item').forEach(card => {
-    if(card.querySelector('.photo-price-overlay')) return;
-    // Capisce il prezzo dalla categoria
-    const stack = (window.navStack||[]).map(s=>(s.name||'').toLowerCase()).join(' ');
-    let price = '30€';
-    if(stack.includes('vintage'))        price = '35€';
-    else if(stack.includes('scarpe'))    price = '90€';
-    else if(stack.includes('tute'))      price = '50€';
-    else if(stack.includes('estivi'))    price = '35€';
-    else if(stack.includes('nba'))       price = '30€';
-    const overlay = document.createElement('div');
-    overlay.className = 'photo-price-overlay';
-    overlay.innerHTML = `<span class="photo-price-tag">${price}</span><span class="photo-price-cart">🛒</span>`;
-    card.appendChild(overlay);
-  });
-}
 
 // ③ RIPPLE AL TOCCO su tutte le card
 document.addEventListener('pointerdown', function(e){
@@ -6569,7 +6547,6 @@ document.addEventListener('pointerdown', function(e){
     new MutationObserver(() => {
       if(main.querySelector('.photo-grid,.cat-grid,.photo-item')){
         NProgress.done();
-        setTimeout(addPriceOverlays, 80);
       }
     }).observe(main, {childList:true, subtree:true});
   }
