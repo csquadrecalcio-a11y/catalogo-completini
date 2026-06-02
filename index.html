@@ -550,17 +550,6 @@ body.dark .wishlist-home-title{color:#e0e0e0;}
 body.dark .sf-btn{background:#2a2a2a;border-color:#444;color:#ccc;}
 body.dark .sf-btn.active{background:#1565c0;border-color:#1565c0;color:#fff;}
 
-/* ── VISTI DI RECENTE ── */
-.recenti-home{background:#f8f9fa;padding:20px 16px;margin-bottom:4px;}
-body.dark .recenti-home{background:#111;}
-.recenti-title{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:900;color:#222;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-body.dark .recenti-title{color:#e0e0e0;}
-.recenti-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
-.recenti-scroll::-webkit-scrollbar{display:none;}
-.recenti-card{flex-shrink:0;width:90px;border-radius:10px;overflow:hidden;cursor:pointer;position:relative;box-shadow:0 2px 10px rgba(0,0,0,.1);transition:transform .3s cubic-bezier(.34,1.56,.64,1);}
-.recenti-card:active{transform:scale(.93);}
-.recenti-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
-.recenti-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);padding:8px 6px 5px;font-size:9px;color:#fff;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 
 
 /* ── BANNER SCROLL REVEAL (verticali, animati) ── */
@@ -6457,7 +6446,6 @@ function initBannerReveal(){
         const wlHtml = renderWishlistHome();
         const recHtml = renderRecentiHome();
         if(wlHtml){ const el=document.createElement('div'); el.innerHTML=wlHtml; main.insertBefore(el.firstElementChild, bannerSconti); }
-        if(recHtml){ const el=document.createElement('div'); el.innerHTML=recHtml; main.insertBefore(el.firstElementChild, bannerSconti); }
       }
       // Attiva scroll reveal sui banner verticali
       setTimeout(initBannerReveal, 80);
