@@ -5683,30 +5683,35 @@ function apriOrdine(nomeProdotto){
   let opzioni=_getOpzioni(_ordineNome);
   const lvExtra=_isLV()?5:0;
 
-  // Se è un completino estivo specifico, mostra solo quell'opzione
-  const tipoEst=_tipoEstivo(_ordineNome);
-  if(tipoEst&&opzioni===OPZIONI_ESTIVI){
-    const match=OPZIONI_ESTIVI.findIndex(o=>{
-      const n=o.nome.toLowerCase();
-      if(tipoEst==='jordan') return n.includes('jordan');
-      if(tipoEst==='polo') return n.includes('polo');
-      if(tipoEst==='tshirt') return n.includes('t-shirt')||n.includes('t shirt');
-      if(tipoEst==='canotta') return n.includes('canotta');
-      return false;
-    });
-    if(match>=0) opzioni=[OPZIONI_ESTIVI[match]];
+  // Filtra opzioni in base alla cartella/nome — mostra solo il tipo corretto
+  const _contesto=[_ordineNome,...navStack.map(s=>s.name||'')].join(' ').toLowerCase();
+
+  // Completini Estivi — mostra solo il tipo specifico
+  const _mappaEstivi=[
+    {keys:['jordan'],          idx:OPZIONI_ESTIVI.findIndex(o=>o.nome.toLowerCase().includes('jordan'))},
+    {keys:['polo'],            idx:OPZIONI_ESTIVI.findIndex(o=>o.nome.toLowerCase().includes('polo'))},
+    {keys:['t shirt','t-shirt'],idx:OPZIONI_ESTIVI.findIndex(o=>o.nome.toLowerCase().includes('t-shirt')||o.nome.toLowerCase().includes('t shirt'))},
+    {keys:['canotta'],         idx:OPZIONI_ESTIVI.findIndex(o=>o.nome.toLowerCase().includes('canotta'))},
+  ];
+  for(const {keys,idx} of _mappaEstivi){
+    if(keys.some(k=>_contesto.includes(k))&&idx>=0){
+      opzioni=[OPZIONI_ESTIVI[idx]];
+      break;
+    }
   }
 
-  // Se è una tuta specifica, mostra solo quell'opzione
-  if(opzioni===OPZIONI_TUTA){
-    const fontiTuta=[_ordineNome,...navStack.map(s=>s.name||'')].join(' ').toLowerCase();
-    let tipoTuta=null;
-    if(fontiTuta.includes('allenamento')) tipoTuta='allenamento';
-    else if(fontiTuta.includes('cappuccio')) tipoTuta='cappuccio';
-    else if(fontiTuta.includes('passeggio')) tipoTuta='passeggio';
-    if(tipoTuta){
-      const match=OPZIONI_TUTA.findIndex(o=>o.nome.toLowerCase().includes(tipoTuta));
-      if(match>=0) opzioni=[OPZIONI_TUTA[match]];
+  // Tute — mostra solo il tipo specifico
+  if(opzioni===OPZIONI_TUTA||_contesto.includes('tuta')||_contesto.includes('tute')){
+    const _mappaTute=[
+      {keys:['allenamento'], idx:OPZIONI_TUTA.findIndex(o=>o.nome.toLowerCase().includes('allenamento'))},
+      {keys:['cappuccio'],   idx:OPZIONI_TUTA.findIndex(o=>o.nome.toLowerCase().includes('cappuccio'))},
+      {keys:['passeggio'],   idx:OPZIONI_TUTA.findIndex(o=>o.nome.toLowerCase().includes('passeggio'))},
+    ];
+    for(const {keys,idx} of _mappaTute){
+      if(keys.some(k=>_contesto.includes(k))&&idx>=0){
+        opzioni=[OPZIONI_TUTA[idx]];
+        break;
+      }
     }
   }
 
