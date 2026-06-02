@@ -5699,12 +5699,11 @@ function apriOrdine(nomeProdotto){
 
   // Se è una tuta specifica, mostra solo quell'opzione
   if(opzioni===OPZIONI_TUTA){
-    const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
-    const n=_ordineNome.toLowerCase();
+    const fontiTuta=[_ordineNome,...navStack.map(s=>s.name||'')].join(' ').toLowerCase();
     let tipoTuta=null;
-    if(n.includes('allenamento')||stack.includes('allenamento')) tipoTuta='allenamento';
-    else if(n.includes('cappuccio')||stack.includes('cappuccio')) tipoTuta='cappuccio';
-    else if(n.includes('passeggio')||stack.includes('passeggio')) tipoTuta='passeggio';
+    if(fontiTuta.includes('allenamento')) tipoTuta='allenamento';
+    else if(fontiTuta.includes('cappuccio')) tipoTuta='cappuccio';
+    else if(fontiTuta.includes('passeggio')) tipoTuta='passeggio';
     if(tipoTuta){
       const match=OPZIONI_TUTA.findIndex(o=>o.nome.toLowerCase().includes(tipoTuta));
       if(match>=0) opzioni=[OPZIONI_TUTA[match]];
