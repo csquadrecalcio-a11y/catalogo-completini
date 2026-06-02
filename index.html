@@ -420,6 +420,39 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 @media(max-width:600px){.mondiali-banner{height:200px;}.mondiali-content{padding:18px 22px;}.mondiali-sub,.mondiali-countdown{display:none;}}
 
 /* ══════════════════════════════════════════
+   PREMIUM UX — progress · cards · parallax
+   ══════════════════════════════════════════ */
+
+/* ① Barra progresso top — stile YouTube/GitHub */
+#nprogress{position:fixed;top:0;left:0;right:0;height:3px;z-index:99999;pointer-events:none;}
+#nprogress-bar{height:100%;background:linear-gradient(90deg,#f5a623,#ff6b35,#f5a623);background-size:200% 100%;border-radius:0 2px 2px 0;box-shadow:0 0 10px rgba(245,166,35,.6);transition:width .25s cubic-bezier(.4,0,.2,1);animation:npShimmer 1.2s linear infinite;}
+@keyframes npShimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+#nprogress.done{opacity:0;transition:opacity .4s ease .1s;}
+
+/* ② Card foto premium */
+.photo-item{position:relative;border-radius:12px!important;border:none!important;box-shadow:0 2px 12px rgba(0,0,0,.08)!important;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease!important;overflow:hidden;background:#fff;}
+.photo-item:active{transform:scale(.96)!important;box-shadow:0 1px 4px rgba(0,0,0,.1)!important;}
+.photo-item img{border-radius:12px 12px 0 0;display:block;width:100%;aspect-ratio:3/4;object-fit:cover;}
+/* Gradiente prezzo sempre visibile */
+.photo-price-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.2) 60%,transparent 100%);padding:28px 10px 10px;display:flex;align-items:center;justify-content:space-between;pointer-events:none;border-radius:0 0 12px 12px;}
+.photo-price-tag{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:900;color:#fff;letter-spacing:-.3px;text-shadow:0 1px 4px rgba(0,0,0,.4);}
+.photo-price-cart{width:30px;height:30px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;border:1px solid rgba(255,255,255,.2);pointer-events:all;cursor:pointer;}
+/* Ripple al tocco */
+.ripple-touch{position:absolute;border-radius:50%;background:rgba(255,255,255,.3);transform:scale(0);animation:ripplePop .5s cubic-bezier(.25,.46,.45,.94) forwards;pointer-events:none;}
+@keyframes ripplePop{to{transform:scale(4);opacity:0;}}
+
+/* ③ Parallax wrapper sui banner */
+.parallax-wrap{overflow:hidden;}
+.parallax-wrap img{will-change:transform;transition:transform .1s linear;}
+
+/* ④ Spring animation sulle brand-card categoria */
+.brand-card{transition:transform .4s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease!important;}
+.brand-card:active{transform:scale(.94)!important;}
+
+/* Tap highlight globale rimosso — usiamo il nostro ripple */
+*{-webkit-tap-highlight-color:transparent;}
+
+/* ══════════════════════════════════════════
    MOBILE UX — skeleton · stagger · slide
    ══════════════════════════════════════════ */
 
@@ -6114,6 +6147,127 @@ setTimeout(animaContatori, 300);
     }
   }
   setTimeout(creaStelle, 200);
+})();
+
+// ══════════════════════════════════════════
+//  PREMIUM UX — progress · cards · parallax
+// ══════════════════════════════════════════
+
+// ① BARRA PROGRESSO stile YouTube
+const NProgress = (function(){
+  let bar, timer, pct = 0;
+  function getBar(){
+    if(!bar){
+      const el = document.createElement('div');
+      el.id = 'nprogress';
+      el.innerHTML = '<div id="nprogress-bar" style="width:0%"></div>';
+      document.body.appendChild(el);
+      bar = el.querySelector('#nprogress-bar');
+    }
+    return bar;
+  }
+  function set(n){
+    pct = n;
+    getBar().style.width = (n*100) + '%';
+  }
+  function start(){
+    const el = document.getElementById('nprogress');
+    if(el) el.classList.remove('done');
+    set(0);
+    setTimeout(() => set(.3), 50);
+    setTimeout(() => set(.6), 200);
+    setTimeout(() => set(.8), 500);
+  }
+  function done(){
+    set(1);
+    setTimeout(() => {
+      const el = document.getElementById('nprogress');
+      if(el) el.classList.add('done');
+      setTimeout(() => set(0), 500);
+    }, 200);
+  }
+  return {start, done};
+})();
+
+// ② PREZZO SULLE CARD FOTO — aggiunto dopo ogni renderPhotos
+function addPriceOverlays(){
+  document.querySelectorAll('.photo-item').forEach(card => {
+    if(card.querySelector('.photo-price-overlay')) return;
+    // Capisce il prezzo dalla categoria
+    const stack = (window.navStack||[]).map(s=>(s.name||'').toLowerCase()).join(' ');
+    let price = '30€';
+    if(stack.includes('vintage'))        price = '35€';
+    else if(stack.includes('scarpe'))    price = '90€';
+    else if(stack.includes('tute'))      price = '50€';
+    else if(stack.includes('estivi'))    price = '35€';
+    else if(stack.includes('nba'))       price = '30€';
+    const overlay = document.createElement('div');
+    overlay.className = 'photo-price-overlay';
+    overlay.innerHTML = `<span class="photo-price-tag">${price}</span><span class="photo-price-cart">🛒</span>`;
+    card.appendChild(overlay);
+  });
+}
+
+// ③ RIPPLE AL TOCCO su tutte le card
+document.addEventListener('pointerdown', function(e){
+  const card = e.target.closest('.photo-item, .album-card, .brand-card, .cat-card');
+  if(!card) return;
+  const r = card.getBoundingClientRect();
+  const size = Math.max(card.offsetWidth, card.offsetHeight) * 1.5;
+  const span = document.createElement('span');
+  span.className = 'ripple-touch';
+  span.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-r.left-size/2}px;top:${e.clientY-r.top-size/2}px;`;
+  if(getComputedStyle(card).position === 'static') card.style.position = 'relative';
+  card.appendChild(span);
+  span.addEventListener('animationend', () => span.remove(), {once:true});
+}, {passive:true});
+
+// ④ PARALLAX sui banner home (solo desktop e quando idle)
+(function(){
+  const selectors = ['.hero-banner img', '.na-banner img', '.mondiali-banner img', '.vintage-banner img', '.scarpe-banner img'];
+  let ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const scrollY = window.scrollY;
+      selectors.forEach(sel => {
+        const img = document.querySelector(sel);
+        if(!img) return;
+        const wrap = img.closest('[class*="banner"]');
+        if(!wrap) return;
+        const rect = wrap.getBoundingClientRect();
+        if(rect.bottom < 0 || rect.top > window.innerHeight) return;
+        const offset = (rect.top / window.innerHeight) * 18;
+        img.style.transform = `translateY(${offset}px) scale(1.06)`;
+      });
+      ticking = false;
+    });
+  }
+  // Solo su device non mobile (risparmia batteria)
+  if(window.innerWidth > 768){
+    window.addEventListener('scroll', onScroll, {passive:true});
+  }
+})();
+
+// Patch NProgress nelle navigazioni
+(function(){
+  const _oc = window.openCategory;
+  window.openCategory = function(){ NProgress.start(); return _oc?.apply(this,arguments); };
+  const _os = window.openSub;
+  window.openSub = function(){ NProgress.start(); return _os?.apply(this,arguments); };
+  const _gh = window.goHome;
+  window.goHome = function(){ NProgress.start(); return _gh?.apply(this,arguments); };
+  // Done quando il main viene aggiornato con contenuto reale
+  const main = document.getElementById('main');
+  if(main){
+    new MutationObserver(() => {
+      if(main.querySelector('.photo-grid,.cat-grid,.photo-item')){
+        NProgress.done();
+        setTimeout(addPriceOverlays, 80);
+      }
+    }).observe(main, {childList:true, subtree:true});
+  }
 })();
 
 // ══════════════════════════════════════════
