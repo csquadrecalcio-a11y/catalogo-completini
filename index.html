@@ -562,15 +562,12 @@ body.dark .recenti-title{color:#e0e0e0;}
 .recenti-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
 .recenti-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.7),transparent);padding:8px 6px 5px;font-size:9px;color:#fff;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 
-/* ── BANNER CAROUSEL ── */
-.banners-carousel{position:relative;overflow:hidden;touch-action:pan-y;}
-.banners-track{display:flex;transition:transform .35s cubic-bezier(.25,.46,.45,.94);will-change:transform;}
-.banners-track > *{flex-shrink:0;width:100%;}
-.banners-dots{display:flex;justify-content:center;gap:6px;padding:10px 0 4px;}
-.bdot{width:6px;height:6px;border-radius:50%;background:rgba(0,0,0,.2);transition:all .3s;cursor:pointer;}
-.bdot.active{width:18px;border-radius:3px;background:#0d47a1;}
-body.dark .bdot{background:rgba(255,255,255,.2);}
-body.dark .bdot.active{background:#42a5f5;}
+
+/* ── BANNER SCROLL REVEAL (verticali, animati) ── */
+.banner-reveal{opacity:0;transform:translateY(32px) scale(.98);transition:opacity .6s cubic-bezier(.25,.46,.45,.94),transform .6s cubic-bezier(.25,.46,.45,.94);}
+.banner-reveal.revealed{opacity:1;transform:none;}
+.banner-reveal:nth-child(odd){transform:translateX(-24px) scale(.98);}
+.banner-reveal:nth-child(even){transform:translateX(24px) scale(.98);}
 
 /* ── PERSONE GUARDANDO — dinamico ── */
 .live-viewers{font-size:11px;color:#e53935;font-weight:700;display:flex;align-items:center;gap:4px;margin-top:4px;}
@@ -6310,42 +6307,6 @@ window.openLightbox = function(i){
   return _origOpenLightbox?.apply(this, arguments);
 };
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ③ BANNER CAROUSEL SWIPEABLE 🎠
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-function initCarousel(){
-  const track = document.querySelector('.banners-track');
-  if(!track || track._carouselInit) return;
-  track._carouselInit = true;
-  const slides = track.children;
-  const total = slides.length;
-  let cur = 0, startX = 0, isDrag = false;
-  const dots = document.querySelector('.banners-dots');
-
-  function goTo(n){
-    cur = (n+total)%total;
-    track.style.transform = `translateX(-${cur*100}%)`;
-    if(dots) dots.querySelectorAll('.bdot').forEach((d,i)=>d.classList.toggle('active',i===cur));
-  }
-
-  // Dots
-  if(dots){
-    dots.innerHTML = Array(total).fill(0).map((_,i)=>`<div class="bdot${i===0?' active':''}" onclick=""></div>`).join('');
-    dots.querySelectorAll('.bdot').forEach((d,i)=>d.addEventListener('click',()=>goTo(i)));
-  }
-
-  // Touch swipe
-  track.addEventListener('touchstart', e=>{ startX=e.touches[0].clientX; isDrag=true; },{passive:true});
-  track.addEventListener('touchend', e=>{
-    if(!isDrag) return; isDrag=false;
-    const dx = e.changedTouches[0].clientX - startX;
-    if(Math.abs(dx)>40) goTo(dx<0?cur+1:cur-1);
-  },{passive:true});
-
-  // Auto-avanzamento ogni 5s
-  let autoTimer = setInterval(()=>goTo(cur+1), 5000);
-  track.addEventListener('touchstart',()=>clearInterval(autoTimer),{passive:true});
-}
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // ④ PINCH TO ZOOM nel lightbox 🔍
@@ -6464,7 +6425,24 @@ if('serviceWorker' in navigator){
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// HOME — inietta wishlist + recenti + carousel
+// ③ BANNER SCROLL REVEAL (verticali)
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+function initBannerReveal(){
+  const banners = document.querySelectorAll('.na-banner,.mondiali-banner,.vintage-banner,.scarpe-banner');
+  if(!banners.length) return;
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('revealed'); });
+  },{threshold:0.12});
+  banners.forEach((b,i)=>{
+    b.classList.add('banner-reveal');
+    // Alterna direzione: dispari da sinistra, pari da destra
+    b.style.transform = i%2===0 ? 'translateX(-28px) scale(.98)' : 'translateX(28px) scale(.98)';
+    obs.observe(b);
+  });
+}
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// HOME — inietta wishlist + recenti
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 (function patchGoHomeSuper(){
   const _gh = window.goHome;
@@ -6481,25 +6459,8 @@ if('serviceWorker' in navigator){
         if(wlHtml){ const el=document.createElement('div'); el.innerHTML=wlHtml; main.insertBefore(el.firstElementChild, bannerSconti); }
         if(recHtml){ const el=document.createElement('div'); el.innerHTML=recHtml; main.insertBefore(el.firstElementChild, bannerSconti); }
       }
-      // Avvolgi i banner nel carousel
-      const naBanner = main.querySelector('.na-banner');
-      const mondBanner = main.querySelector('.mondiali-banner');
-      const vintBanner = main.querySelector('.vintage-banner');
-      if(naBanner && mondBanner && vintBanner && !main.querySelector('.banners-track')){
-        const wrap = document.createElement('div');
-        wrap.className = 'banners-carousel';
-        const track = document.createElement('div');
-        track.className = 'banners-track';
-        const dots = document.createElement('div');
-        dots.className = 'banners-dots';
-        [naBanner, mondBanner, vintBanner].forEach(b=>track.appendChild(b));
-        wrap.appendChild(track);
-        // Inserisci prima del featured
-        const featured = main.querySelector('.featured-inter');
-        if(featured){ main.insertBefore(wrap, featured); main.insertBefore(dots, featured); }
-        else main.appendChild(wrap);
-        setTimeout(initCarousel, 50);
-      }
+      // Attiva scroll reveal sui banner verticali
+      setTimeout(initBannerReveal, 80);
     }, 60);
     return r;
   };
