@@ -401,9 +401,9 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .album-card:hover .album-thumb{transform:scale(1.05);}
 
 /* ── WA DIRETTO SULLA FOTO ── */
-.quick-order-btn{position:absolute;bottom:8px;left:0;right:0;margin:0 8px;background:#25d366;color:#fff;border:none;border-radius:8px;padding:8px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;opacity:0;transform:translateY(6px);transition:all .25s;z-index:4;}
+.quick-order-btn{position:absolute;bottom:8px;left:0;right:0;margin:0 8px;background:#0d47a1;color:#fff;border:none;border-radius:8px;padding:8px;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;opacity:0;transform:translateY(6px);transition:all .25s;z-index:4;}
 .photo-item:hover .quick-order-btn{opacity:1;transform:translateY(0);}
-.quick-order-btn:hover{background:#1ebe5d;}
+.quick-order-btn:hover{background:#1565c0;}
 
 /* ── BOTTOM BAR MOBILE ── */
 .mobile-bottom-bar{display:none!important;}
@@ -2650,8 +2650,8 @@ function renderPhotos(imgs,title,back){
       <img src="${thumbUrl(img.id)}" alt="${img.name}" loading="lazy">
       ${isNuovo?'<div class="badge-nuovo">Nuovo</div>':''}
       <button class="share-btn" onclick="apriCondividi(event,${i})">↗️</button>
-      <button class="quick-order-btn" onclick="event.stopPropagation();apriOrdine('${img.name||title}')">
-        💬 Ordina subito
+      <button class="quick-order-btn" onclick="event.stopPropagation();currentPhotoIdx=${i};apriAddCart()">
+        🛒 Aggiungi al carrello
       </button>
     </div>`;
   });
