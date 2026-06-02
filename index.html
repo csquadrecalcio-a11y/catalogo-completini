@@ -1621,16 +1621,17 @@ body.dark .avvisa-box{background:#1e1e1e;}
       </div>
     </div>
 
-    <!-- OPZIONE MANICHE LUNGHE -->
+    <!-- MANICHE LUNGHE (automatico se foto ha LV nel nome) -->
     <div id="addCartLVBox" style="display:none;margin-bottom:14px;">
-      <label style="display:flex;align-items:center;gap:12px;background:#fff8e1;border:1.5px solid #ffcc02;border-radius:10px;padding:12px 14px;cursor:pointer;">
-        <input type="checkbox" id="addCartLV" onchange="aggiornaPrezzLV()" style="width:18px;height:18px;accent-color:#0d47a1;cursor:pointer;flex-shrink:0;">
+      <div style="display:flex;align-items:center;gap:12px;background:#fff8e1;border:1.5px solid #ffcc02;border-radius:10px;padding:12px 14px;">
+        <span style="font-size:22px;">🧥</span>
         <div>
-          <div style="font-size:13px;font-weight:700;color:#333;">🧥 Maniche Lunghe</div>
-          <div style="font-size:11px;color:#888;">Aggiungi +5€ per la versione maniche lunghe</div>
+          <div style="font-size:13px;font-weight:700;color:#333;">Maniche Lunghe</div>
+          <div style="font-size:11px;color:#888;">Questa maglia è disponibile solo a maniche lunghe</div>
         </div>
-        <div style="margin-left:auto;font-size:15px;font-weight:900;color:#0d47a1;">+5€</div>
-      </label>
+        <div style="margin-left:auto;font-size:13px;font-weight:900;color:#0d47a1;">+5€</div>
+      </div>
+      <input type="checkbox" id="addCartLV" style="display:none" checked>
     </div>
 
     </div><!-- fine addCartFormMaglia -->
@@ -4818,8 +4819,9 @@ function apriAddCart(){
   // Maniche lunghe
   const lvBox=document.getElementById('addCartLVBox');
   const lvCb=document.getElementById('addCartLV');
-  if(lvBox) lvBox.style.display=_isLV()?'block':'none';
-  if(lvCb) lvCb.checked=false;
+  const isLV=_isLV();
+  if(lvBox) lvBox.style.display=isLV?'block':'none';
+  if(lvCb) lvCb.checked=isLV;
 
   const formMaglia=document.getElementById('addCartFormMaglia');
   const formScarpe=document.getElementById('addCartFormScarpe');
@@ -4859,8 +4861,9 @@ function apriAddCart(){
     document.querySelectorAll('.tipo-opzione,.tipo-card').forEach(e=>e.classList.remove('sel'));
     const primaCard=document.querySelector('.tipo-card');
     if(primaCard) primaCard.classList.add('sel');
-    document.getElementById('addCartPrezzoTot').textContent='30€';
-    aggiornaBarrato(30);
+    const _prezzoBase=30+(_isLV()?5:0);
+    document.getElementById('addCartPrezzoTot').textContent=_prezzoBase+'€';
+    aggiornaBarrato(_prezzoBase);
 
     // Restrizioni per maglie specifiche
     const _nomeF=(photo.name||'').toLowerCase();
