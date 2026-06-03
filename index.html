@@ -2130,7 +2130,7 @@ const CATALOG = [
     "Tuta Allenamento","Tuta da Passeggio","Tute con Cappuccio"
   ]},
   { name:"Completi Estivi", flag:"☀️", id:"1atP3ewNSScU2eR8RlHWBqs5lVci5HhEp", subs:null},
-  { name:"Vintage", flag:"🏆", id:"1zI1CEJ4f8RXTovUzkfZoY_ifAUW5X9jS", subs:null},
+  { name:"Vintage", flag:"🏆", id:"1zI1CEJ4f8RXTovUzkfZoY_ifAUW5X9jS", subs:["vintage adulti","kit vintage bambini"]},
   { name:"Scarpe", flag:"👟", id:"1MW7kVEJQW4lsh5cOLTZ0VvRGUkRMzVj1", subs:["Scarpe da Calcio","Sneakers"]},
 ];
 
@@ -5033,6 +5033,14 @@ function _isVintageCategoria(){
   const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
   return stack.includes('vintage');
 }
+function _isVintageAdulti(){
+  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  return stack.includes('vintage adulti');
+}
+function _isKitVintageBambini(){
+  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  return stack.includes('kit vintage bambini');
+}
 
 function selNumScarpa(el, num){
   document.querySelectorAll('.scarpa-num-btn').forEach(b=>b.classList.remove('sel'));
@@ -5113,7 +5121,7 @@ function apriAddCart(){
     document.getElementById('addCartPrezzoTot').textContent='35€';
     aggiornaBarrato(35);
   } else if(_isVintageCategoria()){
-    // Modalità VINTAGE — solo Maglia Vintage a 35€
+    // ── VINTAGE (tutte le sotto-categorie) ──
     if(formMaglia) formMaglia.style.display='';
     document.getElementById('addCartTaglia').value='';
     document.getElementById('addCartNome').value='';
@@ -5124,25 +5132,52 @@ function apriAddCart(){
     const _upVintage=document.querySelector('#addCartPatchGrid .patch-btn:last-child');
     if(_upVintage) _upVintage.classList.add('sel');
     document.querySelectorAll('.tipo-opzione,.tipo-card').forEach(e=>e.classList.remove('sel'));
-    document.querySelectorAll('.tipo-card').forEach(c=>{
-      const val=(c.querySelector('input[name="addCartTipo"]')?.value||'').toLowerCase();
-      if(val==='maglia'){
-        c.style.display='';c.classList.add('sel');
-        c.dataset.prezzo='35';
-        const titolo=c.querySelector('div[style*="font-weight:800"]');
-        if(titolo) titolo.textContent='Maglia Vintage';
-        const prezzoDiv=c.querySelector('div[style*="font-weight:900"]');
-        if(prezzoDiv) prezzoDiv.textContent='35€';
-      } else {
-        c.style.display='none';c.classList.remove('sel');
-      }
-    });
-    const _bambGrpV=document.querySelector('#addCartTaglia optgroup[label*="Bambino"]');
-    if(_bambGrpV) _bambGrpV.style.display='none';
-    const _oXXXLv=document.getElementById('opt-XXXL');
-    const _oXXXXLv=document.getElementById('opt-XXXXL');
-    if(_oXXXLv) _oXXXLv.style.display='none';
-    if(_oXXXXLv) _oXXXXLv.style.display='none';
+
+    if(_isKitVintageBambini()){
+      // KIT VINTAGE BAMBINI — solo Kit Bambino a 35€, solo taglie bambino
+      document.querySelectorAll('.tipo-card').forEach(c=>{
+        const val=(c.querySelector('input[name="addCartTipo"]')?.value||'').toLowerCase();
+        if(val==='kit bambino'){
+          c.style.display='';c.classList.add('sel');
+          c.dataset.prezzo='35';
+          const titolo=c.querySelector('div[style*="font-weight:800"]');
+          if(titolo) titolo.textContent='Kit Vintage Bambino';
+          const prezzoDiv=c.querySelector('div[style*="font-weight:900"]');
+          if(prezzoDiv) prezzoDiv.textContent='35€';
+        } else { c.style.display='none';c.classList.remove('sel'); }
+      });
+      // Mostra SOLO taglie bambino, nascondi adulto
+      const _adultGrp=document.querySelector('#addCartTaglia optgroup[label*="Adulto"]');
+      const _bambGrp=document.querySelector('#addCartTaglia optgroup[label*="Bambino"]');
+      if(_adultGrp) _adultGrp.style.display='none';
+      if(_bambGrp)  _bambGrp.style.display='';
+      const _oXXXL=document.getElementById('opt-XXXL');
+      const _oXXXXL=document.getElementById('opt-XXXXL');
+      if(_oXXXL)  _oXXXL.style.display='none';
+      if(_oXXXXL) _oXXXXL.style.display='none';
+    } else {
+      // VINTAGE ADULTI — solo Maglia Vintage a 35€, taglie S→XXL
+      document.querySelectorAll('.tipo-card').forEach(c=>{
+        const val=(c.querySelector('input[name="addCartTipo"]')?.value||'').toLowerCase();
+        if(val==='maglia'){
+          c.style.display='';c.classList.add('sel');
+          c.dataset.prezzo='35';
+          const titolo=c.querySelector('div[style*="font-weight:800"]');
+          if(titolo) titolo.textContent='Maglia Vintage';
+          const prezzoDiv=c.querySelector('div[style*="font-weight:900"]');
+          if(prezzoDiv) prezzoDiv.textContent='35€';
+        } else { c.style.display='none';c.classList.remove('sel'); }
+      });
+      // Nascondi bambino e taglie extra
+      const _bambGrpV=document.querySelector('#addCartTaglia optgroup[label*="Bambino"]');
+      const _adultGrpV=document.querySelector('#addCartTaglia optgroup[label*="Adulto"]');
+      if(_bambGrpV)  _bambGrpV.style.display='none';
+      if(_adultGrpV) _adultGrpV.style.display='';
+      const _oXXXLv=document.getElementById('opt-XXXL');
+      const _oXXXXLv=document.getElementById('opt-XXXXL');
+      if(_oXXXLv)  _oXXXLv.style.display='none';
+      if(_oXXXXLv) _oXXXXLv.style.display='none';
+    }
     document.getElementById('addCartPrezzoTot').textContent='35€';
     aggiornaBarrato(35);
   } else {
@@ -5268,7 +5303,7 @@ function confermAggiungi(){
   const patch=patchLibera||addCartPatch;
   // Leggi tipo selezionato e prezzo (supporta sia tipo-card che tipo-opzione)
   const tipoSel=document.querySelector('.tipo-card.sel input[name="addCartTipo"],.tipo-opzione.sel input[name="addCartTipo"]');
-  const tipo=_isVintageCategoria()?'Maglia Vintage':(tipoSel?tipoSel.value:'Maglia');
+  const tipo=_isKitVintageBambini()?'Kit Vintage Bambino':_isVintageCategoria()?'Maglia Vintage':(tipoSel?tipoSel.value:'Maglia');
   const prezzoSel=document.querySelector('.tipo-card.sel,.tipo-opzione.sel');
   const prezzo=_isVintageCategoria()?35:(prezzoSel?parseInt(prezzoSel.dataset.prezzo)||30:30);
   const kit=(tipo==='Kit Adulto'||tipo==='Kit Bambino');
