@@ -3130,6 +3130,8 @@ function teamGradient(n){
   if(t.includes('river'))        return ['linear-gradient(160deg,#001a3a,#1565c0)','#ef9a9a'];
   if(t.includes('miami'))        return ['linear-gradient(160deg,#1a0040,#880e4f)','#f48fb1'];
   if(t.includes('saudi'))        return ['linear-gradient(160deg,#0a1a0a,#1b5e20)','#fff'];
+  if(t.includes('vintage adulti'))   return ['linear-gradient(160deg,#1a1000,#4e342e)','#d4a84b'];
+  if(t.includes('kit vintage bambini')) return ['linear-gradient(160deg,#1a1200,#6d4c41)','#ffcc80'];
   if(t.includes('tuta'))         return ['linear-gradient(160deg,#0a0a1a,#1565c0)','#4fc3f7'];
   if(t.includes('scarpe')||t.includes('calcio')) return ['linear-gradient(160deg,#0a0a0a,#212121)','#90caf9'];
   if(t.includes('sneakers'))     return ['linear-gradient(160deg,#1a0a2e,#2d1b4e)','#ce93d8'];
@@ -5035,11 +5037,17 @@ function _isVintageCategoria(){
 }
 function _isVintageAdulti(){
   const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
-  return stack.includes('vintage adulti');
+  if(stack.includes('vintage adulti')) return true;
+  // Fallback: URL hash (sub-[idxVintage]-0)
+  const vi=CATALOG.findIndex(c=>c.name==='Vintage');
+  return location.hash.includes(`sub-${vi}-0`);
 }
 function _isKitVintageBambini(){
   const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
-  return stack.includes('kit vintage bambini');
+  if(stack.includes('kit vintage bambini')) return true;
+  // Fallback: URL hash (sub-[idxVintage]-1)
+  const vi=CATALOG.findIndex(c=>c.name==='Vintage');
+  return location.hash.includes(`sub-${vi}-1`);
 }
 
 function selNumScarpa(el, num){
