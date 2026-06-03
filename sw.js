@@ -1,5 +1,5 @@
 // Service Worker — Completini Squadre Calcio 2.0
-const CACHE = 'calcio-v1';
+const CACHE = 'calcio-v2';
 const ASSETS = [
   '/catalogo-completini/',
   '/catalogo-completini/index.html',
