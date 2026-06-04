@@ -1727,7 +1727,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
         <button class="scarpa-num-btn" onclick="selTagliaSemplice(this,'XXXL')" style="grid-column:span 2;">XXXL</button>
       </div>
       <div style="background:#fff8e1;border:1.5px solid #ffcc02;border-radius:8px;padding:10px 12px;font-size:12px;color:#e65100;font-weight:600;margin-bottom:16px;">
-        🧒 Taglie bambino disponibili — <a href="https://wa.me/393792126743" target="_blank" style="color:#0d47a1;font-weight:800;">Verifica disponibilità su WhatsApp</a>
+        🧒 Tutte le taglie bambino sono disponibili
       </div>
       <input type="hidden" id="tuteTagliaVal" value="">
     </div>
@@ -1808,12 +1808,6 @@ body.dark .avvisa-box{background:#1e1e1e;}
           <option>Bambino XXL — 12-13 anni</option>
         </optgroup>
       </select>
-      <div id="avvisoBambino" style="display:none;background:#fff8e1;border:1.5px solid #ffcc02;border-radius:8px;padding:10px 12px;margin-top:8px;font-size:12px;color:#e65100;font-weight:600;">
-        ⚠️ Verifica disponibilità taglia bambino su WhatsApp prima di ordinare.
-      </div>
-      <div style="text-align:right;margin-top:6px;">
-        <span onclick="apriAvvisa()" style="font-size:11px;color:#e53935;cursor:pointer;font-weight:700;">🔔 Taglia non disponibile? Avvisami</span>
-      </div>
     </div>
 
     <!-- PASSO 3: PERSONALIZZAZIONE -->
@@ -3531,7 +3525,7 @@ function inviaPersonalizzazione(){
   if(nome) msg+=`👤 Nome: ${nome}\n`;
   if(numero) msg+=`🔢 Numero: ${numero}\n`;
   msg+=`🏅 Patch: ${patch}\n\n`;
-  msg+=`Potete confermare disponibilità?`;
+  msg+=`Vorrei procedere con l'ordine.`;
 
   window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`, '_blank');
   chiudiPersonalizza();
@@ -4007,7 +4001,7 @@ function paginaFaq(){
     {q:'Quanto costa la spedizione?', a:'La spedizione è <b>sempre gratuita</b> su tutti gli ordini, senza nessun costo aggiuntivo. 🚚'},
     {q:'Posso restituire una maglia?', a:'Non accettiamo resi salvo in caso di <b>maglia difettata</b> o di <b>taglia diversa da quella concordata</b>. In questi casi ti verrà inviato il prodotto corretto senza costi aggiuntivi. Contattaci subito su WhatsApp con una foto del problema.'},
     {q:'La personalizzazione (nome, numero, patch) ha un costo?', a:'No, la personalizzazione con nome, numero e patch è <b>completamente gratuita</b>! 🎉 Basta indicare le preferenze al momento dell\'ordine.'},
-    {q:'Tutti i prodotti sono disponibili anche per bambini?', a:'<b>Non tutti i prodotti sono disponibili in taglie bambino.</b> Prima di ordinare per un bambino, ti consigliamo di <b>verificare la disponibilità su WhatsApp</b> indicando il prodotto desiderato e l\'età del bambino. Risponderemo subito!'},
+    {q:'Posso ordinare per un bambino?', a:'Sì! Abbiamo <b>tutte le taglie bambino disponibili</b>, dalla XXS (2-3 anni) alla XXL (12-13 anni). Seleziona direttamente la taglia dal carrello e completa l\'ordine!'},
   ];
 
   let html=`<div style="max-width:750px;margin:0 auto;">
