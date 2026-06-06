@@ -5984,8 +5984,7 @@ function chiudiCondividi(){
 
 function condividiLightbox(){
   const photo=currentPhotos[currentPhotoIdx];
-  const base=location.origin+location.pathname;
-  const link=photo?`${base}#photo-${photo.id}`:base;
+  const link=location.href; // l'URL già contiene il hash corretto (#cat-X-photo-ID o #sub-X-Y-photo-ID)
   const nome=photo?.name||'questa maglia';
   const msg=`👕 Guarda questa maglia su Completini Squadre Calcio 2.0!\n${nome}\n👉 ${link}`;
   window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`,'_blank');
