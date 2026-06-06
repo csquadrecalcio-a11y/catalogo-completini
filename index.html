@@ -1704,10 +1704,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
     🛒 Aggiungi al carrello
   </button>
   <button class="lb-share-btn" onclick="condividiLightbox()">📤 Condividi</button>
-  <a class="lb-order-btn" id="lb-order-btn" href="#" target="_blank">
-    <svg viewBox="0 0 24 24" width="15" height="15" fill="#fff" style="flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-    Ordina su WhatsApp
-  </a>
+  <a class="lb-order-btn" id="lb-order-btn" href="#" target="_blank" style="display:none"></a>
   <div id="lb-viewers" style="position:absolute;top:110px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.62);backdrop-filter:blur(5px);color:#fff;border-radius:20px;padding:5px 15px;font-size:11px;font-weight:700;white-space:nowrap;z-index:10;display:none;border:1px solid rgba(255,255,255,.15);">👀 <span id="lb-viewers-num">5</span> persone stanno guardando</div>
   <div class="lb-zoom-hint" id="lb-zoom-hint">Doppio click per zoom</div>
 </div>
@@ -5197,7 +5194,7 @@ function addGaranziaLightbox(){
   if(!lb||lb.querySelector('.garanzia-strip')) return;
   const div=document.createElement('div');
   div.className='garanzia-strip';
-  div.style.cssText='position:absolute;bottom:60px;left:50%;transform:translateX(-50%);width:90%;max-width:400px;z-index:10;pointer-events:none;';
+  div.style.cssText='position:absolute;bottom:92px;left:50%;transform:translateX(-50%);width:90%;max-width:400px;z-index:10;pointer-events:none;';
   const _mesi=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
   const _d1=new Date(); _d1.setDate(_d1.getDate()+12); // 2-3 gg fornitore + 10 gg spedizione
   const _d2=new Date(); _d2.setDate(_d2.getDate()+18); // 3 gg fornitore + 15 gg spedizione
