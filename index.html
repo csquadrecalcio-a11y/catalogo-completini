@@ -2935,7 +2935,7 @@ function startNazionaliCountdown(){
     const d=Math.floor(diff/86400000);
     const h=Math.floor((diff%86400000)/3600000);
     const m=Math.floor((diff%3600000)/60000);
-    el.textContent=d>0?`⏱ Mancano ${d} giorni e ${h}h — ordina subito, consegna garantita!`:`⏱ Mancano solo ${h}h e ${m} min — ORDINA ORA!`;
+    el.textContent=d>0?`⏱ Mancano ${d} giorni e ${h}h — ordina subito!`:`⏱ Mancano solo ${h}h e ${m} min — ORDINA ORA!`;
   }
   update();
   const iv=setInterval(()=>{if(!document.getElementById('nazUrgencyCountdown'))clearInterval(iv);else update();},60000);
