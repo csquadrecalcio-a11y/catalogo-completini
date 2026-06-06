@@ -759,6 +759,7 @@ body.dark .ordine-close{background:#333;color:#aaa;}
 
 /* ── PALLINO NUOVI ARRIVI SIDEBAR ── */
 .sb-new-dot{width:8px;height:8px;background:#e53935;border-radius:50%;flex-shrink:0;}
+.sb-hot-badge{display:inline-block;background:#e53935;color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:10px;margin-left:auto;letter-spacing:1px;animation:dot-pulse 1.4s ease infinite;}
 @keyframes dot-pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.6;transform:scale(1.4);}}
 .sb-new-dot{animation:dot-pulse 1.4s ease infinite;}
 
@@ -890,6 +891,9 @@ body.dark .search-foto-item{background:#1e1e1e;border-color:#333;}
 .lb-add-btn:hover{transform:translateX(-50%) translateY(-3px);box-shadow:0 8px 28px rgba(245,166,35,.8);}
 @media(max-width:768px){.lb-add-btn{padding:12px 24px;font-size:14px;bottom:16px;}}
 .lb-order-btn{position:absolute;top:16px;left:16px;background:#25d366;color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;text-decoration:none;transition:all .2s;z-index:10;}
+.lb-share-btn{position:absolute;bottom:24px;right:16px;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:50px;padding:11px 18px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:6px;white-space:nowrap;transition:all .25s;z-index:10;}
+.lb-share-btn:hover{background:#25d366;border-color:#25d366;}
+@media(max-width:768px){.lb-share-btn{font-size:12px;padding:9px 14px;bottom:16px;right:10px;}}
 .lb-order-btn:hover{background:#1ebe5d;transform:scale(1.05);}
 .lb-order-btn svg{width:18px;height:18px;fill:#fff;flex-shrink:0;}
 .lb-custom-btn{position:absolute;top:62px;left:16px;background:#0d47a1;color:#fff;border:none;border-radius:8px;padding:9px 16px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all .2s;z-index:10;}
@@ -1550,12 +1554,12 @@ body.dark .avvisa-box{background:#1e1e1e;}
   <div class="exit-backdrop" onclick="chiudiExit()"></div>
   <div class="exit-box">
     <button class="exit-close" onclick="chiudiExit()">✕</button>
-    <div style="font-size:48px;margin-bottom:12px;">👋</div>
-    <h2 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:#0d47a1;margin-bottom:8px;">Aspetta!</h2>
-    <p style="font-size:14px;color:#555;line-height:1.6;margin-bottom:20px;">Non hai trovato quello che cerchi? Dai un'occhiata alle FAQ o consulta la guida taglie! 👇</p>
-    <button onclick="chiudiExit();paginaFaq();" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#0d47a1;color:#fff;padding:14px 24px;border-radius:12px;font-size:15px;font-weight:800;border:none;cursor:pointer;width:100%;margin-bottom:12px;">
-      ❓ Vai alle FAQ
-    </button>
+    <div style="font-size:48px;margin-bottom:10px;">💬</div>
+    <h2 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:#0d47a1;margin-bottom:8px;">Aspetta prima di andare!</h2>
+    <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:20px;">Non hai trovato quello che cercavi? Scrivici su WhatsApp — rispondiamo in pochi minuti e ti aiutiamo a trovare la maglia giusta! 🏆</p>
+    <a href="https://wa.me/393792126743?text=Ciao!%20Stavo%20guardando%20il%20catalogo%20e%20vorrei%20informazioni" target="_blank" onclick="chiudiExit()" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#25d366;color:#fff;padding:14px 24px;border-radius:12px;font-size:15px;font-weight:800;border:none;cursor:pointer;width:100%;margin-bottom:12px;text-decoration:none;">
+      💬 Scrivici su WhatsApp
+    </a>
     <button onclick="chiudiExit()" style="background:none;border:none;color:#aaa;font-size:13px;cursor:pointer;text-decoration:underline;">No grazie, continuo a guardare</button>
   </div>
 </div>
@@ -1666,6 +1670,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
     <svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
     🛒 Aggiungi al carrello
   </button>
+  <button class="lb-share-btn" onclick="condividiLightbox()">📤 Condividi</button>
   <a class="lb-order-btn" id="lb-order-btn" href="#" style="display:none"></a>
   <div class="lb-zoom-hint" id="lb-zoom-hint">Doppio click per zoom</div>
 </div>
@@ -2257,10 +2262,11 @@ function buildSidebar(){
   let html='';
   CATALOG.forEach((cat,i)=>{
     const isNew=cat.name==='Nuovi Arrivi';
+    const isHot=cat.name==='Nazionali 2026/2027';
     html+=`<div class="sb-item" id="sb-${i}" onclick="openCatSidebar(${i})">
       <span class="sb-flag">${cat.flag}</span>
       <span class="sb-name">${cat.name}</span>
-      ${isNew?'<span class="sb-new-dot"></span>':'<span class="sb-arrow">›</span>'}
+      ${isNew?'<span class="sb-new-dot"></span>':isHot?'<span class="sb-hot-badge">LIVE</span>':'<span class="sb-arrow">›</span>'}
     </div>`;
     if(cat.subs&&cat.subs.length){
       html+=`<div class="sb-sub" id="sb-sub-${i}">`;
@@ -2914,14 +2920,38 @@ function openCategory(ci,fromPopstate){
   navStack=[{name:cat.name,type:'cat',cat,ci}];
   updateBreadcrumb();setSidebarActive(ci);
   window.scrollTo(0,0);
-  renderCategory(cat,ci).then(()=>window.scrollTo(0,0));
+  renderCategory(cat,ci).then(()=>{window.scrollTo(0,0);setTimeout(startNazionaliCountdown,400);});
 }
 function openCatSidebar(ci){openCategory(ci);if(window.innerWidth<=768)toggleSidebar();}
 function openSubSidebar(ci,si){openSub(ci,si);if(window.innerWidth<=768)toggleSidebar();}
 
+function startNazionaliCountdown(){
+  const el=document.getElementById('nazUrgencyCountdown');
+  if(!el) return;
+  function update(){
+    const target=new Date('2026-06-11T22:00:00Z');
+    const diff=target-new Date();
+    if(diff<=0){el.textContent='🔴 I Mondiali sono iniziati! Guarda le maglie nazionali';return;}
+    const d=Math.floor(diff/86400000);
+    const h=Math.floor((diff%86400000)/3600000);
+    const m=Math.floor((diff%3600000)/60000);
+    el.textContent=d>0?`⏱ Mancano ${d} giorni e ${h}h — ordina subito, consegna garantita!`:`⏱ Mancano solo ${h}h e ${m} min — ORDINA ORA!`;
+  }
+  update();
+  const iv=setInterval(()=>{if(!document.getElementById('nazUrgencyCountdown'))clearInterval(iv);else update();},60000);
+}
+
 async function renderCategory(cat,ci){
   const main=document.getElementById('main');
-  const back=`<button class="back-btn" onclick="goHome()">← Indietro</button>`;
+  const nazBanner=cat.name==='Nazionali 2026/2027'?`
+  <div style="background:linear-gradient(135deg,#b71c1c,#e53935);padding:12px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:0;">
+    <span style="font-size:22px;">🏆</span>
+    <div style="flex:1;min-width:160px;">
+      <div style="font-size:14px;font-weight:800;color:#fff;letter-spacing:.3px;">⚡ MONDIALI 2026 — ORDINA SUBITO!</div>
+      <div id="nazUrgencyCountdown" style="font-size:12px;color:rgba(255,255,255,.9);margin-top:2px;">Calcolo...</div>
+    </div>
+  </div>`:'';
+  const back=`<button class="back-btn" onclick="goHome()">← Indietro</button>`+nazBanner;
 
   if(cat.subs===null){
     if(!cat.id){main.innerHTML=back+`<div class="loading">Prossimamente...</div>`;return;}
@@ -4501,8 +4531,19 @@ function chiudiWelcome(){
   document.getElementById('welcomePopup').classList.remove('active');
 }
 
-// ── EXIT INTENT (disabilitato) ───────────────────────────────────────────────
+// ── EXIT INTENT ──────────────────────────────────────────────────────────────
 function chiudiExit(){document.getElementById('exitPopup').classList.remove('active');}
+(function(){
+  let shown=false;
+  document.addEventListener('mouseleave',function(e){
+    if(shown) return;
+    if(e.clientY>10) return; // solo quando il mouse esce dalla parte alta (verso barra browser)
+    const popup=document.getElementById('exitPopup');
+    if(!popup||document.getElementById('lightbox')?.classList.contains('active')) return;
+    shown=true;
+    popup.classList.add('active');
+  });
+})();
 
 // ── PAGINA CHI SIAMO ──────────────────────────────────────────────────────────
 function paginaChiSiamo(){
@@ -5939,6 +5980,15 @@ function apriCondividi(e,idx){
 
 function chiudiCondividi(){
   document.getElementById('shareModal').classList.remove('active');
+}
+
+function condividiLightbox(){
+  const photo=currentPhotos[currentPhotoIdx];
+  const base=location.origin+location.pathname;
+  const link=photo?`${base}#photo-${photo.id}`:base;
+  const nome=photo?.name||'questa maglia';
+  const msg=`👕 Guarda questa maglia su Completini Squadre Calcio 2.0!\n${nome}\n👉 ${link}`;
+  window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`,'_blank');
 }
 
 function condividiWhatsApp(){
