@@ -5733,10 +5733,10 @@ function apriAddCart(){
           c.style.display='none';c.classList.remove('sel');
         }
       } else if(_èKit){
-        // Nome contiene "kit" → Solo Kit Bambino 35€ + Kit Adulto 40€ (no Maglia, no PV)
-        if(val==='kit bambino'){
+        // Nome contiene "kit" → Maglia + Kit Bambino + Kit Adulto (Maglia di default)
+        if(val==='maglia'){
           c.style.display='';c.classList.add('sel');
-        } else if(val==='kit adulto'){
+        } else if(val==='kit bambino'||val==='kit adulto'){
           c.style.display='';c.classList.remove('sel');
         } else {
           c.style.display='none';c.classList.remove('sel');
@@ -5757,12 +5757,12 @@ function apriAddCart(){
 
     const _bambGrp=document.querySelector('#addCartTaglia optgroup[label*="Bambino"]');
     const _adultGrp=document.querySelector('#addCartTaglia optgroup[label*="Adulto"]');
-    // Bambino: visibile per kid kit o kit generico (Kit Bambino selezionato di default)
-    if(_bambGrp) _bambGrp.style.display=(_èKidKit||(_èKit&&!_èPV&&!_isLV()))?'':'none';
-    // Adulto: nascosto per kit (Kit Bambino selezionato di default); visibile per tutto il resto
-    if(_adultGrp) _adultGrp.style.display=(_èKit||_èKidKit)?'none':'';
-    // Kit generico: aggiorna prezzo a 35€ (Kit Bambino di default)
-    if(_èKit && !_èKidKit && !_èPV && !_isLV()){
+    // Bambino: visibile solo per kit bambini (unica opzione) — per kit generico si attiva via selTipoCard
+    if(_bambGrp) _bambGrp.style.display=(_èKidKit)?'':'none';
+    // Adulto: nascosto solo per kit bambini; visibile per tutto il resto (anche kit generico, Maglia default)
+    if(_adultGrp) _adultGrp.style.display=(_èKidKit)?'none':'';
+    // Kid kit: aggiorna prezzo a 35€ (Kit Bambino selezionato di default)
+    if(_èKidKit && !_èPV && !_isLV()){
       document.getElementById('addCartPrezzoTot').textContent='35€';
       aggiornaBarrato(35);
       document.getElementById('addCartTaglia').value='';
