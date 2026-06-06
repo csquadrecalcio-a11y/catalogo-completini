@@ -5290,10 +5290,25 @@ function apriAddCart(){
     const _èPV=_nomeF.includes(' pv')||_nomeF.includes('_pv')||_nomeF.endsWith('pv')||_nomeF.includes('player version');
     const _èKit=_nomeF.includes('kit');
     const _èKidKit=_nomeF.includes('kids')||_nomeF.includes('kid kit')||_nomeF.includes('kids kit');
+    const _èAnime=_nomeF.includes('anime')||_nomeF.includes('manga')||_nomeF.includes('dragon ball')||_nomeF.includes('naruto')||_nomeF.includes('one piece');
 
     document.querySelectorAll('.tipo-card').forEach(c=>{
       const val=(c.querySelector('input[name="addCartTipo"]')?.value||'').toLowerCase();
-      if(_èPV){
+      if(_èAnime && !_èKit && !_èKidKit){
+        // Anime adulti → solo Maglia 35€
+        if(val==='maglia'){
+          c.style.display='';c.classList.add('sel');
+          c.dataset.prezzo='35';
+          const titolo=c.querySelector('div[style*="font-weight:800"]');
+          if(titolo) titolo.textContent='Maglia';
+          const prezzoDiv=c.querySelector('div[style*="font-weight:900"]');
+          if(prezzoDiv) prezzoDiv.textContent='35€';
+          document.getElementById('addCartPrezzoTot').textContent='35€';
+          aggiornaBarrato(35);
+        } else {
+          c.style.display='none';c.classList.remove('sel');
+        }
+      } else if(_èPV){
         // Solo Player Version (con o senza LV)
         if(val==='player version'){
           c.style.display='';c.classList.add('sel');
