@@ -960,6 +960,16 @@ body.dark .scarpa-num-btn{background:#2a2a2a;border-color:#444;color:#e0e0e0;}
 body.dark .tipo-card{background:#2a2a2a;border-color:#444;}
 .tipo-card:hover,.tipo-card.sel{border-color:#0d47a1;background:#e3f2fd;transform:translateY(-2px);box-shadow:0 4px 14px rgba(13,71,161,.15);}
 body.dark .tipo-card.sel{background:#1a2a4a;border-color:#1565c0;}
+/* Fix dark mode: testi con colori scuri inline diventano illeggibili */
+body.dark .add-cart-box [style*="color:#222"]{color:#e0e0e0!important;}
+body.dark .add-cart-box [style*="color:#888"]{color:#aaa!important;}
+body.dark .add-cart-box [style*="color:#555"]{color:#bbb!important;}
+body.dark .add-cart-box [style*="color:#444"]{color:#ccc!important;}
+body.dark .add-cart-box [style*="color:#666"]{color:#bbb!important;}
+body.dark .add-cart-box [style*="color:#777"]{color:#aaa!important;}
+body.dark .add-cart-box select,body.dark .add-cart-box input[type="text"],body.dark .add-cart-box input[type="number"]{background:#2a2a2a;color:#e0e0e0;border-color:#555;}
+body.dark .add-cart-box [style*="border-top:1px solid #f0f0f0"]{border-top-color:#333!important;}
+body.dark .add-cart-box [style*="border-left:1px solid #ececec"]{border-left-color:#333!important;}
 body.dark .patch-btn.sel{background:#1a2a4a;}
 
 /* ── COME ORDINARE ── */
@@ -1976,6 +1986,9 @@ body.dark .avvisa-box{background:#1e1e1e;}
       </div>
     </div>
     <input type="checkbox" id="addCartKit" style="display:none">
+    <div style="text-align:center;font-size:11.5px;color:#888;margin-bottom:10px;background:#f8f9fa;border-radius:8px;padding:8px 12px;">
+      📅 Consegna stimata: <strong id="addCartConsegna" style="color:#0d47a1;">12–18 giorni</strong> dalla conferma
+    </div>
     <button id="btnAggiungi" onclick="confermAggiungi()"
       style="width:100%;background:linear-gradient(135deg,#25d366,#1ebe5d);color:#fff;border:none;border-radius:12px;padding:16px;font-size:16px;font-weight:800;cursor:pointer;transition:all .2s;box-shadow:0 4px 18px rgba(37,211,102,.4);letter-spacing:.3px;">
       ✅ Conferma e vai al carrello
@@ -5736,6 +5749,14 @@ function apriAddCart(){
     if(_oXXXXL) _oXXXXL.style.display=_èPV?'none':'';
   }
   document.getElementById('addCartModal').classList.add('active');
+  // Aggiorna stima consegna con date reali
+  (function(){
+    const _m=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
+    const _d1=new Date(); _d1.setDate(_d1.getDate()+12);
+    const _d2=new Date(); _d2.setDate(_d2.getDate()+18);
+    const el=document.getElementById('addCartConsegna');
+    if(el) el.textContent=`${_d1.getDate()} ${_m[_d1.getMonth()]}–${_d2.getDate()} ${_m[_d2.getMonth()]}`;
+  })();
 }
 
 function chiudiAddCart(){
