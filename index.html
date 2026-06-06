@@ -110,6 +110,7 @@ body.dark .faq-q.open{background:#1a2a4a;color:#90caf9;}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:13px;color:#555;line-height:1.7;background:#fff;padding:0 20px;}
 body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .faq-a.open{max-height:600px;padding:0 20px 16px;}
+.faq-arr-body.open{max-height:300px;}
 
 /* ── WISHLIST ── */
 .photo-item{position:relative;}
@@ -1941,6 +1942,25 @@ body.dark .avvisa-box{background:#1e1e1e;}
       ✅ Conferma e vai al carrello
     </button>
 
+    <!-- TRUST BADGES -->
+    <div style="display:flex;justify-content:center;gap:0;margin-top:14px;padding-top:12px;border-top:1px solid #f0f0f0;">
+      <div style="flex:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:3px;">
+        <span style="font-size:20px;">🔒</span>
+        <span style="font-size:10px;font-weight:700;color:#444;">Pagamento</span>
+        <span style="font-size:10px;color:#777;">Sicuro</span>
+      </div>
+      <div style="flex:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:3px;border-left:1px solid #ececec;border-right:1px solid #ececec;">
+        <span style="font-size:20px;">📦</span>
+        <span style="font-size:10px;font-weight:700;color:#444;">Spedizione</span>
+        <span style="font-size:10px;color:#777;">Tracciata</span>
+      </div>
+      <div style="flex:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:3px;">
+        <span style="font-size:20px;">🔄</span>
+        <span style="font-size:10px;font-weight:700;color:#444;">Cambio</span>
+        <span style="font-size:10px;color:#777;">Facile</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -2581,7 +2601,7 @@ function goHome(fromPopstate){
     <div class="reviews-header">
       <div class="reviews-stars-big">★★★★★</div>
       <h2>Cosa dicono i nostri clienti</h2>
-      <p>Oltre 500 clienti soddisfatti dal 2018</p>
+      <p>Oltre 1.500 clienti soddisfatti dal 2018</p>
     </div>
     <div class="reviews-grid">
       <div class="review-card">
@@ -2804,6 +2824,43 @@ function goHome(fromPopstate){
     </div>
   </div>
 
+  <!-- FAQ BANNER HOME -->
+  <div style="background:#fff;border-top:1px solid #e8e8e8;padding:36px 24px;">
+    <div style="max-width:720px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:20px;">
+        <div style="display:inline-block;background:#e3f2fd;color:#0d47a1;font-size:12px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:10px;">HAI DOMANDE?</div>
+        <h2 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#111;margin-bottom:6px;">Domande Frequenti</h2>
+        <p style="color:#888;font-size:13px;">Le risposte alle domande più comuni dei nostri clienti</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+        <div onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.faq-arr').style.transform=this.nextElementSibling.classList.contains('open')?'rotate(180deg)':'rotate(0deg)'" style="display:flex;align-items:center;justify-content:space-between;padding:15px 20px;background:#f5f9ff;border-radius:10px;cursor:pointer;border:1px solid #dbe8ff;">
+          <span style="font-size:14px;font-weight:600;color:#0d47a1;">📦 Quanto ci vuole per la consegna?</span>
+          <span class="faq-arr" style="font-size:18px;transition:transform .3s;flex-shrink:0;">⌄</span>
+        </div>
+        <div class="faq-arr-body" style="max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:13px;color:#555;line-height:1.7;background:#fff;padding:0 20px;border-radius:0 0 10px 10px;">
+          <div style="padding-bottom:14px;">In genere <strong>7-14 giorni lavorativi</strong> dalla conferma dell'ordine. Ogni spedizione viene tracciata e riceverai aggiornamenti direttamente su WhatsApp.</div>
+        </div>
+        <div onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.faq-arr').style.transform=this.nextElementSibling.classList.contains('open')?'rotate(180deg)':'rotate(0deg)'" style="display:flex;align-items:center;justify-content:space-between;padding:15px 20px;background:#f5f9ff;border-radius:10px;cursor:pointer;border:1px solid #dbe8ff;">
+          <span style="font-size:14px;font-weight:600;color:#0d47a1;">✏️ Posso personalizzare la maglia?</span>
+          <span class="faq-arr" style="font-size:18px;transition:transform .3s;flex-shrink:0;">⌄</span>
+        </div>
+        <div class="faq-arr-body" style="max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:13px;color:#555;line-height:1.7;background:#fff;padding:0 20px;border-radius:0 0 10px 10px;">
+          <div style="padding-bottom:14px;"><strong>Sì, è incluso nel prezzo!</strong> Puoi aggiungere nome, numero e patch (es. Serie A, Champions League) senza nessun costo aggiuntivo. Specifica i dettagli nel modulo d'ordine.</div>
+        </div>
+        <div onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.faq-arr').style.transform=this.nextElementSibling.classList.contains('open')?'rotate(180deg)':'rotate(0deg)'" style="display:flex;align-items:center;justify-content:space-between;padding:15px 20px;background:#f5f9ff;border-radius:10px;cursor:pointer;border:1px solid #dbe8ff;">
+          <span style="font-size:14px;font-weight:600;color:#0d47a1;">💶 Come si paga?</span>
+          <span class="faq-arr" style="font-size:18px;transition:transform .3s;flex-shrink:0;">⌄</span>
+        </div>
+        <div class="faq-arr-body" style="max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:13px;color:#555;line-height:1.7;background:#fff;padding:0 20px;border-radius:0 0 10px 10px;">
+          <div style="padding-bottom:14px;">Accettiamo <strong>PayPal, bonifico bancario e pagamento alla consegna</strong> (disponibile per ordini fino a 80€). Tutti i pagamenti sono sicuri. Per dubbi scrivici su WhatsApp.</div>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <button onclick="paginaFaq()" style="background:linear-gradient(135deg,#0d47a1,#1565c0);color:#fff;border:none;border-radius:10px;padding:12px 28px;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 14px rgba(13,71,161,.3);">❓ Vedi tutte le FAQ →</button>
+      </div>
+    </div>
+  </div>
+
   <!-- IL NOSTRO BRAND -->
   <div style="background:linear-gradient(135deg,#0a1628 0%,#0d47a1 100%);padding:40px 24px;">
     <div style="max-width:900px;margin:0 auto;text-align:center;">
@@ -2812,7 +2869,7 @@ function goHome(fromPopstate){
       <p style="color:rgba(255,255,255,.7);font-size:13px;margin-bottom:28px;">Dal 2018 portiamo le maglie dei tuoi campioni direttamente a casa tua</p>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;max-width:600px;margin:0 auto 32px;">
         <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:18px 12px;text-align:center;">
-          <div style="font-size:26px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">1200+</div>
+          <div style="font-size:26px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">2.000+</div>
           <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:4px;letter-spacing:1px;text-transform:uppercase;">Ordini</div>
         </div>
         <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:18px 12px;text-align:center;">
@@ -4458,6 +4515,21 @@ function paginaChiSiamo(){
       <div style="color:rgba(255,255,255,.7);font-size:14px;letter-spacing:2px;">DAL 2018 • IL TUO NEGOZIO DI FIDUCIA</div>
     </div>
 
+    <!-- MESSAGGIO PERSONALE -->
+    <div style="background:linear-gradient(135deg,#fff8e1,#fffde7);border-radius:16px;padding:24px 28px;margin-bottom:20px;border:1px solid #ffe082;position:relative;overflow:hidden;">
+      <div style="position:absolute;right:-10px;top:-10px;font-size:80px;opacity:.07;transform:rotate(15deg);">⚽</div>
+      <div style="display:flex;align-items:flex-start;gap:16px;">
+        <div style="width:52px;height:52px;background:linear-gradient(135deg,var(--gold),var(--gold2));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.12);">👋</div>
+        <div>
+          <div style="font-size:13px;font-weight:800;color:#b8860b;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Un messaggio da Alberto</div>
+          <p style="font-size:14px;color:#555;line-height:1.8;margin:0;">
+            Ho aperto questo negozio nel 2018 con una domanda semplice: <em>«Perché è così difficile trovare una bella maglia da calcio a un prezzo onesto?»</em> Da appassionato di calcio ho iniziato a costruire rapporti diretti con i produttori, tagliando tutti i ricarichi inutili. Oggi gestisco personalmente ogni ordine — rispondo a ogni messaggio WhatsApp, seguo ogni spedizione fino alla consegna. Non sono una grande azienda: sono una persona che ama questo sport e vuole che anche tu possa sentirti in campo con la maglia giusta.
+          </p>
+          <div style="margin-top:12px;font-size:13px;font-weight:700;color:#b8860b;">— Alberto, fondatore CSC 2.0 ⚽</div>
+        </div>
+      </div>
+    </div>
+
     <!-- STORIA -->
     <div style="background:#fff;border-radius:16px;padding:28px;margin-bottom:20px;border:1px solid #e8e8e8;">
       <h2 style="font-family:'Montserrat',sans-serif;font-size:19px;font-weight:900;color:#0d47a1;margin-bottom:16px;display:flex;align-items:center;gap:10px;">📖 La nostra storia</h2>
@@ -4468,7 +4540,7 @@ function paginaChiSiamo(){
         Il nostro segreto? Lavoriamo <strong>direttamente con le fabbriche produttrici</strong>, eliminando tutti gli intermediari. Questo ci permette di offrire maglie di ottima qualità a prezzi che nessun negozio fisico può eguagliare. La merce arriva direttamente alla fonte, senza ricarichi inutili.
       </p>
       <p style="font-size:14px;color:#444;line-height:1.9;">
-        Oggi, dopo oltre <strong>6 anni di attività</strong> e più di <strong>1200 ordini completati</strong>, siamo orgogliosi di essere il negozio di maglie da calcio preferito da tanti appassionati. Ogni ordine viene seguito personalmente — rispondiamo sempre su WhatsApp, perché per noi ogni cliente è importante.
+        Oggi, dopo oltre <strong>8 anni di attività</strong> e più di <strong>2.000 ordini completati</strong>, siamo orgogliosi di essere il negozio di maglie da calcio preferito da tanti appassionati italiani. Ogni ordine viene seguito personalmente — rispondiamo sempre su WhatsApp, perché per noi ogni cliente è importante.
       </p>
     </div>
 
@@ -4479,12 +4551,12 @@ function paginaChiSiamo(){
         <div style="font-size:11px;color:rgba(255,255,255,.85);margin-top:4px;text-transform:uppercase;letter-spacing:1px;">Online da</div>
       </div>
       <div style="background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:14px;padding:20px 14px;text-align:center;">
-        <div style="font-size:28px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">1200+</div>
+        <div style="font-size:28px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">2.000+</div>
         <div style="font-size:11px;color:rgba(255,255,255,.85);margin-top:4px;text-transform:uppercase;letter-spacing:1px;">Ordini</div>
       </div>
       <div style="background:linear-gradient(135deg,#2e7d32,#43a047);border-radius:14px;padding:20px 14px;text-align:center;">
-        <div style="font-size:28px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">500+</div>
-        <div style="font-size:11px;color:rgba(255,255,255,.85);margin-top:4px;text-transform:uppercase;letter-spacing:1px;">Maglie</div>
+        <div style="font-size:28px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">1.500+</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.85);margin-top:4px;text-transform:uppercase;letter-spacing:1px;">Clienti</div>
       </div>
       <div style="background:linear-gradient(135deg,#c62828,#e53935);border-radius:14px;padding:20px 14px;text-align:center;">
         <div style="font-size:28px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">★ 5.0</div>
