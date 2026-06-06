@@ -5677,18 +5677,17 @@ function apriAddCart(){
     document.getElementById('addCartPrezzoTot').textContent=_prezzoBase+'€';
     aggiornaBarrato(_prezzoBase);
 
-    // Rilevamento tipo prodotto dal nome file
+    // Rilevamento tipo prodotto dal nome file — solo 4 codici speciali
     const _nomeF=(photo.name||'').toLowerCase();
-    const _èPV=_nomeF.includes('player version')||_nomeF.includes(' pv')||_nomeF.includes('_pv')||_nomeF.endsWith('pv');
-    const _èKidKit=_nomeF.includes('kit bambini')||_nomeF.includes('kids')||_nomeF.includes('kid kit')||_nomeF.includes('bambini')||_nomeF.includes('kit bambino');
-    const _èKit=_nomeF.includes('kit'); // include anche kid kit (gestito sopra per priorità)
-    const _èEsplicMaglia=_nomeF.includes('maglia'); // "maglia" esplicito → solo Maglia
-    const _èAnime=_nomeF.includes('anime')||_nomeF.includes('manga')||_nomeF.includes('dragon ball')||_nomeF.includes('naruto')||_nomeF.includes('one piece');
+    const _èPV     =_nomeF.includes('player version')||_nomeF.includes(' pv')||_nomeF.includes('_pv')||_nomeF.endsWith('pv');
+    const _èKidKit =_nomeF.includes('kit bambini')||_nomeF.includes('kids')||_nomeF.includes('kid kit')||_nomeF.includes('bambini')||_nomeF.includes('kit bambino');
+    const _èAnime  =_nomeF.includes('anime')||_nomeF.includes('manga')||_nomeF.includes('dragon ball')||_nomeF.includes('naruto')||_nomeF.includes('one piece');
+    // Tutto il resto (maglia, kit, nessun codice) → Maglia + Kit Bambino + Kit Adulto
 
     document.querySelectorAll('.tipo-card').forEach(c=>{
       const val=(c.querySelector('input[name="addCartTipo"]')?.value||'').toLowerCase();
-      if(_èAnime && !_èKit && !_èKidKit){
-        // Anime adulti → solo Maglia 35€
+      if(_èAnime && !_èKidKit){
+        // Anime → solo Maglia 35€
         if(val==='maglia'){
           c.style.display='';c.classList.add('sel');
           c.dataset.prezzo='35';
@@ -5702,7 +5701,7 @@ function apriAddCart(){
           c.style.display='none';c.classList.remove('sel');
         }
       } else if(_èPV){
-        // Solo Player Version (con o senza LV)
+        // Solo Player Version (35€ o 40€ con manica lunga)
         if(val==='player version'){
           c.style.display='';c.classList.add('sel');
           const _pvPrezzo=35+(_isLV()?5:0);
@@ -5712,7 +5711,7 @@ function apriAddCart(){
           c.style.display='none';c.classList.remove('sel');
         }
       } else if(_isLV()){
-        // Solo Maglia a maniche lunghe → solo card Maglia a 35€
+        // Solo Maglia Manica Lunga 35€
         if(val==='maglia'){
           c.style.display='';c.classList.add('sel');
           c.dataset.prezzo='35';
@@ -5726,28 +5725,17 @@ function apriAddCart(){
           c.style.display='none';c.classList.remove('sel');
         }
       } else if(_èKidKit){
-        // Nome contiene "kids" → solo Kit Bambino 35€
+        // Solo Kit Bambino 35€
         if(val==='kit bambino'){
           c.style.display='';c.classList.add('sel');
         } else {
           c.style.display='none';c.classList.remove('sel');
         }
-      } else if(_èKit){
-        // Nome contiene "kit" → Maglia + Kit Bambino + Kit Adulto (Maglia di default)
+      } else {
+        // DEFAULT: Maglia 30€ + Kit Bambino 35€ + Kit Adulto 40€ — cliente sceglie
         if(val==='maglia'){
           c.style.display='';c.classList.add('sel');
         } else if(val==='kit bambino'||val==='kit adulto'){
-          c.style.display='';c.classList.remove('sel');
-        } else {
-          c.style.display='none';c.classList.remove('sel');
-        }
-      } else {
-        // Nessun codice specifico riconosciuto:
-        // → se ha "maglia" esplicito: solo Maglia 30€
-        // → altrimenti: Maglia + Kit Bambino + Kit Adulto (cliente sceglie)
-        if(val==='maglia'){
-          c.style.display='';c.classList.add('sel');
-        } else if(!_èEsplicMaglia && (val==='kit bambino'||val==='kit adulto')){
           c.style.display='';c.classList.remove('sel');
         } else {
           c.style.display='none';c.classList.remove('sel');
