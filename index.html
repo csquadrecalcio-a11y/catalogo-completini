@@ -6117,7 +6117,7 @@ function inviaOrdine(){
 function _isLV(){
   const photo=currentPhotos[currentPhotoIdx];
   const n=(photo&&photo.name||'').toLowerCase();
-  return n.includes(' lv')||n.includes('_lv')||n.endsWith('lv')||n.includes(' lv ')||n.includes('maniche lunghe');
+  return n.includes('manica lunga')||n.includes('maniche lunghe')||n.includes(' lv')||n.includes('_lv')||n.endsWith('lv');
 }
 function aggiornaPrezzLV(){
   const cb=document.getElementById('addCartLV');
