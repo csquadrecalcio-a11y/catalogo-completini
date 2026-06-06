@@ -5149,7 +5149,7 @@ function addGaranziaLightbox(){
   if(!lb||lb.querySelector('.garanzia-strip')) return;
   const div=document.createElement('div');
   div.className='garanzia-strip';
-  div.style.cssText='position:absolute;bottom:60px;left:50%;transform:translateX(-50%);width:90%;max-width:400px;z-index:10;';
+  div.style.cssText='position:absolute;bottom:60px;left:50%;transform:translateX(-50%);width:90%;max-width:400px;z-index:10;pointer-events:none;';
   div.innerHTML=`
     <div class="garanzia-item"><span>🚚</span>Spedizione gratis</div>
     <div class="garanzia-item"><span>✏️</span>Personaliz. gratis</div>
