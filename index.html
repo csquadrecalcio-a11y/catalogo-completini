@@ -328,7 +328,7 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 }
 
 /* ── BANNER NUOVI ARRIVI ── */
-.na-banner{position:relative;width:100%;height:220px;border-radius:10px;overflow:hidden;cursor:pointer;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,.25);}
+.na-banner{position:relative;width:100%;height:280px;border-radius:10px;overflow:hidden;cursor:pointer;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,.25);}
 .na-banner img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;transition:transform .5s ease;}
 .na-banner:hover img{transform:scale(1.04);}
 .na-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,rgba(0,10,40,.3) 100%);}
@@ -340,7 +340,7 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .na-banner:hover .na-btn{background:#0d47a1;color:#fff;}
 .na-shine{position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.12) 50%,transparent 70%);transition:left .6s ease;}
 .na-banner:hover .na-shine{left:130%;}
-@media(max-width:600px){.na-banner{height:160px;}.na-content{padding:16px 20px;}.na-btn{display:none;}}
+@media(max-width:600px){.na-banner{height:200px;}.na-content{padding:16px 20px;}.na-btn{display:none;}}
 
 /* ── BANNER VINTAGE ── */
 .vintage-banner{position:relative;width:100%;height:300px;overflow:hidden;cursor:pointer;margin-bottom:24px;box-shadow:0 8px 40px rgba(0,0,0,.5);}
@@ -1270,7 +1270,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
   .hero-btn-main{padding:12px 20px;font-size:13px;width:100%;}
 
   /* ── BANNER NUOVI ARRIVI ── */
-  .na-banner{height:140px;border-radius:0 !important;margin-top:0;}
+  .na-banner{height:180px;border-radius:0 !important;margin-top:0;}
   .na-title{font-size:22px;}
   .na-content{padding:14px 16px;}
   .na-btn{display:none;}
@@ -2357,6 +2357,35 @@ function goHome(fromPopstate){
     </div>
   </div>
 
+  <!-- TRUST STRIP -->
+  <div style="background:#f8f9fa;border-bottom:1px solid #e8e8e8;padding:9px 20px;">
+    <div style="max-width:900px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:28px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#333;font-weight:700;">🚚 Spedizione gratuita</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#333;font-weight:700;">✏️ Personalizzazione inclusa</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#333;font-weight:700;">⭐ Dal 2018</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#333;font-weight:700;">💬 Risposta in 5 min</div>
+    </div>
+  </div>
+
+  <!-- BANNER MONDIALI 2026 — in cima per urgenza -->
+  <div class="mondiali-banner" onclick="openCategory(7)" style="margin-bottom:0;border-radius:0;">
+    <img src="coppa-del-mondo.webp" alt="Mondiali 2026">
+    <div class="mondiali-overlay"></div>
+    <div class="mondiali-particles" id="mondialiParticles"></div>
+    <div class="mondiali-content">
+      <div class="mondiali-badge" style="background:rgba(255,50,50,.25);border-color:rgba(255,100,100,.7);color:#ff6b6b;animation:mondialiBadgePulse 1.2s ease infinite;">🔴 ORDINA ORA — CONSEGNA PRIMA DEL FISCHIO!</div>
+      <div class="mondiali-title">Mondiali <span>2026</span></div>
+      <div class="mondiali-sub">USA &bull; Canada &bull; Messico</div>
+      <div class="mondiali-countdown">
+        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mDays">--</div><div class="mondiali-count-label">Giorni</div></div>
+        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mHours">--</div><div class="mondiali-count-label">Ore</div></div>
+        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mMins">--</div><div class="mondiali-count-label">Min</div></div>
+        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mSecs">--</div><div class="mondiali-count-label">Sec</div></div>
+      </div>
+      <button class="mondiali-btn">🌍 Vedi Maglie Nazionali →</button>
+    </div>
+  </div>
+
   <!-- BANNER SCONTI -->
   <div onclick="paginaPrezzi()" style="background:linear-gradient(135deg,#0d47a1 0%,#1565c0 50%,#0d47a1 100%);border-radius:0;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;flex-wrap:wrap;gap:10px;margin-bottom:0;">
     <div style="display:flex;align-items:center;gap:14px;">
@@ -2378,25 +2407,6 @@ function goHome(fromPopstate){
       <div class="na-title">Nuovi Arrivi</div>
       <div class="na-sub">Scopri la nuova collezione</div>
       <button class="na-btn">Vedi ora →</button>
-    </div>
-  </div>
-
-  <!-- BANNER MONDIALI 2026 -->
-  <div class="mondiali-banner" onclick="openCategory(7)">
-    <img src="coppa-del-mondo.webp" alt="Mondiali 2026">
-    <div class="mondiali-overlay"></div>
-    <div class="mondiali-particles" id="mondialiParticles"></div>
-    <div class="mondiali-content">
-      <div class="mondiali-badge">🏆 Evento Esclusivo</div>
-      <div class="mondiali-title">Mondiali <span>2026</span></div>
-      <div class="mondiali-sub">USA &bull; Canada &bull; Messico</div>
-      <div class="mondiali-countdown">
-        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mDays">--</div><div class="mondiali-count-label">Giorni</div></div>
-        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mHours">--</div><div class="mondiali-count-label">Ore</div></div>
-        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mMins">--</div><div class="mondiali-count-label">Min</div></div>
-        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mSecs">--</div><div class="mondiali-count-label">Sec</div></div>
-      </div>
-      <button class="mondiali-btn">🌍 Vedi Maglie Nazionali →</button>
     </div>
   </div>
 
@@ -2495,7 +2505,7 @@ function goHome(fromPopstate){
         <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px;">
           <div style="position:relative;flex-shrink:0;">
             <img src="inter.png" alt="Inter" style="width:90px;height:110px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));">
-            <div class="featured-inter-stock" id="interStock" style="font-size:10px;padding:4px 10px;">⚠️ Solo <span id="interStockNum">9</span> pz!</div>
+            <div class="featured-inter-stock" id="interStock" style="font-size:10px;padding:4px 10px;">⚠️ Solo <span id="interStockNum">${Math.floor(Math.random()*7)+5}</span> pz!</div>
           </div>
           <div>
             <div class="featured-inter-label">🔵⚫ FC INTER</div>
@@ -2504,7 +2514,7 @@ function goHome(fromPopstate){
           </div>
         </div>
         <button class="featured-inter-btn" onclick="apriMagliaInter()" style="margin-bottom:6px;">🛒 Ordina subito</button>
-        <div class="featured-inter-urgency" id="interUrgency">⏳ <strong>3 persone</strong> la stanno guardando</div>
+        <div class="featured-inter-urgency" id="interUrgency">⏳ <strong>${Math.floor(Math.random()*4)+2} persone</strong> la stanno guardando</div>
       </div>
 
       <!-- JUVENTUS -->
@@ -2512,7 +2522,7 @@ function goHome(fromPopstate){
         <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px;">
           <div style="position:relative;flex-shrink:0;">
             <img src="juve-featured.jpg" alt="Juventus" style="width:90px;height:110px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));">
-            <div class="featured-inter-stock" style="font-size:10px;padding:4px 10px;background:linear-gradient(135deg,#111,#333);">⚠️ Solo <span>7</span> pz!</div>
+            <div class="featured-inter-stock" style="font-size:10px;padding:4px 10px;background:linear-gradient(135deg,#111,#333);">⚠️ Solo <span>${Math.floor(Math.random()*6)+4}</span> pz!</div>
           </div>
           <div>
             <div class="featured-inter-label" style="color:#aaa;">⚫⚪ JUVENTUS</div>
@@ -2521,7 +2531,7 @@ function goHome(fromPopstate){
           </div>
         </div>
         <button class="featured-inter-btn" onclick="apriMagliaJuve()" style="background:linear-gradient(135deg,#222,#444);box-shadow:0 4px 18px rgba(0,0,0,.4);margin-bottom:6px;">🛒 Ordina subito</button>
-        <div class="featured-inter-urgency">⏳ <strong>2 persone</strong> la stanno guardando</div>
+        <div class="featured-inter-urgency">⏳ <strong>${Math.floor(Math.random()*3)+2} persone</strong> la stanno guardando</div>
       </div>
 
     </div>
