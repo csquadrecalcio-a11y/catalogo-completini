@@ -5221,6 +5221,7 @@ function apriAddCart(){
     // Restrizioni per maglie specifiche
     const _nomeF=(photo.name||'').toLowerCase();
     const _èPV=_nomeF.includes(' pv')||_nomeF.includes('_pv')||_nomeF.endsWith('pv')||_nomeF.includes('player version');
+    const _èKit=_nomeF.includes('kit');
 
     document.querySelectorAll('.tipo-card').forEach(c=>{
       const val=(c.querySelector('input[name="addCartTipo"]')?.value||'').toLowerCase();
@@ -5248,18 +5249,25 @@ function apriAddCart(){
         } else {
           c.style.display='none';c.classList.remove('sel');
         }
-      } else {
-        // Maglia normale: Maglia + Kit Bambino + Kit Adulto (no Player Version)
+      } else if(_èKit){
+        // Nome contiene "kit" → Maglia 30€ + Kit Bambino 35€ + Kit Adulto 40€
         if(val==='player version'){
           c.style.display='none';c.classList.remove('sel');
         } else {
           c.style.display='';
         }
+      } else {
+        // Nome senza "kit" → solo Maglia 30€
+        if(val==='maglia'){
+          c.style.display='';c.classList.add('sel');
+        } else {
+          c.style.display='none';c.classList.remove('sel');
+        }
       }
     });
 
     const _bambGrp=document.querySelector('#addCartTaglia optgroup[label*="Bambino"]');
-    if(_bambGrp) _bambGrp.style.display=_èPV?'none':'';
+    if(_bambGrp) _bambGrp.style.display=(_èPV||(!_èKit&&!_isLV()))?'none':'';
     // Player Version: nascondi XXXL e XXXXL
     const _oXXXL=document.getElementById('opt-XXXL');
     const _oXXXXL=document.getElementById('opt-XXXXL');
