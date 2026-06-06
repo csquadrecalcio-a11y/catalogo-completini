@@ -3306,6 +3306,7 @@ function openLightbox(idx){
   img.src=fullUrl(currentPhotos[idx].id);
   document.getElementById('lb-counter').textContent=`${idx+1} / ${currentPhotos.length}`;
   document.getElementById('lightbox').classList.add('active');
+  if(typeof Tawk_API!=='undefined'&&Tawk_API.hideWidget) Tawk_API.hideWidget();
   updateOrderBtn(currentPhotos[idx].name||'maglia');
   showZoomHint();
   // Costruisce hash con info categoria per navigazione affidabile
@@ -3338,6 +3339,7 @@ function closeLightbox(){
   clearInterval(window._viewersIv);
   const _vEl=document.getElementById('lb-viewers');
   if(_vEl) _vEl.style.display='none';
+  if(typeof Tawk_API!=='undefined'&&Tawk_API.showWidget) Tawk_API.showWidget();
   // Ripristina l'URL alla pagina corrente
   if(navStack.length===0) history.replaceState({page:'home'},'','#');
   else{
@@ -7221,6 +7223,10 @@ const _origRenderPhotos = window.renderPhotos;
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+// Parte sempre minimizzato (solo bolla, non chat aperta)
+Tawk_API.onLoad=function(){
+  Tawk_API.minimize();
+};
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
