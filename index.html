@@ -5677,11 +5677,12 @@ function apriAddCart(){
     document.getElementById('addCartPrezzoTot').textContent=_prezzoBase+'€';
     aggiornaBarrato(_prezzoBase);
 
-    // Restrizioni per maglie specifiche
+    // Rilevamento tipo prodotto dal nome file
     const _nomeF=(photo.name||'').toLowerCase();
-    const _èPV=_nomeF.includes(' pv')||_nomeF.includes('_pv')||_nomeF.endsWith('pv')||_nomeF.includes('player version');
-    const _èKit=_nomeF.includes('kit');
-    const _èKidKit=_nomeF.includes('kids')||_nomeF.includes('kid kit')||_nomeF.includes('kids kit')||_nomeF.includes('bambini')||_nomeF.includes('kit bambino');
+    const _èPV=_nomeF.includes('player version')||_nomeF.includes(' pv')||_nomeF.includes('_pv')||_nomeF.endsWith('pv');
+    const _èKidKit=_nomeF.includes('kit bambini')||_nomeF.includes('kids')||_nomeF.includes('kid kit')||_nomeF.includes('bambini')||_nomeF.includes('kit bambino');
+    const _èKit=_nomeF.includes('kit'); // include anche kid kit (gestito sopra per priorità)
+    const _èEsplicMaglia=_nomeF.includes('maglia'); // "maglia" esplicito → solo Maglia
     const _èAnime=_nomeF.includes('anime')||_nomeF.includes('manga')||_nomeF.includes('dragon ball')||_nomeF.includes('naruto')||_nomeF.includes('one piece');
 
     document.querySelectorAll('.tipo-card').forEach(c=>{
@@ -5741,9 +5742,13 @@ function apriAddCart(){
           c.style.display='none';c.classList.remove('sel');
         }
       } else {
-        // Nome senza "kit" → solo Maglia 30€
+        // Nessun codice specifico riconosciuto:
+        // → se ha "maglia" esplicito: solo Maglia 30€
+        // → altrimenti: Maglia + Kit Bambino + Kit Adulto (cliente sceglie)
         if(val==='maglia'){
           c.style.display='';c.classList.add('sel');
+        } else if(!_èEsplicMaglia && (val==='kit bambino'||val==='kit adulto')){
+          c.style.display='';c.classList.remove('sel');
         } else {
           c.style.display='none';c.classList.remove('sel');
         }
