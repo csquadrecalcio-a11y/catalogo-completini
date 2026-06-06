@@ -5197,8 +5197,8 @@ function addGaranziaLightbox(){
   div.className='garanzia-strip';
   div.style.cssText='position:absolute;bottom:60px;left:50%;transform:translateX(-50%);width:90%;max-width:400px;z-index:10;pointer-events:none;';
   const _mesi=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
-  const _d1=new Date(); _d1.setDate(_d1.getDate()+10);
-  const _d2=new Date(); _d2.setDate(_d2.getDate()+15);
+  const _d1=new Date(); _d1.setDate(_d1.getDate()+12); // 2-3 gg fornitore + 10 gg spedizione
+  const _d2=new Date(); _d2.setDate(_d2.getDate()+18); // 3 gg fornitore + 15 gg spedizione
   const _consegna=`${_d1.getDate()} ${_mesi[_d1.getMonth()]}–${_d2.getDate()} ${_mesi[_d2.getMonth()]}`;
   div.innerHTML=`
     <div class="garanzia-item"><span>🚚</span>Spedizione gratis</div>
