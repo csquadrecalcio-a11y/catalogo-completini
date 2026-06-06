@@ -624,10 +624,11 @@ body.dark .sf-btn.active{background:#1565c0;border-color:#1565c0;color:#fff;}
 /* ── PERSONAGGI ANIME (foto reali) ── */
 .anime-chars-scene{position:absolute;right:0;top:0;bottom:0;width:62%;z-index:5;pointer-events:none;}
 .anime-char-fig{position:absolute;bottom:0;display:flex;flex-direction:column;align-items:center;}
-.anime-char-fig:nth-child(1){right:1%;animation:charFloat1 4s ease-in-out infinite;}
-.anime-char-fig:nth-child(2){right:19%;animation:charFloat1 4.5s ease-in-out infinite;animation-delay:.8s;}
-.anime-char-fig:nth-child(3){right:37%;animation:charFloat1 3.8s ease-in-out infinite;animation-delay:1.6s;}
-.anime-char-fig:nth-child(4){right:52%;animation:charFloat1 4.2s ease-in-out infinite;animation-delay:2.4s;}
+.anime-char-fig:nth-child(1){right:0%;animation:charFloat1 4s ease-in-out infinite;}
+.anime-char-fig:nth-child(2){right:16%;animation:charFloat1 4.5s ease-in-out infinite;animation-delay:.8s;}
+.anime-char-fig:nth-child(3){right:31%;animation:charFloat1 3.8s ease-in-out infinite;animation-delay:1.6s;}
+.anime-char-fig:nth-child(4){right:46%;animation:charFloat1 4.2s ease-in-out infinite;animation-delay:2.4s;}
+.anime-char-fig:nth-child(5){right:61%;animation:charFloat1 3.9s ease-in-out infinite;animation-delay:3.2s;}
 @keyframes charFloat1{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .anime-char-img{
   height:260px;width:auto;max-width:160px;
@@ -647,6 +648,7 @@ body.dark .sf-btn.active{background:#1565c0;border-color:#1565c0;color:#fff;}
 .anime-char-fig:nth-child(2) .anime-char-aura{background:rgba(255,100,0,.6);animation-delay:.5s;}
 .anime-char-fig:nth-child(3) .anime-char-aura{background:rgba(80,160,255,.6);animation-delay:1s;}
 .anime-char-fig:nth-child(4) .anime-char-aura{background:rgba(180,80,255,.5);animation-delay:1.5s;}
+.anime-char-fig:nth-child(5) .anime-char-aura{background:rgba(0,200,100,.5);animation-delay:2s;}
 @keyframes auraGlow{from{transform:scale(1);opacity:.6}to{transform:scale(1.6);opacity:1}}
 .anime-char-label{font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:4px;}
 /* energia */
@@ -667,7 +669,7 @@ body.dark .sf-btn.active{background:#1565c0;border-color:#1565c0;color:#fff;}
 .anime-pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);font-size:11px;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:1px;}
 .anime-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ff6200,#ff0080);color:#fff;border:none;padding:12px 24px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:6px;transition:all .3s;width:fit-content;box-shadow:0 4px 20px rgba(255,98,0,.4);}
 .anime-banner:hover .anime-btn{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,98,0,.65);}
-@media(max-width:600px){.anime-banner{height:230px;}.anime-content{padding:16px 20px;max-width:52%;}.anime-sub,.anime-pills{display:none;}.anime-chars-scene{width:50%;}.anime-char-img{height:170px;max-width:100px;}.anime-char-fig:nth-child(3),.anime-char-fig:nth-child(4){display:none;}}
+@media(max-width:600px){.anime-banner{height:240px;}.anime-content{padding:16px 20px;max-width:50%;}.anime-sub,.anime-pills{display:none;}.anime-chars-scene{width:52%;}.anime-char-img{height:160px;max-width:90px;}.anime-char-fig:nth-child(4),.anime-char-fig:nth-child(5){display:none;}}
 
 /* ── TORNA SU ── */
 .scroll-top-btn{position:fixed;bottom:90px;right:24px;z-index:499;width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;border:none;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(13,71,161,.4);opacity:0;transform:translateY(20px);transition:opacity .3s,transform .3s;pointer-events:none;}
@@ -2422,11 +2424,11 @@ function goHome(fromPopstate){
     <div class="anime-energy anime-energy3"></div>
     <!-- PERSONAGGI REALI -->
     <div class="anime-chars-scene">
-      <!-- Goku -->
+      <!-- Tsubasa (Holly e Benji) -->
       <div class="anime-char-fig">
         <div class="anime-char-aura"></div>
-        <img class="anime-char-img" src="anime-chars/goku.webp" alt="Goku Dragon Ball" loading="lazy">
-        <div class="anime-char-label">Goku</div>
+        <img class="anime-char-img" src="anime-chars/tsubasa.png" alt="Holly e Benji" loading="lazy">
+        <div class="anime-char-label">Holly & Benji</div>
       </div>
       <!-- Naruto -->
       <div class="anime-char-fig">
@@ -2446,6 +2448,12 @@ function goHome(fromPopstate){
         <img class="anime-char-img" src="anime-chars/gojo.webp" alt="Gojo Jujutsu Kaisen" loading="lazy">
         <div class="anime-char-label">Gojo</div>
       </div>
+      <!-- Goku -->
+      <div class="anime-char-fig">
+        <div class="anime-char-aura"></div>
+        <img class="anime-char-img" src="anime-chars/goku.webp" alt="Goku Dragon Ball" loading="lazy">
+        <div class="anime-char-label">Goku</div>
+      </div>
     </div>
     <div class="anime-content">
       <div class="anime-badge">🇯🇵 Collezione Esclusiva</div>
@@ -2455,6 +2463,8 @@ function goHome(fromPopstate){
         <span class="anime-pill">🐉 Dragon Ball</span>
         <span class="anime-pill">🍃 Naruto</span>
         <span class="anime-pill">⚓ One Piece</span>
+        <span class="anime-pill">⚔️ Jujutsu Kaisen</span>
+        <span class="anime-pill">⚽ Holly & Benji</span>
       </div>
       <button class="anime-btn">Vedi collezione →</button>
     </div>
