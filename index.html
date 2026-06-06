@@ -601,6 +601,43 @@ body.dark .sf-btn.active{background:#1565c0;border-color:#1565c0;color:#fff;}
 .scarpe-brand-sep{color:rgba(255,255,255,.2);}
 @media(max-width:600px){.scarpe-banner{height:210px;}.scarpe-banner-content{padding:18px 22px;}.scarpe-banner-sub,.scarpe-brand-logos{display:none;}}
 
+/* ── ANIME BANNER ── */
+.anime-banner{position:relative;width:100%;height:300px;overflow:hidden;border-radius:10px;margin-bottom:24px;cursor:pointer;box-shadow:0 8px 40px rgba(255,100,0,.35);}
+.anime-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0a0010 0%,#1a0030 30%,#0d0020 60%,#1a0010 100%);z-index:0;}
+.anime-grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,100,0,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,100,0,.06) 1px,transparent 1px);background-size:40px 40px;animation:animeGridMove 8s linear infinite;}
+@keyframes animeGridMove{from{background-position:0 0}to{background-position:40px 40px}}
+.anime-kanji{position:absolute;z-index:2;font-size:clamp(40px,6vw,80px);font-weight:900;opacity:.07;color:#fff;animation:animeFloat 6s ease-in-out infinite;user-select:none;}
+.anime-kanji:nth-child(1){top:5%;left:2%;animation-delay:0s;}
+.anime-kanji:nth-child(2){top:10%;right:5%;animation-delay:1.5s;}
+.anime-kanji:nth-child(3){bottom:10%;left:8%;animation-delay:3s;}
+.anime-kanji:nth-child(4){bottom:5%;right:10%;animation-delay:4.5s;font-size:clamp(30px,4vw,55px);}
+@keyframes animeFloat{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-12px) rotate(5deg)}}
+.anime-speed{position:absolute;inset:0;z-index:2;overflow:hidden;}
+.anime-speed::before,.anime-speed::after{content:'';position:absolute;top:50%;width:200%;height:2px;background:linear-gradient(90deg,transparent,rgba(255,150,0,.4),transparent);transform:translateY(-50%) rotate(-8deg);animation:animeSpeed 3s linear infinite;}
+.anime-speed::after{height:1px;background:linear-gradient(90deg,transparent,rgba(255,80,180,.3),transparent);animation-delay:1.5s;animation-duration:4s;transform:translateY(20px) rotate(-8deg);}
+@keyframes animeSpeed{from{transform:translateX(-100%) rotate(-8deg)}to{transform:translateX(100%) rotate(-8deg)}}
+.anime-orb{position:absolute;z-index:2;border-radius:50%;filter:blur(60px);animation:animeOrb 5s ease-in-out infinite alternate;}
+.anime-orb1{width:250px;height:250px;background:rgba(255,100,0,.25);top:-60px;right:15%;animation-delay:0s;}
+.anime-orb2{width:180px;height:180px;background:rgba(120,0,255,.3);bottom:-40px;left:20%;animation-delay:2s;}
+.anime-orb3{width:120px;height:120px;background:rgba(255,20,100,.2);top:30%;right:30%;animation-delay:1s;}
+@keyframes animeOrb{from{transform:scale(1) translateY(0)}to{transform:scale(1.3) translateY(-15px)}}
+.anime-ring{position:absolute;z-index:2;border-radius:50%;border:2px solid rgba(255,150,0,.15);animation:animeRingRot 4s linear infinite;}
+.anime-ring1{width:200px;height:200px;top:50%;right:5%;transform:translateY(-50%);}
+.anime-ring2{width:140px;height:140px;top:50%;right:8%;transform:translateY(-50%);animation-delay:.5s;border-color:rgba(255,80,180,.12);}
+.anime-ring3{width:80px;height:80px;top:50%;right:11%;transform:translateY(-50%);animation-delay:1s;border-color:rgba(100,200,255,.15);}
+@keyframes animeRingRot{from{transform:translateY(-50%) rotate(0deg)}to{transform:translateY(-50%) rotate(360deg)}}
+.anime-content{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;justify-content:center;padding:40px 48px;}
+.anime-badge{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#ff6200,#ff0080);color:#fff;font-size:10px;font-weight:800;padding:4px 12px;letter-spacing:2px;text-transform:uppercase;border-radius:20px;margin-bottom:14px;width:fit-content;box-shadow:0 0 20px rgba(255,98,0,.5);}
+.anime-title{font-family:'Montserrat',sans-serif;font-size:clamp(28px,5vw,54px);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-1px;text-transform:uppercase;margin-bottom:8px;}
+.anime-title span{background:linear-gradient(135deg,#ff6200,#ff0080,#a000ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:animeTitleGlow 2s ease-in-out infinite alternate;}
+@keyframes animeTitleGlow{from{filter:drop-shadow(0 0 10px rgba(255,98,0,.4))}to{filter:drop-shadow(0 0 30px rgba(255,0,128,.7))}}
+.anime-sub{font-size:13px;color:rgba(255,255,255,.6);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;}
+.anime-chars{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+.anime-char{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.8);font-size:11px;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:1px;}
+.anime-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ff6200,#ff0080);color:#fff;border:none;padding:12px 24px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:6px;transition:all .3s;width:fit-content;box-shadow:0 4px 20px rgba(255,98,0,.4);}
+.anime-banner:hover .anime-btn{transform:translateY(-2px);box-shadow:0 8px 32px rgba(255,98,0,.65);}
+@media(max-width:600px){.anime-banner{height:200px;}.anime-content{padding:18px 22px;}.anime-sub,.anime-chars{display:none;}}
+
 /* ── TORNA SU ── */
 .scroll-top-btn{position:fixed;bottom:90px;right:24px;z-index:499;width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;border:none;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(13,71,161,.4);opacity:0;transform:translateY(20px);transition:opacity .3s,transform .3s;pointer-events:none;}
 .scroll-top-btn.visible{opacity:1;transform:translateY(0);pointer-events:auto;}
@@ -2126,6 +2163,7 @@ const CATALOG = [
   { name:"Completi Estivi", flag:"☀️", id:"1atP3ewNSScU2eR8RlHWBqs5lVci5HhEp", subs:null},
   { name:"Vintage", flag:"🏆", id:"1zI1CEJ4f8RXTovUzkfZoY_ifAUW5X9jS", subs:["vintage adulti","kit vintage bambini"]},
   { name:"Scarpe", flag:"👟", id:"1MW7kVEJQW4lsh5cOLTZ0VvRGUkRMzVj1", subs:["Scarpe da Calcio","Sneakers"]},
+  { name:"Anime & Giappone", flag:"🇯🇵", id:"INSERISCI_ID_CARTELLA_DRIVE", subs:null},
 ];
 
 const API_KEY = 'AIzaSyBFjNAIrUyOZeI7c3OxdD1gOtUeHlMjRjk';
@@ -2332,6 +2370,35 @@ function goHome(fromPopstate){
       <div class="vintage-title">Maglie<br><em>Vintage</em></div>
       <div class="vintage-sub">Edizioni Storiche &bull; Dal 1950 ad Oggi</div>
       <button class="vintage-btn">Scopri la collezione →</button>
+    </div>
+  </div>
+
+  <!-- BANNER ANIME & GIAPPONE -->
+  <div class="anime-banner banner-reveal" onclick="openCategory(CATALOG.length-1)">
+    <div class="anime-bg"></div>
+    <div class="anime-grid"></div>
+    <div class="anime-speed"></div>
+    <div class="anime-orb anime-orb1"></div>
+    <div class="anime-orb anime-orb2"></div>
+    <div class="anime-orb anime-orb3"></div>
+    <div class="anime-kanji">忍</div>
+    <div class="anime-kanji">龍</div>
+    <div class="anime-kanji">魂</div>
+    <div class="anime-kanji">力</div>
+    <div class="anime-ring anime-ring1"></div>
+    <div class="anime-ring anime-ring2"></div>
+    <div class="anime-ring anime-ring3"></div>
+    <div class="anime-content">
+      <div class="anime-badge">🇯🇵 Collezione Esclusiva</div>
+      <div class="anime-title">Anime &<br><span>Giappone</span></div>
+      <div class="anime-sub">Dragon Ball &bull; Naruto &bull; One Piece</div>
+      <div class="anime-chars">
+        <span class="anime-char">🐉 Dragon Ball</span>
+        <span class="anime-char">🍃 Naruto</span>
+        <span class="anime-char">⚓ One Piece</span>
+        <span class="anime-char">⚔️ Jujutsu Kaisen</span>
+      </div>
+      <button class="anime-btn">Vedi collezione →</button>
     </div>
   </div>
 
