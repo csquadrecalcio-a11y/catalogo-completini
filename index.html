@@ -5539,6 +5539,19 @@ function selTipoCard(el, prezzo, value){
   // Se era selezionata una taglia non disponibile, resetta
   const sel=document.getElementById('addCartTaglia');
   if(soloXXL&&sel&&(sel.value==='XXXL'||sel.value==='XXXXL')) sel.value='';
+  // Kit Bambino ↔ Kit Adulto: aggiorna taglie mostrate
+  const _kv=(value||'').toLowerCase();
+  const _bGrp=document.querySelector('#addCartTaglia optgroup[label*="Bambino"]');
+  const _aGrp=document.querySelector('#addCartTaglia optgroup[label*="Adulto"]');
+  if(_kv==='kit bambino'){
+    if(_bGrp) _bGrp.style.display='';
+    if(_aGrp) _aGrp.style.display='none';
+    if(sel) sel.value='';
+  } else if(_kv==='kit adulto'){
+    if(_bGrp) _bGrp.style.display='none';
+    if(_aGrp) _aGrp.style.display='';
+    if(sel) sel.value='';
+  }
 }
 
 function apriAddCart(){
@@ -5723,11 +5736,13 @@ function apriAddCart(){
           c.style.display='none';c.classList.remove('sel');
         }
       } else if(_èKit){
-        // Nome contiene "kit" → Maglia 30€ + Kit Bambino 35€ + Kit Adulto 40€
-        if(val==='player version'){
-          c.style.display='none';c.classList.remove('sel');
+        // Nome contiene "kit" → Solo Kit Bambino 35€ + Kit Adulto 40€ (no Maglia, no PV)
+        if(val==='kit bambino'){
+          c.style.display='';c.classList.add('sel');
+        } else if(val==='kit adulto'){
+          c.style.display='';c.classList.remove('sel');
         } else {
-          c.style.display='';
+          c.style.display='none';c.classList.remove('sel');
         }
       } else {
         // Nome senza "kit" → solo Maglia 30€
@@ -5740,8 +5755,17 @@ function apriAddCart(){
     });
 
     const _bambGrp=document.querySelector('#addCartTaglia optgroup[label*="Bambino"]');
-    // Mostra taglie bambino solo se kit bambino/kids; nasconde se PV, solo maglia, o LV
-    if(_bambGrp) _bambGrp.style.display=(_èKidKit)?'':(_èPV||!_èKit||_isLV())?'none':'';
+    const _adultGrp=document.querySelector('#addCartTaglia optgroup[label*="Adulto"]');
+    // Bambino: visibile per kid kit o kit generico (Kit Bambino selezionato di default)
+    if(_bambGrp) _bambGrp.style.display=(_èKidKit||(_èKit&&!_èPV&&!_isLV()))?'':'none';
+    // Adulto: nascosto per kit (Kit Bambino selezionato di default); visibile per tutto il resto
+    if(_adultGrp) _adultGrp.style.display=(_èKit||_èKidKit)?'none':'';
+    // Kit generico: aggiorna prezzo a 35€ (Kit Bambino di default)
+    if(_èKit && !_èKidKit && !_èPV && !_isLV()){
+      document.getElementById('addCartPrezzoTot').textContent='35€';
+      aggiornaBarrato(35);
+      document.getElementById('addCartTaglia').value='';
+    }
     // Player Version: nascondi XXXL e XXXXL
     const _oXXXL=document.getElementById('opt-XXXL');
     const _oXXXXL=document.getElementById('opt-XXXXL');
