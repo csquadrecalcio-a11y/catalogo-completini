@@ -6569,7 +6569,7 @@ if('serviceWorker' in navigator){
 // ③ BANNER SCROLL REVEAL (verticali)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 function initBannerReveal(){
-  const banners = document.querySelectorAll('.na-banner,.mondiali-banner,.vintage-banner,.scarpe-banner');
+  const banners = document.querySelectorAll('.na-banner,.mondiali-banner,.vintage-banner,.scarpe-banner,.anime-banner');
   if(!banners.length) return;
   const obs = new IntersectionObserver(entries=>{
     entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('revealed'); });
