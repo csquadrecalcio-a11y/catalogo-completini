@@ -5013,12 +5013,18 @@ function _isScarpe(){
 }
 function _isTute(){
   const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
-  return stack.includes('tute')||stack.includes('tuta');
+  if(stack.includes('tute')||stack.includes('tuta')) return true;
+  // Controlla anche il nome della foto (es. tute nei Nuovi Arrivi)
+  const fotoNome=(currentPhotos&&currentPhotos[currentPhotoIdx]&&currentPhotos[currentPhotoIdx].name||'').toLowerCase();
+  return fotoNome.includes('tuta')||fotoNome.includes('tute');
 }
 function _prezzoTuta(){
   const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
   if(stack.includes('passeggio')) return 60;
   if(stack.includes('cappuccio')) return 65;
+  const fotoNome=(currentPhotos&&currentPhotos[currentPhotoIdx]&&currentPhotos[currentPhotoIdx].name||'').toLowerCase();
+  if(fotoNome.includes('passeggio')) return 60;
+  if(fotoNome.includes('cappuccio')) return 65;
   return 50;
 }
 function _isEstivi(){
