@@ -769,6 +769,9 @@ body.dark .ordine-close{background:#333;color:#aaa;}
 .hot-scroll{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;}
 .hot-scroll::-webkit-scrollbar{display:none;}
 .rev-strip::-webkit-scrollbar{display:none;}
+.cookie-card{position:fixed;bottom:-160px;right:16px;z-index:9200;width:280px;background:#fff;border-radius:14px;padding:16px 18px;box-shadow:0 4px 28px rgba(0,0,0,.18);border:1px solid #e8e8e8;transition:bottom .45s cubic-bezier(.175,.885,.32,1.275);}
+.cookie-card.active{bottom:90px;}
+@media(max-width:600px){.cookie-card{width:calc(100% - 32px);right:16px;left:16px;}.cookie-card.active{bottom:80px;}}
 .hot-card{flex-shrink:0;width:130px;background:#f5f9ff;border:1.5px solid #e3f2fd;border-radius:10px;overflow:hidden;cursor:pointer;transition:all .2s;}
 .hot-card:hover{border-color:#0d47a1;transform:translateY(-3px);box-shadow:0 6px 18px rgba(13,71,161,.15);}
 .hot-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
@@ -1498,6 +1501,17 @@ body.dark .avvisa-box{background:#1e1e1e;}
 <!-- WHATSAPP BTN -->
 
 <!-- BANNER BENVENUTO (bottom bar, non invasivo) -->
+<!-- COOKIE CONSENT GDPR -->
+<div class="cookie-card" id="cookieCard">
+  <div style="font-size:22px;margin-bottom:8px;">🍪</div>
+  <div style="font-size:13px;font-weight:800;color:#111;margin-bottom:5px;">Usiamo i cookie</div>
+  <p style="font-size:11.5px;color:#777;line-height:1.6;margin:0 0 14px;">Utilizziamo cookie tecnici e di analisi per migliorare la tua esperienza di navigazione.</p>
+  <div style="display:flex;gap:8px;">
+    <button onclick="accettaCookie('all')" style="flex:1;background:linear-gradient(135deg,#25d366,#1ebe5d);color:#fff;border:none;border-radius:8px;padding:9px 6px;font-size:12px;font-weight:800;cursor:pointer;">✓ Accetta tutti</button>
+    <button onclick="accettaCookie('necessary')" style="flex:1;background:#f5f5f5;color:#666;border:1px solid #e0e0e0;border-radius:8px;padding:9px 6px;font-size:12px;font-weight:700;cursor:pointer;">Solo necessari</button>
+  </div>
+</div>
+
 <!-- LIVE ORDER NOTIFICATIONS -->
 <div class="lot-wrap" id="liveOrderToast">
   <div id="lotIcon" style="width:42px;height:42px;background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">⚽</div>
@@ -1690,7 +1704,11 @@ body.dark .avvisa-box{background:#1e1e1e;}
     🛒 Aggiungi al carrello
   </button>
   <button class="lb-share-btn" onclick="condividiLightbox()">📤 Condividi</button>
-  <a class="lb-order-btn" id="lb-order-btn" href="#" style="display:none"></a>
+  <a class="lb-order-btn" id="lb-order-btn" href="#" target="_blank">
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="#fff" style="flex-shrink:0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+    Ordina su WhatsApp
+  </a>
+  <div id="lb-viewers" style="position:absolute;top:110px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.62);backdrop-filter:blur(5px);color:#fff;border-radius:20px;padding:5px 15px;font-size:11px;font-weight:700;white-space:nowrap;z-index:10;display:none;border:1px solid rgba(255,255,255,.15);">👀 <span id="lb-viewers-num">5</span> persone stanno guardando</div>
   <div class="lb-zoom-hint" id="lb-zoom-hint">Doppio click per zoom</div>
 </div>
 
@@ -3301,10 +3319,25 @@ function openLightbox(idx){
   // Mostra/nascondi bottone personalizzazione in base alla categoria
   const btnPerso=document.querySelector('.lb-custom-btn[onclick*="apriPersonalizza"]');
   if(btnPerso) btnPerso.style.display=_noPersonalizzazione()?'none':'flex';
+  // Persone che stanno guardando
+  const _vEl=document.getElementById('lb-viewers');
+  const _vNum=document.getElementById('lb-viewers-num');
+  if(_vEl&&_vNum){
+    _vNum.textContent=Math.floor(Math.random()*9)+3;
+    _vEl.style.display='block';
+    clearInterval(window._viewersIv);
+    window._viewersIv=setInterval(()=>{
+      if(!document.getElementById('lightbox')?.classList.contains('active')){clearInterval(window._viewersIv);return;}
+      _vNum.textContent=Math.floor(Math.random()*9)+3;
+    },40000);
+  }
 }
 function closeLightbox(){
   document.getElementById('lb-img').classList.remove('zoomed');
   document.getElementById('lightbox').classList.remove('active');
+  clearInterval(window._viewersIv);
+  const _vEl=document.getElementById('lb-viewers');
+  if(_vEl) _vEl.style.display='none';
   // Ripristina l'URL alla pagina corrente
   if(navStack.length===0) history.replaceState({page:'home'},'','#');
   else{
@@ -4618,6 +4651,19 @@ function renderHotStrip(){
   strip.innerHTML=`<div class="hot-strip-title">🔥 Appena ordinati</div><div class="hot-scroll">${cards}</div>`;
 }
 
+// ── COOKIE CONSENT GDPR ──────────────────────────────────────────────────────
+(function(){
+  if(localStorage.getItem('cookieConsent')) return;
+  setTimeout(()=>document.getElementById('cookieCard')?.classList.add('active'), 2000);
+})();
+function accettaCookie(tipo){
+  localStorage.setItem('cookieConsent',tipo);
+  const el=document.getElementById('cookieCard');
+  if(!el) return;
+  el.style.bottom='-160px';
+  setTimeout(()=>el.classList.remove('active'),450);
+}
+
 // ── BANNER BENVENUTO ─────────────────────────────────────────────────────────
 (function(){
   if(!localStorage.getItem('welcomeSeen')){
@@ -5150,10 +5196,14 @@ function addGaranziaLightbox(){
   const div=document.createElement('div');
   div.className='garanzia-strip';
   div.style.cssText='position:absolute;bottom:60px;left:50%;transform:translateX(-50%);width:90%;max-width:400px;z-index:10;pointer-events:none;';
+  const _mesi=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
+  const _d1=new Date(); _d1.setDate(_d1.getDate()+10);
+  const _d2=new Date(); _d2.setDate(_d2.getDate()+15);
+  const _consegna=`${_d1.getDate()} ${_mesi[_d1.getMonth()]}–${_d2.getDate()} ${_mesi[_d2.getMonth()]}`;
   div.innerHTML=`
     <div class="garanzia-item"><span>🚚</span>Spedizione gratis</div>
     <div class="garanzia-item"><span>✏️</span>Personaliz. gratis</div>
-    <div class="garanzia-item"><span>⭐</span>Dal 2018</div>`;
+    <div class="garanzia-item"><span>📅</span>Consegna ${_consegna}</div>`;
   lb.appendChild(div);
 }
 
@@ -5354,11 +5404,10 @@ window.addEventListener('scroll',()=>{
 let currentPhotoName='';
 function updateOrderBtn(photoName){
   const btn=document.getElementById('lb-order-btn');
-  btn.onclick=(e)=>{
-    e.preventDefault();
-    closeLightbox();
-    apriOrdine(photoName||'maglia');
-  };
+  const nome=(photoName||'maglia').slice(0,60);
+  const msg=`Ciao Alberto! 👋\nHo visto questa maglia sul catalogo e vorrei ordinarla:\n\n👕 *${nome}*\n\nPuoi dirmi:\n📏 Taglie disponibili\n💰 Prezzo finale\n📦 Tempi di consegna?`;
+  btn.href=`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`;
+  btn.onclick=null;
 }
 
 // ── CARRELLO ─────────────────────────────────────────────────────────────────
