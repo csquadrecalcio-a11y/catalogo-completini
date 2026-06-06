@@ -778,6 +778,10 @@ body.dark .ordine-close{background:#333;color:#aaa;}
 /* ── EXIT INTENT ── */
 .exit-popup{display:none;position:fixed;inset:0;z-index:9000;align-items:center;justify-content:center;padding:20px;}
 .exit-popup.active{display:flex;}
+/* Banner benvenuto in fondo */
+.welcome-banner{position:fixed;bottom:-90px;left:0;right:0;z-index:8999;background:linear-gradient(135deg,#0a1628,#0d47a1);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 -4px 24px rgba(0,0,0,.35);transition:bottom .45s cubic-bezier(.175,.885,.32,1.275);}
+.welcome-banner.active{bottom:0;}
+@media(max-width:600px){.welcome-banner{padding:10px 14px;gap:10px;}.wb-msg{display:none!important;}}
 .exit-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);}
 .exit-box{position:relative;background:#fff;border-radius:20px;padding:32px 28px;max-width:400px;width:100%;z-index:1;text-align:center;animation:popIn .35s cubic-bezier(.34,1.56,.64,1);}
 .exit-close{position:absolute;top:14px;right:14px;background:#f0f0f0;border:none;border-radius:50%;width:32px;height:32px;font-size:16px;cursor:pointer;color:#555;display:flex;align-items:center;justify-content:center;}
@@ -1489,18 +1493,18 @@ body.dark .avvisa-box{background:#1e1e1e;}
 
 <!-- WHATSAPP BTN -->
 
-<!-- POPUP BENVENUTO -->
-<div class="exit-popup" id="welcomePopup">
-  <div class="exit-backdrop" onclick="chiudiWelcome()"></div>
-  <div class="exit-box">
-    <button class="exit-close" onclick="chiudiWelcome()">✕</button>
-    <div style="font-size:52px;margin-bottom:12px;">👋</div>
-    <h2 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:#0d47a1;margin-bottom:10px;">Benvenuto!</h2>
-    <p style="font-size:14px;color:#444;line-height:1.7;margin-bottom:22px;">Maglie da calcio di tutti i top club, personalizzazione e spedizione sempre gratuite. Dal 2018 al tuo servizio!</p>
-    <div style="display:flex;flex-direction:column;gap:10px;">
-      <button onclick="chiudiWelcome();openCategory(1);" style="background:#0d47a1;color:#fff;border:none;border-radius:10px;padding:13px;font-size:14px;font-weight:800;cursor:pointer;transition:all .2s;" onmouseover="this.style.background='#1565c0'" onmouseout="this.style.background='#0d47a1'">⚽ Sfoglia il catalogo</button>
-      <button onclick="chiudiWelcome()" style="background:none;border:none;color:#aaa;font-size:13px;cursor:pointer;text-decoration:underline;">Continua a guardare</button>
+<!-- BANNER BENVENUTO (bottom bar, non invasivo) -->
+<div class="welcome-banner" id="welcomePopup">
+  <div style="display:flex;align-items:center;gap:14px;flex:1;min-width:0;">
+    <span style="font-size:26px;flex-shrink:0;">👋</span>
+    <div style="min-width:0;">
+      <div style="font-size:14px;font-weight:800;color:#fff;letter-spacing:.3px;">Benvenuto su Completini Squadre Calcio 2.0!</div>
+      <div class="wb-msg" style="font-size:12px;color:rgba(255,255,255,.75);margin-top:2px;">🚚 Spedizione gratuita &nbsp;·&nbsp; ✏️ Personalizzazione inclusa &nbsp;·&nbsp; ⭐ Dal 2018</div>
     </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
+    <button onclick="chiudiWelcome();openCategory(1);" style="background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:800;cursor:pointer;white-space:nowrap;box-shadow:0 3px 12px rgba(245,166,35,.4);">⚽ Sfoglia ora</button>
+    <button onclick="chiudiWelcome()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✕</button>
   </div>
 </div>
 
@@ -4518,17 +4522,19 @@ function renderHotStrip(){
   strip.innerHTML=`<div class="hot-strip-title">🔥 Appena ordinati</div><div class="hot-scroll">${cards}</div>`;
 }
 
-// ── POPUP BENVENUTO ───────────────────────────────────────────────────────────
+// ── BANNER BENVENUTO ─────────────────────────────────────────────────────────
 (function(){
   if(!localStorage.getItem('welcomeSeen')){
     setTimeout(()=>{
       document.getElementById('welcomePopup').classList.add('active');
-    }, 2500); // appare dopo 2.5 secondi
+    }, 1500); // sale dopo 1.5 secondi
   }
 })();
 function chiudiWelcome(){
   localStorage.setItem('welcomeSeen','1');
-  document.getElementById('welcomePopup').classList.remove('active');
+  const el=document.getElementById('welcomePopup');
+  el.style.bottom='-90px';
+  setTimeout(()=>el.classList.remove('active'),450);
 }
 
 // ── EXIT INTENT ──────────────────────────────────────────────────────────────
