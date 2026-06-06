@@ -768,6 +768,7 @@ body.dark .ordine-close{background:#333;color:#aaa;}
 .hot-strip-title{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#111;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
 .hot-scroll{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none;}
 .hot-scroll::-webkit-scrollbar{display:none;}
+.rev-strip::-webkit-scrollbar{display:none;}
 .hot-card{flex-shrink:0;width:130px;background:#f5f9ff;border:1.5px solid #e3f2fd;border-radius:10px;overflow:hidden;cursor:pointer;transition:all .2s;}
 .hot-card:hover{border-color:#0d47a1;transform:translateY(-3px);box-shadow:0 6px 18px rgba(13,71,161,.15);}
 .hot-card img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;}
@@ -2566,6 +2567,52 @@ function goHome(fromPopstate){
         <div class="featured-inter-urgency">⏳ <strong>${Math.floor(Math.random()*3)+2} persone</strong> la stanno guardando</div>
       </div>
 
+    </div>
+  </div>
+
+  <!-- RECENSIONI CLIENTI -->
+  <div style="background:#fff;padding:28px 0 32px;border-top:3px solid #f5f5f5;">
+    <div style="text-align:center;margin-bottom:18px;padding:0 20px;">
+      <div style="font-size:10px;font-weight:800;letter-spacing:3px;color:#aaa;text-transform:uppercase;margin-bottom:8px;">La parola ai nostri clienti</div>
+      <div style="font-size:18px;font-weight:900;color:#111;">&#11088;&#11088;&#11088;&#11088;&#11088; 4.9 &nbsp;<span style="font-size:13px;font-weight:400;color:#999;">su oltre 300 ordini</span></div>
+    </div>
+    <div class="rev-strip" style="display:flex;gap:12px;overflow-x:auto;padding:4px 20px 16px;scrollbar-width:none;-ms-overflow-style:none;justify-content:center;">
+      <div style="min-width:210px;max-width:210px;flex-shrink:0;background:#fafafa;border:1.5px solid #efefef;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05);">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+          <div style="width:34px;height:34px;background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">&#129492;</div>
+          <div><div style="font-weight:700;font-size:11.5px;color:#111;">Marco R. &middot; Milano</div><div style="color:#f9a825;font-size:10px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+          <span style="margin-left:auto;background:#e8f5e9;color:#2e7d32;font-size:8.5px;font-weight:800;padding:2px 6px;border-radius:20px;white-space:nowrap;">&#10003; Verificato</span>
+        </div>
+        <p style="font-size:12px;color:#555;line-height:1.65;margin:0 0 8px 0;">"Maglia Inter arrivata in 4 giorni, nome e numero perfetti. Qualit&agrave; ottima, la ricomprerei!"</p>
+        <div style="font-size:10px;color:#ccc;">Maglia Inter 2026/27</div>
+      </div>
+      <div style="min-width:210px;max-width:210px;flex-shrink:0;background:#fafafa;border:1.5px solid #efefef;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05);">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+          <div style="width:34px;height:34px;background:linear-gradient(135deg,#111,#333);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">&#128105;</div>
+          <div><div style="font-weight:700;font-size:11.5px;color:#111;">Giulia T. &middot; Torino</div><div style="color:#f9a825;font-size:10px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+          <span style="margin-left:auto;background:#e8f5e9;color:#2e7d32;font-size:8.5px;font-weight:800;padding:2px 6px;border-radius:20px;white-space:nowrap;">&#10003; Verificato</span>
+        </div>
+        <p style="font-size:12px;color:#555;line-height:1.65;margin:0 0 8px 0;">"Kit Juve per mio figlio: rimasto a bocca aperta! Maglia, pantaloncini e calzettoni perfetti."</p>
+        <div style="font-size:10px;color:#ccc;">Kit Juventus bambini</div>
+      </div>
+      <div style="min-width:210px;max-width:210px;flex-shrink:0;background:#fafafa;border:1.5px solid #efefef;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05);">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+          <div style="width:34px;height:34px;background:linear-gradient(135deg,#c62828,#e53935);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">&#129492;</div>
+          <div><div style="font-weight:700;font-size:11.5px;color:#111;">Luca F. &middot; Roma</div><div style="color:#f9a825;font-size:10px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+          <span style="margin-left:auto;background:#e8f5e9;color:#2e7d32;font-size:8.5px;font-weight:800;padding:2px 6px;border-radius:20px;white-space:nowrap;">&#10003; Verificato</span>
+        </div>
+        <p style="font-size:12px;color:#555;line-height:1.65;margin:0 0 8px 0;">"Maglia Nazionale per i Mondiali. Alberto risponde subito su WhatsApp &mdash; servizio impeccabile!"</p>
+        <div style="font-size:10px;color:#ccc;">Maglia Italia 2026</div>
+      </div>
+      <div style="min-width:210px;max-width:210px;flex-shrink:0;background:#fafafa;border:1.5px solid #efefef;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05);">
+        <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px;">
+          <div style="width:34px;height:34px;background:linear-gradient(135deg,#1b5e20,#388e3c);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;">&#128104;</div>
+          <div><div style="font-weight:700;font-size:11.5px;color:#111;">Alessio M. &middot; Napoli</div><div style="color:#f9a825;font-size:10px;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+          <span style="margin-left:auto;background:#e8f5e9;color:#2e7d32;font-size:8.5px;font-weight:800;padding:2px 6px;border-radius:20px;white-space:nowrap;">&#10003; Verificato</span>
+        </div>
+        <p style="font-size:12px;color:#555;line-height:1.65;margin:0 0 8px 0;">"Gi&agrave; alla seconda maglia! Prima il Napoli, poi il Real Madrid. Entrambe perfette, spedizione rapida."</p>
+        <div style="font-size:10px;color:#ccc;">Napoli + Real Madrid</div>
+      </div>
     </div>
   </div>
 
