@@ -780,6 +780,9 @@ body.dark .ordine-close{background:#333;color:#aaa;}
 .exit-popup{display:none;position:fixed;inset:0;z-index:9000;align-items:center;justify-content:center;padding:20px;}
 .exit-popup.active{display:flex;}
 /* Banner benvenuto in fondo */
+.lot-wrap{position:fixed;bottom:90px;left:16px;z-index:8997;max-width:270px;background:#fff;border-radius:14px;padding:12px 14px;box-shadow:0 8px 32px rgba(0,0,0,.18);border:1px solid #f0f0f0;display:flex;align-items:center;gap:11px;transform:translateX(-320px);transition:transform .45s cubic-bezier(.175,.885,.32,1.275);}
+.lot-wrap.visible{transform:translateX(0);}
+@media(max-width:600px){.lot-wrap{max-width:calc(100vw - 32px);bottom:80px;}}
 .welcome-banner{position:fixed;bottom:-90px;left:0;right:0;z-index:8999;background:linear-gradient(135deg,#0a1628,#0d47a1);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;box-shadow:0 -4px 24px rgba(0,0,0,.35);transition:bottom .45s cubic-bezier(.175,.885,.32,1.275);}
 .welcome-banner.active{bottom:0;}
 @media(max-width:600px){.welcome-banner{padding:10px 14px;gap:10px;}.wb-msg{display:none!important;}}
@@ -1495,6 +1498,17 @@ body.dark .avvisa-box{background:#1e1e1e;}
 <!-- WHATSAPP BTN -->
 
 <!-- BANNER BENVENUTO (bottom bar, non invasivo) -->
+<!-- LIVE ORDER NOTIFICATIONS -->
+<div class="lot-wrap" id="liveOrderToast">
+  <div id="lotIcon" style="width:42px;height:42px;background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;">⚽</div>
+  <div style="flex:1;min-width:0;">
+    <div id="lotName" style="font-size:12px;font-weight:800;color:#111;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></div>
+    <div id="lotProduct" style="font-size:11px;color:#555;line-height:1.4;margin-top:2px;"></div>
+    <div id="lotTime" style="font-size:10px;color:#bbb;margin-top:3px;"></div>
+  </div>
+  <button onclick="document.getElementById('liveOrderToast').classList.remove('visible')" style="background:none;border:none;cursor:pointer;color:#ccc;font-size:16px;padding:0 0 0 4px;flex-shrink:0;line-height:1;">✕</button>
+</div>
+
 <div class="welcome-banner" id="welcomePopup">
   <div style="display:flex;align-items:center;gap:14px;flex:1;min-width:0;">
     <span style="font-size:26px;flex-shrink:0;">👋</span>
@@ -2356,6 +2370,10 @@ function goHome(fromPopstate){
       <div class="hero-badge">⚽ Catalogo Ufficiale 2026/2027</div>
       <h1 class="hero-title">Completini<br><span>Squadre Calcio</span></h1>
       <div class="hero-sub">Le migliori maglie dei top club europei.<br>Qualità premium • Personalizzazione • Spedizione rapida in tutta Italia.</div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin:14px 0 2px;">
+        <div style="color:#f9a825;font-size:16px;letter-spacing:2px;">★★★★★</div>
+        <div style="color:rgba(255,255,255,.92);font-size:12px;font-weight:700;">4.9 &nbsp;·&nbsp; <span style="color:rgba(255,255,255,.6);font-weight:400;">oltre 300 clienti soddisfatti</span></div>
+      </div>
       <div class="hero-stats">
         <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="500" data-suffix="+">0</span></div><div class="hero-stat-label">Maglie</div></div>
         <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="50" data-suffix="+">0</span></div><div class="hero-stat-label">Club</div></div>
@@ -4614,6 +4632,40 @@ function chiudiWelcome(){
   el.style.bottom='-90px';
   setTimeout(()=>el.classList.remove('active'),450);
 }
+
+// ── LIVE ORDER NOTIFICATIONS ─────────────────────────────────────────────────
+(function(){
+  const _orders=[
+    {bg:'linear-gradient(135deg,#0d47a1,#1565c0)', name:'Marco',    city:'Milano',   product:'ha ordinato la maglia dell\'<strong>Inter</strong>',          time:'2 min fa'},
+    {bg:'linear-gradient(135deg,#111,#333)',        name:'Giulia',   city:'Torino',   product:'ha ordinato il <strong>Kit Juventus</strong> per suo figlio',  time:'5 min fa'},
+    {bg:'linear-gradient(135deg,#006400,#1b5e20)', name:'Luca',     city:'Roma',     product:'ha ordinato la maglia della <strong>Nazionale</strong>',        time:'9 min fa'},
+    {bg:'linear-gradient(135deg,#00838f,#0097a7)', name:'Antonio',  city:'Napoli',   product:'ha ordinato la maglia del <strong>Napoli</strong>',             time:'13 min fa'},
+    {bg:'linear-gradient(135deg,#b71c1c,#e53935)', name:'Sara',     city:'Bologna',  product:'ha ordinato la maglia del <strong>Milan</strong>',              time:'16 min fa'},
+    {bg:'linear-gradient(135deg,#b8860b,#c8a000)', name:'Davide',   city:'Firenze',  product:'ha ordinato la maglia del <strong>Real Madrid</strong>',        time:'20 min fa'},
+    {bg:'linear-gradient(135deg,#6a1b9a,#ab47bc)', name:'Elena',    city:'Palermo',  product:'ha ordinato un <strong>Kit completo bambini</strong>',           time:'24 min fa'},
+    {bg:'linear-gradient(135deg,#c62828,#a50000)', name:'Francesco',city:'Venezia',  product:'ha ordinato la maglia del <strong>Barcellona</strong>',          time:'28 min fa'},
+    {bg:'linear-gradient(135deg,#1b5e20,#2e7d32)', name:'Matteo',   city:'Verona',   product:'ha ordinato la maglia dell\'<strong>Argentina</strong>',         time:'32 min fa'},
+    {bg:'linear-gradient(135deg,#0d47a1,#283593)', name:'Chiara',   city:'Genova',   product:'ha ordinato la maglia della <strong>Fiorentina</strong>',        time:'36 min fa'},
+  ];
+  let _idx=0,_active=false;
+  const _toast=document.getElementById('liveOrderToast');
+  function _showNext(){
+    if(_active) return;
+    _active=true;
+    const o=_orders[_idx%_orders.length]; _idx++;
+    document.getElementById('lotIcon').style.background=o.bg;
+    document.getElementById('lotName').textContent=o.name+' da '+o.city;
+    document.getElementById('lotProduct').innerHTML=o.product;
+    document.getElementById('lotTime').textContent='⏱ '+o.time;
+    _toast.classList.add('visible');
+    setTimeout(()=>{
+      _toast.classList.remove('visible');
+      _active=false;
+      setTimeout(_showNext,5000);
+    },5500);
+  }
+  setTimeout(_showNext,9000); // prima notifica dopo 9 secondi
+})();
 
 // ── EXIT INTENT ──────────────────────────────────────────────────────────────
 function chiudiExit(){document.getElementById('exitPopup').classList.remove('active');}
