@@ -5586,7 +5586,8 @@ function inviaOrdine(){
 // ── MANICHE LUNGHE ───────────────────────────────────────────────────────────
 function _isLV(){
   const photo=currentPhotos[currentPhotoIdx];
-  return photo&&(photo.name||'').toLowerCase().includes(' lv');
+  const n=(photo&&photo.name||'').toLowerCase();
+  return n.includes(' lv')||n.includes('_lv')||n.endsWith('lv')||n.includes(' lv ')||n.includes('maniche lunghe');
 }
 function aggiornaPrezzLV(){
   const cb=document.getElementById('addCartLV');
