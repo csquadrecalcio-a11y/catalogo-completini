@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://csquadrecalcio-a11y.github.io/catalogo-completini/sitemap.xml
