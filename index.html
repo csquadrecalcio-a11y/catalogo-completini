@@ -5225,7 +5225,7 @@ function apriAddCart(){
     document.querySelectorAll('.tipo-card').forEach(c=>{
       const val=(c.querySelector('input[name="addCartTipo"]')?.value||'').toLowerCase();
       if(_èPV){
-        // Solo Player Version
+        // Solo Player Version (con o senza LV)
         if(val==='player version'){
           c.style.display='';c.classList.add('sel');
           const _pvPrezzo=35+(_isLV()?5:0);
@@ -5234,8 +5234,22 @@ function apriAddCart(){
         } else {
           c.style.display='none';c.classList.remove('sel');
         }
+      } else if(_isLV()){
+        // Solo Maglia a maniche lunghe → solo card Maglia a 35€
+        if(val==='maglia'){
+          c.style.display='';c.classList.add('sel');
+          c.dataset.prezzo='35';
+          const titolo=c.querySelector('div[style*="font-weight:800"]');
+          if(titolo) titolo.textContent='Maglia ML';
+          const prezzoDiv=c.querySelector('div[style*="font-weight:900"]');
+          if(prezzoDiv) prezzoDiv.textContent='35€';
+          document.getElementById('addCartPrezzoTot').textContent='35€';
+          aggiornaBarrato(35);
+        } else {
+          c.style.display='none';c.classList.remove('sel');
+        }
       } else {
-        // Tutte le maglie: Maglia + Kit Bambino + Kit Adulto (no Player Version)
+        // Maglia normale: Maglia + Kit Bambino + Kit Adulto (no Player Version)
         if(val==='player version'){
           c.style.display='none';c.classList.remove('sel');
         } else {
