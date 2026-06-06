@@ -2495,6 +2495,28 @@ function goHome(fromPopstate){
     </div>
   </div>
 
+  <!-- BANNER SCARPE — allineato agli altri banner tematici -->
+  <div class="scarpe-banner" onclick="openCategory(${CATALOG.findIndex(c=>c.name==='Scarpe')})">
+    <img src="sneakers.png" alt="Scarpe & Sneakers" loading="lazy">
+    <div class="scarpe-banner-overlay"></div>
+    <div class="scarpe-banner-content">
+      <div class="scarpe-banner-badge">🔥 Nuova collezione</div>
+      <div class="scarpe-banner-title">Move<br>Different.</div>
+      <div class="scarpe-banner-sub">Express your style.</div>
+      <div class="scarpe-banner-prezzo">A partire da <b>90€</b> • Spedizione gratuita</div>
+      <button class="scarpe-banner-btn">Scopri la collezione →</button>
+      <div class="scarpe-brand-logos">
+        <span class="scarpe-brand-logo">Jordan</span>
+        <span class="scarpe-brand-sep">|</span>
+        <span class="scarpe-brand-logo">Adidas</span>
+        <span class="scarpe-brand-sep">|</span>
+        <span class="scarpe-brand-logo">Nike</span>
+        <span class="scarpe-brand-sep">|</span>
+        <span class="scarpe-brand-logo">New Balance</span>
+      </div>
+    </div>
+  </div>
+
   <!-- FEATURED: MAGLIE IN EVIDENZA -->
   <div class="featured-inter">
     <div class="featured-inter-badge">🔥 PIÙ CERCATE DEL MOMENTO</div>
@@ -2579,27 +2601,6 @@ function goHome(fromPopstate){
     </div>`;
   });
   html+=`</div>
-
-  <div class="scarpe-banner" onclick="openCategory(${CATALOG.findIndex(c=>c.name==='Scarpe')})">
-    <img src="sneakers.png" alt="Scarpe & Sneakers" loading="lazy">
-    <div class="scarpe-banner-overlay"></div>
-    <div class="scarpe-banner-content">
-      <div class="scarpe-banner-badge">🔥 Nuova collezione</div>
-      <div class="scarpe-banner-title">Move<br>Different.</div>
-      <div class="scarpe-banner-sub">Express your style.</div>
-      <div class="scarpe-banner-prezzo">A partire da <b>90€</b> • Spedizione gratuita</div>
-      <button class="scarpe-banner-btn">Scopri la collezione →</button>
-      <div class="scarpe-brand-logos">
-        <span class="scarpe-brand-logo">Jordan</span>
-        <span class="scarpe-brand-sep">|</span>
-        <span class="scarpe-brand-logo">Adidas</span>
-        <span class="scarpe-brand-sep">|</span>
-        <span class="scarpe-brand-logo">Nike</span>
-        <span class="scarpe-brand-sep">|</span>
-        <span class="scarpe-brand-logo">New Balance</span>
-      </div>
-    </div>
-  </div>
 
   <!-- RECENSIONI -->
   <div class="reviews-section">
