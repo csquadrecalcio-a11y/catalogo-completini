@@ -51,18 +51,66 @@
       "@id": "https://completinicalcio.it/#store",
       "name": "Completini Squadre Calcio 2.0",
       "url": "https://completinicalcio.it/",
-      "description": "Maglie e completini da calcio personalizzati. Serie A, Premier League, Champions League. Kit bambini e adulti. Spedizione in tutta Italia.",
+      "image": "https://completinicalcio.it/hero.jpg",
+      "logo": "https://completinicalcio.it/logo.jpg",
+      "description": "Maglie e completini da calcio personalizzati. Serie A, Premier League, Champions League. Kit bambini e adulti. Spedizione gratuita in tutta Italia.",
       "currenciesAccepted": "EUR",
       "priceRange": "€€",
+      "email": "info@completinicalcio.it",
       "areaServed": {"@type": "Country", "name": "Italia"},
+      "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "312", "bestRating": "5", "worstRating": "1"},
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Completini e Maglie da Calcio",
         "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Maglia Calcio Personalizzata", "description": "Maglia da calcio personalizzabile con nome e numero", "offers": {"@type": "Offer", "price": "30", "priceCurrency": "EUR"}}},
-          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Kit Calcio Bambino", "description": "Completino calcio per bambini con maglia e pantaloncini personalizzati", "offers": {"@type": "Offer", "price": "35", "priceCurrency": "EUR"}}},
-          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Kit Calcio Adulto", "description": "Completino calcio adulto con maglia e pantaloncini personalizzati", "offers": {"@type": "Offer", "price": "40", "priceCurrency": "EUR"}}},
-          {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Player Version", "description": "Maglia Player Version alta qualità personalizzabile", "offers": {"@type": "Offer", "price": "35", "priceCurrency": "EUR"}}}
+          {"@type": "Offer", "itemOffered": {
+            "@type": "Product",
+            "name": "Maglia Calcio Personalizzata",
+            "description": "Maglia da calcio replica personalizzabile con nome e numero. Disponibile per tutte le squadre di Serie A, Premier League, Liga e Champions League.",
+            "image": "https://completinicalcio.it/hero.jpg",
+            "brand": {"@type": "Brand", "name": "Completini Squadre Calcio 2.0"},
+            "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "312"},
+            "offers": {"@type": "Offer", "price": "30", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "priceValidUntil": "2027-12-31", "url": "https://completinicalcio.it/",
+              "shippingDetails": {"@type": "OfferShippingDetails", "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "EUR"}, "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "IT"}, "deliveryTime": {"@type": "ShippingDeliveryTime", "businessDays": {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"]}, "cutoffTime": "17:00:00", "handlingTime": {"@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "DAY"}, "transitTime": {"@type": "QuantitativeValue", "minValue": 7, "maxValue": 15, "unitCode": "DAY"}}},
+              "hasMerchantReturnPolicy": {"@type": "MerchantReturnPolicy", "applicableCountry": "IT", "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted", "merchantReturnDays": 0}
+            }
+          }},
+          {"@type": "Offer", "itemOffered": {
+            "@type": "Product",
+            "name": "Kit Calcio Bambino",
+            "description": "Completino calcio per bambini con maglia e pantaloncini personalizzati. Taglie dalla XXS (2-3 anni) alla XXL (12-13 anni).",
+            "image": "https://completinicalcio.it/hero.jpg",
+            "brand": {"@type": "Brand", "name": "Completini Squadre Calcio 2.0"},
+            "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "312"},
+            "offers": {"@type": "Offer", "price": "35", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "priceValidUntil": "2027-12-31", "url": "https://completinicalcio.it/",
+              "shippingDetails": {"@type": "OfferShippingDetails", "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "EUR"}, "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "IT"}},
+              "hasMerchantReturnPolicy": {"@type": "MerchantReturnPolicy", "applicableCountry": "IT", "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"}
+            }
+          }},
+          {"@type": "Offer", "itemOffered": {
+            "@type": "Product",
+            "name": "Kit Calcio Adulto",
+            "description": "Completino calcio adulto con maglia e pantaloncini personalizzati. Taglie S, M, L, XL, XXL.",
+            "image": "https://completinicalcio.it/hero.jpg",
+            "brand": {"@type": "Brand", "name": "Completini Squadre Calcio 2.0"},
+            "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "312"},
+            "offers": {"@type": "Offer", "price": "40", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "priceValidUntil": "2027-12-31", "url": "https://completinicalcio.it/",
+              "shippingDetails": {"@type": "OfferShippingDetails", "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "EUR"}, "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "IT"}},
+              "hasMerchantReturnPolicy": {"@type": "MerchantReturnPolicy", "applicableCountry": "IT", "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"}
+            }
+          }},
+          {"@type": "Offer", "itemOffered": {
+            "@type": "Product",
+            "name": "Maglia Player Version",
+            "description": "Maglia Player Version alta qualità personalizzabile con nome e numero. La versione indossata dai calciatori professionisti.",
+            "image": "https://completinicalcio.it/hero.jpg",
+            "brand": {"@type": "Brand", "name": "Completini Squadre Calcio 2.0"},
+            "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "312"},
+            "offers": {"@type": "Offer", "price": "35", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "priceValidUntil": "2027-12-31", "url": "https://completinicalcio.it/",
+              "shippingDetails": {"@type": "OfferShippingDetails", "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "EUR"}, "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "IT"}},
+              "hasMerchantReturnPolicy": {"@type": "MerchantReturnPolicy", "applicableCountry": "IT", "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"}
+            }
+          }}
         ]
       }
     }
