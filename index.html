@@ -5682,7 +5682,11 @@ function _prezzoTuta(){
 }
 function _isEstivi(){
   const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
-  return stack.includes('estivi')||stack.includes('estivo');
+  if(stack.includes('estivi')||stack.includes('estivo')) return true;
+  // Controlla anche il nome della foto corrente
+  const photoName=(currentPhotos[currentPhotoIdx]?.name||'').toLowerCase();
+  if(photoName.includes('estiv')||photoName.includes('canotta')||photoName.includes('completo')) return true;
+  return false;
 }
 function _isVintageCategoria(){
   const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
@@ -5792,8 +5796,8 @@ function apriAddCart(){
   } else if(_isEstivi()){
     if(formEstivi) formEstivi.style.display='';
     document.getElementById('estagiTagliaVal').value='';
-    document.getElementById('addCartPrezzoTot').textContent='35€';
-    aggiornaBarrato(35);
+    document.getElementById('addCartPrezzoTot').textContent='40€';
+    aggiornaBarrato(40);
   } else if(_isVintageCategoria()){
     // ── VINTAGE (tutte le sotto-categorie) ──
     if(formMaglia) formMaglia.style.display='';
