@@ -447,6 +447,40 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .na-banner:hover .na-shine{left:130%;}
 @media(max-width:600px){.na-banner{height:200px;}.na-content{padding:16px 20px;}.na-btn{display:none;}}
 
+/* ── BANNER COMPLETI ESTIVI ── */
+.estivi-banner{position:relative;width:100%;height:300px;border-radius:10px;overflow:hidden;cursor:pointer;margin-bottom:24px;box-shadow:0 8px 40px rgba(255,140,0,.3);}
+.estivi-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0d47a1 0%,#1976d2 25%,#0288d1 50%,#26c6da 75%,#80deea 100%);animation:estiviBgPulse 6s ease-in-out infinite;}
+@keyframes estiviBgPulse{0%,100%{filter:brightness(1);}50%{filter:brightness(1.08);}}
+.estivi-sun{position:absolute;top:-60px;right:60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#ffe066 0%,#ffb300 40%,rgba(255,179,0,0) 70%);animation:estiviSunPulse 3s ease-in-out infinite;}
+@keyframes estiviSunPulse{0%,100%{transform:scale(1);opacity:.85;}50%{transform:scale(1.08);opacity:1;}}
+.estivi-rays{position:absolute;top:-30px;right:90px;width:160px;height:160px;background:repeating-conic-gradient(rgba(255,255,255,.12) 0deg 10deg,transparent 10deg 20deg);border-radius:50%;animation:estiviRaysSpin 12s linear infinite;}
+@keyframes estiviRaysSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.estivi-wave{position:absolute;bottom:0;left:0;right:0;height:70px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 70'%3E%3Cpath d='M0,35 C200,0 400,70 600,35 C800,0 1000,70 1200,35 L1200,70 L0,70 Z' fill='rgba(255,255,255,0.08)'/%3E%3C/svg%3E") repeat-x bottom;background-size:600px 70px;animation:estiviWave 4s linear infinite;}
+@keyframes estiviWave{from{background-position:0 bottom;}to{background-position:600px bottom;}}
+.estivi-ball{position:absolute;font-size:28px;animation:estiviFloat linear infinite;opacity:.35;}
+.estivi-ball1{left:15%;animation-duration:7s;animation-delay:0s;}
+.estivi-ball2{left:55%;animation-duration:9s;animation-delay:-3s;}
+.estivi-ball3{left:80%;animation-duration:6s;animation-delay:-1.5s;}
+@keyframes estiviFloat{0%{transform:translateY(320px) rotate(0deg);}100%{transform:translateY(-60px) rotate(360deg);}}
+.estivi-sparkle{position:absolute;width:4px;height:4px;background:#fff;border-radius:50%;animation:estiviSparkle 2s ease-in-out infinite;}
+.estivi-sparkle:nth-child(1){top:20%;left:30%;animation-delay:0s;}
+.estivi-sparkle:nth-child(2){top:60%;left:45%;animation-delay:.5s;}
+.estivi-sparkle:nth-child(3){top:30%;left:65%;animation-delay:1s;}
+.estivi-sparkle:nth-child(4){top:70%;left:75%;animation-delay:1.5s;}
+@keyframes estiviSparkle{0%,100%{transform:scale(0);opacity:0;}50%{transform:scale(1.5);opacity:1;}}
+.estivi-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:36px 44px;max-width:580px;}
+.estivi-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:14px;width:fit-content;animation:fadeInUp .5s ease both;}
+.estivi-title{font-family:'Montserrat',sans-serif;font-size:clamp(32px,4vw,58px);font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;text-shadow:0 2px 20px rgba(0,0,0,.3);margin-bottom:10px;animation:fadeInUp .5s ease .1s both;}
+.estivi-title span{color:#ffe066;}
+.estivi-sub{font-size:13px;color:rgba(255,255,255,.85);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;animation:fadeInUp .5s ease .2s both;}
+.estivi-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;animation:fadeInUp .5s ease .3s both;}
+.estivi-pill{background:rgba(255,255,255,.18);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.5px;}
+.estivi-prezzo{font-size:13px;color:rgba(255,255,255,.9);margin-bottom:18px;animation:fadeInUp .5s ease .35s both;}
+.estivi-prezzo b{color:#ffe066;font-size:16px;}
+.estivi-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.95);color:#0d47a1;border:none;padding:12px 26px;border-radius:8px;font-size:14px;font-weight:800;cursor:pointer;transition:all .25s;box-shadow:0 4px 20px rgba(0,0,0,.2);width:fit-content;animation:fadeInUp .5s ease .4s both;letter-spacing:.3px;}
+.estivi-btn:hover{background:#fff;transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.25);}
+.estivi-banner:hover .estivi-sun{transform:scale(1.12);}
+@media(max-width:600px){.estivi-banner{height:210px;}.estivi-content{padding:20px 22px;}.estivi-sub,.estivi-prezzo{display:none;}.estivi-title{font-size:32px;}}
 /* ── BANNER VINTAGE ── */
 .vintage-banner{position:relative;width:100%;height:300px;overflow:hidden;cursor:pointer;margin-bottom:24px;box-shadow:0 8px 40px rgba(0,0,0,.5);}
 .vintage-banner img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 8s ease;filter:sepia(.3) contrast(1.08) brightness(.95);}
@@ -2600,6 +2634,34 @@ function goHome(fromPopstate){
       <div class="na-title">Nuovi Arrivi</div>
       <div class="na-sub">Scopri la nuova collezione</div>
       <button class="na-btn">Vedi ora →</button>
+    </div>
+  </div>
+
+  <!-- BANNER COMPLETI ESTIVI -->
+  <div class="estivi-banner banner-reveal" onclick="openCategory(${CATALOG.findIndex(c=>c.name==='Completi Estivi')})">
+    <div class="estivi-bg"></div>
+    <div class="estivi-sun"></div>
+    <div class="estivi-rays"></div>
+    <div class="estivi-wave"></div>
+    <div class="estivi-ball estivi-ball1">⚽</div>
+    <div class="estivi-ball estivi-ball2">⚽</div>
+    <div class="estivi-ball estivi-ball3">⚽</div>
+    <div class="estivi-sparkle"></div>
+    <div class="estivi-sparkle"></div>
+    <div class="estivi-sparkle"></div>
+    <div class="estivi-sparkle"></div>
+    <div class="estivi-content">
+      <div class="estivi-badge">☀️ Collezione Estate 2026</div>
+      <div class="estivi-title">Completi<br><span>Estivi</span></div>
+      <div class="estivi-sub">Leggeri • Traspiranti • Personalizzabili</div>
+      <div class="estivi-pills">
+        <span class="estivi-pill">🎽 Canotta</span>
+        <span class="estivi-pill">👕 T-Shirt</span>
+        <span class="estivi-pill">👔 Polo</span>
+        <span class="estivi-pill">🐆 Jordan</span>
+      </div>
+      <div class="estivi-prezzo">Da <b>40€</b> • Spedizione gratuita 🚚</div>
+      <button class="estivi-btn">Scopri i kit ☀️</button>
     </div>
   </div>
 
@@ -7125,7 +7187,7 @@ if('serviceWorker' in navigator){
 // ③ BANNER SCROLL REVEAL (verticali)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 function initBannerReveal(){
-  const banners = document.querySelectorAll('.na-banner,.mondiali-banner,.vintage-banner,.scarpe-banner,.anime-banner');
+  const banners = document.querySelectorAll('.na-banner,.mondiali-banner,.vintage-banner,.scarpe-banner,.anime-banner,.estivi-banner');
   if(!banners.length) return;
   const obs = new IntersectionObserver(entries=>{
     entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('revealed'); });
