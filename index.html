@@ -367,6 +367,8 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .brand-card-btn{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.08);backdrop-filter:blur(4px);color:#fff;font-size:12px;font-weight:800;letter-spacing:3px;text-align:center;padding:12px;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.1);transition:background .2s;}
 .brand-card:hover .brand-card-btn{background:rgba(255,255,255,.18);}
 .brand-card-accent{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);width:40px;height:2px;border-radius:2px;background:rgba(255,255,255,.3);}
+.team-logo-wrap{width:68px;height:68px;border-radius:50%;background:rgba(255,255,255,.13);backdrop-filter:blur(6px);border:2px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;margin-bottom:10px;position:relative;z-index:2;overflow:hidden;flex-shrink:0;}
+.team-logo-wrap img{width:46px;height:46px;object-fit:contain;display:block;}
 /* colori accent per brand */
 .brand-nike .brand-card-bg{background:linear-gradient(160deg,#1a1a1a 0%,#111 100%);}
 .brand-nike .brand-card-name{color:#fff;}
@@ -2413,6 +2415,76 @@ body.dark .avvisa-box{background:#1e1e1e;}
 
 <script>
 // ── CATALOGO ─────────────────────────────────────────────────────────────────
+// ── LOGHI SQUADRE ─────────────────────────────────────────────────────────────
+const TEAM_LOGOS = {
+  // SERIE A
+  'atalanta':              'https://crests.football-data.org/114.svg',
+  'bologna':               'https://crests.football-data.org/103.svg',
+  'cagliari':              'https://crests.football-data.org/485.svg',
+  'como':                  'https://crests.football-data.org/5461.svg',
+  'fiorentina':            'https://crests.football-data.org/99.svg',
+  'inter':                 'https://crests.football-data.org/108.svg',
+  'juventus':              'https://crests.football-data.org/109.svg',
+  'lazio':                 'https://crests.football-data.org/110.svg',
+  'milan':                 'https://crests.football-data.org/98.svg',
+  'napoli':                'https://crests.football-data.org/113.svg',
+  'parma':                 'https://crests.football-data.org/112.svg',
+  'roma':                  'https://crests.football-data.org/100.svg',
+  'torino':                'https://crests.football-data.org/586.svg',
+  'udinese':               'https://crests.football-data.org/1107.svg',
+  'venezia':               'https://crests.football-data.org/450.svg',
+  // PREMIER LEAGUE
+  'arsenal':               'https://crests.football-data.org/57.svg',
+  'aston villa':           'https://crests.football-data.org/58.svg',
+  'chelsea':               'https://crests.football-data.org/61.svg',
+  'liverpool':             'https://crests.football-data.org/64.svg',
+  'manchester city':       'https://crests.football-data.org/65.svg',
+  'manchester united':     'https://crests.football-data.org/66.svg',
+  'newcastle':             'https://crests.football-data.org/67.svg',
+  'nottingham forest':     'https://crests.football-data.org/68.svg',
+  'tottenham':             'https://crests.football-data.org/73.svg',
+  // LIGA SPAGNOLA
+  'atletico bilbao':       'https://crests.football-data.org/77.svg',
+  'atletico madrid':       'https://crests.football-data.org/78.svg',
+  'barcellona':            'https://crests.football-data.org/81.svg',
+  'betis':                 'https://crests.football-data.org/90.svg',
+  'bilbao':                'https://crests.football-data.org/77.svg',
+  'real madrid':           'https://crests.football-data.org/86.svg',
+  'siviglia':              'https://crests.football-data.org/559.svg',
+  'valencia':              'https://crests.football-data.org/95.svg',
+  // BUNDESLIGA
+  'bayer leverkusen':      'https://crests.football-data.org/3.svg',
+  'bayern monaco':         'https://crests.football-data.org/5.svg',
+  'borussia dortmund':     'https://crests.football-data.org/4.svg',
+  'borussia mönchengladbach':'https://crests.football-data.org/18.svg',
+  'eintracht frankfurt':   'https://crests.football-data.org/19.svg',
+  'rb leipzig':            'https://crests.football-data.org/721.svg',
+  'schalke 04':            'https://crests.football-data.org/28.svg',
+  'vfb stuttgart':         'https://crests.football-data.org/10.svg',
+  'werder bremen':         'https://crests.football-data.org/12.svg',
+  // LIGUE 1
+  'losc lille':            'https://crests.football-data.org/521.svg',
+  'as monaco':             'https://crests.football-data.org/548.svg',
+  'marsiglia':             'https://crests.football-data.org/516.svg',
+  'olympique lyonnais':    'https://crests.football-data.org/523.svg',
+  'paris fc':              'https://crests.football-data.org/531.svg',
+  'paris saint germain':   'https://crests.football-data.org/524.svg',
+  // EREDIVISIE
+  'ajax':                  'https://crests.football-data.org/678.svg',
+  'az alkmaar':            'https://crests.football-data.org/680.svg',
+  'feyenoord':             'https://crests.football-data.org/675.svg',
+  'psv eindhoven':         'https://crests.football-data.org/674.svg',
+  // RESTO DEL MONDO
+  'boca juniors':          'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Club_Atl%C3%A9tico_Boca_Juniors_logo.svg/150px-Club_Atl%C3%A9tico_Boca_Juniors_logo.svg.png',
+  'flamengo':              'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Flamengo_braz_logo.svg/150px-Flamengo_braz_logo.svg.png',
+  'fluminense':            'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Fluminense_fc_logo.svg/150px-Fluminense_fc_logo.svg.png',
+  'inter miami':           'https://upload.wikimedia.org/wikipedia/en/thumb/5/5c/Inter_Miami_CF_badge.svg/150px-Inter_Miami_CF_badge.svg.png',
+  'palmeiras':             'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Palmeiras_logo.svg/150px-Palmeiras_logo.svg.png',
+  'river plate':           'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/River_plate_logo.svg/150px-River_plate_logo.svg.png',
+  'santos':                'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Santos_logo.svg/150px-Santos_logo.svg.png',
+};
+function getTeamLogo(name){return TEAM_LOGOS[name.toLowerCase().trim()]||null;}
+
 const CATALOG = [
   { name:"Nuovi Arrivi", flag:"🆕", id:"1mNzocO2ltOMXmIlk6ygdQa7KaT93wV4M", subs:null},
   { name:"Serie A", flag:"<img src='https://flagcdn.com/w80/it.png' alt='🇮🇹' onerror=\"this.outerHTML='🇮🇹'\">", id:"1PEPuubYWEiecIKwXbq9RZ1LuWNjEhzC2", subs:[
@@ -3315,12 +3387,15 @@ async function renderCategory(cat,ci){
       const [bg,accent]=teamGradient(sn);
       const _topTeam=['inter','juventus','juve','milan','napoli','roma','lazio','atalanta','city','liverpool','arsenal','chelsea','united','real madrid','real','barcelona','barca','atleti','atletico','psg','paris','bayern','dortmund','argentina','brasile','brasil','france','francia','portogallo','portu','italia','spagna','spain','inghilterra','germany','germania'].some(h=>sn.toLowerCase().includes(h));
       const _topBadge=_topTeam?`<div style="position:absolute;top:6px;right:6px;background:linear-gradient(135deg,#c62828,#e53935);color:#fff;font-size:7.5px;font-weight:800;padding:2px 7px;border-radius:8px;z-index:10;letter-spacing:.5px;box-shadow:0 2px 6px rgba(0,0,0,.35);">🔥 TOP</div>`:'';
+      const _logo=getTeamLogo(sn);
+      const _logoHtml=_logo?`<div class="team-logo-wrap"><img src="${_logo}" alt="${sn}" loading="lazy" onerror="this.parentNode.style.display='none'"></div>`:'';
       html+=`<div class="brand-card" id="card-${ci}-${si}" onclick="openSub(${ci},${si})" style="border-radius:10px;">
         <div class="brand-card-inner" style="aspect-ratio:1;" id="inner-${ci}-${si}">
           <div class="brand-card-bg" id="thumb-${ci}-${si}" style="background:${bg};"></div>
           ${_topBadge}
-          <div style="position:relative;z-index:1;text-align:center;padding:0 8px;">
-            <div class="brand-card-name" style="font-size:clamp(12px,2vw,15px);letter-spacing:.5px;">${sn}</div>
+          <div style="position:relative;z-index:1;text-align:center;padding:0 8px;display:flex;flex-direction:column;align-items:center;">
+            ${_logoHtml}
+            <div class="brand-card-name" style="font-size:clamp(11px,2vw,14px);letter-spacing:.5px;">${sn}</div>
           </div>
           <div class="brand-card-accent" style="background:${accent};"></div>
         </div>
