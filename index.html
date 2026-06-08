@@ -3600,12 +3600,15 @@ async function restorePhotoFromHash(fileId){
 }
 
 function openPhotoById(fileId){
-  // Aspetta un attimo che le foto siano caricate poi apre il lightbox
+  // Riprova ogni 300ms per max 10 secondi finché Drive non carica le foto
+  const maxTentativi=33;
+  let n=0;
   const tryOpen=()=>{
     const idx=currentPhotos.findIndex(p=>p.id===fileId);
-    if(idx>=0){openLightbox(idx);}
+    if(idx>=0){openLightbox(idx);return;}
+    if(++n<maxTentativi) setTimeout(tryOpen,300);
   };
-  setTimeout(tryOpen,600);
+  setTimeout(tryOpen,300);
 }
 
 function prevPhoto(){
@@ -4208,13 +4211,13 @@ function inviaPersonalizzazione(){
       // Naviga alla sottocategoria e apre la foto specifica
       await openSub(+subPhotoMatch[1],+subPhotoMatch[2],true);
       const photoId=subPhotoMatch[3];
-      setTimeout(()=>openPhotoById(photoId),800);
+      openPhotoById(photoId);
       return true;
     }
     if(catPhotoMatch){
       openCategory(+catPhotoMatch[1],true);
       const photoId=catPhotoMatch[2];
-      setTimeout(()=>openPhotoById(photoId),800);
+      openPhotoById(photoId);
       return true;
     }
     if(catMatch) { openCategory(+catMatch[1],true); return true; }
