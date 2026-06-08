@@ -5974,7 +5974,8 @@ function apriAddCart(){
     if(_oXXXL) _oXXXL.style.display=_èPV?'none':'';
     if(_oXXXXL) _oXXXXL.style.display=_èPV?'none':'';
   }
-  document.getElementById('addCartModal').classList.add('active');
+  const _m=document.getElementById('addCartModal');
+  if(_m){_m.style.display='';_m.classList.add('active');}
   // Aggiorna stima consegna con date reali
   (function(){
     const _m=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
@@ -5986,7 +5987,8 @@ function apriAddCart(){
 }
 
 function chiudiAddCart(){
-  document.getElementById('addCartModal').classList.remove('active');
+  const m=document.getElementById('addCartModal');
+  if(m){m.classList.remove('active');m.style.display='none';}
 }
 
 function confermAggiungi(){
@@ -6344,9 +6346,14 @@ function chiudiDopoCarrello(){
   const p=document.getElementById('dopoCarrelloPopup');
   if(p) p.style.display='none';
   if(_dopoCarrelloTimer) clearTimeout(_dopoCarrelloTimer);
-  // Chiude il lightbox se ancora aperto
-  const lb=document.getElementById('lightbox');
-  if(lb&&lb.classList.contains('active')) lb.classList.remove('active');
+  // Chiude TUTTI i modal aperti per sicurezza
+  ['addCartModal','cartModal','lightbox','orderModal','ordineModal','shareModal','orderSummaryModal'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.classList.remove('active');
+  });
+  // Ripristina pointer-events sul body
+  document.body.style.overflow='';
+  document.body.style.pointerEvents='';
 }
 
 // ── FORM CONTATTO ─────────────────────────────────────────────────────────────
