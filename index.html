@@ -6015,7 +6015,6 @@ function confermAggiungi(){
     salvaCarrello();flyToCart(document.getElementById('addCartImg'));
     chiudiAddCart();closeLightbox();aggiornaCartBadge();
     mostraDopoCarrello(`${tipo} — ${squadraNome}`);
-    setTimeout(()=>{renderCarrello();document.getElementById('cartModal').classList.add('active');},400);
     return;
   }
   // Modalità COMPLETINI ESTIVI
@@ -6030,7 +6029,6 @@ function confermAggiungi(){
     salvaCarrello();flyToCart(document.getElementById('addCartImg'));
     chiudiAddCart();closeLightbox();aggiornaCartBadge();
     mostraDopoCarrello(`${tipo} — ${squadraNome}`);
-    setTimeout(()=>{renderCarrello();document.getElementById('cartModal').classList.add('active');},400);
     return;
   }
 
@@ -6072,8 +6070,6 @@ function confermAggiungi(){
   closeLightbox();
   aggiornaCartBadge();
   mostraDopoCarrello(`${tipo} — ${squadraNome}`);
-  // Apre automaticamente il carrello dopo 400ms
-  setTimeout(()=>{renderCarrello();document.getElementById('cartModal').classList.add('active');}, 400);
 }
 
 function mostraToast(msg){
