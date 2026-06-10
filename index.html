@@ -7507,7 +7507,19 @@ window.apriCondividi = function(e, idx){
 // ⑦ SERVICE WORKER 📦
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('/catalogo-completini/sw.js').catch(()=>{});
+  // Se c'era già un service worker attivo, vuol dire che è un aggiornamento:
+  // quando il nuovo prende il controllo, ricarica la pagina una volta sola.
+  const _avevaController = !!navigator.serviceWorker.controller;
+  let _ricaricando = false;
+  navigator.serviceWorker.addEventListener('controllerchange', ()=>{
+    if(_ricaricando || !_avevaController) return;
+    _ricaricando = true;
+    window.location.reload();
+  });
+  navigator.serviceWorker.register('/catalogo-completini/sw.js').then(reg=>{
+    reg.update();                                   // controlla subito se c'è una versione nuova
+    setInterval(()=>reg.update(), 30*60*1000);      // ...e poi ogni 30 minuti
+  }).catch(()=>{});
 }
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
