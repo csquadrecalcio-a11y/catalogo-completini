@@ -575,6 +575,13 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .photo-item{position:relative;border-radius:12px!important;border:none!important;box-shadow:0 2px 12px rgba(0,0,0,.08)!important;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease!important;overflow:hidden;background:#fff;}
 .photo-item:active{transform:scale(.96)!important;box-shadow:0 1px 4px rgba(0,0,0,.1)!important;}
 .photo-item img{border-radius:12px 12px 0 0;display:block;width:100%;aspect-ratio:3/4;object-fit:cover;}
+/* Etichetta nome + prezzo sotto la foto */
+.photo-meta{padding:8px 11px 11px;}
+.photo-nome{font-size:12.5px;font-weight:700;color:#1a2b4a;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+body.dark .photo-nome{color:#e8eef7;}
+.photo-prezzo{font-size:14px;font-weight:900;color:#0d47a1;margin-top:3px;}
+body.dark .photo-prezzo{color:#4da6f5;}
+.photo-prezzo .da{font-size:10px;font-weight:700;color:#9aa7bd;margin-right:2px;letter-spacing:.3px;}
 /* Ripple al tocco */
 .ripple-touch{position:absolute;border-radius:50%;background:rgba(255,255,255,.3);transform:scale(0);animation:ripplePop .5s cubic-bezier(.25,.46,.45,.94) forwards;pointer-events:none;}
 @keyframes ripplePop{to{transform:scale(4);opacity:0;}}
@@ -3548,6 +3555,30 @@ async function buildAlbumGrid(items,actionFn){
 }
 
 // ── FOTO ─────────────────────────────────────────────────────────────────────
+// Nome leggibile: pulisce il nome del file, se è spazzatura usa il nome della cartella
+function _nomePulito(raw, fallback){
+  let n=(raw||'').trim();
+  n=n.replace(/\.(jpg|jpeg|png|webp|gif|heic)$/i,'');     // togli estensione
+  n=n.replace(/[_\-]+/g,' ').replace(/\s+/g,' ').trim();  // separatori → spazi
+  const low=n.toLowerCase();
+  const spazzatura=
+    !n ||
+    n.length<3 ||
+    /^[0-9\s.]+$/.test(n) ||                               // solo numeri
+    /^(img|image|foto|photo|pic|dsc|dcim|pxl|mvimg|whatsapp|screenshot|schermata|senza titolo|untitled|copia|copy|file|download)(\b|\d)/i.test(low) ||
+    (/^\S{12,}$/.test(n) && /\d/.test(n));                 // stringa lunga attaccata con numeri (id/file)
+  if(spazzatura) return fallback||'';
+  return n.replace(/\b\w/g,c=>c.toUpperCase());            // Capitalizza Ogni Parola
+}
+
+// Prezzo minimo "a partire da" in base alla cartella corrente
+function _prezzoMinFoto(nome){
+  if(typeof _isScarpe==='function' && _isScarpe()) return 90;
+  const opts=(typeof _getOpzioni==='function') ? _getOpzioni(nome) : null;
+  if(!opts||!opts.length) return null;
+  return Math.min(...opts.map(o=>o.prezzo));
+}
+
 function renderPhotos(imgs,title,back){
   const main=document.getElementById('main');
   currentPhotos=imgs;
@@ -3563,6 +3594,9 @@ function renderPhotos(imgs,title,back){
     const nomeWa=encodeURIComponent(`Ciao! Voglio ordinare: ${img.name||title}`);
     const isWished=_wishlist.has(img.id);
     const viewers=2+Math.floor(Math.random()*6);
+    const _nome=_nomePulito(img.name,title);
+    const _pmin=_prezzoMinFoto(img.name);
+    const _piuOpz=(typeof _getOpzioni==='function') && _getOpzioni(img.name).length>1 && !(typeof _isScarpe==='function'&&_isScarpe());
     html+=`<div class="photo-item" onclick="openLightbox(${i})" data-photoid="${img.id}">
       <img src="${thumbUrl(img.id)}" alt="${img.name}" loading="lazy">
       ${isNuovo?'<div class="badge-nuovo">Nuovo</div>':''}
@@ -3571,6 +3605,10 @@ function renderPhotos(imgs,title,back){
       <button class="quick-order-btn" onclick="event.stopPropagation();currentPhotoIdx=${i};apriAddCart()">
         🛒 Aggiungi al carrello
       </button>
+      <div class="photo-meta">
+        ${_nome?`<div class="photo-nome">${_nome}</div>`:''}
+        ${_pmin?`<div class="photo-prezzo">${_piuOpz?'<span class="da">da</span>':''}${_pmin}€</div>`:''}
+      </div>
     </div>`;
   });
   main.innerHTML=html+`</div>`+mostraCompletaLook(0);
