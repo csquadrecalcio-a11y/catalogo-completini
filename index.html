@@ -2960,8 +2960,8 @@ function goHome(fromPopstate){
     </div>
   </div>
 
-  <!-- RECENSIONI CLIENTI -->
-  <div style="background:#fff;padding:28px 0 32px;border-top:3px solid #f5f5f5;">
+  <!-- RECENSIONI CLIENTI (rimossa: ridondante con la galleria foto reali) -->
+  <div style="display:none;">
     <div style="text-align:center;margin-bottom:18px;padding:0 20px;">
       <div style="font-size:10px;font-weight:800;letter-spacing:3px;color:#aaa;text-transform:uppercase;margin-bottom:8px;">La parola ai nostri clienti</div>
       <div style="font-size:18px;font-weight:900;color:#111;">&#11088;&#11088;&#11088;&#11088;&#11088; 4.9 &nbsp;<span style="font-size:13px;font-weight:400;color:#999;">su oltre 300 ordini</span></div>
@@ -3049,8 +3049,8 @@ function goHome(fromPopstate){
   });
   html+=`</div>
 
-  <!-- RECENSIONI -->
-  <div class="reviews-section">
+  <!-- RECENSIONI testo (rimossa: ridondante con la galleria foto reali) -->
+  <div class="reviews-section" style="display:none;">
     <div class="reviews-header">
       <div class="reviews-stars-big">★★★★★</div>
       <h2>Cosa dicono i nostri clienti</h2>
@@ -4312,11 +4312,8 @@ function inviaPersonalizzazione(){
     setTimeout(()=>el.classList.remove('show'),4000);
   }
 
-  // Prima notifica dopo 20 secondi, poi ogni 60-120 secondi
-  setTimeout(()=>{
-    mostra();
-    setInterval(mostra, Math.random()*60000+60000);
-  }, 20000);
+  // DISATTIVATO: sistema di notifiche acquisto duplicato (ne resta uno solo, più sotto)
+  // setTimeout(()=>{ mostra(); setInterval(mostra, Math.random()*60000+60000); }, 20000);
 })();
 
 // ── CURSORE PALLONE ──────────────────────────────────────────────────────────
@@ -5078,10 +5075,10 @@ function chiudiWelcome(){
     setTimeout(()=>{
       _toast.classList.remove('visible');
       _active=false;
-      setTimeout(_showNext,10000);
-    },8000);
+      setTimeout(_showNext,150000);   // poi ogni ~2,5 minuti (molto meno invadente)
+    },6000);
   }
-  setTimeout(_showNext,14000); // prima notifica dopo 14 secondi
+  setTimeout(_showNext,45000); // prima notifica dopo 45 secondi
 })();
 
 // ── EXIT INTENT ──────────────────────────────────────────────────────────────
@@ -6280,6 +6277,7 @@ function confermAggiungi(){
   const kit=(tipo==='Kit Adulto'||tipo==='Kit Bambino');
   const lvSelezionato=document.getElementById('addCartLV')?.checked||false;
   const prezzoFinale=prezzo+(lvSelezionato?5:0);
+  const scontabile=(tipo!=='Player Version');   // Player Version a prezzo fisso, niente sconto quantità
   let personalizza='';
   if(lvSelezionato) personalizza+='Maniche Lunghe';
   if(nome) personalizza+=(personalizza?' | ':'')+`Nome: ${nome}`;
@@ -6294,7 +6292,7 @@ function confermAggiungi(){
     thumb:thumbUrl(photo.id),
     taglia,
     prezzo:prezzoFinale,
-    tiers:_tiersFor(prezzo, lvSelezionato),
+    tiers:scontabile?_tiersFor(prezzo, lvSelezionato):null,
     personalizza:personalizza||'',
     squadra:squadraNome,ci:navStack[0]?.ci??'',si:navStack[1]?.si??''
   });
