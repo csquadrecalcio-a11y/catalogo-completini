@@ -1721,7 +1721,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
     </div>
   </div>
   <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
-    <button onclick="chiudiWelcome();goHome();" style="background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:800;cursor:pointer;white-space:nowrap;box-shadow:0 3px 12px rgba(245,166,35,.4);">⚽ Sfoglia ora</button>
+    <button onclick="chiudiWelcome();sfogliaCatalogo();" style="background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:800;cursor:pointer;white-space:nowrap;box-shadow:0 3px 12px rgba(245,166,35,.4);">⚽ Sfoglia ora</button>
     <button onclick="chiudiWelcome()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✕</button>
   </div>
 </div>
@@ -2690,7 +2690,7 @@ function goHome(fromPopstate){
         <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="50" data-suffix="+">0</span></div><div class="hero-stat-label">Club</div></div>
         <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="2018" data-prefix="Dal ">0</span></div><div class="hero-stat-label">Online</div></div>
       </div>
-      <button class="hero-btn-main" onclick="document.querySelector('.content-header')?.scrollIntoView({behavior:'smooth',block:'start'})">
+      <button class="hero-btn-main" onclick="sfogliaCatalogo()">
         <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         Sfoglia il catalogo
       </button>
@@ -3273,6 +3273,58 @@ function goHome(fromPopstate){
   main.innerHTML=html;
   setTimeout(renderHotStrip,100);
   setTimeout(()=>document.dispatchEvent(new Event('homepageReady')),600);
+}
+
+// ── SFOGLIA CATALOGO: mostra subito solo la griglia categorie ─────────────────
+function sfogliaCatalogo(){
+  history.pushState({page:'home'},'','#');
+  document.title='Completini Squadre Calcio 2.0 — Tutte le categorie';
+  navStack=[];updateBreadcrumb();setSidebarActive(-1);
+  const main=document.getElementById('main');
+  const CAT_COLORS={
+    'Serie A':'linear-gradient(160deg,#0d2137 0%,#0a3d62 100%)',
+    'Premier League':'linear-gradient(160deg,#1a0505 0%,#8b0000 100%)',
+    'Liga Spagnola':'linear-gradient(160deg,#1a0a00 0%,#c62828 100%)',
+    'Bundesliga':'linear-gradient(160deg,#1a1200 0%,#bf360c 100%)',
+    'Ligue 1 Francia':'linear-gradient(160deg,#00001a 0%,#1565c0 100%)',
+    'Eredivisie':'linear-gradient(160deg,#1a0800 0%,#e65100 100%)',
+    'Nazionali 2026/2027':'linear-gradient(160deg,#0a1a0a 0%,#1b5e20 100%)',
+    'Resto del Mondo':'linear-gradient(160deg,#0a0a1a 0%,#4a148c 100%)',
+    'NBA':'linear-gradient(160deg,#1a0500 0%,#b71c1c 100%)',
+    'Tute':'linear-gradient(160deg,#0a0a1a 0%,#1565c0 100%)',
+    'Completi Estivi':'linear-gradient(160deg,#1a1000 0%,#f57f17 100%)',
+    'Vintage':'linear-gradient(160deg,#1a1500 0%,#795548 100%)',
+    'Scarpe':'linear-gradient(160deg,#0a0a0a 0%,#212121 100%)',
+  };
+  const CAT_ACCENT={
+    'Serie A':'#4fc3f7','Premier League':'#ef5350','Liga Spagnola':'#ef5350',
+    'Bundesliga':'#ffa726','Ligue 1 Francia':'#42a5f5','Eredivisie':'#ff7043',
+    'Nazionali 2026/2027':'#66bb6a','Resto del Mondo':'#ce93d8','NBA':'#ff7043',
+    'Tute':'#4fc3f7','Completi Estivi':'#ffca28','Vintage':'#a1887f','Scarpe':'#90caf9',
+  };
+  let html=`<div class="content-header"><div class="content-title">Tutte le categorie</div></div><div class="cat-grid">`;
+  CATALOG.forEach((cat,i)=>{
+    if(i===0) return;
+    if(cat.name==='Scarpe') return;
+    const bg=CAT_COLORS[cat.name]||'linear-gradient(160deg,#1a1a1a 0%,#111 100%)';
+    const accent=CAT_ACCENT[cat.name]||'#fff';
+    const count=cat.subs?cat.subs.length+' squadre':'Sfoglia';
+    html+=`<div class="brand-card" onclick="openCategory(${i})" style="border-radius:10px;">
+      <div class="brand-card-inner" style="aspect-ratio:1;">
+        <div class="brand-card-bg" style="background:${bg};"></div>
+        <div style="position:relative;z-index:1;text-align:center;">
+          <div style="font-size:36px;margin-bottom:8px;">${cat.flag}</div>
+          <div class="brand-card-name" style="font-size:clamp(13px,2vw,16px);letter-spacing:1px;">${cat.name}</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px;">${count}</div>
+        </div>
+        <div class="brand-card-accent" style="background:${accent};"></div>
+      </div>
+      <div class="brand-card-btn">Scopri ora</div>
+    </div>`;
+  });
+  html+=`</div>`;
+  main.innerHTML=html;
+  window.scrollTo(0,0);
 }
 
 // ── CATEGORIA ────────────────────────────────────────────────────────────────
