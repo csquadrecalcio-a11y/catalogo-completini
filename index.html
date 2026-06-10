@@ -4012,16 +4012,27 @@ async function cercaFoto(query){
     if(risultati.length>=40) break;
   }
 
-  // Fallback Drive: se SEARCH_INDEX non ha trovato nulla, cerca direttamente nelle cartelle
+  // Fallback Drive: cerca per nome file nelle categorie flat (subs:null)
+  // e per nome cartella nelle categorie con sottocartelle
   if(!risultati.length){
     for(const cat of CATALOG){
       if(!cat.id) continue;
-      const allSubs=await getSubfolders(cat.id);
-      const matching=allSubs.filter(f=>f.name.toLowerCase().includes(q));
-      for(const folder of matching){
-        const imgs=await getImages(folder.id);
-        imgs.forEach(img=>risultati.push({img,label:folder.name}));
-        if(risultati.length>=40) break;
+      if(cat.subs===null){
+        // Cartella flat (es. Nazionali): cerca nelle immagini per nome file
+        const imgs=await getImages(cat.id);
+        const matching=imgs.filter(img=>img.name.toLowerCase().includes(q));
+        matching.forEach(img=>{
+          const label=img.name.replace(/\.(jpg|jpeg|png|webp)$/i,'').replace(/^kit\s+/i,'').trim();
+          risultati.push({img,label});
+        });
+      } else {
+        // Categorie con sottocartelle: cerca cartelle per nome
+        const allSubs=await getSubfolders(cat.id);
+        const matching=allSubs.filter(f=>f.name.toLowerCase().includes(q));
+        for(const folder of matching){
+          const imgs=await getImages(folder.id);
+          imgs.forEach(img=>risultati.push({img,label:folder.name}));
+        }
       }
       if(risultati.length>=40) break;
     }
