@@ -850,6 +850,32 @@ body.dark .mbb-btn.active{color:#90caf9;}
   .scroll-top-btn{bottom:170px;}
   body{padding-bottom:60px;}
 }
+/* ── BARRA CARRELLO FISSA ── */
+.carrello-barra{
+  display:none;
+  position:fixed;
+  left:0;right:0;bottom:0;
+  z-index:149;
+  background:linear-gradient(135deg,#0d47a1 0%,#1565c0 100%);
+  padding:11px 18px;
+  box-shadow:0 -3px 20px rgba(13,71,161,.35);
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  animation:slideUpBarra .3s ease;
+}
+@keyframes slideUpBarra{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.carrello-barra.visibile{display:flex;}
+.cb-txt{color:#fff;font-size:14px;font-weight:800;letter-spacing:.2px;}
+.cb-sub{color:rgba(255,255,255,.72);font-size:11px;margin-top:2px;}
+.cb-btn{background:#fff;color:#0d47a1;border:none;border-radius:10px;padding:10px 22px;font-size:14px;font-weight:800;cursor:pointer;white-space:nowrap;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+.cb-btn:active{opacity:.85;}
+@media(max-width:768px){
+  .carrello-barra{bottom:60px;}
+}
+/* Evidenzia campi obbligatori mancanti */
+.campo-errore{border-color:#ef4444!important;animation:shakeCampo .35s ease;}
+@keyframes shakeCampo{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
 
 /* ── SWIPE LIGHTBOX MOBILE ── */
 .lightbox{touch-action:pan-y;}
@@ -2365,6 +2391,15 @@ body.dark .avvisa-box{background:#1e1e1e;}
 
 <!-- TORNA SU -->
 <button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Torna su">↑</button>
+
+<!-- BARRA CARRELLO FISSA -->
+<div class="carrello-barra" id="carrelloBarra">
+  <div>
+    <div class="cb-txt" id="carrellaBarraTxt">🛒 1 articolo nel carrello</div>
+    <div class="cb-sub">Spedizione gratuita · Clicca per completare l'ordine</div>
+  </div>
+  <button class="cb-btn" onclick="apriCarrello()">Vai al carrello →</button>
+</div>
 
 <!-- BOTTOM BAR MOBILE -->
 <div class="mobile-bottom-bar">
@@ -5720,6 +5755,67 @@ function aggiornaCartBadge(){
   } else {
     badge.classList.remove('show');
   }
+  aggiornaBarraCarrello();
+}
+
+// ── DATI CLIENTE SALVATI ──────────────────────────────────────────────────────
+function salvaClienteData(){
+  const get=id=>(document.getElementById(id)?.value||'').trim();
+  const d={
+    nome:     get('cNome'),
+    cognome:  get('cCognome'),
+    indirizzo:get('cIndirizzo'),
+    citta:    get('cCitta'),
+    prov:     get('cProv'),
+    cap:      get('cCap'),
+    tel:      get('cTel'),
+    pag:      get('cPag')
+  };
+  if(d.nome||d.tel) localStorage.setItem('csc-cliente',JSON.stringify(d));
+}
+
+function caricaClienteData(){
+  return JSON.parse(localStorage.getItem('csc-cliente')||'{}');
+}
+
+function prefillCartForm(){
+  const d=caricaClienteData();
+  if(!d.nome&&!d.tel) return;
+  const set=(id,v)=>{const el=document.getElementById(id);if(el&&v)el.value=v;};
+  set('cNome',d.nome); set('cCognome',d.cognome);
+  set('cIndirizzo',d.indirizzo); set('cCitta',d.citta);
+  set('cProv',d.prov); set('cCap',d.cap);
+  set('cTel',d.tel);   set('cPag',d.pag);
+  // Salva in tempo reale mentre l'utente scrive
+  ['cNome','cCognome','cIndirizzo','cCitta','cProv','cCap','cTel'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.addEventListener('input',salvaClienteData);
+  });
+  const pag=document.getElementById('cPag');
+  if(pag) pag.addEventListener('change',salvaClienteData);
+}
+
+function prefillOrdineModal(){
+  const d=caricaClienteData();
+  if(!d.nome&&!d.tel) return;
+  const set=(id,v)=>{const el=document.getElementById(id);if(el&&v)el.value=v;};
+  set('ordine-nome',d.nome); set('ordine-cognome',d.cognome);
+  set('ordine-indirizzo',d.indirizzo); set('ordine-citta',d.citta);
+  set('ordine-cap',d.cap); set('ordine-telefono',d.tel);
+}
+
+// ── BARRA CARRELLO FISSA ──────────────────────────────────────────────────────
+function aggiornaBarraCarrello(){
+  const barra=document.getElementById('carrelloBarra');
+  if(!barra) return;
+  if(carrello.length===0){
+    barra.classList.remove('visibile');
+    return;
+  }
+  barra.classList.add('visibile');
+  const n=carrello.length;
+  document.getElementById('carrellaBarraTxt').textContent=
+    `🛒 ${n} articolo${n>1?'i':''} nel carrello`;
 }
 
 let addCartPatch='Nessuna patch';
@@ -6242,6 +6338,15 @@ function renderCarrello(){
   </div>`;
 
   body.innerHTML=html;
+  prefillCartForm();
+}
+
+function _segnaErrore(id){
+  const el=document.getElementById(id);
+  if(!el) return;
+  el.classList.add('campo-errore');
+  el.focus();
+  setTimeout(()=>el.classList.remove('campo-errore'),2000);
 }
 
 function checkoutCarrello(){
@@ -6257,11 +6362,16 @@ function checkoutCarrello(){
   const tel=(document.getElementById('cTel')?.value||'').trim();
   const pag=(document.getElementById('cPag')?.value||'').trim();
 
-  // Validazione campi obbligatori
-  if(!nome||!cognome){mostraToast('⚠️ Inserisci nome e cognome!');document.getElementById('cNome')?.focus();return;}
-  if(!indirizzo||!citta||!cap){mostraToast('⚠️ Inserisci i dati di spedizione!');document.getElementById('cIndirizzo')?.focus();return;}
-  if(!tel){mostraToast('⚠️ Inserisci il numero di telefono!');document.getElementById('cTel')?.focus();return;}
-  if(!pag){mostraToast('⚠️ Seleziona il metodo di pagamento!');document.getElementById('cPag')?.focus();return;}
+  // Validazione con evidenziazione campo
+  if(!nome){mostraToast('⚠️ Inserisci il nome!');_segnaErrore('cNome');return;}
+  if(!cognome){mostraToast('⚠️ Inserisci il cognome!');_segnaErrore('cCognome');return;}
+  if(!indirizzo){mostraToast('⚠️ Inserisci l\'indirizzo!');_segnaErrore('cIndirizzo');return;}
+  if(!citta){mostraToast('⚠️ Inserisci la città!');_segnaErrore('cCitta');return;}
+  if(!cap){mostraToast('⚠️ Inserisci il CAP!');_segnaErrore('cCap');return;}
+  if(!tel){mostraToast('⚠️ Inserisci il telefono!');_segnaErrore('cTel');return;}
+  if(!pag){mostraToast('⚠️ Seleziona il metodo di pagamento!');_segnaErrore('cPag');return;}
+
+  salvaClienteData();
 
   // Costruisci messaggio
   let msg=`🛒 *NUOVO ORDINE — Completini Squadre Calcio 2.0*\n`;
@@ -6918,6 +7028,7 @@ function apriOrdine(nomeProdotto){
   `).join('')+(lvExtra?`<div style="background:#fff8e1;border:1.5px solid #ffcc02;border-radius:10px;padding:10px 14px;margin-top:8px;font-size:12px;font-weight:700;color:#333;display:flex;align-items:center;gap:8px;">🧥 Maniche Lunghe incluse <span style="margin-left:auto;color:#0d47a1;">+5€</span></div>`:'');
 
   document.getElementById('ordineModal').classList.add('active');
+  prefillOrdineModal();
 }
 
 function selOrdine(el, idx){
@@ -6992,6 +7103,11 @@ function inviaOrdineWa(){
     `📞 ${telefono}\n\n`+
     `💳 Pagamento: ${_pагаmento}\n\n`+
     `Potete confermare disponibilità e procedere?`;
+
+  // Salva dati per la prossima volta
+  localStorage.setItem('csc-cliente', JSON.stringify({
+    nome, cognome, indirizzo, citta, prov:'', cap, tel, pag:_pагаmento
+  }));
 
   window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`,'_blank');
   chiudiOrdine();
