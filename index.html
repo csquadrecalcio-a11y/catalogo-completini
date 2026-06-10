@@ -3578,6 +3578,7 @@ function _nomePulito(raw, fallback){
 // Prezzo minimo "a partire da" in base alla cartella corrente
 function _prezzoMinFoto(nome){
   if(typeof _isScarpe==='function' && _isScarpe()) return 90;
+  if(typeof _isNBA==='function' && _isNBA()) return 40;
   const opts=(typeof _getOpzioni==='function') ? _getOpzioni(nome) : null;
   if(!opts||!opts.length) return null;
   return Math.min(...opts.map(o=>o.prezzo));
@@ -3600,7 +3601,7 @@ function renderPhotos(imgs,title,back){
     const viewers=2+Math.floor(Math.random()*6);
     const _nome=_nomePulito(img.name,title);
     const _pmin=_prezzoMinFoto(img.name);
-    const _piuOpz=(typeof _getOpzioni==='function') && _getOpzioni(img.name).length>1 && !(typeof _isScarpe==='function'&&_isScarpe());
+    const _piuOpz=(typeof _getOpzioni==='function') && _getOpzioni(img.name).length>1 && !(typeof _isScarpe==='function'&&_isScarpe()) && !(typeof _isNBA==='function'&&_isNBA());
     html+=`<div class="photo-item" onclick="openLightbox(${i})" data-photoid="${img.id}">
       <img src="${thumbUrl(img.id)}" alt="${img.name}" loading="lazy">
       ${isNuovo?'<div class="badge-nuovo">Nuovo</div>':''}
@@ -5902,6 +5903,10 @@ function _isEstivi(){
   if(photoName.includes('estiv')||photoName.includes('canotta')||photoName.includes('completo')) return true;
   return false;
 }
+function _isNBA(){
+  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  return stack.includes('nba');
+}
 function _isVintageCategoria(){
   const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
   return stack.includes('vintage');
@@ -5931,7 +5936,7 @@ function selTagliaSemplice(el, taglia){
   el.classList.add('sel');
   // Salva nel campo corretto in base alla categoria
   if(_isTute()) document.getElementById('tuteTagliaVal').value=taglia;
-  else if(_isEstivi()) document.getElementById('estagiTagliaVal').value=taglia;
+  else if(_isEstivi()||_isNBA()) document.getElementById('estagiTagliaVal').value=taglia;
 }
 
 const PREZZI_BARRATI={
@@ -6009,6 +6014,11 @@ function apriAddCart(){
     aggiornaBarrato(_pt);
   } else if(_isEstivi()){
     if(formEstivi) formEstivi.style.display='';
+    document.getElementById('estagiTagliaVal').value='';
+    document.getElementById('addCartPrezzoTot').textContent='40€';
+    aggiornaBarrato(40);
+  } else if(_isNBA()){
+    if(formEstivi) formEstivi.style.display='';   // riusa il selettore taglia semplice
     document.getElementById('estagiTagliaVal').value='';
     document.getElementById('addCartPrezzoTot').textContent='40€';
     aggiornaBarrato(40);
@@ -6242,6 +6252,17 @@ function confermAggiungi(){
     salvaCarrello();flyToCart(document.getElementById('addCartImg'));
     chiudiAddCart();closeLightbox();aggiornaCartBadge();
     mostraDopoCarrello(`${tipo} — ${squadraNome}`);
+    return;
+  }
+  // Modalità NBA — solo canotta a prezzo fisso 40€
+  if(_isNBA()){
+    const taglia=document.getElementById('estagiTagliaVal').value;
+    if(!taglia){alert('Seleziona la taglia!');return;}
+    const squadraNba=(typeof _nomePulito==='function')?_nomePulito(photo.name,squadraNome):squadraNome;
+    carrello.push({id:photo.id,name:`🏀 Canotta — ${squadraNba}`,thumb:thumbUrl(photo.id),taglia,prezzo:40,personalizza:'',squadra:squadraNba,ci:navStack[0]?.ci??'',si:navStack[1]?.si??''});
+    salvaCarrello();flyToCart(document.getElementById('addCartImg'));
+    chiudiAddCart();closeLightbox();aggiornaCartBadge();
+    mostraDopoCarrello(`Canotta — ${squadraNba}`);
     return;
   }
 
@@ -7428,7 +7449,7 @@ window.openLightbox = function(i){
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 let _sizeFilter = 'tutti';
 function renderSizeFilter(){
-  if(_isVintageCategoria()||_isScarpe()||_isTute()||_isEstivi()) return '';
+  if(_isVintageCategoria()||_isScarpe()||_isTute()||_isEstivi()||_isNBA()) return '';
   return `<div class="size-filter-bar" id="sizeFilterBar">
     <button class="sf-btn active" onclick="setSizeFilter('tutti',this)">👕 Tutti</button>
     <button class="sf-btn" onclick="setSizeFilter('adulto',this)">🧑 Adulto</button>
@@ -7457,10 +7478,10 @@ window.renderPhotos = function(imgs, title, back){
   const r = _origRP2?.apply(this,arguments);
   const main = document.getElementById('main');
   const grid = main?.querySelector('.photo-grid');
-  if(grid && !_isVintageCategoria() && !_isScarpe()){
+  if(grid){
     const bar = document.createElement('div');
     bar.innerHTML = renderSizeFilter();
-    main.insertBefore(bar.firstElementChild, grid);
+    if(bar.firstElementChild) main.insertBefore(bar.firstElementChild, grid);
   }
   return r;
 };
