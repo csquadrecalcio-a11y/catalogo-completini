@@ -576,12 +576,16 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .photo-item:active{transform:scale(.96)!important;box-shadow:0 1px 4px rgba(0,0,0,.1)!important;}
 .photo-item img{border-radius:12px 12px 0 0;display:block;width:100%;aspect-ratio:3/4;object-fit:cover;}
 /* Etichetta nome + prezzo sotto la foto */
-.photo-meta{padding:8px 11px 11px;}
-.photo-nome{font-size:12.5px;font-weight:700;color:#1a2b4a;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.photo-meta{padding:9px 11px 12px;}
+.photo-nome{font-size:13px;font-weight:700;color:#1a2b4a;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:5px;}
 body.dark .photo-nome{color:#e8eef7;}
-.photo-prezzo{font-size:14px;font-weight:900;color:#0d47a1;margin-top:3px;}
+.photo-prezzo{font-size:17px;font-weight:900;color:#0d47a1;line-height:1.05;}
 body.dark .photo-prezzo{color:#4da6f5;}
-.photo-prezzo .da{font-size:10px;font-weight:700;color:#9aa7bd;margin-right:2px;letter-spacing:.3px;}
+.photo-prezzo .da{font-size:11px;font-weight:600;color:#6b7a90;margin-right:3px;letter-spacing:.2px;}
+@media(max-width:768px){
+  .photo-prezzo{font-size:17px;}
+  .photo-nome{font-size:13px;}
+}
 /* Ripple al tocco */
 .ripple-touch{position:absolute;border-radius:50%;background:rgba(255,255,255,.3);transform:scale(0);animation:ripplePop .5s cubic-bezier(.25,.46,.45,.94) forwards;pointer-events:none;}
 @keyframes ripplePop{to{transform:scale(4);opacity:0;}}
@@ -3330,7 +3334,7 @@ function goHome(fromPopstate){
           <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:4px;letter-spacing:1px;text-transform:uppercase;">Maglie</div>
         </div>
         <div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:18px 12px;text-align:center;">
-          <div style="font-size:26px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">★ 5.0</div>
+          <div style="font-size:26px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">★ 4.9</div>
           <div style="font-size:11px;color:rgba(255,255,255,.6);margin-top:4px;letter-spacing:1px;text-transform:uppercase;">Rating</div>
         </div>
       </div>
@@ -5127,13 +5131,10 @@ function paginaChiSiamo(){
     <div style="background:#fff;border-radius:16px;padding:28px;margin-bottom:20px;border:1px solid #e8e8e8;">
       <h2 style="font-family:'Montserrat',sans-serif;font-size:19px;font-weight:900;color:#0d47a1;margin-bottom:16px;display:flex;align-items:center;gap:10px;">📖 La nostra storia</h2>
       <p style="font-size:14px;color:#444;line-height:1.9;margin-bottom:12px;">
-        Tutto è iniziato nel <strong>2018</strong> con una semplice passione: il calcio. Quello che è partito come un hobby — trovare le maglie delle squadre preferite a prezzi accessibili — si è trasformato in un vero e proprio punto di riferimento per migliaia di appassionati in tutta Italia.
-      </p>
-      <p style="font-size:14px;color:#444;line-height:1.9;margin-bottom:12px;">
-        Il nostro segreto? Lavoriamo <strong>direttamente con le fabbriche produttrici</strong>, eliminando tutti gli intermediari. Questo ci permette di offrire maglie di ottima qualità a prezzi che nessun negozio fisico può eguagliare. La merce arriva direttamente alla fonte, senza ricarichi inutili.
+        Quello che nel <strong>2018</strong> era un piccolo progetto nato dalla passione per il calcio è cresciuto fino a diventare un punto di riferimento per migliaia di appassionati in tutta Italia. Maglie e completini delle squadre di Serie A, Premier League, Liga e Champions, fino ai più grandi club del mondo — con personalizzazione di nome, numero e patch sempre inclusa.
       </p>
       <p style="font-size:14px;color:#444;line-height:1.9;">
-        Oggi, dopo oltre <strong>8 anni di attività</strong> e più di <strong>2.000 ordini completati</strong>, siamo orgogliosi di essere il negozio di maglie da calcio preferito da tanti appassionati italiani. Ogni ordine viene seguito personalmente — rispondiamo sempre su WhatsApp, perché per noi ogni cliente è importante.
+        Oggi, dopo oltre <strong>8 anni di attività</strong> e più di <strong>2.000 ordini completati</strong>, continuiamo a trattare ogni cliente come se fosse il primo: con attenzione, qualità e prezzi onesti. La fiducia di chi ci sceglie è la ragione per cui facciamo questo lavoro ogni giorno.
       </p>
     </div>
 
@@ -5152,7 +5153,7 @@ function paginaChiSiamo(){
         <div style="font-size:11px;color:rgba(255,255,255,.85);margin-top:4px;text-transform:uppercase;letter-spacing:1px;">Clienti</div>
       </div>
       <div style="background:linear-gradient(135deg,#c62828,#e53935);border-radius:14px;padding:20px 14px;text-align:center;">
-        <div style="font-size:28px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">★ 5.0</div>
+        <div style="font-size:28px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;">★ 4.9</div>
         <div style="font-size:11px;color:rgba(255,255,255,.85);margin-top:4px;text-transform:uppercase;letter-spacing:1px;">Rating</div>
       </div>
     </div>
