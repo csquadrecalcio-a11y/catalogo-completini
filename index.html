@@ -1721,7 +1721,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
     </div>
   </div>
   <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
-    <button onclick="chiudiWelcome();openCategory(1);" style="background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:800;cursor:pointer;white-space:nowrap;box-shadow:0 3px 12px rgba(245,166,35,.4);">⚽ Sfoglia ora</button>
+    <button onclick="chiudiWelcome();goHome();" style="background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:800;cursor:pointer;white-space:nowrap;box-shadow:0 3px 12px rgba(245,166,35,.4);">⚽ Sfoglia ora</button>
     <button onclick="chiudiWelcome()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✕</button>
   </div>
 </div>
@@ -2704,7 +2704,7 @@ function goHome(fromPopstate){
         <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="50" data-suffix="+">0</span></div><div class="hero-stat-label">Club</div></div>
         <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="2018" data-prefix="Dal ">0</span></div><div class="hero-stat-label">Online</div></div>
       </div>
-      <button class="hero-btn-main" onclick="openCategory(1)">
+      <button class="hero-btn-main" onclick="goHome()">
         <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         Sfoglia il catalogo
       </button>
@@ -3227,42 +3227,7 @@ function goHome(fromPopstate){
     </div>
   </div>
 
-  <!-- COME FUNZIONA -->
-  <div style="background:#fff;padding:40px 24px;margin-bottom:0;border-top:1px solid #e8e8e8;">
-    <div style="max-width:900px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:32px;">
-        <div style="display:inline-block;background:#e3f2fd;color:#0d47a1;font-size:12px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:10px;">SEMPLICE E VELOCE</div>
-        <h2 style="font-family:'Montserrat',sans-serif;font-size:24px;font-weight:900;color:#111;">Come funziona?</h2>
-        <p style="color:#888;font-size:14px;margin-top:6px;">Ordinare è semplicissimo, ci vogliono meno di 2 minuti</p>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;">
-        <div style="text-align:center;padding:24px 16px;border-radius:14px;border:1.5px solid #e3f2fd;background:#f5f9ff;position:relative;">
-          <div style="width:44px;height:44px;background:#0d47a1;color:#fff;border-radius:50%;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">1</div>
-          <div style="font-size:32px;margin-bottom:10px;">🔍</div>
-          <div style="font-size:15px;font-weight:800;color:#111;margin-bottom:6px;">Scegli la maglia</div>
-          <div style="font-size:12px;color:#777;line-height:1.6;">Sfoglia il catalogo e trova la maglia della tua squadra del cuore</div>
-        </div>
-        <div style="text-align:center;padding:24px 16px;border-radius:14px;border:1.5px solid #e3f2fd;background:#f5f9ff;">
-          <div style="width:44px;height:44px;background:#0d47a1;color:#fff;border-radius:50%;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">2</div>
-          <div style="font-size:32px;margin-bottom:10px;">✏️</div>
-          <div style="font-size:15px;font-weight:800;color:#111;margin-bottom:6px;">Personalizza</div>
-          <div style="font-size:12px;color:#777;line-height:1.6;">Aggiungi nome, numero e patch gratuitamente — come un pro</div>
-        </div>
-        <div style="text-align:center;padding:24px 16px;border-radius:14px;border:1.5px solid #e3f2fd;background:#f5f9ff;">
-          <div style="width:44px;height:44px;background:#0d47a1;color:#fff;border-radius:50%;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">3</div>
-          <div style="font-size:32px;margin-bottom:10px;">💬</div>
-          <div style="font-size:15px;font-weight:800;color:#111;margin-bottom:6px;">Ordina su WhatsApp</div>
-          <div style="font-size:12px;color:#777;line-height:1.6;">Inviaci il tuo ordine direttamente su WhatsApp — rispondiamo subito</div>
-        </div>
-        <div style="text-align:center;padding:24px 16px;border-radius:14px;border:1.5px solid #e3f2fd;background:#f5f9ff;">
-          <div style="width:44px;height:44px;background:#0d47a1;color:#fff;border-radius:50%;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;">4</div>
-          <div style="font-size:32px;margin-bottom:10px;">📦</div>
-          <div style="font-size:15px;font-weight:800;color:#111;margin-bottom:6px;">Ricevi a casa</div>
-          <div style="font-size:12px;color:#777;line-height:1.6;">Spedizione gratuita in tutta Italia, tracking incluso</div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- COME FUNZIONA (rimosso: duplicato di "Come ordinare" in fondo alla home) -->
 
   <!-- APPENA ORDINATI -->
   <div class="hot-strip" id="hotStrip"></div>
@@ -5213,7 +5178,7 @@ function paginaOrdini(){
       <div style="font-size:48px;margin-bottom:12px;">🛒</div>
       <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Nessun ordine ancora</div>
       <div style="font-size:13px;">Gli ordini inviati su WhatsApp appariranno qui</div>
-      <button onclick="openCategory(1)" style="margin-top:20px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:10px;padding:12px 24px;font-size:14px;font-weight:800;cursor:pointer;">⚽ Sfoglia il catalogo</button>
+      <button onclick="goHome()" style="margin-top:20px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:10px;padding:12px 24px;font-size:14px;font-weight:800;cursor:pointer;">⚽ Sfoglia il catalogo</button>
     </div>`;
   } else {
     storico.slice().reverse().forEach((ordine,i)=>{
@@ -6965,15 +6930,11 @@ function paginaPrezzi(){
           </tr>
           <tr>
             <td>⭐ Player Version</td>
-            <td><span class="price-val">35€</span></td>
-            <td><span class="price-val">28€</span><span class="badge-sconto">-20%</span></td>
-            <td><span class="price-val">22€</span><span class="badge-sconto badge-best">-37%</span></td>
+            <td colspan="3" style="text-align:center;"><span class="price-val">35€</span> <span style="font-size:11px;background:#334;color:#fff;border-radius:6px;padding:2px 7px;font-weight:700;vertical-align:middle;">Prezzo fisso</span></td>
           </tr>
           <tr>
             <td>🏆 Maglia Vintage</td>
-            <td><span class="price-val">35€</span></td>
-            <td><span class="price-val">28€</span><span class="badge-sconto">-20%</span></td>
-            <td><span class="price-val">22€</span><span class="badge-sconto badge-best">-37%</span></td>
+            <td colspan="3" style="text-align:center;"><span class="price-val">35€</span> <span style="font-size:11px;background:#334;color:#fff;border-radius:6px;padding:2px 7px;font-weight:700;vertical-align:middle;">Prezzo fisso</span></td>
           </tr>
         </tbody>
       </table>
