@@ -3609,16 +3609,39 @@ const SEARCH_INDEX=(()=>{
   return idx;
 })();
 
-// Aggiunge al SEARCH_INDEX le sottocartelle reali da Drive per categorie senza subs statiche
+// Arricchisce SEARCH_INDEX con squadre reali per categorie senza subs statiche
 (async function enrichSearchIndex(){
+  // Estrae il nome squadra dal nome file Drive
+  function extractTeam(filename){
+    let s=filename.replace(/\.(jpg|jpeg|png|webp)$/i,'').toLowerCase().trim();
+    if(s.includes('_')) return null; // skip patch/badge
+    s=s.replace(/^kit\s+/,'');
+    s=s.replace(/\s+(home|away|portiere|special|pink|x\b|\d+|2026|2027|version|set|estivo).*$/,'').trim();
+    ['estivo','invernale','polo','tuta','maglia'].forEach(w=>{if(s.startsWith(w+' '))s=s.slice(w.length+1).trim();});
+    return s.length>=2?s:null;
+  }
   for(let ci=0;ci<CATALOG.length;ci++){
     const cat=CATALOG[ci];
     if(cat.subs||!cat.id) continue;
     try{
-      const subs=await getSubfolders(cat.id);
-      subs.forEach(f=>{
-        SEARCH_INDEX.push({label:f.name,path:cat.name,flag:teamIcon(f.name),action:()=>openDynamicSub(f.id,f.name,cat.name)});
-      });
+      // Prova prima se ci sono sottocartelle (es. NBA)
+      const subfolders=await getSubfolders(cat.id);
+      if(subfolders.length>0){
+        subfolders.forEach(f=>{
+          SEARCH_INDEX.push({label:f.name,path:cat.name,flag:teamIcon(f.name),action:()=>openDynamicSub(f.id,f.name,cat.name)});
+        });
+      } else {
+        // Cartella flat (es. Nazionali): estrai nomi squadra dai nomi file
+        const imgs=await getImages(cat.id);
+        const seen=new Set();
+        imgs.forEach(img=>{
+          const t=extractTeam(img.name);
+          if(!t||seen.has(t)) return;
+          seen.add(t);
+          const label=t.charAt(0).toUpperCase()+t.slice(1);
+          SEARCH_INDEX.push({label,path:cat.name,flag:teamIcon(label),action:()=>cercaFoto(label)});
+        });
+      }
     }catch(e){}
   }
 })();
