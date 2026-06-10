@@ -1776,12 +1776,12 @@ body.dark .avvisa-box{background:#1e1e1e;}
   <div class="exit-backdrop" onclick="chiudiExit()"></div>
   <div class="exit-box">
     <button class="exit-close" onclick="chiudiExit()">✕</button>
-    <div style="font-size:48px;margin-bottom:10px;">💬</div>
+    <div style="font-size:48px;margin-bottom:10px;">⚽</div>
     <h2 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:#0d47a1;margin-bottom:8px;">Aspetta prima di andare!</h2>
-    <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:20px;">Non hai trovato quello che cercavi? Scrivici su WhatsApp — rispondiamo in pochi minuti e ti aiutiamo a trovare la maglia giusta! 🏆</p>
-    <a href="https://wa.me/393792126743?text=Ciao!%20Stavo%20guardando%20il%20catalogo%20e%20vorrei%20informazioni" target="_blank" onclick="chiudiExit()" style="display:flex;align-items:center;justify-content:center;gap:10px;background:#25d366;color:#fff;padding:14px 24px;border-radius:12px;font-size:15px;font-weight:800;border:none;cursor:pointer;width:100%;margin-bottom:12px;text-decoration:none;">
-      💬 Scrivici su WhatsApp
-    </a>
+    <p style="font-size:14px;color:#555;line-height:1.7;margin-bottom:20px;">Non hai ancora trovato la maglia giusta? Sfoglia tutte le categorie — abbiamo oltre 500 maglie di Serie A, Premier, Liga e molto altro! 🏆</p>
+    <button onclick="chiudiExit();goHome();" style="display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#0d47a1,#1565c0);color:#fff;padding:14px 24px;border-radius:12px;font-size:15px;font-weight:800;border:none;cursor:pointer;width:100%;margin-bottom:12px;">
+      ⚽ Sfoglia il catalogo
+    </button>
     <button onclick="chiudiExit()" style="background:none;border:none;color:#aaa;font-size:13px;cursor:pointer;text-decoration:underline;">No grazie, continuo a guardare</button>
   </div>
 </div>
@@ -2001,10 +2001,6 @@ body.dark .avvisa-box{background:#1e1e1e;}
         Aggiungi al carrello
       </button>
       <button class="custom-cancel" onclick="chiudiPersonalizza()">Annulla</button>
-      <button class="custom-send" onclick="inviaPersonalizzazione()">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Invia su WhatsApp
-      </button>
     </div>
   </div>
 </div>
@@ -2044,7 +2040,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
         <button class="scarpa-num-btn" onclick="selNumScarpa(this,'44')">44</button>
       </div>
       <div style="background:#fff8e1;border:1.5px solid #ffcc02;border-radius:8px;padding:10px 12px;font-size:12px;color:#e65100;font-weight:600;margin-bottom:16px;">
-        👟 Mezzi numeri (es. 40.5)? <a href="https://wa.me/393792126743" target="_blank" style="color:#0d47a1;font-weight:800;">Chiedi disponibilità su WhatsApp</a>
+        👟 Per mezzi numeri (es. 40.5) aggiungila al carrello e scrivilo nelle note dell'ordine
       </div>
       <input type="hidden" id="scarpeNumero" value="">
     </div>
@@ -2252,17 +2248,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
     <div class="order-body">
       <div class="order-maglia-preview" id="orderMagliaPreview">👕 Maglia selezionata dal catalogo</div>
 
-      <!-- TAB scelta -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;">
-        <button id="tabOrdine" onclick="switchTab('ordine')"
-          style="padding:12px;border-radius:10px;border:2px solid #0d47a1;background:#0d47a1;color:#fff;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;">
-          📋 Ordine completo
-        </button>
-        <button id="tabInfo" onclick="switchTab('info')"
-          style="padding:12px;border-radius:10px;border:2px solid #e0e0e0;background:#fff;color:#555;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;">
-          💬 Chiedi info
-        </button>
-      </div>
+      <!-- TAB scelta (solo ordine) -->
 
       <!-- FORM ORDINE COMPLETO -->
       <div id="formOrdine">
@@ -2947,9 +2933,9 @@ function goHome(fromPopstate){
           <div style="font-size:11px;color:#888;line-height:1.55;text-align:center;">Sfoglia il catalogo e trova la tua squadra del cuore</div>
         </div>
         <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:1;padding:0 4px;">
-          <div style="width:56px;height:56px;background:linear-gradient(135deg,#1b5e20,#25d366);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 16px rgba(37,211,102,.3);flex-shrink:0;">💬</div>
-          <div style="font-weight:800;font-size:13px;color:#111;text-align:center;">Scrivici su WhatsApp</div>
-          <div style="font-size:11px;color:#888;line-height:1.55;text-align:center;">Mandaci maglia, taglia e nome+numero per la personalizzazione</div>
+          <div style="width:56px;height:56px;background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 16px rgba(13,71,161,.3);flex-shrink:0;">🛒</div>
+          <div style="font-weight:800;font-size:13px;color:#111;text-align:center;">Aggiungi al carrello</div>
+          <div style="font-size:11px;color:#888;line-height:1.55;text-align:center;">Scegli taglia, personalizzazione e conferma l'ordine in un click</div>
         </div>
         <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:1;padding:0 4px;">
           <div style="width:56px;height:56px;background:linear-gradient(135deg,#e65100,#ff8f00);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 16px rgba(230,81,0,.3);flex-shrink:0;">📦</div>
@@ -3238,7 +3224,7 @@ function goHome(fromPopstate){
       <div style="font-size:36px;margin-bottom:10px;">🔍</div>
       <h2 style="font-family:'Montserrat',sans-serif;font-size:18px;font-weight:900;color:#0d47a1;margin-bottom:8px;">Non trovi la tua squadra?</h2>
       <p style="font-size:13px;color:#555;line-height:1.6;margin-bottom:18px;">Il nostro catalogo si aggiorna ogni settimana! Se non trovi la maglia che cerchi, scrivici — probabilmente ce l'abbiamo o possiamo procurartela.</p>
-      <a href="https://wa.me/393792126743?text=Ciao!%20Cerco%20la%20maglia%20di%20" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;text-decoration:none;transition:background .2s;" onmouseover="this.style.background='#1ebe5d'" onmouseout="this.style.background='#25d366'">💬 Chiedici su WhatsApp</a>
+      <a href="https://instagram.com/csc_duepuntozero" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#e1306c;color:#fff;padding:12px 24px;border-radius:10px;font-size:14px;font-weight:800;text-decoration:none;transition:background .2s;">📸 Scrivici su Instagram</a>
     </div>
   </div>
 
@@ -3306,7 +3292,6 @@ function goHome(fromPopstate){
       <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
         <a href="https://instagram.com/csc_duepuntozero" target="_blank" style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;padding:10px 18px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">📸 Instagram</a>
         <a href="https://t.me/csc2_0" target="_blank" style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#fff;padding:10px 18px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700;transition:background .2s;" onmouseover="this.style.background='rgba(255,255,255,.22)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">✈️ Telegram</a>
-        <a href="https://wa.me/393792126743" target="_blank" style="display:flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:10px 18px;border-radius:10px;text-decoration:none;font-size:13px;font-weight:700;transition:background .2s;" onmouseover="this.style.background='#1ebe5d'" onmouseout="this.style.background='#25d366'">💬 WhatsApp</a>
       </div>
     </div>
   </div>
@@ -4092,12 +4077,8 @@ function paginaComeOrdinare(){
       <div style="background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:22px 24px;display:flex;align-items:flex-start;gap:20px;">
         <div style="width:48px;height:48px;background:#0d47a1;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;flex-shrink:0;">2</div>
         <div>
-          <div style="font-size:16px;font-weight:700;color:#222;margin-bottom:6px;">💬 Contattaci su WhatsApp</div>
-          <div style="font-size:14px;color:#555;line-height:1.6;">Premi il bottone <b>"Ordina su WhatsApp"</b> sulla foto oppure scrivici direttamente. Indica la maglia scelta, la taglia e il tuo indirizzo di spedizione.</div>
-          <a href="https://wa.me/393792126743" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25d366;color:#fff;padding:9px 18px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;margin-top:12px;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Scrivici ora
-          </a>
+          <div style="font-size:16px;font-weight:700;color:#222;margin-bottom:6px;">🛒 Aggiungi al carrello</div>
+          <div style="font-size:14px;color:#555;line-height:1.6;">Apri la foto, scegli taglia e tipo, inserisci nome e numero per la personalizzazione e aggiungi al carrello. Quando sei pronto, premi <b>"Invia ordine"</b>.</div>
         </div>
       </div>
 
@@ -4115,11 +4096,10 @@ function paginaComeOrdinare(){
 
     <div style="background:#e3f2fd;border:1px solid #bbdefb;border-radius:10px;padding:20px 24px;text-align:center;">
       <div style="font-size:15px;font-weight:700;color:#0d47a1;margin-bottom:8px;">Hai domande?</div>
-      <div style="font-size:13px;color:#555;margin-bottom:14px;">Siamo sempre disponibili su WhatsApp, Instagram e Telegram</div>
+      <div style="font-size:13px;color:#555;margin-bottom:14px;">Scrivici su Instagram o Telegram — rispondiamo sempre!</div>
       <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
-        <a href="https://wa.me/393792126743" target="_blank" style="background:#25d366;color:#fff;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;">WhatsApp</a>
-        <a href="https://instagram.com/csc_duepuntozero" target="_blank" style="background:#e1306c;color:#fff;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;">Instagram</a>
-        <a href="https://t.me/csc2_0" target="_blank" style="background:#0088cc;color:#fff;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;">Telegram</a>
+        <a href="https://instagram.com/csc_duepuntozero" target="_blank" style="background:#e1306c;color:#fff;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;">📸 Instagram</a>
+        <a href="https://t.me/csc2_0" target="_blank" style="background:#0088cc;color:#fff;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none;">✈️ Telegram</a>
       </div>
     </div>
 
@@ -4414,7 +4394,7 @@ function calcolaRisparmio(){
         <div><div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Risparmi</div><div style="font-size:20px;font-weight:900;color:#2e7d32;">€${risparmio}</div></div>
       </div>
       ${prossimoMsg}
-      ${risparmio>0?`<a href="https://wa.me/393792126743?text=${encodeURIComponent(`Ciao! Vorrei ordinare ${maglie>0?maglie+' maglie':''}${maglie>0&&kit>0?' e ':''}${kit>0?kit+' kit completi':''} — potete confermare disponibilità?`)}" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#25d366;color:#fff;padding:10px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:700;margin-top:12px;">💬 Ordina ora su WhatsApp</a>`:''}
+      ${risparmio>0?`<div style="margin-top:12px;background:#e3f2fd;border-radius:8px;padding:10px;font-size:13px;color:#0d47a1;font-weight:700;text-align:center;">🛒 Aggiungi le maglie al carrello per ottenere lo sconto!</div>`:''}
     </div>`;
 }
 
@@ -4665,13 +4645,10 @@ function paginaPrezzi(){
     <!-- CTA -->
     <div style="background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:14px;padding:28px 24px;text-align:center;">
       <div style="font-size:22px;font-weight:800;color:#fff;margin-bottom:8px;">Vuoi fare un ordine di gruppo?</div>
-      <p style="font-size:14px;color:rgba(255,255,255,.8);margin-bottom:20px;">Contattaci su WhatsApp con la lista delle maglie e ti facciamo subito il preventivo!</p>
-      <a href="https://wa.me/393792126743?text=${encodeURIComponent('Ciao! Vorrei fare un ordine multiplo. Potete farmi un preventivo?')}" target="_blank"
-        style="display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:800;text-decoration:none;transition:all .2s;"
-        onmouseover="this.style.background='#1ebe5d'" onmouseout="this.style.background='#25d366'">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Richiedi preventivo su WhatsApp
-      </a>
+      <p style="font-size:14px;color:rgba(255,255,255,.8);margin-bottom:20px;">Aggiungi tutte le maglie al carrello e invia l'ordine — lo sconto viene applicato automaticamente!</p>
+      <button onclick="goHome()" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#0d47a1;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:800;border:none;cursor:pointer;">
+        ⚽ Sfoglia il catalogo
+      </button>
     </div>
 
   </div>`;
@@ -4717,7 +4694,6 @@ function paginaFaq(){
       <div style="font-size:18px;font-weight:700;color:#0d47a1;margin-bottom:8px;">Non hai trovato risposta?</div>
       <p style="font-size:13px;color:#555;margin-bottom:16px;">Contattaci direttamente — rispondiamo in pochi minuti!</p>
       <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
-        <a href="https://wa.me/393792126743" target="_blank" style="background:#25d366;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">💬 WhatsApp</a>
         <a href="https://t.me/csc2_0" target="_blank" style="background:#0088cc;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">✈️ Telegram</a>
         <a href="https://instagram.com/csc_duepuntozero" target="_blank" style="background:#e1306c;color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">📸 Instagram</a>
       </div>
@@ -4863,8 +4839,7 @@ function paginaTaglie(daOrdine=false){
     <!-- DUBBI -->
     <div style="background:#e3f2fd;border-radius:12px;padding:20px 24px;text-align:center;">
       <div style="font-size:16px;font-weight:700;color:#0d47a1;margin-bottom:6px;">🤔 Ancora dubbi sulla taglia?</div>
-      <p style="font-size:13px;color:#555;margin-bottom:14px;">Scrivici su WhatsApp con le tue misure, ti consigliamo noi!</p>
-      <a href="https://wa.me/393792126743" target="_blank" style="background:#25d366;color:#fff;padding:10px 24px;border-radius:8px;font-size:14px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;">💬 Chiedici su WhatsApp</a>
+      <p style="font-size:13px;color:#555;margin-bottom:14px;">Aggiungi la maglia al carrello e scrivici la tua misura nelle note dell'ordine — ti consigliamo noi!</p>
     </div>
   </div>`;
 
@@ -5150,7 +5125,6 @@ function paginaChiSiamo(){
       <h2 style="font-family:'Montserrat',sans-serif;font-size:17px;font-weight:900;color:#0d47a1;margin-bottom:6px;">📲 Contattaci</h2>
       <p style="font-size:13px;color:#555;margin-bottom:16px;">Siamo sempre disponibili per qualsiasi domanda!</p>
       <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
-        <a href="https://wa.me/393792126743" target="_blank" style="background:#25d366;color:#fff;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">💬 WhatsApp</a>
         <a href="https://instagram.com/csc_duepuntozero" target="_blank" style="background:#e1306c;color:#fff;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">📸 Instagram</a>
         <a href="https://t.me/csc2_0" target="_blank" style="background:#0088cc;color:#fff;padding:10px 20px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">✈️ Telegram</a>
       </div>
@@ -6965,17 +6939,12 @@ function paginaPrezzi(){
           <div class="how-step-desc">Puoi mescolare maglie e kit per raggiungere la soglia sconto</div>
         </div>
         <div class="how-step">
-          <div class="how-step-icon">💬</div>
-          <div class="how-step-title">Contattaci</div>
-          <div class="how-step-desc">Per ordini grandi o rivenditori contattaci su WhatsApp per prezzi dedicati</div>
+          <div class="how-step-icon">🛒</div>
+          <div class="how-step-title">Aggiungi al carrello</div>
+          <div class="how-step-desc">Per ordini grandi aggiungi tutte le maglie al carrello — lo sconto viene calcolato in automatico</div>
         </div>
       </div>
     </div>
-
-    <a href="https://wa.me/393792126743?text=Ciao!%20Vorrei%20informazioni%20sui%20prezzi" target="_blank"
-       style="display:flex;align-items:center;justify-content:center;gap:10px;background:#25d366;color:#fff;border-radius:12px;padding:16px;font-size:16px;font-weight:800;text-decoration:none;margin-top:8px;box-shadow:0 4px 18px rgba(37,211,102,.4);">
-      💬 Chiedici un preventivo su WhatsApp
-    </a>
   </div>`;
   window.scrollTo({top:0,behavior:'smooth'});
 }
