@@ -2690,7 +2690,7 @@ function goHome(fromPopstate){
         <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="50" data-suffix="+">0</span></div><div class="hero-stat-label">Club</div></div>
         <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="2018" data-prefix="Dal ">0</span></div><div class="hero-stat-label">Online</div></div>
       </div>
-      <button class="hero-btn-main" onclick="goHome()">
+      <button class="hero-btn-main" onclick="document.querySelector('.content-header')?.scrollIntoView({behavior:'smooth',block:'start'})">
         <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
         Sfoglia il catalogo
       </button>
@@ -2915,34 +2915,6 @@ function goHome(fromPopstate){
         <div class="featured-inter-urgency">⏳ <strong>${Math.floor(Math.random()*3)+2} persone</strong> la stanno guardando</div>
       </div>
 
-    </div>
-  </div>
-
-  <!-- COME FUNZIONA -->
-  <div style="background:linear-gradient(180deg,#f8f9fa 0%,#fff 100%);padding:30px 20px 34px;border-top:3px solid #f0f0f0;">
-    <div style="max-width:680px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:24px;">
-        <div style="font-size:10px;font-weight:800;letter-spacing:3px;color:#aaa;text-transform:uppercase;margin-bottom:8px;">Come si ordina</div>
-        <div style="font-size:20px;font-weight:900;color:#111;">Semplice come 1, 2, 3 😊</div>
-      </div>
-      <div style="display:flex;align-items:flex-start;justify-content:center;gap:8px;position:relative;">
-        <div style="position:absolute;top:28px;left:16%;right:16%;height:2px;background:linear-gradient(90deg,#1565c0,#25d366,#f57f17);border-radius:2px;z-index:0;opacity:.3;"></div>
-        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:1;padding:0 4px;">
-          <div style="width:56px;height:56px;background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 16px rgba(13,71,161,.3);flex-shrink:0;">👕</div>
-          <div style="font-weight:800;font-size:13px;color:#111;text-align:center;">Scegli la maglia</div>
-          <div style="font-size:11px;color:#888;line-height:1.55;text-align:center;">Sfoglia il catalogo e trova la tua squadra del cuore</div>
-        </div>
-        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:1;padding:0 4px;">
-          <div style="width:56px;height:56px;background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 16px rgba(13,71,161,.3);flex-shrink:0;">🛒</div>
-          <div style="font-weight:800;font-size:13px;color:#111;text-align:center;">Aggiungi al carrello</div>
-          <div style="font-size:11px;color:#888;line-height:1.55;text-align:center;">Scegli taglia, personalizzazione e conferma l'ordine in un click</div>
-        </div>
-        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;z-index:1;padding:0 4px;">
-          <div style="width:56px;height:56px;background:linear-gradient(135deg,#e65100,#ff8f00);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 4px 16px rgba(230,81,0,.3);flex-shrink:0;">📦</div>
-          <div style="font-weight:800;font-size:13px;color:#111;text-align:center;">Ricevi a casa</div>
-          <div style="font-size:11px;color:#888;line-height:1.55;text-align:center;">La maglia arriva in pochi giorni con spedizione tracciata inclusa</div>
-        </div>
-      </div>
     </div>
   </div>
 
