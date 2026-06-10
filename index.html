@@ -3609,6 +3609,20 @@ const SEARCH_INDEX=(()=>{
   return idx;
 })();
 
+// Aggiunge al SEARCH_INDEX le sottocartelle reali da Drive per categorie senza subs statiche
+(async function enrichSearchIndex(){
+  for(let ci=0;ci<CATALOG.length;ci++){
+    const cat=CATALOG[ci];
+    if(cat.subs||!cat.id) continue;
+    try{
+      const subs=await getSubfolders(cat.id);
+      subs.forEach(f=>{
+        SEARCH_INDEX.push({label:f.name,path:cat.name,flag:teamIcon(f.name),action:()=>openDynamicSub(f.id,f.name,cat.name)});
+      });
+    }catch(e){}
+  }
+})();
+
 function onSearch(q){
   const el=document.getElementById('searchResults');
   if(!q.trim()){el.classList.remove('open');return;}
@@ -3990,6 +4004,21 @@ async function cercaFoto(query){
     const imgs=await getImages(folderId);
     imgs.forEach(img=>risultati.push({img,label:m.label}));
     if(risultati.length>=40) break;
+  }
+
+  // Fallback Drive: se SEARCH_INDEX non ha trovato nulla, cerca direttamente nelle cartelle
+  if(!risultati.length){
+    for(const cat of CATALOG){
+      if(!cat.id) continue;
+      const allSubs=await getSubfolders(cat.id);
+      const matching=allSubs.filter(f=>f.name.toLowerCase().includes(q));
+      for(const folder of matching){
+        const imgs=await getImages(folder.id);
+        imgs.forEach(img=>risultati.push({img,label:folder.name}));
+        if(risultati.length>=40) break;
+      }
+      if(risultati.length>=40) break;
+    }
   }
 
   currentPhotos=risultati.map(r=>r.img);
