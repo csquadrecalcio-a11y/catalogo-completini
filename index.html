@@ -4330,7 +4330,7 @@ function inviaPersonalizzazione(){
   msg+=`🏅 Patch: ${patch}\n\n`;
   msg+=`Vorrei procedere con l'ordine.`;
 
-  window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`, '_blank');
+  window.open(`https://wa.me/447727750265?text=${encodeURIComponent(msg)}`, '_blank');
   chiudiPersonalizza();
 }
 
@@ -5324,7 +5324,7 @@ function inviaAvvisa(){
   if(!tel){alert('Inserisci il numero!');return;}
   const taglia=document.getElementById('addCartTaglia')?.value||'non specificata';
   const msg=`Ciao! Vorrei essere avvisato quando la ${avvisaMaglia} (taglia ${taglia}) torna disponibile. Il mio numero è ${tel}. Grazie!`;
-  window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`,'_blank');
+  window.open(`https://wa.me/447727750265?text=${encodeURIComponent(msg)}`,'_blank');
   chiudiAvvisa();
   mostraToast('✅ Richiesta inviata su WhatsApp!');
 }
@@ -5548,7 +5548,7 @@ function inviaRiepilogoWA(){
   msg+=`📦 Articoli totali: ${carrello.length}\n`;
   msg+=`🚚 Spedizione: GRATUITA\n\n`;
   msg+=`Potete comunicarmi il totale e i dati per il pagamento? Grazie!`;
-  window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`,'_blank');
+  window.open(`https://wa.me/447727750265?text=${encodeURIComponent(msg)}`,'_blank');
   carrello=[];salvaCarrello();
   document.getElementById('orderSummaryModal').classList.remove('active');
   mostraToast('✅ Ordine inviato su WhatsApp!');
@@ -5836,7 +5836,7 @@ function updateOrderBtn(photoName){
   const btn=document.getElementById('lb-order-btn');
   const nome=(photoName||'maglia').slice(0,60);
   const msg=`Ciao Alberto! 👋\nHo visto questa maglia sul catalogo e vorrei ordinarla:\n\n👕 *${nome}*\n\nPuoi dirmi:\n📏 Taglie disponibili\n💰 Prezzo finale\n📦 Tempi di consegna?`;
-  btn.href=`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`;
+  btn.href=`https://wa.me/447727750265?text=${encodeURIComponent(msg)}`;
   btn.onclick=null;
 }
 
@@ -6589,7 +6589,7 @@ function checkoutCarrello(){
   msg+=`🚚 Spedizione: GRATUITA\n`;
   msg+=`\n━━━━━━━━━━━━━━━━━━━━━`;
 
-  window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`,'_blank');
+  window.open(`https://wa.me/447727750265?text=${encodeURIComponent(msg)}`,'_blank');
 
   // Salva nello storico
   salvaOrdineStorico(carrello,`${nome} ${cognome}`,pag);
@@ -6647,7 +6647,7 @@ function inviaInfo(){
   if(link) testo+=`${link}\n\n`;
   if(msg) testo+=`${msg}`;
   else testo+=`Potete darmi informazioni su disponibilità e taglie?`;
-  window.open(`https://wa.me/393792126743?text=${encodeURIComponent(testo)}`,'_blank');
+  window.open(`https://wa.me/447727750265?text=${encodeURIComponent(testo)}`,'_blank');
   chiudiOrdine();
 }
 
@@ -6682,7 +6682,7 @@ function inviaOrdine(){
   if(link) msg+=`🖼️ *Maglia:* ${link}\n`;
   if(note) msg+=`📝 *Note:* ${note}\n`;
 
-  window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`, '_blank');
+  window.open(`https://wa.me/447727750265?text=${encodeURIComponent(msg)}`, '_blank');
   chiudiOrdine();
 }
 
@@ -6737,7 +6737,7 @@ function inviaContatto(){
   const msg=(document.getElementById('contMessaggio')?.value||'').trim();
   if(!nome||!email||!msg){alert('⚠️ Compila tutti i campi!');return;}
   const testo=`📬 NUOVA DOMANDA DAL SITO\n\n👤 Nome: ${nome}\n📧 Email: ${email}\n\n💬 Messaggio:\n${msg}`;
-  window.open(`https://wa.me/393792126743?text=${encodeURIComponent(testo)}`,'_blank');
+  window.open(`https://wa.me/447727750265?text=${encodeURIComponent(testo)}`,'_blank');
   document.getElementById('contNome').value='';
   document.getElementById('contEmail').value='';
   document.getElementById('contMessaggio').value='';
@@ -6914,7 +6914,7 @@ function mostraCompletaLook(catIdx){
 
 // ── WHATSAPP HELPER ──────────────────────────────────────────────────────────
 function apriWhatsApp(msg){
-  const numero='393792126743';
+  const numero='447727750265';
   window.open('https://wa.me/'+numero+'?text='+encodeURIComponent(msg),'_blank');
 }
 
@@ -7289,7 +7289,7 @@ function inviaOrdineWa(){
     nome, cognome, indirizzo, citta, prov:'', cap, tel, pag:_pагаmento
   }));
 
-  window.open(`https://wa.me/393792126743?text=${encodeURIComponent(msg)}`,'_blank');
+  window.open(`https://wa.me/447727750265?text=${encodeURIComponent(msg)}`,'_blank');
   chiudiOrdine();
 }
 
