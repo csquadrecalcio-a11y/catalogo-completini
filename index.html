@@ -1713,20 +1713,6 @@ body.dark .avvisa-box{background:#1e1e1e;}
   <button onclick="document.getElementById('liveOrderToast').classList.remove('visible')" style="background:none;border:none;cursor:pointer;color:#ccc;font-size:16px;padding:0 0 0 4px;flex-shrink:0;line-height:1;">✕</button>
 </div>
 
-<div class="welcome-banner" id="welcomePopup">
-  <div style="display:flex;align-items:center;gap:14px;flex:1;min-width:0;">
-    <span style="font-size:26px;flex-shrink:0;">👋</span>
-    <div style="min-width:0;">
-      <div style="font-size:14px;font-weight:800;color:#fff;letter-spacing:.3px;">Benvenuto su Completini Squadre Calcio 2.0!</div>
-      <div class="wb-msg" style="font-size:12px;color:rgba(255,255,255,.75);margin-top:2px;">🚚 Spedizione gratuita &nbsp;·&nbsp; ✏️ Personalizzazione inclusa &nbsp;·&nbsp; ⭐ Dal 2018</div>
-    </div>
-  </div>
-  <div style="display:flex;align-items:center;gap:10px;flex-shrink:0;">
-    <button onclick="chiudiWelcome();sfogliaCatalogo();" style="background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:8px;padding:10px 20px;font-size:13px;font-weight:800;cursor:pointer;white-space:nowrap;box-shadow:0 3px 12px rgba(245,166,35,.4);">⚽ Sfoglia ora</button>
-    <button onclick="chiudiWelcome()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✕</button>
-  </div>
-</div>
-
 <!-- MODAL AVVISAMI DISPONIBILE -->
 <div class="avvisa-modal" id="avvisaModal">
   <div style="position:absolute;inset:0;background:rgba(0,0,0,.6);" onclick="chiudiAvvisa()"></div>
@@ -5110,21 +5096,6 @@ function accettaCookie(tipo){
   const el=document.getElementById('cookieCard');
   if(!el) return;
   el.style.bottom='-160px';
-  setTimeout(()=>el.classList.remove('active'),450);
-}
-
-// ── BANNER BENVENUTO ─────────────────────────────────────────────────────────
-(function(){
-  if(!localStorage.getItem('welcomeSeen')){
-    setTimeout(()=>{
-      document.getElementById('welcomePopup').classList.add('active');
-    }, 1500); // sale dopo 1.5 secondi
-  }
-})();
-function chiudiWelcome(){
-  localStorage.setItem('welcomeSeen','1');
-  const el=document.getElementById('welcomePopup');
-  el.style.bottom='-90px';
   setTimeout(()=>el.classList.remove('active'),450);
 }
 
