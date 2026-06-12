@@ -3593,6 +3593,7 @@ function _prezzoMinFoto(nome){
 function renderPhotos(imgs,title,back){
   const main=document.getElementById('main');
   currentPhotos=imgs;
+  window._fotoFolderName=title||'';
   if(!imgs||!imgs.length){
     main.innerHTML=back+`<div class="loading">Nessuna foto disponibile</div>`;return;
   }
@@ -4090,6 +4091,7 @@ async function cercaFoto(query){
   }
 
   currentPhotos=risultati.map(r=>r.img);
+  window._fotoFolderName='';
   window._searchMeta=risultati.map(r=>({label:r.label,ci:r.ci??'',si:r.si??''}));
   if(!risultati.length){
     main.innerHTML=`<div class="content-header"><div class="content-title">Risultati per: <b>"${query}"</b></div></div><div class="loading">Nessuna foto trovata</div>`;
@@ -4840,6 +4842,7 @@ function apriGuidaTaglie(){
     photoIdx: currentPhotoIdx,
     photos: currentPhotos,
     navStack: [...navStack],
+    folderName: window._fotoFolderName||'',
   };
   chiudiAddCart();
   closeLightbox();
@@ -6163,8 +6166,13 @@ function apriAddCart(){
 
     // Rilevamento tipo prodotto dal nome file — solo 4 codici speciali
     const _nomeF=(photo.name||'').toLowerCase();
+    // Rilevamento dal nome della CARTELLA Drive in cui sta la foto:
+    // "maglie" → solo Maglia | "Kids kit" → solo Kit Bambino | "kit" o altro → tutte le opzioni
+    const _nomeCart=(window._fotoFolderName||'').toLowerCase();
+    const _cartKids  =_nomeCart.includes('kid')||_nomeCart.includes('bambin');
+    const _cartMaglie=!_cartKids&&_nomeCart.includes('magli');
     const _èPV     =_nomeF.includes('player version')||_nomeF.includes(' pv')||_nomeF.includes('_pv')||_nomeF.endsWith('pv');
-    const _èKidKit =_nomeF.includes('kit bambini')||_nomeF.includes('kids')||_nomeF.includes('kid kit')||_nomeF.includes('bambini')||_nomeF.includes('kit bambino');
+    const _èKidKit =_cartKids||_nomeF.includes('kit bambini')||_nomeF.includes('kids')||_nomeF.includes('kid kit')||_nomeF.includes('bambini')||_nomeF.includes('kit bambino');
     const _èAnime  =_nomeF.includes('anime')||_nomeF.includes('manga')||_nomeF.includes('dragon ball')||_nomeF.includes('naruto')||_nomeF.includes('one piece');
     // Tutto il resto (maglia, kit, nessun codice) → Maglia + Kit Bambino + Kit Adulto
 
@@ -6211,6 +6219,13 @@ function apriAddCart(){
       } else if(_èKidKit){
         // Solo Kit Bambino 35€
         if(val==='kit bambino'){
+          c.style.display='';c.classList.add('sel');
+        } else {
+          c.style.display='none';c.classList.remove('sel');
+        }
+      } else if(_cartMaglie){
+        // Cartella Drive "maglie" → solo Maglia 30€ (niente kit completo disponibile)
+        if(val==='maglia'){
           c.style.display='';c.classList.add('sel');
         } else {
           c.style.display='none';c.classList.remove('sel');
@@ -7075,6 +7090,7 @@ function tornaAllOrdine(){
   navStack=ctx.navStack;
   currentPhotos=ctx.photos;
   currentPhotoIdx=ctx.photoIdx;
+  window._fotoFolderName=ctx.folderName||'';
   // Riapre il lightbox e poi il modal ordine
   if(currentPhotos&&currentPhotos.length>0){
     openLightbox(currentPhotoIdx);
@@ -7420,7 +7436,7 @@ function openLightboxById(id){
   if(cached){
     for(const [fid,imgs] of Object.entries(cached)){
       const i = imgs.findIndex(p=>p.id===id);
-      if(i>=0){ currentPhotos=imgs; openLightbox(i); return; }
+      if(i>=0){ currentPhotos=imgs; window._fotoFolderName=''; openLightbox(i); return; }
     }
   }
 }
