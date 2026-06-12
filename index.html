@@ -4035,55 +4035,54 @@ async function cercaFoto(query){
   const matches=SEARCH_INDEX.filter(x=>x.label.toLowerCase().includes(q));
 
   for(const m of matches.slice(0,5)){
-    // Trova l'id della cartella
     let folderId=null;
-    CATALOG.forEach((cat,ci)=>{
-      if(cat.name.toLowerCase()===m.label.toLowerCase()) folderId=cat.id;
-      if(cat.subs) cat.subs.forEach((s)=>{
-        const sn=typeof s==='string'?s:s.name;
-        if(sn.toLowerCase()===m.label.toLowerCase()) folderId=null; // gestito sotto
-      });
-    });
-
+    let resCi='',resSi='';
+    // Categoria di primo livello?
+    for(let ci=0;ci<CATALOG.length;ci++){
+      const cat=CATALOG[ci];
+      if(cat.name.toLowerCase()===m.label.toLowerCase()){folderId=cat.id;resCi=ci;break;}
+    }
     if(!folderId){
-      // È una sottocategoria, cerca la cartella
-      for(const cat of CATALOG){
+      // È una sottocategoria — cerca dentro i subs di ogni categoria
+      outer: for(let ci=0;ci<CATALOG.length;ci++){
+        const cat=CATALOG[ci];
         if(!cat.subs||!cat.id) continue;
-        const sub=cat.subs.find(s=>(typeof s==='string'?s:s.name).toLowerCase()===m.label.toLowerCase());
-        if(sub){
-          const sn=typeof sub==='string'?sub:sub.name;
-          const found=await getSubfolderByName(cat.id,sn);
-          if(found) folderId=found.id;
-          break;
+        for(let si=0;si<cat.subs.length;si++){
+          const sn=typeof cat.subs[si]==='string'?cat.subs[si]:cat.subs[si].name;
+          if(sn.toLowerCase()===m.label.toLowerCase()){
+            const found=await getSubfolderByName(cat.id,sn);
+            if(found){folderId=found.id;resCi=ci;resSi=si;}
+            break outer;
+          }
         }
       }
     }
     if(!folderId) continue;
     const imgs=await getImages(folderId);
-    imgs.forEach(img=>risultati.push({img,label:m.label}));
+    imgs.forEach(img=>risultati.push({img,label:m.label,ci:resCi,si:resSi}));
     if(risultati.length>=40) break;
   }
 
   // Fallback Drive: cerca per nome file nelle categorie flat (subs:null)
   // e per nome cartella nelle categorie con sottocartelle
   if(!risultati.length){
-    for(const cat of CATALOG){
+    for(let ci=0;ci<CATALOG.length;ci++){
+      const cat=CATALOG[ci];
       if(!cat.id) continue;
       if(cat.subs===null){
-        // Cartella flat (es. Nazionali): cerca nelle immagini per nome file
         const imgs=await getImages(cat.id);
         const matching=imgs.filter(img=>img.name.toLowerCase().includes(q));
         matching.forEach(img=>{
           const label=img.name.replace(/\.(jpg|jpeg|png|webp)$/i,'').replace(/^kit\s+/i,'').trim();
-          risultati.push({img,label});
+          risultati.push({img,label,ci,si:''});
         });
       } else {
-        // Categorie con sottocartelle: cerca cartelle per nome
         const allSubs=await getSubfolders(cat.id);
         const matching=allSubs.filter(f=>f.name.toLowerCase().includes(q));
         for(const folder of matching){
+          const siIdx=cat.subs?cat.subs.findIndex(s=>(typeof s==='string'?s:s.name).toLowerCase()===folder.name.toLowerCase()):-1;
           const imgs=await getImages(folder.id);
-          imgs.forEach(img=>risultati.push({img,label:folder.name}));
+          imgs.forEach(img=>risultati.push({img,label:folder.name,ci,si:siIdx>=0?siIdx:''}));
         }
       }
       if(risultati.length>=40) break;
@@ -4091,6 +4090,7 @@ async function cercaFoto(query){
   }
 
   currentPhotos=risultati.map(r=>r.img);
+  window._searchMeta=risultati.map(r=>({label:r.label,ci:r.ci??'',si:r.si??''}));
   if(!risultati.length){
     main.innerHTML=`<div class="content-header"><div class="content-title">Risultati per: <b>"${query}"</b></div></div><div class="loading">Nessuna foto trovata</div>`;
     return;
@@ -6031,7 +6031,8 @@ function selTipoCard(el, prezzo, value){
 function apriAddCart(){
   const photo=currentPhotos[currentPhotoIdx];
   if(!photo) return;
-  const squadraNome=navStack.length>=1?navStack[navStack.length-1].name:'Prodotto';
+  const _sm=navStack.length===0?window._searchMeta?.[currentPhotoIdx]:null;
+  const squadraNome=navStack.length>=1?navStack[navStack.length-1].name:(_sm?.label||'Prodotto');
   document.getElementById('addCartImg').src=thumbUrl(photo.id);
   document.getElementById('addCartName').textContent=squadraNome;
   document.getElementById('addCartKit').checked=false;
@@ -6264,13 +6265,16 @@ function chiudiAddCart(){
 function confermAggiungi(){
   const photo=currentPhotos[currentPhotoIdx];
 
-  const squadraNome=navStack.length>=1?navStack[navStack.length-1].name:'Prodotto';
+  const _smeta=navStack.length===0?window._searchMeta?.[currentPhotoIdx]:null;
+  const squadraNome=navStack.length>=1?navStack[navStack.length-1].name:(_smeta?.label||'Prodotto');
+  const _ci=navStack[0]?.ci??_smeta?.ci??'';
+  const _si=navStack[1]?.si??_smeta?.si??'';
 
   // Modalità SCARPE
   if(_isScarpe()){
     const numScarpa=document.getElementById('scarpeNumero').value;
     if(!numScarpa){alert('Seleziona il numero di scarpa!');return;}
-    carrello.push({id:photo.id,name:`👟 Scarpa — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia:`N° ${numScarpa}`,prezzo:90,personalizza:'',squadra:squadraNome,ci:navStack[0]?.ci??'',si:navStack[1]?.si??''});
+    carrello.push({id:photo.id,name:`👟 Scarpa — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia:`N° ${numScarpa}`,prezzo:90,personalizza:'',squadra:squadraNome,ci:_ci,si:_si});
     salvaCarrello();flyToCart(document.getElementById('addCartImg'));
     chiudiAddCart();closeLightbox();aggiornaCartBadge();
     mostraDopoCarrello(`Scarpa — ${squadraNome}`);
@@ -6283,7 +6287,7 @@ function confermAggiungi(){
     const tipoSel=document.querySelector('.tipo-card.sel input[name="addCartTipo"],.tipo-opzione.sel input[name="addCartTipo"]');
     const tipo=tipoSel?tipoSel.value:'Tuta';
     const prezzo=_prezzoTuta();
-    carrello.push({id:photo.id,name:`🧥 ${tipo} — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia,prezzo,personalizza:'',squadra:squadraNome,ci:navStack[0]?.ci??'',si:navStack[1]?.si??''});
+    carrello.push({id:photo.id,name:`🧥 ${tipo} — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia,prezzo,personalizza:'',squadra:squadraNome,ci:_ci,si:_si});
     salvaCarrello();flyToCart(document.getElementById('addCartImg'));
     chiudiAddCart();closeLightbox();aggiornaCartBadge();
     mostraDopoCarrello(`${tipo} — ${squadraNome}`);
@@ -6297,7 +6301,7 @@ function confermAggiungi(){
     const tipo=tipoSel?tipoSel.value:'Completino';
     const prezzoSel=document.querySelector('.tipo-card.sel,.tipo-opzione.sel');
     const prezzo=prezzoSel?parseInt(prezzoSel.dataset.prezzo)||35:35;
-    carrello.push({id:photo.id,name:`☀️ ${tipo} — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia,prezzo,personalizza:'',squadra:squadraNome,ci:navStack[0]?.ci??'',si:navStack[1]?.si??''});
+    carrello.push({id:photo.id,name:`☀️ ${tipo} — ${squadraNome}`,thumb:thumbUrl(photo.id),taglia,prezzo,personalizza:'',squadra:squadraNome,ci:_ci,si:_si});
     salvaCarrello();flyToCart(document.getElementById('addCartImg'));
     chiudiAddCart();closeLightbox();aggiornaCartBadge();
     mostraDopoCarrello(`${tipo} — ${squadraNome}`);
@@ -6308,7 +6312,7 @@ function confermAggiungi(){
     const taglia=document.getElementById('estagiTagliaVal').value;
     if(!taglia){alert('Seleziona la taglia!');return;}
     const squadraNba=(typeof _nomePulito==='function')?_nomePulito(photo.name,squadraNome):squadraNome;
-    carrello.push({id:photo.id,name:`🏀 Canotta — ${squadraNba}`,thumb:thumbUrl(photo.id),taglia,prezzo:40,personalizza:'',squadra:squadraNba,ci:navStack[0]?.ci??'',si:navStack[1]?.si??''});
+    carrello.push({id:photo.id,name:`🏀 Canotta — ${squadraNba}`,thumb:thumbUrl(photo.id),taglia,prezzo:40,personalizza:'',squadra:squadraNba,ci:_ci,si:_si});
     salvaCarrello();flyToCart(document.getElementById('addCartImg'));
     chiudiAddCart();closeLightbox();aggiornaCartBadge();
     mostraDopoCarrello(`Canotta — ${squadraNba}`);
@@ -6337,7 +6341,7 @@ function confermAggiungi(){
   if(patch&&patch!=='Nessuna patch') personalizza+=(personalizza?' | ':'')+`Patch: ${patch}`;
   const icone={'Maglia':'👕','Kit Bambino':'🧒','Kit Adulto':'👨','Player Version':'⭐'};
   const icona=icone[tipo]||'👕';
-  // squadraNome già definito sopra
+  // squadraNome, _ci, _si già definiti sopra
   carrello.push({
     id:photo.id,
     name:`${icona} ${tipo}${lvSelezionato?' 🧥ML':''} — ${squadraNome}`,
@@ -6346,7 +6350,7 @@ function confermAggiungi(){
     prezzo:prezzoFinale,
     tiers:scontabile?_tiersFor(prezzo, lvSelezionato):null,
     personalizza:personalizza||'',
-    squadra:squadraNome,ci:navStack[0]?.ci??'',si:navStack[1]?.si??''
+    squadra:squadraNome,ci:_ci,si:_si
   });
   salvaCarrello();
   const addImg=document.getElementById('addCartImg');
@@ -7238,24 +7242,21 @@ function inviaOrdineWa(){
   }
 
   // Link diretto alla categoria (più affidabile del link alla singola foto)
-  const navItem=navStack[navStack.length-1];
+  const _sm2=navStack.length===0?window._searchMeta?.[currentPhotoIdx]:null;
+  const _lci=navStack[0]?.ci??_sm2?.ci??'';
+  const _lsi=navStack[1]?.si??_sm2?.si??'';
   let linkMaglia='';
-  if(navStack.length>=2){
-    const ci=navStack[0]?.ci??'';
-    const si=navStack[1]?.si??'';
-    if(ci!==''&&si!=='')
-      linkMaglia=`\n🔗 Categoria: ${location.origin}${location.pathname}#sub-${ci}-${si}`;
-  } else if(navStack.length===1&&navStack[0]?.ci!==undefined){
-    linkMaglia=`\n🔗 Categoria: ${location.origin}${location.pathname}#cat-${navStack[0].ci}`;
+  if(_lci!==''&&_lsi!==''){
+    linkMaglia=`\n🔗 Categoria: ${location.origin}${location.pathname}#sub-${_lci}-${_lsi}`;
+  } else if(_lci!==''){
+    linkMaglia=`\n🔗 Categoria: ${location.origin}${location.pathname}#cat-${_lci}`;
   }
-  // Aggiungi anche la thumbnail della foto specifica
   const photoId=currentPhotos[currentPhotoIdx]?.id||'';
-  // Link diretto alla maglia sul sito
   if(photoId){
     const base=location.origin+location.pathname;
     let fotoHash=`#photo-${photoId}`;
-    if(navStack.length>=2&&navStack[0]?.ci!==undefined&&navStack[1]?.si!==undefined)
-      fotoHash=`#sub-${navStack[0].ci}-${navStack[1].si}-photo-${photoId}`;
+    if(_lci!==''&&_lsi!=='') fotoHash=`#sub-${_lci}-${_lsi}-photo-${photoId}`;
+    else if(_lci!=='') fotoHash=`#cat-${_lci}-photo-${photoId}`;
     linkMaglia+=`\n🔗 Maglia: ${base}${fotoHash}`;
   }
 
