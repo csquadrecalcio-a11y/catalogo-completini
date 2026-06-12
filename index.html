@@ -118,6 +118,53 @@
 }
 </script>
 <link rel="icon" type="image/png" href="logo.png">
+<script>
+// ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
+// Controlla version.json (mai in cache) e ricarica la pagina quando esce una
+// versione nuova, così i clienti non restano mai sulla versione vecchia.
+const SITE_VERSION='20260612-140638';
+(function(){
+  let _newV=null;
+  // pulizia del parametro ?v= usato per bucare la cache
+  try{
+    if(location.search.indexOf('v=')!==-1){
+      const u=new URL(location.href);u.searchParams.delete('v');
+      history.replaceState(null,'',u.pathname+(u.searchParams.toString()?'?'+u.searchParams.toString():'')+location.hash);
+    }
+  }catch(e){}
+  function _occupato(){
+    const ae=document.activeElement;
+    if(ae&&['INPUT','TEXTAREA','SELECT'].indexOf(ae.tagName)!==-1) return true;
+    return ['addCartModal','cartModal','lightbox'].some(id=>{
+      const el=document.getElementById(id);
+      if(!el) return false;
+      if(el.classList&&el.classList.contains('active')) return true;
+      try{return getComputedStyle(el).display!=='none'&&el.offsetParent!==null;}catch(e){return false;}
+    });
+  }
+  function _tryReload(){
+    if(!_newV) return;
+    if(_occupato()){setTimeout(_tryReload,60000);return;}
+    try{
+      if(sessionStorage.getItem('_reloadedFor')===_newV) return; // anti-loop
+      sessionStorage.setItem('_reloadedFor',_newV);
+    }catch(e){}
+    try{
+      const u=new URL(location.href);u.searchParams.set('v',_newV);
+      location.replace(u.toString());
+    }catch(e){location.reload();}
+  }
+  function _check(){
+    fetch('version.json?ts='+Date.now(),{cache:'no-store'})
+      .then(r=>r.ok?r.json():null)
+      .then(d=>{if(d&&d.v&&d.v!==SITE_VERSION){_newV=d.v;_tryReload();}})
+      .catch(()=>{});
+  }
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')_check();});
+  setInterval(_check,5*60*1000);
+  setTimeout(_check,8000);
+})();
+</script>
 <!-- Google Analytics — sostituisci G-XXXXXXXXXX con il tuo ID -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
