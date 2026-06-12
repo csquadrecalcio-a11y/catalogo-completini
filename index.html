@@ -3705,7 +3705,7 @@ function closeSearch(){document.getElementById('searchResults').classList.remove
 function _noPersonalizzazione(){
   // Restituisce true se la categoria corrente NON supporta personalizzazione
   const nomiNoPerso=['scarpe','nba','tuta','sneakers','calcio'];
-  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  const stack=(navStack.map(s=>(s.name||'')).join(' ')+' '+(window._fotoFolderName||'')).toLowerCase();
   return nomiNoPerso.some(k=>stack.includes(k));
 }
 
@@ -5927,11 +5927,11 @@ function selTipo(el, prezzo){
   aggiornaBarrato(prezzo);
 }
 function _isScarpe(){
-  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  const stack=(navStack.map(s=>(s.name||'')).join(' ')+' '+(window._fotoFolderName||'')).toLowerCase();
   return stack.includes('scarpe')||stack.includes('sneakers');
 }
 function _isTute(){
-  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  const stack=(navStack.map(s=>(s.name||'')).join(' ')+' '+(window._fotoFolderName||'')).toLowerCase();
   if(stack.includes('tute')||stack.includes('tuta')) return true;
   // Controlla anche il nome della foto (es. tute nei Nuovi Arrivi)
   const fotoNome=(currentPhotos&&currentPhotos[currentPhotoIdx]&&currentPhotos[currentPhotoIdx].name||'').toLowerCase();
@@ -5939,7 +5939,7 @@ function _isTute(){
   return paroleChiaveTuta.some(k=>fotoNome.includes(k));
 }
 function _prezzoTuta(){
-  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  const stack=(navStack.map(s=>(s.name||'')).join(' ')+' '+(window._fotoFolderName||'')).toLowerCase();
   if(stack.includes('passeggio')) return 60;
   if(stack.includes('cappuccio')) return 65;
   const fotoNome=(currentPhotos&&currentPhotos[currentPhotoIdx]&&currentPhotos[currentPhotoIdx].name||'').toLowerCase();
@@ -5948,7 +5948,7 @@ function _prezzoTuta(){
   return 50;
 }
 function _isEstivi(){
-  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  const stack=(navStack.map(s=>(s.name||'')).join(' ')+' '+(window._fotoFolderName||'')).toLowerCase();
   if(stack.includes('estivi')||stack.includes('estivo')) return true;
   // Controlla anche il nome della foto corrente
   const photoName=(currentPhotos[currentPhotoIdx]?.name||'').toLowerCase();
@@ -5956,22 +5956,22 @@ function _isEstivi(){
   return false;
 }
 function _isNBA(){
-  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  const stack=(navStack.map(s=>(s.name||'')).join(' ')+' '+(window._fotoFolderName||'')).toLowerCase();
   return stack.includes('nba');
 }
 function _isVintageCategoria(){
-  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  const stack=(navStack.map(s=>(s.name||'')).join(' ')+' '+(window._fotoFolderName||'')).toLowerCase();
   return stack.includes('vintage');
 }
 function _isVintageAdulti(){
-  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  const stack=(navStack.map(s=>(s.name||'')).join(' ')+' '+(window._fotoFolderName||'')).toLowerCase();
   if(stack.includes('vintage adulti')) return true;
   // Fallback: URL hash (sub-[idxVintage]-0)
   const vi=CATALOG.findIndex(c=>c.name==='Vintage');
   return location.hash.includes(`sub-${vi}-0`);
 }
 function _isKitVintageBambini(){
-  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  const stack=(navStack.map(s=>(s.name||'')).join(' ')+' '+(window._fotoFolderName||'')).toLowerCase();
   if(stack.includes('kit vintage bambini')) return true;
   // Fallback: URL hash (sub-[idxVintage]-1)
   const vi=CATALOG.findIndex(c=>c.name==='Vintage');
@@ -6171,7 +6171,8 @@ function apriAddCart(){
     const _nomeCart=(window._fotoFolderName||'').toLowerCase();
     const _cartKids  =_nomeCart.includes('kid')||_nomeCart.includes('bambin');
     const _cartMaglie=!_cartKids&&_nomeCart.includes('magli');
-    const _èPV     =_nomeF.includes('player version')||_nomeF.includes(' pv')||_nomeF.includes('_pv')||_nomeF.endsWith('pv');
+    const _cartPV    =!_cartKids&&!_cartMaglie&&(_nomeCart.includes('player')||_nomeCart.trim()==='pv');
+    const _èPV     =_cartPV||_nomeF.includes('player version')||_nomeF.includes(' pv')||_nomeF.includes('_pv')||_nomeF.endsWith('pv');
     const _èKidKit =_cartKids||_nomeF.includes('kit bambini')||_nomeF.includes('kids')||_nomeF.includes('kid kit')||_nomeF.includes('bambini')||_nomeF.includes('kit bambino');
     const _èAnime  =_nomeF.includes('anime')||_nomeF.includes('manga')||_nomeF.includes('dragon ball')||_nomeF.includes('naruto')||_nomeF.includes('one piece');
     // Tutto il resto (maglia, kit, nessun codice) → Maglia + Kit Bambino + Kit Adulto
@@ -7139,7 +7140,7 @@ function _getOpzioni(nome){
   if(_isVintage(nome)) return OPZIONI_VINTAGE;
   if(_isEstivo(nome)) return OPZIONI_ESTIVI;
   // controlla anche la categoria corrente nel navStack
-  const stack=navStack.map(s=>(s.name||'').toLowerCase()).join(' ');
+  const stack=(navStack.map(s=>(s.name||'')).join(' ')+' '+(window._fotoFolderName||'')).toLowerCase();
   if(stack.includes('estiv')||stack.includes('completini estivi')) return OPZIONI_ESTIVI;
   if(stack.includes('tuta')) return OPZIONI_TUTA;
   if(stack.includes('vintage')) return OPZIONI_VINTAGE;
