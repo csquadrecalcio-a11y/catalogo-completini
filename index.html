@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260614-012119';
+const SITE_VERSION='20260614-012612';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -3160,10 +3160,16 @@ function goHome(fromPopstate){
         <span style="color:#f9a825;font-size:20px;letter-spacing:2px;">★★★★★</span>
       </div>
       <p style="color:#555;font-size:14px;margin-bottom:16px;">Siamo su Google! Leggi le recensioni verificate o lasciane una tu 💙</p>
-      <a href="https://g.page/r/CcDAAV6Z9Dw8EBM/review" target="_blank" rel="noopener"
-         style="display:inline-block;background:linear-gradient(135deg,#4285F4,#34A853);color:#fff;font-weight:800;padding:13px 30px;border-radius:30px;text-decoration:none;font-size:15px;box-shadow:0 4px 14px rgba(66,133,244,.35);">
-        ⭐ Lascia una recensione su Google
-      </a>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+        <a href="https://www.google.com/search?q=Completini+Squadre+Calcio+2.0+recensioni" target="_blank" rel="noopener"
+           style="display:inline-block;background:#fff;border:2px solid #4285F4;color:#4285F4;font-weight:800;padding:11px 24px;border-radius:30px;text-decoration:none;font-size:14px;">
+          ⭐ Leggi le recensioni
+        </a>
+        <a href="https://g.page/r/CcDAAV6Z9Dw8EBM/review" target="_blank" rel="noopener"
+           style="display:inline-block;background:linear-gradient(135deg,#4285F4,#34A853);color:#fff;font-weight:800;padding:13px 26px;border-radius:30px;text-decoration:none;font-size:14px;box-shadow:0 4px 14px rgba(66,133,244,.35);">
+          ✍️ Lascia una recensione
+        </a>
+      </div>
     </div>
     <div class="clienti-scroll">
       <div class="cliente-card">
