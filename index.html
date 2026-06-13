@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260612-191045';
+const SITE_VERSION='20260613-193925';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -3134,6 +3134,20 @@ function goHome(fromPopstate){
       <div style="display:inline-block;background:#e8f5e9;color:#2e7d32;font-size:12px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:10px;">CLIENTI REALI</div>
       <h2 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#111;">📸 Cosa dicono i nostri clienti</h2>
       <p style="color:#888;font-size:13px;margin-top:6px;">Foto e recensioni reali — non filtrate</p>
+    </div>
+    <!-- BOX RECENSIONI GOOGLE -->
+    <div style="max-width:520px;margin:18px auto 26px;background:#fff;border:1px solid #e4e7ee;border-radius:16px;padding:22px 24px;text-align:center;box-shadow:0 4px 18px rgba(0,0,0,.06);">
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:6px;">
+        <span style="font-size:22px;font-weight:700;font-family:'Montserrat',sans-serif;">
+          <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
+        </span>
+        <span style="color:#f9a825;font-size:20px;letter-spacing:2px;">★★★★★</span>
+      </div>
+      <p style="color:#555;font-size:14px;margin-bottom:16px;">Siamo su Google! Leggi le recensioni verificate o lasciane una tu 💙</p>
+      <a href="https://g.page/r/CcDAAV6Z9Dw8EBM/review" target="_blank" rel="noopener"
+         style="display:inline-block;background:linear-gradient(135deg,#4285F4,#34A853);color:#fff;font-weight:800;padding:13px 30px;border-radius:30px;text-decoration:none;font-size:15px;box-shadow:0 4px 14px rgba(66,133,244,.35);">
+        ⭐ Lascia una recensione su Google
+      </a>
     </div>
     <div class="clienti-scroll">
       <div class="cliente-card">
