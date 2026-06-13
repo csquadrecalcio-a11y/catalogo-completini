@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260613-194543';
+const SITE_VERSION='20260613-202234';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -1864,6 +1864,14 @@ body.dark .avvisa-box{background:#1e1e1e;}
       <div class="co-footer-item"><span>⏱️</span> Consegna in 7-12 giorni</div>
       <div class="co-footer-item"><span>🔒</span> Pagamento sicuro</div>
       <div class="co-footer-item"><span>💬</span> Supporto su WhatsApp</div>
+    </div>
+    <div style="margin-top:22px;text-align:center;">
+      <div style="font-size:12px;color:rgba(255,255,255,.65);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">Metodi di pagamento accettati</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+        <span style="display:inline-flex;align-items:center;gap:7px;background:#fff;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:800;color:#0a2d6e;box-shadow:0 2px 8px rgba(0,0,0,.12);"><span style="font-size:16px;">💳</span> PostePay</span>
+        <span style="display:inline-flex;align-items:center;gap:7px;background:#fff;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:800;color:#1a1a1a;box-shadow:0 2px 8px rgba(0,0,0,.12);"><span style="font-size:16px;">🏦</span> Bonifico</span>
+        <span style="display:inline-flex;align-items:center;gap:7px;background:#fff;border-radius:10px;padding:9px 16px;font-size:13px;font-weight:800;color:#003087;box-shadow:0 2px 8px rgba(0,0,0,.12);"><span style="font-style:italic;color:#0070ba;">Pay</span><span style="font-style:italic;color:#003087;">Pal</span></span>
+      </div>
     </div>
   </div>
 </section>
