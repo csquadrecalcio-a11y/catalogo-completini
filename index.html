@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260613-202234';
+const SITE_VERSION='20260613-203345';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -2794,15 +2794,9 @@ function goHome(fromPopstate){
     <div class="mondiali-overlay"></div>
     <div class="mondiali-particles" id="mondialiParticles"></div>
     <div class="mondiali-content">
-      <div class="mondiali-badge" style="background:rgba(255,50,50,.25);border-color:rgba(255,100,100,.7);color:#ff6b6b;animation:mondialiBadgePulse 1.2s ease infinite;">🔴 ORDINA ORA — CONSEGNA PRIMA DEL FISCHIO!</div>
+      <div class="mondiali-badge" style="background:rgba(255,50,50,.25);border-color:rgba(255,100,100,.7);color:#ff6b6b;animation:mondialiBadgePulse 1.2s ease infinite;">🔴 LIVE ORA — Tifa la tua Nazionale!</div>
       <div class="mondiali-title">Mondiali <span>2026</span></div>
-      <div class="mondiali-sub">USA &bull; Canada &bull; Messico</div>
-      <div class="mondiali-countdown">
-        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mDays">--</div><div class="mondiali-count-label">Giorni</div></div>
-        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mHours">--</div><div class="mondiali-count-label">Ore</div></div>
-        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mMins">--</div><div class="mondiali-count-label">Min</div></div>
-        <div class="mondiali-count-item"><div class="mondiali-count-num" id="mSecs">--</div><div class="mondiali-count-label">Sec</div></div>
-      </div>
+      <div class="mondiali-sub">USA &bull; Canada &bull; Messico — Ordina la maglia della tua nazionale</div>
       <button class="mondiali-btn">🌍 Vedi Maglie Nazionali →</button>
     </div>
   </div>
