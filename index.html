@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260613-204729';
+const SITE_VERSION='20260613-205533';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -165,9 +165,15 @@ const SITE_VERSION='20260613-204729';
   setTimeout(_check,8000);
 })();
 </script>
-<!-- Google Analytics — sostituisci G-SYPQZL1L7W con il tuo ID -->
+<!-- Google Analytics con Consent Mode (GDPR): traccia solo dopo consenso -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SYPQZL1L7W"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SYPQZL1L7W');</script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{'analytics_storage':'denied','ad_storage':'denied'});
+try{if(localStorage.getItem('cookieConsent')==='all'){gtag('consent','update',{'analytics_storage':'granted'});}}catch(e){}
+gtag('js',new Date());
+gtag('config','G-SYPQZL1L7W');
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@700;900&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -5167,6 +5173,9 @@ function renderHotStrip(){
 })();
 function accettaCookie(tipo){
   localStorage.setItem('cookieConsent',tipo);
+  if(typeof gtag==='function'){
+    gtag('consent','update',{'analytics_storage': tipo==='all' ? 'granted' : 'denied'});
+  }
   const el=document.getElementById('cookieCard');
   if(!el) return;
   el.style.bottom='-160px';
