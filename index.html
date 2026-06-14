@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260614-231646';
+const SITE_VERSION='20260614-231853';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -2650,8 +2650,8 @@ async function getImages(folderId){
     const url=`https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}&fields=files(id,name)&orderBy=createdTime desc&key=${API_KEY}&pageSize=200`;
     const r=await fetch(url);const d=await r.json();
     let files=d.files||[];
-    // "Nuovi Arrivi": mostra solo le 40 più recenti (le altre restano nelle loro categorie)
-    if(folderId==='1mNzocO2ltOMXmIlk6ygdQa7KaT93wV4M') files=files.slice(0,40);
+    // "Nuovi Arrivi": mostra solo le 30 più recenti (le altre restano nelle loro categorie)
+    if(folderId==='1mNzocO2ltOMXmIlk6ygdQa7KaT93wV4M') files=files.slice(0,30);
     return files;
   }catch(e){return[];}
 }
