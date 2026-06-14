@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260614-225936';
+const SITE_VERSION='20260614-230553';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -2015,10 +2015,6 @@ body.dark .avvisa-box{background:#1e1e1e;}
   <img id="lb-img" src="" alt="">
   <button class="lb-next" onclick="nextPhoto()">›</button>
   <div class="lb-counter" id="lb-counter"></div>
-  <div id="lb-info-bar" style="position:absolute;bottom:92px;left:50%;transform:translateX(-50%);background:rgba(13,71,161,.94);color:#fff;border-radius:14px;padding:9px 16px;font-size:13px;font-weight:800;text-align:center;z-index:10;max-width:92%;box-shadow:0 4px 16px rgba(0,0,0,.35);line-height:1.45;">
-    👕 ADULTO &nbsp;·&nbsp; 👶 BAMBINO &nbsp;·&nbsp; ✏️ PERSONALIZZABILE<br>
-    <span style="font-weight:500;font-size:11.5px;opacity:.92">Tocca "Aggiungi al carrello" per scegliere tipo, taglia e prezzo</span>
-  </div>
   <button class="lb-add-btn" onclick="apriAddCart()">
     <svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0"/></svg>
     🛒 Aggiungi al carrello
@@ -3822,17 +3818,9 @@ function openLightbox(idx){
   const btnPerso=document.querySelector('.lb-custom-btn[onclick*="apriPersonalizza"]');
   if(btnPerso) btnPerso.style.display=_noPersonalizzazione()?'none':'flex';
   // Persone che stanno guardando
+  // Notifica "persone che stanno guardando" disattivata (non reale)
   const _vEl=document.getElementById('lb-viewers');
-  const _vNum=document.getElementById('lb-viewers-num');
-  if(_vEl&&_vNum){
-    _vNum.textContent=Math.floor(Math.random()*9)+3;
-    _vEl.style.display='block';
-    clearInterval(window._viewersIv);
-    window._viewersIv=setInterval(()=>{
-      if(!document.getElementById('lightbox')?.classList.contains('active')){clearInterval(window._viewersIv);return;}
-      _vNum.textContent=Math.floor(Math.random()*9)+3;
-    },40000);
-  }
+  if(_vEl) _vEl.style.display='none';
 }
 function closeLightbox(){
   document.getElementById('lb-img').classList.remove('zoomed');
@@ -5707,15 +5695,18 @@ function addGaranziaLightbox(){
   if(!lb||lb.querySelector('.garanzia-strip')) return;
   const div=document.createElement('div');
   div.className='garanzia-strip';
-  div.style.cssText='position:absolute;bottom:92px;left:50%;transform:translateX(-50%);width:90%;max-width:400px;z-index:10;pointer-events:none;';
+  div.style.cssText='position:absolute;bottom:86px;left:50%;transform:translateX(-50%);width:92%;max-width:430px;z-index:10;pointer-events:none;display:flex;flex-direction:column;gap:6px;align-items:stretch;background:transparent;border:none;box-shadow:none;';
   const _mesi=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
   const _d1=new Date(); _d1.setDate(_d1.getDate()+12); // 2-3 gg fornitore + 10 gg spedizione
   const _d2=new Date(); _d2.setDate(_d2.getDate()+18); // 3 gg fornitore + 15 gg spedizione
   const _consegna=`${_d1.getDate()} ${_mesi[_d1.getMonth()]}–${_d2.getDate()} ${_mesi[_d2.getMonth()]}`;
   div.innerHTML=`
-    <div class="garanzia-item"><span>🚚</span>Spedizione gratis</div>
-    <div class="garanzia-item"><span>✏️</span>Personaliz. gratis</div>
-    <div class="garanzia-item"><span>📅</span>Consegna ${_consegna}</div>`;
+    <div style="background:rgba(13,71,161,.96);color:#fff;border-radius:12px;padding:7px 12px;font-size:12.5px;font-weight:800;text-align:center;box-shadow:0 3px 14px rgba(0,0,0,.3);">👕 ADULTO &nbsp;·&nbsp; 👶 BAMBINO &nbsp;·&nbsp; ✏️ PERSONALIZZABILE</div>
+    <div style="display:flex;background:#f5f9ff;border:1px solid #e3f2fd;border-radius:10px;overflow:hidden;">
+      <div class="garanzia-item"><span>🚚</span>Spedizione gratis</div>
+      <div class="garanzia-item"><span>✏️</span>Personaliz. gratis</div>
+      <div class="garanzia-item"><span>📅</span>Consegna ${_consegna}</div>
+    </div>`;
   lb.appendChild(div);
 }
 
