@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260614-230553';
+const SITE_VERSION='20260614-231137';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -3895,6 +3895,7 @@ function prevPhoto(){
   img.src=fullUrl(currentPhotos[currentPhotoIdx].id);
   document.getElementById('lb-counter').textContent=`${currentPhotoIdx+1} / ${currentPhotos.length}`;
   updateOrderBtn(currentPhotos[currentPhotoIdx].name||'maglia');
+  addGaranziaLightbox();
   preloadAdjacentPhotos(currentPhotoIdx);
 }
 function nextPhoto(){
@@ -3904,6 +3905,7 @@ function nextPhoto(){
   img.src=fullUrl(currentPhotos[currentPhotoIdx].id);
   document.getElementById('lb-counter').textContent=`${currentPhotoIdx+1} / ${currentPhotos.length}`;
   updateOrderBtn(currentPhotos[currentPhotoIdx].name||'maglia');
+  addGaranziaLightbox();
   preloadAdjacentPhotos(currentPhotoIdx);
 }
 document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===e.currentTarget)closeLightbox();});
@@ -5692,7 +5694,20 @@ function animaStelle(){
 // ── GARANZIA NEL LIGHTBOX ─────────────────────────────────────────────────────
 function addGaranziaLightbox(){
   const lb=document.getElementById('lightbox');
-  if(!lb||lb.querySelector('.garanzia-strip')) return;
+  if(!lb) return;
+  const _oldStrip=lb.querySelector('.garanzia-strip'); if(_oldStrip) _oldStrip.remove();
+  // Rileva i tipi disponibili (stessa logica del carrello: cartella + nome file)
+  const _ph=currentPhotos[currentPhotoIdx];
+  const _nomeF=(_ph&&_ph.name||'').toLowerCase();
+  const _nomeCart=(window._fotoFolderName||'').toLowerCase();
+  const _kids=_nomeCart.includes('kid')||_nomeCart.includes('bambin')||_nomeF.includes('kids')||_nomeF.includes('bambin');
+  const _pv=!_kids&&(_nomeCart.includes('player')||_nomeCart.trim()==='pv'||_nomeF.includes('player version')||_nomeF.includes(' pv'));
+  const _scarpe=(typeof _isScarpe==='function')&&_isScarpe();
+  let _topMsg;
+  if(_scarpe) _topMsg='👟 TUTTI I NUMERI DISPONIBILI';
+  else if(_kids) _topMsg='👶 SOLO BAMBINO &nbsp;·&nbsp; ✏️ PERSONALIZZABILE';
+  else if(_pv) _topMsg='⭐ PLAYER VERSION &nbsp;·&nbsp; ✏️ PERSONALIZZABILE';
+  else _topMsg='👕 ADULTO &nbsp;·&nbsp; 👶 BAMBINO &nbsp;·&nbsp; ✏️ PERSONALIZZABILE';
   const div=document.createElement('div');
   div.className='garanzia-strip';
   div.style.cssText='position:absolute;bottom:86px;left:50%;transform:translateX(-50%);width:92%;max-width:430px;z-index:10;pointer-events:none;display:flex;flex-direction:column;gap:6px;align-items:stretch;background:transparent;border:none;box-shadow:none;';
@@ -5701,7 +5716,7 @@ function addGaranziaLightbox(){
   const _d2=new Date(); _d2.setDate(_d2.getDate()+18); // 3 gg fornitore + 15 gg spedizione
   const _consegna=`${_d1.getDate()} ${_mesi[_d1.getMonth()]}–${_d2.getDate()} ${_mesi[_d2.getMonth()]}`;
   div.innerHTML=`
-    <div style="background:rgba(13,71,161,.96);color:#fff;border-radius:12px;padding:7px 12px;font-size:12.5px;font-weight:800;text-align:center;box-shadow:0 3px 14px rgba(0,0,0,.3);">👕 ADULTO &nbsp;·&nbsp; 👶 BAMBINO &nbsp;·&nbsp; ✏️ PERSONALIZZABILE</div>
+    <div style="background:rgba(13,71,161,.96);color:#fff;border-radius:12px;padding:7px 12px;font-size:12.5px;font-weight:800;text-align:center;box-shadow:0 3px 14px rgba(0,0,0,.3);">${_topMsg}</div>
     <div style="display:flex;background:#f5f9ff;border:1px solid #e3f2fd;border-radius:10px;overflow:hidden;">
       <div class="garanzia-item"><span>🚚</span>Spedizione gratis</div>
       <div class="garanzia-item"><span>✏️</span>Personaliz. gratis</div>
@@ -6116,7 +6131,8 @@ function apriAddCart(){
   const _sm=navStack.length===0?window._searchMeta?.[currentPhotoIdx]:null;
   const squadraNome=navStack.length>=1?navStack[navStack.length-1].name:(_sm?.label||'Prodotto');
   document.getElementById('addCartImg').src=thumbUrl(photo.id);
-  document.getElementById('addCartName').textContent=squadraNome;
+  const _det=(photo.name||'').replace(/\.(jpe?g|png|webp)$/i,'').replace(/[_-]+/g,' ').trim();
+  document.getElementById('addCartName').textContent=_det||squadraNome;
   document.getElementById('addCartKit').checked=false;
   // Maniche lunghe
   const lvBox=document.getElementById('addCartLVBox');
