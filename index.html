@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260616-092654';
+const SITE_VERSION='20260616-111459';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6509,7 +6509,7 @@ function rimuoviDalCarrello(idx){
 
 // Prezzi a scaglioni per tipo scontabile (1-4 / 5+ / 10+). null = non scontabile
 function _tiersFor(base, ml){
-  const map={30:[30,25,20],35:[35,28,23],40:[40,30,25]};
+  const map={30:[30,25,20],35:[35,30,25],40:[40,30,25]};
   const t=map[base];
   if(!t) return null;
   const add=ml?5:0;
