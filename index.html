@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-190149';
+const SITE_VERSION='20260617-190600';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6222,14 +6222,11 @@ function apriAddCart(){
     const el=document.getElementById('addCartConsegna');
     if(!el) return;
     if(_geoDataConsegna){
-      el.textContent=_geoDataConsegna.citta
-        ?_geoDataConsegna.data+' a '+_geoDataConsegna.citta
-        :_geoDataConsegna.data;
+      var _range='dal '+_geoDataConsegna.dal+' al '+_geoDataConsegna.al;
+      el.textContent=_geoDataConsegna.citta?_range+' a '+_geoDataConsegna.citta:_range;
     } else {
-      // geo non ancora pronta, mostra data senza città
-      var d=new Date();var aggiunti=0;
-      while(aggiunti<10){d.setDate(d.getDate()+1);var g=d.getDay();if(g!==0&&g!==6)aggiunti++;}
-      el.textContent=d.toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});
+      function _ggL(n){var d=new Date();var a=0;while(a<n){d.setDate(d.getDate()+1);var g=d.getDay();if(g!==0&&g!==6)a++;}return d.toLocaleDateString('it-IT',{day:'numeric',month:'long'});}
+      el.textContent='dal '+_ggL(8)+' al '+_ggL(15);
     }
   })();
 }
@@ -7847,43 +7844,26 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 <!--End of Tawk.to Script-->
 <script>
-var _geoDataConsegna = null; // {data, citta}
+var _geoDataConsegna = null; // {dal, al, citta}
 (function(){
-  function giorniLavorativiAData(giorni){
-    var d=new Date();
-    var aggiunti=0;
-    while(aggiunti<giorni){
-      d.setDate(d.getDate()+1);
-      var g=d.getDay();
-      if(g!==0&&g!==6) aggiunti++;
-    }
-    return d.toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});
+  function ggLav(giorni){
+    var d=new Date();var agg=0;
+    while(agg<giorni){d.setDate(d.getDate()+1);var g=d.getDay();if(g!==0&&g!==6)agg++;}
+    return d.toLocaleDateString('it-IT',{day:'numeric',month:'long'});
   }
   function aggiornaConsegnaUI(){
-    var data=_geoDataConsegna.data;
-    var citta=_geoDataConsegna.citta;
+    var dal=_geoDataConsegna.dal, al=_geoDataConsegna.al, citta=_geoDataConsegna.citta;
+    var range='dal '+dal+' al '+al;
     var elBar=document.getElementById('geo-ship-text');
     var elModal=document.getElementById('addCartConsegna');
-    if(elBar){
-      elBar.textContent=citta
-        ?'Spedizione Gratuita · Ricevi entro '+data+' a '+citta
-        :'Spedizione Gratuita · Ricevi entro '+data;
-    }
-    if(elModal){
-      elModal.textContent=citta ? data+' a '+citta : data;
-    }
+    if(elBar) elBar.textContent=citta?'Spedizione Gratuita · Consegna '+range+' a '+citta:'Spedizione Gratuita · Consegna '+range;
+    if(elModal) elModal.textContent=citta?range+' a '+citta:range;
   }
-  var dataStimata=giorniLavorativiAData(10);
+  var dal=ggLav(8), al=ggLav(15);
   fetch('https://ipapi.co/json/')
     .then(function(r){return r.json();})
-    .then(function(d){
-      _geoDataConsegna={data:dataStimata, citta:(d.country_code==='IT'?d.city||'':'')};
-      aggiornaConsegnaUI();
-    })
-    .catch(function(){
-      _geoDataConsegna={data:dataStimata, citta:''};
-      aggiornaConsegnaUI();
-    });
+    .then(function(d){_geoDataConsegna={dal:dal,al:al,citta:(d.country_code==='IT'?d.city||':':'')}; aggiornaConsegnaUI();})
+    .catch(function(){_geoDataConsegna={dal:dal,al:al,citta:''}; aggiornaConsegnaUI();});
 })();
 </script>
 </body>
