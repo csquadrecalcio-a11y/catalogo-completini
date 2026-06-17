@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-214230';
+const SITE_VERSION='20260617-214318';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -444,13 +444,17 @@ body.dark .pp-patch-img-btn.sel,body.dark .pp-patch-img-btn[style*="e8f0fe"]{bac
 /* ── SIDEBAR ── */
 /* ── TOP NAV CATEGORIES (inside topbar) ── */
 .topnav-cats{display:none;/* legacy standalone - unused */}
-.tnc-item{display:flex;align-items:center;gap:6px;padding:0 14px;height:42px;cursor:pointer;font-size:13px;font-weight:600;color:rgba(255,255,255,.75);white-space:nowrap;border-bottom:3px solid transparent;transition:color .2s,border-color .2s;flex-shrink:0;}
+.tnc-item{display:flex;align-items:center;gap:5px;padding:0 14px;height:42px;cursor:pointer;font-size:13px;font-weight:600;color:rgba(255,255,255,.75);white-space:nowrap;border-bottom:3px solid transparent;transition:color .2s,border-color .2s;flex-shrink:0;position:relative;}
 .tnc-item:hover{color:#fff;border-bottom-color:rgba(255,255,255,.4);}
 .tnc-item.active{color:#fff;border-bottom-color:#4fc3f7;font-weight:700;}
-.tnc-item .tnc-flag{font-size:14px;}
+.tnc-arrow{font-size:9px;opacity:.6;margin-left:1px;}
 .tnc-new{background:#25d366;color:#fff;font-size:9px;font-weight:800;padding:2px 5px;border-radius:4px;margin-left:2px;}
 .tnc-live{background:#e53935;color:#fff;font-size:9px;font-weight:800;padding:2px 5px;border-radius:4px;margin-left:2px;}
 .topnav-cats .tnc-divider{width:1px;height:20px;background:rgba(255,255,255,.15);margin:0 4px;flex-shrink:0;}
+.tnc-dropdown{display:none;position:absolute;top:100%;left:0;min-width:200px;background:#fff;border-radius:0 0 8px 8px;box-shadow:0 8px 24px rgba(0,0,0,.18);z-index:200;padding:6px 0;}
+.tnc-item:hover .tnc-dropdown{display:block;}
+.tnc-dd-item{padding:10px 18px;font-size:13px;font-weight:500;color:#333;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s;}
+.tnc-dd-item:hover{background:#f0f7ff;color:#0d47a1;}
 .sidebar{width:200px;background:#fff;border-right:1px solid #e0e0e0;flex-shrink:0;position:sticky;top:100px;height:calc(100vh - 100px);overflow-y:auto;display:none;}
 .sidebar::-webkit-scrollbar{width:4px;}
 .sidebar::-webkit-scrollbar-thumb{background:#ccc;}
@@ -2813,9 +2817,21 @@ function buildSidebar(){
       });
       html+=`</div>`;
     }
+    const hasSubs=cat.subs&&cat.subs.length;
+    let ddHtml='';
+    if(hasSubs){
+      ddHtml=`<div class="tnc-dropdown">`;
+      cat.subs.forEach((s,j)=>{
+        const sn=typeof s==='string'?s:s.name;
+        ddHtml+=`<div class="tnc-dd-item" onclick="event.stopPropagation();openSubSidebar(${i},${j})">${sn}</div>`;
+      });
+      ddHtml+=`</div>`;
+    }
     tncHtml+=`<div class="tnc-item" id="tnc-${i}" onclick="openCatSidebar(${i})">
       <span>${cat.name}</span>
+      ${hasSubs?'<span class="tnc-arrow">▼</span>':''}
       ${isNew?'<span class="tnc-new">NEW</span>':isHot?'<span class="tnc-live">LIVE</span>':''}
+      ${ddHtml}
     </div>`;
   });
   el.innerHTML=html;
