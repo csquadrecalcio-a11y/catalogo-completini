@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-214113';
+const SITE_VERSION='20260617-214230';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -2814,7 +2814,6 @@ function buildSidebar(){
       html+=`</div>`;
     }
     tncHtml+=`<div class="tnc-item" id="tnc-${i}" onclick="openCatSidebar(${i})">
-      <span class="tnc-flag">${cat.flag}</span>
       <span>${cat.name}</span>
       ${isNew?'<span class="tnc-new">NEW</span>':isHot?'<span class="tnc-live">LIVE</span>':''}
     </div>`;
