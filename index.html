@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-222211';
+const SITE_VERSION='20260617-222457';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -4120,7 +4120,7 @@ async function cercaFoto(query){
   }
   let html=`<div class="content-header"><div class="content-title"><b>${risultati.length}</b> foto trovate per "${query}"</div></div><div class="search-foto-grid">`;
   risultati.forEach((r,i)=>{
-    html+=`<div class="search-foto-item" onclick="openLightbox(${i})">
+    html+=`<div class="search-foto-item" onclick="apriPaginaProdotto(${i})">
       <img src="${thumbUrl(r.img.id)}" alt="${r.label}" loading="lazy">
       <div class="search-foto-label">${r.label}</div>
     </div>`;
