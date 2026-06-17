@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-190600';
+const SITE_VERSION='20260617-191111';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -316,6 +316,56 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
   background-size:300% 300%!important;
   background-image:linear-gradient(90deg,#1b5e20,#0d47a1,#4a148c,#1b5e20)!important;
   animation:accentShift 8s ease infinite!important;
+}
+/* ── PAGINA PRODOTTO ── */
+.pp-page{display:flex;gap:32px;max-width:1100px;margin:0 auto;padding:20px 16px;animation:fadeInUp .3s ease both;}
+.pp-img-col{flex:0 0 480px;position:sticky;top:72px;height:fit-content;}
+.pp-img-col img{width:100%;border-radius:14px;object-fit:contain;background:#f6f7f9;max-height:520px;cursor:zoom-in;}
+.pp-thumbs{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
+.pp-thumb{width:60px;height:72px;border-radius:8px;object-fit:cover;cursor:pointer;border:2px solid transparent;opacity:.7;transition:all .2s;}
+.pp-thumb.sel,.pp-thumb:hover{border-color:#0d47a1;opacity:1;}
+.pp-info-col{flex:1;min-width:0;}
+.pp-squadra{font-size:12px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
+.pp-nome{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#1a1a2e;margin:0 0 8px;line-height:1.3;}
+.pp-prezzo-wrap{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+.pp-prezzo{font-size:32px;font-weight:900;color:#0d47a1;font-family:'Montserrat',sans-serif;}
+.pp-prezzo-old{font-size:18px;color:#bbb;text-decoration:line-through;}
+.pp-section-title{font-size:12px;font-weight:800;color:#555;text-transform:uppercase;letter-spacing:.8px;margin:18px 0 10px;}
+.pp-tipo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:4px;}
+.pp-tipo-btn{border:2px solid #e0e0e0;border-radius:10px;padding:10px 8px;cursor:pointer;text-align:center;transition:all .2s;background:#fff;user-select:none;}
+.pp-tipo-btn:hover{border-color:#0d47a1;}
+.pp-tipo-btn.sel{border-color:#0d47a1;background:#e8f0fe;}
+.pp-tipo-btn .pt-icon{font-size:22px;margin-bottom:4px;}
+.pp-tipo-btn .pt-nome{font-size:12px;font-weight:800;color:#222;}
+.pp-tipo-btn .pt-prezzo{font-size:15px;font-weight:900;color:#0d47a1;}
+.pp-taglia-grid{display:flex;flex-wrap:wrap;gap:8px;}
+.pp-taglia-btn{border:2px solid #e0e0e0;border-radius:8px;padding:9px 16px;font-size:14px;font-weight:700;cursor:pointer;background:#fff;transition:all .2s;min-width:48px;text-align:center;}
+.pp-taglia-btn:hover{border-color:#0d47a1;}
+.pp-taglia-btn.sel{border-color:#0d47a1;background:#0d47a1;color:#fff;}
+.pp-pers-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
+.pp-input{padding:11px 13px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:14px;outline:none;width:100%;box-sizing:border-box;transition:border-color .2s;}
+.pp-input:focus{border-color:#0d47a1;}
+.pp-patch-wrap{border:1.5px solid #e0e0e0;border-radius:8px;overflow:hidden;margin-bottom:4px;}
+.pp-patch-head{padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;color:#555;background:#fafafa;}
+.pp-patch-body{display:none;padding:12px;}
+.pp-patch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:8px;}
+.pp-patch-btn{border:1.5px solid #e0e0e0;border-radius:7px;padding:7px 10px;font-size:12px;font-weight:600;cursor:pointer;text-align:center;background:#fff;transition:all .15s;}
+.pp-patch-btn.sel{background:#0d47a1;color:#fff;border-color:#0d47a1;}
+.pp-consegna{background:#e8f5e9;border:1.5px solid #a5d6a7;border-radius:8px;padding:11px 14px;font-size:13px;font-weight:600;color:#1b5e20;margin:16px 0 12px;display:flex;align-items:center;gap:8px;}
+.pp-totale-bar{background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:12px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.pp-totale-label{color:rgba(255,255,255,.8);font-size:13px;font-weight:600;}
+.pp-totale-val{font-size:28px;font-weight:900;color:#fff;font-family:'Montserrat',sans-serif;}
+.pp-btn-cart{width:100%;background:linear-gradient(135deg,#25d366,#1ebe5d);color:#fff;border:none;border-radius:12px;padding:16px;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 4px 18px rgba(37,211,102,.4);letter-spacing:.3px;}
+.pp-btn-cart:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(37,211,102,.5);}
+.pp-trust{display:flex;justify-content:center;gap:0;margin-top:14px;padding-top:12px;border-top:1px solid #f0f0f0;}
+.pp-trust-item{flex:1;text-align:center;font-size:10px;font-weight:700;color:#444;display:flex;flex-direction:column;align-items:center;gap:3px;border-right:1px solid #ececec;}
+.pp-trust-item:last-child{border-right:none;}
+.pp-trust-item span:first-child{font-size:20px;}
+@media(max-width:768px){
+  .pp-page{flex-direction:column;gap:16px;padding:12px 12px 80px;}
+  .pp-img-col{position:static;flex:none;}
+  .pp-nome{font-size:18px;}
+  .pp-tipo-grid{grid-template-columns:repeat(3,1fr);}
 }
 /* ── ANIMAZIONI ── */
 @keyframes fadeInUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
@@ -3549,11 +3599,11 @@ function renderPhotos(imgs,title,back){
     const _nome=_nomePulito(img.name,title);
     const _pmin=_prezzoMinFoto(img.name);
     const _piuOpz=(typeof _getOpzioni==='function') && _getOpzioni(img.name).length>1 && !(typeof _isScarpe==='function'&&_isScarpe()) && !(typeof _isNBA==='function'&&_isNBA());
-    html+=`<div class="photo-item" onclick="currentPhotoIdx=${i};apriAddCart()" data-photoid="${img.id}">
+    html+=`<div class="photo-item" onclick="apriPaginaProdotto(${i})" data-photoid="${img.id}">
       <img src="${thumbUrl(img.id)}" alt="${img.name}" loading="lazy">
       ${isNuovo?'<div class="badge-nuovo">Nuovo</div>':''}
       <button class="wish-btn${isWished?' saved':''}" onclick="toggleWish(event,'${img.id}','${thumbUrl(img.id)}','${(img.name||title).replace(/'/g,"\\'")}',this)" title="Salva nei preferiti">${isWished?'❤️':'🤍'}</button>
-      <button class="quick-order-btn" onclick="event.stopPropagation();currentPhotoIdx=${i};apriAddCart()">
+      <button class="quick-order-btn" onclick="event.stopPropagation();apriPaginaProdotto(${i})">
         🛒 Aggiungi al carrello
       </button>
       <div class="photo-meta">
@@ -5979,6 +6029,218 @@ function selTipoCard(el, prezzo, value){
     if(sel) sel.value='';
   }
 }
+
+// ── PAGINA PRODOTTO ─────────────────────────────────────────────────────────
+let _ppPatch='Nessuna patch';
+
+function apriPaginaProdotto(idx){
+  // Prodotti speciali → usa ancora il modal
+  currentPhotoIdx=idx;
+  if(_isScarpe()||_isTute()||_isEstivi()||_isNBA()){apriAddCart();return;}
+
+  const photo=currentPhotos[idx];
+  if(!photo) return;
+  const _sm=navStack.length===0?window._searchMeta?.[idx]:null;
+  const squadraNome=navStack.length>=1?navStack[navStack.length-1].name:(_sm?.label||'Prodotto');
+  const nomeProdotto=(photo.name||'').replace(/\.(jpe?g|png|webp)$/i,'').replace(/[_-]+/g,' ').trim()||squadraNome;
+  _ppPatch='Nessuna patch';
+
+  // Rilevamento tipo prodotto (stessa logica di apriAddCart)
+  const _nomeF=(photo.name||'').toLowerCase();
+  const _nomeCart=(window._fotoFolderName||'').toLowerCase();
+  const isVintage=_isVintageCategoria();
+  const isKidVintage=_isKitVintageBambini();
+  const isLV=_isLV();
+  const _cartKids=_nomeCart.includes('kid')||_nomeCart.includes('bambin');
+  const _cartMaglie=!_cartKids&&_nomeCart.includes('magli');
+  const _cartPV=!_cartKids&&!_cartMaglie&&(_nomeCart.includes('player')||_nomeCart.trim()==='pv');
+  const _èPV=_cartPV||_nomeF.includes('player version')||_nomeF.includes(' pv')||_nomeF.includes('_pv')||_nomeF.endsWith('pv');
+  const _èKid=_cartKids||_nomeF.includes('kit bambini')||_nomeF.includes('kids')||_nomeF.includes('kid kit')||_nomeF.includes('bambini')||_nomeF.includes('kit bambino');
+  const _èAnime=_nomeF.includes('anime')||_nomeF.includes('manga')||_nomeF.includes('dragon ball')||_nomeF.includes('naruto')||_nomeF.includes('one piece');
+  const _èMaglia=_cartMaglie||_nomeF.includes('magli');
+
+  // Costruisci opzioni tipo
+  let tipoOpts=[];
+  if(isVintage){
+    if(isKidVintage) tipoOpts=[{v:'Kit Vintage Bambino',i:'🧒',p:35}];
+    else tipoOpts=[{v:'Maglia Vintage',i:'👕',p:35}];
+  } else if(_èAnime&&!_èKid){
+    tipoOpts=[{v:'Maglia',i:'👕',p:35}];
+  } else if(_èPV){
+    tipoOpts=[{v:'Player Version',i:'⭐',p:35+(_isLV()?5:0)}];
+  } else if(isLV){
+    tipoOpts=[{v:'Maglia ML',i:'🧥',p:35}];
+  } else if(_èKid){
+    tipoOpts=[{v:'Kit Bambino',i:'🧒',p:35}];
+  } else if(_èMaglia){
+    tipoOpts=[{v:'Maglia',i:'👕',p:30}];
+  } else {
+    tipoOpts=[{v:'Maglia',i:'👕',p:30},{v:'Kit Bambino',i:'🧒',p:35},{v:'Kit Adulto',i:'👨',p:typeof PROMO_KIT_ADULTO!=='undefined'&&PROMO_KIT_ADULTO.attivo?PROMO_KIT_ADULTO.attivo?35:40:40}];
+  }
+  let prezzoBase=tipoOpts[0].p;
+  let tipoSel=tipoOpts[0].v;
+
+  // Taglie adulto / bambino
+  const taglieBambino=['XXS — 2-3 anni','XS — 4-5 anni','S — 5-6 anni','M — 7-8 anni','L — 8-9 anni','XL — 10-11 anni','XXL — 12-13 anni'];
+  const taglieAdulto=['S','M','L','XL','XXL'];
+  const mostraBambino=_èKid||isKidVintage;
+
+  // Consegna
+  let consegnaText='Spedizione gratuita · Calcolando...';
+  if(_geoDataConsegna){
+    const r='dal '+_geoDataConsegna.dal+' al '+_geoDataConsegna.al;
+    consegnaText='Spedizione gratuita · Consegna '+r+(_geoDataConsegna.citta?' a '+_geoDataConsegna.citta:'');
+  }
+
+  // HTML tipo bottoni
+  const tipoHTML=tipoOpts.map((t,i)=>`
+    <div class="pp-tipo-btn${i===0?' sel':''}" data-val="${t.v}" data-prezzo="${t.p}" onclick="_ppSelTipo(this)">
+      <div class="pt-icon">${t.i}</div>
+      <div class="pt-nome">${t.v}</div>
+      <div class="pt-prezzo">${t.p}€</div>
+    </div>`).join('');
+
+  // HTML taglie
+  const taglieHTML=(mostraBambino?taglieBambino:taglieAdulto).map(t=>`
+    <button class="pp-taglia-btn" data-taglia="${t}" onclick="_ppSelTaglia(this)">${t}</button>`).join('');
+  const bambExtraHTML=(!mostraBambino)?`
+    <div style="margin-top:10px;">
+      <div style="font-size:11px;font-weight:700;color:#888;margin-bottom:6px;">🧒 TAGLIE BAMBINO</div>
+      <div class="pp-taglia-grid">${taglieBambino.map(t=>`<button class="pp-taglia-btn" data-taglia="Bambino ${t}" onclick="_ppSelTaglia(this)">👶 ${t.split('—')[0].trim()}</button>`).join('')}</div>
+    </div>`:'';
+
+  const main=document.getElementById('main');
+  main.innerHTML=`<div class="pp-page">
+    <div class="pp-img-col">
+      <img id="pp-main-img" src="${fullUrl(photo.id)}" alt="${nomeProdotto}" onclick="openLightbox(${idx})">
+    </div>
+    <div class="pp-info-col">
+      <div class="pp-squadra">${squadraNome}</div>
+      <h1 class="pp-nome">${nomeProdotto}</h1>
+      <div class="pp-prezzo-wrap">
+        <span class="pp-prezzo" id="pp-prezzo">${prezzoBase}€</span>
+        <span class="pp-prezzo-old" id="pp-prezzo-old" style="display:none"></span>
+      </div>
+
+      ${tipoOpts.length>1?`<div class="pp-section-title">Cosa vuoi ordinare?</div>
+      <div class="pp-tipo-grid">${tipoHTML}</div>`:''}
+
+      <div class="pp-section-title">Seleziona la taglia <span onclick="apriGuidaTaglie()" style="font-size:11px;color:#0d47a1;cursor:pointer;font-weight:600;text-decoration:underline;margin-left:8px;">Guida →</span></div>
+      <div class="pp-taglia-grid" id="pp-taglia-grid">${taglieHTML}</div>
+      ${bambExtraHTML}
+
+      <div class="pp-section-title">Personalizzazione <span style="font-weight:400;color:#aaa;">(opzionale)</span></div>
+      <div class="pp-pers-grid">
+        <input class="pp-input" id="pp-nome" placeholder="👤 Nome (es. ROSSI)" maxlength="15">
+        <input class="pp-input" id="pp-numero" type="number" placeholder="🔢 Numero (es. 10)" min="1" max="99">
+      </div>
+      <div class="pp-patch-wrap">
+        <div class="pp-patch-head" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.querySelector('.pp-pa').textContent=this.nextElementSibling.style.display==='none'?'▼':'▲'">
+          🏅 Aggiungi patch <span class="pp-pa">▼</span>
+        </div>
+        <div class="pp-patch-body">
+          <div class="pp-patch-grid">
+            <div class="pp-patch-btn" onclick="_ppSelPatch(this,'Champions League')">🏆 Champions</div>
+            <div class="pp-patch-btn" onclick="_ppSelPatch(this,'Europa League')">🌍 Europa L.</div>
+            <div class="pp-patch-btn" onclick="_ppSelPatch(this,'Conference League')">⭐ Conference</div>
+            <div class="pp-patch-btn" onclick="_ppSelPatch(this,'Serie A')">🇮🇹 Serie A</div>
+            <div class="pp-patch-btn sel" onclick="_ppSelPatch(this,'Nessuna patch')">❌ Nessuna</div>
+          </div>
+          <input class="pp-input" id="pp-patch-libera" placeholder="Altra patch? Scrivila qui..." maxlength="30">
+        </div>
+      </div>
+
+      <div class="pp-consegna">🚚 <span id="pp-consegna-txt">${consegnaText}</span></div>
+
+      <div class="pp-totale-bar">
+        <span class="pp-totale-label">💰 Totale</span>
+        <span class="pp-totale-val" id="pp-totale">${prezzoBase}€</span>
+      </div>
+      <button class="pp-btn-cart" onclick="_ppAggiungiCarrello()">✅ Aggiungi al carrello</button>
+      <div class="pp-trust">
+        <div class="pp-trust-item"><span>🔒</span><span>Pagamento</span><span style="color:#777;font-weight:400;">Sicuro</span></div>
+        <div class="pp-trust-item"><span>📦</span><span>Spedizione</span><span style="color:#777;font-weight:400;">Tracciata</span></div>
+        <div class="pp-trust-item"><span>✏️</span><span>Personaliz.</span><span style="color:#777;font-weight:400;">Gratuita</span></div>
+      </div>
+    </div>
+  </div>`;
+
+  // Aggiorna consegna se geo arriva dopo
+  if(!_geoDataConsegna){
+    const iv=setInterval(()=>{
+      if(_geoDataConsegna){
+        clearInterval(iv);
+        const r='dal '+_geoDataConsegna.dal+' al '+_geoDataConsegna.al;
+        const el=document.getElementById('pp-consegna-txt');
+        if(el) el.textContent='Spedizione gratuita · Consegna '+r+(_geoDataConsegna.citta?' a '+_geoDataConsegna.citta:'');
+      }
+    },300);
+  }
+
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function _ppSelTipo(el){
+  document.querySelectorAll('.pp-tipo-btn').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel');
+  const p=parseInt(el.dataset.prezzo)||30;
+  const tot=document.getElementById('pp-totale');
+  const prez=document.getElementById('pp-prezzo');
+  if(tot) tot.textContent=p+'€';
+  if(prez) prez.textContent=p+'€';
+  // se si sceglie Kit Bambino mostra taglie bambino
+  const isBambino=(el.dataset.val||'').toLowerCase().includes('bambino');
+  const grid=document.getElementById('pp-taglia-grid');
+  if(grid){
+    const taglieBambino=['XXS — 2-3 anni','XS — 4-5 anni','S — 5-6 anni','M — 7-8 anni','L — 8-9 anni','XL — 10-11 anni','XXL — 12-13 anni'];
+    const taglieAdulto=['S','M','L','XL','XXL'];
+    const list=isBambino?taglieBambino:taglieAdulto;
+    grid.innerHTML=list.map(t=>`<button class="pp-taglia-btn" data-taglia="${isBambino?'Bambino '+t:t}" onclick="_ppSelTaglia(this)">${t}</button>`).join('');
+  }
+}
+
+function _ppSelTaglia(el){
+  document.querySelectorAll('.pp-taglia-btn').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel');
+}
+
+function _ppSelPatch(el,val){
+  document.querySelectorAll('.pp-patch-btn').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel');
+  _ppPatch=val;
+}
+
+function _ppAggiungiCarrello(){
+  // Leggi valori dalla pagina prodotto
+  const tipoEl=document.querySelector('.pp-tipo-btn.sel');
+  const tagliaEl=document.querySelector('.pp-taglia-btn.sel');
+  const nomeVal=(document.getElementById('pp-nome')?.value||'').trim().toUpperCase();
+  const numVal=(document.getElementById('pp-numero')?.value||'').trim();
+  const patchLib=(document.getElementById('pp-patch-libera')?.value||'').trim();
+
+  if(!tagliaEl){alert('Seleziona la taglia!');return;}
+
+  const tipoVal=tipoEl?tipoEl.dataset.val:'Maglia';
+  const tagliaVal=tagliaEl.dataset.taglia;
+  const prezzoVal=parseInt(tipoEl?.dataset.prezzo)||30;
+  const patchVal=patchLib||_ppPatch;
+
+  // Sync nel modal nascosto e chiama confermAggiungi
+  document.getElementById('addCartTaglia').value=tagliaVal;
+  document.getElementById('addCartNome').value=nomeVal;
+  document.getElementById('addCartNumero').value=numVal;
+  if(document.getElementById('addCartPatchLibera')) document.getElementById('addCartPatchLibera').value=patchLib;
+  addCartPatch=patchVal;
+  document.querySelectorAll('.tipo-card').forEach(c=>{
+    const inp=c.querySelector('input[name="addCartTipo"]');
+    if(inp) inp.value===tipoVal?c.classList.add('sel'):c.classList.remove('sel');
+    c.dataset.prezzo=inp?.value===tipoVal?prezzoVal:c.dataset.prezzo;
+  });
+  if(document.getElementById('addCartLV')) document.getElementById('addCartLV').checked=false;
+
+  confermAggiungi();
+}
+// ────────────────────────────────────────────────────────────────────────────
 
 function apriAddCart(){
   const photo=currentPhotos[currentPhotoIdx];
