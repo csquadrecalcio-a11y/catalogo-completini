@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-211346';
+const SITE_VERSION='20260617-212607';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6109,6 +6109,26 @@ function apriPaginaProdotto(idx){
     <button class="pp-taglia-btn" data-taglia="${t}" onclick="_ppSelTaglia(this)">${t}</button>`).join('');
   const bambExtraHTML='';
 
+  // Patch con foto per Nazionali
+  const isNazionale=navStack.some(s=>(s.name||'').toLowerCase().includes('nazional'));
+  const patchHTML=isNazionale?`
+    <div class="pp-section-title">Patch <span style="font-weight:400;color:#aaa;">(opzionale)</span></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:4px;">
+      <div class="pp-patch-img-btn sel" data-val="Nessuna patch" onclick="_ppSelPatchImg(this)" style="display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;padding:8px;border:2px solid #0d47a1;border-radius:10px;background:#e8f0fe;min-width:70px;">
+        <div style="width:64px;height:64px;display:flex;align-items:center;justify-content:center;font-size:28px;">❌</div>
+        <span style="font-size:11px;font-weight:700;color:#333;text-align:center;">Nessuna</span>
+      </div>
+      <div class="pp-patch-img-btn" data-val="Patch World Cup 2026" onclick="_ppSelPatchImg(this)" style="display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;padding:8px;border:2px solid #e0e0e0;border-radius:10px;background:#fff;min-width:70px;">
+        <img src="patch_wc2026.jpg" style="width:64px;height:64px;object-fit:contain;border-radius:6px;">
+        <span style="font-size:11px;font-weight:700;color:#333;text-align:center;">World Cup 2026</span>
+      </div>
+      <div class="pp-patch-img-btn" data-val="Patch Unite for Peace" onclick="_ppSelPatchImg(this)" style="display:flex;flex-direction:column;align-items:center;gap:6px;cursor:pointer;padding:8px;border:2px solid #e0e0e0;border-radius:10px;background:#fff;min-width:70px;">
+        <img src="patch_peace.jpg" style="width:64px;height:64px;object-fit:contain;border-radius:6px;">
+        <span style="font-size:11px;font-weight:700;color:#333;text-align:center;">Unite for Peace</span>
+      </div>
+    </div>`
+  :'';
+
   const main=document.getElementById('main');
   main.innerHTML=`<div class="pp-page">
     <div class="pp-img-col">
@@ -6138,7 +6158,7 @@ function apriPaginaProdotto(idx){
         <input class="pp-input" id="pp-nome" placeholder="👤 Nome (es. ROSSI)" maxlength="15">
         <input class="pp-input" id="pp-numero" type="number" placeholder="🔢 Numero (es. 10)" min="1" max="99">
       </div>
-      <div class="pp-patch-wrap">
+      ${isNazionale ? patchHTML : `<div class="pp-patch-wrap">
         <div class="pp-patch-head" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.querySelector('.pp-pa').textContent=this.nextElementSibling.style.display==='none'?'▼':'▲'">
           🏅 Aggiungi patch <span class="pp-pa">▼</span>
         </div>
@@ -6152,7 +6172,7 @@ function apriPaginaProdotto(idx){
           </div>
           <input class="pp-input" id="pp-patch-libera" placeholder="Altra patch? Scrivila qui..." maxlength="30">
         </div>
-      </div>
+      </div>`}
 
       <div class="pp-consegna">🚚 <span id="pp-consegna-txt">${consegnaText}</span></div>
 
@@ -6254,6 +6274,16 @@ function _ppSelPatch(el,val){
   document.querySelectorAll('.pp-patch-btn').forEach(b=>b.classList.remove('sel'));
   el.classList.add('sel');
   _ppPatch=val;
+}
+
+function _ppSelPatchImg(el){
+  document.querySelectorAll('.pp-patch-img-btn').forEach(b=>{
+    b.style.borderColor='#e0e0e0';
+    b.style.background='#fff';
+  });
+  el.style.borderColor='#0d47a1';
+  el.style.background='#e8f0fe';
+  _ppPatch=el.dataset.val;
 }
 
 function _ppAggiungiCarrello(){
