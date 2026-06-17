@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-123418';
+const SITE_VERSION='20260617-161831';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -1997,9 +1997,11 @@ body.dark .avvisa-box{background:#1e1e1e;}
       <span onclick="paginaTaglie()" style="cursor:pointer;color:rgba(255,255,255,.6);font-size:12px;text-decoration:underline;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">Guida Taglie</span>
       <span onclick="paginaFaq()" style="cursor:pointer;color:rgba(255,255,255,.6);font-size:12px;text-decoration:underline;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">FAQ</span>
     </div>
-    <p style="max-width:760px;margin:0 auto 12px;font-size:11px;line-height:1.6;color:rgba(255,255,255,.45);text-align:center;">
-      I prodotti in vendita sono <strong>riproduzioni ispirate</strong> allo stile, ai colori e alle atmosfere del mondo del calcio, pensate per i tifosi. <strong>Non sono prodotti ufficiali, originali o autentici</strong>, né articoli da collezione. Tutti i nomi, marchi e loghi eventualmente citati appartengono ai rispettivi proprietari e sono usati solo a scopo descrittivo.
-    </p>
+    <div style="max-width:800px;margin:0 auto 12px;font-size:11px;line-height:1.65;color:rgba(255,255,255,.45);text-align:left;">
+      <p style="margin:0 0 8px;"><strong style="color:rgba(255,255,255,.62);">Proprietà intellettuale.</strong> I prodotti in vendita sono <strong>riproduzioni ispirate</strong> allo stile, ai colori e alle atmosfere del mondo del calcio, a scopo ricreativo. <strong>Non sono prodotti ufficiali, originali o autentici</strong>, né articoli da collezione. Tutti i nomi, marchi e loghi eventualmente citati appartengono ai rispettivi proprietari e sono usati solo a scopo descrittivo. Prestiamo la massima attenzione affinché i nostri fornitori non ci forniscano articoli contraffatti: in caso contrario la responsabilità ricade esclusivamente sui fornitori. Se dovessi ricevere un prodotto con marchio registrato o che sembri autentico, contattaci subito a info@completinicalcio.it.</p>
+      <p style="margin:0 0 8px;"><strong style="color:rgba(255,255,255,.62);">Resi e rimborsi.</strong> Offriamo reso o sostituzione per articoli difettosi o danneggiati: contattaci entro 7 giorni dalla consegna per avviare la procedura. I prodotti personalizzati (nome, numero o patch) non sono rimborsabili, salvo difetto di fabbricazione.</p>
+      <p style="margin:0;"><strong style="color:rgba(255,255,255,.62);">Limitazione di responsabilità.</strong> Nei limiti consentiti dalla legge, non siamo responsabili per danni indiretti, incidentali o conseguenti derivanti dall'uso del sito o dei prodotti.</p>
+    </div>
     © 2026 Completini Squadre Calcio 2.0 — Tutti i diritti riservati
   </div>
 </footer>
@@ -7117,42 +7119,21 @@ const INTER_PHOTO_ID='1nJhrON4rdO99quD6i5BJ-NulRTMmFUg4';
 const JUVE_PHOTO_ID='1BF-4k7r8PfvBVIB3a2z58t5H9KXBEsUV';
 
 async function apriMagliaInter(){
-  // Naviga a Serie A (ci=1) → Inter
+  // Apre la cartella Inter (Serie A) — l'utente sceglie tra tutte le maglie Inter
   const ci=1;
   const cat=CATALOG[ci];
   const si=cat.subs.findIndex(s=>(typeof s==='string'?s:s.name).toLowerCase()==='inter');
-  if(si<0) return;
+  if(si<0){ openCategory(ci); return; }
   await openSub(ci,si);
-  // Poll finché non trova le foto caricate, poi apre la foto specifica
-  let tentativi=0;
-  const poll=setInterval(()=>{
-    tentativi++;
-    if(tentativi>20){clearInterval(poll);return;}
-    if(!currentPhotos||currentPhotos.length===0) return;
-    clearInterval(poll);
-    const idx=currentPhotos.findIndex(p=>p.id===INTER_PHOTO_ID);
-    const i=idx>=0?idx:0;
-    openLightbox(i);
-    setTimeout(()=>apriAddCart(),400);
-  },200);
 }
 
 async function apriMagliaJuve(){
-  const ci=1; // Serie A
+  // Apre la cartella Juventus (Serie A)
+  const ci=1;
   const cat=CATALOG[ci];
   const si=cat.subs.findIndex(s=>(typeof s==='string'?s:s.name).toLowerCase()==='juventus');
-  if(si<0) return;
-  await openSub(ci,si,true);
-  let tentativi=0;
-  const poll=setInterval(()=>{
-    tentativi++;
-    if(tentativi>20){clearInterval(poll);return;}
-    if(!currentPhotos||currentPhotos.length===0) return;
-    clearInterval(poll);
-    const idx=currentPhotos.findIndex(p=>p.id===JUVE_PHOTO_ID);
-    openLightbox(idx>=0?idx:0);
-    setTimeout(()=>apriAddCart(),400);
-  },200);
+  if(si<0){ openCategory(ci); return; }
+  await openSub(ci,si);
 }
 
 // ── PAGINA PREZZI ────────────────────────────────────────────────────────────
