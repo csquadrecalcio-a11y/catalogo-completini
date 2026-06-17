@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-215515';
+const SITE_VERSION='20260617-215740';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -435,17 +435,10 @@ body.dark .pp-rev-subtitle{color:#888;}
 }
 
 /* ── TOP BAR ── */
-.topbar{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);padding:0 20px;display:flex;align-items:stretch;gap:16px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(6,18,54,.5);}
-.topbar-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0;}
-.topbar-logo span{display:none;}
-.topbar-nav-center{flex:1;display:flex;flex-direction:column;min-width:0;}
-.topbar-nav-r1{display:flex;align-items:center;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:10px 0 5px;gap:0;}
-.topbar-nav-r1::-webkit-scrollbar{display:none;}
-.topbar-nav-r2{display:flex;align-items:center;padding:5px 0 10px;border-top:1px solid rgba(255,255,255,.1);gap:0;}
-.tnr-item{padding:0 12px;font-size:12px;font-weight:500;color:rgba(255,255,255,.6);cursor:pointer;white-space:nowrap;transition:color .2s;}
-.tnr-item:hover{color:#fff;}
-.topbar-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.topbar{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);padding:0 24px;height:58px;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(6,18,54,.5);}
+.topbar-logo{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:200px;}
 .topbar-logo img{width:38px;height:38px;border-radius:50%;border:2px solid rgba(255,255,255,.5);}
+.topbar-logo span{color:#fff;font-size:16px;font-weight:700;letter-spacing:.5px;white-space:nowrap;}
 .search-wrap{flex:1;max-width:500px;display:flex;gap:0;}
 .search-wrap input{flex:1;padding:9px 14px;border:none;border-radius:4px 0 0 4px;font-size:14px;outline:none;background:#fff;}
 .search-wrap button{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;padding:9px 20px;border-radius:0 4px 4px 0;cursor:pointer;font-size:14px;font-weight:700;white-space:nowrap;letter-spacing:.3px;}
@@ -461,20 +454,7 @@ body.dark .pp-rev-subtitle{color:#888;}
 .layout{display:flex;min-height:calc(100vh - 58px);}
 
 /* ── SIDEBAR ── */
-/* ── TOP NAV CATEGORIES (inside topbar) ── */
-.topnav-cats{display:none;/* legacy standalone - unused */}
-.tnc-item{display:flex;align-items:center;gap:5px;padding:0 14px;height:42px;cursor:pointer;font-size:13px;font-weight:600;color:rgba(255,255,255,.75);white-space:nowrap;border-bottom:3px solid transparent;transition:color .2s,border-color .2s;flex-shrink:0;position:relative;}
-.tnc-item:hover{color:#fff;border-bottom-color:rgba(255,255,255,.4);}
-.tnc-item.active{color:#fff;border-bottom-color:#4fc3f7;font-weight:700;}
-.tnc-arrow{font-size:9px;opacity:.6;margin-left:1px;}
-.tnc-new{background:#25d366;color:#fff;font-size:9px;font-weight:800;padding:2px 5px;border-radius:4px;margin-left:2px;}
-.tnc-live{background:#e53935;color:#fff;font-size:9px;font-weight:800;padding:2px 5px;border-radius:4px;margin-left:2px;}
-.topnav-cats .tnc-divider{width:1px;height:20px;background:rgba(255,255,255,.15);margin:0 4px;flex-shrink:0;}
-.tnc-dropdown{display:none;position:absolute;top:100%;left:0;min-width:200px;background:#fff;border-radius:0 0 8px 8px;box-shadow:0 8px 24px rgba(0,0,0,.18);z-index:200;padding:6px 0;}
-.tnc-item:hover .tnc-dropdown{display:block;}
-.tnc-dd-item{padding:10px 18px;font-size:13px;font-weight:500;color:#333;cursor:pointer;white-space:nowrap;transition:background .15s,color .15s;}
-.tnc-dd-item:hover{background:#f0f7ff;color:#0d47a1;}
-.sidebar{width:200px;background:#fff;border-right:1px solid #e0e0e0;flex-shrink:0;position:sticky;top:100px;height:calc(100vh - 100px);overflow-y:auto;display:none;}
+.sidebar{width:200px;background:#fff;border-right:1px solid #e0e0e0;flex-shrink:0;position:sticky;top:58px;height:calc(100vh - 58px);overflow-y:auto;}
 .sidebar::-webkit-scrollbar{width:4px;}
 .sidebar::-webkit-scrollbar-thumb{background:#ccc;}
 .sb-header{padding:12px 16px;font-size:13px;font-weight:700;color:#333;border-bottom:1px solid #eee;display:flex;align-items:center;justify-content:space-between;}
@@ -1192,7 +1172,6 @@ footer{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color
 /* ── DARK MODE ── */
 body.dark{background:#121212;color:#e0e0e0;}
 body.dark .sidebar{background:#1e1e1e;border-color:#333;}
-body.dark .topnav-cats{background:#0d1117;border-bottom-color:rgba(255,255,255,.06);}
 body.dark .sb-header{border-color:#333;color:#ccc;}
 body.dark .sb-item{color:#ccc;border-color:#2a2a2a;border-left-color:transparent;}
 body.dark .sb-item:hover{background:linear-gradient(90deg,#1e3a5f,#1a2a4a);border-left-color:#90caf9;color:#90caf9;}
@@ -1607,16 +1586,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
   .ham{display:block;flex-shrink:0;}
 
   /* ── SIDEBAR ── */
-  .topbar{flex-wrap:wrap;height:auto;align-items:center;padding:0 12px;}
-  .topbar-logo{order:1;}
-  .ham{order:0;}
-  .topbar-right{order:2;margin-left:auto;align-items:center;}
-  .online-counter{order:2;}
-  .topbar-nav-center{order:3;width:100%;border-top:1px solid rgba(255,255,255,.12);}
-  .topbar-nav-r1{padding:6px 0;}
-  .topbar-nav-r2{display:none;}
-  .tnc-item{height:34px;font-size:12px;padding:0 10px;}
-  .sidebar{display:block;position:fixed;left:-105%;top:0;height:100vh;z-index:995;transition:left .3s ease;width:85%;max-width:320px;box-shadow:4px 0 20px rgba(0,0,0,.3);overflow-y:auto;}
+  .sidebar{position:fixed;left:-105%;top:0;height:100vh;z-index:995;transition:left .3s ease;width:85%;max-width:320px;box-shadow:4px 0 20px rgba(0,0,0,.3);overflow-y:auto;}
   .sidebar.open{left:0;}
   .sidebar-overlay.open{z-index:994;}
   body.sidebar-open{overflow:hidden;}
@@ -1778,23 +1748,8 @@ body.dark .avvisa-box{background:#1e1e1e;}
     <img src="logo.png" alt="logo" onerror="this.src='logo.jpg'">
     <span>Completini Squadre Calcio 2.0</span>
   </a>
-
-  <!-- NAV CENTER (desktop) -->
-  <div class="topbar-nav-center">
-    <div class="topbar-nav-r1" id="topnav-cats"></div>
-    <div class="topbar-nav-r2">
-      <div class="tnr-item" onclick="paginaFaq()">FAQ</div>
-      <div class="tnr-item" onclick="paginaComeOrdinare()">Come ordinare</div>
-      <div class="tnr-item" onclick="paginaTaglie()">Guida taglie</div>
-      <div class="tnr-item" onclick="paginaTracking()">Traccia pacco</div>
-      <div class="tnr-item" onclick="paginaOrdini()">I miei ordini</div>
-      <div class="tnr-item" onclick="paginaPrezzi()">Prezzi & Sconti</div>
-    </div>
-  </div>
-
   <div class="online-counter" id="onlineCounter" style="display:none"><div class="online-dot"></div><span id="onlineNum">--</span> online</div>
-  <div class="topbar-right">
-  <div class="topbar-social" style="display:flex;align-items:center;gap:8px;">
+  <div class="topbar-social" style="display:flex;align-items:center;gap:8px;margin-left:auto;">
     <a href="https://instagram.com/csc_duepuntozero" target="_blank" title="Instagram" style="color:#fff;opacity:.85;transition:opacity .2s;display:flex;align-items:center;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.85">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
     </a>
@@ -1802,24 +1757,19 @@ body.dark .avvisa-box{background:#1e1e1e;}
       <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
     </a>
   </div>
-  <button onclick="toggleSearchBar()" title="Cerca" style="background:none;border:none;color:#fff;cursor:pointer;opacity:.85;padding:4px;display:flex;align-items:center;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.85">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
-  </button>
-  <div class="cart-icon" onclick="apriCarrello()">
-    🛒 <span>Carrello</span>
-    <div class="cart-badge" id="cartBadge">0</div>
+  <div class="topbar-actions" style="display:flex;align-items:center;gap:4px;margin-left:auto;">
+    <div class="cart-icon" onclick="apriCarrello()">
+      🛒 <span>Carrello</span>
+      <div class="cart-badge" id="cartBadge">0</div>
+    </div>
   </div>
-  </div><!-- /topbar-right -->
-</div>
-
-<!-- SEARCH OVERLAY -->
-<div id="search-overlay" style="display:none;background:var(--navy);padding:10px 20px;position:sticky;top:0;z-index:99;box-shadow:0 4px 12px rgba(0,0,0,.3);">
-  <div style="max-width:600px;margin:0 auto;display:flex;gap:0;">
-    <input type="text" id="searchInput" placeholder="Cerca squadra o categoria..." oninput="onSearch(this.value)" onblur="setTimeout(closeSearch,200)" style="flex:1;padding:10px 16px;border:none;border-radius:4px 0 0 4px;font-size:14px;outline:none;">
-    <button onclick="cercaFoto(document.getElementById('searchInput').value)" style="background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;padding:10px 20px;border-radius:0 4px 4px 0;cursor:pointer;font-size:14px;font-weight:700;">Cerca</button>
-    <button onclick="toggleSearchBar()" style="background:rgba(255,255,255,.15);color:#fff;border:none;padding:10px 14px;border-radius:0 4px 4px 0;cursor:pointer;margin-left:4px;font-size:16px;">✕</button>
+  <div class="search-pos">
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="Cerca squadra o categoria..." oninput="onSearch(this.value)" onblur="setTimeout(closeSearch,200)">
+      <button onclick="cercaFoto(document.getElementById('searchInput').value)">Cerca</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
   </div>
-  <div class="search-results" id="searchResults" style="position:absolute;top:100%;left:20px;width:600px;"></div>
 </div>
 
 <!-- LAYOUT -->
@@ -2748,29 +2698,6 @@ const TEAM_LOGOS = {
 };
 function getTeamLogo(name){return TEAM_LOGOS[name.toLowerCase().trim()]||null;}
 
-// Raggruppamento topnav: ogni gruppo è {label, ci (index diretto) oppure subs:[{label,ci,si?}]}
-const TOPNAV_GROUPS = [
-  {label:'Nuovi Arrivi', ci:0, badge:'new'},
-  {label:'Campionati Europei', subs:[
-    {label:'Serie A',        ci:1},
-    {label:'Premier League', ci:2},
-    {label:'Liga Spagnola',  ci:3},
-    {label:'Bundesliga',     ci:4},
-    {label:'Ligue 1 Francia',ci:5},
-    {label:'Eredivisie',     ci:6},
-  ]},
-  {label:'Nazionali', ci:7, badge:'live'},
-  {label:'NBA',        ci:9},
-  {label:'Vintage',    ci:12},
-  {label:'Altro', subs:[
-    {label:'Tute',            ci:10},
-    {label:'Completi Estivi', ci:11},
-    {label:'Scarpe',          ci:13},
-    {label:'Anime & Giappone',ci:14},
-    {label:'Resto del Mondo', ci:8},
-  ]},
-];
-
 const CATALOG = [
   { name:"Nuovi Arrivi", flag:"🆕", id:"1mNzocO2ltOMXmIlk6ygdQa7KaT93wV4M", subs:null},
   { name:"Serie A", flag:"<img src='https://flagcdn.com/w80/it.png' alt='🇮🇹' onerror=\"this.outerHTML='🇮🇹'\">", id:"1PEPuubYWEiecIKwXbq9RZ1LuWNjEhzC2", subs:[
@@ -2847,8 +2774,7 @@ async function getFirstImage(folderId){
 // ── SIDEBAR ──────────────────────────────────────────────────────────────────
 function buildSidebar(){
   const el=document.getElementById('sb-cats');
-  const tnc=document.getElementById('topnav-cats');
-  let html='', tncHtml='';
+  let html='';
   CATALOG.forEach((cat,i)=>{
     const isNew=cat.name==='Nuovi Arrivi';
     const isHot=cat.name==='Nazionali 2026/2027';
@@ -2867,41 +2793,16 @@ function buildSidebar(){
     }
   });
   el.innerHTML=html;
-  // Topnav usa TOPNAV_GROUPS (raggruppato)
-  if(tnc){
-    TOPNAV_GROUPS.forEach((g,gi)=>{
-      let ddHtml='';
-      if(g.subs){
-        ddHtml=`<div class="tnc-dropdown">`;
-        g.subs.forEach(s=>{
-          ddHtml+=`<div class="tnc-dd-item" onclick="event.stopPropagation();openCatSidebar(${s.ci})">${s.label}</div>`;
-        });
-        ddHtml+=`</div>`;
-      }
-      const badge=g.badge==='new'?'<span class="tnc-new">NEW</span>':g.badge==='live'?'<span class="tnc-live">LIVE</span>':'';
-      tncHtml+=`<div class="tnc-item" id="tncg-${gi}" onclick="${g.ci!=null?`openCatSidebar(${g.ci})`:'void 0'}">
-        <span>${g.label}</span>
-        ${g.subs?'<span class="tnc-arrow">▼</span>':''}
-        ${badge}
-        ${ddHtml}
-      </div>`;
-    });
-    tnc.innerHTML=tncHtml;
-  }
 }
 
 function setSidebarActive(ci,si=-1){
   document.querySelectorAll('.sb-item,.sb-subitem').forEach(e=>e.classList.remove('active'));
   document.querySelectorAll('.sb-sub').forEach(e=>e.classList.remove('open'));
   document.getElementById('sb-home').classList.remove('active');
-  document.querySelectorAll('.tnc-item').forEach(e=>e.classList.remove('active'));
   if(ci===-1){document.getElementById('sb-home').classList.add('active');return;}
   document.getElementById(`sb-${ci}`)?.classList.add('active');
   document.getElementById(`sb-sub-${ci}`)?.classList.add('open');
   if(si>=0) document.getElementById(`sb-sub-${ci}-${si}`)?.classList.add('active');
-  // Evidenzia il gruppo topnav che contiene ci
-  const gi=TOPNAV_GROUPS.findIndex(g=>g.ci===ci||(g.subs&&g.subs.some(s=>s.ci===ci)));
-  if(gi>=0){const tEl=document.getElementById(`tncg-${gi}`);if(tEl)tEl.classList.add('active');}
 }
 
 function toggleSidebar(){
@@ -3183,14 +3084,14 @@ function goHome(fromPopstate){
         <span style="font-size:13px;color:#666;font-weight:600;"> · su oltre 30 recensioni Google verificate</span>
       </div>
       <div style="display:flex;gap:12px;overflow-x:auto;padding:4px 16px 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;">
-        <div style="min-width:245px;max-width:245px;flex-shrink:0;background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-snap-align:start;"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">F</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Francesco M.</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Professionale e affidabile"</p></div>
-        <div style="min-width:245px;max-width:245px;flex-shrink:0;background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-snap-align:start;"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#c62828,#e53935);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">L</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Luca M.</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Venditore top, consigliato al 100%. Serietà, disponibilità e ricerca della qualità tra i migliori. Consiglio a chiunque di acquistare da loro!"</p></div>
-        <div style="min-width:245px;max-width:245px;flex-shrink:0;background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-snap-align:start;"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#1b5e20,#388e3c);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">A</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Andrea V.</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Prodotti eccellenti e ben fatti, in più la disponibilità, efficienza e serietà rendono ogni acquisto perfetto."</p></div>
-        <div style="min-width:245px;max-width:245px;flex-shrink:0;background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-snap-align:start;"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#00695c,#26a69a);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">M</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Mario M.</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Venditore affidabilissimo, ordini arrivati nei tempi previsti e fatti veramente bene. Diversi acquisti fatti e ne farò ancora!"</p></div>
-        <div style="min-width:245px;max-width:245px;flex-shrink:0;background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-snap-align:start;"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#4527a0,#7e57c2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">S</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Stefano M.</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Ottime magliette e articoli sportivi, mai avuto problemi con vari ordini, prezzi competitivi e qualità top. Consigliatissimo!"</p></div>
-        <div style="min-width:245px;max-width:245px;flex-shrink:0;background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-snap-align:start;"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#e65100,#fb8c00);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">F</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Fabio G.</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Divise e completi perfetti. Spedizione arrivata nella tempistica indicata. Continuerò sicuramente a comprare da loro."</p></div>
-        <div style="min-width:245px;max-width:245px;flex-shrink:0;background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-snap-align:start;"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#37474f,#607d8b);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">P</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Picici</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★<span style="color:#ddd;">★</span></div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Mi servo spesso da loro, sono sempre molto disponibili ed i prodotti di ottima qualità."</p></div>
-        <div style="min-width:245px;max-width:245px;flex-shrink:0;background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-snap-align:start;"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#0277bd,#29b6f6);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">L</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Luca B.</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Never give up!! Maglia top 💙"</p></div>
+        <div class="pp-rev-card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">F</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Francesco M.</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Professionale e affidabile"</p></div>
+        <div class="pp-rev-card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#c62828,#e53935);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">L</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Luca M.</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Venditore top, consigliato al 100%. Serietà, disponibilità e ricerca della qualità tra i migliori. Consiglio a chiunque di acquistare da loro!"</p></div>
+        <div class="pp-rev-card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#1b5e20,#388e3c);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">A</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Andrea V.</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Prodotti eccellenti e ben fatti, in più la disponibilità, efficienza e serietà rendono ogni acquisto perfetto."</p></div>
+        <div class="pp-rev-card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#00695c,#26a69a);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">M</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Mario M.</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Venditore affidabilissimo, ordini arrivati nei tempi previsti e fatti veramente bene. Diversi acquisti fatti e ne farò ancora!"</p></div>
+        <div class="pp-rev-card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#4527a0,#7e57c2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">S</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Stefano M.</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Ottime magliette e articoli sportivi, mai avuto problemi con vari ordini, prezzi competitivi e qualità top. Consigliatissimo!"</p></div>
+        <div class="pp-rev-card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#e65100,#fb8c00);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">F</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Fabio G.</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Divise e completi perfetti. Spedizione arrivata nella tempistica indicata. Continuerò sicuramente a comprare da loro."</p></div>
+        <div class="pp-rev-card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#37474f,#607d8b);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">P</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Picici</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★<span style="color:#ddd;">★</span></div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Mi servo spesso da loro, sono sempre molto disponibili ed i prodotti di ottima qualità."</p></div>
+        <div class="pp-rev-card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#0277bd,#29b6f6);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">L</div><div style="min-width:0;line-height:1.25;"><div class="pp-rev-name">Luca B.</div><div style="color:#f9a825;font-size:11px;letter-spacing:1px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;white-space:nowrap;">✓ Google</span></div><p class="pp-rev-text">"Never give up!! Maglia top 💙"</p></div>
       </div>
     </div>
     <!-- BOX RECENSIONI GOOGLE -->
@@ -3826,12 +3727,6 @@ function searchGo(i){
   closeSearch();
 }
 function closeSearch(){document.getElementById('searchResults').classList.remove('open');}
-function toggleSearchBar(){
-  const o=document.getElementById('search-overlay');
-  const show=o.style.display==='none';
-  o.style.display=show?'block':'none';
-  if(show)setTimeout(()=>document.getElementById('searchInput').focus(),50);
-}
 
 // ── LIGHTBOX ─────────────────────────────────────────────────────────────────
 function _noPersonalizzazione(){
@@ -6376,7 +6271,7 @@ function apriPaginaProdotto(idx){
       </div>`;
     }).join('');
     return `<div style="max-width:1100px;margin:0 auto 0;padding:0 16px 32px;">
-      <h2 class="pp-rel-title">Ti potrebbe piacere <span style="color:#0d47a1;font-style:italic;">anche</span></h2>
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:#111;text-align:center;margin-bottom:18px;">Ti potrebbe piacere <span style="color:#0d47a1;font-style:italic;">anche</span></h2>
       <div style="display:flex;gap:14px;overflow-x:auto;padding:4px 0 12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;">${cards}</div>
     </div>`;
   })()}
@@ -6385,16 +6280,16 @@ function apriPaginaProdotto(idx){
   <div style="max-width:1100px;margin:32px auto 0;padding:0 16px 40px;">
     <div style="text-align:center;margin-bottom:18px;">
       <div style="display:inline-block;background:#e8f5e9;color:#2e7d32;font-size:11px;font-weight:700;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:8px;">CLIENTI REALI</div>
-      <h2 class="pp-rev-section-title">📸 Cosa dicono i nostri clienti</h2>
-      <div><span style="color:#f9a825;font-size:16px;">★★★★★</span> <span style="font-weight:800;font-size:15px;">4,9</span> <span class="pp-rev-subtitle"> · oltre 30 recensioni Google verificate</span></div>
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:#111;margin:0 0 4px;">📸 Cosa dicono i nostri clienti</h2>
+      <div><span style="color:#f9a825;font-size:16px;">★★★★★</span> <span style="font-weight:800;font-size:15px;">4,9</span> <span style="font-size:13px;color:#666;"> · oltre 30 recensioni Google verificate</span></div>
     </div>
     <div style="display:flex;gap:12px;overflow-x:auto;padding:4px 0 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;">
-      <div class="pp-rev-card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">F</div><div><div class="pp-rev-name">Francesco M.</div><div style="color:#f9a825;font-size:11px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;">✓ Google</span></div><p class="pp-rev-text">"Professionale e affidabile"</p></div>
-      <div class="pp-rev-card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#c62828,#e53935);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">L</div><div><div class="pp-rev-name">Luca M.</div><div style="color:#f9a825;font-size:11px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;">✓ Google</span></div><p class="pp-rev-text">"Venditore top, consigliato al 100%. Serietà, disponibilità e qualità tra i migliori!"</p></div>
-      <div class="pp-rev-card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#1b5e20,#388e3c);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">A</div><div><div class="pp-rev-name">Andrea V.</div><div style="color:#f9a825;font-size:11px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;">✓ Google</span></div><p class="pp-rev-text">"Prodotti eccellenti e ben fatti, disponibilità ed efficienza rendono ogni acquisto perfetto."</p></div>
-      <div class="pp-rev-card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#00695c,#26a69a);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">M</div><div><div class="pp-rev-name">Mario M.</div><div style="color:#f9a825;font-size:11px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;">✓ Google</span></div><p class="pp-rev-text">"Venditore affidabilissimo, ordini arrivati nei tempi previsti. Diversi acquisti fatti e ne farò ancora!"</p></div>
-      <div class="pp-rev-card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#4527a0,#7e57c2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">S</div><div><div class="pp-rev-name">Stefano M.</div><div style="color:#f9a825;font-size:11px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;">✓ Google</span></div><p class="pp-rev-text">"Ottime magliette, mai avuto problemi con vari ordini, prezzi competitivi e qualità top. Consigliatissimo!"</p></div>
-      <div class="pp-rev-card"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#e65100,#fb8c00);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">F</div><div><div class="pp-rev-name">Fabio G.</div><div style="color:#f9a825;font-size:11px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;">✓ Google</span></div><p class="pp-rev-text">"Divise e completi perfetti. Spedizione arrivata nella tempistica indicata. Continuerò sicuramente."</p></div>
+      <div style="min-width:240px;max-width:240px;flex-shrink:0;background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-snap-align:start;"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#0d47a1,#1565c0);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">F</div><div><div class="pp-rev-name">Francesco M.</div><div style="color:#f9a825;font-size:11px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;">✓ Google</span></div><p class="pp-rev-text">"Professionale e affidabile"</p></div>
+      <div style="min-width:240px;max-width:240px;flex-shrink:0;background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-snap-align:start;"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#c62828,#e53935);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">L</div><div><div class="pp-rev-name">Luca M.</div><div style="color:#f9a825;font-size:11px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;">✓ Google</span></div><p class="pp-rev-text">"Venditore top, consigliato al 100%. Serietà, disponibilità e qualità tra i migliori!"</p></div>
+      <div style="min-width:240px;max-width:240px;flex-shrink:0;background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-snap-align:start;"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#1b5e20,#388e3c);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">A</div><div><div class="pp-rev-name">Andrea V.</div><div style="color:#f9a825;font-size:11px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;">✓ Google</span></div><p class="pp-rev-text">"Prodotti eccellenti e ben fatti, disponibilità ed efficienza rendono ogni acquisto perfetto."</p></div>
+      <div style="min-width:240px;max-width:240px;flex-shrink:0;background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-snap-align:start;"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#00695c,#26a69a);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">M</div><div><div class="pp-rev-name">Mario M.</div><div style="color:#f9a825;font-size:11px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;">✓ Google</span></div><p class="pp-rev-text">"Venditore affidabilissimo, ordini arrivati nei tempi previsti. Diversi acquisti fatti e ne farò ancora!"</p></div>
+      <div style="min-width:240px;max-width:240px;flex-shrink:0;background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-snap-align:start;"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#4527a0,#7e57c2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">S</div><div><div class="pp-rev-name">Stefano M.</div><div style="color:#f9a825;font-size:11px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;">✓ Google</span></div><p class="pp-rev-text">"Ottime magliette, mai avuto problemi con vari ordini, prezzi competitivi e qualità top. Consigliatissimo!"</p></div>
+      <div style="min-width:240px;max-width:240px;flex-shrink:0;background:#fff;border:1px solid #eee;border-radius:14px;padding:15px;box-shadow:0 3px 12px rgba(0,0,0,.06);scroll-snap-align:start;"><div style="display:flex;align-items:center;gap:9px;margin-bottom:9px;"><div style="width:36px;height:36px;background:linear-gradient(135deg,#e65100,#fb8c00);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:15px;flex-shrink:0;">F</div><div><div class="pp-rev-name">Fabio G.</div><div style="color:#f9a825;font-size:11px;">★★★★★</div></div><span style="margin-left:auto;font-size:9px;font-weight:800;color:#2e7d32;background:#e8f5e9;padding:3px 7px;border-radius:20px;">✓ Google</span></div><p class="pp-rev-text">"Divise e completi perfetti. Spedizione arrivata nella tempistica indicata. Continuerò sicuramente."</p></div>
     </div>
     <div style="text-align:center;margin-top:8px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
       <a href="https://www.google.com/search?q=Completini+squadre+calcio+2.0" target="_blank" rel="noopener" style="display:inline-block;background:#fff;border:2px solid #4285F4;color:#4285F4;font-weight:800;padding:11px 22px;border-radius:30px;text-decoration:none;font-size:13px;">⭐ Leggi le recensioni</a>
