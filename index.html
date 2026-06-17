@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-214024';
+const SITE_VERSION='20260617-214113';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -1584,9 +1584,15 @@ body.dark .avvisa-box{background:#1e1e1e;}
   .ham{display:block;flex-shrink:0;}
 
   /* ── SIDEBAR ── */
-  .topbar-nav-center{display:none;}
-  .topbar{height:54px;align-items:center;padding:0 12px;}
-  .topbar-right{align-items:center;}
+  .topbar{flex-wrap:wrap;height:auto;align-items:center;padding:0 12px;}
+  .topbar-logo{order:1;}
+  .ham{order:0;}
+  .topbar-right{order:2;margin-left:auto;align-items:center;}
+  .online-counter{order:2;}
+  .topbar-nav-center{order:3;width:100%;border-top:1px solid rgba(255,255,255,.12);}
+  .topbar-nav-r1{padding:6px 0;}
+  .topbar-nav-r2{display:none;}
+  .tnc-item{height:34px;font-size:12px;padding:0 10px;}
   .sidebar{display:block;position:fixed;left:-105%;top:0;height:100vh;z-index:995;transition:left .3s ease;width:85%;max-width:320px;box-shadow:4px 0 20px rgba(0,0,0,.3);overflow-y:auto;}
   .sidebar.open{left:0;}
   .sidebar-overlay.open{z-index:994;}
