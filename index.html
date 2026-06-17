@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-191423';
+const SITE_VERSION='20260617-191456';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6103,7 +6103,7 @@ function apriPaginaProdotto(idx){
   // HTML taglie
   const taglieHTML=(mostraBambino?taglieBambino:taglieAdulto).map(t=>`
     <button class="pp-taglia-btn" data-taglia="${t}" onclick="_ppSelTaglia(this)">${t}</button>`).join('');
-  const bambExtraHTML=(!mostraBambino)?`
+  const bambExtraHTML=(!mostraBambino&&!_èPV&&!isLV)?`
     <div style="margin-top:10px;">
       <div style="font-size:11px;font-weight:700;color:#888;margin-bottom:6px;">🧒 TAGLIE BAMBINO</div>
       <div class="pp-taglia-grid">${taglieBambino.map(t=>`<button class="pp-taglia-btn" data-taglia="Bambino ${t}" onclick="_ppSelTaglia(this)">👶 ${t.split('—')[0].trim()}</button>`).join('')}</div>
