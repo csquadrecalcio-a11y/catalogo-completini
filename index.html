@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-162244';
+const SITE_VERSION='20260617-163057';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -1632,13 +1632,6 @@ body.dark .avvisa-box{background:#1e1e1e;}
   <div class="splash-bar"><div class="splash-bar-fill"></div></div>
 </div>
 
-<!-- BARRA SPEDIZIONE GRATUITA -->
-<div class="free-ship-bar">
-  🚚 <strong>SPEDIZIONE GRATUITA</strong> su tutti gli ordini in Italia
-  <span>• Nessun costo nascosto •</span>
-  ✅ <strong>PERSONALIZZAZIONE GRATUITA</strong>
-</div>
-
 <!-- BARRA ONLINE MOBILE (disattivata: numero non reale) -->
 <div class="online-bar-mobile" id="onlineBarMobile" style="display:none">
   <div class="online-dot"></div>
@@ -2776,20 +2769,6 @@ function goHome(fromPopstate){
   navStack=[];updateBreadcrumb();setSidebarActive(-1);
   const main=document.getElementById('main');
   let html=`
-  <!-- BARRA SCORREVOLE (marquee) — offerta + recensioni + WhatsApp -->
-  <div class="csc-marquee-wrap" onclick="window.open('https://wa.me/447727750265?text=Ciao!%20Vorrei%20delle%20informazioni%20su%20una%20maglia','_blank')" style="background:#0a1628;color:#fff;overflow:hidden;cursor:pointer;padding:8px 0;font-size:12.5px;font-weight:700;letter-spacing:.3px;">
-    <div class="csc-marquee-track">
-      <span style="padding:0 24px;">⭐ 4,9 su oltre 30 recensioni verificate</span><span style="color:#ffc107;">◆</span><span style="padding:0 24px;">✨ Personalizzazione e spedizione GRATIS 🚚</span><span style="color:#ffc107;">◆</span><span style="padding:0 24px;">📲 Non trovi una maglia? Scrivici su WhatsApp</span><span style="color:#ffc107;">◆</span><span style="padding:0 24px;">⭐ 4,9 su oltre 30 recensioni verificate</span><span style="color:#ffc107;">◆</span><span style="padding:0 24px;">✨ Personalizzazione e spedizione GRATIS 🚚</span><span style="color:#ffc107;">◆</span><span style="padding:0 24px;">📲 Non trovi una maglia? Scrivici su WhatsApp</span><span style="color:#ffc107;">◆</span>
-    </div>
-  </div>
-  <!-- BARRA AFFIDABILITÀ — prima cosa che vede il cliente -->
-  <div onclick="window.open('https://www.google.com/search?q=Completini+squadre+calcio+2.0','_blank')" style="background:linear-gradient(90deg,#0d47a1,#1565c0);color:#fff;padding:11px 16px;display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap;text-align:center;cursor:pointer;font-size:13px;line-height:1.3;">
-    <span style="font-weight:700;">Su Google</span>
-    <span style="color:#ffc107;font-size:15px;letter-spacing:1px;">★★★★★</span>
-    <span style="font-weight:900;">5,0/5</span>
-    <span style="font-weight:700;">·&nbsp;oltre 30 recensioni verificate</span>
-    <span style="background:#34A853;font-size:10px;font-weight:800;padding:3px 9px;border-radius:20px;white-space:nowrap;">✓ VERIFICATO</span>
-  </div>
   <div class="hero-banner">
     <img src="hero.jpg" alt="Completini Squadre Calcio 2.0" onerror="this.src='hero.jpg.webp'">
     <div class="hero-overlay"></div>
@@ -2798,10 +2777,6 @@ function goHome(fromPopstate){
       <div class="hero-badge">⚽ Catalogo Ufficiale 2026/2027</div>
       <h1 class="hero-title">Completini<br><span>Squadre Calcio</span></h1>
       <div class="hero-sub">Le migliori maglie dei top club europei.<br>Qualità premium • Personalizzazione • Spedizione rapida in tutta Italia.</div>
-      <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin:14px 0 2px;">
-        <div style="color:#f9a825;font-size:16px;letter-spacing:2px;">★★★★★</div>
-        <div style="color:rgba(255,255,255,.92);font-size:12px;font-weight:700;">5,0 &nbsp;·&nbsp; <span style="color:rgba(255,255,255,.6);font-weight:400;">clienti soddisfatti dal 2018</span></div>
-      </div>
       <a href="https://www.google.com/search?q=Completini+squadre+calcio+2.0" target="_blank" rel="noopener"
          style="display:inline-flex;align-items:center;gap:8px;margin-top:10px;background:#fff;border-radius:30px;padding:7px 16px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.18);">
         <span style="font-size:15px;font-weight:700;">
@@ -5954,12 +5929,10 @@ function renderCorrelati(ci){
 // ── TICKER SCORREVOLE ────────────────────────────────────────────────────────
 (function(){
   const items=[
+    '⭐ 4,9 su oltre 30 recensioni verificate su Google',
+    '📲 Non trovi una maglia? Scrivici su WhatsApp',
+    '🔥 Offerta Kit Adulto: 35€ invece di 40€ (per pochi giorni)',
     '🆕 Nuovi arrivi ogni settimana',
-    '⚡ Risposta rapida su WhatsApp',
-    '🚚 Spedizione GRATUITA in tutta Italia',
-    '✏️ Personalizzazione GRATUITA con nome e numero',
-    '⭐ Recensioni verificate su Google',
-    '📦 Spedizione tracciabile in tutta Italia',
   ];
   const html=items.map(i=>`<span class="ticker-item">${i}</span><span class="ticker-sep">•</span>`).join('');
   document.getElementById('tickerInner').innerHTML=html+html;
