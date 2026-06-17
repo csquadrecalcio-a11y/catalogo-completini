@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260616-142111';
+const SITE_VERSION='20260617-112350';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -2196,7 +2196,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
           <input type="radio" name="addCartTipo" value="Kit Adulto" style="display:none">
           <div style="font-size:26px;margin-bottom:4px;">👨</div>
           <div style="font-size:13px;font-weight:800;">Kit Adulto</div>
-          <div style="font-size:16px;font-weight:900;color:#0d47a1;margin-top:2px;">40€</div>
+          <div id="kitAdultoPrezzo" style="font-size:16px;font-weight:900;color:#0d47a1;margin-top:2px;">40€</div>
         </label>
         <label class="tipo-card" onclick="selTipoCard(this,35,'Player Version')" data-prezzo="35">
           <input type="radio" name="addCartTipo" value="Player Version" style="display:none">
@@ -6447,7 +6447,9 @@ function confermAggiungi(){
   const tipoSel=document.querySelector('.tipo-card.sel input[name="addCartTipo"],.tipo-opzione.sel input[name="addCartTipo"]');
   const tipo=_isKitVintageBambini()?'Kit Vintage Bambino':_isVintageCategoria()?'Maglia Vintage':(tipoSel?tipoSel.value:'Maglia');
   const prezzoSel=document.querySelector('.tipo-card.sel,.tipo-opzione.sel');
-  const prezzo=_isVintageCategoria()?35:(prezzoSel?parseInt(prezzoSel.dataset.prezzo)||30:30);
+  let prezzo=_isVintageCategoria()?35:(prezzoSel?parseInt(prezzoSel.dataset.prezzo)||30:30);
+  // PROMO -5€ Kit Adulto (7 giorni, si toglie da sola dopo la data)
+  if(typeof PROMO_KIT_ADULTO!=='undefined' && PROMO_KIT_ADULTO.attivo && tipo==='Kit Adulto') prezzo-=PROMO_KIT_ADULTO.sconto;
   const kit=(tipo==='Kit Adulto'||tipo==='Kit Bambino');
   const lvSelezionato=document.getElementById('addCartLV')?.checked||false;
   const prezzoFinale=prezzo+(lvSelezionato?5:0);
@@ -7205,6 +7207,18 @@ function tornaAllOrdine(){
 // ── MODAL ORDINE ─────────────────────────────────────────────────────────────
 let _ordineNome='';
 let _ordineSelIdx=0;
+
+// ── PROMO: -5€ Kit Adulto, valida 7 giorni — si toglie DA SOLA dopo la data ──
+const PROMO_KIT_ADULTO=(function(){
+  const fine=new Date('2026-06-23T23:59:59'); // scadenza: dopo questa data torna 40€
+  return { attivo:(new Date()<fine), sconto:5 };
+})();
+// Mostra il prezzo barrato sulla card "Kit Adulto" quando la promo è attiva
+(function(){
+  if(!PROMO_KIT_ADULTO.attivo) return;
+  const el=document.getElementById('kitAdultoPrezzo');
+  if(el) el.innerHTML='<span style="text-decoration:line-through;color:#9aa6b2;font-size:13px;font-weight:700;">40€</span> <span style="color:#e53935;">35€</span>';
+})();
 
 // Opzioni per maglie normali
 const OPZIONI_MAGLIA=[
