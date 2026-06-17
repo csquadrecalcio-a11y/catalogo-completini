@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-112350';
+const SITE_VERSION='20260617-112916';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -2797,6 +2797,16 @@ function goHome(fromPopstate){
     </div>
   </div>
 
+
+  <!-- BANNER PROMO KIT ADULTO (con countdown, si nasconde da solo a fine promo) -->
+  <div id="promoAdultoBanner" onclick="sfogliaCatalogo()" style="display:none;background:linear-gradient(135deg,#e53935,#b71c1c);color:#fff;padding:14px 24px;align-items:center;justify-content:center;gap:16px;cursor:pointer;flex-wrap:wrap;text-align:center;">
+    <span style="font-size:28px;">🔥</span>
+    <div>
+      <div style="font-size:15px;font-weight:900;letter-spacing:.4px;">OFFERTA KIT ADULTO — <span style="text-decoration:line-through;opacity:.7;">40€</span> <span style="color:#ffe066;">35€</span></div>
+      <div style="font-size:12px;font-weight:700;margin-top:2px;">✨ Personalizzazione e spedizione GRATIS &bull; Termina tra <span id="promoTimer" style="font-variant-numeric:tabular-nums;letter-spacing:.5px;">--</span></div>
+    </div>
+    <span style="background:#fff;color:#e53935;padding:8px 18px;border-radius:6px;font-size:13px;font-weight:900;white-space:nowrap;">Ordina ora →</span>
+  </div>
 
   <!-- BANNER MONDIALI 2026 — in cima per urgenza -->
   <div class="mondiali-banner" onclick="openCategory(7)" style="margin-bottom:0;border-radius:0;">
@@ -7218,6 +7228,24 @@ const PROMO_KIT_ADULTO=(function(){
   if(!PROMO_KIT_ADULTO.attivo) return;
   const el=document.getElementById('kitAdultoPrezzo');
   if(el) el.innerHTML='<span style="text-decoration:line-through;color:#9aa6b2;font-size:13px;font-weight:700;">40€</span> <span style="color:#e53935;">35€</span>';
+})();
+// Banner promo in home con countdown — si mostra/aggiorna se la promo è attiva, si nasconde da solo a scadenza
+(function(){
+  const FINE_PROMO=new Date('2026-06-23T23:59:59');
+  function aggiornaPromoBanner(){
+    const banner=document.getElementById('promoAdultoBanner');
+    if(!banner) return;
+    const diff=FINE_PROMO-new Date();
+    if(diff<=0){ banner.style.display='none'; return; }
+    banner.style.display='flex';
+    const t=document.getElementById('promoTimer');
+    if(t){
+      const g=Math.floor(diff/86400000), h=Math.floor(diff/3600000)%24, m=Math.floor(diff/60000)%60, s=Math.floor(diff/1000)%60;
+      t.textContent=(g>0?g+'g ':'')+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m '+String(s).padStart(2,'0')+'s';
+    }
+  }
+  setInterval(aggiornaPromoBanner,1000);
+  aggiornaPromoBanner();
 })();
 
 // Opzioni per maglie normali
