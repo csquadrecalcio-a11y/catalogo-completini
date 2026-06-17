@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-213755';
+const SITE_VERSION='20260617-214024';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -416,8 +416,15 @@ body.dark .pp-patch-img-btn.sel,body.dark .pp-patch-img-btn[style*="e8f0fe"]{bac
 }
 
 /* ── TOP BAR ── */
-.topbar{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);padding:0 24px;height:58px;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(6,18,54,.5);}
-.topbar-logo{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:200px;}
+.topbar{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);padding:0 20px;display:flex;align-items:stretch;gap:16px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(6,18,54,.5);}
+.topbar-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.topbar-nav-center{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;}
+.topbar-nav-r1{display:flex;align-items:center;overflow-x:auto;scrollbar-width:none;padding:10px 0 5px;gap:0;}
+.topbar-nav-r1::-webkit-scrollbar{display:none;}
+.topbar-nav-r2{display:flex;align-items:center;padding:5px 0 10px;border-top:1px solid rgba(255,255,255,.1);gap:0;}
+.tnr-item{padding:0 12px;font-size:12px;font-weight:500;color:rgba(255,255,255,.6);cursor:pointer;white-space:nowrap;transition:color .2s;}
+.tnr-item:hover{color:#fff;}
+.topbar-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
 .topbar-logo img{width:38px;height:38px;border-radius:50%;border:2px solid rgba(255,255,255,.5);}
 .topbar-logo span{color:#fff;font-size:16px;font-weight:700;letter-spacing:.5px;white-space:nowrap;}
 .search-wrap{flex:1;max-width:500px;display:flex;gap:0;}
@@ -435,9 +442,8 @@ body.dark .pp-patch-img-btn.sel,body.dark .pp-patch-img-btn[style*="e8f0fe"]{bac
 .layout{display:flex;min-height:calc(100vh - 58px);}
 
 /* ── SIDEBAR ── */
-/* ── TOP NAV CATEGORIES (desktop) ── */
-.topnav-cats{background:var(--navy);border-bottom:1px solid rgba(255,255,255,.08);padding:0 20px;display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;position:sticky;top:58px;z-index:99;}
-.topnav-cats::-webkit-scrollbar{display:none;}
+/* ── TOP NAV CATEGORIES (inside topbar) ── */
+.topnav-cats{display:none;/* legacy standalone - unused */}
 .tnc-item{display:flex;align-items:center;gap:6px;padding:0 14px;height:42px;cursor:pointer;font-size:13px;font-weight:600;color:rgba(255,255,255,.75);white-space:nowrap;border-bottom:3px solid transparent;transition:color .2s,border-color .2s;flex-shrink:0;}
 .tnc-item:hover{color:#fff;border-bottom-color:rgba(255,255,255,.4);}
 .tnc-item.active{color:#fff;border-bottom-color:#4fc3f7;font-weight:700;}
@@ -1578,7 +1584,9 @@ body.dark .avvisa-box{background:#1e1e1e;}
   .ham{display:block;flex-shrink:0;}
 
   /* ── SIDEBAR ── */
-  .topnav-cats{display:none;}
+  .topbar-nav-center{display:none;}
+  .topbar{height:54px;align-items:center;padding:0 12px;}
+  .topbar-right{align-items:center;}
   .sidebar{display:block;position:fixed;left:-105%;top:0;height:100vh;z-index:995;transition:left .3s ease;width:85%;max-width:320px;box-shadow:4px 0 20px rgba(0,0,0,.3);overflow-y:auto;}
   .sidebar.open{left:0;}
   .sidebar-overlay.open{z-index:994;}
@@ -1741,8 +1749,23 @@ body.dark .avvisa-box{background:#1e1e1e;}
     <img src="logo.png" alt="logo" onerror="this.src='logo.jpg'">
     <span>Completini Squadre Calcio 2.0</span>
   </a>
+
+  <!-- NAV CENTER (desktop) -->
+  <div class="topbar-nav-center">
+    <div class="topbar-nav-r1" id="topnav-cats"></div>
+    <div class="topbar-nav-r2">
+      <div class="tnr-item" onclick="paginaFaq()">FAQ</div>
+      <div class="tnr-item" onclick="paginaComeOrdinare()">Come ordinare</div>
+      <div class="tnr-item" onclick="paginaTaglie()">Guida taglie</div>
+      <div class="tnr-item" onclick="paginaTracking()">Traccia pacco</div>
+      <div class="tnr-item" onclick="paginaOrdini()">I miei ordini</div>
+      <div class="tnr-item" onclick="paginaPrezzi()">Prezzi & Sconti</div>
+    </div>
+  </div>
+
   <div class="online-counter" id="onlineCounter" style="display:none"><div class="online-dot"></div><span id="onlineNum">--</span> online</div>
-  <div class="topbar-social" style="display:flex;align-items:center;gap:8px;margin-left:auto;">
+  <div class="topbar-right">
+  <div class="topbar-social" style="display:flex;align-items:center;gap:8px;">
     <a href="https://instagram.com/csc_duepuntozero" target="_blank" title="Instagram" style="color:#fff;opacity:.85;transition:opacity .2s;display:flex;align-items:center;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.85">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
     </a>
@@ -1750,12 +1773,11 @@ body.dark .avvisa-box{background:#1e1e1e;}
       <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
     </a>
   </div>
-  <div class="topbar-actions" style="display:flex;align-items:center;gap:4px;margin-left:auto;">
-    <div class="cart-icon" onclick="apriCarrello()">
-      🛒 <span>Carrello</span>
-      <div class="cart-badge" id="cartBadge">0</div>
-    </div>
+  <div class="cart-icon" onclick="apriCarrello()" style="margin-left:4px;">
+    🛒 <span>Carrello</span>
+    <div class="cart-badge" id="cartBadge">0</div>
   </div>
+  </div><!-- /topbar-right -->
   <div class="search-pos">
     <div class="search-wrap">
       <input type="text" id="searchInput" placeholder="Cerca squadra o categoria..." oninput="onSearch(this.value)" onblur="setTimeout(closeSearch,200)">
@@ -1764,9 +1786,6 @@ body.dark .avvisa-box{background:#1e1e1e;}
     <div class="search-results" id="searchResults"></div>
   </div>
 </div>
-
-<!-- TOP NAV CATEGORIES (desktop) -->
-<div class="topnav-cats" id="topnav-cats"></div>
 
 <!-- LAYOUT -->
 <div class="layout">
