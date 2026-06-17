@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-170212';
+const SITE_VERSION='20260617-185019';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -257,18 +257,14 @@ body.dark .faq-section{background:#1a1a1a;}
 .faq-title{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#222;margin-bottom:20px;text-align:center;}
 body.dark .faq-title{color:#e0e0e0;}
 .faq-list{max-width:750px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
-.faq-item{border:1px solid #e8e8e8;border-radius:10px;overflow:hidden;transition:box-shadow .2s;}
-body.dark .faq-item{border-color:#333;}
-.faq-item:hover{box-shadow:0 2px 12px rgba(0,0,0,.06);}
-.faq-q{padding:16px 20px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:14px;font-weight:600;color:#222;background:#fff;transition:background .2s;}
-body.dark .faq-q{background:#1e1e1e;color:#e0e0e0;}
-.faq-q:hover{background:#f5f9ff;}
-body.dark .faq-q:hover{background:#252525;}
-.faq-q.open{background:#f5f9ff;color:#0d47a1;}
-body.dark .faq-q.open{background:#1a2a4a;color:#90caf9;}
-.faq-arrow{font-size:18px;transition:transform .3s;flex-shrink:0;}
+.faq-item{border-radius:10px;overflow:hidden;transition:box-shadow .2s;}
+.faq-item:hover{box-shadow:0 4px 20px rgba(0,0,0,.25);}
+.faq-q{padding:18px 22px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:15px;font-weight:700;color:#fff;background:#1a1a2e;transition:background .2s;gap:12px;}
+.faq-q:hover{background:#22223a;}
+.faq-q.open{background:#22223a;}
+.faq-arrow{font-size:18px;transition:transform .3s;flex-shrink:0;opacity:.7;}
 .faq-q.open .faq-arrow{transform:rotate(180deg);}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:13px;color:#555;line-height:1.7;background:#fff;padding:0 20px;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;font-size:14px;color:#ccc;line-height:1.8;background:#16162a;padding:0 22px;}
 body.dark .faq-a{background:#1e1e1e;color:#aaa;}
 .faq-a.open{max-height:600px;padding:0 20px 16px;}
 .faq-arr-body.open{max-height:300px !important;}
@@ -1636,6 +1632,12 @@ body.dark .avvisa-box{background:#1e1e1e;}
 <div class="online-bar-mobile" id="onlineBarMobile" style="display:none">
   <div class="online-dot"></div>
   <span id="onlineNumMobile">--</span> persone stanno guardando il catalogo ora
+</div>
+
+<!-- BARRA CONSEGNA GEO-PERSONALIZZATA -->
+<div id="geo-ship-bar" style="background:#1a1a2e;color:#fff;text-align:center;padding:9px 16px;font-size:13px;font-weight:700;letter-spacing:.3px;display:flex;align-items:center;justify-content:center;gap:8px;min-height:36px;">
+  <span>🚚</span>
+  <span id="geo-ship-text">Spedizione Gratuita · Consegna in tutta Italia</span>
 </div>
 
 <!-- TRUST BADGES -->
@@ -4743,9 +4745,9 @@ function paginaFaq(){
     </div>
     <div class="faq-list" style="margin-bottom:32px;">`;
 
-  faqs.forEach(f=>{
+  faqs.forEach((f,i)=>{
     html+=`<div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">${f.q} <span class="faq-arrow">▾</span></div>
+      <div class="faq-q" onclick="toggleFaq(this)"><span style="opacity:.5;margin-right:6px;font-weight:900;">${i+1}.</span>${f.q} <span class="faq-arrow">▾</span></div>
       <div class="faq-a">${f.a}</div>
     </div>`;
   });
@@ -7837,5 +7839,37 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+<script>
+(function(){
+  function giorniLavorativiAData(giorni){
+    var d=new Date();
+    var aggiunti=0;
+    while(aggiunti<giorni){
+      d.setDate(d.getDate()+1);
+      var g=d.getDay();
+      if(g!==0&&g!==6) aggiunti++;
+    }
+    return d.toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});
+  }
+  var el=document.getElementById('geo-ship-text');
+  if(!el) return;
+  // 10 giorni lavorativi = tempo medio consegna
+  var dataStimata=giorniLavorativiAData(10);
+  fetch('https://ipapi.co/json/')
+    .then(function(r){return r.json();})
+    .then(function(d){
+      var citta=d.city||'';
+      var paese=d.country_code||'';
+      if(citta && paese==='IT'){
+        el.textContent='Spedizione Gratuita · Ricevi entro '+dataStimata+' a '+citta;
+      } else {
+        el.textContent='Spedizione Gratuita · Ricevi entro '+dataStimata;
+      }
+    })
+    .catch(function(){
+      el.textContent='Spedizione Gratuita · Ricevi entro '+dataStimata;
+    });
+})();
+</script>
 </body>
 </html>
