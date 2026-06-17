@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-221528';
+const SITE_VERSION='20260617-221600';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6193,13 +6193,18 @@ function apriPaginaProdotto(idx){
     </div>`
   :'';
 
-  // Illustrazione giocatore per Argentina
+  // Illustrazione giocatore
   const _nomeLow=nomeProdotto.toLowerCase();
   const _sqLow2=squadraNome.toLowerCase();
   let _playerImg='';
   if(_sqLow2.includes('argentina')||_nomeLow.includes('argentina')){
     if(_nomeLow.includes('away')) _playerImg='messi_arg_away.png';
     else if(_nomeLow.includes('home')) _playerImg='messi_arg_home.png';
+  } else if(_sqLow2.includes('germania')||_nomeLow.includes('germania')){
+    if(_nomeLow.includes('away')) _playerImg='germania_away.png';
+    else if(_nomeLow.includes('home')) _playerImg='germania_home.png';
+  } else if(_sqLow2.includes('spagna')||_nomeLow.includes('spagna')){
+    if(_nomeLow.includes('home')) _playerImg='spagna_home.png';
   }
 
   const main=document.getElementById('main');
