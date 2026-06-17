@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-214428';
+const SITE_VERSION='20260617-214620';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -2723,6 +2723,29 @@ const TEAM_LOGOS = {
 };
 function getTeamLogo(name){return TEAM_LOGOS[name.toLowerCase().trim()]||null;}
 
+// Raggruppamento topnav: ogni gruppo è {label, ci (index diretto) oppure subs:[{label,ci,si?}]}
+const TOPNAV_GROUPS = [
+  {label:'Nuovi Arrivi', ci:0, badge:'new'},
+  {label:'Campionati Europei', subs:[
+    {label:'Serie A',        ci:1},
+    {label:'Premier League', ci:2},
+    {label:'Liga Spagnola',  ci:3},
+    {label:'Bundesliga',     ci:4},
+    {label:'Ligue 1 Francia',ci:5},
+    {label:'Eredivisie',     ci:6},
+  ]},
+  {label:'Nazionali', ci:7, badge:'live'},
+  {label:'NBA',        ci:9},
+  {label:'Vintage',    ci:12},
+  {label:'Altro', subs:[
+    {label:'Tute',            ci:10},
+    {label:'Completi Estivi', ci:11},
+    {label:'Scarpe',          ci:13},
+    {label:'Anime & Giappone',ci:14},
+    {label:'Resto del Mondo', ci:8},
+  ]},
+];
+
 const CATALOG = [
   { name:"Nuovi Arrivi", flag:"🆕", id:"1mNzocO2ltOMXmIlk6ygdQa7KaT93wV4M", subs:null},
   { name:"Serie A", flag:"<img src='https://flagcdn.com/w80/it.png' alt='🇮🇹' onerror=\"this.outerHTML='🇮🇹'\">", id:"1PEPuubYWEiecIKwXbq9RZ1LuWNjEhzC2", subs:[
@@ -2817,25 +2840,29 @@ function buildSidebar(){
       });
       html+=`</div>`;
     }
-    const hasSubs=cat.subs&&cat.subs.length;
-    let ddHtml='';
-    if(hasSubs){
-      ddHtml=`<div class="tnc-dropdown">`;
-      cat.subs.forEach((s,j)=>{
-        const sn=typeof s==='string'?s:s.name;
-        ddHtml+=`<div class="tnc-dd-item" onclick="event.stopPropagation();openSubSidebar(${i},${j})">${sn}</div>`;
-      });
-      ddHtml+=`</div>`;
-    }
-    tncHtml+=`<div class="tnc-item" id="tnc-${i}" onclick="openCatSidebar(${i})">
-      <span>${cat.name}</span>
-      ${hasSubs?'<span class="tnc-arrow">▼</span>':''}
-      ${isNew?'<span class="tnc-new">NEW</span>':isHot?'<span class="tnc-live">LIVE</span>':''}
-      ${ddHtml}
-    </div>`;
   });
   el.innerHTML=html;
-  if(tnc) tnc.innerHTML=tncHtml;
+  // Topnav usa TOPNAV_GROUPS (raggruppato)
+  if(tnc){
+    TOPNAV_GROUPS.forEach((g,gi)=>{
+      let ddHtml='';
+      if(g.subs){
+        ddHtml=`<div class="tnc-dropdown">`;
+        g.subs.forEach(s=>{
+          ddHtml+=`<div class="tnc-dd-item" onclick="event.stopPropagation();openCatSidebar(${s.ci})">${s.label}</div>`;
+        });
+        ddHtml+=`</div>`;
+      }
+      const badge=g.badge==='new'?'<span class="tnc-new">NEW</span>':g.badge==='live'?'<span class="tnc-live">LIVE</span>':'';
+      tncHtml+=`<div class="tnc-item" id="tncg-${gi}" onclick="${g.ci!=null?`openCatSidebar(${g.ci})`:'void 0'}">
+        <span>${g.label}</span>
+        ${g.subs?'<span class="tnc-arrow">▼</span>':''}
+        ${badge}
+        ${ddHtml}
+      </div>`;
+    });
+    tnc.innerHTML=tncHtml;
+  }
 }
 
 function setSidebarActive(ci,si=-1){
@@ -2847,8 +2874,9 @@ function setSidebarActive(ci,si=-1){
   document.getElementById(`sb-${ci}`)?.classList.add('active');
   document.getElementById(`sb-sub-${ci}`)?.classList.add('open');
   if(si>=0) document.getElementById(`sb-sub-${ci}-${si}`)?.classList.add('active');
-  const tncEl=document.getElementById(`tnc-${ci}`);
-  if(tncEl){tncEl.classList.add('active');tncEl.scrollIntoView({behavior:'smooth',inline:'nearest',block:'nearest'});}
+  // Evidenzia il gruppo topnav che contiene ci
+  const gi=TOPNAV_GROUPS.findIndex(g=>g.ci===ci||(g.subs&&g.subs.some(s=>s.ci===ci)));
+  if(gi>=0){const tEl=document.getElementById(`tncg-${gi}`);if(tEl)tEl.classList.add('active');}
 }
 
 function toggleSidebar(){
