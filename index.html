@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-191608';
+const SITE_VERSION='20260617-192011';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6126,6 +6126,10 @@ function apriPaginaProdotto(idx){
         <span class="pp-prezzo-old" id="pp-prezzo-old" style="display:none"></span>
       </div>
 
+      ${_èPV?`<div style="background:#fff8e1;border:1.5px solid #ffe082;border-radius:10px;padding:14px 16px;margin-bottom:18px;">
+        <div style="font-size:12px;font-weight:800;color:#e65100;text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;">⭐ Player Version</div>
+        <p style="font-size:13px;color:#555;line-height:1.7;margin:0;">La versione indossata dai calciatori in campo. Tessuto tecnico leggero e traspirante, taglio aderente e atletico, loghi e toppe cuciti con tecnologia a caldo. Identica a quella che vedi in campo.</p>
+      </div>`:''}
       ${tipoOpts.length>1?`<div class="pp-section-title">Cosa vuoi ordinare?</div>
       <div class="pp-tipo-grid">${tipoHTML}</div>`:''}
 
