@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-221442';
+const SITE_VERSION='20260617-221528';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6356,11 +6356,17 @@ function _ppSelPatch(el,val){
 
 function _ppSelPatchImg(el){
   document.querySelectorAll('.pp-patch-img-btn').forEach(b=>{
+    b.classList.remove('sel');
     b.style.borderColor='#e0e0e0';
     b.style.background='#fff';
+    b.style.boxShadow='none';
+    b.style.transform='scale(1)';
   });
+  el.classList.add('sel');
   el.style.borderColor='#0d47a1';
   el.style.background='#e8f0fe';
+  el.style.boxShadow='0 0 0 3px rgba(13,71,161,0.18)';
+  el.style.transform='scale(1.03)';
   _ppPatch=el.dataset.val;
 }
 
