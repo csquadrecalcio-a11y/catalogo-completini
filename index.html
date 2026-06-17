@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-221840';
+const SITE_VERSION='20260617-221957';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6196,17 +6196,19 @@ function apriPaginaProdotto(idx){
   // Illustrazione giocatore
   const _nomeLow=nomeProdotto.toLowerCase();
   const _sqLow2=squadraNome.toLowerCase();
+  const _isHome=_nomeLow.includes('home')||_nomeLow.includes('casa');
+  const _isAway=_nomeLow.includes('away')||_nomeLow.includes('trasferta');
   let _playerImg='';
   if(_sqLow2.includes('argentina')||_nomeLow.includes('argentina')){
-    if(_nomeLow.includes('away')) _playerImg='messi_arg_away.png';
-    else if(_nomeLow.includes('home')) _playerImg='messi_arg_home.png';
+    if(_isAway) _playerImg='messi_arg_away.png';
+    else if(_isHome) _playerImg='messi_arg_home.png';
   } else if(_sqLow2.includes('germania')||_nomeLow.includes('germania')){
-    if(_nomeLow.includes('away')) _playerImg='germania_away.png';
-    else if(_nomeLow.includes('home')) _playerImg='germania_home.png';
+    if(_isAway) _playerImg='germania_away.png';
+    else if(_isHome) _playerImg='germania_home.png';
   } else if(_sqLow2.includes('spagna')||_nomeLow.includes('spagna')){
-    if(_nomeLow.includes('home')) _playerImg='spagna_home.png';
+    if(_isHome) _playerImg='spagna_home.png';
   } else if(_sqLow2.includes('colombia')||_nomeLow.includes('colombia')){
-    if(_nomeLow.includes('home')) _playerImg='colombia_home.png';
+    if(_isHome) _playerImg='colombia_home.png';
   }
 
   const main=document.getElementById('main');
