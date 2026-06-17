@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-185019';
+const SITE_VERSION='20260617-185757';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -2294,8 +2294,8 @@ body.dark .avvisa-box{background:#1e1e1e;}
       </div>
     </div>
     <input type="checkbox" id="addCartKit" style="display:none">
-    <div style="text-align:center;font-size:11.5px;color:#888;margin-bottom:10px;background:#f8f9fa;border-radius:8px;padding:8px 12px;">
-      📅 Consegna stimata: <strong id="addCartConsegna" style="color:#0d47a1;">12–18 giorni</strong> dalla conferma
+    <div style="text-align:center;font-size:12px;color:#555;margin-bottom:10px;background:#e8f5e9;border:1.5px solid #a5d6a7;border-radius:8px;padding:10px 14px;font-weight:600;">
+      🚚 Spedizione gratuita · Ricevi entro <strong id="addCartConsegna" style="color:#1b5e20;">caricamento...</strong>
     </div>
     <button id="btnAggiungi" onclick="confermAggiungi()"
       style="width:100%;background:linear-gradient(135deg,#25d366,#1ebe5d);color:#fff;border:none;border-radius:12px;padding:16px;font-size:16px;font-weight:800;cursor:pointer;transition:all .2s;box-shadow:0 4px 18px rgba(37,211,102,.4);letter-spacing:.3px;">
@@ -6217,13 +6217,20 @@ function apriAddCart(){
   }
   const _m=document.getElementById('addCartModal');
   if(_m){_m.style.display='';_m.classList.add('active');}
-  // Aggiorna stima consegna con date reali
+  // Aggiorna stima consegna con dati geo
   (function(){
-    const _m=['gen','feb','mar','apr','mag','giu','lug','ago','set','ott','nov','dic'];
-    const _d1=new Date(); _d1.setDate(_d1.getDate()+12);
-    const _d2=new Date(); _d2.setDate(_d2.getDate()+18);
     const el=document.getElementById('addCartConsegna');
-    if(el) el.textContent=`${_d1.getDate()} ${_m[_d1.getMonth()]}–${_d2.getDate()} ${_m[_d2.getMonth()]}`;
+    if(!el) return;
+    if(_geoDataConsegna){
+      el.textContent=_geoDataConsegna.citta
+        ?_geoDataConsegna.data+' a '+_geoDataConsegna.citta
+        :_geoDataConsegna.data;
+    } else {
+      // geo non ancora pronta, mostra data senza città
+      var d=new Date();var aggiunti=0;
+      while(aggiunti<10){d.setDate(d.getDate()+1);var g=d.getDay();if(g!==0&&g!==6)aggiunti++;}
+      el.textContent=d.toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});
+    }
   })();
 }
 
@@ -7840,6 +7847,7 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 <!--End of Tawk.to Script-->
 <script>
+var _geoDataConsegna = null; // {data, citta}
 (function(){
   function giorniLavorativiAData(giorni){
     var d=new Date();
@@ -7851,23 +7859,30 @@ s0.parentNode.insertBefore(s1,s0);
     }
     return d.toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});
   }
-  var el=document.getElementById('geo-ship-text');
-  if(!el) return;
-  // 10 giorni lavorativi = tempo medio consegna
+  function aggiornaConsegnaUI(){
+    var data=_geoDataConsegna.data;
+    var citta=_geoDataConsegna.citta;
+    var elBar=document.getElementById('geo-ship-text');
+    var elModal=document.getElementById('addCartConsegna');
+    if(elBar){
+      elBar.textContent=citta
+        ?'Spedizione Gratuita · Ricevi entro '+data+' a '+citta
+        :'Spedizione Gratuita · Ricevi entro '+data;
+    }
+    if(elModal){
+      elModal.textContent=citta ? data+' a '+citta : data;
+    }
+  }
   var dataStimata=giorniLavorativiAData(10);
   fetch('https://ipapi.co/json/')
     .then(function(r){return r.json();})
     .then(function(d){
-      var citta=d.city||'';
-      var paese=d.country_code||'';
-      if(citta && paese==='IT'){
-        el.textContent='Spedizione Gratuita · Ricevi entro '+dataStimata+' a '+citta;
-      } else {
-        el.textContent='Spedizione Gratuita · Ricevi entro '+dataStimata;
-      }
+      _geoDataConsegna={data:dataStimata, citta:(d.country_code==='IT'?d.city||'':'')};
+      aggiornaConsegnaUI();
     })
     .catch(function(){
-      el.textContent='Spedizione Gratuita · Ricevi entro '+dataStimata;
+      _geoDataConsegna={data:dataStimata, citta:''};
+      aggiornaConsegnaUI();
     });
 })();
 </script>
