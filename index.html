@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-191456';
+const SITE_VERSION='20260617-191608';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6034,9 +6034,9 @@ function selTipoCard(el, prezzo, value){
 let _ppPatch='Nessuna patch';
 
 function apriPaginaProdotto(idx){
-  // Prodotti speciali → usa ancora il modal
+  // Prodotti speciali → usa ancora il modal (scarpe/tute/estivi)
   currentPhotoIdx=idx;
-  if(_isScarpe()||_isTute()||_isEstivi()||_isNBA()){apriAddCart();return;}
+  if(_isScarpe()||_isTute()||_isEstivi()){apriAddCart();return;}
 
   const photo=currentPhotos[idx];
   if(!photo) return;
@@ -6059,9 +6059,13 @@ function apriPaginaProdotto(idx){
   const _èAnime=_nomeF.includes('anime')||_nomeF.includes('manga')||_nomeF.includes('dragon ball')||_nomeF.includes('naruto')||_nomeF.includes('one piece');
   const _èMaglia=_cartMaglie||_nomeF.includes('magli');
 
+  const isNBA=_isNBA();
+
   // Costruisci opzioni tipo
   let tipoOpts=[];
-  if(isVintage){
+  if(isNBA){
+    tipoOpts=[{v:'Canotta NBA',i:'🏀',p:40}];
+  } else if(isVintage){
     if(isKidVintage) tipoOpts=[{v:'Kit Vintage Bambino',i:'🧒',p:35}];
     else tipoOpts=[{v:'Maglia Vintage',i:'👕',p:35}];
   } else if(_èAnime&&!_èKid){
@@ -6075,7 +6079,7 @@ function apriPaginaProdotto(idx){
   } else if(_èMaglia){
     tipoOpts=[{v:'Maglia',i:'👕',p:30}];
   } else {
-    tipoOpts=[{v:'Maglia',i:'👕',p:30},{v:'Kit Bambino',i:'🧒',p:35},{v:'Kit Adulto',i:'👨',p:typeof PROMO_KIT_ADULTO!=='undefined'&&PROMO_KIT_ADULTO.attivo?PROMO_KIT_ADULTO.attivo?35:40:40}];
+    tipoOpts=[{v:'Maglia',i:'👕',p:30},{v:'Kit Bambino',i:'🧒',p:35},{v:'Kit Adulto',i:'👨',p:typeof PROMO_KIT_ADULTO!=='undefined'&&PROMO_KIT_ADULTO.attivo?35:40}];
   }
   let prezzoBase=tipoOpts[0].p;
   let tipoSel=tipoOpts[0].v;
@@ -6103,7 +6107,7 @@ function apriPaginaProdotto(idx){
   // HTML taglie
   const taglieHTML=(mostraBambino?taglieBambino:taglieAdulto).map(t=>`
     <button class="pp-taglia-btn" data-taglia="${t}" onclick="_ppSelTaglia(this)">${t}</button>`).join('');
-  const bambExtraHTML=(!mostraBambino&&!_èPV&&!isLV)?`
+  const bambExtraHTML=(!mostraBambino&&!_èPV&&!isLV&&!isNBA&&!(isVintage&&!isKidVintage))?`
     <div style="margin-top:10px;">
       <div style="font-size:11px;font-weight:700;color:#888;margin-bottom:6px;">🧒 TAGLIE BAMBINO</div>
       <div class="pp-taglia-grid">${taglieBambino.map(t=>`<button class="pp-taglia-btn" data-taglia="Bambino ${t}" onclick="_ppSelTaglia(this)">👶 ${t.split('—')[0].trim()}</button>`).join('')}</div>
@@ -6226,6 +6230,8 @@ function _ppAggiungiCarrello(){
   const patchVal=patchLib||_ppPatch;
 
   // Sync nel modal nascosto e chiama confermAggiungi
+  // NBA e Estivi usano estagiTagliaVal invece di addCartTaglia
+  if(_isNBA()||_isEstivi()) document.getElementById('estagiTagliaVal').value=tagliaVal;
   document.getElementById('addCartTaglia').value=tagliaVal;
   document.getElementById('addCartNome').value=nomeVal;
   document.getElementById('addCartNumero').value=numVal;
