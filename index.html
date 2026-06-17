@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-212607';
+const SITE_VERSION='20260617-213052';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6109,6 +6109,33 @@ function apriPaginaProdotto(idx){
     <button class="pp-taglia-btn" data-taglia="${t}" onclick="_ppSelTaglia(this)">${t}</button>`).join('');
   const bambExtraHTML='';
 
+  // Colore accent per squadra
+  const _coloriSquadre={
+    'napoli':'#009ACC','inter':'#0033A0','milan':'#C80815','juventus':'#1a1a1a',
+    'roma':'#9B1A1A','lazio':'#87CEEB','atalanta':'#1C4F9C','fiorentina':'#6B2D8B',
+    'torino':'#7A0021','bologna':'#CC0000','genoa':'#C80815','sampdoria':'#0033CC',
+    'udinese':'#1a1a1a','empoli':'#003399','verona':'#FFD700','cagliari':'#CC0000',
+    'monza':'#CC0000','lecce':'#FFD700','parma':'#FFD700','como':'#003399',
+    'real madrid':'#C0A860','barcelona':'#004D98','atletico':'#CC0000',
+    'psg':'#004170','paris':'#004170',
+    'manchester city':'#6CABDD','manchester united':'#DA291C',
+    'liverpool':'#C8102E','arsenal':'#EF0107','chelsea':'#034694',
+    'tottenham':'#132257','newcastle':'#000000','aston villa':'#670E36',
+    'bayern':'#DC052D','borussia dortmund':'#FDE100','dortmund':'#FDE100',
+    'porto':'#004B8D','benfica':'#CC0000','sporting':'#009A3D',
+    'ajax':'#CC0000','psv':'#CC0000',
+    'italia':'#003399','italy':'#003399','inghilterra':'#CC0000','england':'#CC0000',
+    'spagna':'#AA151B','spain':'#AA151B','germania':'#1a1a1a','germany':'#1a1a1a',
+    'francia':'#003189','france':'#003189','brasile':'#009C3B','brazil':'#009C3B',
+    'argentina':'#74ACDF','portogallo':'#006600','portugal':'#006600',
+    'belgio':'#CC0000','olanda':'#FF6600','netherlands':'#FF6600',
+    'marocco':'#C1272D','senegal':'#00853F','nigeria':'#008751',
+    'giappone':'#BC002D','corea':'#003478','usa':'#002868',
+  };
+  const _sqLow=squadraNome.toLowerCase();
+  const _accentColor=Object.entries(_coloriSquadre).find(([k])=>_sqLow.includes(k))?.[1]||'#0d47a1';
+  const _accentLight=_accentColor+'22';
+
   // Patch con foto per Nazionali
   const isNazionale=navStack.some(s=>(s.name||'').toLowerCase().includes('nazional'));
   const patchHTML=isNazionale?`
@@ -6135,10 +6162,12 @@ function apriPaginaProdotto(idx){
       <img id="pp-main-img" src="${fullUrl(photo.id)}" alt="${nomeProdotto}" onclick="openLightbox(${idx})">
     </div>
     <div class="pp-info-col">
-      <div class="pp-squadra">${squadraNome}</div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:${_accentLight};border-left:4px solid ${_accentColor};border-radius:0 6px 6px 0;padding:5px 12px;margin-bottom:10px;">
+        <span style="font-size:12px;font-weight:800;color:${_accentColor};text-transform:uppercase;letter-spacing:1px;">${squadraNome}</span>
+      </div>
       <h1 class="pp-nome">${nomeProdotto}</h1>
       <div class="pp-prezzo-wrap">
-        <span class="pp-prezzo" id="pp-prezzo">${prezzoBase}€</span>
+        <span class="pp-prezzo" id="pp-prezzo" style="color:${_accentColor};">${prezzoBase}€</span>
         <span class="pp-prezzo-old" id="pp-prezzo-old" style="display:none"></span>
       </div>
 
@@ -6149,7 +6178,7 @@ function apriPaginaProdotto(idx){
       ${tipoOpts.length>1?`<div class="pp-section-title">Cosa vuoi ordinare?</div>
       <div class="pp-tipo-grid">${tipoHTML}</div>`:''}
 
-      <div class="pp-section-title">Seleziona la taglia <span onclick="apriGuidaTaglie()" style="font-size:11px;color:#0d47a1;cursor:pointer;font-weight:600;text-decoration:underline;margin-left:8px;">Guida →</span></div>
+      <div class="pp-section-title">Seleziona la taglia <span onclick="apriGuidaTaglie()" style="font-size:11px;color:${_accentColor};cursor:pointer;font-weight:600;text-decoration:underline;margin-left:8px;">Guida →</span></div>
       <div class="pp-taglia-grid" id="pp-taglia-grid">${taglieHTML}</div>
       ${bambExtraHTML}
 
@@ -6176,7 +6205,7 @@ function apriPaginaProdotto(idx){
 
       <div class="pp-consegna">🚚 <span id="pp-consegna-txt">${consegnaText}</span></div>
 
-      <div class="pp-totale-bar">
+      <div class="pp-totale-bar" style="background:linear-gradient(135deg,${_accentColor},${_accentColor}cc);">
         <span class="pp-totale-label">💰 Totale</span>
         <span class="pp-totale-val" id="pp-totale">${prezzoBase}€</span>
       </div>
