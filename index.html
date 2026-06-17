@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-221957';
+const SITE_VERSION='20260617-222211';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6209,6 +6209,8 @@ function apriPaginaProdotto(idx){
     if(_isHome) _playerImg='spagna_home.png';
   } else if(_sqLow2.includes('colombia')||_nomeLow.includes('colombia')){
     if(_isHome) _playerImg='colombia_home.png';
+  } else if(_sqLow2.includes('giappone')||_nomeLow.includes('giappone')){
+    if(_isHome) _playerImg='giappone_home.png';
   }
 
   const main=document.getElementById('main');
