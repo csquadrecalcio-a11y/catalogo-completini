@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-213202';
+const SITE_VERSION='20260617-213304';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -367,6 +367,24 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
   .pp-nome{font-size:18px;}
   .pp-tipo-grid{grid-template-columns:repeat(3,1fr);}
 }
+/* ── DARK MODE product page ── */
+body.dark .pp-page{background:transparent;}
+body.dark .pp-nome{color:#e8eef7;}
+body.dark .pp-section-title{color:#aaa;}
+body.dark .pp-taglia-btn{background:#2a2a2a;border-color:#444;color:#ccc;}
+body.dark .pp-taglia-btn.sel{background:#1565c0;border-color:#1565c0;color:#fff;}
+body.dark .pp-tipo-btn{background:#2a2a2a;border-color:#444;color:#ccc;}
+body.dark .pp-tipo-btn.sel{background:#1a2a4a;border-color:#1565c0;color:#90caf9;}
+body.dark .pp-input{background:#2a2a2a;border-color:#444;color:#e0e0e0;}
+body.dark .pp-patch-wrap{border-color:#444;}
+body.dark .pp-patch-head{background:#1e1e1e;color:#ccc;}
+body.dark .pp-patch-btn{background:#2a2a2a;border-color:#444;color:#ccc;}
+body.dark .pp-consegna{background:#1e2a1e;color:#a5d6a7;}
+body.dark .pp-trust{border-color:#333;}
+body.dark .pp-trust-item{color:#aaa;border-color:#333;}
+body.dark .pp-img-col img{background:#1e1e1e;}
+body.dark .pp-patch-img-btn{background:#2a2a2a!important;border-color:#444!important;}
+body.dark .pp-patch-img-btn.sel,body.dark .pp-patch-img-btn[style*="e8f0fe"]{background:#1a2a4a!important;border-color:#1565c0!important;}
 /* ── ANIMAZIONI ── */
 @keyframes fadeInUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
