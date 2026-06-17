@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-215740';
+const SITE_VERSION='20260617-220333';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -435,10 +435,37 @@ body.dark .pp-rev-subtitle{color:#888;}
 }
 
 /* ── TOP BAR ── */
-.topbar{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);padding:0 24px;height:58px;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(6,18,54,.5);}
-.topbar-logo{display:flex;align-items:center;gap:10px;text-decoration:none;min-width:200px;}
-.topbar-logo img{width:38px;height:38px;border-radius:50%;border:2px solid rgba(255,255,255,.5);}
-.topbar-logo span{color:#fff;font-size:16px;font-weight:700;letter-spacing:.5px;white-space:nowrap;}
+.topbar{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);padding:0 20px;display:flex;align-items:stretch;gap:0;position:sticky;top:0;z-index:100;box-shadow:0 2px 16px rgba(6,18,54,.5);}
+.topbar-logo{display:flex;align-items:center;gap:10px;text-decoration:none;padding-right:20px;flex-shrink:0;}
+.topbar-logo img{width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,.5);}
+.topbar-logo span{color:#fff;font-size:14px;font-weight:700;letter-spacing:.3px;white-space:nowrap;line-height:1.2;}
+/* ── TOP NAV CENTER ── */
+.topbar-nav-center{flex:1;display:flex;flex-direction:column;justify-content:center;min-width:0;border-left:1px solid rgba(255,255,255,.1);padding-left:8px;}
+.topbar-nav-r1{display:flex;align-items:center;flex-wrap:wrap;padding:8px 0 4px;gap:0;}
+.topbar-nav-r2{display:flex;align-items:center;flex-wrap:wrap;padding:4px 0 8px;border-top:1px solid rgba(255,255,255,.08);gap:0;}
+.tnc-item{position:relative;display:flex;align-items:center;gap:4px;padding:4px 12px;cursor:pointer;font-size:13px;font-weight:600;color:rgba(255,255,255,.8);white-space:nowrap;border-radius:4px;transition:color .15s,background .15s;}
+.tnc-item:hover{color:#fff;background:rgba(255,255,255,.08);}
+.tnc-item.active{color:#fff;font-weight:700;}
+.tnc-arrow{font-size:8px;opacity:.7;}
+.tnc-new{background:#25d366;color:#fff;font-size:9px;font-weight:800;padding:2px 5px;border-radius:3px;margin-left:2px;}
+.tnc-live{background:#e53935;color:#fff;font-size:9px;font-weight:800;padding:2px 5px;border-radius:3px;margin-left:2px;}
+.tnc-dropdown{display:none;position:absolute;top:calc(100% + 4px);left:0;min-width:190px;background:#fff;border-radius:8px;box-shadow:0 8px 28px rgba(0,0,0,.18);z-index:200;padding:6px 0;border:1px solid #e8e8e8;}
+.tnc-item:hover .tnc-dropdown{display:block;}
+.tnc-dd-item{padding:9px 16px;font-size:13px;font-weight:500;color:#222;cursor:pointer;transition:background .12s,color .12s;}
+.tnc-dd-item:hover{background:#f0f7ff;color:#0d47a1;}
+.tnr-item{padding:3px 12px;font-size:12px;font-weight:500;color:rgba(255,255,255,.55);cursor:pointer;white-space:nowrap;border-radius:4px;transition:color .15s;}
+.tnr-item:hover{color:rgba(255,255,255,.9);}
+/* ── TOPBAR RIGHT ── */
+.topbar-right{display:flex;align-items:center;gap:6px;padding-left:12px;border-left:1px solid rgba(255,255,255,.1);flex-shrink:0;}
+.topbar-search-btn{background:none;border:none;color:#fff;cursor:pointer;padding:6px;display:flex;align-items:center;opacity:.8;transition:opacity .15s;}
+.topbar-search-btn:hover{opacity:1;}
+/* ── SEARCH OVERLAY ── */
+.search-overlay{display:none;background:var(--navy);padding:10px 20px;position:sticky;top:0;z-index:99;box-shadow:0 4px 12px rgba(0,0,0,.3);}
+.search-overlay.open{display:block;}
+.search-overlay-inner{max-width:600px;margin:0 auto;display:flex;gap:0;position:relative;}
+.search-overlay-inner input{flex:1;padding:10px 16px;border:none;border-radius:4px 0 0 4px;font-size:14px;outline:none;}
+.search-overlay-inner .so-btn{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;padding:10px 20px;cursor:pointer;font-size:14px;font-weight:700;}
+.search-overlay-inner .so-close{background:rgba(255,255,255,.15);color:#fff;border:none;padding:10px 14px;border-radius:0 4px 4px 0;cursor:pointer;font-size:16px;margin-left:3px;}
 .search-wrap{flex:1;max-width:500px;display:flex;gap:0;}
 .search-wrap input{flex:1;padding:9px 14px;border:none;border-radius:4px 0 0 4px;font-size:14px;outline:none;background:#fff;}
 .search-wrap button{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;padding:9px 20px;border-radius:0 4px 4px 0;cursor:pointer;font-size:14px;font-weight:700;white-space:nowrap;letter-spacing:.3px;}
@@ -1573,15 +1600,12 @@ body.dark .avvisa-box{background:#1e1e1e;}
   .trust-strip{display:none;}
 
   /* ── TOPBAR ── */
-  .topbar{padding:0 10px;gap:6px;height:54px;width:100%;}
+  .topbar{padding:0 10px;height:54px;align-items:center;}
   .topbar-logo span{display:none;}
-  .topbar-logo{min-width:auto;flex-shrink:0;}
+  .topbar-logo{padding-right:0;border-left:none;}
+  .topbar-nav-center{display:none;}
+  .topbar-right{border-left:none;padding-left:4px;}
   .topbar-social{display:none !important;}
-  .topbar-actions{flex-shrink:0;}
-  .search-pos{flex:1;min-width:0;}
-  .search-wrap{width:100%;}
-  .search-wrap input{font-size:14px;padding:8px 10px;min-width:0;width:100%;}
-  .search-wrap button{padding:8px 12px;font-size:13px;white-space:nowrap;flex-shrink:0;}
   .dark-toggle{width:34px;height:34px;font-size:14px;flex-shrink:0;}
   .ham{display:block;flex-shrink:0;}
 
@@ -1746,29 +1770,48 @@ body.dark .avvisa-box{background:#1e1e1e;}
   <button class="ham" onclick="toggleSidebar()">☰</button>
   <a class="topbar-logo" href="#" onclick="goHome();return false;">
     <img src="logo.png" alt="logo" onerror="this.src='logo.jpg'">
-    <span>Completini Squadre Calcio 2.0</span>
+    <span>Completini<br>Squadre Calcio 2.0</span>
   </a>
-  <div class="online-counter" id="onlineCounter" style="display:none"><div class="online-dot"></div><span id="onlineNum">--</span> online</div>
-  <div class="topbar-social" style="display:flex;align-items:center;gap:8px;margin-left:auto;">
-    <a href="https://instagram.com/csc_duepuntozero" target="_blank" title="Instagram" style="color:#fff;opacity:.85;transition:opacity .2s;display:flex;align-items:center;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.85">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-    </a>
-    <a href="https://t.me/csc2_0" target="_blank" title="Telegram" style="color:#fff;opacity:.85;transition:opacity .2s;display:flex;align-items:center;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.85">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-    </a>
+  <!-- NAV CENTER: categorie + utility (solo desktop) -->
+  <div class="topbar-nav-center">
+    <div class="topbar-nav-r1" id="topnav-cats"></div>
+    <div class="topbar-nav-r2">
+      <span class="tnr-item" onclick="paginaFaq()">FAQ</span>
+      <span class="tnr-item" onclick="paginaComeOrdinare()">Come ordinare</span>
+      <span class="tnr-item" onclick="paginaTaglie()">Guida taglie</span>
+      <span class="tnr-item" onclick="paginaTracking()">Traccia pacco</span>
+      <span class="tnr-item" onclick="paginaOrdini()">I miei ordini</span>
+      <span class="tnr-item" onclick="paginaPrezzi()">Prezzi & Sconti</span>
+    </div>
   </div>
-  <div class="topbar-actions" style="display:flex;align-items:center;gap:4px;margin-left:auto;">
+  <!-- DESTRA: social + ricerca + carrello -->
+  <div class="topbar-right">
+    <div class="topbar-social" style="display:flex;align-items:center;gap:6px;">
+      <a href="https://instagram.com/csc_duepuntozero" target="_blank" style="color:#fff;opacity:.8;display:flex;align-items:center;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.8">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://t.me/csc2_0" target="_blank" style="color:#fff;opacity:.8;display:flex;align-items:center;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.8">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      </a>
+    </div>
+    <button class="topbar-search-btn" onclick="toggleSearchBar()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+    </button>
     <div class="cart-icon" onclick="apriCarrello()">
       🛒 <span>Carrello</span>
       <div class="cart-badge" id="cartBadge">0</div>
     </div>
   </div>
-  <div class="search-pos">
-    <div class="search-wrap">
-      <input type="text" id="searchInput" placeholder="Cerca squadra o categoria..." oninput="onSearch(this.value)" onblur="setTimeout(closeSearch,200)">
-      <button onclick="cercaFoto(document.getElementById('searchInput').value)">Cerca</button>
-    </div>
-    <div class="search-results" id="searchResults"></div>
+  <div class="online-counter" id="onlineCounter" style="display:none"><div class="online-dot"></div><span id="onlineNum">--</span> online</div>
+</div>
+
+<!-- SEARCH OVERLAY -->
+<div class="search-overlay" id="search-overlay">
+  <div class="search-overlay-inner">
+    <input type="text" id="searchInput" placeholder="Cerca squadra o categoria..." oninput="onSearch(this.value)" onblur="setTimeout(closeSearch,200)">
+    <button class="so-btn" onclick="cercaFoto(document.getElementById('searchInput').value)">Cerca</button>
+    <button class="so-close" onclick="toggleSearchBar()">✕</button>
+    <div class="search-results" id="searchResults" style="position:absolute;top:100%;left:0;width:100%;margin-top:4px;"></div>
   </div>
 </div>
 
@@ -2698,6 +2741,14 @@ const TEAM_LOGOS = {
 };
 function getTeamLogo(name){return TEAM_LOGOS[name.toLowerCase().trim()]||null;}
 
+const TOPNAV_GROUPS=[
+  {label:'Nuovi Arrivi',ci:0,badge:'new'},
+  {label:'Campionati Europei',subs:[{label:'Serie A',ci:1},{label:'Premier League',ci:2},{label:'Liga Spagnola',ci:3},{label:'Bundesliga',ci:4},{label:'Ligue 1 Francia',ci:5},{label:'Eredivisie',ci:6}]},
+  {label:'Nazionali',ci:7,badge:'live'},
+  {label:'NBA',ci:9},
+  {label:'Vintage',ci:12},
+  {label:'Altro',subs:[{label:'Tute',ci:10},{label:'Completi Estivi',ci:11},{label:'Scarpe',ci:13},{label:'Anime & Giappone',ci:14},{label:'Resto del Mondo',ci:8}]},
+];
 const CATALOG = [
   { name:"Nuovi Arrivi", flag:"🆕", id:"1mNzocO2ltOMXmIlk6ygdQa7KaT93wV4M", subs:null},
   { name:"Serie A", flag:"<img src='https://flagcdn.com/w80/it.png' alt='🇮🇹' onerror=\"this.outerHTML='🇮🇹'\">", id:"1PEPuubYWEiecIKwXbq9RZ1LuWNjEhzC2", subs:[
@@ -2774,7 +2825,8 @@ async function getFirstImage(folderId){
 // ── SIDEBAR ──────────────────────────────────────────────────────────────────
 function buildSidebar(){
   const el=document.getElementById('sb-cats');
-  let html='';
+  const tnc=document.getElementById('topnav-cats');
+  let html='',tncHtml='';
   CATALOG.forEach((cat,i)=>{
     const isNew=cat.name==='Nuovi Arrivi';
     const isHot=cat.name==='Nazionali 2026/2027';
@@ -2793,16 +2845,30 @@ function buildSidebar(){
     }
   });
   el.innerHTML=html;
+  if(tnc){
+    TOPNAV_GROUPS.forEach((g,gi)=>{
+      const badge=g.badge==='new'?'<span class="tnc-new">NEW</span>':g.badge==='live'?'<span class="tnc-live">LIVE</span>':'';
+      let dd='';
+      if(g.subs){dd='<div class="tnc-dropdown">'+g.subs.map(s=>`<div class="tnc-dd-item" onclick="event.stopPropagation();openCatSidebar(${s.ci})">${s.label}</div>`).join('')+'</div>';}
+      tncHtml+=`<div class="tnc-item" id="tncg-${gi}" onclick="${g.ci!=null?`openCatSidebar(${g.ci})`:'void 0'}">
+        <span>${g.label}</span>${g.subs?'<span class="tnc-arrow">▾</span>':''}${badge}${dd}
+      </div>`;
+    });
+    tnc.innerHTML=tncHtml;
+  }
 }
 
 function setSidebarActive(ci,si=-1){
   document.querySelectorAll('.sb-item,.sb-subitem').forEach(e=>e.classList.remove('active'));
   document.querySelectorAll('.sb-sub').forEach(e=>e.classList.remove('open'));
   document.getElementById('sb-home').classList.remove('active');
+  document.querySelectorAll('.tnc-item').forEach(e=>e.classList.remove('active'));
   if(ci===-1){document.getElementById('sb-home').classList.add('active');return;}
   document.getElementById(`sb-${ci}`)?.classList.add('active');
   document.getElementById(`sb-sub-${ci}`)?.classList.add('open');
   if(si>=0) document.getElementById(`sb-sub-${ci}-${si}`)?.classList.add('active');
+  const gi=TOPNAV_GROUPS.findIndex(g=>g.ci===ci||(g.subs&&g.subs.some(s=>s.ci===ci)));
+  if(gi>=0) document.getElementById(`tncg-${gi}`)?.classList.add('active');
 }
 
 function toggleSidebar(){
@@ -3727,6 +3793,7 @@ function searchGo(i){
   closeSearch();
 }
 function closeSearch(){document.getElementById('searchResults').classList.remove('open');}
+function toggleSearchBar(){const o=document.getElementById('search-overlay');o.classList.toggle('open');if(o.classList.contains('open'))setTimeout(()=>document.getElementById('searchInput').focus(),50);}
 
 // ── LIGHTBOX ─────────────────────────────────────────────────────────────────
 function _noPersonalizzazione(){
