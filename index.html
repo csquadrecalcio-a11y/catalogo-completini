@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260617-223620';
+const SITE_VERSION='20260618-092828';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -3821,12 +3821,11 @@ async function restorePhotoFromHash(fileId){
 }
 
 function openPhotoById(fileId){
-  // Riprova ogni 300ms per max 10 secondi finché Drive non carica le foto
   const maxTentativi=33;
   let n=0;
   const tryOpen=()=>{
     const idx=currentPhotos.findIndex(p=>p.id===fileId);
-    if(idx>=0){openLightbox(idx);return;}
+    if(idx>=0){apriPaginaProdotto(idx);return;}
     if(++n<maxTentativi) setTimeout(tryOpen,300);
   };
   setTimeout(tryOpen,300);
@@ -7837,16 +7836,15 @@ function renderRecentiHome(){
   </div>`;
 }
 
-// Apre lightbox da ID (per wishlist/recenti)
+// Apre pagina prodotto da ID (per wishlist/recenti)
 function openLightboxById(id){
   const idx = currentPhotos.findIndex(p=>p.id===id);
-  if(idx>=0){ openLightbox(idx); return; }
-  // Se non è nella griglia attuale, cerca nella cache Drive
+  if(idx>=0){ apriPaginaProdotto(idx); return; }
   const cached = window._driveCache;
   if(cached){
     for(const [fid,imgs] of Object.entries(cached)){
       const i = imgs.findIndex(p=>p.id===id);
-      if(i>=0){ currentPhotos=imgs; window._fotoFolderName=''; openLightbox(i); return; }
+      if(i>=0){ currentPhotos=imgs; window._fotoFolderName=''; apriPaginaProdotto(i); return; }
     }
   }
 }
