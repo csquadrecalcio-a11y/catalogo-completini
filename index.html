@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260618-092828';
+const SITE_VERSION='20260618-092917';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6214,6 +6214,12 @@ function apriPaginaProdotto(idx){
     if(!_isAway) _playerImg='portogallo_home.png';
   } else if(_sqLow2.includes('scozia')||_nomeLow.includes('scozia')){
     if(_isAway) _playerImg='scozia_away.png';
+  } else if(_sqLow2.includes('arabia')||_nomeLow.includes('arabia')){
+    if(!_isAway) _playerImg='arabia_saudita_home.jpg';
+  } else if(_sqLow2.includes('norvegia')||_nomeLow.includes('norvegia')){
+    if(!_isAway) _playerImg='norvegia_home.jpg';
+  } else if(_sqLow2.includes('olanda')||_nomeLow.includes('olanda')){
+    if(!_isAway) _playerImg='olanda_home.jpg';
   }
 
   const main=document.getElementById('main');
