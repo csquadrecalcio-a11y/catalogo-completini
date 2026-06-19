@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260619-144645';
+const SITE_VERSION='20260619-144843';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6126,7 +6126,11 @@ function apriPaginaProdotto(idx){
   const mostraBambino=_èKid||isKidVintage;
 
   // Consegna
-  let consegnaText='Spedizione gratuita · Consegna in 10-15 giorni lavorativi';
+  let consegnaText='Spedizione gratuita · Calcolando...';
+  if(_geoDataConsegna){
+    const r='dal '+_geoDataConsegna.dal+' al '+_geoDataConsegna.al;
+    consegnaText='Spedizione gratuita · Consegna '+r+(_geoDataConsegna.citta?' a '+_geoDataConsegna.citta:'');
+  }
 
   // HTML tipo bottoni
   const tipoHTML=tipoOpts.map((t,i)=>`
@@ -6338,8 +6342,9 @@ function apriPaginaProdotto(idx){
     const iv=setInterval(()=>{
       if(_geoDataConsegna){
         clearInterval(iv);
+        const r='dal '+_geoDataConsegna.dal+' al '+_geoDataConsegna.al;
         const el=document.getElementById('pp-consegna-txt');
-        if(el) el.textContent='Spedizione gratuita · Consegna in 10-15 giorni lavorativi';
+        if(el) el.textContent='Spedizione gratuita · Consegna '+r+(_geoDataConsegna.citta?' a '+_geoDataConsegna.citta:'');
       }
     },300);
   }
@@ -8301,8 +8306,8 @@ var _geoDataConsegna = null; // {dal, al, citta}
     var range='dal '+dal+' al '+al;
     var elBar=document.getElementById('geo-ship-text');
     var elModal=document.getElementById('addCartConsegna');
-    if(elBar) elBar.textContent='Spedizione Gratuita · Consegna in 10-15 giorni lavorativi';
-    if(elModal) elModal.textContent='10-15 giorni lavorativi'+(citta?' a '+citta:'');
+    if(elBar) elBar.textContent=citta?'Spedizione Gratuita · Consegna '+range+' a '+citta:'Spedizione Gratuita · Consegna '+range;
+    if(elModal) elModal.textContent=citta?range+' a '+citta:range;
   }
   var dal=ggLav(8), al=ggLav(15);
   fetch('https://ipapi.co/json/')
