@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260620-014508';
+const SITE_VERSION='20260620-014714';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6341,11 +6341,11 @@ function apriPaginaProdotto(idx){
               <div class="pp-patch-label" style="font-size:13px;">Nessuna</div>
             </div>
             <div onclick="_ppSelPatch(this,'Champions League')" class="pp-patch-img-btn" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:12px;transition:all .2s;background:#fff;">
-              <img src="patch/real-champions.jpg" style="width:90px;height:70px;object-fit:contain;flex-shrink:0;">
+              <img src="patch/champions.png" style="width:90px;height:70px;object-fit:contain;flex-shrink:0;">
               <div class="pp-patch-label" style="font-size:13px;">Champions League</div>
             </div>
             <div onclick="_ppSelPatch(this,'La Liga')" class="pp-patch-img-btn" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:12px;transition:all .2s;background:#fff;">
-              <img src="patch/real-liga.jpg" style="width:90px;height:70px;object-fit:contain;flex-shrink:0;">
+              <img src="patch/barca-laliga.png" style="width:90px;height:70px;object-fit:contain;flex-shrink:0;">
               <div class="pp-patch-label" style="font-size:13px;">La Liga</div>
             </div>
             ` : _sqLow2.includes('bologna') ? `
