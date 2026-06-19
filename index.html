@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260619-231431';
+const SITE_VERSION='20260619-232040';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -5963,6 +5963,14 @@ function selAddPatch(el,nome){
   el.classList.add('sel');
   addCartPatch=nome;
   document.getElementById('addCartPatchLibera').value='';
+  // Aggiorna testo header accordion
+  const head=document.getElementById('addCartPatchGrid')?.parentElement?.previousElementSibling;
+  if(head){
+    const arrow=head.querySelector('.patch-arrow');
+    const txt=nome==='Nessuna patch'?'🏅 Aggiungi patch ':'🏅 '+nome+' ';
+    head.childNodes[0].textContent=txt;
+    if(arrow) head.appendChild(arrow);
+  }
 }
 
 function selTipo(el, prezzo){
@@ -6398,6 +6406,12 @@ function _ppSelPatch(el,val){
   document.querySelectorAll('.pp-patch-btn').forEach(b=>b.classList.remove('sel'));
   el.classList.add('sel');
   _ppPatch=val;
+  const head=el.closest('.pp-patch-wrap')?.querySelector('.pp-patch-head');
+  if(head){
+    const arrow=head.querySelector('.pp-pa');
+    head.childNodes[0].textContent=val==='Nessuna patch'?'🏅 Aggiungi patch ':'🏅 '+val+' ';
+    if(arrow) arrow.textContent=head.nextElementSibling.style.display==='none'?'▼':'▲';
+  }
 }
 
 function _ppSelPatchImg(el){
