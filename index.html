@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260619-182521';
+const SITE_VERSION='20260619-183355';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6255,6 +6255,10 @@ function apriPaginaProdotto(idx){
       ${(_sqLow2.includes('inter')&&!_sqLow2.includes('miami')&&(_nomeLow.includes('26')||_nomeLow.includes('27')))?`<div style="background:#e8f0fe;border:1.5px solid #0033A0;border-radius:10px;padding:12px 16px;margin-bottom:18px;">
         <div style="font-size:12px;font-weight:800;color:#0033A0;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;">🏆 Patch incluse</div>
         <p style="font-size:13px;color:#333;line-height:1.6;margin:0;">La toppa della <strong>Coppa Italia</strong> e dello <strong>Scudetto</strong> sono già presenti sulla maglia — non è necessario richiederle.</p>
+      </div>`:''}
+      ${(!isNBA&&!isVintage&&!_èAnime)?`<div style="background:#f3f4f6;border:1.5px solid #d1d5db;border-radius:10px;padding:12px 16px;margin-bottom:18px;">
+        <div style="font-size:12px;font-weight:800;color:#374151;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;">👕 Sponsor inclusi</div>
+        <p style="font-size:13px;color:#555;line-height:1.6;margin:0;">Gli sponsor (frontale, retro o manica) sono già applicati sulla maglia in base alla competizione. Se scegli la patch Champions League, la maglia avrà gli sponsor della Champions; se scegli Serie A, avrà quelli del campionato. Ogni versione è fedele all'originale.</p>
       </div>`:''}
       ${tipoOpts.length>1?`<div class="pp-section-title">Cosa vuoi ordinare?</div>
       <div class="pp-tipo-grid">${tipoHTML}</div>`:''}
