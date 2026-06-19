@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260619-114530';
+const SITE_VERSION='20260619-125936';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6221,6 +6221,14 @@ function apriPaginaProdotto(idx){
   } else if(_sqLow2.includes('olanda')||_nomeLow.includes('olanda')){
     if(!_isAway) _playerImg='olanda_home.jpg';
   }
+
+  // Aggiorna URL con hash prodotto (per condivisione link)
+  let _ppHash='#photo-'+photo.id;
+  if(navStack.length>=2&&navStack[0]?.ci!==undefined&&navStack[1]?.si!==undefined)
+    _ppHash=`#sub-${navStack[0].ci}-${navStack[1].si}-photo-${photo.id}`;
+  else if(navStack.length>=1&&navStack[0]?.ci!==undefined)
+    _ppHash=`#cat-${navStack[0].ci}-photo-${photo.id}`;
+  history.replaceState(null,'',_ppHash);
 
   const main=document.getElementById('main');
   main.innerHTML=`<div class="pp-page">
