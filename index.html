@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260619-184104';
+const SITE_VERSION='20260619-184833';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -200,16 +200,16 @@ body{background:#f0f2f5;color:#222;font-family:'Inter',sans-serif;min-height:100
 .cursor-ball.click{transform:translate(-50%,-50%) scale(1.5) rotate(45deg);}
 
 /* ── SPLASH SCREEN ── */
-.splash{position:fixed;inset:0;background:linear-gradient(135deg,#0a1628 0%,#0d47a1 60%,#1565c0 100%);z-index:9998;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;transition:opacity .8s ease,visibility .8s ease;overflow:hidden;}
+.splash{position:fixed;inset:0;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#0f0f0f 100%);z-index:9998;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;transition:opacity .8s ease,visibility .8s ease;overflow:hidden;}
 .splash.hide{opacity:0;visibility:hidden;}
 .splash-particles{position:absolute;inset:0;pointer-events:none;}
 .splash-logo-wrap{position:relative;margin-bottom:24px;animation:splashLogoIn .8s cubic-bezier(.34,1.56,.64,1) both;}
-.splash-logo-wrap::before{content:'';position:absolute;inset:-16px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.15),transparent 70%);animation:splashPulse 1.5s ease infinite alternate;}
-.splash img{width:100px;height:100px;border-radius:50%;border:3px solid rgba(255,255,255,.4);position:relative;z-index:1;}
-.splash-title{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#fff;letter-spacing:3px;text-align:center;animation:fadeInUp .6s ease .3s both;margin-bottom:6px;}
-.splash-sub{font-size:12px;color:rgba(255,255,255,.6);letter-spacing:2px;text-align:center;animation:fadeInUp .6s ease .5s both;margin-bottom:28px;}
-.splash-bar{width:220px;height:3px;background:rgba(255,255,255,.15);border-radius:3px;overflow:hidden;animation:fadeInUp .6s ease .6s both;}
-.splash-bar-fill{height:100%;background:linear-gradient(90deg,#fff,#90caf9);border-radius:3px;animation:splashLoad 2s ease forwards;}
+.splash-logo-wrap::before{content:'';position:absolute;inset:-16px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.25),transparent 70%);animation:splashPulse 1.5s ease infinite alternate;}
+.splash img{width:100px;height:100px;border-radius:50%;border:3px solid rgba(212,175,55,.7);position:relative;z-index:1;box-shadow:0 0 30px rgba(212,175,55,.3);}
+.splash-title{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#d4af37;letter-spacing:3px;text-align:center;animation:fadeInUp .6s ease .3s both;margin-bottom:6px;}
+.splash-sub{font-size:12px;color:rgba(212,175,55,.6);letter-spacing:2px;text-align:center;animation:fadeInUp .6s ease .5s both;margin-bottom:28px;}
+.splash-bar{width:220px;height:3px;background:rgba(212,175,55,.15);border-radius:3px;overflow:hidden;animation:fadeInUp .6s ease .6s both;}
+.splash-bar-fill{height:100%;background:linear-gradient(90deg,#d4af37,#f5e07a,#d4af37);border-radius:3px;animation:splashLoad 2s ease forwards;}
 @keyframes splashLogoIn{from{opacity:0;transform:scale(.5) rotate(-10deg);}to{opacity:1;transform:scale(1) rotate(0deg);}}
 @keyframes splashPulse{from{opacity:.5;transform:scale(1);}to{opacity:1;transform:scale(1.1);}}
 @keyframes splashLoad{0%{width:0;}60%{width:70%;}100%{width:100%;}}
