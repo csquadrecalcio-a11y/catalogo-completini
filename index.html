@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260619-232040';
+const SITE_VERSION='20260619-233128';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -2551,7 +2551,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
         <input id="ordine-cap" type="text" placeholder="CAP *" maxlength="5" style="padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;width:100%;">
       </div>
       <input id="ordine-telefono" type="tel" placeholder="Numero di telefono *" style="width:100%;padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;margin-bottom:8px;">
-      <input id="ordine-email" type="email" placeholder="Email (per ricevere la conferma ordine) *" style="width:100%;padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;margin-bottom:12px;">
+      <input id="ordine-email" type="email" placeholder="Email (opzionale — per ricevere la conferma ordine)" style="width:100%;padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;margin-bottom:12px;">
     </div>
 
     <!-- METODO PAGAMENTO -->
@@ -6957,7 +6957,7 @@ function renderCarrello(){
         </select></div>
     </div>
     <div style="margin-bottom:16px;"><label style="font-size:11px;font-weight:700;color:#e74c3c;display:block;margin-bottom:4px;text-transform:uppercase;">📧 Email * — per ricevere conferma e aggiornamenti ordine</label>
-      <input id="cEmail" type="email" placeholder="mario.rossi@gmail.com" style="width:100%;padding:10px 12px;border:1.5px solid #e74c3c;border-radius:8px;font-size:13px;outline:none;"></div>
+      <input id="cEmail" type="email" placeholder="mario.rossi@gmail.com (opzionale)" style="width:100%;padding:10px 12px;border:1.5px solid #e0e0e0;border-radius:8px;font-size:13px;outline:none;"></div>
 
     ${_totali}
 
@@ -7002,7 +7002,7 @@ function checkoutCarrello(){
   if(!cap){mostraToast('⚠️ Inserisci il CAP!');_segnaErrore('cCap');return;}
   if(!tel){mostraToast('⚠️ Inserisci il telefono!');_segnaErrore('cTel');return;}
   if(!pag){mostraToast('⚠️ Seleziona il metodo di pagamento!');_segnaErrore('cPag');return;}
-  if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){mostraToast('⚠️ Inserisci un\'email valida per ricevere gli aggiornamenti!');_segnaErrore('cEmail');return;}
+  if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){mostraToast('⚠️ Inserisci un\'email valida!');_segnaErrore('cEmail');return;}
 
   salvaClienteData();
 
@@ -7735,11 +7735,11 @@ function inviaOrdineWa(){
   const email=(document.getElementById('ordine-email')?.value||'').trim();
 
   // Validazione campi obbligatori
-  if(!nome||!cognome||!indirizzo||!citta||!cap||!telefono||!email){
-    alert('⚠️ Compila tutti i campi obbligatori per la spedizione, inclusa l\'email!');
+  if(!nome||!cognome||!indirizzo||!citta||!cap||!telefono){
+    alert('⚠️ Compila tutti i campi obbligatori per la spedizione!');
     return;
   }
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+  if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
     alert('⚠️ Inserisci un indirizzo email valido!');
     return;
   }
