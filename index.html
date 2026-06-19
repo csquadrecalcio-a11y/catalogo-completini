@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260618-093111';
+const SITE_VERSION='20260619-114530';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6416,7 +6416,6 @@ function _ppAggiungiCarrello(){
   document.querySelectorAll('.tipo-card').forEach(c=>{
     const inp=c.querySelector('input[name="addCartTipo"]');
     if(inp) inp.value===tipoVal?c.classList.add('sel'):c.classList.remove('sel');
-    c.dataset.prezzo=inp?.value===tipoVal?prezzoVal:c.dataset.prezzo;
   });
   if(document.getElementById('addCartLV')) document.getElementById('addCartLV').checked=false;
 
