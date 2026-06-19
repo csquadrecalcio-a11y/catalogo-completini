@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260619-224322';
+const SITE_VERSION='20260619-225325';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -7749,14 +7749,22 @@ function inviaOrdineWa(){
   }));
 
   // Email conferma automatica al cliente
+  const _tagliaSel = Array.from(document.querySelectorAll('#ordine-taglia-sel .scarpa-num-btn.sel')).map(b=>b.textContent).join(', ')
+    || document.getElementById('ordine-taglia-sel')?.value || '';
+  const _personalizza = (document.getElementById('ordine-personalizza')?.value||'').trim();
+  const _note = (document.getElementById('ordine-note')?.value||'').trim();
   _inviaEmailConfermaOrdine({
-    email:      email,
-    to_name:    nome + ' ' + cognome,
-    order_id:   'ORD-' + Date.now().toString().slice(-6),
-    orders:     [{ name: _ordineNome + ' (' + op.nome + ')', units: 1, price: op.prezzo }],
-    cost:       { shipping: 0, tax: 0, total: op.prezzo },
-    indirizzo:  indirizzo + ', ' + citta + ' ' + cap,
-    pagamento:  _pагаmento,
+    email:             email,
+    to_name:           nome + ' ' + cognome,
+    order_id:          'ORD-' + Date.now().toString().slice(-6),
+    orders:            [{ name: _ordineNome + ' — ' + op.nome, units: 1, price: op.prezzo }],
+    cost:              { shipping: 0, tax: 0, total: op.prezzo },
+    taglia:            _tagliaSel || '-',
+    personalizzazione: _personalizza || 'Nessuna',
+    note:              _note || 'Nessuna',
+    indirizzo:         nome+' '+cognome+', '+indirizzo+', '+citta+' '+cap,
+    telefono:          telefono,
+    pagamento:         _pагаmento,
   });
 
   window.open(`https://wa.me/447727750265?text=${encodeURIComponent(msg)}`,'_blank');
