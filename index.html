@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260620-012928';
+const SITE_VERSION='20260620-013629';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6322,7 +6322,16 @@ function apriPaginaProdotto(idx){
         <div style="font-size:12px;font-weight:800;color:#374151;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;">🏅 Patch</div>
         <div class="pp-patch-body" style="display:block!important;padding:0;">
           <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:10px;">
-            ${_sqLow2.includes('juventus') ? `
+            ${_sqLow2.includes('bologna') ? `
+            <div onclick="_ppSelPatch(this,'Nessuna patch')" class="pp-patch-img-btn sel" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:12px;transition:all .2s;background:#fff;">
+              <div style="width:90px;height:70px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">❌</div>
+              <div class="pp-patch-label" style="font-size:13px;">Nessuna</div>
+            </div>
+            <div onclick="_ppSelPatch(this,'Serie A 26/27')" class="pp-patch-img-btn" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:12px;transition:all .2s;background:#fff;">
+              <img src="patch/bologna-seriea.webp" style="width:90px;height:70px;object-fit:contain;flex-shrink:0;">
+              <div class="pp-patch-label" style="font-size:13px;">Serie A 26/27</div>
+            </div>
+            ` : _sqLow2.includes('juventus') ? `
             <div onclick="_ppSelPatch(this,'Nessuna patch')" class="pp-patch-img-btn sel" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:12px;transition:all .2s;background:#fff;">
               <div style="width:90px;height:70px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">❌</div>
               <div class="pp-patch-label" style="font-size:13px;">Nessuna</div>
