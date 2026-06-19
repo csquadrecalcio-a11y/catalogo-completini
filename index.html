@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260619-184833';
+const SITE_VERSION='20260619-184945';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -213,6 +213,7 @@ body{background:#f0f2f5;color:#222;font-family:'Inter',sans-serif;min-height:100
 @keyframes splashLogoIn{from{opacity:0;transform:scale(.5) rotate(-10deg);}to{opacity:1;transform:scale(1) rotate(0deg);}}
 @keyframes splashPulse{from{opacity:.5;transform:scale(1);}to{opacity:1;transform:scale(1.1);}}
 @keyframes splashLoad{0%{width:0;}60%{width:70%;}100%{width:100%;}}
+@keyframes goldParticle{0%{opacity:0;transform:translateY(0) scale(1);}20%{opacity:.9;}50%{opacity:.6;transform:translateY(-60px) scale(1.2);}80%{opacity:.3;}100%{opacity:0;transform:translateY(-120px) scale(.5);}}
 @keyframes cscMarquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 .csc-marquee-track{display:inline-block;white-space:nowrap;animation:cscMarquee 26s linear infinite;}
 .csc-marquee-wrap:hover .csc-marquee-track{animation-play-state:paused;}
@@ -4430,10 +4431,12 @@ function inviaPersonalizzazione(){
   // Particelle splash
   const container=document.getElementById('splashParticles');
   if(container){
-    for(let i=0;i<20;i++){
+    for(let i=0;i<40;i++){
       const p=document.createElement('div');
-      p.style.cssText=`position:absolute;font-size:${12+Math.random()*16}px;left:${Math.random()*100}%;top:${Math.random()*100}%;opacity:${.1+Math.random()*.2};animation:floatUp ${3+Math.random()*4}s linear ${Math.random()*3}s infinite;`;
-      p.textContent='⚽';
+      const size=2+Math.random()*3;
+      const gold=['#d4af37','#f5e07a','#ffd700','#c8a400','#fff3a0'];
+      const color=gold[Math.floor(Math.random()*gold.length)];
+      p.style.cssText=`position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:${color};left:${Math.random()*100}%;top:${Math.random()*100}%;opacity:0;animation:goldParticle ${4+Math.random()*5}s ease-in-out ${Math.random()*4}s infinite;box-shadow:0 0 ${size*2}px ${color};`;
       container.appendChild(p);
     }
   }
