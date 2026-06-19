@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260620-014410';
+const SITE_VERSION='20260620-014508';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6305,7 +6305,7 @@ function apriPaginaProdotto(idx){
         <input class="pp-input" id="pp-nome" placeholder="👤 Nome (es. ROSSI)" maxlength="15">
         <input class="pp-input" id="pp-numero" type="number" placeholder="🔢 Numero (es. 10)" min="1" max="99">
       </div>
-      ${isNazionale ? patchHTML : !isSerieA ? `<div class="pp-patch-wrap">
+      ${isNazionale ? patchHTML : (!isSerieA && !_sqLow2.includes('real madrid') && !_sqLow2.includes('barcellona') && !_sqLow2.includes('barcelona') && !_sqLow2.includes('barça')) ? `<div class="pp-patch-wrap">
         <div class="pp-patch-head" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.querySelector('.pp-pa').textContent=this.nextElementSibling.style.display==='none'?'▼':'▲'">
           🏅 Aggiungi patch <span class="pp-pa">▼</span>
         </div>
