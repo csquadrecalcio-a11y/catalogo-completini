@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260620-005732';
+const SITE_VERSION='20260620-005946';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6301,10 +6301,8 @@ function apriPaginaProdotto(idx){
         <input class="pp-input" id="pp-numero" type="number" placeholder="🔢 Numero (es. 10)" min="1" max="99">
       </div>
       ${isNazionale ? patchHTML : `<div class="pp-patch-wrap">
-        <div class="pp-patch-head" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.querySelector('.pp-pa').textContent=this.nextElementSibling.style.display==='none'?'▼':'▲'">
-          🏅 Aggiungi patch <span class="pp-pa">▼</span>
-        </div>
-        <div class="pp-patch-body">
+        <div style="font-size:12px;font-weight:800;color:#374151;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;">🏅 Patch</div>
+        <div class="pp-patch-body" style="display:block!important;padding:0;">
           <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px;">
             <div onclick="_ppSelPatch(this,'Champions League')" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:8px;text-align:center;transition:all .2s;background:#fff;">
               <img src="patch/champions${_sqLow2.includes('inter')&&!_sqLow2.includes('miami')?'-inter':''}.png" style="width:100%;max-height:60px;object-fit:contain;margin-bottom:4px;">
