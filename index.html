@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260620-005946';
+const SITE_VERSION='20260620-010321';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -381,8 +381,9 @@ body.dark .pp-patch-wrap{border-color:#444;}
 body.dark .pp-patch-head{background:#1e1e1e;color:#ccc;}
 body.dark .pp-patch-btn{background:#2a2a2a;border-color:#444;color:#ccc;}
 body.dark .pp-patch-btn.sel{background:#1565c0;color:#fff;border-color:#1e88e5;}
-#pp-patch-img-grid div.sel{border-color:#0d47a1!important;background:#e8f0fe!important;}
-body.dark #pp-patch-img-grid div.sel{border-color:#1e88e5!important;background:#1a2a4a!important;}
+.pp-patch-img-btn.sel{border-color:#0d47a1!important;background:#e8f0fe!important;}
+.pp-patch-img-btn:hover{border-color:#0d47a1;background:#f0f4ff;}
+body.dark .pp-patch-img-btn.sel{border-color:#1e88e5!important;background:#1a2a4a!important;}
 body.dark .pp-consegna{background:#1e2a1e;color:#a5d6a7;}
 body.dark .pp-trust{border-color:#333;}
 body.dark .pp-trust-item{color:#aaa;border-color:#333;}
@@ -6304,19 +6305,19 @@ function apriPaginaProdotto(idx){
         <div style="font-size:12px;font-weight:800;color:#374151;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;">🏅 Patch</div>
         <div class="pp-patch-body" style="display:block!important;padding:0;">
           <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px;">
-            <div onclick="_ppSelPatch(this,'Champions League')" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:8px;text-align:center;transition:all .2s;background:#fff;">
+            <div onclick="_ppSelPatch(this,'Champions League')" class="pp-patch-img-btn" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:8px;text-align:center;transition:all .2s;background:#fff;">
               <img src="patch/champions${_sqLow2.includes('inter')&&!_sqLow2.includes('miami')?'-inter':''}.png" style="width:100%;max-height:60px;object-fit:contain;margin-bottom:4px;">
               <div style="font-size:11px;font-weight:700;color:#333;">Champions League</div>
             </div>
-            <div onclick="_ppSelPatch(this,'Europa League')" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:8px;text-align:center;transition:all .2s;background:#fff;">
+            <div onclick="_ppSelPatch(this,'Europa League')" class="pp-patch-img-btn" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:8px;text-align:center;transition:all .2s;background:#fff;">
               <img src="patch/europa.png" style="width:100%;max-height:60px;object-fit:contain;margin-bottom:4px;">
               <div style="font-size:11px;font-weight:700;color:#333;">Europa League</div>
             </div>
-            <div onclick="_ppSelPatch(this,'Serie A')" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:8px;text-align:center;transition:all .2s;background:#fff;">
+            <div onclick="_ppSelPatch(this,'Serie A')" class="pp-patch-img-btn" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:8px;text-align:center;transition:all .2s;background:#fff;">
               <img src="patch/seriea.png" style="width:100%;max-height:60px;object-fit:contain;margin-bottom:4px;">
               <div style="font-size:11px;font-weight:700;color:#333;">Serie A</div>
             </div>
-            <div onclick="_ppSelPatch(this,'Nessuna patch')" class="sel" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:8px;text-align:center;transition:all .2s;background:#fff;">
+            <div onclick="_ppSelPatch(this,'Nessuna patch')" class="pp-patch-img-btn sel" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:8px;text-align:center;transition:all .2s;background:#fff;">
               <div style="height:60px;display:flex;align-items:center;justify-content:center;font-size:28px;">❌</div>
               <div style="font-size:11px;font-weight:700;color:#333;">Nessuna</div>
             </div>
@@ -6424,9 +6425,9 @@ function _ppSelTaglia(el){
 function _ppSelPatch(el,val){
   const body=el.closest('.pp-patch-body');
   if(body){
-    body.querySelectorAll('.pp-patch-btn,[onclick*="_ppSelPatch"]').forEach(b=>b.classList.remove('sel'));
+    body.querySelectorAll('.pp-patch-btn,.pp-patch-img-btn').forEach(b=>b.classList.remove('sel'));
   } else {
-    document.querySelectorAll('.pp-patch-btn').forEach(b=>b.classList.remove('sel'));
+    document.querySelectorAll('.pp-patch-btn,.pp-patch-img-btn').forEach(b=>b.classList.remove('sel'));
   }
   el.classList.add('sel');
   _ppPatch=val;
