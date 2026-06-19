@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260619-183355';
+const SITE_VERSION='20260619-184104';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6258,7 +6258,7 @@ function apriPaginaProdotto(idx){
       </div>`:''}
       ${(!isNBA&&!isVintage&&!_èAnime)?`<div style="background:#f3f4f6;border:1.5px solid #d1d5db;border-radius:10px;padding:12px 16px;margin-bottom:18px;">
         <div style="font-size:12px;font-weight:800;color:#374151;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;">👕 Sponsor inclusi</div>
-        <p style="font-size:13px;color:#555;line-height:1.6;margin:0;">Gli sponsor (frontale, retro o manica) sono già applicati sulla maglia in base alla competizione. Se scegli la patch Champions League, la maglia avrà gli sponsor della Champions; se scegli Serie A, avrà quelli del campionato. Ogni versione è fedele all'originale.</p>
+        <p style="font-size:13px;color:#555;line-height:1.6;margin:0;">Gli sponsor (frontale, retro o manica) sono già applicati sulla maglia in base alla competizione. La versione che ricevi corrisponde alla patch che hai selezionato — ogni versione è fedele all'originale.</p>
       </div>`:''}
       ${tipoOpts.length>1?`<div class="pp-section-title">Cosa vuoi ordinare?</div>
       <div class="pp-tipo-grid">${tipoHTML}</div>`:''}
