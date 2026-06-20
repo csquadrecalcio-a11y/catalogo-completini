@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260620-114610';
+const SITE_VERSION='20260620-114732';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6305,7 +6305,7 @@ function apriPaginaProdotto(idx){
         <input class="pp-input" id="pp-nome" placeholder="👤 Nome (es. ROSSI)" maxlength="15">
         <input class="pp-input" id="pp-numero" type="number" placeholder="🔢 Numero (es. 10)" min="1" max="99">
       </div>
-      ${isNazionale ? patchHTML : (!isSerieA && !_sqLow2.includes('real madrid') && !_sqLow2.includes('barcellona') && !_sqLow2.includes('barcelona') && !_sqLow2.includes('barça') && !_sqLow2.includes('manchester city') && !_sqLow2.includes('man city')) ? `<div class="pp-patch-wrap">
+      ${isNazionale ? patchHTML : (!isSerieA && !_sqLow2.includes('real madrid') && !_sqLow2.includes('barcellona') && !_sqLow2.includes('barcelona') && !_sqLow2.includes('barça') && !_sqLow2.includes('manchester city') && !_sqLow2.includes('man city') && !_sqLow2.includes('arsenal')) ? `<div class="pp-patch-wrap">
         <div class="pp-patch-head" onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.querySelector('.pp-pa').textContent=this.nextElementSibling.style.display==='none'?'▼':'▲'">
           🏅 Aggiungi patch <span class="pp-pa">▼</span>
         </div>
@@ -6395,6 +6395,23 @@ function apriPaginaProdotto(idx){
             <div onclick="_ppSelPatch(this,'U-Power + Scudetto + Coccarda')" class="pp-patch-img-btn" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:12px;transition:all .2s;background:#fff;">
               <img src="patch/inter-upower.webp" style="width:60px;height:70px;object-fit:contain;flex-shrink:0;">
               <div class="pp-patch-label" style="font-size:13px;">U-Power + Scudetto + Coccarda</div>
+            </div>
+            ` : _sqLow2.includes('arsenal') ? `
+            <div onclick="_ppSelPatch(this,'Nessuna patch')" class="pp-patch-img-btn sel" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:12px;transition:all .2s;background:#fff;">
+              <div style="width:90px;height:70px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;">❌</div>
+              <div class="pp-patch-label" style="font-size:13px;">Nessuna</div>
+            </div>
+            <div onclick="_ppSelPatch(this,'Premier League')" class="pp-patch-img-btn" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:12px;transition:all .2s;background:#fff;">
+              <img src="patch/city-pl.svg" style="width:90px;height:70px;object-fit:contain;flex-shrink:0;">
+              <div class="pp-patch-label" style="font-size:13px;">Premier League</div>
+            </div>
+            <div onclick="_ppSelPatch(this,'Champions League')" class="pp-patch-img-btn" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:12px;transition:all .2s;background:#fff;">
+              <img src="patch/city-cl.svg" style="width:90px;height:70px;object-fit:contain;flex-shrink:0;">
+              <div class="pp-patch-label" style="font-size:13px;">Champions League</div>
+            </div>
+            <div onclick="_ppSelPatch(this,'Europa League')" class="pp-patch-img-btn" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:12px;transition:all .2s;background:#fff;">
+              <img src="patch/europa.png" style="width:90px;height:70px;object-fit:contain;flex-shrink:0;">
+              <div class="pp-patch-label" style="font-size:13px;">Europa League</div>
             </div>
             ` : _sqLow2.includes('manchester city')||_sqLow2.includes('man city') ? `
             <div onclick="_ppSelPatch(this,'Nessuna patch')" class="pp-patch-img-btn sel" style="cursor:pointer;border:2px solid #e0e0e0;border-radius:10px;padding:10px 14px;display:flex;align-items:center;gap:12px;transition:all .2s;background:#fff;">
