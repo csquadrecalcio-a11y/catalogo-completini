@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260620-121426';
+const SITE_VERSION='20260620-122227';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -6198,7 +6198,7 @@ function apriPaginaProdotto(idx){
 
   // Patch con foto per Nazionali
   const isNazionale=navStack.some(s=>(s.name||'').toLowerCase().includes('nazional'));
-  const isSerieA=navStack.some(s=>(s.name||'').toLowerCase().includes('serie a'));
+  const isSerieA=navStack.some(s=>(s.name||'').toLowerCase().includes('serie a'))||['bologna','juventus','juve','inter','milan','napoli','roma','lazio','fiorentina','atalanta','torino','genoa','sampdoria','cagliari','udinese','empoli','lecce','monza','parma','como','venezia','verona','hellas','salernitana','cremonese','frosinone','spezia','brescia','pisa','sassuolo'].some(c=>_sqLow2.includes(c));
   const isPremierLeague=navStack.some(s=>(s.name||'').toLowerCase().includes('premier league'))||['manchester city','man city','arsenal','liverpool','chelsea','manchester united','man utd','tottenham','spurs','newcastle','aston villa','brighton','west ham','everton','brentford','fulham','crystal palace','wolves','wolverhampton','nottingham','leicester','southampton','ipswich','bournemouth','burnley','luton','sheffield','sunderland','leeds'].some(c=>_sqLow2.includes(c));
   const patchHTML=isNazionale?`
     <div class="pp-section-title">Patch ufficiali FIFA</div>
