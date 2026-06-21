@@ -122,7 +122,7 @@
 // ── AUTO-AGGIORNAMENTO SITO ──────────────────────────────────────────────────
 // Controlla version.json (mai in cache) e ricarica la pagina quando esce una
 // versione nuova, così i clienti non restano mai sulla versione vecchia.
-const SITE_VERSION='20260620-122645';
+const SITE_VERSION='20260621-123450';
 (function(){
   let _newV=null;
   // pulizia del parametro ?v= usato per bucare la cache
@@ -8597,7 +8597,7 @@ var _geoDataConsegna = null; // {dal, al, citta}
     .then(function(r){return r.json();})
     .then(function(d){
       var _en=d.country_code==='IT'?d.city||'':'';
-      var _map={'Naples':'Napoli','Rome':'Roma','Milan':'Milano','Turin':'Torino','Venice':'Venezia','Florence':'Firenze','Genoa':'Genova','Bologna':'Bologna','Palermo':'Palermo','Catania':'Catania','Bari':'Bari','Messina':'Messina','Verona':'Verona','Padua':'Padova','Trieste':'Trieste','Taranto':'Taranto','Brescia':'Brescia','Prato':'Prato','Modena':'Modena','Parma':'Parma','Perugia':'Perugia','Livorno':'Livorno','Cagliari':'Cagliari','Foggia':'Foggia','Rimini':'Rimini','Salerno':'Salerno','Ferrara':'Ferrara','Sassari':'Sassari','Latina':'Latina','Syracuse':'Siracusa','Bergamo':'Bergamo','Pescara':'Pescara','Monza':'Monza','Trento':'Trento','Vicenza':'Vicenza','Reggio Calabria':'Reggio Calabria','Reggio Emilia':'Reggio Emilia'};
+      var _map={'Naples':'Napoli','Rome':'Roma','Milan':'Milano','Turin':'Torino','Venice':'Venezia','Florence':'Firenze','Genoa':'Genova','Bologna':'Bologna','Palermo':'Palermo','Catania':'Catania','Bari':'Bari','Messina':'Messina','Verona':'Verona','Padua':'Padova','Trieste':'Trieste','Taranto':'Taranto','Brescia':'Brescia','Prato':'Prato','Modena':'Modena','Parma':'Parma','Perugia':'Perugia','Livorno':'Livorno','Cagliari':'Cagliari','Foggia':'Foggia','Rimini':'Rimini','Salerno':'Salerno','Ferrara':'Ferrara','Sassari':'Sassari','Latina':'Latina','Syracuse':'Siracusa','Bergamo':'Bergamo','Pescara':'Pescara','Monza':'Monza','Trento':'Trento','Vicenza':'Vicenza','Reggio Calabria':'Reggio Calabria','Reggio Emilia':'Reggio Emilia','Iesi':'Jesi','Ancona':'Ancona','Udine':'Udine','Bolzano':'Bolzano','Novara':'Novara','Piacenza':'Piacenza','Ravenna':'Ravenna','Lecce':'Lecce','Andria':'Andria','Arezzo':'Arezzo','Cesena':'Cesena','Leghorn':'Livorno','Padova':'Padova','Treviso':'Treviso','Como':'Como','Forlì':'Forlì','Forl':'Forlì'};
       _geoDataConsegna={dal:dal,al:al,citta:(_map[_en]||_en)}; aggiornaConsegnaUI();
     })
     .catch(function(){_geoDataConsegna={dal:dal,al:al,citta:''}; aggiornaConsegnaUI();});
