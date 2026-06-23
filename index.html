@@ -292,31 +292,24 @@ body.dark .faq-a{background:#1e1e1e;color:#aaa;}
   75% {background:linear-gradient(135deg,#2e7d32,#388e3c);}
   100%{background:linear-gradient(135deg,#f5a623,#e8940f);}
 }
+/* Bottoni e barre: colori brand FISSI (rimosso l'effetto arcobaleno animato, poco professionale) */
 /* Bottone principale hero */
 .hero-btn-main{
-  background-size:300% 300%!important;
-  background-image:linear-gradient(135deg,#f5a623,#e53935,#0d47a1,#25d366,#f5a623)!important;
-  animation:accentShift 6s ease infinite!important;
+  background-image:linear-gradient(135deg,var(--gold),var(--gold2))!important;
 }
 /* Bottone aggiungi al carrello lightbox */
 .lb-add-btn{
-  background-size:300% 300%!important;
-  background-image:linear-gradient(135deg,#f5a623,#e53935,#0d47a1,#f5a623)!important;
-  animation:accentShift 5s ease infinite!important;
+  background-image:linear-gradient(135deg,var(--gold),var(--gold2))!important;
 }
 /* Badge bestseller */
-.badge-bestseller{animation:badgeShift 8s ease infinite!important;}
+.badge-bestseller{background:linear-gradient(135deg,var(--gold),var(--gold2))!important;}
 /* Bottone conferma carrello */
 #btnAggiungi{
-  background-size:300% 300%!important;
-  background-image:linear-gradient(135deg,#25d366,#0d47a1,#f5a623,#25d366)!important;
-  animation:accentShift 7s ease infinite!important;
+  background-image:linear-gradient(135deg,var(--gold),var(--gold2))!important;
 }
 /* Barra spedizione gratuita in cima */
 .free-ship-bar{
-  background-size:300% 300%!important;
-  background-image:linear-gradient(90deg,#1b5e20,#0d47a1,#4a148c,#1b5e20)!important;
-  animation:accentShift 8s ease infinite!important;
+  background-image:linear-gradient(90deg,var(--navy),var(--blue))!important;
 }
 /* ── PAGINA PRODOTTO ── */
 .pp-page{display:flex;gap:32px;max-width:1100px;margin:0 auto;padding:20px 16px;animation:fadeInUp .3s ease both;}
@@ -1924,7 +1917,7 @@ body.dark .avvisa-box{background:#1e1e1e;}
   <div class="come-ordinare-bg"></div>
   <div class="come-ordinare-inner">
     <div class="come-ordinare-header">
-      <div class="come-ordinare-tag">⚡ Semplice e Veloce</div>
+      <div class="come-ordinare-tag">Semplice e Veloce</div>
       <h2 class="come-ordinare-title">Come ordinare</h2>
       <p class="come-ordinare-sub">Ricevi la tua maglia in pochi passi</p>
     </div>
@@ -2926,7 +2919,7 @@ function goHome(fromPopstate){
 
   <!-- FEATURED: MAGLIE IN EVIDENZA -->
   <div class="featured-inter">
-    <div class="featured-inter-badge">🔥 PIÙ CERCATE DEL MOMENTO</div>
+    <div class="featured-inter-badge">PIÙ CERCATE DEL MOMENTO</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid rgba(255,255,255,.08);" class="featured-duo-grid">
 
       <!-- INTER -->
@@ -2934,7 +2927,6 @@ function goHome(fromPopstate){
         <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px;">
           <div style="position:relative;flex-shrink:0;">
             <img src="inter.png" alt="Inter" style="width:90px;height:110px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));">
-            <div class="featured-inter-stock" id="interStock" style="font-size:10px;padding:4px 10px;">⚠️ Solo <span id="interStockNum">${Math.floor(Math.random()*7)+5}</span> pz!</div>
           </div>
           <div>
             <div class="featured-inter-label">🔵⚫ FC INTER</div>
@@ -2943,7 +2935,6 @@ function goHome(fromPopstate){
           </div>
         </div>
         <button class="featured-inter-btn" onclick="apriMagliaInter()" style="margin-bottom:6px;">🛒 Ordina subito</button>
-        <div class="featured-inter-urgency" id="interUrgency">⏳ <strong>${Math.floor(Math.random()*4)+2} persone</strong> la stanno guardando</div>
       </div>
 
       <!-- JUVENTUS -->
@@ -2951,7 +2942,6 @@ function goHome(fromPopstate){
         <div style="display:flex;align-items:center;gap:16px;margin-bottom:14px;">
           <div style="position:relative;flex-shrink:0;">
             <img src="juve-featured.jpg" alt="Juventus" style="width:90px;height:110px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3));">
-            <div class="featured-inter-stock" style="font-size:10px;padding:4px 10px;background:linear-gradient(135deg,#111,#333);">⚠️ Solo <span>${Math.floor(Math.random()*6)+4}</span> pz!</div>
           </div>
           <div>
             <div class="featured-inter-label" style="color:#aaa;">⚫⚪ JUVENTUS</div>
@@ -2960,7 +2950,6 @@ function goHome(fromPopstate){
           </div>
         </div>
         <button class="featured-inter-btn" onclick="apriMagliaJuve()" style="background:linear-gradient(135deg,#222,#444);box-shadow:0 4px 18px rgba(0,0,0,.4);margin-bottom:6px;">🛒 Ordina subito</button>
-        <div class="featured-inter-urgency">⏳ <strong>${Math.floor(Math.random()*3)+2} persone</strong> la stanno guardando</div>
       </div>
 
     </div>
@@ -3087,7 +3076,7 @@ function goHome(fromPopstate){
   <div class="clienti-section">
     <div style="text-align:center;margin-bottom:4px;">
       <div style="display:inline-block;background:#e8f5e9;color:#2e7d32;font-size:12px;font-weight:700;letter-spacing:2px;padding:5px 14px;border-radius:20px;margin-bottom:10px;">CLIENTI REALI</div>
-      <h2 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#111;">📸 Cosa dicono i nostri clienti</h2>
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#111;">Cosa dicono i nostri clienti</h2>
       <p style="color:#888;font-size:13px;margin-top:6px;">Foto e recensioni reali — non filtrate</p>
     </div>
     <!-- CAROSELLO RECENSIONI GOOGLE REALI (gratuito, fatto a mano) -->
@@ -5018,6 +5007,7 @@ function paginaTaglie(daOrdine=false){
 (function(){
   const el=document.getElementById('onlineNum');
   if(!el) return;
+  return; // contatore "persone online" disattivato (numero non reale)
   // Numero base realistico che varia in base all'ora del giorno
   function getBase(){
     const h=new Date().getHours();
@@ -5618,6 +5608,7 @@ function addBestsellerBadges(){
 
 // ── CONTATORE PERSONE IN CATEGORIA ───────────────────────────────────────────
 function renderCatViewers(){
+  return; // contatore "X persone stanno guardando questa categoria" disattivato (numero non reale)
   const existing=document.querySelector('.cat-viewers');
   if(existing) return;
   const h=new Date().getHours();
@@ -6533,7 +6524,7 @@ function apriPaginaProdotto(idx){
   <div style="max-width:1100px;margin:32px auto 0;padding:0 16px 40px;">
     <div style="text-align:center;margin-bottom:18px;">
       <div style="display:inline-block;background:#e8f5e9;color:#2e7d32;font-size:11px;font-weight:700;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:8px;">CLIENTI REALI</div>
-      <h2 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:#111;margin:0 0 4px;">📸 Cosa dicono i nostri clienti</h2>
+      <h2 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;color:#111;margin:0 0 4px;">Cosa dicono i nostri clienti</h2>
       <div><span style="color:#f9a825;font-size:16px;">★★★★★</span> <span style="font-weight:800;font-size:15px;">5,0</span> <span style="font-size:13px;color:#666;"> · oltre 40 recensioni Google verificate</span></div>
     </div>
     <div style="display:flex;gap:12px;overflow-x:auto;padding:4px 0 16px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;">
@@ -7431,28 +7422,7 @@ function salvaContatto(nome, tel){
   }
 }
 
-// ── TIMER COUNTDOWN ───────────────────────────────────────────────────────────
-(function(){
-  // Timer che si resetta ogni giorno a mezzanotte
-  function aggiornaTimer(){
-    const ora=new Date();
-    const fine=new Date();
-    fine.setHours(23,59,59,0);
-    const diff=fine-ora;
-    const h=Math.floor(diff/3600000);
-    const m=Math.floor((diff%3600000)/60000);
-    const s=Math.floor((diff%60000)/1000);
-    const fmt=n=>String(n).padStart(2,'0');
-    const elOre=document.getElementById('cdOre');
-    const elMin=document.getElementById('cdMin');
-    const elSec=document.getElementById('cdSec');
-    if(elOre) elOre.textContent=fmt(h);
-    if(elMin) elMin.textContent=fmt(m);
-    if(elSec) elSec.textContent=fmt(s);
-  }
-  aggiornaTimer();
-  setInterval(aggiornaTimer,1000);
-})();
+// ── TIMER COUNTDOWN: rimosso (codice morto, nessun elemento cdOre/cdMin/cdSec in pagina). Il countdown reale è il banner promo con data di scadenza fissa. ──
 
 // ── CONDIVIDI ────────────────────────────────────────────────────────────────
 let sharePhotoIdx=-1;
@@ -7597,6 +7567,7 @@ function apriWhatsApp(msg){
 
 // ── URGENZA INTER ────────────────────────────────────────────────────────────
 function avviaUrgenzaInter(){
+  return; // stock e "persone che guardano" finti rimossi (23/06)
   // Pezzi in magazzino: scende lentamente tra 6 e 9
   let pezzi = Math.floor(Math.random()*4)+6; // 6,7,8,9
   const stockEl = document.getElementById('interStockNum');
@@ -8583,24 +8554,7 @@ const _origRenderPhotos = window.renderPhotos;
   setTimeout(creaPartVintage, 300);
 })();
 </script>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-// Widget chat NASCOSTO: il tracking visitatori resta attivo,
-// ma la bolla non appare (assistenza spostata su WhatsApp)
-Tawk_API.onLoad=function(){
-  Tawk_API.hideWidget();
-};
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6a1ea00723ea7d1c2c953f74/1jq3q27vp';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+<!-- Tawk.to rimosso (23/06): iniettava viewport extra che bloccavano lo zoom e cambiava il titolo della scheda in "1 new message". Assistenza clienti su WhatsApp. Per riattivare il tracking, reincollare qui lo script Tawk. -->
 <script>
 var _geoDataConsegna = null; // {dal, al, citta}
 (function(){
@@ -8703,22 +8657,6 @@ function _inviaEmailConfermaOrdine(params) {
 <!-- ══════════════════════════════════════════════════════
      BANNER COOKIE
 ═══════════════════════════════════════════════════════ -->
-<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99998;background:#1a1a1a;color:#ddd;padding:16px 20px;font-family:sans-serif;font-size:13px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:2px solid #32d74b;">
-  <span>🍪 Questo sito usa cookie tecnici necessari al funzionamento.
-    <button onclick="document.getElementById('privacyModal').style.display='block'" style="background:none;border:none;color:#32d74b;cursor:pointer;font-size:13px;text-decoration:underline;padding:0;">Privacy Policy</button>
-  </span>
-  <button onclick="accettaCookie()" style="background:#32d74b;color:#000;border:none;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;">Accetto</button>
-</div>
-<script>
-function accettaCookie(){
-  localStorage.setItem('cookie-ok','1');
-  document.getElementById('cookieBanner').style.display='none';
-}
-(function(){
-  if(!localStorage.getItem('cookie-ok')){
-    document.getElementById('cookieBanner').style.display='flex';
-  }
-})();
-</script>
+<!-- Banner cookie scuro rimosso (23/06): era un doppione della cookie-card bianca e ridefiniva accettaCookie() creando un conflitto. Resta la sola cookie-card in alto (funzione accettaCookie(tipo)). -->
 </body>
 </html>
