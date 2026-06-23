@@ -8284,6 +8284,31 @@ if('serviceWorker' in navigator){
   }).catch(()=>{});
 }
 
+// ── Auto-aggiornamento sito ───────────────────────────────────────────────
+// Se esce una versione nuova, la pagina si ricarica DA SOLA quando il cliente
+// torna sulla scheda. Così vede sempre l'ultima versione senza dover sapere
+// come fare il refresh (utile soprattutto da mobile). Controlla l'ETag (la
+// "firma" del file) con una richiesta leggerissima HEAD: se cambia, ricarica.
+(function(){
+  let _etag = null, _ultimo = 0;
+  async function _controllaVersione(){
+    if (Date.now() - _ultimo < 30000) return;       // max una volta ogni 30s
+    _ultimo = Date.now();
+    try{
+      const r = await fetch(location.pathname, { method:'HEAD', cache:'no-store' });
+      const e = r.headers.get('etag') || r.headers.get('last-modified');
+      if (!e) return;
+      if (_etag === null){ _etag = e; return; }       // prima volta: memorizza
+      if (e !== _etag){ _etag = e; location.reload(); } // cambiata → ricarica
+    }catch(_){}
+  }
+  _controllaVersione();
+  document.addEventListener('visibilitychange', ()=>{
+    if (document.visibilityState === 'visible') _controllaVersione();
+  });
+  window.addEventListener('pageshow', ev=>{ if (ev.persisted) _controllaVersione(); });
+})();
+
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // ③ BANNER SCROLL REVEAL (verticali)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
