@@ -548,10 +548,8 @@ body.dark .pp-rev-subtitle{color:#888;}
 .cat-count{font-size:12px;color:#888;margin-top:2px;}
 
 /* ── HERO BANNER ── */
-.hero-banner{position:relative;width:100%;height:460px;overflow:hidden;margin-bottom:20px;box-shadow:0 8px 40px rgba(0,0,0,.35);}
-.hero-banner img{width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;transition:transform 10s ease;}
-.hero-banner:hover img{transform:scale(1.03);}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,20,.85) 0%,rgba(0,0,20,.6) 50%,rgba(0,0,20,.15) 100%);}
+.hero-banner{position:relative;width:100%;height:460px;overflow:hidden;margin-bottom:20px;box-shadow:0 8px 40px rgba(0,0,0,.35);background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 55%,var(--blue) 100%);}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(circle at 82% 18%,rgba(245,166,35,.22),transparent 55%),radial-gradient(circle at 15% 90%,rgba(13,71,161,.5),transparent 50%);}
 .hero-particles{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
 .hero-particle{position:absolute;width:3px;height:3px;background:rgba(255,255,255,.5);border-radius:50%;animation:floatUp linear infinite;}
 @keyframes floatUp{0%{transform:translateY(100%);opacity:0;}10%{opacity:1;}90%{opacity:.4;}100%{transform:translateY(-120px) translateX(15px);opacity:0;}}
@@ -564,13 +562,17 @@ body.dark .pp-rev-subtitle{color:#888;}
 .hero-stat{text-align:center;}
 .hero-stat-num{font-size:22px;font-weight:900;color:#fff;}
 .hero-stat-label{font-size:11px;color:rgba(255,255,255,.6);letter-spacing:1px;text-transform:uppercase;}
+.hero-trust{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;margin-bottom:6px;animation:fadeInUp .5s ease .25s both;}
+.hero-trust .tp{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(6px);color:#fff;font-size:12px;font-weight:700;padding:7px 13px;border-radius:30px;}
 .hero-btn-main{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;padding:15px 32px;border-radius:8px;font-size:15px;font-weight:800;cursor:pointer;transition:all .25s;box-shadow:0 4px 24px rgba(245,166,35,.5);width:fit-content;animation:fadeInUp .5s ease .35s both;letter-spacing:.5px;}
 .hero-btn-main:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(245,166,35,.7);}
 .hero-btn-main svg{width:18px;height:18px;fill:#fff;}
 @media(max-width:768px){
-  .hero-banner{height:260px;}
+  .hero-banner{height:370px;}
   .hero-content{padding:24px 20px;max-width:100%;}
   .hero-sub,.hero-stats{display:none;}
+  .hero-trust{gap:7px;margin-top:14px;}
+  .hero-trust .tp{font-size:11px;padding:6px 11px;}
   .hero-btn-main{padding:12px 22px;font-size:13px;}
 }
 
@@ -2866,7 +2868,6 @@ function goHome(fromPopstate){
   const main=document.getElementById('main');
   let html=`
   <div class="hero-banner">
-    <img src="hero.jpg" alt="Completini Squadre Calcio 2.0" onerror="this.src='hero.jpg.webp'">
     <div class="hero-overlay"></div>
     <div class="hero-particles" id="heroParticles"></div>
     <div class="hero-content">
@@ -2881,10 +2882,10 @@ function goHome(fromPopstate){
         <span style="color:#f9a825;font-size:14px;letter-spacing:1px;">★★★★★</span>
         <span style="color:#3c4043;font-size:12.5px;font-weight:700;">5,0 · oltre 50 recensioni &rarr;</span>
       </a>
-      <div class="hero-stats">
-        <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="500" data-suffix="+">0</span></div><div class="hero-stat-label">Maglie</div></div>
-        <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="50" data-suffix="+">0</span></div><div class="hero-stat-label">Club</div></div>
-        <div class="hero-stat"><div class="hero-stat-num"><span class="stat-counter" data-target="2018" data-prefix="Dal ">0</span></div><div class="hero-stat-label">Online</div></div>
+      <div class="hero-trust">
+        <span class="tp">✅ Prodotto di qualità</span>
+        <span class="tp">🚚 Spedizione gratuita</span>
+        <span class="tp">✏️ Personalizzazione inclusa</span>
       </div>
       <button class="hero-btn-main" onclick="sfogliaCatalogo()">
         <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
