@@ -2985,18 +2985,17 @@ function goHome(fromPopstate){
   CATALOG.forEach((cat,i)=>{
     if(i===0) return;
     if(cat.name==='Scarpe') return;
-    const bg=CAT_COLORS[cat.name]||'linear-gradient(160deg,#1a1a1a 0%,#111 100%)';
-    const accent=CAT_ACCENT[cat.name]||'#fff';
+    const bg='linear-gradient(155deg,#0a1d3a 0%,#0d3a72 100%)'; // navy uniforme per tutte le leghe (CAT_COLORS non più usato)
+    const accent='#f5a623'; // accento oro uniforme (CAT_ACCENT non più usato)
     const count=cat.subs?cat.subs.length+' squadre':'Sfoglia';
     html+=`<div class="brand-card" onclick="openCategory(${i})" style="border-radius:10px;">
       <div class="brand-card-inner" style="aspect-ratio:1;">
         <div class="brand-card-bg" style="background:${bg};"></div>
         <div style="position:relative;z-index:1;text-align:center;">
-          <div style="font-size:36px;margin-bottom:8px;">${cat.flag}</div>
+          <div style="width:62px;height:62px;margin:0 auto 10px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(245,166,35,.4);display:flex;align-items:center;justify-content:center;font-size:32px;">${cat.flag}</div>
           <div class="brand-card-name" style="font-size:clamp(13px,2vw,16px);letter-spacing:1px;">${cat.name}</div>
           <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px;">${count}</div>
         </div>
-        <div class="brand-card-accent" style="background:${accent};"></div>
       </div>
       <div class="brand-card-btn">Scopri ora</div>
     </div>`;
@@ -3373,18 +3372,17 @@ function sfogliaCatalogo(){
   CATALOG.forEach((cat,i)=>{
     if(i===0) return;
     if(cat.name==='Scarpe') return;
-    const bg=CAT_COLORS[cat.name]||'linear-gradient(160deg,#1a1a1a 0%,#111 100%)';
-    const accent=CAT_ACCENT[cat.name]||'#fff';
+    const bg='linear-gradient(155deg,#0a1d3a 0%,#0d3a72 100%)'; // navy uniforme per tutte le leghe (CAT_COLORS non più usato)
+    const accent='#f5a623'; // accento oro uniforme (CAT_ACCENT non più usato)
     const count=cat.subs?cat.subs.length+' squadre':'Sfoglia';
     html+=`<div class="brand-card" onclick="openCategory(${i})" style="border-radius:10px;">
       <div class="brand-card-inner" style="aspect-ratio:1;">
         <div class="brand-card-bg" style="background:${bg};"></div>
         <div style="position:relative;z-index:1;text-align:center;">
-          <div style="font-size:36px;margin-bottom:8px;">${cat.flag}</div>
+          <div style="width:62px;height:62px;margin:0 auto 10px;border-radius:50%;background:rgba(255,255,255,.08);border:1px solid rgba(245,166,35,.4);display:flex;align-items:center;justify-content:center;font-size:32px;">${cat.flag}</div>
           <div class="brand-card-name" style="font-size:clamp(13px,2vw,16px);letter-spacing:1px;">${cat.name}</div>
           <div style="font-size:11px;color:rgba(255,255,255,.45);margin-top:4px;">${count}</div>
         </div>
-        <div class="brand-card-accent" style="background:${accent};"></div>
       </div>
       <div class="brand-card-btn">Scopri ora</div>
     </div>`;
@@ -3484,8 +3482,7 @@ async function renderCategory(cat,ci){
             ${_logoHtml}
             <div class="brand-card-name" style="font-size:clamp(11px,2vw,14px);letter-spacing:.5px;">${sn}</div>
           </div>
-          <div class="brand-card-accent" style="background:${accent};"></div>
-        </div>
+          </div>
         <div class="brand-card-btn">Scopri ora</div>
       </div>`;
     }
