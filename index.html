@@ -5996,7 +5996,7 @@ function _isEstivi(){
   if(stack.includes('estivi')||stack.includes('estivo')) return true;
   // Controlla anche il nome della foto corrente
   const photoName=(currentPhotos[currentPhotoIdx]?.name||'').toLowerCase();
-  if(photoName.includes('estiv')||photoName.includes('canotta')||photoName.includes('completo')) return true;
+  if(photoName.includes('estiv')||photoName.includes('canotta')||photoName.includes('completo estiv')||photoName.includes('completino estiv')) return true;
   return false;
 }
 function _isNBA(){
