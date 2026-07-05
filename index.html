@@ -178,9 +178,9 @@ gtag('config', 'G-SYPQZL1L7W');
     background:var(--panel-2);
   }
   .polaroid img{width:100%;height:100%;object-fit:cover}
-  .p1{width:250px;height:310px;left:6%;top:6%;transform:rotate(-7deg);animation:float 6s ease-in-out infinite}
-  .p2{width:230px;height:290px;right:4%;top:0;transform:rotate(6deg);animation:float 7s .5s ease-in-out infinite}
-  .p3{width:270px;height:330px;left:26%;bottom:0;transform:rotate(-2deg);z-index:2;animation:float 8s 1s ease-in-out infinite}
+  .p1{width:250px;height:310px;left:6%;top:6%;animation:float 6s ease-in-out infinite;will-change:transform,opacity}
+  .p2{width:230px;height:290px;right:4%;top:0;animation:float 7s .5s ease-in-out infinite;will-change:transform,opacity}
+  .p3{width:270px;height:330px;left:26%;bottom:0;z-index:2;animation:float 8s 1s ease-in-out infinite;will-change:transform,opacity}
   .polaroid .tag{
     position:absolute;left:12px;bottom:12px;right:12px;
     background:rgba(7,9,15,.78);backdrop-filter:blur(8px);
@@ -604,8 +604,17 @@ gtag('config', 'G-SYPQZL1L7W');
     .cookie-card.active{bottom:20px}
   }
 
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease}
-  .reveal.in{opacity:1;transform:none}
+  /* effetto "cambio prospettiva": le sezioni entrano leggermente ruotate in 3D
+     (come inclinate all'indietro) e si raddrizzano quando arrivano a schermo,
+     mentre si scorre la pagina verso il basso. */
+  section{perspective:1200px}
+  .reveal{
+    opacity:0;
+    transform:perspective(1200px) rotateX(14deg) translateY(46px) scale(.96);
+    transform-origin:center bottom;
+    transition:opacity .8s cubic-bezier(.2,.7,.3,1), transform .8s cubic-bezier(.2,.7,.3,1);
+  }
+  .reveal.in{opacity:1;transform:perspective(1200px) rotateX(0deg) translateY(0) scale(1)}
 
   @media (max-width:1000px){
     .hero-grid{grid-template-columns:1fr}
@@ -1449,6 +1458,7 @@ function renderGrid(){
           <img src="${fullUrl(pics[i].id)}" alt="${cleanName(pics[i].name)}">
           <span class="tag">${cleanName(pics[i].name)}</span>
         </div>`).join("");
+      initHeroParallax();
     }
     document.getElementById("marquee").innerHTML = (()=>{
       const names = data.items.slice(0,14).map(x=>`<span>${cleanName(x.name)} <i>⚡</i></span>`).join("");
@@ -1460,6 +1470,37 @@ function renderGrid(){
   }
   showCategory();
 })();
+
+/* ================= parallasse hero: le foto si muovono mentre scorri =================
+   Ogni foto ha una velocità e una rotazione leggermente diverse (profondità),
+   e sfumano man mano che si esce dalla hero, per un effetto un po' cinematico. */
+function initHeroParallax(){
+  const heroEl = document.querySelector(".hero");
+  if (!heroEl) return;
+  const photos = [
+    { el: document.querySelector(".polaroid.p1"), speed:.35, rot:-4, scaleOut:.08 },
+    { el: document.querySelector(".polaroid.p2"), speed:.55, rot: 3, scaleOut:.05 },
+    { el: document.querySelector(".polaroid.p3"), speed:.75, rot:-2, scaleOut:.12 },
+  ];
+  let ticking = false;
+  function render(){
+    ticking = false;
+    const heroH = heroEl.offsetHeight || 1;
+    const progress = Math.min(Math.max(window.scrollY / heroH, 0), 1);
+    photos.forEach(p=>{
+      if (!p.el) return;
+      const y = progress * heroH * p.speed * 0.35;
+      const rot = p.rot * (1 - progress * 0.6);
+      const scale = 1 - progress * p.scaleOut;
+      p.el.style.transform = `translateY(${y}px) rotate(${rot}deg) scale(${scale})`;
+      p.el.style.opacity = 1 - progress * 0.9;
+    });
+  }
+  window.addEventListener("scroll", ()=>{
+    if (!ticking){ requestAnimationFrame(render); ticking = true; }
+  }, { passive:true });
+  render();
+}
 
 /* ================= collegamento diretto dalle pagine SEO per squadra =================
    Le pagine tipo maglia-napoli.html linkano qui con ?team=napoli o ?cat=Serie%20A:
