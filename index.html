@@ -1986,6 +1986,44 @@ function toast(msg){
 
 updateBadge();
 
+/* ================= aggiornamento automatico della pagina =================
+   Quando pubblico una nuova versione del sito, i clienti che tengono la
+   scheda aperta (specie da telefono) la vedono aggiornarsi da sola al
+   ritorno sulla scheda, senza dover sapere svuotare la cache. Controlla
+   l'ETag/Last-Modified della pagina con una richiesta leggera HEAD: se è
+   cambiata rispetto a prima, ricarica — a meno che il cliente non stia
+   scrivendo in un campo o abbia il carrello/una scheda prodotto aperti,
+   nel qual caso aspetta per non interrompere un ordine in corso. */
+(function(){
+  let _etag = null, _ultimoControllo = 0;
+  function _clienteOccupato(){
+    const ae = document.activeElement;
+    if (ae && ["INPUT","TEXTAREA","SELECT"].includes(ae.tagName)) return true;
+    if (document.getElementById("overlay")?.classList.contains("open")) return true;
+    if (document.getElementById("cartOverlay")?.classList.contains("open")) return true;
+    return false;
+  }
+  async function _controllaVersione(){
+    if (Date.now() - _ultimoControllo < 30000) return;
+    _ultimoControllo = Date.now();
+    try{
+      const r = await fetch(location.pathname, { method:"HEAD", cache:"no-store" });
+      const e = r.headers.get("etag") || r.headers.get("last-modified");
+      if (!e) return;
+      if (_etag === null){ _etag = e; return; }
+      if (e !== _etag){
+        _etag = e;
+        if (_clienteOccupato()){ setTimeout(_controllaVersione, 60000); return; }
+        location.reload();
+      }
+    }catch(_){}
+  }
+  _controllaVersione();
+  document.addEventListener("visibilitychange", ()=>{ if (document.visibilityState==="visible") _controllaVersione(); });
+  window.addEventListener("pageshow", ev=>{ if (ev.persisted) _controllaVersione(); });
+  setInterval(_controllaVersione, 5*60*1000);
+})();
+
 /* ================= cookie banner + privacy policy (GDPR) ================= */
 function accettaCookie(tipo){
   try{ localStorage.setItem("cookieConsent", tipo); }catch(e){}
