@@ -1201,13 +1201,13 @@ window.addEventListener("popstate", ()=>{
 
 const CATALOG = [
   { name:"Nuovi Arrivi",     flag:"🆕", id:"1mNzocO2ltOMXmIlk6ygdQa7KaT93wV4M", subs:false },
+  { name:"Nazionali",        flag:"🌍", id:"17CcRia7q_4dViHPP93Tm0bfbm605gsmV", subs:false },
   { name:"Serie A",          flag:"🇮🇹", id:"1PEPuubYWEiecIKwXbq9RZ1LuWNjEhzC2", subs:true },
   { name:"Premier League",   flag:"🏴󠁧󠁢󠁥󠁮󠁧󠁿", id:"1JWQkaYv5k_g3EDZid-fyuXtK0tG-6wNh", subs:true },
   { name:"Liga Spagnola",    flag:"🇪🇸", id:"1U99k-2ipIpo-SncvQB6NdAni6WwMTtvw", subs:true },
   { name:"Bundesliga",       flag:"🇩🇪", id:"1ZLOCMotAK94cXh3NbHxTYWVn5-fnpS0R", subs:true },
   { name:"Ligue 1",          flag:"🇫🇷", id:"15kPZPWyq9I7aUvGue95DuWoGK9MzDzz9", subs:true },
   { name:"Eredivisie",       flag:"🇳🇱", id:"1yOdpCveN3hA3_bFS8RHsUKHKsjXJXfq3", subs:true },
-  { name:"Nazionali",        flag:"🌍", id:"17CcRia7q_4dViHPP93Tm0bfbm605gsmV", subs:false },
   { name:"Resto del Mondo",  flag:"🌐", id:"13NLaWPvV-9ldy2e5jofbogaXKKT87o2G", subs:true },
   { name:"NBA",              flag:"🏀", id:"1tVjyRRsb8Jh0L6--dkaQyQfoZKvEEir_", subs:false },
   { name:"Tute",             flag:"👕", id:"1A8ExrH2C2MA0HtiHeHMaW6zt058_6Oqm", subs:true },
@@ -1544,22 +1544,24 @@ function renderGrid(){
   moreBtn.style.display = items.length > renderLimit ? "inline-flex" : "none";
 }
 
-/* ================= hero: vetrina singola con foto vere che cambiano da sole ================= */
+/* ================= hero: vetrina singola con 3 foto scelte ================= */
+const HERO_PICKS = [
+  { id:"1_hvdfslZYliX0e5-MyKIBZcOcHZfghi0", name:"Kit Inter Home 26/27" },
+  { id:"1IMc-ZYPY2NBs_qJx6oBxbJMv3nkCienf", name:"Kit Juventus Home 26/27" },
+  { id:"1u1zj-JkJ9Nu7ZGiAm5dPqQqIKgqaGwmq", name:"Kit Milan Home 26/27" },
+];
 (async ()=>{
+  const stack = document.getElementById("heroShowcase");
+  stack.classList.remove("skeleton");
+  stack.innerHTML = HERO_PICKS.map((pic,i)=>`
+    <div class="showcase-slide${i===0 ? " on":""}">
+      <img src="${fullUrl(pic.id)}" alt="${pic.name}">
+      <span class="tag">${pic.name}</span>
+    </div>`).join("") +
+    `<div class="showcase-dots">${HERO_PICKS.map((_,i)=>`<span class="${i===0?"on":""}"></span>`).join("")}</div>`;
+  initHeroShowcase(HERO_PICKS.length);
   try{
     const data = await loadCategory(CATALOG[0]);
-    const pics = data.items.slice(0,6);
-    const stack = document.getElementById("heroShowcase");
-    if (pics.length){
-      stack.classList.remove("skeleton");
-      stack.innerHTML = pics.map((pic,i)=>`
-        <div class="showcase-slide${i===0 ? " on":""}">
-          <img src="${fullUrl(pic.id)}" alt="${cleanName(pic.name)}">
-          <span class="tag">${cleanName(pic.name)}</span>
-        </div>`).join("") +
-        `<div class="showcase-dots">${pics.map((_,i)=>`<span class="${i===0?"on":""}"></span>`).join("")}</div>`;
-      initHeroShowcase(pics.length);
-    }
     document.getElementById("marquee").innerHTML = (()=>{
       const names = data.items.slice(0,14).map(x=>`<span>${cleanName(x.name)} <i>⚡</i></span>`).join("");
       return names + names;
