@@ -170,25 +170,38 @@ gtag('config', 'G-SYPQZL1L7W');
   .stat b i{color:var(--volt);font-style:normal}
   .stat span{font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
 
-  .hero-stack{position:relative;height:480px}
-  .polaroid{
-    position:absolute;border-radius:20px;overflow:hidden;
+  /* ---------- vetrina hero: una foto sola, elegante, che cambia da sola ---------- */
+  .hero-stack{position:relative;height:480px;display:flex;align-items:center;justify-content:center}
+  .showcase{
+    position:relative;width:min(400px,86%);aspect-ratio:4/5;
+    border-radius:26px;overflow:hidden;
     border:1px solid rgba(255,255,255,.14);
-    box-shadow:0 30px 70px rgba(0,0,0,.55);
+    box-shadow:0 40px 90px rgba(0,0,0,.6);
     background:var(--panel-2);
+    animation:float 6s ease-in-out infinite;
   }
-  .polaroid img{width:100%;height:100%;object-fit:cover}
-  .p1{width:250px;height:310px;left:6%;top:6%;animation:float 6s ease-in-out infinite;will-change:transform,opacity}
-  .p2{width:230px;height:290px;right:4%;top:0;animation:float 7s .5s ease-in-out infinite;will-change:transform,opacity}
-  .p3{width:270px;height:330px;left:26%;bottom:0;z-index:2;animation:float 8s 1s ease-in-out infinite;will-change:transform,opacity}
-  .polaroid .tag{
-    position:absolute;left:12px;bottom:12px;right:12px;
+  .showcase::before{
+    content:"";position:absolute;inset:-60px;z-index:-1;
+    background:radial-gradient(circle, rgba(200,255,46,.16), transparent 65%);
+    filter:blur(10px);
+  }
+  .showcase-slide{
+    position:absolute;inset:0;opacity:0;transition:opacity 1s ease, transform 1.2s ease;
+    transform:scale(1.04);
+  }
+  .showcase-slide.on{opacity:1;transform:scale(1);z-index:1}
+  .showcase-slide img{width:100%;height:100%;object-fit:cover}
+  .showcase-slide .tag{
+    position:absolute;left:14px;bottom:14px;right:14px;
     background:rgba(7,9,15,.78);backdrop-filter:blur(8px);
     border:1px solid var(--line);border-radius:12px;
-    font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
-    padding:8px 12px;color:var(--volt);
+    font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+    padding:10px 14px;color:var(--volt);
     white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   }
+  .showcase-dots{position:absolute;left:0;right:0;bottom:-30px;display:flex;justify-content:center;gap:8px}
+  .showcase-dots span{width:7px;height:7px;border-radius:999px;background:rgba(255,255,255,.25);transition:all .3s ease}
+  .showcase-dots span.on{background:var(--volt);width:20px}
   @keyframes float{0%,100%{translate:0 0}50%{translate:0 -14px}}
 
   .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:18px 0;background:var(--panel)}
@@ -415,6 +428,14 @@ gtag('config', 'G-SYPQZL1L7W');
     display:grid;place-items:center;transition:all .15s ease;
   }
   .sheet-close:hover{background:var(--volt);color:#0a0d05}
+  .sheet-share{
+    position:absolute;top:16px;left:16px;z-index:5;
+    height:38px;border-radius:999px;border:1px solid var(--line);
+    background:rgba(7,9,15,.6);color:var(--text);font-size:12.5px;font-weight:800;cursor:pointer;
+    display:flex;align-items:center;gap:6px;padding:0 14px;transition:all .15s ease;
+  }
+  .sheet-share:hover{background:var(--volt);color:#0a0d05;border-color:var(--volt)}
+  .sheet-share.copied{background:var(--wa);color:#062b16;border-color:var(--wa)}
   .sheet-league{font-size:11.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--volt);margin-bottom:8px}
   .sheet-body h3{font-family:'Archivo Black';font-size:26px;text-transform:uppercase;margin-bottom:20px;line-height:1.1}
   .opt-label{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:20px 0 10px;display:flex;justify-content:space-between;align-items:center}
@@ -618,8 +639,8 @@ gtag('config', 'G-SYPQZL1L7W');
 
   @media (max-width:1000px){
     .hero-grid{grid-template-columns:1fr}
-    .hero-stack{order:-1;height:360px}
-    .p1{width:180px;height:230px}.p2{width:170px;height:215px}.p3{width:200px;height:250px}
+    .hero-stack{order:-1;height:340px}
+    .showcase{width:min(300px,80%)}
     .offer-grid,.steps,.reviews{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr}
     .nav-links{display:none}
@@ -693,9 +714,9 @@ gtag('config', 'G-SYPQZL1L7W');
       </div>
     </div>
     <div class="hero-stack" id="heroStack">
-      <div class="polaroid p1 skeleton"><div class="ph" style="width:100%;height:100%"></div></div>
-      <div class="polaroid p2 skeleton"><div class="ph" style="width:100%;height:100%"></div></div>
-      <div class="polaroid p3 skeleton"><div class="ph" style="width:100%;height:100%"></div></div>
+      <div class="showcase skeleton" id="heroShowcase">
+        <div class="ph" style="width:100%;height:100%"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -990,6 +1011,7 @@ gtag('config', 'G-SYPQZL1L7W');
   <div class="sheet" role="dialog" aria-modal="true">
     <div class="sheet-preview">
       <button class="sheet-close" id="sheetClose" aria-label="Chiudi">✕</button>
+      <button class="sheet-share" id="sheetShare" aria-label="Condividi questo prodotto">🔗 Condividi</button>
       <img id="sheetPhoto" alt="Foto prodotto">
     </div>
     <div class="sheet-body">
@@ -1351,13 +1373,89 @@ CATALOG.forEach((c,i)=>{
     document.querySelectorAll("#tabs .tab").forEach(t=>t.classList.remove("active"));
     b.classList.add("active");
     activeCat = c; activeTeam = ""; renderLimit = 24;
-    searchInp.value = "";
+    searchInp.value = ""; searchMode = false;
     showCategory();
   };
   tabsEl.appendChild(b);
 });
-searchInp.addEventListener("input", ()=>{ renderLimit = 24; renderGrid(); });
-moreBtn.onclick = ()=>{ renderLimit += 24; renderGrid(); };
+let searchMode = false;
+let searchAllCache = null;
+searchInp.addEventListener("input", ()=>{
+  renderLimit = 24;
+  const q = searchInp.value.trim();
+  if (q){
+    searchMode = true;
+    doGlobalSearch(q);
+  } else if (searchMode){
+    searchMode = false;
+    showCategory(); // torna alla categoria/team attivi, ricostruendo i chip
+  } else {
+    renderGrid();
+  }
+});
+moreBtn.onclick = ()=>{ renderLimit += 24; if (searchMode) renderSearchResults(searchAllResults); else renderGrid(); };
+
+/* -------- ricerca su TUTTE le categorie, non solo quella aperta -------- */
+async function ensureAllCategoriesLoaded(){
+  if (searchAllCache) return searchAllCache;
+  const all = await Promise.all(CATALOG.map(async c=>{
+    try{
+      const d = await loadCategory(c);
+      return d.items.map(it => ({ ...it, _cat:c }));
+    }catch(e){ return []; }
+  }));
+  searchAllCache = all.flat();
+  return searchAllCache;
+}
+let searchAllResults = [];
+async function doGlobalSearch(q){
+  skeletons();
+  chipsEl.innerHTML = "";
+  const all = await ensureAllCategoriesLoaded();
+  const ql = q.toLowerCase();
+  searchAllResults = all.filter(i => (i.name+" "+i.team+" "+i._cat.name).toLowerCase().includes(ql));
+  renderSearchResults(searchAllResults);
+}
+function renderSearchResults(items){
+  catEl.innerHTML = "";
+  if (!items.length){
+    noteEl.style.display = "block";
+    noteEl.innerHTML = "Nessun prodotto trovato per questa ricerca in tutto il catalogo — scrivici su WhatsApp, ne abbiamo molti di più in arrivo ⚽";
+    moreBtn.style.display = "none";
+    return;
+  }
+  noteEl.style.display = "none";
+  items.slice(0, renderLimit).forEach((it,i)=>{
+    const savedCat = activeCat;
+    activeCat = it._cat; // serve a productProfile per calcolare prezzi/tipo corretti
+    const prof = productProfile(it);
+    const minPrice = Math.min(...prof.versions.map(v=>v.price));
+    activeCat = savedCat;
+
+    const card = document.createElement("div");
+    card.className = "card";
+    card.style.animationDelay = `${Math.min(i,10)*40}ms`;
+    card.innerHTML = `
+      <img class="ph" src="${thumbUrl(it.id)}" alt="${cleanName(it.name)}" decoding="async"
+           onerror="this.style.opacity=.15">
+      <span class="avail">Disponibile</span>
+      <h3>${cleanName(it.name)}</h3>
+      <div class="team">${it._cat.flag} ${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
+      <div class="card-foot">
+        <div class="price">${prof.versions.length>1?"da ":""}${minPrice}€<small>spedizione inclusa</small></div>
+        <button class="go">Apri</button>
+      </div>`;
+    card.onclick = ()=>{
+      activeCat = it._cat;
+      const idx = CATALOG.indexOf(it._cat);
+      document.querySelectorAll("#tabs .tab").forEach(t=>t.classList.remove("active"));
+      if (tabsEl.children[idx]) tabsEl.children[idx].classList.add("active");
+      openProduct(it);
+    };
+    catEl.appendChild(card);
+  });
+  moreBtn.style.display = items.length > renderLimit ? "inline-flex" : "none";
+}
 
 function skeletons(n=8){
   catEl.innerHTML = "";
@@ -1446,19 +1544,21 @@ function renderGrid(){
   moreBtn.style.display = items.length > renderLimit ? "inline-flex" : "none";
 }
 
-/* ================= hero: foto vere dai nuovi arrivi ================= */
+/* ================= hero: vetrina singola con foto vere che cambiano da sole ================= */
 (async ()=>{
   try{
     const data = await loadCategory(CATALOG[0]);
-    const pics = data.items.slice(0,3);
-    const stack = document.getElementById("heroStack");
-    if (pics.length === 3){
-      stack.innerHTML = ["p1","p2","p3"].map((cls,i)=>`
-        <div class="polaroid ${cls}">
-          <img src="${fullUrl(pics[i].id)}" alt="${cleanName(pics[i].name)}">
-          <span class="tag">${cleanName(pics[i].name)}</span>
-        </div>`).join("");
-      initHeroParallax();
+    const pics = data.items.slice(0,6);
+    const stack = document.getElementById("heroShowcase");
+    if (pics.length){
+      stack.classList.remove("skeleton");
+      stack.innerHTML = pics.map((pic,i)=>`
+        <div class="showcase-slide${i===0 ? " on":""}">
+          <img src="${fullUrl(pic.id)}" alt="${cleanName(pic.name)}">
+          <span class="tag">${cleanName(pic.name)}</span>
+        </div>`).join("") +
+        `<div class="showcase-dots">${pics.map((_,i)=>`<span class="${i===0?"on":""}"></span>`).join("")}</div>`;
+      initHeroShowcase(pics.length);
     }
     document.getElementById("marquee").innerHTML = (()=>{
       const names = data.items.slice(0,14).map(x=>`<span>${cleanName(x.name)} <i>⚡</i></span>`).join("");
@@ -1471,35 +1571,19 @@ function renderGrid(){
   showCategory();
 })();
 
-/* ================= parallasse hero: le foto si muovono mentre scorri =================
-   Ogni foto ha una velocità e una rotazione leggermente diverse (profondità),
-   e sfumano man mano che si esce dalla hero, per un effetto un po' cinematico. */
-function initHeroParallax(){
-  const heroEl = document.querySelector(".hero");
-  if (!heroEl) return;
-  const photos = [
-    { el: document.querySelector(".polaroid.p1"), speed:.35, rot:-4, scaleOut:.08 },
-    { el: document.querySelector(".polaroid.p2"), speed:.55, rot: 3, scaleOut:.05 },
-    { el: document.querySelector(".polaroid.p3"), speed:.75, rot:-2, scaleOut:.12 },
-  ];
-  let ticking = false;
-  function render(){
-    ticking = false;
-    const heroH = heroEl.offsetHeight || 1;
-    const progress = Math.min(Math.max(window.scrollY / heroH, 0), 1);
-    photos.forEach(p=>{
-      if (!p.el) return;
-      const y = progress * heroH * p.speed * 0.35;
-      const rot = p.rot * (1 - progress * 0.6);
-      const scale = 1 - progress * p.scaleOut;
-      p.el.style.transform = `translateY(${y}px) rotate(${rot}deg) scale(${scale})`;
-      p.el.style.opacity = 1 - progress * 0.9;
-    });
-  }
-  window.addEventListener("scroll", ()=>{
-    if (!ticking){ requestAnimationFrame(render); ticking = true; }
-  }, { passive:true });
-  render();
+/* la vetrina passa da una foto all'altra da sola ogni 3.5s, con una dissolvenza */
+function initHeroShowcase(n){
+  if (n < 2) return;
+  let idx = 0;
+  setInterval(()=>{
+    const slides = document.querySelectorAll(".showcase-slide");
+    const dots = document.querySelectorAll(".showcase-dots span");
+    slides[idx]?.classList.remove("on");
+    dots[idx]?.classList.remove("on");
+    idx = (idx + 1) % n;
+    slides[idx]?.classList.add("on");
+    dots[idx]?.classList.add("on");
+  }, 3500);
 }
 
 /* ================= collegamento diretto dalle pagine SEO per squadra =================
@@ -1525,6 +1609,7 @@ async function goToTeamByHint(catName, hints){
   const p = new URLSearchParams(location.search);
   const team = p.get("team");
   const cat = p.get("cat");
+  const photoId = p.get("photo");
   const TEAM_MAP = {
     napoli:["Serie A",["napoli"]], inter:["Serie A",["inter"]], milan:["Serie A",["milan"]],
     juventus:["Serie A",["juve"]], roma:["Serie A",["roma"]], lazio:["Serie A",["lazio"]],
@@ -1545,6 +1630,12 @@ async function goToTeamByHint(catName, hints){
   } else if (cat){
     goToCategoryByName(cat).then(()=>{
       document.getElementById("catalogo").scrollIntoView({behavior:"instant"});
+      // link diretto a un prodotto preciso (condiviso col bottone "Condividi")
+      if (photoId){
+        const data = cache[activeCat.id];
+        const item = data && data.items.find(i=>i.id===photoId);
+        if (item) openProduct(item);
+      }
     });
   }
 })();
@@ -1674,15 +1765,44 @@ function openProduct(item){
   buildVersionPills(); buildSizePills(); syncSheet();
   overlay.classList.add("open");
   document.body.style.overflow = "hidden";
+  // riflette il prodotto aperto nell'indirizzo, così copiando il link del
+  // browser (o col bottone Condividi) si condivide QUESTO prodotto preciso
+  try{
+    const u = new URL(location.href);
+    u.search = `?cat=${encodeURIComponent(activeCat.name)}&photo=${encodeURIComponent(item.id)}`;
+    history.replaceState({ cscBuffer:true }, "", u.toString());
+  }catch(e){}
 }
 function closeProduct(){
   overlay.classList.remove("open");
   document.body.style.overflow = "";
+  try{ history.replaceState({ cscBuffer:true }, "", location.pathname); }catch(e){}
 }
 document.getElementById("sheetClose").onclick = closeProduct;
 overlay.addEventListener("click", e=>{ if(e.target===overlay) closeProduct(); });
 document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeProduct(); });
 document.getElementById("sizeGuideLink").addEventListener("click", closeProduct);
+
+/* bottone "Condividi": copia (o apre la condivisione nativa su telefono)
+   il link diretto a QUESTO prodotto, con foto e squadra corrette */
+document.getElementById("sheetShare").onclick = async (e)=>{
+  e.stopPropagation();
+  const btn = e.currentTarget;
+  const url = location.href;
+  const testo = `${cleanName(S.item.name)} — Completini Squadre Calcio 2.0`;
+  if (navigator.share){
+    try{ await navigator.share({ title: testo, url }); return; }catch(err){ /* utente ha annullato: procedi col copia-link */ }
+  }
+  try{
+    await navigator.clipboard.writeText(url);
+    const orig = btn.innerHTML;
+    btn.innerHTML = "✅ Link copiato!";
+    btn.classList.add("copied");
+    setTimeout(()=>{ btn.innerHTML = orig; btn.classList.remove("copied"); }, 2000);
+  }catch(err){
+    toast("Copia questo link: " + url);
+  }
+};
 
 function buildVersionPills(){
   const el = document.getElementById("versionPills");
@@ -1732,7 +1852,19 @@ document.getElementById("qtyPlus").onclick  = ()=>{ if(S.qty<20){S.qty++; syncSh
 
 /* sconto per QUANTITÀ TOTALE (maglie+kit+tutto insieme), come sul sito:
    da 5 pezzi −17%, da 10 pezzi −33% */
-function discountRate(q){ return q>=10 ? .33 : q>=5 ? .17 : 0; }
+/* Sconti quantità REALI (non una percentuale piatta): solo Maglia e Kit
+   (bambino/adulto) partecipano allo sconto, con prezzi fissi per fascia.
+   Tutto il resto (Player Version, Vintage, Tute, Estivi, Scarpe) resta
+   SEMPRE a prezzo pieno e non conta nemmeno per raggiungere la fascia. */
+const TIER_PRICE = {
+  maglia: [30, 25, 20],
+  kitb:   [35, 30, 25],
+  kita:   [40, 30, 25],
+};
+function isQualifying(it){ return Object.prototype.hasOwnProperty.call(TIER_PRICE, it.versionId); }
+function qualifyingCount(){ return cart.reduce((n,i)=> n + (isQualifying(i) ? i.qty : 0), 0); }
+function tierFor(n){ return n>=10 ? 2 : n>=5 ? 1 : 0; }
+function unitPriceFor(it, tier){ return isQualifying(it) ? TIER_PRICE[it.versionId][tier] : it.price; }
 
 function currentPatch(){
   if (!S.type.pers) return "";
@@ -1746,19 +1878,30 @@ function currentPers(){
 
 /* progresso verso il prossimo scaglione di sconto (barra di caricamento) */
 function discountProgress(n){
-  if (n < 5)  return { pct: n/5*100,     text: `Aggiungi ancora ${5-n} pezz${5-n===1?"o":"i"} e sblocchi lo sconto del 17%` };
-  if (n < 10) return { pct: (n-5)/5*100, text: `Sconto 17% attivo · ancora ${10-n} pezz${10-n===1?"o":"i"} per il 33%` };
-  return { pct: 100, text: "🎉 Hai lo sconto massimo del 33%!" };
+  if (n < 5)  return { pct: n/5*100,     text: `Aggiungi ancora ${5-n} pezz${5-n===1?"o":"i"} tra maglie e kit per sbloccare lo sconto` };
+  if (n < 10) return { pct: (n-5)/5*100, text: `Sconto attivo · ancora ${10-n} pezz${10-n===1?"o":"i"} per lo sconto massimo` };
+  return { pct: 100, text: "🎉 Hai lo sconto massimo!" };
 }
 
 function syncSheet(){
   if (!S.item) return;
   const v = S.type.versions.find(x=>x.id===S.version);
   document.getElementById("qtyVal").textContent = S.qty;
-  document.getElementById("totVal").textContent = `${v.price * S.qty}€`;
-  const p = discountProgress(cartCount() + S.qty);
-  document.getElementById("qtyProgFill").style.width = p.pct + "%";
-  document.getElementById("qtyHint").textContent = p.text;
+
+  const qualifying = isQualifying({versionId:v.id});
+  const projectedQCount = qualifyingCount() + (qualifying ? S.qty : 0);
+  const projectedTier = tierFor(projectedQCount);
+  const unit = qualifying ? TIER_PRICE[v.id][projectedTier] : v.price;
+  document.getElementById("totVal").textContent = `${unit * S.qty}€`;
+
+  if (qualifying){
+    const p = discountProgress(projectedQCount);
+    document.getElementById("qtyProgFill").style.width = p.pct + "%";
+    document.getElementById("qtyHint").textContent = p.text;
+  } else {
+    document.getElementById("qtyProgFill").style.width = "0%";
+    document.getElementById("qtyHint").textContent = "Questo prodotto è sempre a prezzo pieno, non rientra negli sconti quantità";
+  }
 }
 
 /* aggiungi al carrello */
@@ -1769,6 +1912,7 @@ document.getElementById("sheetAddCart").onclick = ()=>{
     name: cleanName(S.item.name),
     thumb: thumbUrl(S.item.id),
     version: v.label,
+    versionId: v.id,
     size: v.shoe ? "EU "+S.size : S.size,
     price: v.price,
     pers: currentPers(),
@@ -1815,11 +1959,14 @@ ORDER_FIELDS.concat(["orderEmail","orderNote"]).forEach(id=>{
 });
 
 function cartTotals(){
-  const sub = cartSub();
-  const n = cartCount();
-  const rate = discountRate(n);
-  const total = Math.round(sub * (1-rate));
-  return { sub, n, rate, total, discount: sub-total };
+  const qCount = qualifyingCount();
+  const tier = tierFor(qCount);
+  let sub = 0, total = 0;
+  cart.forEach(i=>{
+    sub += i.price * i.qty;               // prezzo pieno originale
+    total += unitPriceFor(i, tier) * i.qty; // prezzo effettivo alla fascia raggiunta
+  });
+  return { sub, n: cartCount(), qCount, tier, total, discount: sub-total };
 }
 
 function getOrderData(){
@@ -1885,7 +2032,9 @@ function renderCart(){
     return;
   }
   empty.style.display = "none"; foot.style.display = "block"; wrap.style.display = "flex";
+  const { sub, n, qCount, tier, total } = cartTotals();
   cart.forEach((it,i)=>{
+    const eff = unitPriceFor(it, tier);
     const meta = [it.version, `taglia ${it.size}`]
       .concat(it.pers ? [`✏️ ${it.pers}`] : [])
       .concat(it.patch ? [`🏅 ${it.patch}`] : [])
@@ -1901,7 +2050,7 @@ function renderCart(){
           <div class="ci-qty">
             <button data-a="minus">−</button><span>${it.qty}</span><button data-a="plus">+</button>
           </div>
-          <div class="ci-price">${it.price*it.qty}€</div>
+          <div class="ci-price">${eff*it.qty}€${eff!==it.price ? ` <s style="color:var(--muted);font-size:12px">${it.price*it.qty}€</s>` : ""}</div>
         </div>
         <button class="ci-remove" data-a="rm">Rimuovi</button>
       </div>`;
@@ -1910,17 +2059,17 @@ function renderCart(){
     row.querySelector('[data-a="rm"]').onclick    = ()=>removeItem(i);
     wrap.appendChild(row);
   });
-  const { sub, n, rate, total } = cartTotals();
   document.getElementById("cartCount").textContent = n;
   document.getElementById("cartSub").textContent = `${sub}€`;
   const discRow = document.getElementById("cartDiscRow");
-  if (rate){
+  const discountAmt = sub - total;
+  if (discountAmt > 0){
     discRow.style.display = "flex";
-    document.getElementById("cartDiscLbl").textContent = `Sconto quantità (−${rate*100}%)`;
-    document.getElementById("cartDisc").textContent = `−${sub-total}€`;
+    document.getElementById("cartDiscLbl").textContent = "Sconto quantità applicato";
+    document.getElementById("cartDisc").textContent = `−${discountAmt}€`;
   } else discRow.style.display = "none";
   document.getElementById("cartTotal").textContent = `${total}€`;
-  const p = discountProgress(n);
+  const p = discountProgress(qCount);
   document.getElementById("cartProgFill").style.width = p.pct + "%";
   document.getElementById("cartHint").textContent = p.text;
 }
@@ -1946,10 +2095,11 @@ document.getElementById("cartCheckout").onclick = ()=>{
   if (!cart.length) return;
   if (!validateOrder()) return;
   const order = getOrderData();
-  const { sub, n, rate, total, discount } = cartTotals();
+  const { sub, n, total, discount, tier } = cartTotals();
   const lines = ["🛒 *ORDINE — Completini Squadre Calcio 2.0*", "━━━━━━━━━━━━━━━━━━"];
   cart.forEach((it,i)=>{
-    lines.push(`${i+1}. ${it.qty}× ${it.name}`);
+    const eff = unitPriceFor(it, tier);
+    lines.push(`${i+1}. ${it.qty}× ${it.name} — ${eff}€ cad.`);
     lines.push(`   ${it.version} · taglia ${it.size}`);
     if (it.pers)  lines.push(`   ✏️ ${it.pers}`);
     if (it.patch) lines.push(`   🏅 Patch: ${it.patch}`);
@@ -1958,7 +2108,7 @@ document.getElementById("cartCheckout").onclick = ()=>{
   lines.push("━━━━━━━━━━━━━━━━━━");
   lines.push(`📦 Articoli totali: ${n}`);
   lines.push(`💶 Subtotale: ${sub}€`);
-  if (rate) lines.push(`🏷 Sconto quantità: −${rate*100}% (−${discount}€)`);
+  if (discount > 0) lines.push(`🏷 Sconto quantità applicato: −${discount}€`);
   lines.push(`💶 Totale stimato: ${total}€`);
   lines.push("🚚 Spedizione: GRATUITA");
   lines.push("━━━━━━━━━━━━━━━━━━");
