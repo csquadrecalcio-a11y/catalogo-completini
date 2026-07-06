@@ -1239,6 +1239,7 @@ const OPT_MAGLIA = [
 ];
 const OPT_PLAYER = {id:"player", label:"Player Version", price:35, kid:false};
 const OPT_VINTAGE = [{id:"vintage", label:"Maglia Vintage", price:35, kid:false}];
+const OPT_VINTAGE_KID = [{id:"vintage_kid", label:"Kit Vintage Bambino", price:35, kid:true}];
 const OPT_ESTIVI = [
   {id:"canotta", label:"Con Canotta", price:40, kid:false},
   {id:"tshirt",  label:"Con T-Shirt", price:40, kid:false},
@@ -1276,7 +1277,10 @@ function productProfile(item){
     else if (/canotta/.test(hay)) v = only(OPT_ESTIVI,"canotta");
     return { versions:v, pers:false, kind:"estivo" };
   }
-  if (/vintage/.test(hay)) return { versions:OPT_VINTAGE, pers:true, kind:"vintage" };
+  if (/vintage/.test(hay)){
+    const isKidVintage = /bambin|\bkids?\b/.test(hay);
+    return { versions: isKidVintage ? OPT_VINTAGE_KID : OPT_VINTAGE, pers:true, kind:"vintage" };
+  }
 
   /* maglia: le opzioni dipendono dalla parola chiave nel nome file (come sul sito)
        "player"                       → SOLO Player Version
