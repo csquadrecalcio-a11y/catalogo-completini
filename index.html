@@ -2251,8 +2251,43 @@ document.getElementById("cartCheckout").onclick = ()=>{
   lines.push("💳 *PAGAMENTO*");
   lines.push(order.pagamento);
   if (order.note) lines.push(`📝 Note: ${order.note}`);
+  inviaOrdineGestionale(order, cart, tier);
   window.open(WA + encodeURIComponent(lines.join("\n")), "_blank");
 };
+
+/* Invia l'ordine anche al gestionale così si compila da solo, senza
+   bloccare l'apertura di WhatsApp se il gestionale è offline/irraggiungibile. */
+function inviaOrdineGestionale(order, cartItems, tier){
+  try{
+    const articoli = cartItems.map(it=>{
+      const eff = unitPriceFor(it, tier);
+      let nome_giocatore = "", numero_maglia = "";
+      if (it.pers){
+        const parts = it.pers.trim().split(/\s+/);
+        if (parts.length && /^\d+$/.test(parts[parts.length-1])){
+          numero_maglia = parts.pop();
+        }
+        nome_giocatore = parts.join(" ");
+      }
+      return {
+        name: it.name, tipoVersione: it.version, taglia: it.size, qty: it.qty,
+        price: eff, nome_giocatore, numero_maglia, patch: it.patch || "",
+      };
+    });
+    fetch("https://mosaic-possum-crisping.ngrok-free.dev/api/ordine-sito", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "X-Site-Secret": "bI6J_mKjyTgr518wkrXffWjpqRmo4YAd" },
+      body: JSON.stringify({
+        cliente: {
+          nome: order.nome, cognome: order.cognome, telefono: order.tel,
+          indirizzo: order.indirizzo, citta: order.citta, provincia: order.provincia,
+          cap: order.cap, email: order.email, squadra_cuore: order.squadraCuore,
+        },
+        metodo_pagamento: order.pagamento, note: order.note, articoli,
+      }),
+    }).catch(()=>{});
+  }catch(e){}
+}
 
 /* toast */
 let toastT;
