@@ -1698,14 +1698,32 @@ const ROSE_GIOCATORI = {
     {n:"Jashari", num:"30"}, {n:"Pavlović", num:"31"}, {n:"Bartesaghi", num:"33"},
     {n:"Gabbia", num:"46"}, {n:"Saelemaekers", num:"56"},
   ],
+  juventus: [
+    {n:"Bremer", num:"3"}, {n:"Gatti", num:"4"}, {n:"Locatelli", num:"5"},
+    {n:"Kelly", num:"6"}, {n:"F.Conceição", num:"7"}, {n:"Koopmeiners", num:"8"},
+    {n:"Yildiz", num:"10"}, {n:"E.Zhegrova", num:"11"}, {n:"Boga", num:"13"},
+    {n:"Milik", num:"14"}, {n:"Kalulu", num:"15"}, {n:"Adzić", num:"17"},
+    {n:"Thuram", num:"19"}, {n:"Openda", num:"20"}, {n:"Miretti", num:"21"},
+    {n:"McKennie", num:"22"}, {n:"Cambiaso", num:"27"}, {n:"J.David", num:"30"},
+    {n:"Cabal", num:"32"},
+  ],
 };
 /* ---- personalizzazione: Nessuna / Giocatore / Personalizzata, a pillole
    come sugli store ufficiali (Inter, Milan...) invece di un menu a tendina.
    Se la squadra non ha ancora una rosa censita, si torna al solo campo
    libero come prima (nessuna rottura per le altre squadre). ---- */
 function rosaPerSquadraCorrente(){
-  const key = (S.item && S.item.team) ? String(S.item.team).toLowerCase() : "";
-  return ROSE_GIOCATORI[key] || null;
+  if (!S.item) return null;
+  const teamKey = String(S.item.team||"").toLowerCase();
+  if (ROSE_GIOCATORI[teamKey]) return ROSE_GIOCATORI[teamKey];
+  // Categorie "piatte" senza sottocartelle squadra (Nuovi Arrivi, Nazionali,
+  // NBA...) non passano item.team: si prova a riconoscere la squadra dal
+  // nome del file/prodotto, così il menu giocatore funziona anche lì.
+  const nameKey = String(S.item.name||"").toLowerCase();
+  for (const k of Object.keys(ROSE_GIOCATORI)){
+    if (new RegExp(`\\b${k}\\b`).test(nameKey)) return ROSE_GIOCATORI[k];
+  }
+  return null;
 }
 function setPersMode(mode){
   S.persMode = mode;
