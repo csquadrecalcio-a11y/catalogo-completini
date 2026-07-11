@@ -1029,10 +1029,9 @@ gtag('config', 'G-SYPQZL1L7W');
 
       <div id="persBlock">
         <div class="opt-label">Personalizzazione <span class="free">Gratis</span></div>
-        <select id="pGiocatore" style="display:none;margin-bottom:10px">
-          <option value="">— Scegli un giocatore o scrivi il tuo nome sotto —</option>
-        </select>
-        <div class="inputs-row">
+        <div class="pills" id="persModePills" style="display:none;margin-bottom:10px"></div>
+        <div class="pills" id="giocatorePills" style="display:none;margin-bottom:10px"></div>
+        <div class="inputs-row" id="persInputsRow">
           <input type="text" id="pName" maxlength="15" placeholder="Nome (es. ALBERTO)">
           <input type="text" id="pNum" maxlength="2" inputmode="numeric" placeholder="Numero">
         </div>
@@ -1655,10 +1654,12 @@ async function goToTeamByHint(catName, hints){
 
 /* ================= modal prodotto ================= */
 const overlay = document.getElementById("overlay");
-const S = { item:null, type:null, version:null, size:"M", patch:"Nessuna", patchLibera:"", qty:1 };
+const S = { item:null, type:null, version:null, size:"M", patch:"Nessuna", patchLibera:"", qty:1, persMode:"personalizzata" };
 const pName = document.getElementById("pName");
 const pNum  = document.getElementById("pNum");
-const pGiocatore = document.getElementById("pGiocatore");
+const persModePills = document.getElementById("persModePills");
+const giocatorePills = document.getElementById("giocatorePills");
+const persInputsRow = document.getElementById("persInputsRow");
 const patchLiberaInp = document.getElementById("patchLibera");
 
 /* ---- rose giocatori per personalizzazione rapida (nome+numero già pronti,
@@ -1683,20 +1684,53 @@ const ROSE_GIOCATORI = {
     {n:"Gabbia", num:"46"}, {n:"Saelemaekers", num:"56"},
   ],
 };
-function buildRoseGiocatori(){
+/* ---- personalizzazione: Nessuna / Giocatore / Personalizzata, a pillole
+   come sugli store ufficiali (Inter, Milan...) invece di un menu a tendina.
+   Se la squadra non ha ancora una rosa censita, si torna al solo campo
+   libero come prima (nessuna rottura per le altre squadre). ---- */
+function rosaPerSquadraCorrente(){
   const key = (S.item && S.item.team) ? String(S.item.team).toLowerCase() : "";
-  const rosa = ROSE_GIOCATORI[key];
-  if (!rosa){ pGiocatore.style.display = "none"; return; }
-  pGiocatore.innerHTML = '<option value="">— Scegli un giocatore o scrivi il tuo nome sotto —</option>' +
-    rosa.map(p => `<option value="${p.n}|${p.num}">${p.num} — ${p.n}</option>`).join("");
-  pGiocatore.style.display = "";
+  return ROSE_GIOCATORI[key] || null;
 }
-pGiocatore.addEventListener("change", ()=>{
-  if (!pGiocatore.value) return;
-  const [n, num] = pGiocatore.value.split("|");
-  pName.value = n.toUpperCase(); pNum.value = num;
+function setPersMode(mode){
+  S.persMode = mode;
+  giocatorePills.style.display = mode === "giocatore" ? "" : "none";
+  persInputsRow.style.display  = mode === "personalizzata" ? "" : "none";
+  if (mode === "nessuna"){ pName.value = ""; pNum.value = ""; }
+  buildPersModePills();
+  if (mode === "giocatore") buildGiocatorePills();
   syncSheet();
-});
+}
+function buildPersModePills(){
+  const rosa = rosaPerSquadraCorrente();
+  if (!rosa){ persModePills.style.display = "none"; return; }
+  persModePills.style.display = "";
+  persModePills.innerHTML = "";
+  [["nessuna","❌ Nessuna"], ["giocatore","⭐ Giocatore"], ["personalizzata","✏️ Personalizzata"]].forEach(([mode,label])=>{
+    const b = document.createElement("button");
+    b.className = "pill" + (S.persMode===mode ? " on" : "");
+    b.textContent = label;
+    b.onclick = ()=> setPersMode(mode);
+    persModePills.appendChild(b);
+  });
+}
+function buildGiocatorePills(){
+  const rosa = rosaPerSquadraCorrente();
+  giocatorePills.innerHTML = "";
+  if (!rosa) return;
+  rosa.forEach(p=>{
+    const selected = pName.value.toUpperCase()===p.n.toUpperCase() && pNum.value===p.num;
+    const b = document.createElement("button");
+    b.className = "pill" + (selected ? " on" : "");
+    b.innerHTML = `<small>${p.num}</small> ${p.n}`;
+    b.onclick = ()=>{
+      pName.value = p.n.toUpperCase(); pNum.value = p.num;
+      buildGiocatorePills();
+      syncSheet();
+    };
+    giocatorePills.appendChild(b);
+  });
+}
 
 /* ---- patch ufficiali (immagini e combo dal sito completinicalcio.it) ----
    Una sola patch per maglia (scelta singola). Le combo cambiano in base
@@ -1807,14 +1841,16 @@ function openProduct(item){
   S.size = S.type.versions[0].shoe ? "42" : (S.type.versions[0].kid ? "24" : "M");
   S.patch = "Nessuna"; S.patchLibera = ""; S.qty = 1;
   pName.value = ""; pNum.value = ""; patchLiberaInp.value = "";
-  pGiocatore.value = ""; pGiocatore.style.display = "none";
   buildPatch();
   document.getElementById("sheetLeague").textContent =
     (item.team ? cleanName(item.team) + " · " : "") + activeCat.name;
   document.getElementById("sheetTeam").textContent = cleanName(item.name);
   document.getElementById("sheetPhoto").src = fullUrl(item.id);
   document.getElementById("persBlock").style.display = S.type.pers ? "" : "none";
-  if (S.type.pers) buildRoseGiocatori();
+  if (S.type.pers){
+    const rosa = rosaPerSquadraCorrente();
+    setPersMode(rosa ? "giocatore" : "personalizzata");
+  }
   buildVersionPills(); buildSizePills(); syncSheet();
   overlay.classList.add("open");
   document.body.style.overflow = "hidden";
