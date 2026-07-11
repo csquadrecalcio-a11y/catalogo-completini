@@ -2329,9 +2329,10 @@ document.getElementById("privacyModal").addEventListener("click", e=>{
   if (e.target.id === "privacyModal") closePrivacy();
 });
 
-/* ================= consegna stimata geolocalizzata =================
-   Stessa logica del sito live: 8-15 giorni LAVORATIVI da oggi, più la
-   città del visitatore rilevata via ipapi.co (solo se IP italiano). */
+/* ================= consegna stimata =================
+   8-15 giorni LAVORATIVI da oggi. (Rimossa la città via geolocalizzazione IP:
+   su rete mobile spesso risultava sbagliata, es. IP registrati sul gateway
+   regionale dell'operatore invece che sulla città reale del cliente.) */
 function ggLav(giorni){
   const d = new Date();
   let agg = 0;
@@ -2342,13 +2343,11 @@ function ggLav(giorni){
   }
   return d.toLocaleDateString("it-IT", {day:"numeric", month:"long"});
 }
-const CITTA_EN_IT = {"Naples":"Napoli","Rome":"Roma","Milan":"Milano","Turin":"Torino","Venice":"Venezia","Florence":"Firenze","Genoa":"Genova","Padua":"Padova","Syracuse":"Siracusa","Mantua":"Mantova"};
 
-const geoConsegna = { dal: ggLav(8), al: ggLav(15), citta: "" };
+const geoConsegna = { dal: ggLav(8), al: ggLav(15) };
 
 function renderConsegna(){
-  const range = `dal ${geoConsegna.dal} al ${geoConsegna.al}`;
-  const testo = geoConsegna.citta ? `${range} a ${geoConsegna.citta}` : range;
+  const testo = `dal ${geoConsegna.dal} al ${geoConsegna.al}`;
   const strip = document.getElementById("stripShip");
   const ship = document.getElementById("shipBox");
   const cartShip = document.getElementById("cartShipBox");
@@ -2357,30 +2356,6 @@ function renderConsegna(){
   if (cartShip) cartShip.textContent = `🚚 Spedizione gratuita · Consegna ${testo}`;
 }
 renderConsegna();
-
-/* ipapi.co ha un limite gratuito molto basso e va spesso in 429 (rate limit)
-   o viene bloccato da ad-blocker: proviamo più servizi in cascata finché
-   uno risponde, così la città quasi sempre si vede. */
-const GEO_SOURCES = [
-  { url:"https://ipwho.is/",                     ok:d=>d && d.success && d.country_code==="IT" && d.city },
-  { url:"https://get.geojs.io/v1/ip/geo.json",   ok:d=>d && d.country_code==="IT" && d.city },
-  { url:"https://ipapi.co/json/",                ok:d=>d && d.country_code==="IT" && d.city },
-];
-async function rilevaCitta(){
-  for (const src of GEO_SOURCES){
-    try{
-      const r = await fetch(src.url);
-      if (!r.ok) continue;
-      const d = await r.json();
-      if (src.ok(d)){
-        geoConsegna.citta = CITTA_EN_IT[d.city] || d.city;
-        renderConsegna();
-        return;
-      }
-    }catch(e){ /* prova il prossimo servizio */ }
-  }
-}
-rilevaCitta();
 
 /* ================= tabella taglie ================= */
 const szA = document.getElementById("szAdult"), szK = document.getElementById("szKid");
