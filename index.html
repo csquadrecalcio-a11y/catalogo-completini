@@ -1101,6 +1101,7 @@ gtag('config', 'G-SYPQZL1L7W');
           <input id="orderCap" type="text" inputmode="numeric" maxlength="5" placeholder="CAP *" autocomplete="postal-code">
           <input id="orderTel" type="tel" placeholder="Telefono *" autocomplete="tel">
           <input id="orderEmail" class="wide" type="email" placeholder="Email (opzionale)" autocomplete="email">
+          <input id="orderSquadraCuore" class="wide" type="text" placeholder="Squadra del cuore (facoltativo)" autocomplete="off">
         </div>
       </div>
       <div class="checkout-box">
@@ -1991,6 +1992,7 @@ function getOrderData(){
     email: val("orderEmail"),
     pagamento: val("orderPagamento"),
     note: val("orderNote"),
+    squadraCuore: val("orderSquadraCuore"),
   };
 }
 
@@ -2127,6 +2129,7 @@ document.getElementById("cartCheckout").onclick = ()=>{
   lines.push(`🏙 ${order.cap} ${order.citta} (${order.provincia})`);
   lines.push(`📱 ${order.tel}`);
   if (order.email) lines.push(`✉️ ${order.email}`);
+  if (order.squadraCuore) lines.push(`⚽ Squadra del cuore: ${order.squadraCuore}`);
   lines.push("━━━━━━━━━━━━━━━━━━");
   lines.push("💳 *PAGAMENTO*");
   lines.push(order.pagamento);
