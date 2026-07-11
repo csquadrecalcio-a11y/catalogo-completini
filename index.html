@@ -467,6 +467,17 @@ gtag('config', 'G-SYPQZL1L7W');
     transition:border-color .15s ease;
   }
   .sheet-body input[type=text]:focus{border-color:var(--volt)}
+  .sheet-body select{
+    width:100%;min-width:0;background:var(--panel-2);border:1px solid var(--line);
+    border-radius:13px;padding:13px 16px;color:var(--text);
+    font-size:15px;font-weight:700;outline:none;
+    appearance:none;-webkit-appearance:none;
+    background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+    background-position:calc(100% - 18px) 18px,calc(100% - 13px) 18px;
+    background-size:5px 5px,5px 5px;background-repeat:no-repeat;
+    transition:border-color .15s ease;
+  }
+  .sheet-body select:focus{border-color:var(--volt)}
   .check{
     display:flex;align-items:center;gap:12px;margin-top:6px;
     background:var(--panel-2);border:1px solid var(--line);border-radius:13px;
@@ -1030,7 +1041,10 @@ gtag('config', 'G-SYPQZL1L7W');
       <div id="persBlock">
         <div class="opt-label">Personalizzazione <span class="free">Gratis</span></div>
         <div class="pills" id="persModePills" style="display:none;margin-bottom:10px"></div>
-        <div class="pills" id="giocatorePills" style="display:none;margin-bottom:10px"></div>
+        <div id="giocatoreWrap" style="display:none;margin-bottom:10px">
+          <div class="opt-label" style="margin:0 0 8px">Seleziona il giocatore</div>
+          <select id="giocatoreSelect"></select>
+        </div>
         <div class="inputs-row" id="persInputsRow">
           <input type="text" id="pName" maxlength="15" placeholder="Nome (es. ALBERTO)">
           <input type="text" id="pNum" maxlength="2" inputmode="numeric" placeholder="Numero">
@@ -1658,7 +1672,8 @@ const S = { item:null, type:null, version:null, size:"M", patch:"Nessuna", patch
 const pName = document.getElementById("pName");
 const pNum  = document.getElementById("pNum");
 const persModePills = document.getElementById("persModePills");
-const giocatorePills = document.getElementById("giocatorePills");
+const giocatoreWrap = document.getElementById("giocatoreWrap");
+const giocatoreSelect = document.getElementById("giocatoreSelect");
 const persInputsRow = document.getElementById("persInputsRow");
 const patchLiberaInp = document.getElementById("patchLibera");
 
@@ -1694,11 +1709,11 @@ function rosaPerSquadraCorrente(){
 }
 function setPersMode(mode){
   S.persMode = mode;
-  giocatorePills.style.display = mode === "giocatore" ? "" : "none";
-  persInputsRow.style.display  = mode === "personalizzata" ? "" : "none";
+  giocatoreWrap.style.display = mode === "giocatore" ? "" : "none";
+  persInputsRow.style.display = mode === "personalizzata" ? "" : "none";
   if (mode === "nessuna"){ pName.value = ""; pNum.value = ""; }
   buildPersModePills();
-  if (mode === "giocatore") buildGiocatorePills();
+  if (mode === "giocatore") buildGiocatoreSelect();
   syncSheet();
 }
 function buildPersModePills(){
@@ -1714,23 +1729,28 @@ function buildPersModePills(){
     persModePills.appendChild(b);
   });
 }
-function buildGiocatorePills(){
+function buildGiocatoreSelect(){
   const rosa = rosaPerSquadraCorrente();
-  giocatorePills.innerHTML = "";
+  giocatoreSelect.innerHTML = "";
   if (!rosa) return;
   rosa.forEach(p=>{
-    const selected = pName.value.toUpperCase()===p.n.toUpperCase() && pNum.value===p.num;
-    const b = document.createElement("button");
-    b.className = "pill" + (selected ? " on" : "");
-    b.innerHTML = `<small>${p.num}</small> ${p.n}`;
-    b.onclick = ()=>{
-      pName.value = p.n.toUpperCase(); pNum.value = p.num;
-      buildGiocatorePills();
-      syncSheet();
-    };
-    giocatorePills.appendChild(b);
+    const opt = document.createElement("option");
+    opt.value = `${p.n}|${p.num}`;
+    opt.textContent = `${p.num} - ${p.n.toUpperCase()}`;
+    if (pName.value.toUpperCase()===p.n.toUpperCase() && pNum.value===p.num) opt.selected = true;
+    giocatoreSelect.appendChild(opt);
   });
+  // nessuna selezione pregressa: parte dal primo della rosa, come sullo store Inter
+  if (!pName.value){
+    const [n, num] = giocatoreSelect.value.split("|");
+    pName.value = n.toUpperCase(); pNum.value = num;
+  }
 }
+giocatoreSelect.addEventListener("change", ()=>{
+  const [n, num] = giocatoreSelect.value.split("|");
+  pName.value = n.toUpperCase(); pNum.value = num;
+  syncSheet();
+});
 
 /* ---- patch ufficiali (immagini e combo dal sito completinicalcio.it) ----
    Una sola patch per maglia (scelta singola). Le combo cambiano in base
