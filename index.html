@@ -1116,7 +1116,7 @@ gtag('config', 'G-SYPQZL1L7W');
           <input id="orderProvincia" type="text" maxlength="2" placeholder="Provincia *" autocomplete="address-level1">
           <input id="orderCap" type="text" inputmode="numeric" maxlength="5" placeholder="CAP *" autocomplete="postal-code">
           <input id="orderTel" type="tel" placeholder="Telefono *" autocomplete="tel">
-          <input id="orderEmail" class="wide" type="email" placeholder="Email (opzionale)" autocomplete="email">
+          <input id="orderEmail" class="wide" type="email" placeholder="Email *" autocomplete="email">
           <input id="orderSquadraCuore" class="wide" type="text" placeholder="Squadra del cuore (facoltativo)" autocomplete="off">
         </div>
       </div>
@@ -2079,8 +2079,8 @@ function updateBadge(){
   b.classList.toggle("empty", n === 0);
 }
 
-const ORDER_FIELDS = ["orderNome","orderCognome","orderIndirizzo","orderCitta","orderProvincia","orderCap","orderTel","orderPagamento"];
-ORDER_FIELDS.concat(["orderEmail","orderNote"]).forEach(id=>{
+const ORDER_FIELDS = ["orderNome","orderCognome","orderIndirizzo","orderCitta","orderProvincia","orderCap","orderTel","orderEmail","orderPagamento"];
+ORDER_FIELDS.concat(["orderNote"]).forEach(id=>{
   const el = document.getElementById(id);
   if (el) el.addEventListener("input", ()=>el.classList.remove("field-error"));
 });
