@@ -2274,18 +2274,28 @@ function inviaOrdineGestionale(order, cartItems, tier){
         price: eff, nome_giocatore, numero_maglia, patch: it.patch || "",
       };
     });
+    const payload = {
+      cliente: {
+        nome: order.nome, cognome: order.cognome, telefono: order.tel,
+        indirizzo: order.indirizzo, citta: order.citta, provincia: order.provincia,
+        cap: order.cap, email: order.email, squadra_cuore: order.squadraCuore,
+      },
+      metodo_pagamento: order.pagamento, note: order.note, articoli,
+    };
+    const SECRET = "bI6J_mKjyTgr518wkrXffWjpqRmo4YAd";
     fetch("https://mosaic-possum-crisping.ngrok-free.dev/api/ordine-sito", {
       method: "POST",
-      headers: { "Content-Type": "application/json", "X-Site-Secret": "bI6J_mKjyTgr518wkrXffWjpqRmo4YAd" },
-      body: JSON.stringify({
-        cliente: {
-          nome: order.nome, cognome: order.cognome, telefono: order.tel,
-          indirizzo: order.indirizzo, citta: order.citta, provincia: order.provincia,
-          cap: order.cap, email: order.email, squadra_cuore: order.squadraCuore,
-        },
-        metodo_pagamento: order.pagamento, note: order.note, articoli,
-      }),
-    }).catch(()=>{});
+      headers: { "Content-Type": "application/json", "X-Site-Secret": SECRET },
+      body: JSON.stringify(payload),
+    }).catch(()=>{
+      // Gestionale irraggiungibile (es. Mac spento): metti l'ordine in coda,
+      // verrà importato da solo appena il gestionale torna online.
+      fetch("https://csc-order-queue.csquadrecalcio.workers.dev/push", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-Site-Secret": SECRET },
+        body: JSON.stringify(payload),
+      }).catch(()=>{});
+    });
   }catch(e){}
 }
 
