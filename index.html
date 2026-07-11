@@ -1138,6 +1138,7 @@ gtag('config', 'G-SYPQZL1L7W');
         <span>Ho letto e accetto la <button type="button" id="openPrivacyLink">Privacy Policy</button> e il trattamento dei miei dati per l'evasione dell'ordine *</span>
       </label>
       <button class="btn btn-wa" id="cartCheckout" style="width:100%;margin-top:14px">Conferma e invia su WhatsApp</button>
+      <button class="btn btn-volt" id="cartPagaOra" style="width:100%;margin-top:8px">💳 Paga ora (test)</button>
       <button class="cart-clear" id="cartClear">Svuota carrello</button>
     </div>
   </aside>
@@ -2255,34 +2256,71 @@ document.getElementById("cartCheckout").onclick = ()=>{
   window.open(WA + encodeURIComponent(lines.join("\n")), "_blank");
 };
 
+document.getElementById("cartPagaOra").onclick = ()=>{
+  if (!cart.length) return;
+  if (!validateOrder()) return;
+  const order = getOrderData();
+  const { tier } = cartTotals();
+  const payload = buildOrdinePayload(order, cart, tier);
+  const btn = document.getElementById("cartPagaOra");
+  btn.disabled = true;
+  btn.textContent = "Attendere...";
+  fetch("https://mosaic-possum-crisping.ngrok-free.dev/api/crea-pagamento-stripe", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "X-Site-Secret": STRIPE_SITE_SECRET },
+    body: JSON.stringify(payload),
+  })
+    .then(r => r.json())
+    .then(data => {
+      if (data.ok && data.checkout_url){
+        window.location.href = data.checkout_url;
+      } else {
+        toast("Errore nel pagamento, riprova o usa WhatsApp");
+        btn.disabled = false;
+        btn.textContent = "💳 Paga ora (test)";
+      }
+    })
+    .catch(()=>{
+      toast("Gestionale non raggiungibile, usa \"Invia su WhatsApp\"");
+      btn.disabled = false;
+      btn.textContent = "💳 Paga ora (test)";
+    });
+};
+
+const STRIPE_SITE_SECRET = "bI6J_mKjyTgr518wkrXffWjpqRmo4YAd";
+
+function buildOrdinePayload(order, cartItems, tier){
+  const articoli = cartItems.map(it=>{
+    const eff = unitPriceFor(it, tier);
+    let nome_giocatore = "", numero_maglia = "";
+    if (it.pers){
+      const parts = it.pers.trim().split(/\s+/);
+      if (parts.length && /^\d+$/.test(parts[parts.length-1])){
+        numero_maglia = parts.pop();
+      }
+      nome_giocatore = parts.join(" ");
+    }
+    return {
+      name: it.name, tipoVersione: it.version, taglia: it.size, qty: it.qty,
+      price: eff, nome_giocatore, numero_maglia, patch: it.patch || "",
+    };
+  });
+  return {
+    cliente: {
+      nome: order.nome, cognome: order.cognome, telefono: order.tel,
+      indirizzo: order.indirizzo, citta: order.citta, provincia: order.provincia,
+      cap: order.cap, email: order.email, squadra_cuore: order.squadraCuore,
+    },
+    metodo_pagamento: order.pagamento, note: order.note, articoli,
+  };
+}
+
 /* Invia l'ordine anche al gestionale così si compila da solo, senza
    bloccare l'apertura di WhatsApp se il gestionale è offline/irraggiungibile. */
 function inviaOrdineGestionale(order, cartItems, tier){
   try{
-    const articoli = cartItems.map(it=>{
-      const eff = unitPriceFor(it, tier);
-      let nome_giocatore = "", numero_maglia = "";
-      if (it.pers){
-        const parts = it.pers.trim().split(/\s+/);
-        if (parts.length && /^\d+$/.test(parts[parts.length-1])){
-          numero_maglia = parts.pop();
-        }
-        nome_giocatore = parts.join(" ");
-      }
-      return {
-        name: it.name, tipoVersione: it.version, taglia: it.size, qty: it.qty,
-        price: eff, nome_giocatore, numero_maglia, patch: it.patch || "",
-      };
-    });
-    const payload = {
-      cliente: {
-        nome: order.nome, cognome: order.cognome, telefono: order.tel,
-        indirizzo: order.indirizzo, citta: order.citta, provincia: order.provincia,
-        cap: order.cap, email: order.email, squadra_cuore: order.squadraCuore,
-      },
-      metodo_pagamento: order.pagamento, note: order.note, articoli,
-    };
-    const SECRET = "bI6J_mKjyTgr518wkrXffWjpqRmo4YAd";
+    const payload = buildOrdinePayload(order, cartItems, tier);
+    const SECRET = STRIPE_SITE_SECRET;
     fetch("https://mosaic-possum-crisping.ngrok-free.dev/api/ordine-sito", {
       method: "POST",
       headers: { "Content-Type": "application/json", "X-Site-Secret": SECRET },
