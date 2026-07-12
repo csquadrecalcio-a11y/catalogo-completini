@@ -950,6 +950,19 @@ gtag('config', 'G-SYPQZL1L7W');
 <!-- ============ FOOTER ============ -->
 <footer id="contatti">
   <div class="container">
+    <div style="background:#0d1108;border:1px solid rgba(200,255,46,.25);border-radius:16px;padding:28px 24px;margin-bottom:36px;text-align:center">
+      <h4 style="margin:0 0 6px;color:#fff;font-size:18px">📬 Iscriviti alla newsletter</h4>
+      <p style="margin:0 0 16px;color:#9aa;font-size:14px">Codici sconto e novità in anteprima, via email.</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:10px">
+        <input type="email" id="newsletterEmail" placeholder="La tua email" style="background:#161a10;border:1px solid #333;border-radius:8px;padding:10px 14px;color:#fff;min-width:240px">
+        <button class="btn-volt" onclick="iscrivitiNewsletter()" style="border:none;border-radius:8px;padding:10px 20px;font-weight:700;cursor:pointer">Iscriviti</button>
+      </div>
+      <label style="display:flex;align-items:center;justify-content:center;gap:8px;color:#9aa;font-size:12.5px;cursor:pointer">
+        <input type="checkbox" id="newsletterConsenso" style="accent-color:var(--volt)">
+        Acconsento a ricevere email promozionali. Posso disiscrivermi quando voglio.
+      </label>
+      <div id="newsletterMsg" style="margin-top:10px;font-size:13px"></div>
+    </div>
     <div class="foot-grid">
       <div>
         <a href="#top" class="logo" style="margin-bottom:18px">
@@ -1180,6 +1193,9 @@ gtag('config', 'G-SYPQZL1L7W');
 
     <h3 style="font-size:15px;margin-top:20px;">Base giuridica</h3>
     <p>Il trattamento è necessario per l'esecuzione del contratto di vendita (art. 6 par. 1 lett. b GDPR).</p>
+
+    <h3 style="font-size:15px;margin-top:20px;">Newsletter</h3>
+    <p>Se ti iscrivi alla newsletter (email + consenso esplicito nel footer del sito) riceverai comunicazioni promozionali: codici sconto, novità, offerte. Questo trattamento è basato sul tuo consenso (art. 6 par. 1 lett. a GDPR) ed è separato e indipendente dai dati raccolti per gli ordini. Puoi disiscriverti in qualsiasi momento tramite il link presente in ogni email promozionale.</p>
 
     <h3 style="font-size:15px;margin-top:20px;">Conservazione dei dati</h3>
     <p>I dati vengono conservati per il tempo necessario a soddisfare le finalità sopra indicate e per adempiere agli obblighi di legge (max 10 anni per documentazione fiscale).</p>
@@ -2326,6 +2342,44 @@ function inviaCarrelloParziale(){
   }).catch(()=>{});
 }
 document.getElementById("orderEmail").addEventListener("blur", inviaCarrelloParziale);
+
+/* Iscrizione newsletter (footer): consenso esplicito e separato dall'ordine. */
+function iscrivitiNewsletter(){
+  const emailEl = document.getElementById("newsletterEmail");
+  const consensoEl = document.getElementById("newsletterConsenso");
+  const msg = document.getElementById("newsletterMsg");
+  const email = emailEl.value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    msg.style.color = "#ff6b6b";
+    msg.textContent = "Inserisci un'email valida.";
+    return;
+  }
+  if (!consensoEl.checked){
+    msg.style.color = "#ff6b6b";
+    msg.textContent = "Devi accettare per iscriverti.";
+    return;
+  }
+  msg.style.color = "#9aa";
+  msg.textContent = "Invio in corso…";
+  fetch("https://mosaic-possum-crisping.ngrok-free.dev/api/newsletter-iscrizione", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "X-Site-Secret": STRIPE_SITE_SECRET },
+    body: JSON.stringify({ email, consenso: true }),
+  }).then(r => r.json()).then(data => {
+    if (data.ok){
+      msg.style.color = "var(--volt)";
+      msg.textContent = "Iscritto! Controlla la tua email.";
+      emailEl.value = "";
+      consensoEl.checked = false;
+    } else {
+      msg.style.color = "#ff6b6b";
+      msg.textContent = "Qualcosa non ha funzionato, riprova.";
+    }
+  }).catch(() => {
+    msg.style.color = "#ff6b6b";
+    msg.textContent = "Errore di rete, riprova.";
+  });
+}
 
 /* toast */
 let toastT;
