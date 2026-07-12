@@ -1113,6 +1113,12 @@ gtag('config', 'G-SYPQZL1L7W');
       <div class="cart-row"><span>Articoli</span><b id="cartCount">0</b></div>
       <div class="cart-row"><span>Subtotale</span><b id="cartSub">0€</b></div>
       <div class="cart-row cart-disc" id="cartDiscRow" style="display:none"><span id="cartDiscLbl">Sconto</span><b id="cartDisc">0€</b></div>
+      <div style="display:flex;gap:6px;margin:10px 0">
+        <input type="text" id="codiceScontoInput" placeholder="Codice sconto" style="flex:1;background:#161a10;border:1px solid #333;border-radius:8px;padding:8px 10px;color:#fff;font-size:13px;text-transform:uppercase">
+        <button id="btnApplicaCodice" class="btn btn-ghost" style="padding:8px 14px;font-size:13px">Applica</button>
+      </div>
+      <div id="codiceScontoMsg" style="font-size:12px;margin:-4px 0 8px"></div>
+      <div class="cart-row cart-disc" id="cartCodiceDiscRow" style="display:none"><span>Codice sconto</span><b id="cartCodiceDisc">0€</b></div>
       <div class="cart-row cart-total"><span>Totale stimato</span><b id="cartTotal">0€</b></div>
       <div class="prog cart-prog">
         <div class="prog-track"><div class="prog-fill" id="cartProgFill"></div></div>
@@ -2087,7 +2093,7 @@ function changeQty(i, d){
   saveCart(); renderCart();
 }
 function removeItem(i){ cart.splice(i,1); saveCart(); renderCart(); }
-function clearCart(){ cart = []; saveCart(); renderCart(); }
+function clearCart(){ cart = []; codiceScontoApplicato = null; saveCart(); renderCart(); }
 
 function updateBadge(){
   const b = document.getElementById("cartBadge");
@@ -2102,15 +2108,28 @@ ORDER_FIELDS.concat(["orderNote"]).forEach(id=>{
   if (el) el.addEventListener("input", ()=>el.classList.remove("field-error"));
 });
 
+/* Codici sconto fissi (percentuale). Per aggiungerne/toglierne uno basta
+   modificare questa riga — non serve nessuna gestione lato gestionale. */
+const CODICI_SCONTO = { "BENVENUTO10": 10 };
+let codiceScontoApplicato = null;
+
 function cartTotals(){
   const qCount = qualifyingCount();
   const tier = tierFor(qCount);
-  let sub = 0, total = 0;
+  let sub = 0, totalQty = 0;
   cart.forEach(i=>{
-    sub += i.price * i.qty;               // prezzo pieno originale
-    total += unitPriceFor(i, tier) * i.qty; // prezzo effettivo alla fascia raggiunta
+    sub += i.price * i.qty;                  // prezzo pieno originale
+    totalQty += unitPriceFor(i, tier) * i.qty; // prezzo effettivo alla fascia raggiunta
   });
-  return { sub, n: cartCount(), qCount, tier, total, discount: sub-total };
+  const codicePct = (codiceScontoApplicato && CODICI_SCONTO[codiceScontoApplicato]) || 0;
+  const codiceDiscount = Math.round(totalQty * codicePct) / 100;
+  const total = totalQty - codiceDiscount;
+  return {
+    sub, n: cartCount(), qCount, tier, total,
+    discount: sub - totalQty,
+    codiceSconto: codicePct ? codiceScontoApplicato : null,
+    codicePct, codiceDiscount,
+  };
 }
 
 function getOrderData(){
@@ -2177,7 +2196,7 @@ function renderCart(){
     return;
   }
   empty.style.display = "none"; foot.style.display = "block"; wrap.style.display = "flex";
-  const { sub, n, qCount, tier, total } = cartTotals();
+  const { sub, n, qCount, tier, total, discount, codiceDiscount } = cartTotals();
   cart.forEach((it,i)=>{
     const eff = unitPriceFor(it, tier);
     const meta = [it.version, `taglia ${it.size}`]
@@ -2207,17 +2226,39 @@ function renderCart(){
   document.getElementById("cartCount").textContent = n;
   document.getElementById("cartSub").textContent = `${sub}€`;
   const discRow = document.getElementById("cartDiscRow");
-  const discountAmt = sub - total;
-  if (discountAmt > 0){
+  if (discount > 0){
     discRow.style.display = "flex";
     document.getElementById("cartDiscLbl").textContent = "Sconto quantità applicato";
-    document.getElementById("cartDisc").textContent = `−${discountAmt}€`;
+    document.getElementById("cartDisc").textContent = `−${discount}€`;
   } else discRow.style.display = "none";
+  const codiceDiscRow = document.getElementById("cartCodiceDiscRow");
+  if (codiceDiscount > 0){
+    codiceDiscRow.style.display = "flex";
+    document.getElementById("cartCodiceDisc").textContent = `−${codiceDiscount}€`;
+  } else codiceDiscRow.style.display = "none";
   document.getElementById("cartTotal").textContent = `${total}€`;
   const p = discountProgress(qCount);
   document.getElementById("cartProgFill").style.width = p.pct + "%";
   document.getElementById("cartHint").textContent = p.text;
 }
+
+function applicaCodiceSconto(){
+  const input = document.getElementById("codiceScontoInput");
+  const msg = document.getElementById("codiceScontoMsg");
+  const code = input.value.trim().toUpperCase();
+  if (!code){ msg.style.color = "#ff6b6b"; msg.textContent = "Inserisci un codice."; return; }
+  if (CODICI_SCONTO[code]){
+    codiceScontoApplicato = code;
+    msg.style.color = "var(--volt)";
+    msg.textContent = `✅ Codice applicato: −${CODICI_SCONTO[code]}%`;
+  } else {
+    codiceScontoApplicato = null;
+    msg.style.color = "#ff6b6b";
+    msg.textContent = "Codice non valido.";
+  }
+  renderCart();
+}
+document.getElementById("btnApplicaCodice").onclick = applicaCodiceSconto;
 
 function openCart(){ renderCart(); document.getElementById("cartOverlay").classList.add("open"); document.body.style.overflow = "hidden"; }
 function closeCart(){ document.getElementById("cartOverlay").classList.remove("open"); document.body.style.overflow = ""; }
@@ -2240,7 +2281,7 @@ document.getElementById("cartCheckout").onclick = ()=>{
   if (!cart.length) return;
   if (!validateOrder()) return;
   const order = getOrderData();
-  const { sub, n, total, discount, tier } = cartTotals();
+  const { sub, n, total, discount, tier, codiceSconto, codiceDiscount } = cartTotals();
   const lines = ["🛒 *ORDINE — Completini Squadre Calcio 2.0*", "━━━━━━━━━━━━━━━━━━"];
   cart.forEach((it,i)=>{
     const eff = unitPriceFor(it, tier);
@@ -2254,6 +2295,7 @@ document.getElementById("cartCheckout").onclick = ()=>{
   lines.push(`📦 Articoli totali: ${n}`);
   lines.push(`💶 Subtotale: ${sub}€`);
   if (discount > 0) lines.push(`🏷 Sconto quantità applicato: −${discount}€`);
+  if (codiceSconto) lines.push(`🎟 Codice ${codiceSconto}: −${codiceDiscount}€`);
   lines.push(`💶 Totale stimato: ${total}€`);
   lines.push("🚚 Spedizione: GRATUITA");
   lines.push("━━━━━━━━━━━━━━━━━━");
@@ -2268,13 +2310,13 @@ document.getElementById("cartCheckout").onclick = ()=>{
   lines.push("💳 *PAGAMENTO*");
   lines.push(order.pagamento);
   if (order.note) lines.push(`📝 Note: ${order.note}`);
-  inviaOrdineGestionale(order, cart, tier);
+  inviaOrdineGestionale(order, cart, tier, { codiceSconto, codiceDiscount });
   window.open(WA + encodeURIComponent(lines.join("\n")), "_blank");
 };
 
 const STRIPE_SITE_SECRET = "bI6J_mKjyTgr518wkrXffWjpqRmo4YAd";
 
-function buildOrdinePayload(order, cartItems, tier){
+function buildOrdinePayload(order, cartItems, tier, sconto){
   const articoli = cartItems.map(it=>{
     const eff = unitPriceFor(it, tier);
     let nome_giocatore = "", numero_maglia = "";
@@ -2297,14 +2339,16 @@ function buildOrdinePayload(order, cartItems, tier){
       cap: order.cap, email: order.email, squadra_cuore: order.squadraCuore,
     },
     metodo_pagamento: order.pagamento, note: order.note, articoli,
+    sconto_codice: (sconto && sconto.codiceSconto) || "",
+    sconto_importo: (sconto && sconto.codiceDiscount) || 0,
   };
 }
 
 /* Invia l'ordine anche al gestionale così si compila da solo, senza
    bloccare l'apertura di WhatsApp se il gestionale è offline/irraggiungibile. */
-function inviaOrdineGestionale(order, cartItems, tier){
+function inviaOrdineGestionale(order, cartItems, tier, sconto){
   try{
-    const payload = buildOrdinePayload(order, cartItems, tier);
+    const payload = buildOrdinePayload(order, cartItems, tier, sconto);
     const SECRET = STRIPE_SITE_SECRET;
     fetch("https://mosaic-possum-crisping.ngrok-free.dev/api/ordine-sito", {
       method: "POST",
