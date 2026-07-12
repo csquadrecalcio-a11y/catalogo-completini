@@ -680,6 +680,20 @@ gtag('config', 'G-SYPQZL1L7W');
 
 <div class="strip"><span id="stripShip">🚚 Spedizione gratuita in tutta Italia</span> · ✏️ Nome e numero GRATIS · 🏷 Da 5 pezzi −17% · Da 10 pezzi −33%</div>
 
+<div id="newsletterBanner" style="background:linear-gradient(90deg,#141a08,#0d1108);border-bottom:1px solid rgba(200,255,46,.3);padding:12px 20px;position:relative">
+  <div style="display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;max-width:820px;margin:0 auto;padding-right:26px">
+    <span style="color:#fff;font-size:13.5px;font-weight:600">🎉 Iscriviti e ricevi subito <span style="color:var(--volt)">−10%</span> sul primo ordine!</span>
+    <input type="email" id="bannerEmail" placeholder="La tua email" style="background:#161a10;border:1px solid #333;border-radius:6px;padding:7px 10px;color:#fff;font-size:13px;width:190px">
+    <label style="display:flex;align-items:center;gap:4px;color:#9aa;font-size:11px;cursor:pointer">
+      <input type="checkbox" id="bannerConsenso" style="accent-color:var(--volt)">
+      Accetto la <a href="#" onclick="openPrivacy();return false" style="color:var(--volt)">Privacy Policy</a>
+    </label>
+    <button class="btn-volt" onclick="iscrivitiNewsletterBanner()" style="border:none;border-radius:6px;padding:7px 16px;font-weight:700;font-size:13px;cursor:pointer;white-space:nowrap">Iscriviti −10%</button>
+  </div>
+  <div id="bannerMsg" style="text-align:center;font-size:12px;margin-top:6px"></div>
+  <button onclick="chiudiNewsletterBanner()" aria-label="Chiudi" style="position:absolute;top:10px;right:14px;background:none;border:none;color:#9aa;font-size:18px;cursor:pointer;line-height:1">✕</button>
+</div>
+
 <header>
   <div class="container nav">
     <a href="#top" class="logo">
@@ -2388,10 +2402,10 @@ function inviaCarrelloParziale(){
 document.getElementById("orderEmail").addEventListener("blur", inviaCarrelloParziale);
 
 /* Iscrizione newsletter (footer): consenso esplicito e separato dall'ordine. */
-function iscrivitiNewsletter(){
-  const emailEl = document.getElementById("newsletterEmail");
-  const consensoEl = document.getElementById("newsletterConsenso");
-  const msg = document.getElementById("newsletterMsg");
+function iscrivitiNewsletterGenerico(emailId, consensoId, msgId, onSuccess){
+  const emailEl = document.getElementById(emailId);
+  const consensoEl = document.getElementById(consensoId);
+  const msg = document.getElementById(msgId);
   const email = emailEl.value.trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
     msg.style.color = "#ff6b6b";
@@ -2412,9 +2426,10 @@ function iscrivitiNewsletter(){
   }).then(r => r.json()).then(data => {
     if (data.ok){
       msg.style.color = "var(--volt)";
-      msg.textContent = "Iscritto! Controlla la tua email.";
+      msg.textContent = "Iscritto! Controlla la tua email per il codice sconto.";
       emailEl.value = "";
       consensoEl.checked = false;
+      if (onSuccess) onSuccess();
     } else {
       msg.style.color = "#ff6b6b";
       msg.textContent = "Qualcosa non ha funzionato, riprova.";
@@ -2424,6 +2439,25 @@ function iscrivitiNewsletter(){
     msg.textContent = "Errore di rete, riprova.";
   });
 }
+function iscrivitiNewsletter(){
+  iscrivitiNewsletterGenerico("newsletterEmail", "newsletterConsenso", "newsletterMsg");
+}
+function iscrivitiNewsletterBanner(){
+  iscrivitiNewsletterGenerico("bannerEmail", "bannerConsenso", "bannerMsg", () => {
+    setTimeout(chiudiNewsletterBanner, 2500);
+  });
+}
+function chiudiNewsletterBanner(){
+  const el = document.getElementById("newsletterBanner");
+  if (el) el.style.display = "none";
+  try { localStorage.setItem("newsletterBannerDismissed", "1"); } catch(e){}
+}
+try {
+  if (localStorage.getItem("newsletterBannerDismissed") === "1"){
+    const el = document.getElementById("newsletterBanner");
+    if (el) el.style.display = "none";
+  }
+} catch(e){}
 
 /* toast */
 let toastT;
