@@ -2107,7 +2107,7 @@ function changeQty(i, d){
   saveCart(); renderCart();
 }
 function removeItem(i){ cart.splice(i,1); saveCart(); renderCart(); }
-function clearCart(){ cart = []; codiceScontoApplicato = null; saveCart(); renderCart(); }
+function clearCart(){ cart = []; codiceScontoApplicato = null; codiceScontoPercentuale = 0; saveCart(); renderCart(); }
 
 function updateBadge(){
   const b = document.getElementById("cartBadge");
@@ -2122,10 +2122,10 @@ ORDER_FIELDS.concat(["orderNote"]).forEach(id=>{
   if (el) el.addEventListener("input", ()=>el.classList.remove("field-error"));
 });
 
-/* Codici sconto fissi (percentuale). Per aggiungerne/toglierne uno basta
-   modificare questa riga — non serve nessuna gestione lato gestionale. */
-const CODICI_SCONTO = { "BENVENUTO10": 10 };
+/* Codici sconto personali monouso: generati dal gestionale per chi si
+   iscrive alla newsletter, verificati qui via API (non un elenco fisso). */
 let codiceScontoApplicato = null;
+let codiceScontoPercentuale = 0;
 
 function cartTotals(){
   const qCount = qualifyingCount();
@@ -2135,7 +2135,7 @@ function cartTotals(){
     sub += i.price * i.qty;                  // prezzo pieno originale
     totalQty += unitPriceFor(i, tier) * i.qty; // prezzo effettivo alla fascia raggiunta
   });
-  const codicePct = (codiceScontoApplicato && CODICI_SCONTO[codiceScontoApplicato]) || 0;
+  const codicePct = codiceScontoApplicato ? codiceScontoPercentuale : 0;
   const codiceDiscount = Math.round(totalQty * codicePct) / 100;
   const total = totalQty - codiceDiscount;
   return {
@@ -2259,18 +2259,35 @@ function renderCart(){
 function applicaCodiceSconto(){
   const input = document.getElementById("codiceScontoInput");
   const msg = document.getElementById("codiceScontoMsg");
+  const btn = document.getElementById("btnApplicaCodice");
   const code = input.value.trim().toUpperCase();
   if (!code){ msg.style.color = "#ff6b6b"; msg.textContent = "Inserisci un codice."; return; }
-  if (CODICI_SCONTO[code]){
-    codiceScontoApplicato = code;
-    msg.style.color = "var(--volt)";
-    msg.textContent = `✅ Codice applicato: −${CODICI_SCONTO[code]}%`;
-  } else {
-    codiceScontoApplicato = null;
+  msg.style.color = "#9aa";
+  msg.textContent = "Verifica in corso…";
+  btn.disabled = true;
+  fetch("https://mosaic-possum-crisping.ngrok-free.dev/api/verifica-codice-sconto", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "X-Site-Secret": STRIPE_SITE_SECRET },
+    body: JSON.stringify({ codice: code }),
+  }).then(r => r.json()).then(data => {
+    btn.disabled = false;
+    if (data.ok){
+      codiceScontoApplicato = code;
+      codiceScontoPercentuale = data.percentuale;
+      msg.style.color = "var(--volt)";
+      msg.textContent = `✅ Codice applicato: −${data.percentuale}%`;
+    } else {
+      codiceScontoApplicato = null;
+      codiceScontoPercentuale = 0;
+      msg.style.color = "#ff6b6b";
+      msg.textContent = data.error || "Codice non valido.";
+    }
+    renderCart();
+  }).catch(() => {
+    btn.disabled = false;
     msg.style.color = "#ff6b6b";
-    msg.textContent = "Codice non valido.";
-  }
-  renderCart();
+    msg.textContent = "Errore di rete, riprova.";
+  });
 }
 document.getElementById("btnApplicaCodice").onclick = applicaCodiceSconto;
 
