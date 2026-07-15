@@ -2173,7 +2173,12 @@ function validateOrder(){
     firstInvalid = firstInvalid || cap;
   }
   const email = document.getElementById("orderEmail");
-  if (email && email.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
+  const emailVal = email ? email.value.trim() : "";
+  // Formato base (qualcosa@qualcosa.qualcosa) + blocca domini con l'estensione
+  // ripetuta per errore (es. "virgilio.it.it", "gmail.com.com")
+  const emailFormatOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
+  const emailDupTld = /\.([a-z]{2,})\.\1$/i.test(emailVal);
+  if (email && emailVal && (!emailFormatOk || emailDupTld)){
     email.classList.add("field-error");
     firstInvalid = firstInvalid || email;
   }
