@@ -89,12 +89,27 @@ gtag('config', 'G-SYPQZL1L7W');
     --bg:#07090f;
     --panel:#0d1119;
     --panel-2:#111726;
-    --line:rgba(255,255,255,.08);
+    --line:rgba(var(--fg-rgb),.08);
     --text:#f2f4f8;
     --muted:#9aa3b5;
     --volt:#c8ff2e;
     --wa:#25d366;
     --radius:20px;
+    --bg-rgb:7,9,15;
+    --fg-rgb:255,255,255;
+  }
+  /* segue l'aspetto chiaro/scuro del sistema (macOS: automatico mattina/sera) */
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#f6f7fa;
+      --panel:#ffffff;
+      --panel-2:#f0f2f6;
+      --line:rgba(10,14,25,.10);
+      --text:#12141a;
+      --muted:#5b6272;
+      --bg-rgb:246,247,250;
+      --fg-rgb:10,14,25;
+    }
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -121,7 +136,7 @@ gtag('config', 'G-SYPQZL1L7W');
   header{
     position:sticky;top:0;z-index:50;
     backdrop-filter:blur(16px);
-    background:rgba(7,9,15,.72);
+    background:rgba(var(--bg-rgb),.72);
     border-bottom:1px solid var(--line);
   }
   .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
@@ -132,8 +147,17 @@ gtag('config', 'G-SYPQZL1L7W');
   }
   .logo b{display:block;font-size:15.5px;font-weight:800;line-height:1.2}
   .logo small{display:block;font-size:10.5px;font-weight:600;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
-  .nav-links{display:flex;gap:26px;font-size:14px;font-weight:600;color:var(--muted)}
+  .nav-links{display:flex;gap:18px;font-size:13.5px;font-weight:600;color:var(--muted);flex:none;white-space:nowrap}
   .nav-links a:hover{color:var(--text)}
+  .header-search{position:relative;flex:1;min-width:0;max-width:280px;margin:0 20px}
+  .header-search input{
+    width:100%;background:var(--panel-2);border:1px solid var(--line);border-radius:999px;
+    padding:11px 16px 11px 40px;color:var(--text);font-size:14px;font-weight:600;
+    outline:none;transition:border-color .18s ease;
+  }
+  .header-search input:focus{border-color:var(--volt)}
+  .header-search input::placeholder{color:var(--muted);opacity:1}
+  .header-search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);opacity:.5;pointer-events:none}
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:10px;
     padding:13px 24px;border-radius:999px;
@@ -142,8 +166,8 @@ gtag('config', 'G-SYPQZL1L7W');
   }
   .btn:hover{transform:translateY(-2px)}
   .btn-wa{background:var(--wa);color:#062b16;box-shadow:0 8px 28px rgba(37,211,102,.35)}
-  .btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.22)}
-  .btn-ghost:hover{border-color:rgba(255,255,255,.5)}
+  .btn-ghost{background:transparent;color:var(--text);border:1px solid rgba(var(--fg-rgb),.22)}
+  .btn-ghost:hover{border-color:rgba(var(--fg-rgb),.5)}
   .btn-volt{background:var(--volt);color:#0a0d05;box-shadow:0 8px 28px rgba(200,255,46,.2)}
 
   /* ---------- hero ---------- */
@@ -179,7 +203,7 @@ gtag('config', 'G-SYPQZL1L7W');
   .showcase{
     position:relative;width:min(400px,86%);aspect-ratio:4/5;
     border-radius:26px;overflow:hidden;
-    border:1px solid rgba(255,255,255,.14);
+    border:1px solid rgba(var(--fg-rgb),.14);
     box-shadow:0 40px 90px rgba(0,0,0,.6);
     background:var(--panel-2);
     animation:float 6s ease-in-out infinite;
@@ -204,13 +228,13 @@ gtag('config', 'G-SYPQZL1L7W');
     white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   }
   .showcase-dots{position:absolute;left:0;right:0;bottom:-30px;display:flex;justify-content:center;gap:8px}
-  .showcase-dots span{width:7px;height:7px;border-radius:999px;background:rgba(255,255,255,.25);transition:all .3s ease}
+  .showcase-dots span{width:7px;height:7px;border-radius:999px;background:rgba(var(--fg-rgb),.25);transition:all .3s ease}
   .showcase-dots span.on{background:var(--volt);width:20px}
   @keyframes float{0%,100%{translate:0 0}50%{translate:0 -14px}}
 
   .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:18px 0;background:var(--panel)}
   .marquee-track{display:flex;gap:56px;width:max-content;animation:scroll 40s linear infinite}
-  .marquee span{font-family:'Archivo Black';text-transform:uppercase;font-size:15px;color:rgba(255,255,255,.35);letter-spacing:.1em;white-space:nowrap}
+  .marquee span{font-family:'Archivo Black';text-transform:uppercase;font-size:15px;color:rgba(var(--fg-rgb),.35);letter-spacing:.1em;white-space:nowrap}
   .marquee span i{color:var(--volt);font-style:normal;margin-right:56px}
   @keyframes scroll{to{transform:translateX(-50%)}}
 
@@ -221,8 +245,7 @@ gtag('config', 'G-SYPQZL1L7W');
 
   /* ---------- catalogo ---------- */
   .cat-tabs{
-    display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;margin-bottom:18px;
-    scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.15) transparent;
+    display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;
   }
   .tab{
     flex:none;padding:10px 18px;border-radius:999px;font-size:13.5px;font-weight:700;
@@ -239,6 +262,24 @@ gtag('config', 'G-SYPQZL1L7W');
     transition:all .15s ease;white-space:nowrap;
   }
   .chip-t.active{border-color:var(--volt);color:var(--volt);background:rgba(200,255,46,.08)}
+  .filters-bar{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:22px}
+  .price-chips{display:flex;gap:8px;flex-wrap:wrap}
+  .chip-p{
+    flex:none;padding:8px 15px;border-radius:999px;font-size:12.5px;font-weight:700;
+    background:transparent;color:var(--muted);border:1px solid var(--line);cursor:pointer;
+    transition:all .15s ease;white-space:nowrap;
+  }
+  .chip-p.active{border-color:var(--volt);color:var(--volt);background:rgba(200,255,46,.08)}
+  .sort-select{
+    background:var(--panel-2);border:1px solid var(--line);color:var(--text);
+    padding:10px 36px 10px 16px;border-radius:999px;font-size:12.5px;font-weight:700;
+    outline:none;cursor:pointer;appearance:none;-webkit-appearance:none;
+    background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+    background-position:calc(100% - 20px) 55%,calc(100% - 15px) 55%;
+    background-size:5px 5px,5px 5px;background-repeat:no-repeat;
+    transition:border-color .15s ease;
+  }
+  .sort-select:focus{border-color:var(--volt)}
   .search{position:relative;flex:none}
   .search input{
     background:var(--panel-2);border:1px solid var(--line);border-radius:999px;
@@ -304,7 +345,7 @@ gtag('config', 'G-SYPQZL1L7W');
   .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .offer{
     position:relative;border-radius:var(--radius);padding:2px;
-    background:linear-gradient(135deg, rgba(200,255,46,.5), rgba(37,211,102,.1) 50%, rgba(255,255,255,.06));
+    background:linear-gradient(135deg, rgba(200,255,46,.5), rgba(37,211,102,.1) 50%, rgba(var(--fg-rgb),.06));
   }
   .offer-inner{background:var(--panel-2);border-radius:18px;padding:34px 28px;height:100%}
   .offer .pct{font-family:'Archivo Black';font-size:46px;color:var(--volt);margin-bottom:10px}
@@ -322,7 +363,7 @@ gtag('config', 'G-SYPQZL1L7W');
     font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
   }
   tbody tr{border-top:1px solid var(--line)}
-  tbody tr:hover{background:rgba(255,255,255,.02)}
+  tbody tr:hover{background:rgba(var(--fg-rgb),.02)}
   td b{font-family:'Archivo Black';font-size:15px}
   td{color:var(--muted);font-weight:500}
   .size-note{margin-top:18px;font-size:13.5px;color:var(--muted);line-height:1.6}
@@ -380,9 +421,9 @@ gtag('config', 'G-SYPQZL1L7W');
   }
   .foot-teams-grid a:hover{border-color:var(--volt);color:var(--volt)}
   .foot-legal{border-top:1px solid var(--line);padding-top:24px;margin-bottom:24px}
-  .foot-legal p{font-size:11.5px;line-height:1.7;color:rgba(255,255,255,.4);margin-bottom:10px}
+  .foot-legal p{font-size:11.5px;line-height:1.7;color:rgba(var(--fg-rgb),.4);margin-bottom:10px}
   .foot-legal p:last-child{margin-bottom:0}
-  .foot-legal strong{color:rgba(255,255,255,.62)}
+  .foot-legal strong{color:rgba(var(--fg-rgb),.62)}
   .foot-bottom{border-top:1px solid var(--line);padding-top:26px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
 
   .fab{
@@ -402,7 +443,7 @@ gtag('config', 'G-SYPQZL1L7W');
   }
   .overlay.open{display:flex}
   .sheet{
-    background:var(--panel);border:1px solid rgba(255,255,255,.12);
+    background:var(--panel);border:1px solid rgba(var(--fg-rgb),.12);
     border-radius:26px;width:min(1000px,100%);max-height:92vh;
     display:grid;grid-template-columns:1fr 1.05fr;overflow:hidden;
     animation:pop .28s cubic-bezier(.2,.9,.3,1.2);
@@ -456,7 +497,7 @@ gtag('config', 'G-SYPQZL1L7W');
     transition:all .15s ease;
   }
   .pill small{color:var(--muted);font-weight:600;margin-left:6px}
-  .pill:hover{border-color:rgba(255,255,255,.3)}
+  .pill:hover{border-color:rgba(var(--fg-rgb),.3)}
   .pill.on{background:rgba(200,255,46,.12);border-color:var(--volt);color:var(--volt)}
   .pill.on small{color:rgba(200,255,46,.7)}
   .patch-pills .pill{display:inline-flex;align-items:center;gap:8px}
@@ -526,7 +567,7 @@ gtag('config', 'G-SYPQZL1L7W');
     background:var(--volt);color:#0a0d05;font-size:11px;font-weight:900;
     display:grid;place-items:center;
   }
-  .cart-badge.empty{background:rgba(255,255,255,.12);color:var(--muted)}
+  .cart-badge.empty{background:rgba(var(--fg-rgb),.12);color:var(--muted)}
 
   /* ---------- cart drawer ---------- */
   .cart-overlay{
@@ -537,12 +578,12 @@ gtag('config', 'G-SYPQZL1L7W');
   .cart-overlay.open{display:flex}
   .cart-drawer{
     width:min(480px,100%);height:100%;background:var(--panel);
-    border-left:1px solid rgba(255,255,255,.12);
+    border-left:1px solid rgba(var(--fg-rgb),.12);
     display:flex;flex-direction:column;overflow-y:auto;
     animation:slideIn .3s cubic-bezier(.2,.9,.3,1);
   }
   @keyframes slideIn{from{transform:translateX(100%)}to{transform:none}}
-  .cart-head .sheet-close{position:static;flex:none;background:rgba(255,255,255,.05)}
+  .cart-head .sheet-close{position:static;flex:none;background:rgba(var(--fg-rgb),.05)}
   .cart-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:22px 24px;border-bottom:1px solid var(--line)}
   .cart-head h3{font-size:18px;font-weight:800}
   .cart-head-actions{display:flex;align-items:center;gap:8px}
@@ -593,7 +634,7 @@ gtag('config', 'G-SYPQZL1L7W');
 
   /* ---------- barra sconto ---------- */
   .prog{margin-top:14px}
-  .prog-track{height:9px;border-radius:999px;background:rgba(255,255,255,.09);overflow:hidden;border:1px solid var(--line)}
+  .prog-track{height:9px;border-radius:999px;background:rgba(var(--fg-rgb),.09);overflow:hidden;border:1px solid var(--line)}
   .prog-fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--wa),var(--volt));box-shadow:0 0 14px rgba(200,255,46,.4);transition:width .5s cubic-bezier(.2,.9,.3,1)}
   .prog-text{font-size:12.5px;color:var(--volt);font-weight:700;text-align:center;margin-top:9px;min-height:16px;line-height:1.4}
   .cart-prog{margin-top:4px;margin-bottom:6px}
@@ -652,13 +693,16 @@ gtag('config', 'G-SYPQZL1L7W');
   }
   .reveal.in{opacity:1;transform:perspective(1200px) rotateX(0deg) translateY(0) scale(1)}
 
+  @media (max-width:1300px){
+    .nav-links{display:none}
+    .header-search{max-width:none;margin:0 16px}
+  }
   @media (max-width:1000px){
     .hero-grid{grid-template-columns:1fr}
     .hero-stack{order:-1;height:340px}
     .showcase{width:min(300px,80%)}
     .offer-grid,.steps,.reviews{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr}
-    .nav-links{display:none}
     section{padding:64px 0}
     .sheet{grid-template-columns:1fr;max-height:94vh;overflow-y:auto}
     .sheet-preview{border-right:none;border-bottom:1px solid var(--line);min-height:300px}
@@ -667,6 +711,8 @@ gtag('config', 'G-SYPQZL1L7W');
     .search{width:100%}
     .search input{width:100%}
     .toolbar{align-items:stretch;flex-direction:column}
+    .filters-bar{align-items:stretch;flex-direction:column}
+    .sort-select{width:100%}
   }
   @media (max-width:460px){
     .inputs-row{grid-template-columns:1fr}
@@ -674,6 +720,9 @@ gtag('config', 'G-SYPQZL1L7W');
     .total-bar .tot{font-size:26px}
     .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
     .card h3{font-size:13px;min-height:36px}
+    .logo small{display:none}
+    .cart-btn span:not(.cart-badge){display:none}
+    .header-search{margin:0 8px}
   }
 
 </style>
@@ -695,6 +744,10 @@ gtag('config', 'G-SYPQZL1L7W');
       <img class="logo-mark" src="https://completinicalcio.it/logo.jpg" alt="Completini Squadre Calcio 2.0">
       <span><b>Completini Squadre Calcio 2.0</b><small>Maglie personalizzate</small></span>
     </a>
+    <div class="header-search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+      <input id="headerSearchInp" type="text" placeholder="Cerca maglia, squadra…">
+    </div>
     <nav class="nav-links">
       <a href="#catalogo">Catalogo</a>
       <a href="#offerte">Offerte</a>
@@ -764,6 +817,19 @@ gtag('config', 'G-SYPQZL1L7W');
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
         <input id="searchInp" type="text" placeholder="Cerca nel catalogo…">
       </div>
+    </div>
+    <div class="filters-bar reveal">
+      <div class="price-chips" id="priceChips">
+        <button class="chip-p active" data-min="0" data-max="Infinity">Tutti i prezzi</button>
+        <button class="chip-p" data-min="0" data-max="30">Fino a 30€</button>
+        <button class="chip-p" data-min="30" data-max="40">30€ – 40€</button>
+        <button class="chip-p" data-min="40" data-max="Infinity">Oltre 40€</button>
+      </div>
+      <select id="sortSel" class="sort-select" aria-label="Ordina per">
+        <option value="">Consigliati</option>
+        <option value="price-asc">Prezzo: dal più basso</option>
+        <option value="price-desc">Prezzo: dal più alto</option>
+      </select>
     </div>
     <div class="grid" id="catalog"></div>
     <div class="cat-note" id="catNote"></div>
@@ -1418,6 +1484,40 @@ const noteEl = document.getElementById("catNote");
 const moreBtn = document.getElementById("moreBtn");
 const searchInp = document.getElementById("searchInp");
 const chipsEl = document.getElementById("teamChips");
+const headerSearchInp = document.getElementById("headerSearchInp");
+headerSearchInp.addEventListener("focus", ()=>{
+  document.getElementById("catalogo").scrollIntoView({behavior:"smooth"});
+});
+headerSearchInp.addEventListener("input", ()=>{
+  searchInp.value = headerSearchInp.value;
+  searchInp.dispatchEvent(new Event("input"));
+});
+
+/* -------- filtro prezzo + ordinamento -------- */
+let priceMin = 0, priceMax = Infinity, sortMode = "";
+const priceChipsEl = document.getElementById("priceChips");
+priceChipsEl.querySelectorAll(".chip-p").forEach(btn=>{
+  btn.onclick = ()=>{
+    priceChipsEl.querySelectorAll(".chip-p").forEach(c=>c.classList.remove("active"));
+    btn.classList.add("active");
+    priceMin = Number(btn.dataset.min);
+    priceMax = Number(btn.dataset.max);
+    renderLimit = 24;
+    if (searchMode) renderSearchResults(searchAllResults); else renderGrid();
+  };
+});
+const sortSel = document.getElementById("sortSel");
+sortSel.addEventListener("change", ()=>{
+  sortMode = sortSel.value;
+  renderLimit = 24;
+  if (searchMode) renderSearchResults(searchAllResults); else renderGrid();
+});
+function applyPriceSort(priced){
+  priced = priced.filter(p=>p.minPrice>=priceMin && p.minPrice<=priceMax);
+  if (sortMode==="price-asc") priced.sort((a,b)=>a.minPrice-b.minPrice);
+  else if (sortMode==="price-desc") priced.sort((a,b)=>b.minPrice-a.minPrice);
+  return priced;
+}
 
 /* tabs categorie */
 const tabsEl = document.getElementById("tabs");
@@ -1480,14 +1580,23 @@ function renderSearchResults(items){
     moreBtn.style.display = "none";
     return;
   }
-  noteEl.style.display = "none";
-  items.slice(0, renderLimit).forEach((it,i)=>{
+  let priced = items.map(it=>{
     const savedCat = activeCat;
     activeCat = it._cat; // serve a productProfile per calcolare prezzi/tipo corretti
     const prof = productProfile(it);
     const minPrice = Math.min(...prof.versions.map(v=>v.price));
     activeCat = savedCat;
-
+    return { it, prof, minPrice };
+  });
+  priced = applyPriceSort(priced);
+  if (!priced.length){
+    noteEl.style.display = "block";
+    noteEl.innerHTML = "Nessun prodotto in questa fascia di prezzo — prova ad allargare il filtro ⚽";
+    moreBtn.style.display = "none";
+    return;
+  }
+  noteEl.style.display = "none";
+  priced.slice(0, renderLimit).forEach(({it,prof,minPrice},i)=>{
     const card = document.createElement("div");
     card.className = "card";
     card.style.animationDelay = `${Math.min(i,10)*40}ms`;
@@ -1510,7 +1619,7 @@ function renderSearchResults(items){
     };
     catEl.appendChild(card);
   });
-  moreBtn.style.display = items.length > renderLimit ? "inline-flex" : "none";
+  moreBtn.style.display = priced.length > renderLimit ? "inline-flex" : "none";
 }
 
 function skeletons(n=8){
@@ -1569,8 +1678,15 @@ function renderGrid(){
   if (activeTeam) items = items.filter(i=>i.team===activeTeam);
   if (q) items = items.filter(i=>(i.name+" "+i.team).toLowerCase().includes(q));
 
+  let priced = items.map(it=>{
+    const prof = productProfile(it);
+    const minPrice = Math.min(...prof.versions.map(v=>v.price));
+    return { it, prof, minPrice };
+  });
+  priced = applyPriceSort(priced);
+
   catEl.innerHTML = "";
-  if (!items.length){
+  if (!priced.length){
     noteEl.style.display = "block";
     noteEl.innerHTML = "Nessun prodotto trovato qui — scrivici su WhatsApp: ne abbiamo molti di più in arrivo ⚽";
     moreBtn.style.display = "none";
@@ -1578,9 +1694,7 @@ function renderGrid(){
   }
   noteEl.style.display = "none";
 
-  items.slice(0, renderLimit).forEach((it,i)=>{
-    const prof = productProfile(it);
-    const minPrice = Math.min(...prof.versions.map(v=>v.price));
+  priced.slice(0, renderLimit).forEach(({it,prof,minPrice},i)=>{
     const card = document.createElement("div");
     card.className = "card";
     card.style.animationDelay = `${Math.min(i,10)*40}ms`;
@@ -1597,7 +1711,7 @@ function renderGrid(){
     card.onclick = ()=>openProduct(it);
     catEl.appendChild(card);
   });
-  moreBtn.style.display = items.length > renderLimit ? "inline-flex" : "none";
+  moreBtn.style.display = priced.length > renderLimit ? "inline-flex" : "none";
 }
 
 /* ================= hero: vetrina singola con 3 foto scelte ================= */
