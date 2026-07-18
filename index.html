@@ -2308,41 +2308,61 @@ function goShopping(){
 document.getElementById("cartAddMore").onclick = goShopping;
 document.getElementById("cartAddMoreEmpty").onclick = goShopping;
 
-document.getElementById("cartCheckout").onclick = ()=>{
+document.getElementById("cartCheckout").onclick = async ()=>{
   if (!cart.length) return;
   if (!validateOrder()) return;
   const order = getOrderData();
   const { sub, n, total, discount, tier, codiceSconto, codiceDiscount } = cartTotals();
-  const lines = ["🛒 *ORDINE — Completini Squadre Calcio 2.0*", "━━━━━━━━━━━━━━━━━━"];
+
+  // Finestra aperta subito, in modo sincrono col click: se aspettassimo la
+  // risposta del gestionale prima di aprirla, Safari/iOS la bloccherebbe
+  // come popup non richiesto dall'utente.
+  const waWindow = window.open("", "_blank");
+  if (waWindow){
+    waWindow.document.write('<title>Completini Squadre Calcio</title><body style="font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;color:#333">Preparazione ordine…</body>');
+  }
+
+  const btn = document.getElementById("cartCheckout");
+  const originalLabel = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "Attendo conferma…";
+  const cod = await inviaOrdineGestionale(order, cart, tier, { codiceSconto, codiceDiscount });
+  btn.disabled = false;
+  btn.textContent = originalLabel;
+
+  const titolo = cod ? `🛒 *ORDINE ${cod} — Completini Squadre Calcio 2.0*` : "🛒 *ORDINE — Completini Squadre Calcio 2.0*";
+  const lines = [titolo, "─────────────"];
   cart.forEach((it,i)=>{
     const eff = unitPriceFor(it, tier);
-    lines.push(`${i+1}. ${it.qty}× ${it.name} — ${eff}€ cad.`);
-    lines.push(`   ${it.version} · taglia ${it.size}`);
-    if (it.pers)  lines.push(`   ✏️ ${it.pers}`);
-    if (it.patch) lines.push(`   🏅 Patch: ${it.patch}`);
-    lines.push(`   📷 ${it.thumb}`);
+    const nomeSquadra = it.name.replace(/^(Kit|Maglia|Tuta|Scarpe)\s+/i, "");
+    lines.push(`${i+1}) ${it.version} — ${nomeSquadra}`);
+    if (it.pers)  lines.push(`   Nome/numero: ${it.pers}`);
+    lines.push(`   Taglia: ${it.size}`);
+    if (it.patch) lines.push(`   Patch: ${it.patch}`);
+    lines.push(`   ${it.qty}× ${eff}€`);
+    lines.push(`   Foto: ${it.thumb}`);
   });
-  lines.push("━━━━━━━━━━━━━━━━━━");
-  lines.push(`📦 Articoli totali: ${n}`);
-  lines.push(`💶 Subtotale: ${sub}€`);
-  if (discount > 0) lines.push(`🏷 Sconto quantità applicato: −${discount}€`);
-  if (codiceSconto) lines.push(`🎟 Codice ${codiceSconto}: −${codiceDiscount}€`);
-  lines.push(`💶 Totale stimato: ${total}€`);
-  lines.push("🚚 Spedizione: GRATUITA");
-  lines.push("━━━━━━━━━━━━━━━━━━");
-  lines.push("📦 *DATI SPEDIZIONE*");
-  lines.push(`👤 ${order.nome} ${order.cognome}`);
-  lines.push(`📍 ${order.indirizzo}`);
-  lines.push(`🏙 ${order.cap} ${order.citta} (${order.provincia})`);
-  lines.push(`📱 ${order.tel}`);
-  if (order.email) lines.push(`✉️ ${order.email}`);
-  if (order.squadraCuore) lines.push(`⚽ Squadra del cuore: ${order.squadraCuore}`);
-  lines.push("━━━━━━━━━━━━━━━━━━");
-  lines.push("💳 *PAGAMENTO*");
-  lines.push(order.pagamento);
-  if (order.note) lines.push(`📝 Note: ${order.note}`);
-  inviaOrdineGestionale(order, cart, tier, { codiceSconto, codiceDiscount });
-  window.open(WA + encodeURIComponent(lines.join("\n")), "_blank");
+  lines.push("─────────────");
+  lines.push(`Articoli: ${n}`);
+  lines.push(`Subtotale: ${sub}€`);
+  if (discount > 0) lines.push(`Sconto quantità: −${discount}€`);
+  if (codiceSconto) lines.push(`Codice ${codiceSconto}: −${codiceDiscount}€`);
+  lines.push(`*Totale: ${total}€* (spedizione gratuita)`);
+  lines.push("─────────────");
+  lines.push("*Dati spedizione*");
+  lines.push(`${order.nome} ${order.cognome}`);
+  lines.push(order.indirizzo);
+  lines.push(`${order.cap} ${order.citta} (${order.provincia})`);
+  lines.push(order.tel);
+  if (order.email) lines.push(order.email);
+  if (order.squadraCuore) lines.push(`Squadra del cuore: ${order.squadraCuore}`);
+  lines.push("─────────────");
+  lines.push(`*Pagamento:* ${order.pagamento}`);
+  if (order.note) lines.push(`Note: ${order.note}`);
+
+  const url = WA + encodeURIComponent(lines.join("\n"));
+  if (waWindow) waWindow.location.href = url;
+  else window.open(url, "_blank");
 };
 
 const STRIPE_SITE_SECRET = "bI6J_mKjyTgr518wkrXffWjpqRmo4YAd";
@@ -2375,26 +2395,37 @@ function buildOrdinePayload(order, cartItems, tier, sconto){
   };
 }
 
-/* Invia l'ordine anche al gestionale così si compila da solo, senza
-   bloccare l'apertura di WhatsApp se il gestionale è offline/irraggiungibile. */
+/* Invia l'ordine al gestionale e aspetta il codice ordine vero (es. CSC-2026-0193)
+   da mettere nel messaggio WhatsApp. Aspetta al massimo 6 secondi: se il
+   gestionale non risponde in tempo (es. Mac spento) l'ordine va comunque in
+   coda per l'importazione automatica, e il messaggio parte senza codice
+   invece di bloccare il checkout indefinitamente. */
 function inviaOrdineGestionale(order, cartItems, tier, sconto){
   try{
     const payload = buildOrdinePayload(order, cartItems, tier, sconto);
     const SECRET = STRIPE_SITE_SECRET;
-    fetch("https://mosaic-possum-crisping.ngrok-free.dev/api/ordine-sito", {
+    const ctrl = new AbortController();
+    const timeoutId = setTimeout(()=>ctrl.abort(), 6000);
+    return fetch("https://mosaic-possum-crisping.ngrok-free.dev/api/ordine-sito", {
       method: "POST",
       headers: { "Content-Type": "application/json", "X-Site-Secret": SECRET },
       body: JSON.stringify(payload),
+      signal: ctrl.signal,
+    }).then(r=>r.json()).then(data=>{
+      clearTimeout(timeoutId);
+      return (data && data.ok && data.cod) ? data.cod : null;
     }).catch(()=>{
-      // Gestionale irraggiungibile (es. Mac spento): metti l'ordine in coda,
-      // verrà importato da solo appena il gestionale torna online.
+      clearTimeout(timeoutId);
+      // Gestionale irraggiungibile o troppo lento (es. Mac spento): metti
+      // l'ordine in coda, verrà importato da solo appena torna online.
       fetch("https://csc-order-queue.csquadrecalcio.workers.dev/push", {
         method: "POST",
         headers: { "Content-Type": "application/json", "X-Site-Secret": SECRET },
         body: JSON.stringify(payload),
       }).catch(()=>{});
+      return null;
     });
-  }catch(e){}
+  }catch(e){ return Promise.resolve(null); }
 }
 
 /* Appena il cliente scrive un'email valida nel checkout (anche se poi non
