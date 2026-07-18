@@ -2422,30 +2422,20 @@ function goShopping(){
 document.getElementById("cartAddMore").onclick = goShopping;
 document.getElementById("cartAddMoreEmpty").onclick = goShopping;
 
-document.getElementById("cartCheckout").onclick = async ()=>{
+document.getElementById("cartCheckout").onclick = ()=>{
   if (!cart.length) return;
   if (!validateOrder()) return;
   const order = getOrderData();
   const { sub, n, total, discount, tier, codiceSconto, codiceDiscount } = cartTotals();
 
-  // Finestra aperta subito, in modo sincrono col click: se aspettassimo la
-  // risposta del gestionale prima di aprirla, Safari/iOS la bloccherebbe
-  // come popup non richiesto dall'utente.
-  const waWindow = window.open("", "_blank");
-  if (waWindow){
-    waWindow.document.write('<title>Completini Squadre Calcio</title><body style="font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;color:#333">Preparazione ordine…</body>');
-  }
+  // Codice generato subito dal sito (data+ora): non è l'ID interno del gestionale,
+  // ma apre WhatsApp all'istante invece di far aspettare il cliente la risposta
+  // del gestionale — l'ordine arriva comunque in automatico via inviaOrdineGestionale.
+  const now = new Date();
+  const pad = x => String(x).padStart(2,"0");
+  const cod = `CSC-${String(now.getFullYear()).slice(2)}${pad(now.getMonth()+1)}${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}`;
 
-  const btn = document.getElementById("cartCheckout");
-  const originalLabel = btn.textContent;
-  btn.disabled = true;
-  btn.textContent = "Attendo conferma…";
-  const cod = await inviaOrdineGestionale(order, cart, tier, { codiceSconto, codiceDiscount });
-  btn.disabled = false;
-  btn.textContent = originalLabel;
-
-  const titolo = cod ? `🛒 *ORDINE ${cod} — Completini Squadre Calcio 2.0*` : "🛒 *ORDINE — Completini Squadre Calcio 2.0*";
-  const lines = [titolo, "─────────────"];
+  const lines = [`🛒 *ORDINE ${cod} — Completini Squadre Calcio 2.0*`, "─────────────"];
   cart.forEach((it,i)=>{
     const eff = unitPriceFor(it, tier);
     const nomeSquadra = it.name.replace(/^(Kit|Maglia|Tuta|Scarpe)\s+/i, "");
@@ -2474,9 +2464,8 @@ document.getElementById("cartCheckout").onclick = async ()=>{
   lines.push(`*Pagamento:* ${order.pagamento}`);
   if (order.note) lines.push(`Note: ${order.note}`);
 
-  const url = WA + encodeURIComponent(lines.join("\n"));
-  if (waWindow) waWindow.location.href = url;
-  else window.open(url, "_blank");
+  inviaOrdineGestionale(order, cart, tier, { codiceSconto, codiceDiscount });
+  window.open(WA + encodeURIComponent(lines.join("\n")), "_blank");
 };
 
 const STRIPE_SITE_SECRET = "bI6J_mKjyTgr518wkrXffWjpqRmo4YAd";
@@ -2509,37 +2498,26 @@ function buildOrdinePayload(order, cartItems, tier, sconto){
   };
 }
 
-/* Invia l'ordine al gestionale e aspetta il codice ordine vero (es. CSC-2026-0193)
-   da mettere nel messaggio WhatsApp. Aspetta al massimo 6 secondi: se il
-   gestionale non risponde in tempo (es. Mac spento) l'ordine va comunque in
-   coda per l'importazione automatica, e il messaggio parte senza codice
-   invece di bloccare il checkout indefinitamente. */
+/* Invia l'ordine anche al gestionale così si compila da solo, senza
+   bloccare l'apertura di WhatsApp se il gestionale è offline/irraggiungibile. */
 function inviaOrdineGestionale(order, cartItems, tier, sconto){
   try{
     const payload = buildOrdinePayload(order, cartItems, tier, sconto);
     const SECRET = STRIPE_SITE_SECRET;
-    const ctrl = new AbortController();
-    const timeoutId = setTimeout(()=>ctrl.abort(), 6000);
-    return fetch("https://mosaic-possum-crisping.ngrok-free.dev/api/ordine-sito", {
+    fetch("https://mosaic-possum-crisping.ngrok-free.dev/api/ordine-sito", {
       method: "POST",
       headers: { "Content-Type": "application/json", "X-Site-Secret": SECRET },
       body: JSON.stringify(payload),
-      signal: ctrl.signal,
-    }).then(r=>r.json()).then(data=>{
-      clearTimeout(timeoutId);
-      return (data && data.ok && data.cod) ? data.cod : null;
     }).catch(()=>{
-      clearTimeout(timeoutId);
-      // Gestionale irraggiungibile o troppo lento (es. Mac spento): metti
-      // l'ordine in coda, verrà importato da solo appena torna online.
+      // Gestionale irraggiungibile (es. Mac spento): metti l'ordine in coda,
+      // verrà importato da solo appena il gestionale torna online.
       fetch("https://csc-order-queue.csquadrecalcio.workers.dev/push", {
         method: "POST",
         headers: { "Content-Type": "application/json", "X-Site-Secret": SECRET },
         body: JSON.stringify(payload),
       }).catch(()=>{});
-      return null;
     });
-  }catch(e){ return Promise.resolve(null); }
+  }catch(e){}
 }
 
 /* Appena il cliente scrive un'email valida nel checkout (anche se poi non
