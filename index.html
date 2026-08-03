@@ -59,7 +59,7 @@ gtag('config', 'G-SYPQZL1L7W');
       "@type": "FAQPage",
       "@id": "https://completinicalcio.it/#faq",
       "mainEntity": [
-        {"@type":"Question","name":"Quanto ci mette ad arrivare?","acceptedAnswer":{"@type":"Answer","text":"7–12 giorni lavorativi, con spedizione gratuita in tutta Italia. Il tracking viene inviato su WhatsApp appena parte il pacco."}},
+        {"@type":"Question","name":"Quanto ci mette ad arrivare?","acceptedAnswer":{"@type":"Answer","text":"Consegna prevista entro circa 22 giorni dall'ordine, spedizione gratuita in tutta Italia."}},
         {"@type":"Question","name":"La personalizzazione è davvero gratis?","acceptedAnswer":{"@type":"Answer","text":"Sì: nome, numero e patch (campionato o coppe) sono sempre inclusi nel prezzo, su qualsiasi maglia o kit."}},
         {"@type":"Question","name":"E se sbaglio taglia?","acceptedAnswer":{"@type":"Answer","text":"Consulta sempre la tabella taglie nella sezione Guida alle taglie prima di ordinare, con le misure precise per adulti e bambini. In caso di dubbi, indica altezza e peso nelle note dell'ordine: ti consigliamo noi la taglia giusta."}},
         {"@type":"Question","name":"Come pago?","acceptedAnswer":{"@type":"Answer","text":"Dopo la conferma in chat viene inviato il link per il pagamento sicuro. Nessuna registrazione, nessun account da creare."}},
@@ -927,7 +927,7 @@ gtag('config', 'G-SYPQZL1L7W');
       <div class="step reveal">
         <div class="num">03</div>
         <h3>Ricevilo a casa</h3>
-        <p>Spedizione gratuita in tutta Italia in 7–12 giorni, con tracking in chat. Taglia sbagliata? Cambio gratis.</p>
+        <p>Spedizione gratuita in tutta Italia, consegna prevista entro circa 22 giorni dall'ordine. Taglia sbagliata? Cambio gratis.</p>
       </div>
     </div>
   </div>
@@ -990,7 +990,7 @@ gtag('config', 'G-SYPQZL1L7W');
     <div class="faq reveal">
       <details>
         <summary>Quanto ci mette ad arrivare?</summary>
-        <p>7–12 giorni lavorativi, con spedizione gratuita in tutta Italia. Ti mandiamo il tracking su WhatsApp appena parte il pacco.</p>
+        <p>Consegna prevista entro circa 22 giorni dall'ordine, con spedizione gratuita in tutta Italia.</p>
       </details>
       <details>
         <summary>La personalizzazione è davvero gratis?</summary>
@@ -2653,10 +2653,10 @@ function ggLav(giorni){
   return d.toLocaleDateString("it-IT", {day:"numeric", month:"long"});
 }
 
-const geoConsegna = { dal: ggLav(8), al: ggLav(15) };
+const geoConsegna = { dal: ggLav(22), al: ggLav(22) };
 
 function renderConsegna(){
-  const testo = `dal ${geoConsegna.dal} al ${geoConsegna.al}`;
+  const testo = `entro il ${geoConsegna.dal}`;
   const strip = document.getElementById("stripShip");
   const ship = document.getElementById("shipBox");
   const cartShip = document.getElementById("cartShipBox");
