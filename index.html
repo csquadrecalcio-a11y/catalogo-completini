@@ -2653,10 +2653,10 @@ function ggLav(giorni){
   return d.toLocaleDateString("it-IT", {day:"numeric", month:"long"});
 }
 
-const geoConsegna = { dal: ggLav(8), al: ggLav(15) };
+const geoConsegna = { entro: ggLav(20) };
 
 function renderConsegna(){
-  const testo = `dal ${geoConsegna.dal} al ${geoConsegna.al}`;
+  const testo = `entro il ${geoConsegna.entro}`;
   const strip = document.getElementById("stripShip");
   const ship = document.getElementById("shipBox");
   const cartShip = document.getElementById("cartShipBox");
