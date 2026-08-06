@@ -1391,12 +1391,14 @@ function productProfile(item){
        "kit" o nessuna parola         → Maglia + Kit Bambino + Kit Adulto */
   const isPlayer = /player/.test(hay) || /(^|[\s_])pv([\s_]|$)/.test(hay);
   const isKidKit = /kit bambin|bambini|\bkids?\b|kid kit/.test(hay);
+  const isAdultKit = /kit adulto/.test(hay);
   const isMaglia = /\bmagli[ae]\b/.test(hay);
   let versions;
   if (isPlayer)      versions = [OPT_PLAYER];      // solo Player Version
-  else if (isKidKit) versions = [OPT_MAGLIA[1]];   // solo Kit Bambino
-  else if (isMaglia) versions = [OPT_MAGLIA[0]];   // solo Maglia
-  else               versions = OPT_MAGLIA;        // kit o default → tutte e 3
+  else if (isKidKit)   versions = [OPT_MAGLIA[1]]; // solo Kit Bambino
+  else if (isAdultKit) versions = [OPT_MAGLIA[2]]; // solo Kit Adulto
+  else if (isMaglia)   versions = [OPT_MAGLIA[0]]; // solo Maglia
+  else                 versions = OPT_MAGLIA;      // kit generico → tutte e 3
   return { versions, pers:true, kind:"jersey" };
 }
 const ADULT_SIZES = ["S","M","L","XL","XXL"];
