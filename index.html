@@ -262,13 +262,19 @@ gtag('config', 'G-SYPQZL1L7W');
     transition:all .15s ease;white-space:nowrap;
   }
   .chip-t.active{border-color:var(--volt);color:var(--volt);background:rgba(200,255,46,.08)}
-  .type-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
-  .chip-type{
-    flex:none;padding:9px 18px;border-radius:999px;font-size:13px;font-weight:700;
-    background:var(--panel-2);color:var(--muted);border:1px solid var(--line);cursor:pointer;
-    transition:all .15s ease;white-space:nowrap;
+  .folder-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+  @media(max-width:600px){.folder-grid{grid-template-columns:1fr}}
+  .folder-card{
+    background:var(--panel-2);border:1px solid var(--line);border-radius:18px;
+    padding:32px 20px;text-align:center;cursor:pointer;
+    transition:all .2s ease;
   }
-  .chip-type.active{border-color:var(--volt);color:var(--volt);background:rgba(200,255,46,.1)}
+  .folder-card:hover{border-color:var(--volt);transform:translateY(-3px);box-shadow:0 8px 30px rgba(200,255,46,.15)}
+  .folder-card .f-icon{font-size:40px;margin-bottom:12px}
+  .folder-card .f-label{font-family:'Archivo Black',sans-serif;font-size:17px;text-transform:uppercase;color:var(--text)}
+  .folder-card .f-count{font-size:13px;color:var(--muted);margin-top:6px}
+  .back-btn{display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;padding:8px 16px;border-radius:999px;background:var(--panel-2);border:1px solid var(--line);color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;transition:all .15s ease}
+  .back-btn:hover{color:var(--text);border-color:var(--text)}
   .filters-bar{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:22px}
   .price-chips{display:flex;gap:8px;flex-wrap:wrap}
   .chip-p{
@@ -808,11 +814,6 @@ gtag('config', 'G-SYPQZL1L7W');
       <p>Le foto arrivano in diretta dal nostro archivio: quello che vedi è quello che spediamo. Clicca un prodotto per aprire la scheda.</p>
     </div>
     <div class="cat-tabs reveal" id="tabs"></div>
-    <div class="type-tabs reveal" id="typeTabs">
-      <button class="chip-type active" data-type="">👕 Adulti</button>
-      <button class="chip-type" data-type="kids">👶 Bambini</button>
-      <button class="chip-type" data-type="player">⭐ Player Version</button>
-    </div>
     <div class="toolbar reveal">
       <div class="team-chips" id="teamChips"></div>
       <div class="search">
@@ -1518,22 +1519,37 @@ function applyPriceSort(priced){
   return priced;
 }
 
-/* type filter tabs */
-document.querySelectorAll(".chip-type").forEach(btn=>{
-  btn.onclick = ()=>{
-    document.querySelectorAll(".chip-type").forEach(c=>c.classList.remove("active"));
-    btn.classList.add("active");
-    activeTypeFilter = btn.dataset.type;
-    renderLimit = 24;
-    if (searchMode) renderSearchResults(searchAllResults); else renderGrid();
-  };
-});
-
 function itemType(item){
   const hay = ((item.team||"") + " " + (item.name||"")).toLowerCase();
   if (/player|(^|[\s_])pv([\s_]|$)/.test(hay)) return "player";
   if (/kit bambin|bambini|\bkids?\b|kid kit/.test(hay)) return "kids";
-  return "";
+  return "adult";
+}
+
+function showFolders(){
+  const data = cache[activeCat.id];
+  if (!data) return;
+  catEl.innerHTML = "";
+  noteEl.style.display = "none";
+  moreBtn.style.display = "none";
+  const items = activeTeam ? data.items.filter(i=>i.team===activeTeam) : data.items;
+  const counts = {adult:0, kids:0, player:0};
+  items.forEach(i=>{ const t=itemType(i); if(counts[t]!==undefined) counts[t]++; });
+  const folders = [
+    {type:"adult", icon:"👕", label:"Adulti"},
+    {type:"kids",  icon:"👶", label:"Bambini"},
+    {type:"player",icon:"⭐", label:"Player Version"},
+  ];
+  const grid = document.createElement("div");
+  grid.className = "folder-grid";
+  folders.forEach(f=>{
+    const card = document.createElement("div");
+    card.className = "folder-card";
+    card.innerHTML = `<div class="f-icon">${f.icon}</div><div class="f-label">${f.label}</div><div class="f-count">${counts[f.type]} prodotti</div>`;
+    card.onclick = ()=>{ activeTypeFilter = f.type; renderGrid(); };
+    grid.appendChild(card);
+  });
+  catEl.appendChild(grid);
 }
 
 /* tabs categorie */
@@ -1546,8 +1562,6 @@ CATALOG.forEach((c,i)=>{
     document.querySelectorAll("#tabs .tab").forEach(t=>t.classList.remove("active"));
     b.classList.add("active");
     activeCat = c; activeTeam = ""; activeTypeFilter = ""; renderLimit = 24;
-    document.querySelectorAll(".chip-type").forEach(c=>c.classList.remove("active"));
-    document.querySelector('.chip-type[data-type=""]').classList.add("active");
     searchInp.value = ""; searchMode = false;
     showCategory();
   };
@@ -1662,7 +1676,7 @@ async function showCategory(){
       const all = document.createElement("button");
       all.className = "chip-t active";
       all.textContent = `Tutte (${data.items.length})`;
-      all.onclick = ()=>{ activeTeam=""; setChip(all); };
+      all.onclick = ()=>{ activeTeam=""; activeTypeFilter=""; setChip(all); };
       chipsEl.appendChild(all);
       data.teams.forEach(t=>{
         const n = data.items.filter(i=>i.team===t.name).length;
@@ -1671,7 +1685,7 @@ async function showCategory(){
         b.className = "chip-t";
         b.textContent = `${cleanName(t.name)} (${n})`;
         b.dataset.team = t.name;
-        b.onclick = ()=>{ activeTeam = t.name; setChip(b); };
+        b.onclick = ()=>{ activeTeam = t.name; activeTypeFilter=""; setChip(b); showFolders(); return; };
         chipsEl.appendChild(b);
       });
     }
@@ -1686,7 +1700,8 @@ function setChip(btn){
   document.querySelectorAll(".chip-t").forEach(c=>c.classList.remove("active"));
   btn.classList.add("active");
   renderLimit = 24;
-  renderGrid();
+  if (!activeTeam) renderGrid(); // "Tutte" → mostra subito prodotti
+  // se activeTeam è set, showFolders() viene chiamato dal click handler
 }
 
 function renderGrid(){
@@ -1695,9 +1710,18 @@ function renderGrid(){
   const q = searchInp.value.trim().toLowerCase();
   let items = data.items;
   if (activeTeam) items = items.filter(i=>i.team===activeTeam);
-  if (activeTypeFilter !== "") items = items.filter(i=>itemType(i)===activeTypeFilter);
-  else items = items.filter(i=>itemType(i)===""); // adulti di default
+  if (activeTeam && activeTypeFilter) items = items.filter(i=>itemType(i)===activeTypeFilter);
   if (q) items = items.filter(i=>(i.name+" "+i.team).toLowerCase().includes(q));
+
+  // back button quando si è dentro una cartella squadra
+  catEl.innerHTML = "";
+  if (activeTeam && activeTypeFilter){
+    const back = document.createElement("button");
+    back.className = "back-btn";
+    back.innerHTML = `← Torna a ${cleanName(activeTeam)}`;
+    back.onclick = ()=>{ activeTypeFilter=""; showFolders(); };
+    catEl.appendChild(back);
+  }
 
   let priced = items.map(it=>{
     const prof = productProfile(it);
@@ -1706,7 +1730,6 @@ function renderGrid(){
   });
   priced = applyPriceSort(priced);
 
-  catEl.innerHTML = "";
   if (!priced.length){
     noteEl.style.display = "block";
     noteEl.innerHTML = "Nessun prodotto trovato qui — il catalogo si aggiorna spesso con nuovi arrivi ⚽";
