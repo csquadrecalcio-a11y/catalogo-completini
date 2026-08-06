@@ -262,6 +262,13 @@ gtag('config', 'G-SYPQZL1L7W');
     transition:all .15s ease;white-space:nowrap;
   }
   .chip-t.active{border-color:var(--volt);color:var(--volt);background:rgba(200,255,46,.08)}
+  .type-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+  .chip-type{
+    flex:none;padding:9px 18px;border-radius:999px;font-size:13px;font-weight:700;
+    background:var(--panel-2);color:var(--muted);border:1px solid var(--line);cursor:pointer;
+    transition:all .15s ease;white-space:nowrap;
+  }
+  .chip-type.active{border-color:var(--volt);color:var(--volt);background:rgba(200,255,46,.1)}
   .filters-bar{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:22px}
   .price-chips{display:flex;gap:8px;flex-wrap:wrap}
   .chip-p{
@@ -801,6 +808,11 @@ gtag('config', 'G-SYPQZL1L7W');
       <p>Le foto arrivano in diretta dal nostro archivio: quello che vedi è quello che spediamo. Clicca un prodotto per aprire la scheda.</p>
     </div>
     <div class="cat-tabs reveal" id="tabs"></div>
+    <div class="type-tabs reveal" id="typeTabs">
+      <button class="chip-type active" data-type="">👕 Adulti</button>
+      <button class="chip-type" data-type="kids">👶 Bambini</button>
+      <button class="chip-type" data-type="player">⭐ Player Version</button>
+    </div>
     <div class="toolbar reveal">
       <div class="team-chips" id="teamChips"></div>
       <div class="search">
@@ -1464,6 +1476,7 @@ async function loadCategory(cat){
 /* -------- stato catalogo -------- */
 let activeCat = CATALOG[0];
 let activeTeam = "";
+let activeTypeFilter = "";
 let renderLimit = 24;
 const catEl = document.getElementById("catalog");
 const noteEl = document.getElementById("catNote");
@@ -1505,6 +1518,24 @@ function applyPriceSort(priced){
   return priced;
 }
 
+/* type filter tabs */
+document.querySelectorAll(".chip-type").forEach(btn=>{
+  btn.onclick = ()=>{
+    document.querySelectorAll(".chip-type").forEach(c=>c.classList.remove("active"));
+    btn.classList.add("active");
+    activeTypeFilter = btn.dataset.type;
+    renderLimit = 24;
+    if (searchMode) renderSearchResults(searchAllResults); else renderGrid();
+  };
+});
+
+function itemType(item){
+  const hay = ((item.team||"") + " " + (item.name||"")).toLowerCase();
+  if (/player|(^|[\s_])pv([\s_]|$)/.test(hay)) return "player";
+  if (/kit bambin|bambini|\bkids?\b|kid kit/.test(hay)) return "kids";
+  return "";
+}
+
 /* tabs categorie */
 const tabsEl = document.getElementById("tabs");
 CATALOG.forEach((c,i)=>{
@@ -1514,7 +1545,9 @@ CATALOG.forEach((c,i)=>{
   b.onclick = ()=>{
     document.querySelectorAll("#tabs .tab").forEach(t=>t.classList.remove("active"));
     b.classList.add("active");
-    activeCat = c; activeTeam = ""; renderLimit = 24;
+    activeCat = c; activeTeam = ""; activeTypeFilter = ""; renderLimit = 24;
+    document.querySelectorAll(".chip-type").forEach(c=>c.classList.remove("active"));
+    document.querySelector('.chip-type[data-type=""]').classList.add("active");
     searchInp.value = ""; searchMode = false;
     showCategory();
   };
@@ -1662,6 +1695,8 @@ function renderGrid(){
   const q = searchInp.value.trim().toLowerCase();
   let items = data.items;
   if (activeTeam) items = items.filter(i=>i.team===activeTeam);
+  if (activeTypeFilter !== "") items = items.filter(i=>itemType(i)===activeTypeFilter);
+  else items = items.filter(i=>itemType(i)===""); // adulti di default
   if (q) items = items.filter(i=>(i.name+" "+i.team).toLowerCase().includes(q));
 
   let priced = items.map(it=>{
