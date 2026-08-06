@@ -1335,7 +1335,7 @@ const CATALOG = [
    perché una maglia da sola la può indossare anche un bambino.
    "Kit Bambino"/"Kit Adulto" invece hanno SOLO le taglie del loro tipo. */
 const OPT_MAGLIA = [
-  {id:"maglia", label:"Maglia",      price:30, kid:false},
+  {id:"maglia", label:"Maglia",      price:30, kid:false, bothSizes:true},
   {id:"kitb",   label:"Kit Bambino", price:35, kid:true},
   {id:"kita",   label:"Kit Adulto",  price:40, kid:false},
 ];
@@ -2089,7 +2089,8 @@ function buildSizePills(){
   const el = document.getElementById("sizePills");
   const v = S.type.versions.find(x=>x.id===S.version);
   el.innerHTML = "";
-  if (v.bothSizes){
+  const isAdultOnly = /adulto/.test((S.item&&S.item.name||"").toLowerCase());
+  if (v.bothSizes && !isAdultOnly){
     // "Maglia"/"Player Version": taglie adulto e bambino insieme, come sul sito
     const gA = document.createElement("div"); gA.className = "size-group-lbl"; gA.textContent = "Adulto";
     el.appendChild(gA);
