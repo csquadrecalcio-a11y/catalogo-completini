@@ -1557,7 +1557,9 @@ async function doGlobalSearch(q){
   chipsEl.innerHTML = "";
   const all = await ensureAllCategoriesLoaded();
   const ql = q.toLowerCase();
-  searchAllResults = all.filter(i => (i.name+" "+i.team+" "+i._cat.name).toLowerCase().includes(ql));
+  const filtered = all.filter(i => (i.name+" "+i.team+" "+i._cat.name).toLowerCase().includes(ql));
+  const seen = new Set();
+  searchAllResults = filtered.filter(i => { if (seen.has(i.id)) return false; seen.add(i.id); return true; });
   renderSearchResults(searchAllResults);
 }
 function renderSearchResults(items){
