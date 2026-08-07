@@ -1556,7 +1556,7 @@ async function doGlobalSearch(q){
   const ql = q.toLowerCase();
   const filtered = all.filter(i => (i.name+" "+i.team+" "+i._cat.name).toLowerCase().includes(ql));
   const seen = new Set();
-  searchAllResults = filtered.filter(i => { const key = i.name.toLowerCase(); if (seen.has(key)) return false; seen.add(key); return true; });
+  searchAllResults = filtered.filter(i => { const key = (i._cat.id+"|"+i.name).toLowerCase(); if (seen.has(key)) return false; seen.add(key); return true; });
   renderSearchResults(searchAllResults);
 }
 function renderSearchResults(items){
