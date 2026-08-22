@@ -151,12 +151,6 @@
         <option value="">Seleziona corriere…</option>
         <option value="poste">📮 Poste Italiane</option>
         <option value="dhl">🟡 DHL</option>
-        <option value="gls">🟠 GLS</option>
-        <option value="brt">🔵 BRT / Bartolini</option>
-        <option value="sda">📬 SDA</option>
-        <option value="ups">🟤 UPS</option>
-        <option value="fedex">🟣 FedEx</option>
-        <option value="17track">🌐 17track (altri)</option>
       </select>
       <a class="btn-track" id="manual-btn" href="#" target="_blank" rel="noopener">
         🔍 Traccia il pacco
@@ -184,12 +178,6 @@
 const CORRIERE_URLS = {
   poste:   c => `https://www.poste.it/cerca/index.html#/risultati-spedizioni/${c}`,
   dhl:     c => `https://www.dhl.com/it-it/home/tracking/tracking-parcel.html?submit=1&tracking-id=${c}`,
-  gls:     c => `https://gls-group.com/track/${c}`,
-  brt:     c => `https://vas.brt.it/vas/sped_det_show.hsm?referer=sped_numspe_par.hsm&Nspediz=${c}`,
-  sda:     c => `https://www.sda.it/wps/portal/Servizi/cerca-spedizione?lang=IT&barcode=${c}`,
-  ups:     c => `https://www.ups.com/track?tracknum=${c}&loc=it_IT`,
-  fedex:   c => `https://www.fedex.com/fedextrack/?tracknumbers=${c}`,
-  '17track': c => `https://t.17track.net/it#nums=${c}`,
 };
 
 function detectCorriere(code) {
@@ -197,10 +185,8 @@ function detectCorriere(code) {
   const c = code.toUpperCase();
   if (/^[A-Z]{2}\d{9}IT$/.test(c)) return 'poste';
   if (/^CP\d{9}[A-Z]{2}$/.test(c)) return 'poste';
-  if (/^(JD|1Z|H|T)/.test(c) && c.length >= 18) return 'ups';
   if (/^\d{10,12}$/.test(c)) return 'dhl';
-  if (/^[0-9]{11}$/.test(c)) return 'gls';
-  return '17track';
+  return 'poste';
 }
 
 function buildUrl(corriere, code) {
@@ -209,10 +195,7 @@ function buildUrl(corriere, code) {
 }
 
 function corriereName(key) {
-  const names = {
-    poste:'Poste Italiane',dhl:'DHL',gls:'GLS',brt:'BRT / Bartolini',
-    sda:'SDA',ups:'UPS',fedex:'FedEx','17track':'17track'
-  };
+  const names = { poste:'Poste Italiane', dhl:'DHL' };
   return names[key] || key.toUpperCase();
 }
 
