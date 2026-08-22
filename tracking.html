@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Traccia il tuo ordine | Completini Squadre Calcio 2.0</title>
+<meta name="description" content="Traccia il tuo pacco in tempo reale.">
+<link rel="icon" href="https://completinicalcio.it/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#07090f;--panel:#0d1119;--panel-2:#111726;
+    --line:rgba(255,255,255,.08);--text:#f2f4f8;--muted:#9aa3b5;
+    --volt:#c8ff2e;--wa:#25d366;--radius:20px;
+    --bg-rgb:7,9,15;--fg-rgb:255,255,255;
+  }
+  @media(prefers-color-scheme:light){
+    :root{
+      --bg:#f6f7fa;--panel:#fff;--panel-2:#f0f2f6;
+      --line:rgba(10,14,25,.10);--text:#12141a;--muted:#5b6272;
+      --bg-rgb:246,247,250;--fg-rgb:10,14,25;
+    }
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh}
+  a{color:inherit;text-decoration:none}
+  img{display:block}
+
+  header{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(16px);
+    background:rgba(var(--bg-rgb),.72);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px;width:min(1180px,92%);margin:0 auto}
+  .logo{display:flex;align-items:center;gap:12px;font-weight:800}
+  .logo-mark{width:44px;height:44px;border-radius:12px;object-fit:cover;background:var(--panel-2);border:1px solid var(--line)}
+  .logo b{display:block;font-size:15.5px;font-weight:800;line-height:1.2}
+  .logo small{display:block;font-size:10.5px;font-weight:600;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
+  .back{font-size:13.5px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .15s}
+  .back:hover{color:var(--text)}
+
+  main{width:min(560px,92%);margin:0 auto;padding:60px 0 100px}
+
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--volt);border:1px solid rgba(200,255,46,.35);
+    padding:8px 16px;border-radius:999px;margin-bottom:24px;
+    background:rgba(200,255,46,.06);
+  }
+  h1{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:clamp(32px,6vw,48px);line-height:.95;margin-bottom:14px}
+  .lead{color:var(--muted);font-size:15.5px;line-height:1.6;margin-bottom:40px}
+
+  .card{
+    background:linear-gradient(180deg,var(--panel-2),var(--panel));
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px 28px;margin-bottom:20px;
+  }
+
+  .field-label{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--volt);margin-bottom:10px}
+  .code-display{
+    font-family:'Archivo Black',sans-serif;font-size:22px;letter-spacing:.04em;
+    word-break:break-all;line-height:1.3;margin-bottom:6px;
+  }
+  .corriere-tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);background:var(--panel-2);
+    border:1px solid var(--line);border-radius:999px;padding:5px 12px;margin-top:8px;
+  }
+
+  .btn-track{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    width:100%;padding:16px 24px;border-radius:999px;
+    font-family:'Inter',sans-serif;font-weight:700;font-size:15px;border:none;cursor:pointer;
+    background:var(--volt);color:#0a0d05;
+    box-shadow:0 8px 28px rgba(200,255,46,.25);
+    transition:transform .18s ease,box-shadow .18s ease;
+    text-decoration:none;margin-top:20px;
+  }
+  .btn-track:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(200,255,46,.35)}
+
+  .manual-box{margin-top:10px}
+  .manual-box input{
+    width:100%;background:var(--panel-2);border:1px solid var(--line);border-radius:14px;
+    padding:14px 18px;color:var(--text);font-size:15px;font-weight:600;
+    outline:none;transition:border-color .18s ease;margin-bottom:12px;
+  }
+  .manual-box input:focus{border-color:var(--volt)}
+  .manual-box input::placeholder{color:var(--muted);opacity:1}
+  .manual-select{
+    width:100%;background:var(--panel-2);border:1px solid var(--line);border-radius:14px;
+    padding:14px 18px;color:var(--text);font-size:15px;font-weight:600;
+    outline:none;transition:border-color .18s ease;margin-bottom:12px;
+    appearance:none;-webkit-appearance:none;cursor:pointer;
+  }
+  .manual-select:focus{border-color:var(--volt)}
+
+  .info-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+  .info-chip{
+    display:flex;align-items:center;gap:8px;padding:10px 16px;
+    background:var(--panel-2);border:1px solid var(--line);border-radius:12px;
+    font-size:13px;font-weight:600;color:var(--muted);flex:1;min-width:140px;
+  }
+  .info-chip span{color:var(--text);font-weight:700}
+
+  footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;font-size:13px;color:var(--muted)}
+  footer a{color:var(--volt);font-weight:700}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a class="logo" href="/">
+      <img class="logo-mark" src="https://completinicalcio.it/logo.jpg" alt="logo">
+      <div>
+        <b>Completini SC 2.0</b>
+        <small>Maglie & Kit Calcio</small>
+      </div>
+    </a>
+    <a class="back" href="/">
+      ← Torna al catalogo
+    </a>
+  </nav>
+</header>
+
+<main>
+  <div class="eyebrow">📦 Tracking ordine</div>
+  <h1>Traccia il <span style="color:var(--volt)">tuo pacco</span></h1>
+  <p class="lead">Clicca il pulsante per vedere lo stato aggiornato della spedizione sul sito del corriere.</p>
+
+  <div id="tracking-card" class="card" style="display:none">
+    <div class="field-label">Codice di tracciamento</div>
+    <div class="code-display" id="code-display">—</div>
+    <div class="corriere-tag" id="corriere-display">📮 Corriere</div>
+    <a class="btn-track" id="track-btn" href="#" target="_blank" rel="noopener">
+      🔍 Traccia il pacco ora
+    </a>
+  </div>
+
+  <div id="manual-card" class="card">
+    <div class="field-label">Inserisci i dati manualmente</div>
+    <div class="manual-box">
+      <input type="text" id="manual-code" placeholder="Es. CP042037491DE" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false">
+      <select class="manual-select" id="manual-corriere">
+        <option value="">Seleziona corriere…</option>
+        <option value="poste">📮 Poste Italiane</option>
+        <option value="dhl">🟡 DHL</option>
+        <option value="gls">🟠 GLS</option>
+        <option value="brt">🔵 BRT / Bartolini</option>
+        <option value="sda">📬 SDA</option>
+        <option value="ups">🟤 UPS</option>
+        <option value="fedex">🟣 FedEx</option>
+        <option value="17track">🌐 17track (altri)</option>
+      </select>
+      <a class="btn-track" id="manual-btn" href="#" target="_blank" rel="noopener">
+        🔍 Traccia il pacco
+      </a>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:0">
+    <div class="field-label">Hai bisogno di aiuto?</div>
+    <div class="info-row">
+      <div class="info-chip">⏱ Tempi medi: <span>7–12 giorni</span></div>
+      <div class="info-chip">📦 Spedizione: <span>gratuita</span></div>
+    </div>
+    <a class="btn-track" href="https://wa.me/447727750265" target="_blank" rel="noopener" style="background:var(--wa);color:#062b16;box-shadow:0 8px 28px rgba(37,211,102,.3);margin-top:16px">
+      💬 Scrivimi su WhatsApp
+    </a>
+  </div>
+</main>
+
+<footer>
+  <div>© 2025 Completini Squadre Calcio 2.0 · <a href="/">Torna al catalogo</a></div>
+</footer>
+
+<script>
+const CORRIERE_URLS = {
+  poste:   c => `https://www.poste.it/cerca/index.html#/risultati-spedizioni/${c}`,
+  dhl:     c => `https://www.dhl.com/it-it/home/tracking/tracking-parcel.html?submit=1&tracking-id=${c}`,
+  gls:     c => `https://gls-group.com/track/${c}`,
+  brt:     c => `https://vas.brt.it/vas/sped_det_show.hsm?referer=sped_numspe_par.hsm&Nspediz=${c}`,
+  sda:     c => `https://www.sda.it/wps/portal/Servizi/cerca-spedizione?lang=IT&barcode=${c}`,
+  ups:     c => `https://www.ups.com/track?tracknum=${c}&loc=it_IT`,
+  fedex:   c => `https://www.fedex.com/fedextrack/?tracknumbers=${c}`,
+  '17track': c => `https://t.17track.net/it#nums=${c}`,
+};
+
+function detectCorriere(code) {
+  if (!code) return '';
+  const c = code.toUpperCase();
+  if (/^[A-Z]{2}\d{9}IT$/.test(c)) return 'poste';
+  if (/^CP\d{9}[A-Z]{2}$/.test(c)) return 'poste';
+  if (/^(JD|1Z|H|T)/.test(c) && c.length >= 18) return 'ups';
+  if (/^\d{10,12}$/.test(c)) return 'dhl';
+  if (/^[0-9]{11}$/.test(c)) return 'gls';
+  return '17track';
+}
+
+function buildUrl(corriere, code) {
+  const fn = CORRIERE_URLS[corriere] || CORRIERE_URLS['17track'];
+  return fn(code);
+}
+
+function corriereName(key) {
+  const names = {
+    poste:'Poste Italiane',dhl:'DHL',gls:'GLS',brt:'BRT / Bartolini',
+    sda:'SDA',ups:'UPS',fedex:'FedEx','17track':'17track'
+  };
+  return names[key] || key.toUpperCase();
+}
+
+// Legge parametri URL
+const params = new URLSearchParams(location.search);
+let code = (params.get('code') || params.get('tracking') || '').trim().toUpperCase();
+let corriere = (params.get('corriere') || params.get('carrier') || '').trim().toLowerCase();
+
+if (code) {
+  if (!corriere) corriere = detectCorriere(code);
+  const url = buildUrl(corriere, code);
+
+  document.getElementById('code-display').textContent = code;
+  document.getElementById('corriere-display').textContent = '📮 ' + corriereName(corriere);
+  document.getElementById('track-btn').href = url;
+  document.getElementById('tracking-card').style.display = 'block';
+
+  // Nasconde il form manuale se c'è già il codice
+  document.getElementById('manual-card').style.display = 'none';
+}
+
+// Form manuale
+function updateManualBtn() {
+  const c = document.getElementById('manual-code').value.trim().toUpperCase();
+  const k = document.getElementById('manual-corriere').value || detectCorriere(c);
+  const btn = document.getElementById('manual-btn');
+  if (c && k) {
+    btn.href = buildUrl(k, c);
+  } else {
+    btn.href = '#';
+  }
+}
+
+document.getElementById('manual-code').addEventListener('input', updateManualBtn);
+document.getElementById('manual-corriere').addEventListener('change', updateManualBtn);
+document.getElementById('manual-btn').addEventListener('click', function(e) {
+  const c = document.getElementById('manual-code').value.trim();
+  if (!c) { e.preventDefault(); document.getElementById('manual-code').focus(); }
+});
+</script>
+</body>
+</html>
