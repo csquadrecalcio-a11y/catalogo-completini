@@ -1520,6 +1520,20 @@ CATALOG.forEach((c,i)=>{
   };
   tabsEl.appendChild(b);
 });
+// Deeplink ?cat=nuovi-arrivi → apre direttamente la categoria
+(()=>{
+  const p = new URLSearchParams(location.search);
+  const catParam = (p.get('cat')||'').toLowerCase().replace(/[-_ ]/g,'');
+  if(catParam){
+    const match = CATALOG.findIndex(c => c.name.toLowerCase().replace(/[-_ ]/g,'').includes(catParam));
+    if(match >= 0){
+      activeCat = CATALOG[match];
+      document.querySelectorAll("#tabs .tab").forEach((t,i)=>t.classList.toggle("active", i===match));
+      setTimeout(()=>document.getElementById("catalogo").scrollIntoView({behavior:"smooth"}), 400);
+    }
+  }
+})();
+
 let searchMode = false;
 let searchAllCache = null;
 searchInp.addEventListener("input", ()=>{
