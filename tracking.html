@@ -161,7 +161,7 @@
   <div class="card" style="margin-top:0">
     <div class="field-label">Hai bisogno di aiuto?</div>
     <div class="info-row">
-      <div class="info-chip">⏱ Tempi medi: <span>~20 giorni dalla partenza</span></div>
+      <div class="info-chip" id="arrivoChip">⏱ Arrivo stimato: <span id="arrivoData">…</span></div>
       <div class="info-chip">📦 Spedizione: <span>gratuita</span></div>
     </div>
     <a class="btn-track" href="https://wa.me/447727750265" target="_blank" rel="noopener" style="background:var(--wa);color:#062b16;box-shadow:0 8px 28px rgba(37,211,102,.3);margin-top:16px">
@@ -235,6 +235,21 @@ document.getElementById('manual-btn').addEventListener('click', function(e) {
   const c = document.getElementById('manual-code').value.trim();
   if (!c) { e.preventDefault(); document.getElementById('manual-code').focus(); }
 });
+
+function ggLav(da, giorni) {
+  const d = new Date(da);
+  let agg = 0;
+  while (agg < giorni) {
+    d.setDate(d.getDate() + 1);
+    const g = d.getDay();
+    if (g !== 0 && g !== 6) agg++;
+  }
+  return d.toLocaleDateString('it-IT', { day: 'numeric', month: 'long' });
+}
+
+const speditoParam = params.get('spedito');
+const dataPartenza = speditoParam ? new Date(speditoParam) : new Date();
+document.getElementById('arrivoData').textContent = 'entro il ' + ggLav(dataPartenza, 20);
 </script>
 </body>
 </html>
