@@ -720,7 +720,7 @@ gtag('config', 'G-SYPQZL1L7W');
 </head>
 <body>
 
-<div class="strip"><span id="stripShip">🚚 Spedizione gratuita in tutta Italia</span> · ✏️ Nome e numero GRATIS · 🏷 Da 5 pezzi −17% · Da 10 pezzi −33%</div>
+<div class="strip"><span id="stripShip">🚚 Spedizione gratuita in tutta Italia</span> · ✏️ Nome e numero GRATIS · ⭐ 100 recensioni 5 stelle su Google · 🏷 Da 5 pezzi −17% · Da 10 pezzi −33%</div>
 
 <div id="newsletterBanner" onclick="scrollToNewsletterFooter()" style="background:linear-gradient(90deg,#141a08,#0d1108);border-bottom:1px solid rgba(200,255,46,.3);padding:10px 0;position:relative;overflow:hidden;cursor:pointer">
   <div style="white-space:nowrap;display:inline-block;animation:marqueeScroll 16s linear infinite">
@@ -777,7 +777,7 @@ gtag('config', 'G-SYPQZL1L7W');
       <div class="stats">
         <div class="stat"><b>3<i>+</i></b><span>Anni di attività</span></div>
         <div class="stat"><b id="statCats">15</b><span>Categorie</span></div>
-        <a class="stat" href="#recensioni"><b>5.0<i>★</i></b><span>Oltre 100 recensioni Google</span></a>
+        <a class="stat" href="#recensioni"><b><span id="statReview">100</span><i>★</i></b><span>Recensioni Google 5⭐</span></a>
       </div>
     </div>
     <div class="hero-stack" id="heroStack">
@@ -950,7 +950,7 @@ gtag('config', 'G-SYPQZL1L7W');
         <svg width="34" height="34" viewBox="0 0 48 48"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg>
         <div>
           <div class="gb-rating"><b>5,0</b><span class="gb-stars">★★★★★</span></div>
-          <div class="gb-count">oltre 100 recensioni Google verificate</div>
+          <div class="gb-count"><strong style="color:var(--volt);font-size:15px">🏆 100 recensioni</strong> · tutte 5 stelle · verificate Google</div>
         </div>
       </div>
       <div class="gb-actions">
@@ -2699,6 +2699,55 @@ const io = new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
 },{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+// Contatore animato recensioni
+(()=>{
+  const el = document.getElementById('statReview');
+  if(!el) return;
+  const target = 100, duration = 1800;
+  let start = null;
+  const io2 = new IntersectionObserver(([e])=>{
+    if(!e.isIntersecting) return;
+    io2.disconnect();
+    requestAnimationFrame(function step(ts){
+      if(!start) start=ts;
+      const p = Math.min((ts-start)/duration,1);
+      el.textContent = Math.round(p*target);
+      if(p<1) requestAnimationFrame(step);
+    });
+  },{threshold:.3});
+  io2.observe(el);
+})();
+
+// Popup recensioni dopo 4 secondi (una sola volta per sessione)
+(()=>{
+  if(sessionStorage.getItem('reviewPopupShown')) return;
+  setTimeout(()=>{
+    sessionStorage.setItem('reviewPopupShown','1');
+    const d = document.createElement('div');
+    d.innerHTML = `<div id="reviewPopup" style="
+      position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);
+      background:var(--panel);border:1px solid rgba(200,255,46,.4);border-radius:16px;
+      padding:16px 22px;z-index:9999;display:flex;align-items:center;gap:14px;
+      box-shadow:0 12px 40px rgba(0,0,0,.5);max-width:min(420px,90vw);
+      transition:transform .5s cubic-bezier(.34,1.56,.64,1);cursor:pointer">
+      <div style="font-size:28px;flex:none">🏆</div>
+      <div>
+        <div style="font-weight:800;font-size:14px">100 recensioni 5 stelle su Google</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:3px">★★★★★ · Tutti clienti verificati</div>
+      </div>
+      <button onclick="document.getElementById('reviewPopup').remove()" style="background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer;padding:0 0 0 8px;flex:none">✕</button>
+    </div>`;
+    document.body.appendChild(d);
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      const p = document.getElementById('reviewPopup');
+      if(p){ p.style.transform='translateX(-50%) translateY(0)'; }
+    }));
+    const p = document.getElementById('reviewPopup');
+    if(p){ p.addEventListener('click', e=>{ if(e.target.tagName!=='BUTTON') document.getElementById('recensioni')?.scrollIntoView({behavior:'smooth'}); }); }
+    setTimeout(()=>{ const p=document.getElementById('reviewPopup'); if(p) p.style.transform='translateX(-50%) translateY(120px)'; setTimeout(()=>p?.remove(),500); }, 5000);
+  }, 4000);
+})();
 </script>
 </body>
 </html>
