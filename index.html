@@ -771,7 +771,13 @@ gtag('config', 'G-SYPQZL1L7W');
       <div class="stats">
         <div class="stat"><b>3<i>+</i></b><span>Anni di attività</span></div>
         <div class="stat"><b id="statCats">15</b><span>Categorie</span></div>
-        <a class="stat" href="#recensioni"><b><span id="statReview">100</span><i>★</i></b><span>Recensioni Google 5⭐</span></a>
+        <a class="stat" href="#recensioni" style="text-decoration:none">
+          <b style="font-family:'Archivo Black';font-size:36px;display:flex;align-items:center;gap:2px;line-height:1">
+            <span style="color:#4285F4" id="statReview">1</span><span style="color:#EA4335">0</span><span style="color:#FBBC05">0</span>
+            <span style="font-size:22px;margin-left:4px">⭐</span>
+          </b>
+          <span style="font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase">Recensioni Google</span>
+        </a>
       </div>
     </div>
     <div class="hero-stack" id="heroStack">
@@ -2681,24 +2687,6 @@ const io = new IntersectionObserver(entries=>{
 },{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 
-// Contatore animato recensioni
-(()=>{
-  const el = document.getElementById('statReview');
-  if(!el) return;
-  const target = 100, duration = 1800;
-  let start = null;
-  const io2 = new IntersectionObserver(([e])=>{
-    if(!e.isIntersecting) return;
-    io2.disconnect();
-    requestAnimationFrame(function step(ts){
-      if(!start) start=ts;
-      const p = Math.min((ts-start)/duration,1);
-      el.textContent = Math.round(p*target);
-      if(p<1) requestAnimationFrame(step);
-    });
-  },{threshold:.3});
-  io2.observe(el);
-})();
 
 // Popup recensioni dopo 4 secondi (una sola volta per sessione)
 (()=>{
