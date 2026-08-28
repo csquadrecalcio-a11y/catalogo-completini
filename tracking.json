@@ -1994,8 +1994,24 @@
     "data_spedizione": "2026-08-25",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73441390",
-    "tracking_cina": "",
-    "eventi_cina": [],
+    "tracking_cina": "5P65D73441390",
+    "eventi_cina": [
+      {
+        "data": "2026-08-27 04:46:55",
+        "luogo": "",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-08-26 23:46:55",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-08-26 21:44:39",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
     "eventi_corriere": [],
     "foto": [
       "sped_262_1_0349bf26.jpeg"
