@@ -97,6 +97,19 @@ h1{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:cla
 .err-card h3{font-size:16px;font-weight:800;color:#ff7070;margin-bottom:8px}
 .err-card p{color:var(--muted);font-size:14px;line-height:1.6}
 
+/* CINA TIMELINE */
+.cina-section{padding:18px 24px;border-bottom:1px solid var(--line)}
+.cina-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.ev-list{display:flex;flex-direction:column;gap:0}
+.ev-row{display:flex;gap:12px;position:relative;padding-bottom:14px}
+.ev-row:last-child{padding-bottom:0}
+.ev-row:not(:last-child)::before{content:'';position:absolute;left:7px;top:18px;bottom:0;width:1px;background:var(--line)}
+.ev-dot{width:15px;height:15px;border-radius:50%;background:rgba(200,255,46,.18);border:2px solid var(--volt);flex-shrink:0;margin-top:2px}
+.ev-row:first-child .ev-dot{background:var(--volt)}
+.ev-body{flex:1}
+.ev-stato{font-size:13px;font-weight:700;color:var(--text);line-height:1.4}
+.ev-meta{font-size:11px;color:var(--muted);margin-top:2px}
+
 /* LIGHTBOX */
 .lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.93);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out}
 .lb.open{display:flex}
@@ -262,6 +275,24 @@ function buildCard(cod, o){
     </div>`;
   });
 
+  // eventi cina
+  const ev = (o.eventi_cina||[]);
+  let cinaHtml = "";
+  if(ev.length){
+    const rows = ev.map(e=>`
+      <div class="ev-row">
+        <div class="ev-dot"></div>
+        <div class="ev-body">
+          <div class="ev-stato">${e.stato}</div>
+          <div class="ev-meta">${e.luogo ? e.luogo+" · " : ""}${e.data}</div>
+        </div>
+      </div>`).join("");
+    cinaHtml = `<div class="cina-section">
+      <div class="cina-lbl">🇨🇳 Percorso dalla Cina</div>
+      <div class="ev-list">${rows}</div>
+    </div>`;
+  }
+
   // foto
   const foto = (o.foto||[]).filter(Boolean);
   let fotoHtml = "";
@@ -281,6 +312,7 @@ function buildCard(cod, o){
     </div>
     ${infoItems ? `<div class="info-row">${infoItems}</div>` : ""}
     ${trackHtml}
+    ${cinaHtml}
     ${fotoHtml}
   </div>`;
 }
