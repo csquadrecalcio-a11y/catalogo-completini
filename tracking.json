@@ -1932,7 +1932,7 @@
     "foto": []
   },
   "CSC-2026-0250": {
-    "stato": "consegnato",
+    "stato": "in_consegna",
     "data_spedizione": "2026-08-22",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73362790",
