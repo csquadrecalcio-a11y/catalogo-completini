@@ -2851,6 +2851,23 @@
     "tracking_5": "",
     "foto": [
       "sped_253_1_112282f6.jpeg"
+    ],
+    "eventi_cina": [
+      {
+        "data": "2026-08-27 04:48:46",
+        "luogo": "",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-08-26 23:48:46",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-08-26 21:44:58",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      }
     ]
   },
   "CSC-2026-0254": {
