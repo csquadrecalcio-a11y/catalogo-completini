@@ -295,6 +295,13 @@ function calcolaPercento(idx, eventi){
   return Math.min(base[idx] + bonus, base[idx+1] - 1);
 }
 
+function pulisciStato(s){
+  // Rimuovi residui inglesi non tradotti e correggi doppi spazi/o
+  s = s.replace(/’S LOGISTIC NETWORK/gi,"").replace(/'S LOGISTIC NETWORK/gi,"").trim();
+  s = s.replace(/\bIn transitoo\b/gi,"In transito").replace(/\s{2,}/g," ");
+  return s;
+}
+
 function buildCard(cod, o){
   const idx = statoIndex(o.stato);
   // pill
@@ -326,6 +333,7 @@ function buildCard(cod, o){
   if(o.data_spedizione) infoItems += `<div class="info-item"><label>Spedito il</label><span>${fmtData(o.data_spedizione)}</span></div>`;
   if(o.data_consegna)   infoItems += `<div class="info-item"><label>Consegnato</label><span>${fmtData(o.data_consegna)}</span></div>`;
   if(o.corriere)        infoItems += `<div class="info-item"><label>Corriere</label><span>${corriereLogo(o.corriere)} ${o.corriere}</span></div>`;
+  if(o.tracking)        infoItems += `<div class="info-item"><label>N° tracking</label><span style="font-family:monospace;font-size:12px;letter-spacing:.04em">${o.tracking}</span></div>`;
 
   let trackHtml = "";
 
@@ -339,7 +347,7 @@ function buildCard(cod, o){
       <div class="ev-row">
         <div class="ev-dot${i===0?" ev-dot-first":""}"></div>
         <div class="ev-body">
-          <div class="ev-stato">${e.stato||""}</div>
+          <div class="ev-stato">${pulisciStato(e.stato||"")}</div>
           <div class="ev-meta">${e.luogo ? e.luogo+" · " : ""}${e.data||""}</div>
         </div>
       </div>`).join("");
@@ -354,7 +362,7 @@ function buildCard(cod, o){
   let fotoHtml = "";
   if(foto.length){
     const imgs = foto.map(f=>`<img src="foto_tracking/${f}" alt="foto pacco" loading="lazy" onclick="document.getElementById('lbImg').src=this.src;document.getElementById('lb').classList.add('open')">`).join("");
-    fotoHtml = `<div class="foto-section"><div class="foto-lbl">📸 Foto del pacco</div><div class="foto-grid">${imgs}</div></div>`;
+    fotoHtml = `<div class="foto-section"><div class="foto-lbl">📸 Foto merce</div><div class="foto-grid">${imgs}</div></div>`;
   }
 
   return `<div class="card">
