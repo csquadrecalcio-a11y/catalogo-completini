@@ -437,7 +437,7 @@ function buildCard(cod, o){
     fotoHtml = `<div class="foto-section"><div class="foto-lbl">📸 Foto merce</div>${featured}${rest ? `<div class="foto-grid">${rest}</div>` : ""}</div>`;
   }
 
-  const lavorazioneBanner = (o.stato === "in_lavorazione" || o.stato === "lavorazione")
+  const lavorazioneBanner = (o.stato === "in_lavorazione" || o.stato === "lavorazione" || o.stato === "attesa_pagamento")
     ? `<div class="lavorazione-banner"><div class="lavorazione-banner-icon">⏳</div><div><div class="lavorazione-banner-title">Il tuo ordine è in preparazione</div><div class="lavorazione-banner-sub">Stiamo raccogliendo la tua merce. Riceverai le foto e il codice tracking non appena il pacco parte, entro 2–3 giorni lavorativi.</div></div></div>`
     : "";
 
