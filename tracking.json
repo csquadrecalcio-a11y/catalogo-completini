@@ -1818,33 +1818,33 @@
     "eventi_cina": [
       {
         "data": "2026-08-27 06:41:00",
-        "luogo": "IN TRANSItalia ALONG POSTE ItaliaALIANE’S LOGISTIC NETWORK",
-        "stato": "Italia FARA IN SABINA"
+        "luogo": "TRANSIT ALONG POSTE ITALIANE’S LOGISTIC NETWORK",
+        "stato": "IT FARA IN SABINA"
       },
       {
         "data": "2026-08-25 14:50:00",
-        "luogo": "FIRST PARCEL SCAN ALONG POSTE ItaliaALIANE’S LOGISTIC NETWORK",
-        "stato": "Italia CASTEL SAN GIOVANNI"
+        "luogo": "FIRST PARCEL SCAN ALONG POSTE ITALIANE’S LOGISTIC NETWORK",
+        "stato": "IT CASTEL SAN GIOVANNI"
       },
       {
         "data": "2026-08-24 14:50:00",
-        "luogo": "DELIVERY TO POSTEItaliaALIANE",
-        "stato": "Italia MILAN"
+        "luogo": "DELIVERY TO POSTEITALIANE",
+        "stato": "IT MILAN"
       },
       {
         "data": "2026-08-14 01:40:22",
-        "luogo": "Uscito dal magazzino, in attesa del volo",
-        "stato": ""
+        "luogo": "Out of warehouse, waiting for matching flight",
+        "stato": "CN"
       },
       {
         "data": "2026-08-13 20:40:22",
-        "luogo": "Pacco in uscita dal centro operativo",
-        "stato": ""
+        "luogo": "货物离开操作中心",
+        "stato": "广州"
       },
       {
         "data": "2026-08-13 19:47:36",
-        "luogo": "Arrivato al punto di raccolta",
-        "stato": ""
+        "luogo": "到达收货点",
+        "stato": "广州"
       }
     ],
     "eventi_corriere": [],
@@ -1905,41 +1905,41 @@
       {
         "data": "2026-08-25 11:07:20",
         "luogo": "Estimated departure is August 26th",
-        "stato": ""
+        "stato": "CN"
       },
       {
         "data": "2026-08-23 09:04:42",
-        "luogo": "Sdoganamento nazionale completato",
-        "stato": ""
+        "luogo": "Domestic customs clearance completed",
+        "stato": "CN"
       },
       {
         "data": "2026-08-21 13:19:00",
-        "luogo": "Merce consegnata alla compagnia aerea",
-        "stato": ""
+        "luogo": "Cargo handed over to the airline",
+        "stato": "CN"
       },
       {
         "data": "2026-08-21 12:19:36",
-        "luogo": "Sdoganamento nazionale completato",
-        "stato": ""
+        "luogo": "Domestic customs clearance completed",
+        "stato": "CN"
       },
       {
         "data": "2026-08-21 12:19:00",
-        "luogo": "Pacco confezionato e consegnato all'aeroporto",
-        "stato": ""
+        "luogo": "Package has been packed and delivered to airport",
+        "stato": "CN"
       },
       {
         "data": "2026-08-21 04:19:00",
-        "luogo": "Pacco in uscita dal centro operativo",
-        "stato": ""
+        "luogo": "货物离开操作中心",
+        "stato": "广州"
       },
       {
         "data": "2026-08-21 03:50:43",
-        "luogo": "Arrivato al punto di raccolta",
-        "stato": ""
+        "luogo": "到达收货点",
+        "stato": "广州"
       },
       {
         "data": "2026-08-14 21:47:55",
-        "luogo": "Order information received. We're expecting your parcel to arrive wItaliah us.",
+        "luogo": "Order information received. We're expecting your parcel to arrive with us.",
         "stato": "-"
       }
     ],
@@ -1955,33 +1955,33 @@
     "eventi_cina": [
       {
         "data": "2026-08-27 12:30:27",
-        "luogo": "Partenza stimata: 28 agosto",
-        "stato": ""
+        "luogo": "Estimated departure is August 28th",
+        "stato": "CN"
       },
       {
         "data": "2026-08-26 14:07:25",
-        "luogo": "Merce consegnata alla compagnia aerea",
-        "stato": ""
+        "luogo": "Cargo handed over to the airline",
+        "stato": "CN"
       },
       {
         "data": "2026-08-26 13:08:01",
-        "luogo": "Sdoganamento nazionale completato",
-        "stato": ""
+        "luogo": "Domestic customs clearance completed",
+        "stato": "CN"
       },
       {
         "data": "2026-08-26 13:07:25",
-        "luogo": "Pacco confezionato e consegnato all'aeroporto",
-        "stato": ""
+        "luogo": "Package has been packed and delivered to airport",
+        "stato": "CN"
       },
       {
         "data": "2026-08-26 05:07:25",
-        "luogo": "Pacco in uscita dal centro operativo",
-        "stato": ""
+        "luogo": "货物离开操作中心",
+        "stato": "广州"
       },
       {
         "data": "2026-08-26 04:34:21",
-        "luogo": "Arrivato al punto di raccolta",
-        "stato": ""
+        "luogo": "到达收货点",
+        "stato": "广州"
       }
     ],
     "eventi_corriere": [],
@@ -1998,18 +1998,18 @@
     "eventi_cina": [
       {
         "data": "2026-08-18 05:25:04",
-        "luogo": "Uscito dal magazzino, in attesa del volo",
-        "stato": ""
+        "luogo": "Out of warehouse, waiting for matching flight",
+        "stato": "CN"
       },
       {
         "data": "2026-08-18 00:25:04",
-        "luogo": "Pacco in uscita dal centro operativo",
-        "stato": ""
+        "luogo": "货物离开操作中心",
+        "stato": "广州"
       },
       {
         "data": "2026-08-17 21:48:15",
-        "luogo": "Arrivato al punto di raccolta",
-        "stato": ""
+        "luogo": "到达收货点",
+        "stato": "广州"
       }
     ],
     "eventi_corriere": [],
@@ -2036,18 +2036,18 @@
     "eventi_cina": [
       {
         "data": "2026-08-18 05:26:55",
-        "luogo": "Uscito dal magazzino, in attesa del volo",
-        "stato": ""
+        "luogo": "Out of warehouse, waiting for matching flight",
+        "stato": "CN"
       },
       {
         "data": "2026-08-18 00:26:55",
-        "luogo": "Pacco in uscita dal centro operativo",
-        "stato": ""
+        "luogo": "货物离开操作中心",
+        "stato": "广州"
       },
       {
         "data": "2026-08-17 21:48:19",
-        "luogo": "Arrivato al punto di raccolta",
-        "stato": ""
+        "luogo": "到达收货点",
+        "stato": "广州"
       }
     ],
     "eventi_corriere": [],
@@ -2062,18 +2062,18 @@
     "eventi_cina": [
       {
         "data": "2026-08-18 05:27:11",
-        "luogo": "Uscito dal magazzino, in attesa del volo",
-        "stato": ""
+        "luogo": "Out of warehouse, waiting for matching flight",
+        "stato": "CN"
       },
       {
         "data": "2026-08-18 00:27:11",
-        "luogo": "Pacco in uscita dal centro operativo",
-        "stato": ""
+        "luogo": "货物离开操作中心",
+        "stato": "广州"
       },
       {
         "data": "2026-08-17 21:48:09",
-        "luogo": "Arrivato al punto di raccolta",
-        "stato": ""
+        "luogo": "到达收货点",
+        "stato": "广州"
       }
     ],
     "eventi_corriere": [],
@@ -2090,22 +2090,22 @@
     "eventi_cina": [
       {
         "data": "2026-08-28 07:03:00",
-        "luogo": "In transItalia along Poste Italiaaliane’s logistic network",
+        "luogo": "In transit along Poste Italiane’s logistic network",
         "stato": "MONZA"
       },
       {
         "data": "2026-08-28 00:39:00",
-        "luogo": "In transItalia along Poste Italiaaliane’s logistic network",
+        "luogo": "In transit along Poste Italiane’s logistic network",
         "stato": "MILANO"
       },
       {
         "data": "2026-08-26 12:15:00",
-        "luogo": "In transItalia along Poste Italiaaliane’s logistic network",
+        "luogo": "In transit along Poste Italiane’s logistic network",
         "stato": "FARA IN SABINA"
       },
       {
         "data": "2026-08-25 16:36:00",
-        "luogo": "First parcel scan along Poste Italiaaliane’s logistic network",
+        "luogo": "First parcel scan along Poste Italiane’s logistic network",
         "stato": "FARA IN SABINA"
       },
       {
@@ -2115,7 +2115,7 @@
       },
       {
         "data": "2026-08-25 15:38:26",
-        "luogo": "In transItalia to last mile operator",
+        "luogo": "In transit to last mile operator",
         "stato": "FCO"
       },
       {
@@ -2125,7 +2125,7 @@
       },
       {
         "data": "2026-08-24 16:59:26",
-        "luogo": "Ready for transItalia to last mile operator",
+        "luogo": "Ready for transit to last mile operator",
         "stato": "FCO"
       },
       {
@@ -2151,36 +2151,36 @@
       {
         "data": "2026-08-19 14:52:37",
         "luogo": "Estimated departure is August 21th",
-        "stato": ""
+        "stato": "CN"
       },
       {
         "data": "2026-08-18 09:16:19",
-        "luogo": "Merce consegnata alla compagnia aerea",
-        "stato": ""
+        "luogo": "Cargo handed over to the airline",
+        "stato": "CN"
       },
       {
         "data": "2026-08-18 08:16:55",
-        "luogo": "Sdoganamento nazionale completato",
-        "stato": ""
+        "luogo": "Domestic customs clearance completed",
+        "stato": "CN"
       },
       {
         "data": "2026-08-18 08:16:19",
-        "luogo": "Pacco confezionato e consegnato all'aeroporto",
-        "stato": ""
+        "luogo": "Package has been packed and delivered to airport",
+        "stato": "CN"
       },
       {
         "data": "2026-08-18 00:16:19",
-        "luogo": "Pacco in uscita dal centro operativo",
-        "stato": ""
+        "luogo": "货物离开操作中心",
+        "stato": "广州"
       },
       {
         "data": "2026-08-17 22:00:58",
-        "luogo": "Arrivato al punto di raccolta",
-        "stato": ""
+        "luogo": "到达收货点",
+        "stato": "广州"
       },
       {
         "data": "2026-08-16 18:46:01",
-        "luogo": "Order information received. We're expecting your parcel to arrive wItaliah us.",
+        "luogo": "Order information received. We're expecting your parcel to arrive with us.",
         "stato": "-"
       }
     ],
@@ -2212,32 +2212,32 @@
     "eventi_cina": [
       {
         "data": "2026-08-28 01:48:00",
-        "luogo": "In transItalia along Poste Italiaaliane’s logistic network",
+        "luogo": "In transit along Poste Italiane’s logistic network",
         "stato": "CATANIA"
       },
       {
         "data": "2026-08-26 18:22:00",
-        "luogo": "In transItalia along Poste Italiaaliane’s logistic network",
+        "luogo": "In transit along Poste Italiane’s logistic network",
         "stato": "ROMA"
       },
       {
         "data": "2026-08-26 14:01:00",
-        "luogo": "In transItalia along Poste Italiaaliane’s logistic network",
+        "luogo": "In transit along Poste Italiane’s logistic network",
         "stato": "FARA IN SABINA"
       },
       {
         "data": "2026-08-25 16:54:00",
-        "luogo": "First parcel scan along Poste Italiaaliane’s logistic network",
+        "luogo": "First parcel scan along Poste Italiane’s logistic network",
         "stato": "FARA IN SABINA"
       },
       {
         "data": "2026-08-25 15:38:29",
-        "luogo": "In transItalia to last mile operator",
+        "luogo": "In transit to last mile operator",
         "stato": "FCO"
       },
       {
         "data": "2026-08-24 17:10:36",
-        "luogo": "Ready for transItalia to last mile operator",
+        "luogo": "Ready for transit to last mile operator",
         "stato": "FCO"
       },
       {
@@ -2258,36 +2258,36 @@
       {
         "data": "2026-08-19 14:52:37",
         "luogo": "Estimated departure is August 21th",
-        "stato": ""
+        "stato": "CN"
       },
       {
         "data": "2026-08-18 10:02:30",
-        "luogo": "Merce consegnata alla compagnia aerea",
-        "stato": ""
+        "luogo": "Cargo handed over to the airline",
+        "stato": "CN"
       },
       {
         "data": "2026-08-18 09:03:06",
-        "luogo": "Sdoganamento nazionale completato",
-        "stato": ""
+        "luogo": "Domestic customs clearance completed",
+        "stato": "CN"
       },
       {
         "data": "2026-08-18 09:02:30",
-        "luogo": "Pacco confezionato e consegnato all'aeroporto",
-        "stato": ""
+        "luogo": "Package has been packed and delivered to airport",
+        "stato": "CN"
       },
       {
         "data": "2026-08-18 01:02:30",
-        "luogo": "Pacco in uscita dal centro operativo",
-        "stato": ""
+        "luogo": "货物离开操作中心",
+        "stato": "广州"
       },
       {
         "data": "2026-08-17 21:59:53",
-        "luogo": "Arrivato al punto di raccolta",
-        "stato": ""
+        "luogo": "到达收货点",
+        "stato": "广州"
       },
       {
         "data": "2026-08-15 19:04:24",
-        "luogo": "Order information received. We're expecting your parcel to arrive wItaliah us.",
+        "luogo": "Order information received. We're expecting your parcel to arrive with us.",
         "stato": "-"
       }
     ],
@@ -2303,18 +2303,18 @@
     "eventi_cina": [
       {
         "data": "2026-08-27 04:48:46",
-        "luogo": "Uscito dal magazzino, in attesa del volo",
-        "stato": ""
+        "luogo": "Out of warehouse, waiting for matching flight",
+        "stato": "CN"
       },
       {
         "data": "2026-08-26 23:48:46",
-        "luogo": "Pacco in uscita dal centro operativo",
-        "stato": ""
+        "luogo": "货物离开操作中心",
+        "stato": "广州"
       },
       {
         "data": "2026-08-26 21:44:58",
-        "luogo": "Arrivato al punto di raccolta",
-        "stato": ""
+        "luogo": "到达收货点",
+        "stato": "广州"
       }
     ],
     "eventi_corriere": [],
@@ -2331,18 +2331,18 @@
     "eventi_cina": [
       {
         "data": "2026-08-27 04:46:55",
-        "luogo": "Uscito dal magazzino, in attesa del volo",
-        "stato": ""
+        "luogo": "Out of warehouse, waiting for matching flight",
+        "stato": "CN"
       },
       {
         "data": "2026-08-26 23:46:55",
-        "luogo": "Pacco in uscita dal centro operativo",
-        "stato": ""
+        "luogo": "货物离开操作中心",
+        "stato": "广州"
       },
       {
         "data": "2026-08-26 21:44:39",
-        "luogo": "Arrivato al punto di raccolta",
-        "stato": ""
+        "luogo": "到达收货点",
+        "stato": "广州"
       }
     ],
     "eventi_corriere": [],
@@ -2359,33 +2359,33 @@
     "eventi_cina": [
       {
         "data": "2026-08-27 12:30:27",
-        "luogo": "Partenza stimata: 28 agosto",
-        "stato": ""
+        "luogo": "Estimated departure is August 28th",
+        "stato": "CN"
       },
       {
         "data": "2026-08-26 14:07:26",
-        "luogo": "Merce consegnata alla compagnia aerea",
-        "stato": ""
+        "luogo": "Cargo handed over to the airline",
+        "stato": "CN"
       },
       {
         "data": "2026-08-26 13:08:02",
-        "luogo": "Sdoganamento nazionale completato",
-        "stato": ""
+        "luogo": "Domestic customs clearance completed",
+        "stato": "CN"
       },
       {
         "data": "2026-08-26 13:07:26",
-        "luogo": "Pacco confezionato e consegnato all'aeroporto",
-        "stato": ""
+        "luogo": "Package has been packed and delivered to airport",
+        "stato": "CN"
       },
       {
         "data": "2026-08-26 05:07:26",
-        "luogo": "Pacco in uscita dal centro operativo",
-        "stato": ""
+        "luogo": "货物离开操作中心",
+        "stato": "广州"
       },
       {
         "data": "2026-08-26 04:33:56",
-        "luogo": "Arrivato al punto di raccolta",
-        "stato": ""
+        "luogo": "到达收货点",
+        "stato": "广州"
       }
     ],
     "eventi_corriere": [],
@@ -2402,18 +2402,18 @@
     "eventi_cina": [
       {
         "data": "2026-08-21 03:37:08",
-        "luogo": "Uscito dal magazzino, in attesa del volo",
-        "stato": ""
+        "luogo": "Out of warehouse, waiting for matching flight",
+        "stato": "CN"
       },
       {
         "data": "2026-08-20 22:37:08",
-        "luogo": "Pacco in uscita dal centro operativo",
-        "stato": ""
+        "luogo": "货物离开操作中心",
+        "stato": "广州"
       },
       {
         "data": "2026-08-20 22:02:04",
-        "luogo": "Arrivato al punto di raccolta",
-        "stato": ""
+        "luogo": "到达收货点",
+        "stato": "广州"
       }
     ],
     "eventi_corriere": [],
@@ -2428,18 +2428,18 @@
     "eventi_cina": [
       {
         "data": "2026-08-21 03:37:10",
-        "luogo": "Uscito dal magazzino, in attesa del volo",
-        "stato": ""
+        "luogo": "Out of warehouse, waiting for matching flight",
+        "stato": "CN"
       },
       {
         "data": "2026-08-20 22:37:10",
-        "luogo": "Pacco in uscita dal centro operativo",
-        "stato": ""
+        "luogo": "货物离开操作中心",
+        "stato": "广州"
       },
       {
         "data": "2026-08-20 22:02:08",
-        "luogo": "Arrivato al punto di raccolta",
-        "stato": ""
+        "luogo": "到达收货点",
+        "stato": "广州"
       }
     ],
     "eventi_corriere": [],
@@ -2454,18 +2454,18 @@
     "eventi_cina": [
       {
         "data": "2026-08-18 05:25:19",
-        "luogo": "Uscito dal magazzino, in attesa del volo",
-        "stato": ""
+        "luogo": "Out of warehouse, waiting for matching flight",
+        "stato": "CN"
       },
       {
         "data": "2026-08-18 00:25:19",
-        "luogo": "Pacco in uscita dal centro operativo",
-        "stato": ""
+        "luogo": "货物离开操作中心",
+        "stato": "广州"
       },
       {
         "data": "2026-08-17 21:48:24",
-        "luogo": "Arrivato al punto di raccolta",
-        "stato": ""
+        "luogo": "到达收货点",
+        "stato": "广州"
       }
     ],
     "eventi_corriere": [],
