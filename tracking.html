@@ -99,6 +99,20 @@ h1{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:cla
 .btn-track:hover{opacity:.88}
 .track-num{margin-top:8px;font-size:12.5px;color:var(--muted);font-family:monospace;letter-spacing:.04em}
 
+/* GLOSSARIO */
+.glossario{margin-top:32px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.glossario-head{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none}
+.glossario-head-lbl{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.glossario-chevron{font-size:14px;color:var(--muted);transition:transform .25s}
+.glossario-head[aria-expanded="true"] .glossario-chevron{transform:rotate(180deg)}
+.glossario-body{display:none;padding:4px 0 8px}
+.glossario-body.open{display:block}
+.gl-row{display:flex;gap:12px;align-items:flex-start;padding:10px 20px}
+.gl-row+.gl-row{border-top:1px solid var(--line)}
+.gl-icon{font-size:16px;flex-shrink:0;width:22px;text-align:center;margin-top:1px}
+.gl-term{font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px}
+.gl-desc{font-size:12px;color:var(--muted);line-height:1.5}
+
 /* FOTO */
 .foto-section{padding:18px 24px}
 .foto-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
@@ -161,6 +175,24 @@ footer a{color:var(--volt);font-weight:700}
   </div>
 
   <div id="result"></div>
+
+  <div class="glossario">
+    <div class="glossario-head" aria-expanded="false" onclick="toggleGlossario(this)">
+      <span class="glossario-head-lbl">📖 Cosa significano le voci del tracking?</span>
+      <span class="glossario-chevron">▼</span>
+    </div>
+    <div class="glossario-body">
+      <div class="gl-row"><div class="gl-icon">📦</div><div><div class="gl-term">Arrivato al punto di raccolta</div><div class="gl-desc">Il tuo pacco è stato ritirato e registrato presso il centro di smistamento del corriere.</div></div></div>
+      <div class="gl-row"><div class="gl-icon">🏭</div><div><div class="gl-term">Pacco in uscita dal centro operativo</div><div class="gl-desc">Il pacco ha lasciato il magazzino ed è in movimento verso il prossimo hub.</div></div></div>
+      <div class="gl-row"><div class="gl-icon">✈️</div><div><div class="gl-term">Uscito dal magazzino, in attesa del volo</div><div class="gl-desc">Il pacco è pronto per essere caricato sull'aereo. I voli internazionali vengono assegnati in base alla disponibilità.</div></div></div>
+      <div class="gl-row"><div class="gl-icon">🛫</div><div><div class="gl-term">Partito dall'aeroporto di origine</div><div class="gl-desc">Il pacco è in volo verso l'Italia.</div></div></div>
+      <div class="gl-row"><div class="gl-icon">🛬</div><div><div class="gl-term">Volo atterrato</div><div class="gl-desc">L'aereo è atterrato. Il pacco passerà ora ai controlli doganali.</div></div></div>
+      <div class="gl-row"><div class="gl-icon">🔎</div><div><div class="gl-term">Sdoganamento in corso / completato</div><div class="gl-desc">Il pacco viene controllato dalla dogana italiana. È un passaggio obbligatorio per tutti i pacchi internazionali e può richiedere 1–3 giorni.</div></div></div>
+      <div class="gl-row"><div class="gl-icon">📮</div><div><div class="gl-term">Il tuo pacco è in fase di presa in carico da Poste Italiane</div><div class="gl-desc">Il pacco è arrivato e Poste Italiane lo sta registrando nel proprio sistema. A breve sarà disponibile il tracking italiano.</div></div></div>
+      <div class="gl-row"><div class="gl-icon">🚚</div><div><div class="gl-term">In transito nella rete di Poste Italiane</div><div class="gl-desc">Il pacco si sta spostando tra gli hub postali italiani verso la tua città.</div></div></div>
+      <div class="gl-row"><div class="gl-icon">🏠</div><div><div class="gl-term">Consegnato</div><div class="gl-desc">Il pacco è stato consegnato all'indirizzo indicato.</div></div></div>
+    </div>
+  </div>
 </main>
 
 <div class="lb" id="lb" onclick="this.classList.remove('open')">
@@ -408,6 +440,12 @@ function buildCard(cod, o){
     ${cinaHtml}
     ${fotoHtml}
   </div>`;
+}
+
+function toggleGlossario(el){
+  const body = el.nextElementSibling;
+  const open = body.classList.toggle("open");
+  el.setAttribute("aria-expanded", open);
 }
 
 document.getElementById("inp").addEventListener("keydown", e=>{ if(e.key==="Enter") cerca(); });
