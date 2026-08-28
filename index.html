@@ -2496,7 +2496,12 @@ document.getElementById("cartCheckout").onclick = ()=>{
   if (order.note) lines.push(`Note: ${order.note}`);
 
   inviaOrdineGestionale(order, cart, tier, { codiceSconto, codiceDiscount });
-  window.open(WA + encodeURIComponent(lines.join("\n")), "_blank");
+  const telPulito = (order.tel || "").replace(/\D/g, "");
+  const msgEnc = encodeURIComponent(lines.join("\n"));
+  fetch(`http://127.0.0.1:5050/api/cliente-noto?tel=${telPulito}`)
+    .then(r => r.json())
+    .catch(() => ({ wa: "447727750265" }))
+    .then(d => window.open(`https://wa.me/${d.wa}?text=${msgEnc}`, "_blank"));
 };
 
 const STRIPE_SITE_SECRET = "bI6J_mKjyTgr518wkrXffWjpqRmo4YAd";
