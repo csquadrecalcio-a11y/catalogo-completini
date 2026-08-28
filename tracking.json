@@ -2,17 +2,11 @@
   "CSC-2026-0003": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-09",
-    "data_consegna": "2026-06-23",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J612385",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_3_1_94b78f35.jpg"
     ]
@@ -20,65 +14,41 @@
   "CSC-2026-0004": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-09",
-    "data_consegna": "2026-06-25",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J612398",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0005": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-09",
-    "data_consegna": "2026-06-23",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J612407",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0006": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-09",
-    "data_consegna": "2026-06-24",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J612420",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0007": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-09",
-    "data_consegna": "2026-06-24",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J612479",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_7_1_e5978889.jpeg"
     ]
@@ -86,33 +56,21 @@
   "CSC-2026-0008": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-12",
-    "data_consegna": "2026-06-29",
     "corriere": "DHL",
     "tracking": "CB777088158DE",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0009": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-11",
-    "data_consegna": "2026-06-25",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J684357",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_9_1_447f617f.jpeg"
     ]
@@ -120,17 +78,11 @@
   "CSC-2026-0010": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-11",
-    "data_consegna": "2026-06-23",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J684366",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_10_1_e2f7340f.jpeg"
     ]
@@ -138,17 +90,11 @@
   "CSC-2026-0011": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-12",
-    "data_consegna": "2026-06-24",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J684381",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_11_1_3d86e332.jpg"
     ]
@@ -156,17 +102,11 @@
   "CSC-2026-0012": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-11",
-    "data_consegna": "2026-06-25",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J684385",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_12_1_2bbb4374.jpeg"
     ]
@@ -174,17 +114,11 @@
   "CSC-2026-0013": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-12",
-    "data_consegna": "2026-06-23",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J684396",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_13_1_4e574111.jpg"
     ]
@@ -192,17 +126,11 @@
   "CSC-2026-0014": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-11",
-    "data_consegna": "2026-06-23",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J684404",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_14_1_fb6f28d9.jpeg"
     ]
@@ -210,17 +138,11 @@
   "CSC-2026-0036": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-11",
-    "data_consegna": "2026-06-23",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J702007",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_36_1_498fb5ce.jpeg"
     ]
@@ -228,17 +150,11 @@
   "CSC-2026-0037": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-11",
-    "data_consegna": "2026-06-25",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J702044",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_37_1_c71426c1.jpeg"
     ]
@@ -246,17 +162,11 @@
   "CSC-2026-0038": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-11",
-    "data_consegna": "2026-06-23",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J702059",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_38_1_7a44c576.jpeg"
     ]
@@ -264,17 +174,11 @@
   "CSC-2026-0039": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-12",
-    "data_consegna": "2026-06-24",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J702143",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_39_1_c950ffa4.jpg"
     ]
@@ -282,17 +186,11 @@
   "CSC-2026-0040": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-12",
-    "data_consegna": "2026-06-24",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J702213",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_40_1_80508d92.jpg"
     ]
@@ -300,17 +198,11 @@
   "CSC-2026-0042": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-12",
-    "data_consegna": "2026-07-03 10:32:27",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72706578",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_42_1_94620383.jpeg"
     ]
@@ -318,17 +210,11 @@
   "CSC-2026-0043": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-12",
-    "data_consegna": "2026-06-24",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J702291",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_43_1_c77dcb90.jpg"
     ]
@@ -336,33 +222,21 @@
   "CSC-2026-0045": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-16",
-    "data_consegna": "2026-07-02",
     "corriere": "DHL",
     "tracking": "CB777466141DE",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0046": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-15",
-    "data_consegna": "2026-06-26",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J764693",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_46_1_ca5005ac.jpg"
     ]
@@ -370,17 +244,11 @@
   "CSC-2026-0047": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-14",
-    "data_consegna": "2026-06-24",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J764698",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_47_1_64b8fc82.jpg"
     ]
@@ -388,17 +256,11 @@
   "CSC-2026-0048": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-14",
-    "data_consegna": "2026-06-23",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J764704",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_48_1_e41c896c.jpg"
     ]
@@ -406,17 +268,11 @@
   "CSC-2026-0049": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-17",
-    "data_consegna": "2026-07-02",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72709732",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_49_1_62a320c6.jpg"
     ]
@@ -424,17 +280,11 @@
   "CSC-2026-0050": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-16",
-    "data_consegna": "2026-06-27",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J764716",
-    "corriere_2": "Poste Italiane",
-    "tracking_2": "9C2001J764712",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_50_1_82b3e304.jpg",
       "sped_50_3_4cf836e3.jpg"
@@ -443,17 +293,11 @@
   "CSC-2026-0052": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-14",
-    "data_consegna": "2026-06-23",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J764728",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_52_1_028639a5.jpg"
     ]
@@ -461,17 +305,11 @@
   "CSC-2026-0053": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-17",
-    "data_consegna": "2026-07-02",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72709740",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_53_1_6c02cd85.jpg"
     ]
@@ -479,17 +317,11 @@
   "CSC-2026-0054": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-14",
-    "data_consegna": "2026-06-24",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J764725",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_54_1_60727c05.jpg"
     ]
@@ -497,17 +329,11 @@
   "CSC-2026-0055": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-15",
-    "data_consegna": "2026-07-08 12:47:39",
     "corriere": "DHL",
     "tracking": "00340434756696731192",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_55_1_94629a8a.jpg"
     ]
@@ -515,17 +341,11 @@
   "CSC-2026-0056": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-15",
-    "data_consegna": "2026-06-29",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J764750",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_56_1_5165f494.jpg"
     ]
@@ -533,17 +353,11 @@
   "CSC-2026-0058": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-16",
-    "data_consegna": "2026-06-26",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J764763",
-    "corriere_2": "Poste Italiane",
-    "tracking_2": "9C2001J764765",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_58_1_afd5aa90.jpg",
       "sped_58_3_7a3e359c.jpg"
@@ -552,33 +366,21 @@
   "CSC-2026-0059": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-23",
-    "data_consegna": "2026-07-06 15:22:17",
     "corriere": "DHL",
     "tracking": "CB778107145DE",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0060": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-19",
-    "data_consegna": "2026-07-07 08:48:36",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J845398",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_60_1_582f88c5.jpg"
     ]
@@ -586,17 +388,11 @@
   "CSC-2026-0061": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-19",
-    "data_consegna": "2026-07-04 18:04:37",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J845422",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_61_1_545c060f.jpg"
     ]
@@ -604,17 +400,11 @@
   "CSC-2026-0062": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-19",
-    "data_consegna": "2026-07-06 18:13:09",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J845409",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_62_1_c7b6503b.jpg"
     ]
@@ -622,17 +412,11 @@
   "CSC-2026-0065": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-19",
-    "data_consegna": "2026-07-06 13:53:01",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J845435",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_65_1_543a9362.jpg"
     ]
@@ -640,17 +424,11 @@
   "CSC-2026-0066": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-21",
-    "data_consegna": "2026-07-03 18:23:40",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J845448",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_66_1_93cfce6d.jpeg"
     ]
@@ -658,17 +436,11 @@
   "CSC-2026-0067": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-21",
-    "data_consegna": "2026-07-06 18:14:19",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J845461",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_67_1_d61bb09e.jpeg"
     ]
@@ -676,17 +448,11 @@
   "CSC-2026-0068": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-25",
-    "data_consegna": "2026-07-08 15:42:12",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J977904",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_68_1_8b13718b.jpeg"
     ]
@@ -694,17 +460,11 @@
   "CSC-2026-0070": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-21",
-    "data_consegna": "2026-07-06 13:13:31",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J883290",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_70_1_fa7bf2b9.jpeg"
     ]
@@ -712,17 +472,11 @@
   "CSC-2026-0073": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-21",
-    "data_consegna": "2026-07-07 18:35:33",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J883293",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_73_1_46179dd3.jpeg"
     ]
@@ -730,17 +484,11 @@
   "CSC-2026-0075": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-23",
-    "data_consegna": "2026-07-08 15:41:21",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J883296",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_75_1_4b23d2fd.jpeg"
     ]
@@ -748,17 +496,11 @@
   "CSC-2026-0077": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-21",
-    "data_consegna": "2026-07-06 13:14:16",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J883301",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_77_1_cc57a695.jpeg"
     ]
@@ -766,17 +508,11 @@
   "CSC-2026-0082": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-23",
-    "data_consegna": "2026-07-09 12:10:06",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J883325",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_82_1_8c64dd02.jpeg"
     ]
@@ -784,17 +520,11 @@
   "CSC-2026-0083": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-23",
-    "data_consegna": "2026-07-08 19:06:54",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J883330",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_83_1_2ba2bf4f.jpeg"
     ]
@@ -802,33 +532,21 @@
   "CSC-2026-0084": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-26",
-    "data_consegna": "2026-07-14 14:27:36",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72923534",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0085": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-28",
-    "data_consegna": "2026-07-13 14:19:08",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J052135",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_85_1_3799c414.jpeg"
     ]
@@ -836,33 +554,21 @@
   "CSC-2026-0086": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-26",
-    "data_consegna": "2026-07-21 14:45:01",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72824119",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0087": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-24",
-    "data_consegna": "2026-07-08 19:07:12",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J977875",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_87_1_1e351778.jpeg"
     ]
@@ -870,17 +576,11 @@
   "CSC-2026-0088": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-24",
-    "data_consegna": "2026-07-09 18:03:37",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J977886",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_88_1_c14c9c33.jpeg"
     ]
@@ -888,17 +588,11 @@
   "CSC-2026-0089": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-24",
-    "data_consegna": "2026-07-08 19:08:46",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J977897",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_89_1_abd1e164.jpeg"
     ]
@@ -906,17 +600,11 @@
   "CSC-2026-0090": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-25",
-    "data_consegna": "2026-07-09 19:02:26",
     "corriere": "Poste Italiane",
     "tracking": "9C2001J977911",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_90_1_61cd5b0a.jpeg"
     ]
@@ -924,17 +612,11 @@
   "CSC-2026-0091": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-02",
-    "data_consegna": "2026-07-24 14:10:42",
     "corriere": "DHL",
     "tracking": "CP040964949DE",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_91_1_1457757c.jpeg"
     ]
@@ -942,17 +624,11 @@
   "CSC-2026-0092": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-28",
-    "data_consegna": "2026-07-13 12:56:32",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J052110",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_92_1_44c8aabc.jpeg"
     ]
@@ -960,17 +636,11 @@
   "CSC-2026-0093": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-28",
-    "data_consegna": "2026-07-11 16:58:57",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J052115",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_93_1_ec3cd1d3.jpeg"
     ]
@@ -978,17 +648,11 @@
   "CSC-2026-0094": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-28",
-    "data_consegna": "2026-07-13 12:56:48",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J052120",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_94_1_b0b70aef.jpeg"
     ]
@@ -996,17 +660,11 @@
   "CSC-2026-0095": {
     "stato": "consegnato",
     "data_spedizione": "2026-06-29",
-    "data_consegna": "2026-07-13 12:56:58",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J052123",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_95_1_6513517b.jpeg"
     ]
@@ -1014,17 +672,11 @@
   "CSC-2026-0096": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-04",
-    "data_consegna": "2026-07-15 18:23:27",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J052125",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_96_1_153777a4.jpeg"
     ]
@@ -1032,17 +684,11 @@
   "CSC-2026-0097": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-04",
-    "data_consegna": "2026-07-17 11:25:12",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72918397",
-    "corriere_2": "Poste Italiane",
-    "tracking_2": "5P65D72918396",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_97_1_c72199e2.jpeg",
       "sped_97_3_ef933610.jpeg"
@@ -1051,17 +697,11 @@
   "CSC-2026-0099": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-06",
-    "data_consegna": "2026-07-20 11:43:07",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72930500",
-    "corriere_2": "DHL",
-    "tracking_2": "CJ120513262DE",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_99_1_9ae58e71.jpg",
       "sped_99_3_36138bb9.jpg"
@@ -1070,17 +710,11 @@
   "CSC-2026-0100": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-04",
-    "data_consegna": "2026-07-20 11:42:48",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72918389",
-    "corriere_2": "Poste Italiane",
-    "tracking_2": "5P65D72918388",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_100_1_29a78496.jpeg"
     ]
@@ -1088,17 +722,11 @@
   "CSC-2026-0101": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-04",
-    "data_consegna": "2026-07-17 14:05:54",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72918401",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_101_1_8915bf68.jpeg"
     ]
@@ -1106,17 +734,11 @@
   "CSC-2026-0102": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-06",
-    "data_consegna": "2026-07-27 10:45:54",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72943163",
-    "corriere_2": "Poste Italiane",
-    "tracking_2": "5P65D72961187",
-    "corriere_3": "Poste Italiane",
-    "tracking_3": "5P65D72961186",
-    "corriere_4": "Poste Italiane",
-    "tracking_4": "5P65D72961189",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_102_1_1590d113.jpeg",
       "sped_102_3_4e3a2f48.jpeg"
@@ -1125,17 +747,11 @@
   "CSC-2026-0103": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-04",
-    "data_consegna": "2026-07-16 18:39:55",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72918404",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_103_1_950f53a1.jpeg"
     ]
@@ -1143,17 +759,11 @@
   "CSC-2026-0104": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-06",
-    "data_consegna": "2026-07-24 16:48:08",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72943289",
-    "corriere_2": "Poste Italiane",
-    "tracking_2": "5P65D72943284",
-    "corriere_3": "Poste Italiane",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_104_1_ebf3faab.jpeg"
     ]
@@ -1161,17 +771,11 @@
   "CSC-2026-0105": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-05",
-    "data_consegna": "2026-07-17 14:06:10",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72918426",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_105_1_ea683f5b.jpg"
     ]
@@ -1179,17 +783,11 @@
   "CSC-2026-0106": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-06",
-    "data_consegna": "2026-07-28 13:47:05",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72943870",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_106_1_755a6030.jpeg"
     ]
@@ -1197,17 +795,11 @@
   "CSC-2026-0107": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-06",
-    "data_consegna": "2026-07-23 18:45:35",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72918441",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_107_1_58dd0908.jpeg"
     ]
@@ -1215,17 +807,11 @@
   "CSC-2026-0108": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-08",
-    "data_consegna": "2026-07-31 12:15:04",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72943315",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_108_1_8d98373f.jpeg"
     ]
@@ -1233,17 +819,11 @@
   "CSC-2026-0109": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-09",
-    "data_consegna": "2026-07-28 17:08:17",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72943319",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_109_1_fb753d91.jpeg"
     ]
@@ -1251,17 +831,11 @@
   "CSC-2026-0110": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-09",
-    "data_consegna": "2026-07-28 17:54:00",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72943336",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_110_1_0f4229e5.jpeg"
     ]
@@ -1269,17 +843,11 @@
   "CSC-2026-0111": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-08",
-    "data_consegna": "2026-07-28 13:47:51",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72943352",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_111_1_4d34588e.jpeg"
     ]
@@ -1287,17 +855,11 @@
   "CSC-2026-0112": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-08",
-    "data_consegna": "2026-07-29 16:14:58",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72943375",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_112_1_88203dc7.jpeg"
     ]
@@ -1305,17 +867,11 @@
   "CSC-2026-0113": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-11",
-    "data_consegna": "2026-07-29 18:10:46",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73000804",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_113_1_976c775c.jpeg"
     ]
@@ -1323,17 +879,11 @@
   "CSC-2026-0114": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-09",
-    "data_consegna": "2026-07-30 14:42:40",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72943443",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_114_1_78bff222.jpeg"
     ]
@@ -1341,17 +891,11 @@
   "CSC-2026-0115": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-09",
-    "data_consegna": "2026-07-29 18:10:09",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72943445",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_115_1_4e5949f3.jpeg"
     ]
@@ -1359,17 +903,11 @@
   "CSC-2026-0116": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-09",
-    "data_consegna": "2026-07-29 14:50:49",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72943451",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_116_1_0bc02e5e.jpeg"
     ]
@@ -1377,17 +915,11 @@
   "CSC-2026-0117": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-08",
-    "data_consegna": "2026-07-29 13:45:33",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72969039",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_117_1_fcc26af5.jpeg"
     ]
@@ -1395,17 +927,11 @@
   "CSC-2026-0118": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-11",
-    "data_consegna": "2026-07-29 18:11:17",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72982144",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_118_1_0a291167.jpeg"
     ]
@@ -1413,17 +939,11 @@
   "CSC-2026-0119": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-11",
-    "data_consegna": "2026-07-30 14:42:54",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72982157",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_119_1_0b08d2ec.jpeg"
     ]
@@ -1431,17 +951,11 @@
   "CSC-2026-0120": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-11",
-    "data_consegna": "2026-07-30 14:01:08",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72982171",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_120_1_7ba522ec.jpeg"
     ]
@@ -1449,17 +963,11 @@
   "CSC-2026-0121": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-11",
-    "data_consegna": "2026-07-29 18:09:47",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72982190",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_121_1_db4b38fb.jpeg"
     ]
@@ -1467,17 +975,11 @@
   "CSC-2026-0122": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-11",
-    "data_consegna": "2026-07-31 17:58:16",
     "corriere": "Poste Italiane",
     "tracking": "5P65D72982198",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_122_1_913f432a.jpeg"
     ]
@@ -1485,17 +987,11 @@
   "CSC-2026-0123": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-13",
-    "data_consegna": "2026-07-30 14:43:57",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73000784",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_123_1_648b6a47.jpeg"
     ]
@@ -1503,17 +999,11 @@
   "CSC-2026-0124": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-20",
-    "data_consegna": "2026-08-03 18:02:56",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73000787",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_124_1_1b43c4eb.jpeg"
     ]
@@ -1521,17 +1011,11 @@
   "CSC-2026-0125": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-13",
-    "data_consegna": "2026-07-31 17:58:46",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73000788",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_125_1_02addb8b.jpeg"
     ]
@@ -1539,17 +1023,11 @@
   "CSC-2026-0126": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-13",
-    "data_consegna": "2026-07-30 16:10:35",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73000798",
-    "corriere_2": "Poste Italiane",
-    "tracking_2": "5P65D73000799",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_126_1_b9d1ccef.jpeg",
       "sped_126_3_affec42b.jpeg"
@@ -1558,17 +1036,11 @@
   "CSC-2026-0127": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-13",
-    "data_consegna": "2026-07-30 16:14:50",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73000801",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_127_1_5bf90cb3.jpeg"
     ]
@@ -1576,17 +1048,11 @@
   "CSC-2026-0128": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-13",
-    "data_consegna": "2026-07-30 21:22:45",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73000807",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_128_1_7beac08f.jpeg",
       "sped_128_3_554d565c.jpeg"
@@ -1595,17 +1061,11 @@
   "CSC-2026-0129": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-13",
-    "data_consegna": "2026-08-03 12:25:43",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73015160",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_129_1_bf132899.jpeg"
     ]
@@ -1613,17 +1073,11 @@
   "CSC-2026-0130": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-13",
-    "data_consegna": "2026-08-04 16:35:15",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73027380",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_130_1_73d4437c.jpeg",
       "sped_130_3_97a42b3d.jpeg"
@@ -1632,17 +1086,11 @@
   "CSC-2026-0131": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-13",
-    "data_consegna": "2026-07-29 13:48:10",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73015423",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_131_1_f76046b8.jpeg"
     ]
@@ -1650,17 +1098,11 @@
   "CSC-2026-0132": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-13",
-    "data_consegna": "2026-07-29 20:19:43",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73015424",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_132_1_a2b83ece.jpeg"
     ]
@@ -1668,17 +1110,11 @@
   "CSC-2026-0133": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-13",
-    "data_consegna": "2026-07-29 13:19:18",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73015429",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_133_1_2d7f23ed.jpeg"
     ]
@@ -1686,17 +1122,11 @@
   "CSC-2026-0134": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-14",
-    "data_consegna": "2026-07-31 16:14:35",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73015432",
-    "corriere_2": "Poste Italiane",
-    "tracking_2": "5P65D73015433",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_134_1_6b3db313.jpeg"
     ]
@@ -1704,17 +1134,11 @@
   "CSC-2026-0137": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-13",
-    "data_consegna": "2026-08-03 14:21:49",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73015438",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_137_1_8f2c7812.jpeg"
     ]
@@ -1722,17 +1146,11 @@
   "CSC-2026-0152": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-14",
-    "data_consegna": "2026-07-30 14:45:38",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73015442",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_152_1_19b2c87c.jpeg"
     ]
@@ -1740,17 +1158,11 @@
   "CSC-2026-0155": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-14",
-    "data_consegna": "2026-07-31 13:44:14",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73015447",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_155_1_8f5e74a6.jpeg"
     ]
@@ -1758,17 +1170,11 @@
   "CSC-2026-0157": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-14",
-    "data_consegna": "2026-07-30 14:46:13",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73039213",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_157_1_f9805e29.jpeg"
     ]
@@ -1776,17 +1182,11 @@
   "CSC-2026-0165": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-15",
-    "data_consegna": "2026-07-31 17:41:49",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73015452",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_165_1_30fdb8c2.jpeg"
     ]
@@ -1794,17 +1194,11 @@
   "CSC-2026-0168": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-14",
-    "data_consegna": "2026-07-30 14:46:51",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73039232",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_168_1_977e7b4a.jpeg"
     ]
@@ -1812,17 +1206,11 @@
   "CSC-2026-0169": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-15",
-    "data_consegna": "2026-07-30 14:47:34",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73039258",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_169_1_2000578c.jpeg"
     ]
@@ -1830,17 +1218,11 @@
   "CSC-2026-0170": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-15",
-    "data_consegna": "2026-07-31 12:48:10",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73039277",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_170_1_05a45688.jpeg"
     ]
@@ -1848,17 +1230,11 @@
   "CSC-2026-0172": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-15",
-    "data_consegna": "2026-07-29 18:09:55",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73039302",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_172_1_07b84e43.jpeg"
     ]
@@ -1866,17 +1242,11 @@
   "CSC-2026-0173": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-15",
-    "data_consegna": "2026-07-30 14:48:45",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73039309",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_173_1_44234e6a.jpeg"
     ]
@@ -1884,17 +1254,11 @@
   "CSC-2026-0175": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-15",
-    "data_consegna": "2026-07-31 17:41:50",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73039314",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_175_1_c9e6912e.jpeg"
     ]
@@ -1902,17 +1266,11 @@
   "CSC-2026-0184": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-17",
-    "data_consegna": "2026-08-05 17:28:23",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73039318",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_184_1_532a1329.jpg"
     ]
@@ -1920,17 +1278,11 @@
   "CSC-2026-0185": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-17",
-    "data_consegna": "2026-08-03 14:58:52",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73076886",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_185_1_296fb6a5.jpg"
     ]
@@ -1938,17 +1290,11 @@
   "CSC-2026-0186": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-17",
-    "data_consegna": "2026-08-07 13:27:30",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73076868",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_186_1_8ae55527.jpg"
     ]
@@ -1956,17 +1302,11 @@
   "CSC-2026-0187": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-17",
-    "data_consegna": "2026-08-06 17:11:17",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73076909",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_187_1_9241530d.jpg"
     ]
@@ -1974,17 +1314,11 @@
   "CSC-2026-0190": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-21",
-    "data_consegna": "2026-08-06 14:02:32",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73094553",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_190_1_7a1b4820.jpeg"
     ]
@@ -1992,17 +1326,11 @@
   "CSC-2026-0192": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-22",
-    "data_consegna": "2026-08-06 12:13:23",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73094545",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_192_1_9bac60f8.jpeg"
     ]
@@ -2010,17 +1338,11 @@
   "CSC-2026-0193": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-20",
-    "data_consegna": "2026-08-18 13:20:58",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73094514",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_193_1_a46f023e.jpeg",
       "sped_193_3_6fcb5b79.jpeg",
@@ -2030,17 +1352,11 @@
   "CSC-2026-0194": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-20",
-    "data_consegna": "2026-08-05 19:12:46",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73094517",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_194_1_684ec58c.jpeg"
     ]
@@ -2048,17 +1364,11 @@
   "CSC-2026-0195": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-22",
-    "data_consegna": "2026-08-06 10:18:11",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73094541",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_195_1_4087ac82.jpeg"
     ]
@@ -2066,17 +1376,11 @@
   "CSC-2026-0198": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-20",
-    "data_consegna": "2026-08-10 17:09:54",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73094544",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_198_1_1cda7bde.jpeg"
     ]
@@ -2084,33 +1388,21 @@
   "CSC-2026-0199": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-20",
-    "data_consegna": "2026-07-31 18:14:52",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73108550",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0200": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-20",
-    "data_consegna": "2026-08-04 19:37:57",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73094551",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_200_1_8bcefa6e.jpeg"
     ]
@@ -2118,17 +1410,11 @@
   "CSC-2026-0201": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-20",
-    "data_consegna": "2026-08-05 17:43:24",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73094557",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_201_1_80c4c943.jpeg"
     ]
@@ -2136,17 +1422,11 @@
   "CSC-2026-0202": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-20",
-    "data_consegna": "2026-08-05 19:13:15",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73094558",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_202_1_a04ed223.jpeg"
     ]
@@ -2154,17 +1434,11 @@
   "CSC-2026-0203": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-21",
-    "data_consegna": "2026-08-10 11:24:48",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73119267",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_203_1_18603896.jpeg"
     ]
@@ -2172,17 +1446,11 @@
   "CSC-2026-0204": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-21",
-    "data_consegna": "2026-08-06 13:12:13",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73119254",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_204_1_9251d60a.jpeg"
     ]
@@ -2190,17 +1458,11 @@
   "CSC-2026-0205": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-22",
-    "data_consegna": "2026-08-07 18:40:27",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73119269",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_205_1_bd8fffcc.jpeg"
     ]
@@ -2208,17 +1470,11 @@
   "CSC-2026-0206": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-24",
-    "data_consegna": "2026-08-11 14:28:17",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73119275",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_206_1_b2453913.jpeg"
     ]
@@ -2226,17 +1482,11 @@
   "CSC-2026-0208": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-24",
-    "data_consegna": "2026-08-07 15:21:14",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73153282",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_208_1_8cf208c5.jpeg"
     ]
@@ -2244,17 +1494,11 @@
   "CSC-2026-0209": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-25",
-    "data_consegna": "2026-08-07 16:18:47",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73158896",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_209_1_1732a126.jpeg"
     ]
@@ -2262,17 +1506,11 @@
   "CSC-2026-0210": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-24",
-    "data_consegna": "2026-08-07 18:40:38",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73153315",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_210_1_8e0d94e8.jpeg"
     ]
@@ -2280,17 +1518,11 @@
   "CSC-2026-0212": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-27",
-    "data_consegna": "2026-08-12 14:15:17",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73153322",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_212_1_a7671957.jpeg"
     ]
@@ -2298,17 +1530,11 @@
   "CSC-2026-0213": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-27",
-    "data_consegna": "2026-08-14 11:00:16",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73153330",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_213_1_c560b4a6.jpeg"
     ]
@@ -2316,17 +1542,11 @@
   "CSC-2026-0214": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-30",
-    "data_consegna": "2026-08-13 18:34:40",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73198400",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_214_1_feb99929.jpeg"
     ]
@@ -2334,17 +1554,11 @@
   "CSC-2026-0215": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-29",
-    "data_consegna": "2026-08-14 20:46:11",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73198378",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_215_1_736fa706.jpeg"
     ]
@@ -2352,17 +1566,11 @@
   "CSC-2026-0217": {
     "stato": "consegnato",
     "data_spedizione": "2026-07-30",
-    "data_consegna": "2026-08-12 17:08:19",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73214034",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_217_1_6c423277.jpeg"
     ]
@@ -2370,17 +1578,11 @@
   "CSC-2026-0218": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-03",
-    "data_consegna": "2026-08-13 18:35:21",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73198385",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_218_1_ce19b08d.jpeg"
     ]
@@ -2388,17 +1590,11 @@
   "CSC-2026-0219": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-12",
-    "data_consegna": "2026-08-25 13:36:17",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73322704",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_219_1_232da1ea.jpeg"
     ]
@@ -2406,17 +1602,11 @@
   "CSC-2026-0220": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-03",
-    "data_consegna": "2026-08-13 18:36:01",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73214037",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_220_1_6106d97f.jpeg"
     ]
@@ -2424,17 +1614,11 @@
   "CSC-2026-0222": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-03",
-    "data_consegna": "2026-08-14 20:46:21",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73214041",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_222_1_b41fc7dc.jpeg"
     ]
@@ -2442,33 +1626,21 @@
   "CSC-2026-0223": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-06",
-    "data_consegna": "2026-08-19 12:50:54",
     "corriere": "DHL",
     "tracking": "CJ122751415DE",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0224": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-03",
-    "data_consegna": "2026-08-14 15:19:43",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73241533",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_224_1_60a18c90.jpeg"
     ]
@@ -2476,17 +1648,11 @@
   "CSC-2026-0225": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-05",
-    "data_consegna": "2026-08-20 15:16:05",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73269791",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_225_1_47fe755a.jpeg"
     ]
@@ -2494,17 +1660,11 @@
   "CSC-2026-0226": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-05",
-    "data_consegna": "2026-08-20 15:16:10",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73269791",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_226_1_31659c91.jpeg"
     ]
@@ -2512,17 +1672,11 @@
   "CSC-2026-0228": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-05",
-    "data_consegna": "2026-08-20 18:04:29",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73269777",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_228_1_950e324d.jpeg"
     ]
@@ -2530,17 +1684,11 @@
   "CSC-2026-0229": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-06",
-    "data_consegna": "2026-08-20 15:24:35",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73269759",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_229_1_dc80f138.jpeg"
     ]
@@ -2548,17 +1696,11 @@
   "CSC-2026-0230": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-05",
-    "data_consegna": "2026-08-20 15:23:57",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73269803",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_230_1_6bee357d.jpeg"
     ]
@@ -2566,17 +1708,11 @@
   "CSC-2026-0231": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-10",
-    "data_consegna": "2026-08-21 13:56:13",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73316707",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_231_1_7b0bb380.jpeg"
     ]
@@ -2584,17 +1720,11 @@
   "CSC-2026-0232": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-08",
-    "data_consegna": "2026-08-20 15:24:46",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73310815",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_232_1_5167f24d.jpeg"
     ]
@@ -2602,17 +1732,11 @@
   "CSC-2026-0233": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-08",
-    "data_consegna": "2026-08-24 16:09:09",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73333680",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_233_1_24af8cbb.jpeg"
     ]
@@ -2620,17 +1744,11 @@
   "CSC-2026-0235": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-10",
-    "data_consegna": "2026-08-27 18:03:33",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73316713",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_235_1_495778d4.jpeg"
     ]
@@ -2638,17 +1756,11 @@
   "CSC-2026-0236": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-10",
-    "data_consegna": "2026-08-22 10:43:59",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73316718",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_236_1_c125fad1.jpeg"
     ]
@@ -2656,33 +1768,21 @@
   "CSC-2026-0237": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-14",
-    "data_consegna": "2026-08-26 12:18:11",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73322705",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0238": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-10",
-    "data_consegna": "2026-08-23 12:25:41",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73316741",
-    "corriere_2": "Poste Italiane",
-    "tracking_2": "5P65D73316743",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_238_1_9219a881.jpeg"
     ]
@@ -2690,33 +1790,21 @@
   "CSC-2026-0242": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-17",
-    "data_consegna": "2026-08-27 18:05:19",
     "corriere": "DHL",
     "tracking": "CP042037491DE",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0243": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-08",
-    "data_consegna": "2026-08-24 16:12:08",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73310801",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_243_1_9e927302.jpeg"
     ]
@@ -2724,113 +1812,71 @@
   "CSC-2026-0244": {
     "stato": "spedito",
     "data_spedizione": "2026-08-13",
-    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73316747",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0245": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-13",
-    "data_consegna": "2026-08-27 18:04:02",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73316755",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0247": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-13",
-    "data_consegna": "2026-08-27 18:04:22",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73316761",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0248": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-13",
-    "data_consegna": "2026-08-26 07:50:21",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73335651",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0249": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-13",
-    "data_consegna": "2026-08-22 10:47:05",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73335655",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0250": {
     "stato": "spedito",
     "data_spedizione": "2026-08-22",
-    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73362790",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0251": {
     "stato": "spedito",
     "data_spedizione": "2026-08-25",
-    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J940844",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_251_1_ae194cbd.jpeg"
     ]
@@ -2838,20 +1884,9 @@
   "CSC-2026-0253": {
     "stato": "spedito",
     "data_spedizione": "2026-08-14",
-    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73357584",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
-    "foto": [
-      "sped_253_1_112282f6.jpeg"
-    ],
+    "tracking_cina": "",
     "eventi_cina": [
       {
         "data": "2026-08-27 04:48:46",
@@ -2868,54 +1903,40 @@
         "luogo": "",
         "stato": "Arrivato al punto di raccolta"
       }
+    ],
+    "eventi_corriere": [],
+    "foto": [
+      "sped_253_1_112282f6.jpeg"
     ]
   },
   "CSC-2026-0254": {
     "stato": "consegnato",
     "data_spedizione": "2026-08-16",
-    "data_consegna": "2026-08-27 18:04:52",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73369241",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0255": {
     "stato": "spedito",
     "data_spedizione": "2026-08-16",
-    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73357601",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0256": {
     "stato": "spedito",
     "data_spedizione": "2026-08-14",
-    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73357599",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_256_1_ab40adc0.jpeg"
     ]
@@ -2923,17 +1944,11 @@
   "CSC-2026-0257": {
     "stato": "spedito",
     "data_spedizione": "2026-08-17",
-    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73374719",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0258": {
@@ -2955,33 +1970,21 @@
   "CSC-2026-0259": {
     "stato": "spedito",
     "data_spedizione": "2026-08-19",
-    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73369250",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0261": {
     "stato": "spedito",
     "data_spedizione": "2026-08-24",
-    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73441373",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_261_1_952d388b.jpeg"
     ]
@@ -2989,17 +1992,11 @@
   "CSC-2026-0262": {
     "stato": "spedito",
     "data_spedizione": "2026-08-25",
-    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73441390",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_262_1_0349bf26.jpeg"
     ]
@@ -3007,17 +2004,11 @@
   "CSC-2026-0266": {
     "stato": "spedito",
     "data_spedizione": "2026-08-25",
-    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J939757",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": [
       "sped_266_1_ddeb1ec5.jpeg"
     ]
@@ -3025,49 +2016,31 @@
   "CSC-2026-0267": {
     "stato": "spedito",
     "data_spedizione": "2026-08-22",
-    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73397578",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0268": {
     "stato": "spedito",
     "data_spedizione": "2026-08-22",
-    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73397584",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0269": {
     "stato": "spedito",
     "data_spedizione": "2026-08-22",
-    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73357592",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   },
   "CSC-2026-0270": {
