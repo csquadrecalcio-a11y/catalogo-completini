@@ -1810,7 +1810,7 @@
     ]
   },
   "CSC-2026-0244": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-08-13",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73316747",
@@ -1872,7 +1872,23 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": [],
+    "eventi_corriere": [
+      {
+        "data": "2026-08-28 04:01:11",
+        "luogo": "Foggia (Fg)",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-08-28 10:12:45",
+        "luogo": "San Giovanni Rotondo (Fg)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-28 10:49:58",
+        "luogo": "Dalla Sede Operativa Di San Giovanni Rotondo (Fg)",
+        "stato": "Consegnato"
+      }
+    ],
     "foto": []
   },
   "CSC-2026-0245": {
