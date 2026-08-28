@@ -334,6 +334,8 @@ function buildCard(cod, o){
   if(o.data_consegna)   infoItems += `<div class="info-item"><label>Consegnato</label><span>${fmtData(o.data_consegna)}</span></div>`;
   if(o.corriere)        infoItems += `<div class="info-item"><label>Corriere</label><span>${corriereLogo(o.corriere)} ${o.corriere}</span></div>`;
   if(o.tracking)        infoItems += `<div class="info-item"><label>N° tracking</label><span style="font-family:monospace;font-size:12px;letter-spacing:.04em">${o.tracking}</span></div>`;
+  const etaVal = estraiEta([...(o.eventi_cina||[]),...(o.eventi_corriere||[])]);
+  if(etaVal && o.stato !== "consegnato") infoItems += `<div class="info-item"><label>Consegna stimata</label><span style="color:var(--volt);font-weight:800">~${etaVal}</span></div>`;
 
   let trackHtml = "";
 
