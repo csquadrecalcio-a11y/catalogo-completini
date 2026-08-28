@@ -149,15 +149,16 @@ const STEPS = [
   {lbl:"Ordine\nricevuto", icon:"✓"},
   {lbl:"In\nlavorazione", icon:"⚙"},
   {lbl:"Spedito",         icon:"📦"},
-  {lbl:"In\ntransito",   icon:"🚚"},
+  {lbl:"In\nconsegna",   icon:"🚚"},
   {lbl:"Consegnato",     icon:"🏠"},
 ];
 
 function statoIndex(s){
   if(!s) return 0;
   s = s.toLowerCase();
-  if(s==="consegnato") return 4;
-  if(s==="spedito")    return 2;
+  if(s==="consegnato")  return 4;
+  if(s==="in_consegna") return 3;
+  if(s==="spedito")     return 2;
   return 1; // in_lavorazione o altro
 }
 
