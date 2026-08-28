@@ -1317,6 +1317,10 @@ gtag('config', 'G-SYPQZL1L7W');
    ============================================================ */
 const API_KEY = "AIzaSyBFjNAIrUyOZeI7c3OxdD1gOtUeHlMjRjk";
 const WA = "https://wa.me/447727750265?text=";
+const WA_PERSONALE = "393792126743";
+const WA_BUSINESS  = "447727750265";
+let _clientiNoti = null;
+fetch("/clienti_noti.json").then(r=>r.json()).then(d=>{ _clientiNoti=d; }).catch(()=>{ _clientiNoti=[]; });
 const thumbUrl = id => `https://drive.google.com/thumbnail?id=${id}&sz=w400`;
 const fullUrl  = id => `https://drive.google.com/thumbnail?id=${id}&sz=w1600`;
 
@@ -2498,10 +2502,10 @@ document.getElementById("cartCheckout").onclick = ()=>{
   inviaOrdineGestionale(order, cart, tier, { codiceSconto, codiceDiscount });
   const telPulito = (order.tel || "").replace(/\D/g, "");
   const msgEnc = encodeURIComponent(lines.join("\n"));
-  fetch(`http://127.0.0.1:5050/api/cliente-noto?tel=${telPulito}`)
-    .then(r => r.json())
-    .catch(() => ({ wa: "447727750265" }))
-    .then(d => window.open(`https://wa.me/${d.wa}?text=${msgEnc}`, "_blank"));
+  const noti = _clientiNoti || [];
+  const noto = noti.some(n => n === telPulito.slice(-9));
+  const waNum = noto ? WA_PERSONALE : WA_BUSINESS;
+  window.open(`https://wa.me/${waNum}?text=${msgEnc}`, "_blank");
 };
 
 const STRIPE_SITE_SECRET = "bI6J_mKjyTgr518wkrXffWjpqRmo4YAd";
