@@ -86,6 +86,12 @@ h1{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:cla
 .info-item label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:3px}
 .info-item span{font-size:13.5px;font-weight:700}
 
+/* ETA BANNER */
+.eta-banner{padding:14px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;background:rgba(200,255,46,.06)}
+.eta-icon{font-size:20px;flex-shrink:0}
+.eta-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.eta-value{font-size:16px;font-weight:800;color:var(--volt)}
+
 /* TRACKING BTN */
 .track-section{padding:18px 24px;border-bottom:1px solid var(--line)}
 .track-section + .track-section{border-top:none}
@@ -296,10 +302,16 @@ function calcolaPercento(idx, eventi){
 }
 
 function pulisciStato(s){
-  // Rimuovi residui inglesi non tradotti e correggi doppi spazi/o
-  s = s.replace(/’S LOGISTIC NETWORK/gi,"").replace(/'S LOGISTIC NETWORK/gi,"").trim();
+  s = s.replace(/[‘’]S LOGISTIC NETWORK/gi,"").replace(/’S LOGISTIC NETWORK/gi,"").trim();
   s = s.replace(/\bIn transitoo\b/gi,"In transito").replace(/\s{2,}/g," ");
   return s;
+}
+function pulisciLuogo(l){
+  if(!l) return "";
+  // Rimuovi codici paese (CN, IT) e città cinesi
+  l = l.replace(/\bCN\b/g,"").replace(/\bIT\b/g,"");
+  l = l.replace(/\b(Guangzhou|Shenzhen|Shanghai|Beijing|Guangdong)\b/gi,"");
+  return l.trim().replace(/^[·\s]+|[·\s]+$/g,"");
 }
 
 function buildCard(cod, o){
@@ -317,9 +329,7 @@ function buildCard(cod, o){
   const stepsHtml = STEPS.map((s,i)=>{
     let cls = i < idx ? "done" : i===idx ? "active" : "";
     const icon = cls==="done" ? "✓" : s.icon;
-    // Mostra ETA sotto il dot "Consegnato" (indice 4)
-    const etaHtml = (i===4 && eta && idx < 4)
-      ? `<div class="step-eta">~${eta}</div>` : "";
+    const etaHtml = "";
     return `<div class="step ${cls}">
       <div class="step-line"><div class="step-line-fill"></div></div>
       <div class="step-dot">${icon}</div>
@@ -334,8 +344,6 @@ function buildCard(cod, o){
   if(o.data_consegna)   infoItems += `<div class="info-item"><label>Consegnato</label><span>${fmtData(o.data_consegna)}</span></div>`;
   if(o.corriere)        infoItems += `<div class="info-item"><label>Corriere</label><span>${corriereLogo(o.corriere)} ${o.corriere}</span></div>`;
   if(o.tracking)        infoItems += `<div class="info-item"><label>N° tracking</label><span style="font-family:monospace;font-size:12px;letter-spacing:.04em">${o.tracking}</span></div>`;
-  const etaVal = estraiEta([...(o.eventi_cina||[]),...(o.eventi_corriere||[])]);
-  if(etaVal && o.stato !== "consegnato") infoItems += `<div class="info-item"><label>Consegna stimata</label><span style="color:var(--volt);font-weight:800">~${etaVal}</span></div>`;
 
   let trackHtml = "";
 
@@ -350,7 +358,7 @@ function buildCard(cod, o){
         <div class="ev-dot${i===0?" ev-dot-first":""}"></div>
         <div class="ev-body">
           <div class="ev-stato">${pulisciStato(e.stato||"")}</div>
-          <div class="ev-meta">${e.luogo ? e.luogo+" · " : ""}${e.data||""}</div>
+          <div class="ev-meta">${pulisciLuogo(e.luogo) ? pulisciLuogo(e.luogo)+" · " : ""}${e.data||""}</div>
         </div>
       </div>`).join("");
     cinaHtml = `<div class="cina-section">
@@ -381,6 +389,12 @@ function buildCard(cod, o){
       </div>
     </div>
     ${infoItems ? `<div class="info-row">${infoItems}</div>` : ""}
+    ${(()=>{
+      const etaAll = estraiEta([...(o.eventi_cina||[]),...(o.eventi_corriere||[])]);
+      return (etaAll && o.stato !== "consegnato")
+        ? `<div class="eta-banner"><div class="eta-icon">📅</div><div><div class="eta-label">Data prevista di consegna</div><div class="eta-value">${etaAll}</div></div></div>`
+        : "";
+    })()}
     ${trackHtml}
     ${cinaHtml}
     ${fotoHtml}
