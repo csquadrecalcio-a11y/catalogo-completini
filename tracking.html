@@ -245,14 +245,28 @@ function errCard(t,m){
   return `<div class="err-card"><h3>${t}</h3><p>${m}</p></div>`;
 }
 
-function estraiEta(eventi){
-  // Cerca "Data di arrivo stimata: XX mese" negli eventi cinesi
-  const re = /data di arrivo stimata[:\s]+(.+)/i;
-  for(const ev of (eventi||[])){
-    const m = (ev.stato||"").match(re);
-    if(m) return m[1].trim();
+function aggiungiGiorniLavorativi(dataStr, giorni){
+  // dataStr: "2026-08-13 19:47:36" o "2026-08-13"
+  const d = new Date(dataStr.substring(0,10));
+  if(isNaN(d)) return null;
+  let aggiunti = 0;
+  while(aggiunti < giorni){
+    d.setDate(d.getDate()+1);
+    const dw = d.getDay(); // 0=dom,6=sab
+    if(dw !== 0 && dw !== 6) aggiunti++;
   }
-  return null;
+  const mesi = ["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic"];
+  return `${d.getDate()} ${mesi[d.getMonth()]}`;
+}
+
+function estraiEta(eventi){
+  // +15 giorni lavorativi dal primo evento cinese (ultimo in array = più vecchio)
+  const evList = (eventi||[]);
+  if(!evList.length) return null;
+  const primoEv = evList[evList.length - 1]; // più vecchio
+  const dataStr = primoEv.data || "";
+  if(!dataStr) return null;
+  return aggiungiGiorniLavorativi(dataStr, 15);
 }
 
 function calcolaPercento(idx, eventi){
