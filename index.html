@@ -2425,33 +2425,32 @@ document.getElementById("cartCheckout").onclick = ()=>{
   const pad = x => String(x).padStart(2,"0");
   const cod = `CSC-${String(now.getFullYear()).slice(2)}${pad(now.getMonth()+1)}${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}`;
 
-  const lines = [`🛒 *ORDINE ${cod} — Completini Squadre Calcio 2.0*`, "─────────────"];
-  cart.forEach((it,i)=>{
+  const lines = [`🛒 Ordine #${cod.replace('CSC-','')}`];
+  cart.forEach(it=>{
     const eff = unitPriceFor(it, tier);
-    const nomeSquadra = it.name.replace(/^(Kit|Maglia|Tuta|Scarpe)\s+/i, "");
-    lines.push(`${i+1}) ${it.version} — ${nomeSquadra}`);
-    if (it.pers)  lines.push(`   Nome/numero: ${it.pers}`);
-    lines.push(`   Taglia: ${it.size}`);
-    if (it.patch) lines.push(`   Patch: ${it.patch}`);
-    lines.push(`   ${it.qty}× ${eff}€`);
-    lines.push(`   Foto: ${it.thumb}`);
+    const isVintage = /vintage/i.test(it.name) || /vintage/i.test(it.version);
+    // pulizia nome: rimuove !kit/!maglia, fix 26:27→26/27, rimuove versione duplicata alla fine
+    let nomePulito = it.name
+      .replace(/^!?(kit|maglia|tuta|scarpe)\s*/i, "")
+      .replace(/(\d{2}):(\d{2})/g, "$1/$2")
+      .replace(new RegExp("\\s*" + it.version.replace(/[.*+?^${}()|[\]\\]/g,"\\$&") + "\\s*$","i"), "")
+      .trim();
+    const parti = [`${it.version} ${nomePulito}`.trim()];
+    if (it.pers) parti.push(it.pers); else parti.push("NESSUNA STAMPA");
+    parti.push(it.size);
+    if (it.patch) parti.push(it.patch);
+    lines.push(parti.join(" — "));
+    if (isVintage && !it.desc && it.thumb) lines.push(`📷 ${it.thumb}`);
   });
-  lines.push("─────────────");
-  lines.push(`Articoli: ${n}`);
-  lines.push(`Subtotale: ${sub}€`);
-  if (discount > 0) lines.push(`Sconto quantità: −${discount}€`);
-  if (codiceSconto) lines.push(`Codice ${codiceSconto}: −${codiceDiscount}€`);
-  lines.push(`*Totale: ${total}€* (spedizione gratuita)`);
-  lines.push("─────────────");
-  lines.push("*Dati spedizione*");
+  if (discount > 0 || codiceSconto) {
+    lines.push(`${total}€ (sconto −${discount + (codiceDiscount||0)}€) · ${order.pagamento}`);
+  } else {
+    lines.push(`${total}€ · ${order.pagamento}`);
+  }
+  lines.push("");
   lines.push(`${order.nome} ${order.cognome}`);
-  lines.push(order.indirizzo);
-  lines.push(`${order.cap} ${order.citta} (${order.provincia})`);
+  lines.push(`${order.indirizzo}, ${order.cap} ${order.citta}`);
   lines.push(order.tel);
-  if (order.email) lines.push(order.email);
-  if (order.squadraCuore) lines.push(`Squadra del cuore: ${order.squadraCuore}`);
-  lines.push("─────────────");
-  lines.push(`*Pagamento:* ${order.pagamento}`);
   if (order.note) lines.push(`Note: ${order.note}`);
 
   inviaOrdineGestionale(order, cart, tier, { codiceSconto, codiceDiscount });
