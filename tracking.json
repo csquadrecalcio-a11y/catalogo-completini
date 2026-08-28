@@ -1916,7 +1916,7 @@
     "foto": []
   },
   "CSC-2026-0250": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-08-22",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73362790",
@@ -1987,7 +1987,7 @@
     "foto": []
   },
   "CSC-2026-0251": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-08-25",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J940844",
@@ -2207,7 +2207,7 @@
     ]
   },
   "CSC-2026-0257": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-08-17",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73374719",
@@ -2344,7 +2344,7 @@
     "foto": []
   },
   "CSC-2026-0259": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-08-19",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73369250",
@@ -2511,7 +2511,7 @@
     ]
   },
   "CSC-2026-0266": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-08-25",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J939757",
