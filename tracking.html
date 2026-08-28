@@ -116,9 +116,18 @@ h1{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:cla
 /* FOTO */
 .foto-section{padding:18px 24px}
 .foto-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.foto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}
-.foto-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--line);cursor:pointer;transition:opacity .15s}
+.foto-featured{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;border:1px solid var(--line);cursor:zoom-in;transition:opacity .15s;margin-bottom:8px}
+.foto-featured:hover{opacity:.88}
+.foto-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:6px}
+.foto-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;border:1px solid var(--line);cursor:zoom-in;transition:opacity .15s}
 .foto-grid img:hover{opacity:.8}
+
+/* IN CONSEGNA BANNER */
+.consegna-banner{padding:16px 24px;background:linear-gradient(135deg,rgba(255,140,0,.18),rgba(255,180,0,.10));border-bottom:1px solid rgba(255,150,0,.3);display:flex;align-items:center;gap:14px}
+.consegna-banner-icon{font-size:28px;flex-shrink:0;animation:truck 1.2s ease-in-out infinite alternate}
+@keyframes truck{from{transform:translateX(0)}to{transform:translateX(6px)}}
+.consegna-banner-title{font-size:14px;font-weight:800;color:#ffaa00;margin-bottom:2px}
+.consegna-banner-sub{font-size:12px;color:var(--muted);line-height:1.4}
 
 /* ERRORE */
 .err-card{background:rgba(255,70,70,.07);border:1px solid rgba(255,70,70,.22);border-radius:var(--radius);padding:28px;text-align:center}
@@ -360,7 +369,7 @@ function buildCard(cod, o){
   // pill
   let pillCls="pill-lavorazione",pillTxt="In lavorazione";
   if(o.stato==="spedito"){pillCls="pill-spedito";pillTxt="Spedito 📦";}
-  if(o.stato==="in_consegna"){pillCls="pill-spedito";pillTxt="In consegna 🚚";}
+  if(o.stato==="in_consegna"){pillCls="pill-lavorazione";pillTxt="In consegna 🚚";}
   if(o.stato==="consegnato"){pillCls="pill-consegnato";pillTxt="Consegnato ✓";}
 
   const eta = estraiEta(o.eventi_cina);
@@ -412,15 +421,22 @@ function buildCard(cod, o){
   const foto = (o.foto||[]).filter(Boolean);
   let fotoHtml = "";
   if(foto.length){
-    const imgs = foto.map(f=>`<img src="foto_tracking/${f}" alt="foto pacco" loading="lazy" onclick="document.getElementById('lbImg').src=this.src;document.getElementById('lb').classList.add('open')">`).join("");
-    fotoHtml = `<div class="foto-section"><div class="foto-lbl">📸 Foto merce</div><div class="foto-grid">${imgs}</div></div>`;
+    const openLb = `document.getElementById('lbImg').src=this.src;document.getElementById('lb').classList.add('open')`;
+    const featured = `<img class="foto-featured" src="foto_tracking/${foto[0]}" alt="foto merce" loading="lazy" onclick="${openLb}">`;
+    const rest = foto.slice(1).map(f=>`<img src="foto_tracking/${f}" alt="foto merce" loading="lazy" onclick="${openLb}">`).join("");
+    fotoHtml = `<div class="foto-section"><div class="foto-lbl">📸 Foto merce</div>${featured}${rest ? `<div class="foto-grid">${rest}</div>` : ""}</div>`;
   }
+
+  const consegnaBanner = o.stato === "in_consegna"
+    ? `<div class="consegna-banner"><div class="consegna-banner-icon">🚚</div><div><div class="consegna-banner-title">Il tuo pacco è in consegna oggi!</div><div class="consegna-banner-sub">Il corriere è in giro con il tuo ordine. Tieniti pronto.</div></div></div>`
+    : "";
 
   return `<div class="card">
     <div class="card-head">
       <div class="order-code">${cod}</div>
       <div class="pill ${pillCls}">${pillTxt}</div>
     </div>
+    ${consegnaBanner}
     <div class="steps-wrap">
       <div class="steps-label">Stato spedizione</div>
       <div class="steps">${stepsHtml}</div>
