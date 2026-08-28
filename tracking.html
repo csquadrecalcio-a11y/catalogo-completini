@@ -400,7 +400,11 @@ function buildCard(cod, o){
   // timeline unificata: corriere IT + cina, ordine cronologico inverso
   const evCina     = (o.eventi_cina||[]);
   const evCorriere = (o.eventi_corriere||[]);
-  const tuttiEv = [...evCorriere, ...evCina]; // corriere più recente, cina prima
+  const tuttiEv = [...evCorriere, ...evCina].sort((a,b)=>{
+    const da = new Date((a.data||"").substring(0,19).replace(" ","T"));
+    const db2 = new Date((b.data||"").substring(0,19).replace(" ","T"));
+    return db2 - da; // più recente prima
+  });
   let cinaHtml = "";
   if(tuttiEv.length){
     const righe = tuttiEv.map((e,i)=>`
