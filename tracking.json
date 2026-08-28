@@ -2479,23 +2479,7 @@
     "corriere": "Poste Italiane",
     "tracking": "5P65D73441373",
     "tracking_cina": "",
-    "eventi_cina": [
-      {
-        "data": "2026-08-27 04:48:46",
-        "luogo": "",
-        "stato": "Uscito dal magazzino, in attesa del volo"
-      },
-      {
-        "data": "2026-08-26 23:48:46",
-        "luogo": "",
-        "stato": "Pacco in uscita dal centro operativo"
-      },
-      {
-        "data": "2026-08-26 21:44:58",
-        "luogo": "",
-        "stato": "Arrivato al punto di raccolta"
-      }
-    ],
+    "eventi_cina": [],
     "eventi_corriere": [],
     "foto": [
       "sped_261_1_952d388b.jpeg"
@@ -2634,43 +2618,7 @@
     "corriere": "Poste Italiane",
     "tracking": "5P65D73397584",
     "tracking_cina": "",
-    "eventi_cina": [
-      {
-        "data": "2026-08-26 05:46:52",
-        "luogo": "",
-        "stato": "Sdoganamento completato, in attesa di ritiro"
-      },
-      {
-        "data": "2026-08-24 19:52:44",
-        "luogo": "",
-        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
-      },
-      {
-        "data": "2026-08-24 11:10:19",
-        "luogo": "",
-        "stato": "Partito dall'aeroporto di origine"
-      },
-      {
-        "data": "2026-08-23 09:51:11",
-        "luogo": "",
-        "stato": "Orario di partenza stimato del volo (ETD:8.24)"
-      },
-      {
-        "data": "2026-08-21 03:37:10",
-        "luogo": "",
-        "stato": "Uscito dal magazzino, in attesa del volo"
-      },
-      {
-        "data": "2026-08-20 22:37:10",
-        "luogo": "",
-        "stato": "Pacco in uscita dal centro operativo"
-      },
-      {
-        "data": "2026-08-20 22:02:08",
-        "luogo": "",
-        "stato": "Arrivato al punto di raccolta"
-      }
-    ],
+    "eventi_cina": [],
     "eventi_corriere": [],
     "foto": []
   },
@@ -2680,48 +2628,7 @@
     "corriere": "Poste Italiane",
     "tracking": "5P65D73357592",
     "tracking_cina": "",
-    "eventi_cina": [
-      {
-        "data": "2026-08-26 18:10:53",
-        "luogo": "",
-        "stato": "Inviato al magazzino, in attesa di scansione"
-      },
-      {
-        "data": "2026-08-22 15:48:28",
-        "luogo": "",
-        "stato": "Sdoganamento completato, in attesa di ritiro"
-      },
-      {
-        "data": "2026-08-22 01:13:26",
-        "luogo": "",
-        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
-      },
-      {
-        "data": "2026-08-21 10:49:43",
-        "luogo": "",
-        "stato": "Partito dall'aeroporto di origine"
-      },
-      {
-        "data": "2026-08-20 15:23:13",
-        "luogo": "",
-        "stato": "Orario di partenza stimato del volo (Partenza stimata: 21/08)"
-      },
-      {
-        "data": "2026-08-18 05:25:19",
-        "luogo": "",
-        "stato": "Uscito dal magazzino, in attesa del volo"
-      },
-      {
-        "data": "2026-08-18 00:25:19",
-        "luogo": "",
-        "stato": "Pacco in uscita dal centro operativo"
-      },
-      {
-        "data": "2026-08-17 21:48:24",
-        "luogo": "",
-        "stato": "Arrivato al punto di raccolta"
-      }
-    ],
+    "eventi_cina": [],
     "eventi_corriere": [],
     "foto": []
   },
@@ -2889,6 +2796,16 @@
   },
   "CSC-2026-0280": {
     "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
+    "foto": []
+  },
+  "CSC-2026-0281": {
+    "stato": "attesa_pagamento",
     "data_spedizione": "",
     "corriere": "",
     "tracking": "",
