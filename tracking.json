@@ -2006,8 +2006,49 @@
     "data_spedizione": "2026-08-25",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J939757",
-    "tracking_cina": "",
-    "eventi_cina": [],
+    "tracking_cina": "9C2002J939757",
+    "eventi_cina": [
+      {
+        "data": "2026-08-27 14:34:41",
+        "luogo": "",
+        "stato": "Data di arrivo stimata: 29 agosto"
+      },
+      {
+        "data": "2026-08-27 12:30:27",
+        "luogo": "",
+        "stato": "Partenza stimata: 28 agosto"
+      },
+      {
+        "data": "2026-08-26 14:07:26",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-08-26 13:08:02",
+        "luogo": "",
+        "stato": "Sdoganamento nazionale completato"
+      },
+      {
+        "data": "2026-08-26 13:07:26",
+        "luogo": "",
+        "stato": "Pacco confezionato e consegnato all'aeroporto"
+      },
+      {
+        "data": "2026-08-26 05:07:26",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-08-26 04:33:56",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-08-25 23:41:18",
+        "luogo": "",
+        "stato": "Informazioni elettroniche ricevute"
+      }
+    ],
     "eventi_corriere": [],
     "foto": [
       "sped_266_1_ddeb1ec5.jpeg"
