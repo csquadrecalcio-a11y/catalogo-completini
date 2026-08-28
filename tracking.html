@@ -105,7 +105,7 @@ h1{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:cla
 .ev-row:last-child{padding-bottom:0}
 .ev-row:not(:last-child)::before{content:'';position:absolute;left:7px;top:18px;bottom:0;width:1px;background:var(--line)}
 .ev-dot{width:15px;height:15px;border-radius:50%;background:rgba(200,255,46,.18);border:2px solid var(--volt);flex-shrink:0;margin-top:2px}
-.ev-row:first-child .ev-dot{background:var(--volt)}
+.ev-dot-first{background:var(--volt)}
 .ev-body{flex:1}
 .ev-stato{font-size:13px;font-weight:700;color:var(--text);line-height:1.4}
 .ev-meta{font-size:11px;color:var(--muted);margin-top:2px}
@@ -255,41 +255,25 @@ function buildCard(cod, o){
   if(o.data_consegna)   infoItems += `<div class="info-item"><label>Consegnato</label><span>${fmtData(o.data_consegna)}</span></div>`;
   if(o.corriere)        infoItems += `<div class="info-item"><label>Corriere</label><span>${corriereLogo(o.corriere)} ${o.corriere}</span></div>`;
 
-  // tracking buttons
-  const colli = [
-    {t:o.tracking,   c:o.corriere},
-    {t:o.tracking_2, c:o.corriere_2||o.corriere},
-    {t:o.tracking_3, c:o.corriere_3||o.corriere},
-    {t:o.tracking_4, c:o.corriere_4||o.corriere},
-    {t:o.tracking_5, c:o.corriere_5||o.corriere},
-  ].filter(x=>x.t);
-
   let trackHtml = "";
-  colli.forEach(({t,c})=>{
-    const url = trackingUrl(c,t);
-    trackHtml += `<div class="track-section">
-      <a href="${url}" target="_blank" rel="noopener" class="btn-track">
-        ${corriereLogo(c)} Traccia su ${c||"corriere"}
-      </a>
-      <div class="track-num">${t}</div>
-    </div>`;
-  });
 
-  // eventi cina
-  const ev = (o.eventi_cina||[]);
+  // timeline unificata: corriere IT + cina, ordine cronologico inverso
+  const evCina     = (o.eventi_cina||[]);
+  const evCorriere = (o.eventi_corriere||[]);
+  const tuttiEv = [...evCorriere, ...evCina]; // corriere più recente, cina prima
   let cinaHtml = "";
-  if(ev.length){
-    const rows = ev.map(e=>`
+  if(tuttiEv.length){
+    const righe = tuttiEv.map((e,i)=>`
       <div class="ev-row">
-        <div class="ev-dot"></div>
+        <div class="ev-dot${i===0?" ev-dot-first":""}"></div>
         <div class="ev-body">
-          <div class="ev-stato">${e.stato}</div>
-          <div class="ev-meta">${e.luogo ? e.luogo+" · " : ""}${e.data}</div>
+          <div class="ev-stato">${e.stato||""}</div>
+          <div class="ev-meta">${e.luogo ? e.luogo+" · " : ""}${e.data||""}</div>
         </div>
       </div>`).join("");
     cinaHtml = `<div class="cina-section">
       <div class="cina-lbl">📍 Storico spedizione</div>
-      <div class="ev-list">${rows}</div>
+      <div class="ev-list">${righe}</div>
     </div>`;
   }
 
