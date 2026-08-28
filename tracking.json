@@ -2357,7 +2357,10 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": []
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
   },
   "CSC-2026-0259": {
     "stato": "consegnato",
@@ -2736,7 +2739,10 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": []
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
   },
   "CSC-2026-0271": {
     "stato": "in_lavorazione",
@@ -2752,7 +2758,10 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": []
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
   },
   "CSC-2026-0272": {
     "stato": "in_lavorazione",
@@ -2768,7 +2777,10 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": []
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
   },
   "CSC-2026-0273": {
     "stato": "attesa_pagamento",
@@ -2784,7 +2796,10 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": []
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
   },
   "CSC-2026-0274": {
     "stato": "in_lavorazione",
@@ -2800,7 +2815,10 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": []
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
   },
   "CSC-2026-0275": {
     "stato": "in_lavorazione",
@@ -2816,7 +2834,10 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": []
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
   },
   "CSC-2026-0276": {
     "stato": "in_lavorazione",
@@ -2832,7 +2853,10 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": []
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
   },
   "CSC-2026-0277": {
     "stato": "in_lavorazione",
@@ -2848,6 +2872,29 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0279": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
+    "foto": []
+  },
+  "CSC-2026-0280": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [],
     "foto": []
   }
 }
