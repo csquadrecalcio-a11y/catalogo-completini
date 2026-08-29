@@ -1462,23 +1462,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-24 16:22",
-        "luogo": "dalla sede operativa di QUARTUCCIU (CA)",
-        "stato": "La spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-24 14:35",
-        "luogo": "QUARTUCCIU (CA)",
-        "stato": "La spedizione è in consegna"
-      },
-      {
-        "data": "2026-06-24 06:30",
-        "luogo": "CAGLIARI (CA)",
-        "stato": "La spedizione è In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0007": {
