@@ -2288,23 +2288,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-23 13:39",
-        "luogo": "dalla sede operativa di NEPI (VT)",
-        "stato": "La spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-23 11:44",
-        "luogo": "NEPI (VT)",
-        "stato": "La spedizione è in consegna"
-      },
-      {
-        "data": "2026-06-23 08:00",
-        "luogo": "VItaliaERBO (VT)",
-        "stato": "La spedizione è In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0014": {
