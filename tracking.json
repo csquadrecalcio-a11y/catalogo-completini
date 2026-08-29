@@ -12798,23 +12798,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-08-06 13:16:02",
-        "luogo": "dalla sede operativa di VIESTE (FG)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-08-06 11:18:33",
-        "luogo": "VIESTE (FG)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-06 04:48:30",
-        "luogo": "FOGGIA (FG)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0192": {
