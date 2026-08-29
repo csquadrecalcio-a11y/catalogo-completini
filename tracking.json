@@ -7063,7 +7063,7 @@
       {
         "data": "2026-07-13 17:43:58",
         "luogo": "FCO",
-        "stato": "In transito to last mile operator"
+        "stato": "In transito verso il corriere locale"
       },
       {
         "data": "2026-07-13 16:30:09",
@@ -7078,12 +7078,12 @@
       {
         "data": "2026-07-13 11:53:59",
         "luogo": "FCO",
-        "stato": "Arrived at Sdoganamento warehouse"
+        "stato": "Arrivato al deposito doganale"
       },
       {
         "data": "2026-07-13 09:00:00",
         "luogo": "FCO",
-        "stato": "Terminal Notification of Arrival"
+        "stato": "Avviso di arrivo al terminal"
       },
       {
         "data": "2026-07-12 12:17:00",
@@ -7093,27 +7093,27 @@
       {
         "data": "2026-07-11 23:16:24",
         "luogo": "",
-        "stato": "预计Volo抵达时间 Expected to arrive（2026-7-12）"
+        "stato": "Arrivo previsto（2026-7-12）"
       },
       {
         "data": "2026-07-11 23:16:20",
         "luogo": "",
-        "stato": "Volo partito Volo partito"
+        "stato": "Volo partito"
       },
       {
         "data": "2026-07-09 23:40:55",
         "luogo": "",
-        "stato": "预计Volo启运时间 Expected departure（2026-7-11）"
+        "stato": "Partenza prevista（2026-7-11）"
       },
       {
         "data": "2026-07-09 23:40:52",
         "luogo": "",
-        "stato": "货物移交航司 Merce consegnata alla compagnia aerea"
+        "stato": "Merce consegnata alla compagnia aerea"
       },
       {
         "data": "2026-07-09 23:40:49",
         "luogo": "",
-        "stato": "国内Sdoganamento completato Domestic Sdoganamento is completed"
+        "stato": "Sdoganamento completato"
       },
       {
         "data": "2026-07-06 23:43:38",
@@ -7128,11 +7128,11 @@
       {
         "data": "2026-06-28 23:24:20",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-06-28 17:24:21",
-        "luogo": "-",
+        "luogo": "",
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ]
