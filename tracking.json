@@ -6676,23 +6676,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-20 13:46:42",
-        "luogo": "dalla sede operativa di ENNA (EN)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-20 11:52:56",
-        "luogo": "ENNA (EN)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-20 07:24:06",
-        "luogo": "ENNA (EN)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0085": {
