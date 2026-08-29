@@ -2296,19 +2296,19 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-06-25 14:58:04",
+        "data": "2026-06-25 14:58",
         "luogo": "dalla sede operativa di ROMA (RM)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
+        "stato": "La spedizione è stata consegnata"
       },
       {
-        "data": "2026-06-25 11:10:59",
+        "data": "2026-06-25 11:10",
         "luogo": "ROMA (RM)",
-        "stato": "In consegna"
+        "stato": "La spedizione è in consegna"
       },
       {
-        "data": "2026-06-25 01:32:24",
+        "data": "2026-06-25 01:32",
         "luogo": "FIUMICINO (RM)",
-        "stato": "In transItaliaoo"
+        "stato": "La spedizione è In transItaliaoo"
       }
     ]
   },
