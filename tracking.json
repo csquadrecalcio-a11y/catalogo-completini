@@ -7112,5 +7112,40 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0086": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-06-26",
+    "data_consegna": "2026-07-21 14:45:01",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D72824119",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-21 11:30:00",
+        "luogo": "dalla sede operativa di NAPOLI (NA)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-21 07:36:00",
+        "luogo": "NAPOLI (NA)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-17 16:15:00",
+        "luogo": "MADDALONI (CE)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
