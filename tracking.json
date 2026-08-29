@@ -18716,5 +18716,81 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ]
+  },
+  "CSC-2026-0251": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-08-25",
+    "data_consegna": "",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2002J940844",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_251_1_ae194cbd.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-08-28 22:35:18",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-08-27 14:34:41",
+        "luogo": "",
+        "stato": "Data di arrivo stimata: 29 agosto"
+      },
+      {
+        "data": "2026-08-27 12:30:27",
+        "luogo": "Cina",
+        "stato": "Partenza stimata: 28 agosto"
+      },
+      {
+        "data": "2026-08-26 14:07:25",
+        "luogo": "Cina",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-08-26 13:08:01",
+        "luogo": "Cina",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-08-26 13:07:25",
+        "luogo": "Cina",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
+        "data": "2026-08-26 05:07:25",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-08-26 04:34:21",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-08-26 01:28:59",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-08-26 01:28:59",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-08-25 19:29:00",
+        "luogo": "-",
+        "stato": "Ordine registrato, in attesa del pacco"
+      }
+    ]
   }
 }
