@@ -3389,5 +3389,126 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0045": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-06-16",
+    "data_consegna": "2026-07-02",
+    "corriere": "DHL",
+    "tracking": "CB777466141DE",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-02 13:07:00",
+        "luogo": "Italiaaly",
+        "stato": "The shipment has been successfully ConsegnatoConsegnato"
+      },
+      {
+        "data": "2026-07-02 09:00:00",
+        "luogo": "Italiaaly",
+        "stato": "The shipment is being prepared for delivery in the delivery depottransItalia"
+      },
+      {
+        "data": "2026-06-30 20:33:00",
+        "luogo": "Italiaaly",
+        "stato": "The shipment has been processed in the parcel centertransItalia"
+      },
+      {
+        "data": "2026-06-30 20:32:00",
+        "luogo": "Italiaaly",
+        "stato": "The shipment has arrived at the parcel centertransItalia"
+      },
+      {
+        "data": "2026-06-30 03:20:00",
+        "luogo": "Germany",
+        "stato": "The shipment will be transported to the destination country/destination area and, from there, handed over to the delivery organization.transItalia"
+      },
+      {
+        "data": "2026-06-30 03:18:00",
+        "luogo": "Germany",
+        "stato": "The international shipment has been processed in the export parcel centertransItalia"
+      },
+      {
+        "data": "2026-06-29 19:02:00",
+        "luogo": "Germany",
+        "stato": "The international shipment has been processed in the parcel center of origintransItalia"
+      },
+      {
+        "data": "2026-06-23 21:19:53",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-06-23 19:58:54",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-06-20 14:15:16",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-06-19 19:42:58",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-06-18 13:58:38",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:6.19)"
+      },
+      {
+        "data": "2026-06-16 20:44:11",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-06-16 15:38:00",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-06-16 10:36:21",
+        "luogo": "",
+        "stato": "Package&nbsp;details&nbsp;received"
+      },
+      {
+        "data": "2026-06-16 07:10:00",
+        "luogo": "",
+        "stato": "The instruction data for this shipment have been provided by the sender to DHL electronically.transItalia"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-02 13:07:00",
+        "luogo": "dalla sede operativa di Bari (BA)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-02 09:00:00",
+        "luogo": "Filiale SDA Bari (BA)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-01 08:17:00",
+        "luogo": "Bari (BA)",
+        "stato": "In transItaliaoo"
+      },
+      {
+        "data": "2026-06-29 19:02:00",
+        "luogo": "Ufficio Postale Germania",
+        "stato": "Presa in carico"
+      }
+    ]
   }
 }
