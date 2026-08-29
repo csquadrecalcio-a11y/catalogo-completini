@@ -13561,23 +13561,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-08-05 17:59:48",
-        "luogo": "dalla sede operativa di VERONA (VR)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-08-05 17:58:25",
-        "luogo": "VERONA (VR)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-05 10:00:30",
-        "luogo": "VERONA (VR)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0203": {
