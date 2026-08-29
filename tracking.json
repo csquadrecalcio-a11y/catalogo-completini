@@ -11716,23 +11716,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-08-03 14:07:00",
-        "luogo": "dalla sede operativa di MONOPOLI (BA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-08-03 14:01:00",
-        "luogo": "MONOPOLI (BA)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-03 07:42:05",
-        "luogo": "MODUGNO (BA)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0152": {
