@@ -11807,23 +11807,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-30 14:23:54",
-        "luogo": "dalla sede operativa di CARBONIA (CI)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-30 13:54:39",
-        "luogo": "CARBONIA (CI)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-30 10:15:45",
-        "luogo": "CARBONIA (CI)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0155": {
