@@ -5871,5 +5871,131 @@
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ]
+  },
+  "CSC-2026-0068": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-06-25",
+    "data_consegna": "2026-07-08 15:42:12",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2001J977904",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_68_1_8b13718b.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-08 15:32:00",
+        "luogo": "MIRANDOLA",
+        "stato": "Consegnato Case closed"
+      },
+      {
+        "data": "2026-07-08 07:13:00",
+        "luogo": "MODENA",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-07-08 00:01:00",
+        "luogo": "BOLOGNA",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-07-07 11:02:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-07-07 09:40:18",
+        "luogo": "FCO",
+        "stato": "Delivery to last mile operator"
+      },
+      {
+        "data": "2026-07-07 09:40:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-07-07 08:19:18",
+        "luogo": "FCO",
+        "stato": "In transItaliao to last mile operator"
+      },
+      {
+        "data": "2026-07-07 07:45:02",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-07-06 21:13:03",
+        "luogo": "FCO",
+        "stato": "Ready for transItalia to last mile operator"
+      },
+      {
+        "data": "2026-07-06 21:12:41",
+        "luogo": "FCO",
+        "stato": "Arrived at Sdoganamento warehouse"
+      },
+      {
+        "data": "2026-07-06 10:00:00",
+        "luogo": "FCO",
+        "stato": "Terminal Notification of Arrival"
+      },
+      {
+        "data": "2026-07-04 07:02:00",
+        "luogo": "FCO",
+        "stato": "Arrived at Destinated Airport"
+      },
+      {
+        "data": "2026-07-02 11:18:26",
+        "luogo": "",
+        "stato": "预计Volo抵达时间 Expected to arrive（2026-7-4）"
+      },
+      {
+        "data": "2026-07-02 11:18:18",
+        "luogo": "",
+        "stato": "Volo partItaliao Flight departure"
+      },
+      {
+        "data": "2026-07-01 23:32:25",
+        "luogo": "",
+        "stato": "预计Volo启运时间 Expected departure（2026-7-2）"
+      },
+      {
+        "data": "2026-07-01 23:32:22",
+        "luogo": "",
+        "stato": "货物移交航司 Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-07-01 23:32:17",
+        "luogo": "",
+        "stato": "国内Sdoganamento completato Domestic Sdoganamento is completed"
+      },
+      {
+        "data": "2026-06-26 22:04:00",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-06-26 21:40:32",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-06-24 22:51:02",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-06-24 16:51:04",
+        "luogo": "-",
+        "stato": "Ordine registrato, in attesa del pacco"
+      }
+    ]
   }
 }
