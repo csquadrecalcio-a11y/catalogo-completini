@@ -9610,7 +9610,7 @@
       {
         "data": "2026-07-28 11:31:00",
         "luogo": "Castel san giovanni",
-        "stato": "Prima scansione Poste Italiane'S LOGISTIC NETWORK"
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-07-26 16:50:48",
@@ -9639,12 +9639,12 @@
       },
       {
         "data": "2026-07-17 21:38:23",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-17 19:37:39",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
