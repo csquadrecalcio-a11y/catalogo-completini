@@ -10667,5 +10667,108 @@
         "stato": "In consegna"
       }
     ]
+  },
+  "CSC-2026-0117": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-08",
+    "data_consegna": "2026-07-29 13:45:33",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D72969039",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_117_1_fcc26af5.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-29 13:17:00",
+        "luogo": "L'AQUILA",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-29 11:16:00",
+        "luogo": "L'AQUILA",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-28 15:34:00",
+        "luogo": "FARA IN SABINA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-27 13:28:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-23 14:52:58",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-21 14:16:50",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-19 10:30:39",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-19 06:11:00",
+        "luogo": "Shanghai, Cina",
+        "stato": "DEPART ORIGIN AIRPORT"
+      },
+      {
+        "data": "2026-07-19 05:55:31",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-15 18:00:00",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:07.17)"
+      },
+      {
+        "data": "2026-07-14 03:48:04",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-13 22:48:04",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-11 19:37:06",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-29 13:17:01",
+        "luogo": "dalla sede operativa di L'AQUILA (AQ)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-29 11:16:41",
+        "luogo": "L'AQUILA (AQ)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-28 17:27:00",
+        "luogo": "FARA IN SABINA (RI)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
