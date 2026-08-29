@@ -13387,5 +13387,108 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0172": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-15",
+    "data_consegna": "2026-07-29 18:09:55",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73039302",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_172_1_07b84e43.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-29 15:55:00",
+        "luogo": "CASTEL GOFFREDO",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-29 11:40:00",
+        "luogo": "CASTEL GOFFREDO",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-29 07:21:00",
+        "luogo": "MANTOVA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-29 04:40:00",
+        "luogo": "VERONA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 14:45:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 11:23:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-26 16:50:48",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-23 11:42:40",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-21 05:03:15",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-20 11:00:16",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-18 04:22:19",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-17 23:22:19",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-17 19:38:26",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-29 15:55:04",
+        "luogo": "dalla sede operativa di CASTEL GOFFREDO (MN)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-29 11:40:11",
+        "luogo": "CASTEL GOFFREDO (MN)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-29 07:21:51",
+        "luogo": "MANTOVA (MN)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
