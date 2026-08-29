@@ -1117,17 +1117,17 @@
       {
         "data": "2026-06-24 05:03:00",
         "luogo": "CATANIA",
-        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+        "stato": "In transito nella rete di Poste Italiane&rsquo;s logistic network"
       },
       {
         "data": "2026-06-19 17:59:00",
         "luogo": "FIANO ROMANO",
-        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+        "stato": "In transito nella rete di Poste Italiane&rsquo;s logistic network"
       },
       {
         "data": "2026-06-19 16:46:00",
         "luogo": "FIANO ROMANO",
-        "stato": "Prima scansione Poste Italiaaliane&rsquo;s logistic network"
+        "stato": "Prima scansione Poste Italiane&rsquo;s logistic network"
       },
       {
         "data": "2026-06-19 08:36:36",
@@ -1137,12 +1137,12 @@
       {
         "data": "2026-06-19 07:50:36",
         "luogo": "FCO",
-        "stato": "In transItaliao to last mile operator"
+        "stato": "In transito to last mile operator"
       },
       {
         "data": "2026-06-18 15:51:29",
         "luogo": "FCO",
-        "stato": "Ready for transItalia to last mile operator"
+        "stato": "Ready for transit to last mile operator"
       },
       {
         "data": "2026-06-18 15:50:35",
@@ -1172,7 +1172,7 @@
       {
         "data": "2026-06-14 16:52:36",
         "luogo": "",
-        "stato": "Volo partItaliao Flight departure"
+        "stato": "Volo partito Flight departure"
       },
       {
         "data": "2026-06-14 01:28:17",
