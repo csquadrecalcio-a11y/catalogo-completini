@@ -13824,23 +13824,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-08-07 17:33:41",
-        "luogo": "dalla sede operativa di CANOSA DI PUGLIA (BT)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-08-07 15:07:17",
-        "luogo": "CANOSA DI PUGLIA (BT)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-07 07:05:58",
-        "luogo": "MODUGNO (BA)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0206": {
