@@ -14625,7 +14625,7 @@
       {
         "data": "2026-08-28 10:47:00",
         "luogo": "Limbiate",
-        "stato": "Consegnato Case closed"
+        "stato": "Consegnato"
       },
       {
         "data": "2026-08-28 09:19:00",
@@ -14660,7 +14660,7 @@
       {
         "data": "2026-08-25 15:38:26",
         "luogo": "FCO",
-        "stato": "In transito to last mile operator"
+        "stato": "In transito verso il corriere locale"
       },
       {
         "data": "2026-08-24 17:15:02",
@@ -14675,17 +14675,17 @@
       {
         "data": "2026-08-24 16:58:38",
         "luogo": "FCO",
-        "stato": "Arrived at Sdoganamento warehouse"
+        "stato": "Arrivato al deposito doganale"
       },
       {
         "data": "2026-08-24 05:40:09",
         "luogo": "FCO",
-        "stato": "Terminal Notification of Arrival"
+        "stato": "Avviso di arrivo al terminal"
       },
       {
         "data": "2026-08-24 05:40:00",
         "luogo": "FCO",
-        "stato": "Terminal Notification of Arrival"
+        "stato": "Avviso di arrivo al terminal"
       },
       {
         "data": "2026-08-23 15:17:00",
@@ -14735,11 +14735,11 @@
       {
         "data": "2026-08-17 00:45:58",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-08-16 18:46:01",
-        "luogo": "-",
+        "luogo": "",
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ]
