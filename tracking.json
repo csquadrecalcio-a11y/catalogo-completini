@@ -19,7 +19,7 @@
       {
         "data": "2026-08-28 17:01:00",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-08-28 12:00:46",
@@ -29,7 +29,7 @@
       {
         "data": "2026-08-27 21:40:41",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-08-26 20:08:22",
@@ -68,12 +68,12 @@
       },
       {
         "data": "2026-08-21 04:19:00",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-21 03:50:43",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -139,12 +139,12 @@
       },
       {
         "data": "2026-08-18 00:25:04",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-17 21:48:15",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -198,12 +198,12 @@
       },
       {
         "data": "2026-08-18 00:26:55",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-17 21:48:19",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -259,12 +259,12 @@
       },
       {
         "data": "2026-08-18 00:27:11",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-17 21:48:09",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -320,12 +320,12 @@
       },
       {
         "data": "2026-08-26 05:06:24",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-26 04:34:28",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -376,12 +376,12 @@
       },
       {
         "data": "2026-08-26 23:48:46",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-26 21:44:58",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -417,12 +417,12 @@
       },
       {
         "data": "2026-08-26 23:46:55",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-26 21:44:39",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -478,12 +478,12 @@
       },
       {
         "data": "2026-08-26 05:07:26",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-26 04:33:56",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -547,12 +547,12 @@
       },
       {
         "data": "2026-08-20 22:37:08",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-20 22:02:04",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -601,12 +601,12 @@
       },
       {
         "data": "2026-08-20 22:37:10",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-20 22:02:08",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -660,12 +660,12 @@
       },
       {
         "data": "2026-08-18 00:25:19",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-17 21:48:24",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -988,27 +988,27 @@
       {
         "data": "2026-06-23 06:56:00",
         "luogo": "Perugia",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-06-22 22:47:00",
         "luogo": "Sesto fiorentino",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-06-19 17:48:00",
         "luogo": "Fiano romano",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-06-19 16:55:00",
         "luogo": "Fiano romano",
-        "stato": "Prima scansione Poste Italiane's logistic network"
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-06-19 08:36:36",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-19 07:50:36",
@@ -1018,7 +1018,7 @@
       {
         "data": "2026-06-18 15:49:59",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-18 15:49:31",
@@ -1038,7 +1038,7 @@
       {
         "data": "2026-06-15 07:55:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-15 00:52:43",
@@ -1048,7 +1048,7 @@
       {
         "data": "2026-06-14 16:52:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-14 01:28:17",
@@ -1067,12 +1067,12 @@
       },
       {
         "data": "2026-06-10 19:49:14",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-09 19:48:11",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -1132,7 +1132,7 @@
       {
         "data": "2026-06-19 08:36:36",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-19 07:50:36",
@@ -1142,7 +1142,7 @@
       {
         "data": "2026-06-18 15:51:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-18 15:50:35",
@@ -1162,7 +1162,7 @@
       {
         "data": "2026-06-15 07:55:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-15 00:52:43",
@@ -1172,7 +1172,7 @@
       {
         "data": "2026-06-14 16:52:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-14 01:28:17",
@@ -1191,12 +1191,12 @@
       },
       {
         "data": "2026-06-10 19:50:09",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-09 19:44:33",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -1256,7 +1256,7 @@
       {
         "data": "2026-06-19 08:36:36",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-19 07:50:36",
@@ -1266,7 +1266,7 @@
       {
         "data": "2026-06-18 15:51:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-18 15:50:24",
@@ -1286,7 +1286,7 @@
       {
         "data": "2026-06-15 07:55:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-15 00:52:43",
@@ -1296,7 +1296,7 @@
       {
         "data": "2026-06-14 16:52:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-14 01:28:17",
@@ -1315,12 +1315,12 @@
       },
       {
         "data": "2026-06-10 19:50:12",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-09 19:44:23",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -1385,7 +1385,7 @@
       {
         "data": "2026-06-19 08:36:36",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-19 07:50:36",
@@ -1395,7 +1395,7 @@
       {
         "data": "2026-06-18 15:51:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-18 15:50:24",
@@ -1415,7 +1415,7 @@
       {
         "data": "2026-06-15 07:55:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-15 00:52:43",
@@ -1425,7 +1425,7 @@
       {
         "data": "2026-06-14 16:52:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-14 01:28:17",
@@ -1444,12 +1444,12 @@
       },
       {
         "data": "2026-06-10 19:50:14",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-09 19:48:37",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -1516,7 +1516,7 @@
       {
         "data": "2026-06-19 08:36:36",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-19 07:50:36",
@@ -1526,7 +1526,7 @@
       {
         "data": "2026-06-18 15:51:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-18 15:50:35",
@@ -1546,7 +1546,7 @@
       {
         "data": "2026-06-15 07:55:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-15 00:52:43",
@@ -1556,7 +1556,7 @@
       {
         "data": "2026-06-14 16:52:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-14 01:28:17",
@@ -1575,12 +1575,12 @@
       },
       {
         "data": "2026-06-10 19:49:47",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-09 19:47:53",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -1687,7 +1687,7 @@
       {
         "data": "2026-06-22 09:36:31",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-22 08:31:31",
@@ -1697,7 +1697,7 @@
       {
         "data": "2026-06-19 19:18:53",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:18:03",
@@ -1717,7 +1717,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -1727,7 +1727,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -1746,12 +1746,12 @@
       },
       {
         "data": "2026-06-15 20:25:51",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:54:50",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -1818,7 +1818,7 @@
       {
         "data": "2026-06-20 11:45:51",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-20 10:35:51",
@@ -1828,7 +1828,7 @@
       {
         "data": "2026-06-19 19:17:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:16:51",
@@ -1848,7 +1848,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -1858,7 +1858,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -1877,12 +1877,12 @@
       },
       {
         "data": "2026-06-15 20:24:18",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:53:50",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -1949,7 +1949,7 @@
       {
         "data": "2026-06-22 09:36:31",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-22 08:31:31",
@@ -1959,7 +1959,7 @@
       {
         "data": "2026-06-19 19:16:28",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:16:05",
@@ -1979,7 +1979,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -1989,7 +1989,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -2008,12 +2008,12 @@
       },
       {
         "data": "2026-06-15 20:24:31",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:54:01",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -2080,7 +2080,7 @@
       {
         "data": "2026-06-22 09:36:31",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-22 08:31:31",
@@ -2090,7 +2090,7 @@
       {
         "data": "2026-06-19 19:16:28",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:15:56",
@@ -2110,7 +2110,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -2120,7 +2120,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -2139,12 +2139,12 @@
       },
       {
         "data": "2026-06-15 20:24:42",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:53:07",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -2211,7 +2211,7 @@
       {
         "data": "2026-06-22 09:36:31",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-22 08:31:31",
@@ -2221,7 +2221,7 @@
       {
         "data": "2026-06-19 19:16:28",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:16:05",
@@ -2241,7 +2241,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -2251,7 +2251,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -2270,12 +2270,12 @@
       },
       {
         "data": "2026-06-15 20:24:41",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:53:57",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -2342,7 +2342,7 @@
       {
         "data": "2026-06-22 09:36:31",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-22 08:31:31",
@@ -2352,7 +2352,7 @@
       {
         "data": "2026-06-19 19:18:53",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:18:03",
@@ -2372,7 +2372,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -2382,7 +2382,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -2401,12 +2401,12 @@
       },
       {
         "data": "2026-06-15 20:24:20",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:54:30",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -2463,7 +2463,7 @@
       {
         "data": "2026-06-22 09:36:31",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-22 08:31:31",
@@ -2473,7 +2473,7 @@
       {
         "data": "2026-06-19 19:18:53",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:18:11",
@@ -2493,7 +2493,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -2503,7 +2503,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -2522,12 +2522,12 @@
       },
       {
         "data": "2026-06-15 20:24:19",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:54:34",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -2589,7 +2589,7 @@
       {
         "data": "2026-06-22 09:36:31",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-22 08:31:31",
@@ -2599,7 +2599,7 @@
       {
         "data": "2026-06-19 19:18:53",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:18:11",
@@ -2619,7 +2619,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -2629,7 +2629,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -2648,12 +2648,12 @@
       },
       {
         "data": "2026-06-15 20:24:33",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:54:18",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -2715,7 +2715,7 @@
       {
         "data": "2026-06-22 09:36:31",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-22 08:31:31",
@@ -2725,7 +2725,7 @@
       {
         "data": "2026-06-19 19:18:53",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:18:02",
@@ -2745,7 +2745,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -2755,7 +2755,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -2774,12 +2774,12 @@
       },
       {
         "data": "2026-06-15 20:25:03",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:54:39",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -2846,7 +2846,7 @@
       {
         "data": "2026-06-20 11:45:51",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-20 10:35:51",
@@ -2856,7 +2856,7 @@
       {
         "data": "2026-06-19 19:17:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:16:54",
@@ -2876,7 +2876,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -2886,7 +2886,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -2905,12 +2905,12 @@
       },
       {
         "data": "2026-06-15 20:25:50",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:54:55",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -2977,7 +2977,7 @@
       {
         "data": "2026-06-20 11:45:51",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-20 10:35:51",
@@ -2987,7 +2987,7 @@
       {
         "data": "2026-06-19 19:17:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:17:01",
@@ -3007,7 +3007,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -3017,7 +3017,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -3036,12 +3036,12 @@
       },
       {
         "data": "2026-06-15 20:24:35",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:55:09",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -3103,7 +3103,7 @@
       {
         "data": "2026-06-29 16:35:57",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-29 15:23:57",
@@ -3113,7 +3113,7 @@
       {
         "data": "2026-06-26 19:41:51",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-26 19:41:19",
@@ -3128,7 +3128,7 @@
       {
         "data": "2026-06-24 12:00:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-23 14:59:12",
@@ -3138,7 +3138,7 @@
       {
         "data": "2026-06-23 10:42:16",
         "luogo": "",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-22 03:56:18",
@@ -3172,12 +3172,12 @@
       },
       {
         "data": "2026-06-18 04:24:10",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-17 21:47:51",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -3249,7 +3249,7 @@
       {
         "data": "2026-06-20 11:45:51",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-20 10:35:51",
@@ -3259,7 +3259,7 @@
       {
         "data": "2026-06-19 19:17:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:17:01",
@@ -3279,7 +3279,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -3289,7 +3289,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -3308,12 +3308,12 @@
       },
       {
         "data": "2026-06-15 20:24:30",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:54:05",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -3353,32 +3353,32 @@
       {
         "data": "2026-07-02 09:00:00",
         "luogo": "Italia",
-        "stato": "The shipment is being prepared for delivery in the delivery depot"
+        "stato": "In preparazione per la consegna"
       },
       {
         "data": "2026-06-30 20:33:00",
         "luogo": "Italia",
-        "stato": "The shipment has been processed in the parcel center"
+        "stato": "Lavorato nel centro di smistamento"
       },
       {
         "data": "2026-06-30 20:32:00",
         "luogo": "Italia",
-        "stato": "The shipment has arrived at the parcel center"
+        "stato": "Arrivato al centro di smistamento"
       },
       {
         "data": "2026-06-30 03:20:00",
-        "luogo": "Germany",
-        "stato": "The shipment will be transported to the destination country/destination area and, from there, handed over to the delivery organization."
+        "luogo": "Germania",
+        "stato": "In partenza verso l'Italia, poi affidato al corriere locale"
       },
       {
         "data": "2026-06-30 03:18:00",
-        "luogo": "Germany",
-        "stato": "The international shipment has been processed in the export parcel center"
+        "luogo": "Germania",
+        "stato": "Lavorato nel centro di smistamento per l'estero"
       },
       {
         "data": "2026-06-29 19:02:00",
-        "luogo": "Germany",
-        "stato": "The international shipment has been processed in the parcel center of origin"
+        "luogo": "Germania",
+        "stato": "Lavorato nel centro di smistamento di partenza"
       },
       {
         "data": "2026-06-23 21:19:53",
@@ -3407,12 +3407,12 @@
       },
       {
         "data": "2026-06-16 20:44:11",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-16 15:38:00",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -3423,7 +3423,7 @@
       {
         "data": "2026-06-16 07:10:00",
         "luogo": "",
-        "stato": "Spedizione registrata dal mittente by the sender to DHL electronically."
+        "stato": "Spedizione registrata dal mittente"
       }
     ],
     "eventi_corriere": [
@@ -3501,7 +3501,7 @@
       {
         "data": "2026-06-24 10:35:45",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-24 09:32:45",
@@ -3511,7 +3511,7 @@
       {
         "data": "2026-06-23 18:23:47",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-23 18:23:27",
@@ -3531,7 +3531,7 @@
       {
         "data": "2026-06-22 07:12:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-21 10:45:01",
@@ -3541,7 +3541,7 @@
       {
         "data": "2026-06-21 10:44:56",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-20 10:44:16",
@@ -3560,12 +3560,12 @@
       },
       {
         "data": "2026-06-17 22:48:11",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-17 22:47:40",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -3642,7 +3642,7 @@
       {
         "data": "2026-06-20 11:45:51",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-20 10:35:51",
@@ -3652,7 +3652,7 @@
       {
         "data": "2026-06-19 19:17:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:16:51",
@@ -3672,7 +3672,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -3682,7 +3682,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -3701,12 +3701,12 @@
       },
       {
         "data": "2026-06-15 20:24:48",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:55:00",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -3768,7 +3768,7 @@
       {
         "data": "2026-06-20 11:45:51",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-20 10:35:51",
@@ -3778,7 +3778,7 @@
       {
         "data": "2026-06-19 19:17:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:16:51",
@@ -3798,7 +3798,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -3808,7 +3808,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -3827,12 +3827,12 @@
       },
       {
         "data": "2026-06-15 20:25:21",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:55:14",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -3925,7 +3925,7 @@
       {
         "data": "2026-06-24 10:35:45",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-24 09:32:45",
@@ -3935,7 +3935,7 @@
       {
         "data": "2026-06-23 18:26:46",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-23 18:24:31",
@@ -3955,7 +3955,7 @@
       {
         "data": "2026-06-22 07:12:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-21 10:45:01",
@@ -3965,7 +3965,7 @@
       {
         "data": "2026-06-21 10:44:56",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-20 10:44:16",
@@ -3984,12 +3984,12 @@
       },
       {
         "data": "2026-06-17 22:48:14",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-17 22:48:05",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -4056,7 +4056,7 @@
       {
         "data": "2026-06-22 09:36:31",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-22 08:31:31",
@@ -4066,7 +4066,7 @@
       {
         "data": "2026-06-19 19:16:28",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:16:05",
@@ -4086,7 +4086,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -4096,7 +4096,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -4115,12 +4115,12 @@
       },
       {
         "data": "2026-06-15 20:25:22",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:54:14",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -4207,7 +4207,7 @@
       {
         "data": "2026-06-20 11:45:51",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-20 10:35:51",
@@ -4217,7 +4217,7 @@
       {
         "data": "2026-06-19 19:17:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-19 19:17:03",
@@ -4237,7 +4237,7 @@
       {
         "data": "2026-06-18 07:07:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-17 12:33:44",
@@ -4247,7 +4247,7 @@
       {
         "data": "2026-06-17 12:33:36",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-17 00:57:15",
@@ -4266,12 +4266,12 @@
       },
       {
         "data": "2026-06-15 20:24:28",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-15 19:54:10",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -4308,12 +4308,12 @@
       {
         "data": "2026-07-08 11:26:49",
         "luogo": "",
-        "stato": "Delivery successful.Consegnato"
+        "stato": "ConsegnatoConsegnato"
       },
       {
         "data": "2026-07-04 15:01:39",
         "luogo": "",
-        "stato": "Shipment ready for collection from PACKSTATION.pickup"
+        "stato": "Disponibile per il ritiropickup"
       },
       {
         "data": "2026-07-04 10:16:45",
@@ -4323,12 +4323,12 @@
       {
         "data": "2026-07-04 08:49:41",
         "luogo": "",
-        "stato": "Caricato sul mezzo di consegna. Delivery is expected to take place today.pickup"
+        "stato": "Caricato sul mezzo di consegna. Consegna prevista in giornatapickup"
       },
       {
         "data": "2026-07-04 02:36:19",
         "luogo": "",
-        "stato": "The shipment arrived in the region of recipient and will be transported to the delivery base in the next step."
+        "stato": "Arrivato nella zona di destinazione, in transito verso la sede di consegna"
       },
       {
         "data": "2026-07-03 19:01:59",
@@ -4367,50 +4367,50 @@
       },
       {
         "data": "2026-06-18 19:42:09",
-        "luogo": "Shenzhen, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Shenzhen, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-17 22:48:34",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
         "data": "2026-06-15 14:44:58",
         "luogo": "",
-        "stato": "The shipment is In transito to DHL"
+        "stato": "Spedizione In transito a DHL"
       },
       {
         "data": "2026-06-15 01:02:36",
         "luogo": "",
-        "stato": "Spedizione registrata dal mittente by the sender to DHL electronically"
+        "stato": "Spedizione registrata dal mittente"
       }
     ],
     "eventi_corriere": [
       {
         "data": "2026-07-08 11:26:00",
         "luogo": "DE",
-        "stato": "The recipient has Ritirato dal magazzino the shipment from the Packstation."
+        "stato": "Il destinatario ha Ritirato dal magazzino il pacco dal punto di ritiro"
       },
       {
         "data": "2026-07-04 15:01:00",
         "luogo": "DE",
-        "stato": "Shipment ready for collection from PACKSTATION."
+        "stato": "Disponibile per il ritiro"
       },
       {
         "data": "2026-07-04 10:16:00",
         "luogo": "DE",
-        "stato": "The shipment could not be Consegnato and is being forwarded to a Packstation. The recipient has been notified."
+        "stato": "Non è stato possibile consegnare: Consegnato reindirizzato a un punto di ritiro, destinatario avvisato"
       },
       {
         "data": "2026-07-04 08:49:00",
         "luogo": "",
-        "stato": "Caricato sul mezzo di consegna. Delivery is expected to take place today."
+        "stato": "Caricato sul mezzo di consegna. Consegna prevista in giornata"
       },
       {
         "data": "2026-07-04 02:36:00",
         "luogo": "DE",
-        "stato": "The shipment arrived in the region of recipient and will be transported to the delivery base in the next step."
+        "stato": "Arrivato nella zona di destinazione, in transito verso la sede di consegna"
       },
       {
         "data": "2026-07-03 19:01:00",
@@ -4471,7 +4471,7 @@
       {
         "data": "2026-06-24 10:35:45",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-24 09:32:45",
@@ -4481,7 +4481,7 @@
       {
         "data": "2026-06-23 18:26:46",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-23 18:24:34",
@@ -4501,7 +4501,7 @@
       {
         "data": "2026-06-22 07:12:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-21 10:45:01",
@@ -4511,7 +4511,7 @@
       {
         "data": "2026-06-21 10:44:56",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-20 10:44:16",
@@ -4530,12 +4530,12 @@
       },
       {
         "data": "2026-06-17 22:48:31",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-17 22:48:20",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -4598,7 +4598,7 @@
       {
         "data": "2026-06-24 10:35:45",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-06-24 09:32:45",
@@ -4608,7 +4608,7 @@
       {
         "data": "2026-06-23 18:23:47",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-06-23 18:23:27",
@@ -4628,7 +4628,7 @@
       {
         "data": "2026-06-22 07:12:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-21 10:45:01",
@@ -4638,7 +4638,7 @@
       {
         "data": "2026-06-21 10:44:56",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-20 10:44:16",
@@ -4657,12 +4657,12 @@
       },
       {
         "data": "2026-06-17 22:48:08",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-17 22:47:59",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -4711,13 +4711,13 @@
       },
       {
         "data": "2026-07-03 00:37:00",
-        "luogo": "Germany",
-        "stato": "The international shipment has been processed in the export parcel center"
+        "luogo": "Germania",
+        "stato": "Lavorato nel centro di smistamento per l'estero"
       },
       {
         "data": "2026-07-01 13:17:00",
-        "luogo": "Germany",
-        "stato": "The international shipment has been processed in the parcel center of origin"
+        "luogo": "Germania",
+        "stato": "Lavorato nel centro di smistamento di partenza"
       },
       {
         "data": "2026-06-29 20:43:42",
@@ -4751,12 +4751,12 @@
       },
       {
         "data": "2026-06-23 20:30:15",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-23 16:53:45",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -4767,7 +4767,7 @@
       {
         "data": "2026-06-23 04:10:00",
         "luogo": "",
-        "stato": "Spedizione registrata dal mittente by the sender to DHL electronically."
+        "stato": "Spedizione registrata dal mittente"
       }
     ],
     "eventi_corriere": [
@@ -4789,17 +4789,17 @@
       {
         "data": "2026-07-03 00:37:00",
         "luogo": "DE",
-        "stato": "The international shipment has been processed in the export parcel center"
+        "stato": "Lavorato nel centro di smistamento per l'estero"
       },
       {
         "data": "2026-07-01 13:17:00",
         "luogo": "DE",
-        "stato": "The international shipment has been processed in the parcel center of origin"
+        "stato": "Lavorato nel centro di smistamento di partenza"
       },
       {
         "data": "2026-06-23 04:10:00",
         "luogo": "",
-        "stato": "Spedizione registrata dal mittente by the sender to DHL electronically."
+        "stato": "Spedizione registrata dal mittente"
       }
     ]
   },
@@ -4855,7 +4855,7 @@
       {
         "data": "2026-07-02 08:35:48",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-02 07:49:48",
@@ -4865,7 +4865,7 @@
       {
         "data": "2026-07-01 11:03:56",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-01 11:03:21",
@@ -4885,7 +4885,7 @@
       {
         "data": "2026-06-28 13:48:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-27 17:18:11",
@@ -4895,7 +4895,7 @@
       {
         "data": "2026-06-27 17:17:59",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-26 11:22:38",
@@ -4914,12 +4914,12 @@
       },
       {
         "data": "2026-06-23 00:14:16",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-22 23:48:20",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -4986,7 +4986,7 @@
       {
         "data": "2026-07-02 08:35:48",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-02 07:49:48",
@@ -4996,7 +4996,7 @@
       {
         "data": "2026-07-01 11:07:35",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-01 11:06:57",
@@ -5016,7 +5016,7 @@
       {
         "data": "2026-06-28 13:48:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-27 17:18:11",
@@ -5026,7 +5026,7 @@
       {
         "data": "2026-06-27 17:17:59",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-26 11:22:38",
@@ -5045,12 +5045,12 @@
       },
       {
         "data": "2026-06-23 00:14:42",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-22 23:48:05",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -5112,7 +5112,7 @@
       {
         "data": "2026-07-02 08:35:48",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-02 07:49:48",
@@ -5122,7 +5122,7 @@
       {
         "data": "2026-07-01 11:03:56",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-01 11:03:31",
@@ -5142,7 +5142,7 @@
       {
         "data": "2026-06-28 13:48:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-27 17:18:11",
@@ -5152,7 +5152,7 @@
       {
         "data": "2026-06-27 17:17:59",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-26 11:22:38",
@@ -5171,12 +5171,12 @@
       },
       {
         "data": "2026-06-23 00:14:19",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-22 23:48:13",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -5248,7 +5248,7 @@
       {
         "data": "2026-07-02 08:35:48",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-02 07:49:48",
@@ -5258,7 +5258,7 @@
       {
         "data": "2026-07-01 11:07:35",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-01 11:07:00",
@@ -5278,7 +5278,7 @@
       {
         "data": "2026-06-28 13:48:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-27 17:18:11",
@@ -5288,7 +5288,7 @@
       {
         "data": "2026-06-27 17:17:59",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-26 11:22:38",
@@ -5307,12 +5307,12 @@
       },
       {
         "data": "2026-06-23 00:15:02",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-22 23:47:50",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -5379,7 +5379,7 @@
       {
         "data": "2026-07-02 08:35:48",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-02 07:49:48",
@@ -5389,7 +5389,7 @@
       {
         "data": "2026-07-01 11:07:35",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-01 11:06:58",
@@ -5409,7 +5409,7 @@
       {
         "data": "2026-06-28 13:48:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-27 17:18:11",
@@ -5419,7 +5419,7 @@
       {
         "data": "2026-06-27 17:17:59",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-26 11:22:38",
@@ -5438,12 +5438,12 @@
       },
       {
         "data": "2026-06-23 00:14:29",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-22 23:47:58",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -5510,7 +5510,7 @@
       {
         "data": "2026-07-02 08:35:48",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-02 07:49:48",
@@ -5520,7 +5520,7 @@
       {
         "data": "2026-07-01 11:03:56",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-01 11:03:40",
@@ -5540,7 +5540,7 @@
       {
         "data": "2026-06-28 13:48:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-27 17:18:11",
@@ -5550,7 +5550,7 @@
       {
         "data": "2026-06-27 17:17:59",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-26 11:22:38",
@@ -5569,12 +5569,12 @@
       },
       {
         "data": "2026-06-23 00:14:48",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-22 23:48:49",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -5631,7 +5631,7 @@
       {
         "data": "2026-07-07 09:40:18",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-07 09:40:00",
@@ -5651,7 +5651,7 @@
       {
         "data": "2026-07-06 21:13:03",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-06 21:12:41",
@@ -5666,7 +5666,7 @@
       {
         "data": "2026-07-04 07:02:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-02 11:18:26",
@@ -5676,7 +5676,7 @@
       {
         "data": "2026-07-02 11:18:18",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-07-01 23:32:25",
@@ -5695,12 +5695,12 @@
       },
       {
         "data": "2026-06-26 22:04:00",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-26 21:40:32",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -5767,7 +5767,7 @@
       {
         "data": "2026-07-02 08:35:48",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-02 07:49:48",
@@ -5777,7 +5777,7 @@
       {
         "data": "2026-07-01 11:03:56",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-01 11:03:31",
@@ -5797,7 +5797,7 @@
       {
         "data": "2026-06-28 13:48:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-27 17:18:11",
@@ -5807,7 +5807,7 @@
       {
         "data": "2026-06-27 17:17:59",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-26 11:22:38",
@@ -5826,12 +5826,12 @@
       },
       {
         "data": "2026-06-23 00:14:44",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-22 23:48:42",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -5913,7 +5913,7 @@
       {
         "data": "2026-07-02 08:35:48",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-02 07:49:48",
@@ -5923,7 +5923,7 @@
       {
         "data": "2026-07-01 11:03:56",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-01 11:03:19",
@@ -5943,7 +5943,7 @@
       {
         "data": "2026-06-28 13:48:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-06-27 17:18:11",
@@ -5953,7 +5953,7 @@
       {
         "data": "2026-06-27 17:17:59",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-06-26 11:22:38",
@@ -5972,12 +5972,12 @@
       },
       {
         "data": "2026-06-23 00:14:22",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-22 23:48:34",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -6044,7 +6044,7 @@
       {
         "data": "2026-07-07 09:40:18",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-07 08:19:18",
@@ -6059,7 +6059,7 @@
       {
         "data": "2026-07-06 21:15:42",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-06 21:15:24",
@@ -6074,7 +6074,7 @@
       {
         "data": "2026-07-04 07:02:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-02 11:18:26",
@@ -6084,7 +6084,7 @@
       {
         "data": "2026-07-02 11:18:18",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-07-01 23:32:25",
@@ -6103,12 +6103,12 @@
       },
       {
         "data": "2026-06-26 22:03:47",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-26 21:40:08",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -6195,7 +6195,7 @@
       {
         "data": "2026-07-07 09:40:18",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-07 08:19:18",
@@ -6210,7 +6210,7 @@
       {
         "data": "2026-07-06 21:15:42",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-06 21:15:24",
@@ -6225,7 +6225,7 @@
       {
         "data": "2026-07-04 07:02:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-02 11:18:26",
@@ -6235,7 +6235,7 @@
       {
         "data": "2026-07-02 11:18:18",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-07-01 23:32:25",
@@ -6254,12 +6254,12 @@
       },
       {
         "data": "2026-06-26 22:03:33",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-26 21:40:04",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -6326,7 +6326,7 @@
       {
         "data": "2026-07-07 09:40:18",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-07 08:19:18",
@@ -6341,7 +6341,7 @@
       {
         "data": "2026-07-06 21:15:42",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-06 21:14:58",
@@ -6356,7 +6356,7 @@
       {
         "data": "2026-07-04 07:02:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-02 11:18:26",
@@ -6366,7 +6366,7 @@
       {
         "data": "2026-07-02 11:18:18",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-07-01 23:32:25",
@@ -6385,12 +6385,12 @@
       },
       {
         "data": "2026-06-26 22:03:51",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-26 21:40:36",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -6455,7 +6455,7 @@
       {
         "data": "2026-07-13 10:33:53",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-13 09:26:53",
@@ -6465,7 +6465,7 @@
       {
         "data": "2026-07-13 09:04:08",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-13 09:03:39",
@@ -6485,7 +6485,7 @@
       {
         "data": "2026-07-10 20:00:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-09 22:47:05",
@@ -6519,12 +6519,12 @@
       },
       {
         "data": "2026-07-07 02:36:46",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-06 22:00:50",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -6596,7 +6596,7 @@
       {
         "data": "2026-07-09 13:32:39",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-09 12:10:39",
@@ -6606,7 +6606,7 @@
       {
         "data": "2026-07-08 18:44:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-08 18:43:48",
@@ -6626,12 +6626,12 @@
       {
         "data": "2026-07-06 15:08:01",
         "luogo": "",
-        "stato": "抵达 Arrival at the local airport"
+        "stato": "抵达 Arrivato all'aeroporto locale"
       },
       {
         "data": "2026-07-06 08:00:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-06 00:06:35",
@@ -6641,7 +6641,7 @@
       {
         "data": "2026-07-05 18:46:33",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-07-05 17:42:55",
@@ -6665,12 +6665,12 @@
       },
       {
         "data": "2026-07-01 21:51:35",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-01 21:40:26",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -6750,7 +6750,7 @@
       {
         "data": "2026-07-07 09:40:18",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-07 08:19:18",
@@ -6765,7 +6765,7 @@
       {
         "data": "2026-07-06 21:15:42",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-06 21:15:07",
@@ -6780,7 +6780,7 @@
       {
         "data": "2026-07-04 07:02:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-02 11:18:26",
@@ -6790,7 +6790,7 @@
       {
         "data": "2026-07-02 11:18:18",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-07-01 23:32:25",
@@ -6809,12 +6809,12 @@
       },
       {
         "data": "2026-06-26 22:03:45",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-26 21:40:22",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -6881,7 +6881,7 @@
       {
         "data": "2026-07-07 09:40:18",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-07 08:19:18",
@@ -6896,7 +6896,7 @@
       {
         "data": "2026-07-06 21:15:42",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-06 21:15:24",
@@ -6911,7 +6911,7 @@
       {
         "data": "2026-07-04 07:02:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-02 11:18:26",
@@ -6921,7 +6921,7 @@
       {
         "data": "2026-07-02 11:18:18",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-07-01 23:32:25",
@@ -6940,12 +6940,12 @@
       },
       {
         "data": "2026-06-26 22:03:23",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-26 21:40:16",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -7007,7 +7007,7 @@
       {
         "data": "2026-07-07 09:40:18",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-07 08:19:18",
@@ -7022,7 +7022,7 @@
       {
         "data": "2026-07-06 21:15:42",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-06 21:15:21",
@@ -7037,7 +7037,7 @@
       {
         "data": "2026-07-04 07:02:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-02 11:18:26",
@@ -7047,7 +7047,7 @@
       {
         "data": "2026-07-02 11:18:18",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-07-01 23:32:25",
@@ -7066,12 +7066,12 @@
       },
       {
         "data": "2026-06-26 22:03:38",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-26 21:40:12",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -7128,7 +7128,7 @@
       {
         "data": "2026-07-07 09:40:18",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-07 09:39:00",
@@ -7153,7 +7153,7 @@
       {
         "data": "2026-07-06 21:13:03",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-06 21:12:39",
@@ -7168,7 +7168,7 @@
       {
         "data": "2026-07-04 07:02:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-02 11:18:26",
@@ -7178,7 +7178,7 @@
       {
         "data": "2026-07-02 11:18:18",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-07-01 23:32:25",
@@ -7197,12 +7197,12 @@
       },
       {
         "data": "2026-06-26 22:03:16",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-26 21:40:27",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -7244,42 +7244,42 @@
       {
         "data": "2026-07-24 09:12:00",
         "luogo": "",
-        "stato": "The shipment is being prepared for delivery in the delivery depot"
+        "stato": "In preparazione per la consegna"
       },
       {
         "data": "2026-07-24 02:22:00",
         "luogo": "",
-        "stato": "The shipment is being prepared for delivery in the delivery depot"
+        "stato": "In preparazione per la consegna"
       },
       {
         "data": "2026-07-22 17:59:00",
         "luogo": "",
-        "stato": "The shipment has been processed in the parcel center"
+        "stato": "Lavorato nel centro di smistamento"
       },
       {
         "data": "2026-07-22 17:58:00",
         "luogo": "",
-        "stato": "The shipment has arrived at the parcel center."
+        "stato": "Arrivato al centro di smistamento."
       },
       {
         "data": "2026-07-22 03:00:00",
         "luogo": "",
-        "stato": "The shipment will be transported to the destination country/destination area and, from there, handed over to the delivery organization."
+        "stato": "In partenza verso l'Italia, poi affidato al corriere locale"
       },
       {
         "data": "2026-07-22 02:57:00",
         "luogo": "",
-        "stato": "The international shipment has been processed in the export parcel center"
+        "stato": "Lavorato nel centro di smistamento per l'estero"
       },
       {
         "data": "2026-07-21 15:34:00",
         "luogo": "",
-        "stato": "The international shipment has been processed in the parcel center of origin"
+        "stato": "Lavorato nel centro di smistamento di partenza"
       },
       {
         "data": "2026-07-21 05:20:42",
         "luogo": "",
-        "stato": "Delivery to final service provider"
+        "stato": "Consegnato al corriere finale"
       },
       {
         "data": "2026-07-20 23:19:54",
@@ -7299,7 +7299,7 @@
       {
         "data": "2026-07-19 00:42:09",
         "luogo": "",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-17 22:31:27",
@@ -7319,7 +7319,7 @@
       {
         "data": "2026-07-14 14:15:00",
         "luogo": "",
-        "stato": "Spedizione registrata dal mittente by the sender to DHL electronically"
+        "stato": "Spedizione registrata dal mittente"
       },
       {
         "data": "2026-07-14 08:15:47",
@@ -7338,12 +7338,12 @@
       },
       {
         "data": "2026-07-13 23:15:47",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-13 21:34:35",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -7432,7 +7432,7 @@
       {
         "data": "2026-07-09 13:32:39",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-09 12:10:39",
@@ -7442,7 +7442,7 @@
       {
         "data": "2026-07-08 18:44:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-08 18:43:37",
@@ -7462,12 +7462,12 @@
       {
         "data": "2026-07-06 15:08:01",
         "luogo": "",
-        "stato": "抵达 Arrival at the local airport"
+        "stato": "抵达 Arrivato all'aeroporto locale"
       },
       {
         "data": "2026-07-06 08:00:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-06 00:06:35",
@@ -7477,7 +7477,7 @@
       {
         "data": "2026-07-05 18:46:33",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-07-05 17:42:55",
@@ -7501,12 +7501,12 @@
       },
       {
         "data": "2026-07-01 21:51:32",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-01 21:40:21",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -7573,7 +7573,7 @@
       {
         "data": "2026-07-09 13:32:39",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-09 12:10:39",
@@ -7583,7 +7583,7 @@
       {
         "data": "2026-07-08 18:44:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-08 18:43:28",
@@ -7603,12 +7603,12 @@
       {
         "data": "2026-07-06 15:08:01",
         "luogo": "",
-        "stato": "抵达 Arrival at the local airport"
+        "stato": "抵达 Arrivato all'aeroporto locale"
       },
       {
         "data": "2026-07-06 08:00:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-06 00:06:35",
@@ -7618,7 +7618,7 @@
       {
         "data": "2026-07-05 18:46:33",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-07-05 17:42:55",
@@ -7642,12 +7642,12 @@
       },
       {
         "data": "2026-07-01 21:51:31",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-01 21:40:31",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -7724,7 +7724,7 @@
       {
         "data": "2026-07-09 13:32:39",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-09 12:10:39",
@@ -7734,7 +7734,7 @@
       {
         "data": "2026-07-08 18:44:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-08 18:43:48",
@@ -7754,12 +7754,12 @@
       {
         "data": "2026-07-06 15:08:01",
         "luogo": "",
-        "stato": "抵达 Arrival at the local airport"
+        "stato": "抵达 Arrivato all'aeroporto locale"
       },
       {
         "data": "2026-07-06 08:00:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-06 00:06:35",
@@ -7769,7 +7769,7 @@
       {
         "data": "2026-07-05 18:46:33",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-07-05 17:42:55",
@@ -7793,12 +7793,12 @@
       },
       {
         "data": "2026-07-01 21:51:33",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-01 21:40:48",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -7865,7 +7865,7 @@
       {
         "data": "2026-07-09 13:32:39",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-09 12:10:39",
@@ -7875,7 +7875,7 @@
       {
         "data": "2026-07-08 18:44:29",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-08 18:43:48",
@@ -7895,12 +7895,12 @@
       {
         "data": "2026-07-06 15:08:01",
         "luogo": "",
-        "stato": "抵达 Arrival at the local airport"
+        "stato": "抵达 Arrivato all'aeroporto locale"
       },
       {
         "data": "2026-07-06 08:00:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-06 00:06:35",
@@ -7910,7 +7910,7 @@
       {
         "data": "2026-07-05 18:46:33",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-07-05 17:42:55",
@@ -7934,12 +7934,12 @@
       },
       {
         "data": "2026-07-01 21:51:29",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-01 21:40:43",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -8026,7 +8026,7 @@
       {
         "data": "2026-07-13 11:55:19",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-13 11:53:59",
@@ -8041,7 +8041,7 @@
       {
         "data": "2026-07-12 12:17:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-11 23:16:24",
@@ -8051,7 +8051,7 @@
       {
         "data": "2026-07-11 23:16:20",
         "luogo": "",
-        "stato": "Volo partito Flight departure"
+        "stato": "Volo partito Volo partito"
       },
       {
         "data": "2026-07-09 23:40:55",
@@ -8070,12 +8070,12 @@
       },
       {
         "data": "2026-07-06 23:43:38",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-06 23:17:28",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -8167,12 +8167,12 @@
       },
       {
         "data": "2026-07-06 23:49:08",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-06 23:18:13",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -8210,7 +8210,7 @@
       {
         "data": "2026-07-17 15:03:00",
         "luogo": "Corciano",
-        "stato": "Failed delivery for reason: recipient was not at home"
+        "stato": "Consegna non riuscita: destinatario assente"
       },
       {
         "data": "2026-07-17 14:43:00",
@@ -8264,12 +8264,12 @@
       },
       {
         "data": "2026-07-06 23:22:16",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-06 23:17:46",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -8355,12 +8355,12 @@
       },
       {
         "data": "2026-07-06 23:49:16",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-06 23:18:25",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -8441,12 +8441,12 @@
       },
       {
         "data": "2026-07-06 23:22:14",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-06 23:17:50",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -8523,8 +8523,8 @@
       },
       {
         "data": "2026-07-11 10:41:00",
-        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Depart origin airport"
+        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina, Cina",
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-09 10:20:34",
@@ -8538,12 +8538,12 @@
       },
       {
         "data": "2026-07-07 22:21:33",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-07 21:55:27",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -8619,12 +8619,12 @@
       },
       {
         "data": "2026-07-06 23:22:05",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-06 23:17:37",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -8710,12 +8710,12 @@
       },
       {
         "data": "2026-07-08 20:17:35",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-07 21:55:50",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -8801,12 +8801,12 @@
       },
       {
         "data": "2026-07-06 23:22:19",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-06 23:17:42",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -8843,7 +8843,7 @@
       {
         "data": "2026-07-27 14:22:00",
         "luogo": "Ronciglione",
-        "stato": "Failed delivery for reason: recipient was not at home"
+        "stato": "Consegna non riuscita: destinatario assente"
       },
       {
         "data": "2026-07-27 12:09:00",
@@ -8892,8 +8892,8 @@
       },
       {
         "data": "2026-07-11 10:41:00",
-        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Depart origin airport"
+        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina, Cina",
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-09 10:20:34",
@@ -8907,12 +8907,12 @@
       },
       {
         "data": "2026-07-07 23:18:42",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-07 21:55:38",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -8993,12 +8993,12 @@
       },
       {
         "data": "2026-07-07 22:21:35",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-07 21:55:33",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -9084,8 +9084,8 @@
       },
       {
         "data": "2026-07-19 06:11:00",
-        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Depart origin airport"
+        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina, Cina",
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-19 05:55:31",
@@ -9104,12 +9104,12 @@
       },
       {
         "data": "2026-07-13 22:48:59",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-11 19:37:41",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -9170,8 +9170,8 @@
       },
       {
         "data": "2026-07-19 06:11:00",
-        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Depart origin airport"
+        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina, Cina",
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-19 05:55:31",
@@ -9190,12 +9190,12 @@
       },
       {
         "data": "2026-07-13 21:35:09",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-11 19:37:33",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -9256,8 +9256,8 @@
       },
       {
         "data": "2026-07-19 06:11:00",
-        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Depart origin airport"
+        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina, Cina",
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-19 05:55:31",
@@ -9276,12 +9276,12 @@
       },
       {
         "data": "2026-07-13 21:35:24",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-11 19:36:50",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -9352,8 +9352,8 @@
       },
       {
         "data": "2026-07-19 06:11:00",
-        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Depart origin airport"
+        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina, Cina",
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-19 05:55:31",
@@ -9372,12 +9372,12 @@
       },
       {
         "data": "2026-07-13 21:35:03",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-11 19:36:41",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -9449,7 +9449,7 @@
       {
         "data": "2026-07-20 20:34:00",
         "luogo": "Amsterdam",
-        "stato": "Arrived at destination airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-19 04:03:21",
@@ -9464,7 +9464,7 @@
       {
         "data": "2026-07-18 19:14:00",
         "luogo": "Hong kong",
-        "stato": "Depart origin airport"
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-15 03:10:18",
@@ -9473,12 +9473,12 @@
       },
       {
         "data": "2026-07-14 22:10:18",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-14 19:53:24",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -9564,8 +9564,8 @@
       },
       {
         "data": "2026-07-19 06:11:00",
-        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Depart origin airport"
+        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina, Cina",
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-19 05:55:31",
@@ -9584,12 +9584,12 @@
       },
       {
         "data": "2026-07-13 21:34:57",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-11 19:37:48",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -9655,8 +9655,8 @@
       },
       {
         "data": "2026-07-19 06:11:00",
-        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Depart origin airport"
+        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina, Cina",
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-19 05:55:31",
@@ -9675,12 +9675,12 @@
       },
       {
         "data": "2026-07-13 21:34:33",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-11 19:37:23",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -9741,8 +9741,8 @@
       },
       {
         "data": "2026-07-19 06:11:00",
-        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Depart origin airport"
+        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina, Cina",
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-19 05:55:31",
@@ -9761,12 +9761,12 @@
       },
       {
         "data": "2026-07-13 22:48:04",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-11 19:37:06",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -9828,7 +9828,7 @@
       {
         "data": "2026-07-20 20:34:00",
         "luogo": "Amsterdam",
-        "stato": "Arrived at destination airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-19 04:03:21",
@@ -9843,7 +9843,7 @@
       {
         "data": "2026-07-18 19:14:00",
         "luogo": "Hong kong",
-        "stato": "Depart origin airport"
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-15 03:10:05",
@@ -9852,12 +9852,12 @@
       },
       {
         "data": "2026-07-14 22:10:05",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-14 19:52:53",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -9948,12 +9948,12 @@
       },
       {
         "data": "2026-07-14 20:40:51",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-14 19:52:58",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -10074,12 +10074,12 @@
       },
       {
         "data": "2026-07-14 20:40:55",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-14 19:53:18",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -10160,12 +10160,12 @@
       },
       {
         "data": "2026-07-14 20:40:16",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-14 19:53:30",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -10241,12 +10241,12 @@
       },
       {
         "data": "2026-07-22 21:51:01",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-21 19:37:42",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -10303,7 +10303,7 @@
       {
         "data": "2026-07-20 20:34:00",
         "luogo": "Amsterdam",
-        "stato": "Arrived at destination airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-19 04:03:21",
@@ -10318,7 +10318,7 @@
       {
         "data": "2026-07-18 19:14:00",
         "luogo": "Hong kong",
-        "stato": "Depart origin airport"
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-15 03:08:13",
@@ -10327,12 +10327,12 @@
       },
       {
         "data": "2026-07-14 22:08:13",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-14 19:53:36",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -10419,12 +10419,12 @@
       },
       {
         "data": "2026-07-14 20:39:18",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-14 19:54:05",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -10531,12 +10531,12 @@
       },
       {
         "data": "2026-07-14 20:40:20",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-14 19:52:40",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -10573,7 +10573,7 @@
       {
         "data": "2026-07-30 11:16:00",
         "luogo": "Sassari",
-        "stato": "Failed delivery for reason: recipient was not at home"
+        "stato": "Consegna non riuscita: destinatario assente"
       },
       {
         "data": "2026-07-30 10:38:00",
@@ -10628,7 +10628,7 @@
       {
         "data": "2026-07-20 20:34:00",
         "luogo": "Amsterdam",
-        "stato": "Arrived at destination airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-19 04:03:21",
@@ -10643,7 +10643,7 @@
       {
         "data": "2026-07-18 19:14:00",
         "luogo": "Hong kong",
-        "stato": "Depart origin airport"
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-15 03:08:41",
@@ -10652,12 +10652,12 @@
       },
       {
         "data": "2026-07-14 22:08:41",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-14 19:53:42",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -10739,12 +10739,12 @@
       },
       {
         "data": "2026-07-14 20:40:58",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-14 19:52:07",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -10811,7 +10811,7 @@
       {
         "data": "2026-07-20 20:34:00",
         "luogo": "Amsterdam",
-        "stato": "Arrived at destination airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-19 04:03:21",
@@ -10826,7 +10826,7 @@
       {
         "data": "2026-07-18 19:14:00",
         "luogo": "Hong kong",
-        "stato": "Depart origin airport"
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-15 03:08:43",
@@ -10835,12 +10835,12 @@
       },
       {
         "data": "2026-07-14 22:08:43",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-14 19:53:47",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -10912,7 +10912,7 @@
       {
         "data": "2026-07-20 20:34:00",
         "luogo": "Amsterdam",
-        "stato": "Arrived at destination airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-19 04:03:21",
@@ -10927,7 +10927,7 @@
       {
         "data": "2026-07-18 19:14:00",
         "luogo": "Hong kong",
-        "stato": "Depart origin airport"
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-07-15 03:11:25",
@@ -10936,12 +10936,12 @@
       },
       {
         "data": "2026-07-14 22:11:25",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-14 19:52:13",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -11042,12 +11042,12 @@
       },
       {
         "data": "2026-07-17 21:37:32",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-17 19:37:09",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -11128,12 +11128,12 @@
       },
       {
         "data": "2026-07-14 20:41:29",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-14 19:52:24",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -11219,12 +11219,12 @@
       },
       {
         "data": "2026-07-17 21:38:09",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-17 19:37:16",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -11300,12 +11300,12 @@
       },
       {
         "data": "2026-07-17 21:38:28",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-17 19:37:45",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -11381,12 +11381,12 @@
       },
       {
         "data": "2026-07-17 21:38:48",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-17 19:37:32",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -11467,12 +11467,12 @@
       },
       {
         "data": "2026-07-17 21:38:31",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-17 19:37:23",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -11548,12 +11548,12 @@
       },
       {
         "data": "2026-07-17 21:38:23",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-17 19:37:39",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -11634,12 +11634,12 @@
       },
       {
         "data": "2026-07-17 23:22:02",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-17 19:38:01",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -11725,12 +11725,12 @@
       },
       {
         "data": "2026-07-17 21:38:42",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-17 19:37:55",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -11811,12 +11811,12 @@
       },
       {
         "data": "2026-07-17 23:22:19",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-17 19:38:26",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -11912,12 +11912,12 @@
       },
       {
         "data": "2026-07-17 22:43:51",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-17 19:38:33",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -11993,12 +11993,12 @@
       },
       {
         "data": "2026-07-22 21:50:41",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-21 19:36:19",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -12074,12 +12074,12 @@
       },
       {
         "data": "2026-07-22 21:50:38",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-21 19:37:24",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -12170,12 +12170,12 @@
       },
       {
         "data": "2026-07-22 22:11:38",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-21 19:37:18",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -12256,12 +12256,12 @@
       },
       {
         "data": "2026-07-22 21:51:02",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-21 19:37:35",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -12367,12 +12367,12 @@
       },
       {
         "data": "2026-07-25 23:23:55",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-25 19:49:15",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -12465,12 +12465,12 @@
       },
       {
         "data": "2026-07-22 21:49:49",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-21 19:37:07",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -12551,12 +12551,12 @@
       },
       {
         "data": "2026-07-22 21:51:07",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-21 19:37:01",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -12632,12 +12632,12 @@
       },
       {
         "data": "2026-07-25 23:27:04",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-25 19:49:21",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -12669,7 +12669,7 @@
       {
         "data": "2026-08-10 15:15:00",
         "luogo": "Bagheria",
-        "stato": "Failed delivery for reason: recipient was not at home"
+        "stato": "Consegna non riuscita: destinatario assente"
       },
       {
         "data": "2026-08-10 14:06:00",
@@ -12723,12 +12723,12 @@
       },
       {
         "data": "2026-07-22 22:12:08",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-21 19:36:40",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -12778,7 +12778,7 @@
       {
         "data": "2026-07-27 16:32:30",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-07-27 15:14:30",
@@ -12793,7 +12793,7 @@
       {
         "data": "2026-07-25 12:34:33",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-07-25 12:34:04",
@@ -12808,7 +12808,7 @@
       {
         "data": "2026-07-24 20:37:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-07-23 04:42:31",
@@ -12842,17 +12842,17 @@
       },
       {
         "data": "2026-07-21 04:54:59",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-21 04:30:19",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
         "data": "2026-07-21 01:25:22",
-        "luogo": "Shenzhen, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Shenzhen, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Express Arrive at The Job Center"
       },
       {
@@ -12943,12 +12943,12 @@
       },
       {
         "data": "2026-07-22 22:58:16",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-21 19:36:33",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -13024,12 +13024,12 @@
       },
       {
         "data": "2026-07-22 23:00:00",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-21 19:36:48",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -13061,7 +13061,7 @@
       {
         "data": "2026-08-05 17:58:00",
         "luogo": "Italia",
-        "stato": "Failed delivery for reason: recipient was not at home"
+        "stato": "Consegna non riuscita: destinatario assente"
       },
       {
         "data": "2026-08-05 12:20:00",
@@ -13110,12 +13110,12 @@
       },
       {
         "data": "2026-07-22 22:12:05",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-21 19:36:24",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -13196,12 +13196,12 @@
       },
       {
         "data": "2026-07-25 23:29:50",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-25 19:49:02",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -13287,12 +13287,12 @@
       },
       {
         "data": "2026-07-25 23:24:23",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-25 19:48:55",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -13403,12 +13403,12 @@
       },
       {
         "data": "2026-07-25 23:29:33",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-25 19:49:35",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -13489,12 +13489,12 @@
       },
       {
         "data": "2026-07-25 23:29:37",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-25 19:50:13",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -13575,12 +13575,12 @@
       },
       {
         "data": "2026-07-25 23:25:29",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-25 19:50:19",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -13661,12 +13661,12 @@
       },
       {
         "data": "2026-07-25 23:29:34",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-25 19:49:42",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -13742,12 +13742,12 @@
       },
       {
         "data": "2026-07-31 23:46:46",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-31 19:46:23",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -13853,12 +13853,12 @@
       },
       {
         "data": "2026-07-31 23:46:50",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-31 19:46:14",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -13939,12 +13939,12 @@
       },
       {
         "data": "2026-07-31 23:46:10",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-31 19:46:03",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -14025,12 +14025,12 @@
       },
       {
         "data": "2026-07-31 23:46:57",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-31 19:46:09",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -14096,8 +14096,8 @@
       },
       {
         "data": "2026-08-08 05:40:00",
-        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Depart origin airport"
+        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina, Cina",
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-08-07 10:02:39",
@@ -14111,12 +14111,12 @@
       },
       {
         "data": "2026-08-05 22:14:51",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-05 22:08:37",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -14173,7 +14173,7 @@
       {
         "data": "2026-08-20 17:37:10",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-08-20 17:36:48",
@@ -14217,12 +14217,12 @@
       },
       {
         "data": "2026-08-13 05:35:35",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-13 04:13:52",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -14298,8 +14298,8 @@
       },
       {
         "data": "2026-08-08 05:40:00",
-        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Depart origin airport"
+        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina, Cina",
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-08-07 10:02:39",
@@ -14313,12 +14313,12 @@
       },
       {
         "data": "2026-08-05 22:14:54",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-05 22:08:29",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -14389,8 +14389,8 @@
       },
       {
         "data": "2026-08-08 05:40:00",
-        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Depart origin airport"
+        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina, Cina",
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-08-07 10:02:39",
@@ -14404,12 +14404,12 @@
       },
       {
         "data": "2026-08-05 22:47:37",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-05 22:08:22",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -14439,32 +14439,32 @@
       {
         "data": "2026-08-19 10:55:00",
         "luogo": "Italia",
-        "stato": "The shipment is being prepared for delivery in the delivery depot"
+        "stato": "In preparazione per la consegna"
       },
       {
         "data": "2026-08-18 18:16:00",
         "luogo": "Italia",
-        "stato": "The shipment has been processed in the parcel center"
+        "stato": "Lavorato nel centro di smistamento"
       },
       {
         "data": "2026-08-18 18:15:00",
         "luogo": "Italia",
-        "stato": "The shipment has arrived at the parcel center"
+        "stato": "Arrivato al centro di smistamento"
       },
       {
         "data": "2026-08-17 10:20:00",
-        "luogo": "Germany",
-        "stato": "The shipment will be transported to the destination country/destination area and, from there, handed over to the delivery organization."
+        "luogo": "Germania",
+        "stato": "In partenza verso l'Italia, poi affidato al corriere locale"
       },
       {
         "data": "2026-08-17 04:24:00",
-        "luogo": "Germany",
-        "stato": "The international shipment has been processed in the export parcel center"
+        "luogo": "Germania",
+        "stato": "Lavorato nel centro di smistamento per l'estero"
       },
       {
         "data": "2026-08-15 12:21:00",
-        "luogo": "Germany",
-        "stato": "The international shipment has been processed in the parcel center of origin"
+        "luogo": "Germania",
+        "stato": "Lavorato nel centro di smistamento di partenza"
       },
       {
         "data": "2026-08-14 17:56:26",
@@ -14493,12 +14493,12 @@
       },
       {
         "data": "2026-08-07 00:14:05",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-06 16:53:59",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -14509,7 +14509,7 @@
       {
         "data": "2026-08-06 04:10:00",
         "luogo": "",
-        "stato": "Spedizione registrata dal mittente by the sender to DHL electronically."
+        "stato": "Spedizione registrata dal mittente"
       }
     ]
   },
@@ -14574,8 +14574,8 @@
       },
       {
         "data": "2026-08-08 05:40:00",
-        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Depart origin airport"
+        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina, Cina",
+        "stato": "Partito dall'aeroporto di origine"
       },
       {
         "data": "2026-08-07 10:02:39",
@@ -14589,12 +14589,12 @@
       },
       {
         "data": "2026-08-05 22:14:43",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-05 22:08:15",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -14680,12 +14680,12 @@
       },
       {
         "data": "2026-08-10 22:25:24",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-10 21:32:57",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -14771,12 +14771,12 @@
       },
       {
         "data": "2026-08-10 22:25:24",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-10 21:32:57",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -14852,12 +14852,12 @@
       },
       {
         "data": "2026-08-10 22:25:13",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-10 21:33:07",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -14933,12 +14933,12 @@
       },
       {
         "data": "2026-08-10 22:27:30",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-10 21:32:47",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -15029,12 +15029,12 @@
       },
       {
         "data": "2026-08-10 22:25:14",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-10 21:33:02",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -15110,12 +15110,12 @@
       },
       {
         "data": "2026-08-13 22:30:57",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-13 19:47:56",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -15177,7 +15177,7 @@
       {
         "data": "2026-08-17 11:05:20",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-08-17 11:04:46",
@@ -15192,7 +15192,7 @@
       {
         "data": "2026-08-14 15:09:21",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-08-13 23:49:08",
@@ -15226,12 +15226,12 @@
       },
       {
         "data": "2026-08-11 01:20:34",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-10 21:10:12",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -15293,7 +15293,7 @@
       {
         "data": "2026-08-20 17:37:10",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-08-20 17:36:48",
@@ -15337,12 +15337,12 @@
       },
       {
         "data": "2026-08-13 05:31:33",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-13 04:13:34",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -15433,12 +15433,12 @@
       },
       {
         "data": "2026-08-13 20:40:23",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-13 19:47:41",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -15519,12 +15519,12 @@
       },
       {
         "data": "2026-08-13 22:30:58",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-13 19:47:47",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -15579,7 +15579,7 @@
       {
         "data": "2026-08-20 17:37:10",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-08-20 17:36:48",
@@ -15623,12 +15623,12 @@
       },
       {
         "data": "2026-08-14 05:52:31",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-14 04:33:23",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -15724,12 +15724,12 @@
       },
       {
         "data": "2026-08-13 22:30:45",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-13 19:47:20",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -15764,7 +15764,7 @@
       {
         "data": "2026-08-27 07:41:00",
         "luogo": "",
-        "stato": "The shipment is being prepared for delivery in the delivery depot"
+        "stato": "In preparazione per la consegna"
       },
       {
         "data": "2026-08-26 17:18:00",
@@ -15774,17 +15774,17 @@
       {
         "data": "2026-08-26 01:19:00",
         "luogo": "",
-        "stato": "The international shipment has been processed in the export parcel center"
+        "stato": "Lavorato nel centro di smistamento per l'estero"
       },
       {
         "data": "2026-08-24 15:31:00",
         "luogo": "",
-        "stato": "The international shipment has been processed in the parcel center of origin"
+        "stato": "Lavorato nel centro di smistamento di partenza"
       },
       {
         "data": "2026-08-23 10:55:18",
         "luogo": "",
-        "stato": "Delivery to final service provider"
+        "stato": "Consegnato al corriere finale"
       },
       {
         "data": "2026-08-23 06:54:29",
@@ -15799,12 +15799,12 @@
       {
         "data": "2026-08-22 11:55:57",
         "luogo": "",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-08-21 08:15:00",
         "luogo": "",
-        "stato": "Spedizione registrata dal mittente by the sender to DHL electronically"
+        "stato": "Spedizione registrata dal mittente"
       },
       {
         "data": "2026-08-20 23:16:32",
@@ -15838,12 +15838,12 @@
       },
       {
         "data": "2026-08-18 22:40:47",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-18 21:14:12",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -15920,7 +15920,7 @@
       {
         "data": "2026-08-17 11:05:20",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-08-17 11:04:46",
@@ -15935,7 +15935,7 @@
       {
         "data": "2026-08-14 15:09:21",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-08-13 23:49:08",
@@ -15969,12 +15969,12 @@
       },
       {
         "data": "2026-08-11 01:14:57",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-10 21:10:38",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -16058,12 +16058,12 @@
       },
       {
         "data": "2026-08-13 20:40:22",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-13 19:47:36",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -16152,12 +16152,12 @@
       },
       {
         "data": "2026-08-13 20:39:53",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-13 19:47:32",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -16246,12 +16246,12 @@
       },
       {
         "data": "2026-08-13 20:40:06",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-13 19:48:03",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -16330,12 +16330,12 @@
       },
       {
         "data": "2026-08-13 22:31:00",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-13 19:48:15",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -16419,12 +16419,12 @@
       },
       {
         "data": "2026-08-13 22:13:05",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-13 19:48:11",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
     ]
@@ -16480,12 +16480,12 @@
       },
       {
         "data": "2026-08-26 05:07:25",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-26 04:34:21",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -16555,7 +16555,7 @@
       {
         "data": "2026-08-24 17:10:36",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-08-24 17:09:02",
@@ -16570,7 +16570,7 @@
       {
         "data": "2026-08-23 15:17:53",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-08-22 05:03:55",
@@ -16604,12 +16604,12 @@
       },
       {
         "data": "2026-08-18 00:52:54",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-17 21:59:46",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -16674,7 +16674,7 @@
       {
         "data": "2026-08-25 16:06:26",
         "luogo": "FCO",
-        "stato": "Delivery to last mile operator"
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-08-25 15:38:26",
@@ -16689,7 +16689,7 @@
       {
         "data": "2026-08-24 16:59:26",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-08-24 16:58:38",
@@ -16709,7 +16709,7 @@
       {
         "data": "2026-08-23 15:17:00",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-08-22 05:03:55",
@@ -16743,12 +16743,12 @@
       },
       {
         "data": "2026-08-18 00:16:19",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-17 22:00:58",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -16818,7 +16818,7 @@
       {
         "data": "2026-08-24 17:10:36",
         "luogo": "FCO",
-        "stato": "Ready for transit to last mile operator"
+        "stato": "Pronto per la consegna al corriere locale"
       },
       {
         "data": "2026-08-24 17:09:02",
@@ -16833,7 +16833,7 @@
       {
         "data": "2026-08-23 15:17:53",
         "luogo": "FCO",
-        "stato": "Arrived at Destinated Airport"
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-08-22 05:03:55",
@@ -16867,12 +16867,12 @@
       },
       {
         "data": "2026-08-18 01:02:30",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-17 21:59:53",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
