@@ -8602,5 +8602,109 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0097": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-04",
+    "data_consegna": "2026-07-17 11:25:12",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D72918397",
+    "corriere_2": "Poste Italiane",
+    "tracking_2": "5P65D72918396",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_97_1_c72199e2.jpeg",
+      "sped_97_3_ef933610.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-17 10:19:00",
+        "luogo": "SESTO SAN GIOVANNI",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-17 09:38:00",
+        "luogo": "SESTO SAN GIOVANNI",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-17 06:23:00",
+        "luogo": "PESCHIERA BORROMEO",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-16 08:52:00",
+        "luogo": "MILANO",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-15 13:45:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-15 11:28:17",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-13 13:30:48",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-11 07:30:01",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-10 11:26:43",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-08 21:31:54",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:07.09)"
+      },
+      {
+        "data": "2026-07-07 04:49:09",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-06 23:49:08",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-06 23:18:13",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-17 10:19:45",
+        "luogo": "dalla sede operativa di SESTO SAN GIOVANNI (MI)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-17 09:38:54",
+        "luogo": "SESTO SAN GIOVANNI (MI)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-17 08:53:57",
+        "luogo": "SESTO SAN GIOVANNI (MI)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
