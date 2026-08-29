@@ -11869,5 +11869,153 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0129": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-13",
+    "data_consegna": "2026-08-03 12:25:43",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73015160",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_129_1_bf132899.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-08-03 11:03:00",
+        "luogo": "SASSARI",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-08-03 09:54:00",
+        "luogo": "SASSARI",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-30 11:16:00",
+        "luogo": "SASSARI",
+        "stato": "FAILED DELIVERY FOR REASON: RECIPIENT WAS NOT AT HOME"
+      },
+      {
+        "data": "2026-07-30 10:38:00",
+        "luogo": "SASSARI",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-30 09:13:00",
+        "luogo": "SASSARI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-30 07:41:00",
+        "luogo": "SASSARI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-30 03:43:00",
+        "luogo": "ELMAS",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 21:32:00",
+        "luogo": "BOLOGNA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 14:45:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-27 10:42:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-24 16:00:00",
+        "luogo": "MILAN",
+        "stato": "Consegnato a Poste Italiane"
+      },
+      {
+        "data": "2026-07-23 14:52:58",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-22 10:41:14",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-20 20:34:00",
+        "luogo": "AMSTERDAM",
+        "stato": "ARRIVED AT DESTINATION AIRPORT"
+      },
+      {
+        "data": "2026-07-19 04:03:21",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-18 19:14:26",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-18 19:14:00",
+        "luogo": "HONG KONG",
+        "stato": "DEPART ORIGIN AIRPORT"
+      },
+      {
+        "data": "2026-07-15 03:08:41",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-14 22:08:41",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-14 19:53:42",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-08-03 11:03:56",
+        "luogo": "dalla sede operativa di SASSARI (SS)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-08-03 09:54:42",
+        "luogo": "SASSARI (SS)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-03 09:15:54",
+        "luogo": "SASSARI (SS)",
+        "stato": "In transItaliaoo"
+      },
+      {
+        "data": "2026-07-30 11:16:37",
+        "luogo": "SASSARI (SS)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-30 09:13:30",
+        "luogo": "SASSARI (SS)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
