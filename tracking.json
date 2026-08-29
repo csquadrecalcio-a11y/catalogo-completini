@@ -8449,5 +8449,158 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0096": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-04",
+    "data_consegna": "2026-07-15 18:23:27",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2002J052125",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_96_1_153777a4.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-15 22:10:01",
+        "luogo": "dalla sede operativa di DOLO (VE)",
+        "stato": "Consegnata, la spedizione &egrave; stata consegnata"
+      },
+      {
+        "data": "2026-07-15 16:55:37",
+        "luogo": "DOLO (VE)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-15 09:54:15",
+        "luogo": "VENEZIA (VE)",
+        "stato": "In transItaliaoo, la spedizione &egrave; In transItaliaoo"
+      },
+      {
+        "data": "2026-07-15 09:54:15",
+        "luogo": "VENEZIA (VE)",
+        "stato": "In transItaliaoo"
+      },
+      {
+        "data": "2026-07-15 03:54:00",
+        "luogo": "VENEZIA",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-07-14 18:50:11",
+        "luogo": "LONATE POZZOLO (VA)",
+        "stato": "In transItaliaoo, la spedizione &egrave; In transItaliaoo"
+      },
+      {
+        "data": "2026-07-14 12:50:00",
+        "luogo": "FERNO",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-07-14 12:50:00",
+        "luogo": "FERNO",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-07-13 17:43:58",
+        "luogo": "FCO",
+        "stato": "In transItaliao to last mile operator"
+      },
+      {
+        "data": "2026-07-13 16:30:09",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-07-13 11:55:19",
+        "luogo": "FCO",
+        "stato": "Ready for transItalia to last mile operator"
+      },
+      {
+        "data": "2026-07-13 11:53:59",
+        "luogo": "FCO",
+        "stato": "Arrived at Sdoganamento warehouse"
+      },
+      {
+        "data": "2026-07-13 09:00:00",
+        "luogo": "FCO",
+        "stato": "Terminal Notification of Arrival"
+      },
+      {
+        "data": "2026-07-12 12:17:00",
+        "luogo": "FCO",
+        "stato": "Arrived at Destinated Airport"
+      },
+      {
+        "data": "2026-07-11 23:16:24",
+        "luogo": "",
+        "stato": "预计Volo抵达时间 Expected to arrive（2026-7-12）"
+      },
+      {
+        "data": "2026-07-11 23:16:20",
+        "luogo": "",
+        "stato": "Volo partItaliao Flight departure"
+      },
+      {
+        "data": "2026-07-09 23:40:55",
+        "luogo": "",
+        "stato": "预计Volo启运时间 Expected departure（2026-7-11）"
+      },
+      {
+        "data": "2026-07-09 23:40:52",
+        "luogo": "",
+        "stato": "货物移交航司 Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-07-09 23:40:49",
+        "luogo": "",
+        "stato": "国内Sdoganamento completato Domestic Sdoganamento is completed"
+      },
+      {
+        "data": "2026-07-06 23:43:38",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-06 23:17:28",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-06-28 23:24:20",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-06-28 17:24:21",
+        "luogo": "-",
+        "stato": "Ordine registrato, in attesa del pacco"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-15 16:10:01",
+        "luogo": "dalla sede operativa di DOLO (VE)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-15 10:55:37",
+        "luogo": "DOLO (VE)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-15 03:54:15",
+        "luogo": "VENEZIA (VE)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
