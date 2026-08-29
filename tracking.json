@@ -13475,23 +13475,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-08-05 13:46:52",
-        "luogo": "dalla sede operativa di DOLO (VE)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-08-05 10:41:19",
-        "luogo": "DOLO (VE)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-05 00:39:31",
-        "luogo": "VENEZIA (VE)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0202": {
