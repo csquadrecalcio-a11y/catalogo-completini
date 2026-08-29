@@ -9969,18 +9969,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-29 14:36:00",
-        "luogo": "dalla sede operativa di BARI (BA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-29 04:51:00",
-        "luogo": "BARI (BA)",
-        "stato": "In consegna"
-      }
     ]
   },
   "CSC-2026-0117": {
