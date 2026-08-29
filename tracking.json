@@ -3714,7 +3714,7 @@
       {
         "data": "2026-07-08 11:26:49",
         "luogo": "",
-        "stato": "ConsegnatoConsegnato"
+        "stato": "Consegnato"
       },
       {
         "data": "2026-07-04 15:01:39",
@@ -3724,7 +3724,7 @@
       {
         "data": "2026-07-04 10:16:45",
         "luogo": "",
-        "stato": "Forwarding to Packstation"
+        "stato": "In transito verso il punto di ritiro"
       },
       {
         "data": "2026-07-04 08:49:41",
@@ -3773,12 +3773,12 @@
       },
       {
         "data": "2026-06-18 19:42:09",
-        "luogo": "Shenzhen, Cina, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Shenzhen, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-17 22:48:34",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -3790,38 +3790,6 @@
         "data": "2026-06-15 01:02:36",
         "luogo": "",
         "stato": "Spedizione registrata dal mittente"
-      }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-08 11:26:00",
-        "luogo": "DE",
-        "stato": "Il destinatario ha Ritirato dal magazzino il pacco dal punto di ritiro"
-      },
-      {
-        "data": "2026-07-04 15:01:00",
-        "luogo": "DE",
-        "stato": "Disponibile per il ritiro"
-      },
-      {
-        "data": "2026-07-04 10:16:00",
-        "luogo": "DE",
-        "stato": "Non è stato possibile consegnare: Consegnato reindirizzato a un punto di ritiro, destinatario avvisato"
-      },
-      {
-        "data": "2026-07-04 08:49:00",
-        "luogo": "",
-        "stato": "Caricato sul mezzo di consegna. Consegna prevista in giornata"
-      },
-      {
-        "data": "2026-07-04 02:36:00",
-        "luogo": "DE",
-        "stato": "Arrivato nella zona di destinazione, in transito verso la sede di consegna"
-      },
-      {
-        "data": "2026-07-03 19:01:00",
-        "luogo": "DE",
-        "stato": "Lavorato nel centro di smistamento di partenza"
       }
     ]
   },
