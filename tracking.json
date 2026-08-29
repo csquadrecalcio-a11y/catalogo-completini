@@ -10860,23 +10860,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-30 15:09:54",
-        "luogo": "dalla sede operativa di BELVI' (NU)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-30 10:56:26",
-        "luogo": "BELVI' (NU)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-30 04:48:46",
-        "luogo": "NUORO (NU)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0127": {
