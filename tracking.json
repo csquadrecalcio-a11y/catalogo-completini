@@ -11347,23 +11347,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-29 13:29:15",
-        "luogo": "dalla sede operativa di CANNETO SULL'OGLIO (MN)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-29 10:01:55",
-        "luogo": "CANNETO SULL'OGLIO (MN)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-29 08:23:28",
-        "luogo": "ASOLA (MN)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0132": {
