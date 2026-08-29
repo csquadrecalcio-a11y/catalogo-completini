@@ -1333,23 +1333,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-23 12:50",
-        "luogo": "dalla sede operativa di TItaliaO (PZ)",
-        "stato": "La spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-23 07:30",
-        "luogo": "TItaliaO (PZ)",
-        "stato": "La spedizione è in consegna"
-      },
-      {
-        "data": "2026-06-23 07:04",
-        "luogo": "TItaliaO (PZ)",
-        "stato": "La spedizione è In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0006": {
