@@ -11489,7 +11489,78 @@
       "sped_204_1_9251d60a.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": []
+    "eventi_cina": [
+      {
+        "data": "2026-08-06 12:58:00",
+        "luogo": "Colleferro",
+        "stato": "Consegnato dal postino"
+      },
+      {
+        "data": "2026-08-06 11:30:00",
+        "luogo": "Colleferro",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-06 05:58:00",
+        "luogo": "Roma",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-08-05 23:07:00",
+        "luogo": "Roma",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-08-05 09:45:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-08-04 12:52:00",
+        "luogo": "Castel san giovanni",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-08-02 14:28:57",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-31 02:48:44",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-30 19:21:59",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-28 23:37:47",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-27 15:52:13",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:7.28)"
+      },
+      {
+        "data": "2026-07-26 04:24:23",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-25 23:24:23",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-25 19:48:55",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ]
   },
   "CSC-2026-0205": {
     "stato": "consegnato",
