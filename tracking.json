@@ -10955,73 +10955,7 @@
       "sped_203_1_18603896.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": [
-      {
-        "data": "2026-08-10 11:04:00",
-        "luogo": "Codigoro",
-        "stato": "Consegnato dal postino"
-      },
-      {
-        "data": "2026-08-10 09:45:00",
-        "luogo": "Codigoro",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-10 05:59:00",
-        "luogo": "Bologna",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-08-08 07:58:00",
-        "luogo": "Bologna",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-04 21:07:00",
-        "luogo": "Castel san giovanni",
-        "stato": "Prima scansione Poste Italiane'S LOGISTIC NETWORK"
-      },
-      {
-        "data": "2026-08-02 14:28:57",
-        "luogo": "",
-        "stato": "Inviato al magazzino, in attesa di scansione"
-      },
-      {
-        "data": "2026-07-31 02:48:44",
-        "luogo": "",
-        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
-      },
-      {
-        "data": "2026-07-30 19:21:59",
-        "luogo": "",
-        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
-      },
-      {
-        "data": "2026-07-28 23:37:47",
-        "luogo": "",
-        "stato": "Partito dall'aeroporto di origine"
-      },
-      {
-        "data": "2026-07-27 15:52:13",
-        "luogo": "",
-        "stato": "Orario di partenza stimato del volo (Partenza stimata:7.28)"
-      },
-      {
-        "data": "2026-07-26 04:29:50",
-        "luogo": "Cina",
-        "stato": "Uscito dal magazzino, in attesa del volo"
-      },
-      {
-        "data": "2026-07-25 23:29:50",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Pacco in uscita dal centro operativo"
-      },
-      {
-        "data": "2026-07-25 19:49:02",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Arrivato al punto di raccolta"
-      }
-    ]
+    "eventi_cina": []
   },
   "CSC-2026-0204": {
     "stato": "consegnato",
