@@ -11018,7 +11018,7 @@
       {
         "data": "2026-07-31 16:14:00",
         "luogo": "Casavatore",
-        "stato": "Consegnato Case closed"
+        "stato": "Consegnato"
       },
       {
         "data": "2026-07-31 11:15:00",
@@ -11048,7 +11048,7 @@
       {
         "data": "2026-07-27 15:14:30",
         "luogo": "FCO",
-        "stato": "In transito to last mile operator"
+        "stato": "In transito verso il corriere locale"
       },
       {
         "data": "2026-07-25 13:10:02",
@@ -11063,12 +11063,12 @@
       {
         "data": "2026-07-25 12:34:04",
         "luogo": "FCO",
-        "stato": "Arrived at Sdoganamento warehouse"
+        "stato": "Arrivato al deposito doganale"
       },
       {
         "data": "2026-07-25 06:00:00",
         "luogo": "FCO",
-        "stato": "Terminal Notification of Arrival"
+        "stato": "Avviso di arrivo al terminal"
       },
       {
         "data": "2026-07-24 20:37:00",
@@ -11123,11 +11123,11 @@
       {
         "data": "2026-07-21 01:22:19",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-07-20 19:22:21",
-        "luogo": "-",
+        "luogo": "",
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ]
