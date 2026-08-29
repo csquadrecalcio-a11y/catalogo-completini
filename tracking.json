@@ -10328,23 +10328,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-30 11:00:00",
-        "luogo": "dalla sede operativa di RAGUSA (RG)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-30 05:04:00",
-        "luogo": "RAGUSA (RG)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-27 11:07:00",
-        "luogo": "CASTEL SAN GIOVANNI (PC)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0121": {
