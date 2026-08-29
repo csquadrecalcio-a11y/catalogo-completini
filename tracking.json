@@ -14194,22 +14194,22 @@
       {
         "data": "2026-08-28 01:48:00",
         "luogo": "Catania",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-08-26 18:22:00",
         "luogo": "Roma",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-08-26 14:01:00",
         "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-08-25 16:54:00",
         "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane's logistic network"
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-08-25 15:38:29",
@@ -14273,12 +14273,12 @@
       },
       {
         "data": "2026-08-18 01:02:30",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-17 21:59:53",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -14300,12 +14300,12 @@
       },
       {
         "data": "2026-08-28 14:25",
-        "luogo": "Catania (ct)",
+        "luogo": "CATANIA (CT)",
         "stato": "La spedizione è in consegna"
       },
       {
         "data": "2026-08-28 01:48",
-        "luogo": "Catania (ct)",
+        "luogo": "CATANIA (CT)",
         "stato": "La spedizione è in transito"
       }
     ]
