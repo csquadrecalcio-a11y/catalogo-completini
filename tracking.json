@@ -10402,78 +10402,7 @@
       "sped_126_3_affec42b.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": [
-      {
-        "data": "2026-07-30 15:09:00",
-        "luogo": "BELVI'",
-        "stato": "Consegnato BY POST MAN"
-      },
-      {
-        "data": "2026-07-30 10:56:00",
-        "luogo": "BELVI'",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-29 11:22:00",
-        "luogo": "Italia",
-        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
-      },
-      {
-        "data": "2026-07-28 16:39:00",
-        "luogo": "BOLOGNA",
-        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
-      },
-      {
-        "data": "2026-07-28 14:45:00",
-        "luogo": "CASTEL SAN GIOVANNI",
-        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
-      },
-      {
-        "data": "2026-07-28 11:43:00",
-        "luogo": "CASTEL SAN GIOVANNI",
-        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
-      },
-      {
-        "data": "2026-07-26 16:50:48",
-        "luogo": "",
-        "stato": "Inviato al magazzino, in attesa di scansione"
-      },
-      {
-        "data": "2026-07-23 11:03:43",
-        "luogo": "",
-        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
-      },
-      {
-        "data": "2026-07-20 01:52:47",
-        "luogo": "",
-        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
-      },
-      {
-        "data": "2026-07-19 07:10:30",
-        "luogo": "",
-        "stato": "Partito dall'aeroporto di origine"
-      },
-      {
-        "data": "2026-07-18 14:01:30",
-        "luogo": "",
-        "stato": "Orario di partenza stimato del volo (Partenza stimata: 07.19)"
-      },
-      {
-        "data": "2026-07-15 01:39:18",
-        "luogo": "Cina",
-        "stato": "Uscito dal magazzino, in attesa del volo"
-      },
-      {
-        "data": "2026-07-14 20:39:18",
-        "luogo": "Guangzhou, Cina",
-        "stato": "Pacco in uscita dal centro operativo"
-      },
-      {
-        "data": "2026-07-14 19:54:05",
-        "luogo": "Guangzhou, Cina",
-        "stato": "Arrivato al punto di raccolta"
-      }
-    ]
+    "eventi_cina": []
   },
   "CSC-2026-0127": {
     "stato": "consegnato",
