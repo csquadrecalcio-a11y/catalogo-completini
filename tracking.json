@@ -15512,5 +15512,118 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0206": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-24",
+    "data_consegna": "2026-08-11 14:28:17",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73119275",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_206_1_b2453913.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-08-11 13:35:00",
+        "luogo": "Italia",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-08-11 11:19:00",
+        "luogo": "Italia",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-11 06:22:00",
+        "luogo": "Italia",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-10 11:20:00",
+        "luogo": "ROMA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-09 09:13:00",
+        "luogo": "BOLOGNA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-07 18:14:00",
+        "luogo": "VERONA",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-07 18:14:00",
+        "luogo": "VERONA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-02 14:28:57",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-31 02:48:44",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-30 19:21:59",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-28 23:37:47",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-27 15:52:13",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:7.28)"
+      },
+      {
+        "data": "2026-07-26 04:29:33",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-25 23:29:33",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-25 19:49:35",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-08-11 13:35:11",
+        "luogo": "dalla sede operativa di VItaliaERBO (VT)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-08-11 11:19:44",
+        "luogo": "VItaliaERBO (VT)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-11 06:22:01",
+        "luogo": "VItaliaERBO (VT)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
