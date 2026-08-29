@@ -711,5 +711,153 @@
     "tracking": "",
     "eventi_cina": [],
     "eventi_corriere": []
+  },
+  "CSC-2026-0003": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-06-09",
+    "data_consegna": "2026-06-23",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2001J612385",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_3_1_94b78f35.jpg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-06-23 13:21:00",
+        "luogo": "CASTIGLIONE DEL LAGO",
+        "stato": "Consegnato Case closed"
+      },
+      {
+        "data": "2026-06-23 09:14:00",
+        "luogo": "CASTIGLIONE DEL LAGO",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-06-23 06:56:00",
+        "luogo": "PERUGIA",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-22 22:47:00",
+        "luogo": "SESTO FIORENTINO",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-19 17:48:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-19 16:55:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-19 08:36:36",
+        "luogo": "FCO",
+        "stato": "Delivery to last mile operator"
+      },
+      {
+        "data": "2026-06-19 07:50:36",
+        "luogo": "FCO",
+        "stato": "In transItaliao to last mile operator"
+      },
+      {
+        "data": "2026-06-18 15:49:59",
+        "luogo": "FCO",
+        "stato": "Ready for transItalia to last mile operator"
+      },
+      {
+        "data": "2026-06-18 15:49:31",
+        "luogo": "FCO",
+        "stato": "Arrived at Sdoganamento warehouse"
+      },
+      {
+        "data": "2026-06-16 18:00:09",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-06-16 06:00:00",
+        "luogo": "FCO",
+        "stato": "Terminal Notification of Arrival"
+      },
+      {
+        "data": "2026-06-15 07:55:00",
+        "luogo": "FCO",
+        "stato": "Arrived at Destinated Airport"
+      },
+      {
+        "data": "2026-06-15 00:52:43",
+        "luogo": "",
+        "stato": "预计Volo抵达时间 Expected to arrive（2026-6-15）"
+      },
+      {
+        "data": "2026-06-14 16:52:36",
+        "luogo": "",
+        "stato": "Volo partItaliao Flight departure"
+      },
+      {
+        "data": "2026-06-14 01:28:17",
+        "luogo": "",
+        "stato": "预计Volo启运时间 Expected departure（2026-6-14）"
+      },
+      {
+        "data": "2026-06-14 01:28:13",
+        "luogo": "",
+        "stato": "货物移交航司 Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-06-14 01:28:08",
+        "luogo": "",
+        "stato": "国内Sdoganamento completato Domestic Sdoganamento is completed"
+      },
+      {
+        "data": "2026-06-10 19:49:14",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-06-09 19:48:11",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-06-07 01:42:56",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-06-06 19:42:58",
+        "luogo": "-",
+        "stato": "Ordine registrato, in attesa del pacco"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-06-23 13:21:10",
+        "luogo": "dalla sede operativa di CASTIGLIONE DEL LAGO (PG)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-06-23 09:14:40",
+        "luogo": "Filiale SDA CASTIGLIONE DEL LAGO (PG)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-06-23 08:59:18",
+        "luogo": "CASTIGLIONE DEL LAGO (PG)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
