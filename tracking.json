@@ -12465,5 +12465,108 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0134": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-14",
+    "data_consegna": "2026-07-31 16:14:35",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73015432",
+    "corriere_2": "Poste Italiane",
+    "tracking_2": "5P65D73015433",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_134_1_6b3db313.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-31 16:14:00",
+        "luogo": "CASAVATORE",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-31 11:15:00",
+        "luogo": "CASAVATORE",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-31 06:35:00",
+        "luogo": "NAPOLI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-30 13:37:00",
+        "luogo": "GRICIGNANO DI AVERSA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 14:45:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 11:30:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-26 16:50:48",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-23 11:42:40",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-21 05:03:15",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-20 11:00:16",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-18 02:37:32",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-17 21:37:32",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-17 19:37:09",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-31 16:14:35",
+        "luogo": "dalla sede operativa di CASAVATORE (NA)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-31 11:15:04",
+        "luogo": "CASAVATORE (NA)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-31 06:35:28",
+        "luogo": "NAPOLI (NA)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
