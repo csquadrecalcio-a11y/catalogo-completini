@@ -12161,23 +12161,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-30 14:43:42",
-        "luogo": "dalla sede operativa di VItaliaERBO (VT)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-30 11:19:43",
-        "luogo": "VItaliaERBO (VT)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-30 07:55:20",
-        "luogo": "VItaliaERBO (VT)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0170": {
