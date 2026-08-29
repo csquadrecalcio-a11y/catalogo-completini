@@ -2157,23 +2157,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-25 14:58",
-        "luogo": "dalla sede operativa di ROMA (RM)",
-        "stato": "La spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-25 11:10",
-        "luogo": "ROMA (RM)",
-        "stato": "La spedizione è in consegna"
-      },
-      {
-        "data": "2026-06-25 01:32",
-        "luogo": "FIUMICINO (RM)",
-        "stato": "La spedizione è In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0013": {
