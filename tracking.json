@@ -12252,23 +12252,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-31 12:32:28",
-        "luogo": "dalla sede operativa di OFFIDA (AP)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-31 10:15:21",
-        "luogo": "OFFIDA (AP)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-31 09:04:36",
-        "luogo": "OFFIDA (AP)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0172": {
