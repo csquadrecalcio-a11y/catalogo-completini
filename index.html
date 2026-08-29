@@ -370,6 +370,9 @@ gtag('config', 'G-SYPQZL1L7W');
   .size-note b{color:var(--volt)}
   .stable{display:none}
   .stable.on{display:table}
+  .prod-switch{display:flex;gap:8px;margin-bottom:18px}
+  .prod-block{display:none}
+  .prod-block.on{display:block}
 
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   .step{background:var(--panel-2);border:1px solid var(--line);border-radius:var(--radius);padding:36px 30px}
@@ -882,34 +885,74 @@ gtag('config', 'G-SYPQZL1L7W');
       <p>Misura una maglia che ti sta bene e confrontala con la tabella. Sei tra due taglie? Prendi la più grande.</p>
     </div>
     <div class="reveal">
-      <div class="size-switch">
-        <button class="tab active" id="szAdult">Adulto</button>
-        <button class="tab" id="szKid">Bambino</button>
+      <!-- Switch Maglie / Tute -->
+      <div class="prod-switch">
+        <button class="tab active" id="swMaglie">Maglie &amp; Kit</button>
+        <button class="tab" id="swTute">Tute</button>
       </div>
-      <div class="table-scroll">
-        <table class="stable on" id="tblAdult">
-          <thead><tr><th>Taglia</th><th>Petto (cm)</th><th>Altezza (cm)</th><th>Corrisponde a</th></tr></thead>
-          <tbody>
-            <tr><td><b>S</b></td><td>96 – 101</td><td>165 – 172</td><td>46 – 48 IT</td></tr>
-            <tr><td><b>M</b></td><td>101 – 106</td><td>172 – 178</td><td>48 – 50 IT</td></tr>
-            <tr><td><b>L</b></td><td>106 – 111</td><td>178 – 183</td><td>50 – 52 IT</td></tr>
-            <tr><td><b>XL</b></td><td>111 – 118</td><td>183 – 188</td><td>52 – 54 IT</td></tr>
-            <tr><td><b>XXL</b></td><td>118 – 124</td><td>188 – 193</td><td>54 – 56 IT</td></tr>
-          </tbody>
-        </table>
-        <table class="stable" id="tblKid">
-          <thead><tr><th>Taglia</th><th>Corrisponde a</th><th>Età</th><th>Altezza (cm)</th><th>Petto (cm)</th></tr></thead>
-          <tbody>
-            <tr><td><b>16</b></td><td>XXS</td><td>2 – 4 anni</td><td>90 – 105</td><td>35</td></tr>
-            <tr><td><b>18</b></td><td>XS</td><td>4 – 5 anni</td><td>105 – 115</td><td>37</td></tr>
-            <tr><td><b>20</b></td><td>S</td><td>5 – 6 anni</td><td>115 – 125</td><td>39</td></tr>
-            <tr><td><b>22</b></td><td>M</td><td>7 – 8 anni</td><td>125 – 135</td><td>41</td></tr>
-            <tr><td><b>24</b></td><td>L</td><td>8 – 9 anni</td><td>135 – 145</td><td>43</td></tr>
-            <tr><td><b>26</b></td><td>XL</td><td>10 – 11 anni</td><td>145 – 155</td><td>45</td></tr>
-            <tr><td><b>28</b></td><td>XXL</td><td>12 – 13 anni</td><td>155 – 165</td><td>47</td></tr>
-          </tbody>
-        </table>
+
+      <!-- MAGLIE block -->
+      <div class="prod-block on" id="blkMaglie">
+        <div class="size-switch">
+          <button class="tab active" id="szAdult">Adulto</button>
+          <button class="tab" id="szKid">Bambino</button>
+        </div>
+        <div class="table-scroll">
+          <table class="stable on" id="tblAdult">
+            <thead><tr><th>Taglia</th><th>Petto (cm)</th><th>Altezza (cm)</th><th>Corrisponde a</th></tr></thead>
+            <tbody>
+              <tr><td><b>S</b></td><td>96 – 101</td><td>165 – 172</td><td>46 – 48 IT</td></tr>
+              <tr><td><b>M</b></td><td>101 – 106</td><td>172 – 178</td><td>48 – 50 IT</td></tr>
+              <tr><td><b>L</b></td><td>106 – 111</td><td>178 – 183</td><td>50 – 52 IT</td></tr>
+              <tr><td><b>XL</b></td><td>111 – 118</td><td>183 – 188</td><td>52 – 54 IT</td></tr>
+              <tr><td><b>XXL</b></td><td>118 – 124</td><td>188 – 193</td><td>54 – 56 IT</td></tr>
+            </tbody>
+          </table>
+          <table class="stable" id="tblKid">
+            <thead><tr><th>Taglia</th><th>Corrisponde a</th><th>Età</th><th>Altezza (cm)</th><th>Petto (cm)</th></tr></thead>
+            <tbody>
+              <tr><td><b>16</b></td><td>XXS</td><td>2 – 4 anni</td><td>90 – 105</td><td>35</td></tr>
+              <tr><td><b>18</b></td><td>XS</td><td>4 – 5 anni</td><td>105 – 115</td><td>37</td></tr>
+              <tr><td><b>20</b></td><td>S</td><td>5 – 6 anni</td><td>115 – 125</td><td>39</td></tr>
+              <tr><td><b>22</b></td><td>M</td><td>7 – 8 anni</td><td>125 – 135</td><td>41</td></tr>
+              <tr><td><b>24</b></td><td>L</td><td>8 – 9 anni</td><td>135 – 145</td><td>43</td></tr>
+              <tr><td><b>26</b></td><td>XL</td><td>10 – 11 anni</td><td>145 – 155</td><td>45</td></tr>
+              <tr><td><b>28</b></td><td>XXL</td><td>12 – 13 anni</td><td>155 – 165</td><td>47</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+
+      <!-- TUTE block -->
+      <div class="prod-block" id="blkTute">
+        <div class="size-switch">
+          <button class="tab active" id="szTuteAdult">Adulto</button>
+          <button class="tab" id="szTuteKid">Bambino</button>
+        </div>
+        <div class="table-scroll">
+          <table class="stable on" id="tblTuteAdult">
+            <thead><tr><th>Taglia</th><th>Lungh. pantaloni (cm)</th><th>Lungh. felpa (cm)</th><th>Circ. petto (cm)</th><th>Lungh. manica (cm)</th><th>Largh. spalle (cm)</th><th>Girovita (cm)</th><th>Altezza (cm)</th><th>Peso (kg)</th></tr></thead>
+            <tbody>
+              <tr><td><b>S</b></td><td>98,5</td><td>68</td><td>100</td><td>75</td><td>46</td><td>60</td><td>160–170</td><td>60–65</td></tr>
+              <tr><td><b>M</b></td><td>101</td><td>70</td><td>104</td><td>77</td><td>48</td><td>64</td><td>170–175</td><td>65–75</td></tr>
+              <tr><td><b>L</b></td><td>104</td><td>72</td><td>108</td><td>79</td><td>50</td><td>68</td><td>175–180</td><td>75–85</td></tr>
+              <tr><td><b>XL</b></td><td>106</td><td>74</td><td>112</td><td>81</td><td>52</td><td>72</td><td>180–185</td><td>85–100</td></tr>
+              <tr><td><b>2XL</b></td><td>109</td><td>76</td><td>116</td><td>83</td><td>54</td><td>74</td><td>185–195</td><td>95–110</td></tr>
+            </tbody>
+          </table>
+          <table class="stable" id="tblTuteKid">
+            <thead><tr><th>Taglia</th><th>Lungh. corpo (cm)</th><th>Circ. petto (cm)</th><th>Lungh. manica (cm)</th><th>Lungh. pantaloni (cm)</th><th>Altezza (cm)</th></tr></thead>
+            <tbody>
+              <tr><td><b>10</b></td><td>56</td><td>83</td><td>58,5</td><td>78</td><td>115–125</td></tr>
+              <tr><td><b>12</b></td><td>58</td><td>87</td><td>60,5</td><td>80</td><td>125–135</td></tr>
+              <tr><td><b>14</b></td><td>60</td><td>91</td><td>62,5</td><td>82</td><td>135–145</td></tr>
+              <tr><td><b>16</b></td><td>62</td><td>95</td><td>64,5</td><td>84</td><td>145–155</td></tr>
+              <tr><td><b>18</b></td><td>64</td><td>99</td><td>66,5</td><td>86</td><td>150–160</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       <p class="size-note"><b>Consulta sempre questa tabella</b> prima di scegliere la taglia. Hai ancora dubbi? Indica altezza e peso nelle note dell'ordine: ti consigliamo noi quella giusta.</p>
     </div>
   </div>
@@ -2721,11 +2764,25 @@ function renderConsegna(){
 renderConsegna();
 
 /* ================= tabella taglie ================= */
+// Maglie/Tute switch
+const swM = document.getElementById("swMaglie"), swT = document.getElementById("swTute");
+const blkM = document.getElementById("blkMaglie"), blkT = document.getElementById("blkTute");
+swM.onclick = ()=>{ swM.classList.add("active"); swT.classList.remove("active"); blkM.classList.add("on"); blkT.classList.remove("on"); };
+swT.onclick = ()=>{ swT.classList.add("active"); swM.classList.remove("active"); blkT.classList.add("on"); blkM.classList.remove("on"); };
+
+// Maglie adulto/bambino
 const szA = document.getElementById("szAdult"), szK = document.getElementById("szKid");
 szA.onclick = ()=>{ szA.classList.add("active"); szK.classList.remove("active");
   document.getElementById("tblAdult").classList.add("on"); document.getElementById("tblKid").classList.remove("on"); };
 szK.onclick = ()=>{ szK.classList.add("active"); szA.classList.remove("active");
   document.getElementById("tblKid").classList.add("on"); document.getElementById("tblAdult").classList.remove("on"); };
+
+// Tute adulto/bambino
+const szTA = document.getElementById("szTuteAdult"), szTK = document.getElementById("szTuteKid");
+szTA.onclick = ()=>{ szTA.classList.add("active"); szTK.classList.remove("active");
+  document.getElementById("tblTuteAdult").classList.add("on"); document.getElementById("tblTuteKid").classList.remove("on"); };
+szTK.onclick = ()=>{ szTK.classList.add("active"); szTA.classList.remove("active");
+  document.getElementById("tblTuteKid").classList.add("on"); document.getElementById("tblTuteAdult").classList.remove("on"); };
 
 /* ================= reveal + shot mode ================= */
 if (location.search.includes("shot")) {
