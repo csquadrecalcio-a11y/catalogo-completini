@@ -1895,23 +1895,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-23 12:07",
-        "luogo": "dalla sede operativa di CAMPOROSSO (IM)",
-        "stato": "La spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-23 10:01",
-        "luogo": "CAMPOROSSO (IM)",
-        "stato": "La spedizione è in consegna"
-      },
-      {
-        "data": "2026-06-23 09:02",
-        "luogo": "CAMPOROSSO (IM)",
-        "stato": "La spedizione è In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0011": {
