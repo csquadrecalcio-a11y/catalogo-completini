@@ -18618,5 +18618,94 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ]
+  },
+  "CSC-2026-0249": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-08-13",
+    "data_consegna": "2026-08-22 10:47:05",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73335655",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-08-22 10:40:00",
+        "luogo": "CASTELLAMMARE DI STABIA",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-08-22 09:08:00",
+        "luogo": "CASTELLAMMARE DI STABIA",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-22 01:41:00",
+        "luogo": "NAPOLI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-21 12:13:00",
+        "luogo": "GRICIGNANO DI AVERSA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-20 14:45:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-20 10:44:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-19 18:03:21",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-08-18 11:00:40",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-08-17 08:19:35",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-08-17 03:41:10",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-08-16 09:27:26",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:8.17)"
+      },
+      {
+        "data": "2026-08-14 03:13:05",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-08-13 22:13:05",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-08-13 19:48:11",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ]
   }
 }
