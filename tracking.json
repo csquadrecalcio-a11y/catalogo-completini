@@ -11899,73 +11899,7 @@
       "sped_215_1_736fa706.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": [
-      {
-        "data": "2026-08-14 17:25:00",
-        "luogo": "Canosa di puglia",
-        "stato": "Consegnato dal postino"
-      },
-      {
-        "data": "2026-08-14 14:24:00",
-        "luogo": "Canosa di puglia",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-14 03:46:00",
-        "luogo": "Bari",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-08-11 09:45:00",
-        "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-08-10 13:38:00",
-        "luogo": "Castel san giovanni",
-        "stato": "Prima scansione Poste Italiane"
-      },
-      {
-        "data": "2026-08-09 22:18:43",
-        "luogo": "",
-        "stato": "Inviato al magazzino, in attesa di scansione"
-      },
-      {
-        "data": "2026-08-06 02:03:48",
-        "luogo": "",
-        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
-      },
-      {
-        "data": "2026-08-05 06:04:00",
-        "luogo": "",
-        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
-      },
-      {
-        "data": "2026-08-04 04:52:27",
-        "luogo": "",
-        "stato": "Partito dall'aeroporto di origine"
-      },
-      {
-        "data": "2026-08-03 17:03:25",
-        "luogo": "",
-        "stato": "Orario di partenza stimato del volo (Partenza stimata:08.04)"
-      },
-      {
-        "data": "2026-08-01 04:46:10",
-        "luogo": "Cina",
-        "stato": "Uscito dal magazzino, in attesa del volo"
-      },
-      {
-        "data": "2026-07-31 23:46:10",
-        "luogo": "Guangzhou, Cina",
-        "stato": "Pacco in uscita dal centro operativo"
-      },
-      {
-        "data": "2026-07-31 19:46:03",
-        "luogo": "Guangzhou, Cina",
-        "stato": "Arrivato al punto di raccolta"
-      }
-    ]
+    "eventi_cina": []
   },
   "CSC-2026-0217": {
     "stato": "consegnato",
