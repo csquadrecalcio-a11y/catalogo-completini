@@ -8502,23 +8502,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-20 13:14:30",
-        "luogo": "dalla sede operativa di CALTAGIRONE (CT)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-20 11:38:20",
-        "luogo": "CALTAGIRONE (CT)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-20 00:46:27",
-        "luogo": "CATANIA (CT)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0101": {
