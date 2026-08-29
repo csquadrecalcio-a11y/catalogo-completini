@@ -6756,7 +6756,7 @@
       {
         "data": "2026-07-15 03:54:00",
         "luogo": "Venezia",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-07-14 18:50:11",
@@ -6766,12 +6766,12 @@
       {
         "data": "2026-07-14 12:50:00",
         "luogo": "Ferno",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-07-14 12:50:00",
         "luogo": "Ferno",
-        "stato": "Prima scansione Poste Italiane's logistic network"
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-07-13 17:43:58",
@@ -6830,12 +6830,12 @@
       },
       {
         "data": "2026-07-06 23:43:38",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-07-06 23:17:28",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
