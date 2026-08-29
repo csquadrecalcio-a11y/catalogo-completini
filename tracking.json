@@ -6840,24 +6840,7 @@
     "tracking_5": "",
     "foto": [],
     "tracking_cina": "",
-    "eventi_cina": [],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-21 11:30:00",
-        "luogo": "dalla sede operativa di NAPOLI (NA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-21 07:36:00",
-        "luogo": "NAPOLI (NA)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-17 16:15:00",
-        "luogo": "MADDALONI (CE)",
-        "stato": "In transItaliaoo"
-      }
-    ]
+    "eventi_cina": []
   },
   "CSC-2026-0087": {
     "stato": "consegnato",
