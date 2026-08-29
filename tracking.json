@@ -7950,23 +7950,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-13 11:55:00",
-        "luogo": "dalla sede operativa di BARI (BA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-13 05:26:00",
-        "luogo": "BARI (BA)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-11 09:21:00",
-        "luogo": "BARI (BA)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0095": {
