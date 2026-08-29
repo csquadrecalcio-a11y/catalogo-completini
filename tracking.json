@@ -4616,5 +4616,153 @@
         "stato": "The shipment has been processed in the parcel center of origin"
       }
     ]
+  },
+  "CSC-2026-0056": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-06-15",
+    "data_consegna": "2026-06-29",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2001J764750",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_56_1_5165f494.jpg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-06-29 12:53:00",
+        "luogo": "MILANO",
+        "stato": "Consegnato Case closed"
+      },
+      {
+        "data": "2026-06-29 11:46:00",
+        "luogo": "MILANO",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-06-26 15:51:00",
+        "luogo": "PESCHIERA BORROMEO",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-26 09:29:00",
+        "luogo": "MILANO",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-25 09:17:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-25 09:16:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-24 10:35:45",
+        "luogo": "FCO",
+        "stato": "Delivery to last mile operator"
+      },
+      {
+        "data": "2026-06-24 09:32:45",
+        "luogo": "FCO",
+        "stato": "In transItaliao to last mile operator"
+      },
+      {
+        "data": "2026-06-23 18:26:46",
+        "luogo": "FCO",
+        "stato": "Ready for transItalia to last mile operator"
+      },
+      {
+        "data": "2026-06-23 18:24:34",
+        "luogo": "FCO",
+        "stato": "Arrived at Sdoganamento warehouse"
+      },
+      {
+        "data": "2026-06-23 12:23:00",
+        "luogo": "FCO",
+        "stato": "Terminal Notification of Arrival"
+      },
+      {
+        "data": "2026-06-22 19:40:17",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-06-22 07:12:00",
+        "luogo": "FCO",
+        "stato": "Arrived at Destinated Airport"
+      },
+      {
+        "data": "2026-06-21 10:45:01",
+        "luogo": "",
+        "stato": "预计Volo抵达时间 Expected to arrive(2026-6-22)"
+      },
+      {
+        "data": "2026-06-21 10:44:56",
+        "luogo": "",
+        "stato": "Volo partItaliao Flight departure"
+      },
+      {
+        "data": "2026-06-20 10:44:16",
+        "luogo": "",
+        "stato": "预计Volo启运时间 Expected departure(2026-6-21)"
+      },
+      {
+        "data": "2026-06-20 10:44:10",
+        "luogo": "",
+        "stato": "货物移交航司 Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-06-20 10:44:05",
+        "luogo": "",
+        "stato": "国内Sdoganamento completato Domestic Sdoganamento is completed"
+      },
+      {
+        "data": "2026-06-17 22:48:31",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-06-17 22:48:20",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-06-15 02:25:58",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-06-14 20:25:59",
+        "luogo": "-",
+        "stato": "Ordine registrato, in attesa del pacco"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-06-29 12:53:38",
+        "luogo": "dalla sede operativa di MILANO (MI)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-06-29 11:46:36",
+        "luogo": "MILANO (MI)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-06-27 06:24:42",
+        "luogo": "MILANO (MI)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
