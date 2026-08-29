@@ -76,7 +76,8 @@
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": []
   },
   "CSC-2026-0253": {
     "stato": "spedito",
@@ -125,7 +126,10 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": [
+      "sped_253_1_112282f6.jpeg"
+    ]
   },
   "CSC-2026-0255": {
     "stato": "spedito",
@@ -174,7 +178,8 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": []
   },
   "CSC-2026-0256": {
     "stato": "spedito",
@@ -223,7 +228,10 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": [
+      "sped_256_1_ab40adc0.jpeg"
+    ]
   },
   "CSC-2026-0258": {
     "stato": "spedito",
@@ -287,7 +295,10 @@
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": [
+      "sped_258_1_5bc12816.jpeg"
+    ]
   },
   "CSC-2026-0261": {
     "stato": "spedito",
@@ -316,7 +327,10 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": [
+      "sped_261_1_952d388b.jpeg"
+    ]
   },
   "CSC-2026-0262": {
     "stato": "spedito",
@@ -345,7 +359,10 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": [
+      "sped_262_1_0349bf26.jpeg"
+    ]
   },
   "CSC-2026-0266": {
     "stato": "spedito",
@@ -409,7 +426,10 @@
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": [
+      "sped_266_1_ddeb1ec5.jpeg"
+    ]
   },
   "CSC-2026-0267": {
     "stato": "spedito",
@@ -453,7 +473,8 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": []
   },
   "CSC-2026-0268": {
     "stato": "spedito",
@@ -497,7 +518,8 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": []
   },
   "CSC-2026-0269": {
     "stato": "spedito",
@@ -546,7 +568,8 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": []
   },
   "CSC-2026-0270": {
     "stato": "spedito",
@@ -560,7 +583,10 @@
         "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": [
+      "sped_270_1_b91bd98a.jpeg"
+    ]
   },
   "CSC-2026-0271": {
     "stato": "in_lavorazione",
@@ -608,7 +634,10 @@
     "corriere": "",
     "tracking": "",
     "eventi_cina": [],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": [
+      "sped_277_1_70aa7394.jpg"
+    ]
   },
   "CSC-2026-0279": {
     "stato": "in_lavorazione",
@@ -616,7 +645,10 @@
     "corriere": "",
     "tracking": "",
     "eventi_cina": [],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": [
+      "sped_279_1_f669ce8d.jpg"
+    ]
   },
   "CSC-2026-0280": {
     "stato": "spedito",
@@ -624,7 +656,10 @@
     "corriere": "Poste Italiane",
     "tracking": "5P65D73488407",
     "eventi_cina": [],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": [
+      "sped_280_1_b49ea506.jpg"
+    ]
   },
   "CSC-2026-0281": {
     "stato": "attesa_pagamento",
@@ -640,7 +675,10 @@
     "corriere": "Poste Italiane",
     "tracking": "5P65D73488411",
     "eventi_cina": [],
-    "eventi_corriere": []
+    "eventi_corriere": [],
+    "foto": [
+      "sped_282_1_071c3ef4.jpg"
+    ]
   },
   "CSC-2026-0283": {
     "stato": "in_lavorazione",
