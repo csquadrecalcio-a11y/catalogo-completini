@@ -5187,23 +5187,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-06 18:23:39",
-        "luogo": "dalla sede operativa di ROMA (RM)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-06 14:21:30",
-        "luogo": "ROMA (RM)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-06 06:01:34",
-        "luogo": "FIUMICINO (RM)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0061": {
