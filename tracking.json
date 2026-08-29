@@ -5444,23 +5444,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-06 16:38:48",
-        "luogo": "dalla sede operativa di FIRENZE (FI)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-06 14:41:25",
-        "luogo": "FIRENZE (FI)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-04 03:38:28",
-        "luogo": "SESTO FIORENTINO (FI)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0065": {
