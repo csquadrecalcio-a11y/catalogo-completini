@@ -3581,23 +3581,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-24 14:39:41",
-        "luogo": "dalla sede operativa di CARBONIA (CI)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-24 14:10:43",
-        "luogo": "CARBONIA (CI)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-06-24 05:33:32",
-        "luogo": "IGLESIAS (CI)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0045": {
