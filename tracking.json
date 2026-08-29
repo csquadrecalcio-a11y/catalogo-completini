@@ -16601,5 +16601,96 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ]
+  },
+  "CSC-2026-0222": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-08-03",
+    "data_consegna": "2026-08-14 20:46:21",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73214041",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_222_1_b41fc7dc.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-08-14 15:48:00",
+        "luogo": "TERRACINA",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-08-14 11:49:00",
+        "luogo": "TERRACINA",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-14 04:02:00",
+        "luogo": "ROMA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-13 09:32:00",
+        "luogo": "FARA IN SABINA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-12 20:22:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-12 17:52:52",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-08-10 08:07:27",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-08-08 11:58:37",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-08-08 05:40:59",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-08-08 05:40:00",
+        "luogo": "Shanghai, Cina",
+        "stato": "DEPART ORIGIN AIRPORT"
+      },
+      {
+        "data": "2026-08-07 10:02:39",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:8.8)"
+      },
+      {
+        "data": "2026-08-06 03:47:37",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-08-05 22:47:37",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-08-05 22:08:22",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ]
   }
 }
