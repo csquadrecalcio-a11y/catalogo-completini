@@ -9399,68 +9399,7 @@
       "sped_155_1_8f5e74a6.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": [
-      {
-        "data": "2026-07-31 13:44:00",
-        "luogo": "Corciano",
-        "stato": "Consegnato dal postino"
-      },
-      {
-        "data": "2026-07-31 09:24:00",
-        "luogo": "Corciano",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-31 02:52:00",
-        "luogo": "Perugia",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-07-30 19:04:00",
-        "luogo": "Sesto fiorentino",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-07-28 11:32:00",
-        "luogo": "Castel san giovanni",
-        "stato": "Prima scansione Poste Italiane'S LOGISTIC NETWORK"
-      },
-      {
-        "data": "2026-07-26 16:50:48",
-        "luogo": "",
-        "stato": "Inviato al magazzino, in attesa di scansione"
-      },
-      {
-        "data": "2026-07-23 11:42:40",
-        "luogo": "",
-        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
-      },
-      {
-        "data": "2026-07-21 05:03:15",
-        "luogo": "",
-        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
-      },
-      {
-        "data": "2026-07-20 11:00:16",
-        "luogo": "",
-        "stato": "Partito dall'aeroporto di origine"
-      },
-      {
-        "data": "2026-07-18 02:38:29",
-        "luogo": "Cina",
-        "stato": "Uscito dal magazzino, in attesa del volo"
-      },
-      {
-        "data": "2026-07-17 21:38:28",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Pacco in uscita dal centro operativo"
-      },
-      {
-        "data": "2026-07-17 19:37:45",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Arrivato al punto di raccolta"
-      }
-    ]
+    "eventi_cina": []
   },
   "CSC-2026-0157": {
     "stato": "consegnato",
