@@ -2730,19 +2730,19 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-06-23 13:29:26",
+        "data": "2026-06-23 13:29",
         "luogo": "dalla sede operativa di BENEVENTO (BN)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
+        "stato": "La spedizione è stata consegnata"
       },
       {
-        "data": "2026-06-23 11:11:00",
-        "luogo": "Filiale SDA BENEVENTO (BN)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-06-23 05:01:39",
+        "data": "2026-06-23 11:11",
         "luogo": "BENEVENTO (BN)",
-        "stato": "In transItaliaoo"
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-06-23 05:01",
+        "luogo": "BENEVENTO (BN)",
+        "stato": "La spedizione è In transItaliaoo"
       }
     ]
   },
