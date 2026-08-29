@@ -10221,7 +10221,73 @@
       "sped_172_1_07b84e43.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": []
+    "eventi_cina": [
+      {
+        "data": "2026-07-29 15:55:00",
+        "luogo": "Castel goffredo",
+        "stato": "Consegnato dal postino"
+      },
+      {
+        "data": "2026-07-29 11:40:00",
+        "luogo": "Castel goffredo",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-29 07:21:00",
+        "luogo": "Mantova",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-07-29 04:40:00",
+        "luogo": "Verona",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-07-28 14:45:00",
+        "luogo": "Castel san giovanni",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-07-28 11:23:00",
+        "luogo": "Castel san giovanni",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-07-26 16:50:48",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-23 11:42:40",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-21 05:03:15",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-20 11:00:16",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-18 04:22:19",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-17 23:22:19",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-17 19:38:26",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ]
   },
   "CSC-2026-0173": {
     "stato": "consegnato",
