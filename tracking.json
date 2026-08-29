@@ -9278,73 +9278,7 @@
       "sped_130_3_97a42b3d.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": [
-      {
-        "data": "2026-08-04 15:53:00",
-        "luogo": "Castiglione cosentino",
-        "stato": "Consegnato dal postino"
-      },
-      {
-        "data": "2026-08-04 10:21:00",
-        "luogo": "Castiglione cosentino",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-03 09:53:00",
-        "luogo": "Reggio di calabria",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-07-30 03:39:00",
-        "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-07-28 11:42:00",
-        "luogo": "Castel san giovanni",
-        "stato": "Prima scansione Poste Italiane"
-      },
-      {
-        "data": "2026-07-26 16:50:48",
-        "luogo": "",
-        "stato": "Inviato al magazzino, in attesa di scansione"
-      },
-      {
-        "data": "2026-07-23 11:03:43",
-        "luogo": "",
-        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
-      },
-      {
-        "data": "2026-07-20 01:52:47",
-        "luogo": "",
-        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
-      },
-      {
-        "data": "2026-07-19 07:10:30",
-        "luogo": "",
-        "stato": "Partito dall'aeroporto di origine"
-      },
-      {
-        "data": "2026-07-18 14:01:30",
-        "luogo": "",
-        "stato": "Orario di partenza stimato del volo (Partenza stimata: 07.19)"
-      },
-      {
-        "data": "2026-07-15 01:40:58",
-        "luogo": "Cina",
-        "stato": "Uscito dal magazzino, in attesa del volo"
-      },
-      {
-        "data": "2026-07-14 20:40:58",
-        "luogo": "Guangzhou, Cina",
-        "stato": "Pacco in uscita dal centro operativo"
-      },
-      {
-        "data": "2026-07-14 19:52:07",
-        "luogo": "Guangzhou, Cina",
-        "stato": "Arrivato al punto di raccolta"
-      }
-    ]
+    "eventi_cina": []
   },
   "CSC-2026-0131": {
     "stato": "consegnato",
