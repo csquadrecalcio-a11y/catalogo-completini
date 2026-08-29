@@ -12075,23 +12075,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-30 12:34:58",
-        "luogo": "dalla sede operativa di SAN GIOVANNI ROTONDO (FG)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-30 09:55:19",
-        "luogo": "SAN GIOVANNI ROTONDO (FG)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-30 04:30:30",
-        "luogo": "FOGGIA (FG)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0169": {
