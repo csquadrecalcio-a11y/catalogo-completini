@@ -8688,7 +8688,73 @@
       "sped_120_1_7ba522ec.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": []
+    "eventi_cina": [
+      {
+        "data": "2026-07-30 11:00:00",
+        "luogo": "Ragusa",
+        "stato": "Consegnato dal postino"
+      },
+      {
+        "data": "2026-07-30 10:01:00",
+        "luogo": "Ragusa",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-30 03:19:00",
+        "luogo": "Ragusa",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-07-27 10:42:00",
+        "luogo": "Castel san giovanni",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-07-23 14:52:58",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-22 10:41:14",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-20 20:34:00",
+        "luogo": "Amsterdam",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
+        "data": "2026-07-19 04:03:21",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-18 19:14:26",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-18 19:14:00",
+        "luogo": "Hong kong",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-15 03:09:52",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-14 22:09:52",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-14 19:53:03",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ]
   },
   "CSC-2026-0121": {
     "stato": "consegnato",
