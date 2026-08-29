@@ -8314,23 +8314,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-17 10:19:45",
-        "luogo": "dalla sede operativa di SESTO SAN GIOVANNI (MI)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-17 09:38:54",
-        "luogo": "SESTO SAN GIOVANNI (MI)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-17 08:53:57",
-        "luogo": "SESTO SAN GIOVANNI (MI)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0099": {
