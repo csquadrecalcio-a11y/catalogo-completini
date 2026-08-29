@@ -4509,17 +4509,17 @@
       {
         "data": "2026-07-08 07:13:00",
         "luogo": "Modena",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-07-08 00:01:00",
         "luogo": "Bologna",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-07-07 11:02:00",
         "luogo": "Fiano romano",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-07-07 09:40:18",
@@ -4529,7 +4529,7 @@
       {
         "data": "2026-07-07 09:40:00",
         "luogo": "Fiano romano",
-        "stato": "Prima scansione Poste Italiane's logistic network"
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-07-07 08:19:18",
@@ -4588,12 +4588,12 @@
       },
       {
         "data": "2026-06-26 22:04:00",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-26 21:40:32",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
