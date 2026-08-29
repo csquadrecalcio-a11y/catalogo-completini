@@ -4764,5 +4764,149 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0058": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-06-16",
+    "data_consegna": "2026-06-26",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2001J764763",
+    "corriere_2": "Poste Italiane",
+    "tracking_2": "9C2001J764765",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_58_1_afd5aa90.jpg",
+      "sped_58_3_7a3e359c.jpg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-06-26 13:29:00",
+        "luogo": "",
+        "stato": "Consegnato Case closed"
+      },
+      {
+        "data": "2026-06-26 11:52:00",
+        "luogo": "",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-06-26 09:35:00",
+        "luogo": "",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-24 15:24:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-24 13:27:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-24 10:35:45",
+        "luogo": "FCO",
+        "stato": "Delivery to last mile operator"
+      },
+      {
+        "data": "2026-06-24 09:32:45",
+        "luogo": "FCO",
+        "stato": "In transItaliao to last mile operator"
+      },
+      {
+        "data": "2026-06-23 18:23:47",
+        "luogo": "FCO",
+        "stato": "Ready for transItalia to last mile operator"
+      },
+      {
+        "data": "2026-06-23 18:23:27",
+        "luogo": "FCO",
+        "stato": "Arrived at Sdoganamento warehouse"
+      },
+      {
+        "data": "2026-06-23 12:23:00",
+        "luogo": "FCO",
+        "stato": "Terminal Notification of Arrival"
+      },
+      {
+        "data": "2026-06-22 19:40:17",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-06-22 07:12:00",
+        "luogo": "FCO",
+        "stato": "Arrived at Destinated Airport"
+      },
+      {
+        "data": "2026-06-21 10:45:01",
+        "luogo": "",
+        "stato": "预计Volo抵达时间 Expected to arrive(2026-6-22)"
+      },
+      {
+        "data": "2026-06-21 10:44:56",
+        "luogo": "",
+        "stato": "Volo partItaliao Flight departure"
+      },
+      {
+        "data": "2026-06-20 10:44:16",
+        "luogo": "",
+        "stato": "预计Volo启运时间 Expected departure(2026-6-21)"
+      },
+      {
+        "data": "2026-06-20 10:44:10",
+        "luogo": "",
+        "stato": "货物移交航司 Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-06-20 10:44:05",
+        "luogo": "",
+        "stato": "国内Sdoganamento completato Domestic Sdoganamento is completed"
+      },
+      {
+        "data": "2026-06-17 22:48:08",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-06-17 22:47:59",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-06-15 02:26:42",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-06-14 20:26:43",
+        "luogo": "-",
+        "stato": "Ordine registrato, in attesa del pacco"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-06-26 13:29:50",
+        "luogo": "dalla sede operativa di FIUMICINO (RM)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-06-26 11:52:27",
+        "luogo": "FIUMICINO (RM)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-06-26 09:35:09",
+        "luogo": "FIUMICINO (RM)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
