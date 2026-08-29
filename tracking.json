@@ -3236,5 +3236,158 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0043": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-06-12",
+    "data_consegna": "2026-06-24",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2001J702291",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_43_1_c77dcb90.jpg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-06-24 14:39:00",
+        "luogo": "CARBONIA",
+        "stato": "Consegnato Case closed"
+      },
+      {
+        "data": "2026-06-24 14:10:00",
+        "luogo": "CARBONIA",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-06-24 07:21:00",
+        "luogo": "IGLESIAS",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-24 04:29:00",
+        "luogo": "ELMAS",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-22 15:26:00",
+        "luogo": "FIUMICINO",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-22 08:36:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-22 06:16:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-20 11:45:51",
+        "luogo": "FCO",
+        "stato": "Delivery to last mile operator"
+      },
+      {
+        "data": "2026-06-20 10:35:51",
+        "luogo": "FCO",
+        "stato": "In transItaliao to last mile operator"
+      },
+      {
+        "data": "2026-06-19 19:17:29",
+        "luogo": "FCO",
+        "stato": "Ready for transItalia to last mile operator"
+      },
+      {
+        "data": "2026-06-19 19:17:01",
+        "luogo": "FCO",
+        "stato": "Arrived at Sdoganamento warehouse"
+      },
+      {
+        "data": "2026-06-19 18:35:03",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-06-19 06:00:00",
+        "luogo": "FCO",
+        "stato": "Terminal Notification of Arrival"
+      },
+      {
+        "data": "2026-06-18 07:07:00",
+        "luogo": "FCO",
+        "stato": "Arrived at Destinated Airport"
+      },
+      {
+        "data": "2026-06-17 12:33:44",
+        "luogo": "",
+        "stato": "预计Volo抵达时间 Expected to arrive（2026-6-19）"
+      },
+      {
+        "data": "2026-06-17 12:33:36",
+        "luogo": "",
+        "stato": "Volo partItaliao Flight departure"
+      },
+      {
+        "data": "2026-06-17 00:57:15",
+        "luogo": "",
+        "stato": "预计Volo启运时间 Expected departure(2026-6-17)"
+      },
+      {
+        "data": "2026-06-17 00:57:10",
+        "luogo": "",
+        "stato": "货物移交航司 Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-06-17 00:57:04",
+        "luogo": "",
+        "stato": "国内Sdoganamento completato Domestic Sdoganamento is completed"
+      },
+      {
+        "data": "2026-06-15 20:24:30",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-06-15 19:54:05",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-06-11 13:42:54",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-06-11 07:42:55",
+        "luogo": "-",
+        "stato": "Ordine registrato, in attesa del pacco"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-06-24 14:39:41",
+        "luogo": "dalla sede operativa di CARBONIA (CI)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-06-24 14:10:43",
+        "luogo": "CARBONIA (CI)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-06-24 05:33:32",
+        "luogo": "IGLESIAS (CI)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
