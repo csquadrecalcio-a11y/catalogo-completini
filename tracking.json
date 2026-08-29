@@ -13279,5 +13279,113 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0170": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-15",
+    "data_consegna": "2026-07-31 12:48:10",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73039277",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_170_1_05a45688.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-31 12:32:00",
+        "luogo": "OFFIDA",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-31 10:15:00",
+        "luogo": "OFFIDA",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-31 08:01:00",
+        "luogo": "SAN BENEDETTO DEL TRONTO",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-31 01:10:00",
+        "luogo": "ANCONA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-29 19:33:00",
+        "luogo": "BOLOGNA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-29 11:16:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 11:32:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-26 16:50:48",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-23 11:42:40",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-21 05:03:15",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-20 11:00:16",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-18 02:38:43",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-17 21:38:42",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-17 19:37:55",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-31 12:32:28",
+        "luogo": "dalla sede operativa di OFFIDA (AP)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-31 10:15:21",
+        "luogo": "OFFIDA (AP)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-31 09:04:36",
+        "luogo": "OFFIDA (AP)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
