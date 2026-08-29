@@ -12671,5 +12671,113 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0152": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-14",
+    "data_consegna": "2026-07-30 14:45:38",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73015442",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_152_1_19b2c87c.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-30 14:23:00",
+        "luogo": "CARBONIA",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-30 13:54:00",
+        "luogo": "CARBONIA",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-30 07:48:00",
+        "luogo": "IGLESIAS",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-30 05:23:00",
+        "luogo": "ELMAS",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 21:32:00",
+        "luogo": "BOLOGNA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 14:45:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 11:31:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-26 16:50:48",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-23 11:42:40",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-21 05:03:15",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-20 11:00:16",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-18 02:38:09",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-17 21:38:09",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-17 19:37:16",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-30 14:23:54",
+        "luogo": "dalla sede operativa di CARBONIA (CI)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-30 13:54:39",
+        "luogo": "CARBONIA (CI)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-30 10:15:45",
+        "luogo": "CARBONIA (CI)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
