@@ -71,7 +71,7 @@ h1{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:cla
 .step-dot{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:11px;z-index:1;position:relative;transition:all .3s}
 .step.done .step-dot{background:var(--volt);border-color:var(--volt);color:#0a0d05;font-weight:800}
 .step.active .step-dot{background:rgba(200,255,46,.12);border-color:var(--volt);color:var(--volt);box-shadow:0 0 0 4px rgba(200,255,46,.12);animation:pulse-dot 2s ease-in-out infinite}
-@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 4px rgba(200,255,46,.12)}50%{box-shadow:0 0 0 8px rgba(200,255,46,.25),0 0 16px rgba(200,255,46,.15)}}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 3px rgba(200,255,46,.2);background:rgba(200,255,46,.12)}50%{box-shadow:0 0 0 10px rgba(200,255,46,.3),0 0 20px rgba(200,255,46,.2);background:rgba(200,255,46,.25)}}
 .step-lbl{font-size:9.5px;font-weight:600;color:var(--muted);text-align:center;margin-top:7px;line-height:1.3;max-width:60px}
 .step.done .step-lbl,.step.active .step-lbl{color:var(--text)}
 .step-eta{font-size:9px;font-weight:700;color:var(--volt);margin-top:3px;text-align:center;max-width:60px;line-height:1.3}
@@ -288,11 +288,11 @@ async function cerca(){
   if(!o){ r.innerHTML = errCard("Ordine non trovato",`Il codice <strong>${cod}</strong> non è nel sistema.<br>Controlla il messaggio WhatsApp o <a href="https://wa.me/447727750265" style="color:var(--volt)">scrivici</a>.`); return; }
   r.innerHTML = buildCard(cod, o);
   // Anima barra progress e line-fill dopo render
-  requestAnimationFrame(()=>{
+  setTimeout(()=>{
     const fill = r.querySelector(".progress-fill");
-    if(fill){ const p = fill.dataset.pct/100; setTimeout(()=>{ fill.style.transform=`scaleX(${p})`; },50); }
-    r.querySelectorAll(".step-line-fill").forEach(el=>{ setTimeout(()=>{ el.style.transform="scaleX(1)"; },80); });
-  });
+    if(fill){ const p = fill.dataset.pct/100; fill.style.transform=`scaleX(${p})`; }
+    r.querySelectorAll(".step-line-fill").forEach(el=>{ el.style.transform="scaleX(1)"; });
+  }, 300);
 }
 
 function errCard(t,m){
