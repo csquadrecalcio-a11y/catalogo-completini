@@ -1664,19 +1664,19 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-06-24 14:11:26",
+        "data": "2026-06-24 14:11",
         "luogo": "dalla sede operativa di SARONNO (VA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
+        "stato": "La spedizione è stata consegnata"
       },
       {
-        "data": "2026-06-24 10:16:54",
+        "data": "2026-06-24 10:16",
         "luogo": "SARONNO (VA)",
-        "stato": "In consegna"
+        "stato": "La spedizione è in consegna"
       },
       {
-        "data": "2026-06-24 08:55:11",
+        "data": "2026-06-24 08:55",
         "luogo": "SARONNO (VA)",
-        "stato": "In transItaliaoo"
+        "stato": "La spedizione è In transItaliaoo"
       }
     ]
   },
