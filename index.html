@@ -98,19 +98,7 @@ gtag('config', 'G-SYPQZL1L7W');
     --bg-rgb:5,13,28;
     --fg-rgb:232,237,245;
   }
-  /* segue l'aspetto chiaro/scuro del sistema (macOS: automatico mattina/sera) */
-  @media (prefers-color-scheme: light){
-    :root{
-      --bg:#eef2f8;
-      --panel:#ffffff;
-      --panel-2:#dde6f5;
-      --line:rgba(10,30,70,.10);
-      --text:#0d1829;
-      --muted:#4a5a7a;
-      --bg-rgb:238,242,248;
-      --fg-rgb:13,24,41;
-    }
-  }
+  /* tema sempre scuro indipendentemente dal sistema */
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
@@ -172,63 +160,123 @@ gtag('config', 'G-SYPQZL1L7W');
 
   /* ---------- hero ---------- */
   .hero{position:relative;padding:90px 0 80px;overflow:hidden}
+  /* ===== HERO NUOVO ===== */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:center;
+    overflow:hidden;padding:0;
+  }
+  /* sfondo con glow blu a sinistra */
   .pitch{
     position:absolute;inset:0;pointer-events:none;
     background:
-      radial-gradient(800px 600px at 80% 20%, rgba(37,99,235,.13), transparent 60%),
-      radial-gradient(600px 500px at 10% 85%, rgba(37,99,235,.07), transparent 60%);
+      radial-gradient(900px 700px at -10% 60%, rgba(37,99,235,.18), transparent 55%),
+      radial-gradient(600px 400px at 50% 10%, rgba(37,99,235,.07), transparent 60%);
   }
-  .pitch svg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:.06}
-  .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+  .pitch svg{display:none}
+
+  /* griglia hero: 55% testo | 45% immagine */
+  .hero-grid{
+    position:relative;width:100%;display:grid;
+    grid-template-columns:55fr 45fr;min-height:100vh;
+  }
+
+  /* colonna sinistra */
+  .hero-left{
+    display:flex;flex-direction:column;justify-content:center;
+    padding:100px 60px 80px min(8vw,120px);
+    z-index:2;
+  }
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
-    font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
     color:var(--volt);border:1px solid rgba(37,99,235,.35);
-    padding:8px 16px;border-radius:999px;margin-bottom:26px;
-    background:rgba(37,99,235,.06);
+    padding:7px 16px;border-radius:999px;margin-bottom:28px;width:fit-content;
+    background:rgba(37,99,235,.07);
   }
-  .hero h1{font-size:clamp(42px,6vw,78px);letter-spacing:-.01em}
-  .hero h1 .volt{color:var(--volt)}
-  .hero p.lead{margin:24px 0 32px;font-size:17.5px;color:var(--muted);max-width:520px;line-height:1.65}
-  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero h1{
+    font-size:clamp(48px,5.5vw,84px);letter-spacing:-.02em;
+    line-height:.92;margin-bottom:0;
+  }
+  .hero h1 .volt{color:var(--volt);display:block}
+  .hero-stars{
+    display:flex;align-items:center;gap:10px;
+    margin:22px 0 28px;
+  }
+  .hero-stars .stars{color:#FBBC05;font-size:17px;letter-spacing:1px}
+  .hero-stars .rev-label{font-size:13px;font-weight:600;color:var(--muted)}
+  .hero-stars .rev-label b{color:var(--text)}
+  .hero p.lead{
+    font-size:16.5px;color:var(--muted);max-width:460px;
+    line-height:1.65;margin-bottom:36px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:52px}
+
+  /* trust badges inline */
+  .hero-trust{display:flex;gap:24px;flex-wrap:wrap}
+  .trust-item{
+    display:flex;align-items:center;gap:8px;
+    font-size:12.5px;font-weight:600;color:var(--muted);
+  }
+  .trust-item svg{flex:none;color:var(--volt)}
+
+  /* colonna destra: immagine full-height */
+  .hero-right{
+    position:relative;overflow:hidden;
+  }
+  /* sfumatura sinistra per blend col bg */
+  .hero-right::before{
+    content:"";position:absolute;inset:0;z-index:2;
+    background:linear-gradient(to right, var(--bg) 0%, transparent 18%);
+    pointer-events:none;
+  }
+  /* sfumatura basso */
+  .hero-right::after{
+    content:"";position:absolute;inset:0;z-index:2;
+    background:linear-gradient(to top, var(--bg) 0%, transparent 15%);
+    pointer-events:none;
+  }
+  .hero-stack{
+    position:relative;width:100%;height:100%;
+    display:flex;align-items:center;justify-content:center;
+    z-index:1;
+  }
+  .showcase{
+    position:relative;width:100%;height:100%;
+    border-radius:0;overflow:hidden;border:none;
+    box-shadow:none;background:var(--panel-2);
+    animation:none;
+  }
+  .showcase::before{display:none}
+  .showcase-slide{
+    position:absolute;inset:0;opacity:0;
+    transition:opacity 1.2s ease,transform 1.4s ease;
+    transform:scale(1.06);
+  }
+  .showcase-slide.on{opacity:1;transform:scale(1);z-index:1}
+  .showcase-slide img{width:100%;height:100%;object-fit:cover;object-position:center top}
+  .showcase-slide .tag{
+    position:absolute;left:20px;bottom:20px;right:20px;z-index:3;
+    background:rgba(5,13,28,.82);backdrop-filter:blur(10px);
+    border:1px solid rgba(37,99,235,.3);border-radius:12px;
+    font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+    padding:10px 16px;color:var(--volt);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .showcase-dots{
+    position:absolute;left:0;right:0;bottom:28px;z-index:4;
+    display:flex;justify-content:center;gap:8px;
+  }
+  .showcase-dots span{width:7px;height:7px;border-radius:999px;background:rgba(255,255,255,.25);transition:all .3s ease}
+  .showcase-dots span.on{background:var(--volt);width:22px}
+  @keyframes float{0%,100%{translate:0 0}50%{translate:0 -14px}}
+
+  /* legacy stat (usati altrove) */
   .stats{display:flex;gap:44px;margin-top:48px;flex-wrap:wrap}
   .stat{text-decoration:none;transition:transform .15s ease}
   .stat:hover{transform:translateY(-2px)}
   .stat b{font-family:'Archivo Black';font-size:30px;display:block}
   .stat b i{color:var(--volt);font-style:normal}
   .stat span{font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-
-  /* ---------- hero stars ---------- */
-  .hero-stars{display:flex;align-items:center;gap:10px;margin-bottom:20px}
-  .hero-stars .stars{color:#FBBC05;font-size:18px;letter-spacing:2px}
-  .hero-stars .rev-label{font-size:13px;font-weight:600;color:var(--muted)}
-  .hero-stars .rev-label b{color:var(--text)}
-
-  /* ---------- vetrina hero: una foto sola, elegante, che cambia da sola ---------- */
-  .hero-stack{position:relative;height:540px;display:flex;align-items:center;justify-content:center}
-
-  /* ---------- float trust cards ---------- */
-  .fcard{
-    position:absolute;z-index:10;
-    background:rgba(10,22,45,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    border:1px solid rgba(255,255,255,.1);border-radius:16px;
-    padding:12px 16px;display:flex;align-items:center;gap:12px;
-    box-shadow:0 8px 32px rgba(0,0,0,.4);
-    animation:float 6s ease-in-out infinite;
-  }
-  .fcard-order{left:-20px;top:60px;animation-delay:-.5s}
-  .fcard-review{left:-20px;bottom:70px;animation-delay:-2s;max-width:260px}
-  .fcard-badge{right:-14px;top:40px;animation-delay:-3.5s;flex-direction:column;align-items:flex-start;gap:4px}
-  .fcard-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex:none}
-  .fcard-icon.green{background:rgba(37,211,102,.15)}
-  .fcard-icon.blue{background:rgba(37,99,235,.2)}
-  .fcard-icon.yellow{background:rgba(251,188,5,.15)}
-  .fcard-text{display:flex;flex-direction:column;gap:2px}
-  .fcard-text strong{font-size:12.5px;font-weight:700;color:#fff;line-height:1.2}
-  .fcard-text span{font-size:11px;color:var(--muted);font-weight:500}
-  .fcard-stars{color:#FBBC05;font-size:12px;letter-spacing:1px}
-  .fcard-pulse{width:8px;height:8px;border-radius:50%;background:#25d366;flex:none;box-shadow:0 0 0 0 rgba(37,211,102,.4);animation:pulse-dot 2s ease-in-out infinite}
-  @keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}50%{box-shadow:0 0 0 6px rgba(37,211,102,.0)}}
   .showcase{
     position:relative;width:min(400px,86%);aspect-ratio:4/5;
     border-radius:26px;overflow:hidden;
@@ -731,10 +779,11 @@ gtag('config', 'G-SYPQZL1L7W');
     .header-search{max-width:none;margin:0 16px}
   }
   @media (max-width:1000px){
-    .hero-grid{grid-template-columns:1fr}
-    .hero-stack{order:-1;height:340px}
-    .fcard{display:none}
-    .showcase{width:min(300px,80%)}
+    .hero-grid{grid-template-columns:1fr;min-height:auto}
+    .hero-left{padding:100px 24px 40px}
+    .hero-right{height:420px}
+    .hero-stack{height:420px}
+    .showcase{width:100%;height:420px;border-radius:0}
     .offer-grid,.steps,.reviews{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr}
     section{padding:64px 0}
@@ -795,69 +844,42 @@ gtag('config', 'G-SYPQZL1L7W');
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="top">
-  <div class="pitch">
-    <svg width="900" height="900" viewBox="0 0 900 900" fill="none" stroke="#fff" stroke-width="2">
-      <circle cx="450" cy="450" r="260"/><circle cx="450" cy="450" r="8" fill="#fff"/>
-      <line x1="450" y1="0" x2="450" y2="900"/>
-      <circle cx="450" cy="450" r="430"/>
-    </svg>
-  </div>
-  <div class="container hero-grid">
-    <div>
+  <div class="pitch"></div>
+  <div class="hero-grid">
+    <!-- colonna sinistra: testo -->
+    <div class="hero-left">
       <span class="eyebrow">⚽ Nuovi arrivi ogni settimana</span>
-      <h1 class="display">Indossa la tua <span class="volt">passione.</span></h1>
+      <h1 class="display">Indossa la tua<span class="volt">passione.</span></h1>
       <div class="hero-stars">
         <span class="stars">★★★★★</span>
-        <span class="rev-label"><b>5/5</b> · oltre 100 recensioni Google verificate</span>
+        <span class="rev-label"><b>5/5</b> · oltre 100 recensioni Google</span>
       </div>
-      <p class="lead">Maglie, kit, tute e molto altro delle migliori squadre europee e non solo. Scegli dal catalogo con foto reali, personalizza con <b style="color:var(--volt)">nome e numero gratis</b> e ordina in un messaggio.</p>
+      <p class="lead">Maglie, kit, tute e molto altro delle migliori squadre europee. Foto reali, <b style="color:var(--volt)">nome e numero gratis</b>, ordine in un messaggio.</p>
       <div class="hero-ctas">
         <a class="btn btn-volt" href="#catalogo">Apri il catalogo</a>
-        <a class="btn" href="https://t.me/csc2_0" target="_blank" style="background:#229ED9;color:#fff;font-weight:700">✈️ Scrivici su Telegram</a>
+        <a class="btn" href="https://t.me/csc2_0" target="_blank" style="background:#229ED9;color:#fff;font-weight:700">✈️ Telegram</a>
       </div>
-      <div class="stats">
-        <div class="stat"><b>3<i>+</i></b><span>Anni di attività</span></div>
-        <div class="stat"><b id="statCats">15</b><span>Categorie</span></div>
-        <a class="stat" href="#recensioni" style="text-decoration:none">
-          <b style="font-family:'Archivo Black';font-size:30px;display:flex;align-items:center;gap:2px;line-height:1">
-            <span style="color:#4285F4">1</span><span style="color:#EA4335">0</span><span style="color:#FBBC05">0</span><span style="color:#34A853">+</span>
-            <span style="font-size:18px;margin-left:4px">⭐</span>
-          </b>
-          <span style="font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase">Recensioni Google</span>
-        </a>
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          Spedizione gratuita
+        </div>
+        <div class="trust-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          Consegna 7–14 giorni
+        </div>
+        <div class="trust-item">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+          3 anni di attività
+        </div>
       </div>
     </div>
-    <div class="hero-stack" id="heroStack">
-      <!-- float card: ordine recente -->
-      <div class="fcard fcard-order">
-        <div class="fcard-icon green">🛍️</div>
-        <div class="fcard-text">
-          <strong>Marco · Milano</strong>
-          <span>Kit Juventus Home 26/27 · taglia L</span>
-          <span style="color:#25d366;font-size:10.5px;font-weight:600;margin-top:2px">● Ordinato 8 min fa</span>
+    <!-- colonna destra: immagine prodotto full-height -->
+    <div class="hero-right">
+      <div class="hero-stack" id="heroStack">
+        <div class="showcase skeleton" id="heroShowcase">
+          <div class="ph" style="width:100%;height:100%"></div>
         </div>
-      </div>
-      <!-- float card: recensione -->
-      <div class="fcard fcard-review">
-        <div class="fcard-icon yellow">⭐</div>
-        <div class="fcard-text">
-          <div class="fcard-stars">★★★★★</div>
-          <strong>"Qualità top, spedizione super veloce!"</strong>
-          <span>— Davide R., cliente verificato</span>
-        </div>
-      </div>
-      <!-- float card: badge fiducia -->
-      <div class="fcard fcard-badge">
-        <div style="display:flex;align-items:center;gap:8px">
-          <div class="fcard-icon blue">✅</div>
-          <div class="fcard-text">
-            <strong>Spedizione garantita</strong>
-            <span>Tracciabile • Consegna 7–14 gg</span>
-          </div>
-        </div>
-      </div>
-      <div class="showcase skeleton" id="heroShowcase">
-        <div class="ph" style="width:100%;height:100%"></div>
       </div>
     </div>
   </div>
