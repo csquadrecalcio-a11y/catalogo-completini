@@ -14506,7 +14506,7 @@
       {
         "data": "2026-08-27 13:33:00",
         "luogo": "Poggio a caiano",
-        "stato": "Consegnato Case closed"
+        "stato": "Consegnato"
       },
       {
         "data": "2026-08-27 09:59:00",
@@ -14526,7 +14526,7 @@
       {
         "data": "2026-08-25 15:38:29",
         "luogo": "FCO",
-        "stato": "In transito to last mile operator"
+        "stato": "In transito verso il corriere locale"
       },
       {
         "data": "2026-08-24 17:15:35",
@@ -14541,12 +14541,12 @@
       {
         "data": "2026-08-24 17:09:02",
         "luogo": "FCO",
-        "stato": "Arrived at Sdoganamento warehouse"
+        "stato": "Arrivato al deposito doganale"
       },
       {
         "data": "2026-08-24 05:40:09",
         "luogo": "FCO",
-        "stato": "Terminal Notification of Arrival"
+        "stato": "Avviso di arrivo al terminal"
       },
       {
         "data": "2026-08-23 15:17:53",
@@ -14596,11 +14596,11 @@
       {
         "data": "2026-08-16 01:03:34",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-08-15 19:03:35",
-        "luogo": "-",
+        "luogo": "",
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ]
