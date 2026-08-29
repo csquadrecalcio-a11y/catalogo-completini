@@ -1,5 +1,5 @@
 {
-  "250": {
+  "CSC-2026-0250": {
     "stato": "spedito",
     "data_spedizione": "2026-08-22",
     "corriere": "Poste Italiane",
@@ -78,7 +78,7 @@
     ],
     "eventi_corriere": []
   },
-  "253": {
+  "CSC-2026-0253": {
     "stato": "spedito",
     "data_spedizione": "2026-08-14",
     "corriere": "Poste Italiane",
@@ -127,7 +127,7 @@
     ],
     "eventi_corriere": []
   },
-  "255": {
+  "CSC-2026-0255": {
     "stato": "spedito",
     "data_spedizione": "2026-08-16",
     "corriere": "Poste Italiane",
@@ -176,7 +176,7 @@
     ],
     "eventi_corriere": []
   },
-  "256": {
+  "CSC-2026-0256": {
     "stato": "spedito",
     "data_spedizione": "2026-08-14",
     "corriere": "Poste Italiane",
@@ -225,7 +225,7 @@
     ],
     "eventi_corriere": []
   },
-  "258": {
+  "CSC-2026-0258": {
     "stato": "spedito",
     "data_spedizione": "2026-08-29",
     "corriere": "Poste Italiane",
@@ -289,7 +289,7 @@
     ],
     "eventi_corriere": []
   },
-  "261": {
+  "CSC-2026-0261": {
     "stato": "spedito",
     "data_spedizione": "2026-08-24",
     "corriere": "Poste Italiane",
@@ -318,7 +318,7 @@
     ],
     "eventi_corriere": []
   },
-  "262": {
+  "CSC-2026-0262": {
     "stato": "spedito",
     "data_spedizione": "2026-08-25",
     "corriere": "Poste Italiane",
@@ -347,7 +347,7 @@
     ],
     "eventi_corriere": []
   },
-  "266": {
+  "CSC-2026-0266": {
     "stato": "spedito",
     "data_spedizione": "2026-08-25",
     "corriere": "Poste Italiane",
@@ -355,7 +355,7 @@
     "eventi_cina": [],
     "eventi_corriere": []
   },
-  "267": {
+  "CSC-2026-0267": {
     "stato": "spedito",
     "data_spedizione": "2026-08-22",
     "corriere": "Poste Italiane",
@@ -399,7 +399,7 @@
     ],
     "eventi_corriere": []
   },
-  "268": {
+  "CSC-2026-0268": {
     "stato": "spedito",
     "data_spedizione": "2026-08-22",
     "corriere": "Poste Italiane",
@@ -443,7 +443,7 @@
     ],
     "eventi_corriere": []
   },
-  "269": {
+  "CSC-2026-0269": {
     "stato": "spedito",
     "data_spedizione": "2026-08-22",
     "corriere": "Poste Italiane",
@@ -492,7 +492,7 @@
     ],
     "eventi_corriere": []
   },
-  "270": {
+  "CSC-2026-0270": {
     "stato": "spedito",
     "data_spedizione": "2026-08-29",
     "corriere": "Poste Italiane",
