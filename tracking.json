@@ -8948,28 +8948,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-17 14:02:30",
-        "luogo": "dalla sede operativa di PODENZANO (PC)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-17 11:07:56",
-        "luogo": "PODENZANO (PC)",
-        "stato": "In transItaliaoo"
-      },
-      {
-        "data": "2026-07-17 10:49:35",
-        "luogo": "PODENZANO (PC)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-17 04:55:29",
-        "luogo": "PIACENZA (PC)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0106": {
