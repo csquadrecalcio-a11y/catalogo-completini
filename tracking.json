@@ -1085,23 +1085,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-23 13:21",
-        "luogo": "dalla sede operativa di CASTIGLIONE DEL LAGO (PG)",
-        "stato": "La spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-23 09:14",
-        "luogo": "CASTIGLIONE DEL LAGO (PG)",
-        "stato": "La spedizione è in consegna"
-      },
-      {
-        "data": "2026-06-23 08:59",
-        "luogo": "CASTIGLIONE DEL LAGO (PG)",
-        "stato": "La spedizione è In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0004": {
