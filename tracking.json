@@ -3442,7 +3442,7 @@
       {
         "data": "2026-06-27 12:51:00",
         "luogo": "Palazzo pignano",
-        "stato": "Consegnato Case closed"
+        "stato": "Consegnato"
       },
       {
         "data": "2026-06-27 09:17:00",
@@ -3482,7 +3482,7 @@
       {
         "data": "2026-06-24 09:32:45",
         "luogo": "FCO",
-        "stato": "In transito to last mile operator"
+        "stato": "In transito verso il corriere locale"
       },
       {
         "data": "2026-06-23 18:26:46",
@@ -3492,12 +3492,12 @@
       {
         "data": "2026-06-23 18:24:31",
         "luogo": "FCO",
-        "stato": "Arrived at Sdoganamento warehouse"
+        "stato": "Arrivato al deposito doganale"
       },
       {
         "data": "2026-06-23 12:23:00",
         "luogo": "FCO",
-        "stato": "Terminal Notification of Arrival"
+        "stato": "Avviso di arrivo al terminal"
       },
       {
         "data": "2026-06-22 19:40:17",
@@ -3512,27 +3512,27 @@
       {
         "data": "2026-06-21 10:45:01",
         "luogo": "",
-        "stato": "预计Volo抵达时间 Expected to arrive(2026-6-22)"
+        "stato": "Arrivo previsto(2026-6-22)"
       },
       {
         "data": "2026-06-21 10:44:56",
         "luogo": "",
-        "stato": "Volo partito Volo partito"
+        "stato": "Volo partito"
       },
       {
         "data": "2026-06-20 10:44:16",
         "luogo": "",
-        "stato": "预计Volo启运时间 Expected departure(2026-6-21)"
+        "stato": "Partenza prevista(2026-6-21)"
       },
       {
         "data": "2026-06-20 10:44:10",
         "luogo": "",
-        "stato": "货物移交航司 Merce consegnata alla compagnia aerea"
+        "stato": "Merce consegnata alla compagnia aerea"
       },
       {
         "data": "2026-06-20 10:44:05",
         "luogo": "",
-        "stato": "国内Sdoganamento completato Domestic Sdoganamento is completed"
+        "stato": "Sdoganamento completato"
       },
       {
         "data": "2026-06-17 22:48:14",
@@ -3547,11 +3547,11 @@
       {
         "data": "2026-06-15 02:21:55",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-06-14 20:21:57",
-        "luogo": "-",
+        "luogo": "",
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ]
