@@ -3016,19 +3016,19 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-06-23 15:45:56",
+        "data": "2026-06-23 15:45",
         "luogo": "dalla sede operativa di LA SPEZIA (SP)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
+        "stato": "La spedizione è stata consegnata"
       },
       {
-        "data": "2026-06-23 13:28:01",
+        "data": "2026-06-23 13:28",
         "luogo": "SPEZIA (SP)",
-        "stato": "In consegna"
+        "stato": "La spedizione è in consegna"
       },
       {
-        "data": "2026-06-23 12:04:56",
+        "data": "2026-06-23 12:04",
         "luogo": "SPEZIA (SP)",
-        "stato": "In transItaliaoo"
+        "stato": "La spedizione è In transItaliaoo"
       }
     ]
   },
