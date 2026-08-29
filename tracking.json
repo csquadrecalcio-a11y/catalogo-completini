@@ -4100,23 +4100,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-23 13:40:00",
-        "luogo": "dalla sede operativa di BARI (BA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-23 08:23:00",
-        "luogo": "Filiale SDA BARI (BA)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-06-23 08:23:00",
-        "luogo": "BARI (BA)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0049": {
