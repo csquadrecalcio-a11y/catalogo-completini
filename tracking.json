@@ -2148,19 +2148,19 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-06-24 15:27:21",
+        "data": "2026-06-24 15:27",
         "luogo": "dalla sede operativa di FOLLONICA (GR)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
+        "stato": "La spedizione è stata consegnata"
       },
       {
-        "data": "2026-06-24 10:26:13",
+        "data": "2026-06-24 10:26",
         "luogo": "FOLLONICA (GR)",
-        "stato": "In consegna"
+        "stato": "La spedizione è in consegna"
       },
       {
-        "data": "2026-06-24 08:32:40",
+        "data": "2026-06-24 08:32",
         "luogo": "FOLLONICA (GR)",
-        "stato": "In transItaliaoo"
+        "stato": "La spedizione è In transItaliaoo"
       }
     ]
   },
