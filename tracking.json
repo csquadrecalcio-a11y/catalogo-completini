@@ -10429,23 +10429,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-29 15:12:20",
-        "luogo": "dalla sede operativa di OMIGNANO (SA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-29 11:04:17",
-        "luogo": "OMIGNANO (SA)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-29 08:33:05",
-        "luogo": "AGROPOLI (SA)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0122": {
