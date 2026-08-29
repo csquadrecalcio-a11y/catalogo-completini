@@ -10055,23 +10055,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-29 13:17:01",
-        "luogo": "dalla sede operativa di L'AQUILA (AQ)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-29 11:16:41",
-        "luogo": "L'AQUILA (AQ)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-28 17:27:00",
-        "luogo": "FARA IN SABINA (RI)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0118": {
