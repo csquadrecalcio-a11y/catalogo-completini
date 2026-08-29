@@ -11164,33 +11164,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-08-03 11:03:56",
-        "luogo": "dalla sede operativa di SASSARI (SS)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-08-03 09:54:42",
-        "luogo": "SASSARI (SS)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-03 09:15:54",
-        "luogo": "SASSARI (SS)",
-        "stato": "In transItaliaoo"
-      },
-      {
-        "data": "2026-07-30 11:16:37",
-        "luogo": "SASSARI (SS)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-30 09:13:30",
-        "luogo": "SASSARI (SS)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0130": {
