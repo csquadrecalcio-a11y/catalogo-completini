@@ -2792,23 +2792,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-23 15:45",
-        "luogo": "dalla sede operativa di LA SPEZIA (SP)",
-        "stato": "La spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-23 13:28",
-        "luogo": "SPEZIA (SP)",
-        "stato": "La spedizione è in consegna"
-      },
-      {
-        "data": "2026-06-23 12:04",
-        "luogo": "SPEZIA (SP)",
-        "stato": "La spedizione è In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0039": {
