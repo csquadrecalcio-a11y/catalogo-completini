@@ -352,7 +352,63 @@
     "data_spedizione": "2026-08-25",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J939757",
-    "eventi_cina": [],
+    "eventi_cina": [
+      {
+        "data": "2026-08-28 22:35:18",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-08-27 14:34:41",
+        "luogo": "",
+        "stato": "Data di arrivo stimata: 29 agosto"
+      },
+      {
+        "data": "2026-08-27 12:30:27",
+        "luogo": "Cina",
+        "stato": "Partenza stimata: 28 agosto"
+      },
+      {
+        "data": "2026-08-26 14:07:26",
+        "luogo": "Cina",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-08-26 13:08:02",
+        "luogo": "Cina",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-08-26 13:07:26",
+        "luogo": "Cina",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
+        "data": "2026-08-26 05:07:26",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-08-26 04:33:56",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-08-25 23:41:18",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-08-25 23:41:18",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-08-25 17:41:19",
+        "luogo": "-",
+        "stato": "Ordine registrato, in attesa del pacco"
+      }
+    ],
     "eventi_corriere": []
   },
   "CSC-2026-0267": {
@@ -497,7 +553,13 @@
     "data_spedizione": "2026-08-29",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J993389",
-    "eventi_cina": [],
+    "eventi_cina": [
+      {
+        "data": "2026-08-29 02:06:29",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      }
+    ],
     "eventi_corriere": []
   }
 }
