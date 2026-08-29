@@ -8961,73 +8961,7 @@
       "sped_123_1_648b6a47.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": [
-      {
-        "data": "2026-07-30 13:36:00",
-        "luogo": "Terracina",
-        "stato": "Consegnato dal postino"
-      },
-      {
-        "data": "2026-07-30 11:17:00",
-        "luogo": "Terracina",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-30 03:58:00",
-        "luogo": "Roma",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-07-29 10:34:00",
-        "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-07-28 11:47:00",
-        "luogo": "Castel san giovanni",
-        "stato": "Prima scansione Poste Italiane"
-      },
-      {
-        "data": "2026-07-26 16:50:48",
-        "luogo": "",
-        "stato": "Inviato al magazzino, in attesa di scansione"
-      },
-      {
-        "data": "2026-07-23 11:03:43",
-        "luogo": "",
-        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
-      },
-      {
-        "data": "2026-07-20 01:52:47",
-        "luogo": "",
-        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
-      },
-      {
-        "data": "2026-07-19 07:10:30",
-        "luogo": "",
-        "stato": "Partito dall'aeroporto di origine"
-      },
-      {
-        "data": "2026-07-18 14:01:30",
-        "luogo": "",
-        "stato": "Orario di partenza stimato del volo (Partenza stimata: 07.19)"
-      },
-      {
-        "data": "2026-07-15 01:40:16",
-        "luogo": "Cina",
-        "stato": "Uscito dal magazzino, in attesa del volo"
-      },
-      {
-        "data": "2026-07-14 20:40:16",
-        "luogo": "Guangzhou, Cina",
-        "stato": "Pacco in uscita dal centro operativo"
-      },
-      {
-        "data": "2026-07-14 19:53:30",
-        "luogo": "Guangzhou, Cina",
-        "stato": "Arrivato al punto di raccolta"
-      }
-    ]
+    "eventi_cina": []
   },
   "CSC-2026-0124": {
     "stato": "consegnato",
