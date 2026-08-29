@@ -3164,19 +3164,19 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-06-24 17:59:47",
+        "data": "2026-06-24 17:59",
         "luogo": "dalla sede operativa di CESANO MADERNO (MB)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
+        "stato": "La spedizione è stata consegnata"
       },
       {
-        "data": "2026-06-24 17:50:53",
+        "data": "2026-06-24 17:50",
         "luogo": "CESANO MADERNO (MB)",
-        "stato": "In consegna"
+        "stato": "La spedizione è in consegna"
       },
       {
-        "data": "2026-06-24 00:41:40",
+        "data": "2026-06-24 00:41",
         "luogo": "MONZA (MB)",
-        "stato": "In transItaliaoo"
+        "stato": "La spedizione è In transItaliaoo"
       }
     ]
   },
