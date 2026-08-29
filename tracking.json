@@ -10601,23 +10601,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-30 13:36:11",
-        "luogo": "dalla sede operativa di TERRACINA (LT)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-30 11:17:39",
-        "luogo": "TERRACINA (LT)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-30 05:30:01",
-        "luogo": "TERRACINA (LT)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0124": {
