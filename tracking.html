@@ -435,7 +435,7 @@ function buildCard(cod, o){
         <div class="ev-dot${i===0?" ev-dot-first":""}"></div>
         <div class="ev-body">
           <div class="ev-stato">${remapStato(pulisciStato(e.stato||""))}</div>
-          <div class="ev-meta">${pulisciLuogo(e.luogo) ? pulisciLuogo(e.luogo)+" · " : ""}${e.data||""}</div>
+          <div class="ev-meta">${e.data||""}</div>
         </div>
       </div>`).join("");
     cinaHtml = `<div class="cina-section">
