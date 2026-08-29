@@ -2474,6 +2474,7 @@ document.getElementById("cartCheckout").onclick = ()=>{
   const lines = [`🛒 *Nuovo ordine #${cod.replace('CSC-','')}*`, ""];
   cart.forEach(it=>{
     const isVintage = /vintage/i.test(it.name) || /vintage/i.test(it.version);
+    const isTuta = /tuta/i.test(it.name) || /tuta/i.test(it.version);
     let nomePulito = it.name
       .replace(/^!?(kit|maglia|tuta|scarpe)\s*/i, "")
       .replace(/(\d{2}):(\d{2})/g, "$1/$2")
@@ -2484,7 +2485,7 @@ document.getElementById("cartCheckout").onclick = ()=>{
     const patch = it.patch ? ` • ${it.patch}` : "";
     lines.push(`🔹 *${nome}*`);
     lines.push(`   ${stampa} • taglia ${it.size}${patch}`);
-    if (isVintage && !it.desc && it.thumb) lines.push(`   📷 ${it.thumb}`);
+    if ((isVintage || isTuta) && !it.desc && it.thumb) lines.push(`   📷 ${it.thumb}`);
   });
   lines.push("");
   if (discount > 0 || codiceSconto) {
