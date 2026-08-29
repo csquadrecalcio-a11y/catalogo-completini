@@ -10951,23 +10951,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-30 15:51:11",
-        "luogo": "dalla sede operativa di ELMAS (CA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-30 12:47:13",
-        "luogo": "ELMAS (CA)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-30 06:53:18",
-        "luogo": "ELMAS (CA)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0128": {
