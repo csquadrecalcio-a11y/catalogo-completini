@@ -10146,23 +10146,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-29 16:37:10",
-        "luogo": "dalla sede operativa di ABBADIA SAN SALVATORE (SI)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-29 13:13:37",
-        "luogo": "ABBADIA SAN SALVATORE (SI)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-29 05:02:35",
-        "luogo": "SIENA (SI)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0119": {
