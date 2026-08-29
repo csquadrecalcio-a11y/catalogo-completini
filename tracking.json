@@ -10878,5 +10878,118 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0119": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-11",
+    "data_consegna": "2026-07-30 14:42:54",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D72982157",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_119_1_0b08d2ec.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-30 13:13:00",
+        "luogo": "Italia",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-30 11:46:00",
+        "luogo": "Italia",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-30 09:00:00",
+        "luogo": "Italia",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-30 01:18:00",
+        "luogo": "CATANIA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 18:23:00",
+        "luogo": "BOLOGNA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 14:45:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 11:41:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-26 16:50:48",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-23 11:03:43",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-20 01:52:47",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-19 07:10:30",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-18 14:01:30",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata: 07.19)"
+      },
+      {
+        "data": "2026-07-15 01:40:51",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-14 20:40:51",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-14 19:52:58",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-30 13:13:36",
+        "luogo": "dalla sede operativa di SIRACUSA (SR)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-30 11:46:04",
+        "luogo": "SIRACUSA (SR)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-30 09:00:40",
+        "luogo": "SIRACUSA (SR)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
