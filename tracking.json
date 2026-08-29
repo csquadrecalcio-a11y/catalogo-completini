@@ -18267,5 +18267,84 @@
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ]
+  },
+  "CSC-2026-0244": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-08-13",
+    "data_consegna": "2026-08-28 11:04:01",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73316747",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-08-28 08:17:00",
+        "luogo": "FOGGIA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-27 06:41:00",
+        "luogo": "FARA IN SABINA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-25 14:50:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-24 14:50:00",
+        "luogo": "MILAN",
+        "stato": "Consegnato a Poste Italiane"
+      },
+      {
+        "data": "2026-08-23 17:34:02",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-08-22 14:51:30",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-08-22 08:18:37",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-08-18 13:09:56",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-08-16 15:00:05",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:8.17)"
+      },
+      {
+        "data": "2026-08-14 01:40:22",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-08-13 20:40:22",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-08-13 19:47:36",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ]
   }
 }
