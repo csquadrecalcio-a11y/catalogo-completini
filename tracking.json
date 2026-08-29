@@ -4539,23 +4539,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-24 10:28:58",
-        "luogo": "dalla sede operativa di ROZZANO (MI)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-24 09:59:34",
-        "luogo": "ROZZANO (MI)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-06-23 12:54:08",
-        "luogo": "Centro Operativo Postale",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0055": {
