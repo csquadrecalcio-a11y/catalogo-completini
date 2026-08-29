@@ -8685,23 +8685,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-27 10:33:57",
-        "luogo": "dalla sede operativa di USSANA (CA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-27 09:12:13",
-        "luogo": "USSANA (CA)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-27 06:10:15",
-        "luogo": "ELMAS (CA)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0103": {
