@@ -1435,5 +1435,45 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0008": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-06-12",
+    "data_consegna": "2026-06-29",
+    "corriere": "DHL",
+    "tracking": "CB777088158DE",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [],
+    "eventi_corriere": [
+      {
+        "data": "2026-06-29 13:28:00",
+        "luogo": "dalla sede operativa di Bari (BA)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-06-29 10:08:00",
+        "luogo": "Filiale SDA Bari (BA)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-06-29 07:07:00",
+        "luogo": "Bari (BA)",
+        "stato": "In transItaliaoo"
+      },
+      {
+        "data": "2026-06-24 10:17:00",
+        "luogo": "Ufficio Postale Germania",
+        "stato": "Presa in carico"
+      }
+    ]
   }
 }
