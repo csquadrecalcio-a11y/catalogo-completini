@@ -10242,23 +10242,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-30 13:13:36",
-        "luogo": "dalla sede operativa di SIRACUSA (SR)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-30 11:46:04",
-        "luogo": "SIRACUSA (SR)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-30 09:00:40",
-        "luogo": "SIRACUSA (SR)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0120": {
