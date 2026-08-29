@@ -9031,5 +9031,119 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0102": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-06",
+    "data_consegna": "2026-07-27 10:45:54",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D72943163",
+    "corriere_2": "Poste Italiane",
+    "tracking_2": "5P65D72961187",
+    "corriere_3": "Poste Italiane",
+    "tracking_3": "5P65D72961186",
+    "corriere_4": "Poste Italiane",
+    "tracking_4": "5P65D72961189",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_102_1_1590d113.jpeg",
+      "sped_102_3_4e3a2f48.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-27 10:33:00",
+        "luogo": "USSANA",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-27 09:12:00",
+        "luogo": "USSANA",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-24 05:51:00",
+        "luogo": "ELMAS",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-22 17:03:00",
+        "luogo": "BOLOGNA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-22 14:15:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-21 14:13:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-19 19:40:25",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-16 19:11:06",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-12 02:05:35",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-11 10:41:59",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-11 10:41:00",
+        "luogo": "Shanghai, Cina",
+        "stato": "DEPART ORIGIN AIRPORT"
+      },
+      {
+        "data": "2026-07-09 10:20:34",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata: 7.10)"
+      },
+      {
+        "data": "2026-07-08 03:21:33",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-07 22:21:33",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-07 21:55:27",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-27 10:33:57",
+        "luogo": "dalla sede operativa di USSANA (CA)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-27 09:12:13",
+        "luogo": "USSANA (CA)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-27 06:10:15",
+        "luogo": "ELMAS (CA)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
