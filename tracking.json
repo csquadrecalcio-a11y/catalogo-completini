@@ -13738,23 +13738,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-08-06 12:58:53",
-        "luogo": "dalla sede operativa di COLLEFERRO (RM)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-08-06 11:30:36",
-        "luogo": "COLLEFERRO (RM)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-06 00:44:09",
-        "luogo": "ROMA (RM)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0205": {
