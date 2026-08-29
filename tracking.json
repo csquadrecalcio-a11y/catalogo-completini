@@ -1241,17 +1241,17 @@
       {
         "data": "2026-06-22 14:23:00",
         "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-06-19 16:58:00",
         "luogo": "Fiano romano",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-06-19 16:50:00",
         "luogo": "Fiano romano",
-        "stato": "Prima scansione Poste Italiane's logistic network"
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-06-19 08:36:36",
@@ -1315,12 +1315,12 @@
       },
       {
         "data": "2026-06-10 19:50:12",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-06-09 19:44:23",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
