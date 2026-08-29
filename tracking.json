@@ -619,10 +619,10 @@
     "eventi_corriere": []
   },
   "CSC-2026-0280": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
-    "corriere": "",
-    "tracking": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-08-29",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73488407",
     "eventi_cina": [],
     "eventi_corriere": []
   },
@@ -635,10 +635,10 @@
     "eventi_corriere": []
   },
   "CSC-2026-0282": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
-    "corriere": "",
-    "tracking": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-08-29",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73488411",
     "eventi_cina": [],
     "eventi_corriere": []
   },
