@@ -11630,23 +11630,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-31 16:14:35",
-        "luogo": "dalla sede operativa di CASAVATORE (NA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-31 11:15:04",
-        "luogo": "CASAVATORE (NA)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-31 06:35:28",
-        "luogo": "NAPOLI (NA)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0137": {
