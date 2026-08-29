@@ -3974,23 +3974,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-24 14:37:37",
-        "luogo": "dalla sede operativa di CATTOLICA (RN)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-24 09:39:36",
-        "luogo": "CATTOLICA (RN)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-06-24 06:57:14",
-        "luogo": "CATTOLICA (RN)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0048": {
