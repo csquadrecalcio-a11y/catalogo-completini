@@ -12382,7 +12382,88 @@
     "tracking_5": "",
     "foto": [],
     "tracking_cina": "",
-    "eventi_cina": []
+    "eventi_cina": [
+      {
+        "data": "2026-08-19 12:09:00",
+        "luogo": "Italia",
+        "stato": "Consegnato"
+      },
+      {
+        "data": "2026-08-19 10:55:00",
+        "luogo": "Italia",
+        "stato": "In preparazione per la consegna"
+      },
+      {
+        "data": "2026-08-18 18:16:00",
+        "luogo": "Italia",
+        "stato": "Lavorato nel centro di smistamento"
+      },
+      {
+        "data": "2026-08-18 18:15:00",
+        "luogo": "Italia",
+        "stato": "Arrivato al centro di smistamento"
+      },
+      {
+        "data": "2026-08-17 10:20:00",
+        "luogo": "Germania",
+        "stato": "In partenza verso l'Italia, poi affidato al corriere locale"
+      },
+      {
+        "data": "2026-08-17 04:24:00",
+        "luogo": "Germania",
+        "stato": "Lavorato nel centro di smistamento per l'estero"
+      },
+      {
+        "data": "2026-08-15 12:21:00",
+        "luogo": "Germania",
+        "stato": "Lavorato nel centro di smistamento di partenza"
+      },
+      {
+        "data": "2026-08-14 17:56:26",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-08-14 11:55:42",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-08-10 23:47:57",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-08-10 14:42:46",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-08-08 17:01:59",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:08.10)"
+      },
+      {
+        "data": "2026-08-07 00:14:05",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-08-06 16:53:59",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-08-06 09:28:52",
+        "luogo": "",
+        "stato": "Package details received"
+      },
+      {
+        "data": "2026-08-06 04:10:00",
+        "luogo": "",
+        "stato": "Spedizione registrata dal mittente"
+      }
+    ]
   },
   "CSC-2026-0224": {
     "stato": "consegnato",
