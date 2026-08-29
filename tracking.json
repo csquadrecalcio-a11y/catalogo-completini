@@ -6161,7 +6161,118 @@
       "sped_82_1_8c64dd02.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": []
+    "eventi_cina": [
+      {
+        "data": "2026-07-09 11:44:00",
+        "luogo": "MILANO",
+        "stato": "Consegnato Case closed"
+      },
+      {
+        "data": "2026-07-09 09:18:00",
+        "luogo": "MILANO",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-09 00:23:00",
+        "luogo": "PESCHIERA BORROMEO",
+        "stato": "In transito nella rete di Poste Italiane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-07-08 04:39:00",
+        "luogo": "MILANO",
+        "stato": "In transito nella rete di Poste Italiane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-07-07 10:17:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "In transito nella rete di Poste Italiane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-07-07 09:44:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "Prima scansione Poste Italiane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-07-07 09:40:18",
+        "luogo": "FCO",
+        "stato": "Delivery to last mile operator"
+      },
+      {
+        "data": "2026-07-07 08:19:18",
+        "luogo": "FCO",
+        "stato": "In transito to last mile operator"
+      },
+      {
+        "data": "2026-07-07 07:45:02",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-07-06 21:15:42",
+        "luogo": "FCO",
+        "stato": "Ready for transit to last mile operator"
+      },
+      {
+        "data": "2026-07-06 21:15:24",
+        "luogo": "FCO",
+        "stato": "Arrived at Sdoganamento warehouse"
+      },
+      {
+        "data": "2026-07-06 10:00:00",
+        "luogo": "FCO",
+        "stato": "Terminal Notification of Arrival"
+      },
+      {
+        "data": "2026-07-04 07:02:00",
+        "luogo": "FCO",
+        "stato": "Arrived at Destinated Airport"
+      },
+      {
+        "data": "2026-07-02 11:18:26",
+        "luogo": "",
+        "stato": "预计Volo抵达时间 Expected to arrive（2026-7-4）"
+      },
+      {
+        "data": "2026-07-02 11:18:18",
+        "luogo": "",
+        "stato": "Volo partito Flight departure"
+      },
+      {
+        "data": "2026-07-01 23:32:25",
+        "luogo": "",
+        "stato": "预计Volo启运时间 Expected departure（2026-7-2）"
+      },
+      {
+        "data": "2026-07-01 23:32:22",
+        "luogo": "",
+        "stato": "货物移交航司 Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-07-01 23:32:17",
+        "luogo": "",
+        "stato": "国内Sdoganamento completato Domestic Sdoganamento is completed"
+      },
+      {
+        "data": "2026-06-26 22:03:33",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-06-26 21:40:04",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-06-21 13:19:27",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-06-21 07:19:29",
+        "luogo": "-",
+        "stato": "Ordine registrato, in attesa del pacco"
+      }
+    ]
   },
   "CSC-2026-0083": {
     "stato": "consegnato",
