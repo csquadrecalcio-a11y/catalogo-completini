@@ -6308,7 +6308,7 @@
       {
         "data": "2026-07-24 13:07:00",
         "luogo": "",
-        "stato": "Consegnato Case closed"
+        "stato": "Consegnato"
       },
       {
         "data": "2026-07-24 09:12:00",
@@ -6363,7 +6363,7 @@
       {
         "data": "2026-07-20 01:59:56",
         "luogo": "",
-        "stato": "Arrived at Sdoganamento warehouse"
+        "stato": "Arrivato al deposito doganale"
       },
       {
         "data": "2026-07-19 00:42:09",
@@ -6418,7 +6418,7 @@
       {
         "data": "2026-07-12 01:09:38",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ]
   },
