@@ -2666,23 +2666,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-25 16:23",
-        "luogo": "dalla sede operativa di MAZARA DEL VALLO (TP)",
-        "stato": "La spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-25 13:58",
-        "luogo": "MAZARA DEL VALLO (TP)",
-        "stato": "La spedizione è in consegna"
-      },
-      {
-        "data": "2026-06-24 14:29",
-        "luogo": "PALERMO (PA)",
-        "stato": "La spedizione è In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0038": {
