@@ -13123,7 +13123,7 @@
       {
         "data": "2026-08-20 11:04:00",
         "luogo": "Santa maria capua vetere",
-        "stato": "Consegnato Case closed"
+        "stato": "Consegnato"
       },
       {
         "data": "2026-08-20 09:11:00",
@@ -13148,7 +13148,7 @@
       {
         "data": "2026-08-18 14:35:12",
         "luogo": "FCO",
-        "stato": "In transito to last mile operator"
+        "stato": "In transito verso il corriere locale"
       },
       {
         "data": "2026-08-17 18:55:22",
@@ -13163,12 +13163,12 @@
       {
         "data": "2026-08-17 11:04:46",
         "luogo": "FCO",
-        "stato": "Arrived at Sdoganamento warehouse"
+        "stato": "Arrivato al deposito doganale"
       },
       {
         "data": "2026-08-17 09:36:23",
         "luogo": "FCO",
-        "stato": "Terminal Notification of Arrival"
+        "stato": "Avviso di arrivo al terminal"
       },
       {
         "data": "2026-08-14 15:09:21",
@@ -13218,11 +13218,11 @@
       {
         "data": "2026-08-10 00:50:42",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-08-09 18:50:44",
-        "luogo": "-",
+        "luogo": "",
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ]
