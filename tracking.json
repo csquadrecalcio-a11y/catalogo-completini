@@ -13176,5 +13176,108 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0169": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-15",
+    "data_consegna": "2026-07-30 14:47:34",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73039258",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_169_1_2000578c.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-30 14:43:00",
+        "luogo": "Italia",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-30 11:19:00",
+        "luogo": "Italia",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-30 07:55:00",
+        "luogo": "Italia",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-30 03:18:00",
+        "luogo": "ROMA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-29 10:32:00",
+        "luogo": "FARA IN SABINA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 11:23:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-26 16:50:48",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-23 11:42:40",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-21 05:03:15",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-20 11:00:16",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-18 04:22:02",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-17 23:22:02",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-17 19:38:01",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-30 14:43:42",
+        "luogo": "dalla sede operativa di VItaliaERBO (VT)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-30 11:19:43",
+        "luogo": "VItaliaERBO (VT)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-30 07:55:20",
+        "luogo": "VItaliaERBO (VT)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
