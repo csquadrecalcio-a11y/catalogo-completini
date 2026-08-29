@@ -8411,23 +8411,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-20 14:29:57",
-        "luogo": "dalla sede operativa di ELLERA (PG)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-20 09:44:52",
-        "luogo": "ELLERA (PG)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-17 06:21:11",
-        "luogo": "PERUGIA (PG)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0100": {
