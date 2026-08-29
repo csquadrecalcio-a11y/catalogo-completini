@@ -8706,5 +8706,119 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0099": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-06",
+    "data_consegna": "2026-07-20 11:43:07",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D72930500",
+    "corriere_2": "DHL",
+    "tracking_2": "CJ120513262DE",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_99_1_9ae58e71.jpg",
+      "sped_99_3_36138bb9.jpg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-20 14:29:00",
+        "luogo": "CORCIANO",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-20 09:44:00",
+        "luogo": "CORCIANO",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-17 15:03:00",
+        "luogo": "CORCIANO",
+        "stato": "FAILED DELIVERY FOR REASON: RECIPIENT WAS NOT AT HOME"
+      },
+      {
+        "data": "2026-07-17 14:43:00",
+        "luogo": "CORCIANO",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-17 08:46:00",
+        "luogo": "PERUGIA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-17 03:56:00",
+        "luogo": "SESTO FIORENTINO",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-15 15:14:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-15 11:28:17",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-13 13:30:48",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-11 07:30:01",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-10 11:26:43",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-08 21:31:54",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:07.09)"
+      },
+      {
+        "data": "2026-07-07 04:22:16",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-06 23:22:16",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-06 23:17:46",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-20 14:29:57",
+        "luogo": "dalla sede operativa di ELLERA (PG)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-20 09:44:52",
+        "luogo": "ELLERA (PG)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-17 06:21:11",
+        "luogo": "PERUGIA (PG)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
