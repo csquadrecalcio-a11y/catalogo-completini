@@ -12596,23 +12596,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-08-03 14:44:43",
-        "luogo": "dalla sede operativa di TRENTO (TN)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-08-03 11:56:15",
-        "luogo": "TRENTO (TN)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-03 07:24:51",
-        "luogo": "TRENTO (TN)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0186": {
