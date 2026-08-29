@@ -11893,7 +11893,73 @@
       "sped_213_1_c560b4a6.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": []
+    "eventi_cina": [
+      {
+        "data": "2026-08-14 10:11:00",
+        "luogo": "Savona",
+        "stato": "Consegnato dal postino"
+      },
+      {
+        "data": "2026-08-14 09:17:00",
+        "luogo": "Savona",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-12 23:56:00",
+        "luogo": "Genova",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-08-11 14:00:00",
+        "luogo": "Castel san giovanni",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-08-10 13:39:00",
+        "luogo": "Castel san giovanni",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-08-09 22:18:43",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-08-06 02:03:48",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-08-05 06:04:00",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-08-04 04:52:27",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-08-03 17:03:25",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:08.04)"
+      },
+      {
+        "data": "2026-08-01 04:46:48",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-31 23:46:48",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-31 19:46:18",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ]
   },
   "CSC-2026-0214": {
     "stato": "consegnato",
