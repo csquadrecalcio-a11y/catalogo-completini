@@ -1000,5 +1000,146 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0005": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-06-09",
+    "data_consegna": "2026-06-23",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2001J612407",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-06-23 12:50:00",
+        "luogo": "TItaliaO",
+        "stato": "Consegnato Case closed"
+      },
+      {
+        "data": "2026-06-23 08:10:00",
+        "luogo": "TItaliaO",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-06-22 14:23:00",
+        "luogo": "FARA IN SABINA",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-19 16:58:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-19 16:50:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-19 08:36:36",
+        "luogo": "FCO",
+        "stato": "Delivery to last mile operator"
+      },
+      {
+        "data": "2026-06-19 07:50:36",
+        "luogo": "FCO",
+        "stato": "In transItaliao to last mile operator"
+      },
+      {
+        "data": "2026-06-18 15:51:29",
+        "luogo": "FCO",
+        "stato": "Ready for transItalia to last mile operator"
+      },
+      {
+        "data": "2026-06-18 15:50:24",
+        "luogo": "FCO",
+        "stato": "Arrived at Sdoganamento warehouse"
+      },
+      {
+        "data": "2026-06-16 18:00:09",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-06-16 06:00:00",
+        "luogo": "FCO",
+        "stato": "Terminal Notification of Arrival"
+      },
+      {
+        "data": "2026-06-15 07:55:00",
+        "luogo": "FCO",
+        "stato": "Arrived at Destinated Airport"
+      },
+      {
+        "data": "2026-06-15 00:52:43",
+        "luogo": "",
+        "stato": "预计Volo抵达时间 Expected to arrive（2026-6-15）"
+      },
+      {
+        "data": "2026-06-14 16:52:36",
+        "luogo": "",
+        "stato": "Volo partItaliao Flight departure"
+      },
+      {
+        "data": "2026-06-14 01:28:17",
+        "luogo": "",
+        "stato": "预计Volo启运时间 Expected departure（2026-6-14）"
+      },
+      {
+        "data": "2026-06-14 01:28:13",
+        "luogo": "",
+        "stato": "货物移交航司 Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-06-14 01:28:08",
+        "luogo": "",
+        "stato": "国内Sdoganamento completato Domestic Sdoganamento is completed"
+      },
+      {
+        "data": "2026-06-10 19:50:12",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-06-09 19:44:23",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-06-07 01:44:43",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-06-06 19:44:44",
+        "luogo": "-",
+        "stato": "Ordine registrato, in attesa del pacco"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-06-23 12:50:00",
+        "luogo": "dalla sede operativa di TItaliaO (PZ)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-06-23 07:30:00",
+        "luogo": "TItaliaO (PZ)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-06-23 07:04:00",
+        "luogo": "TItaliaO (PZ)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
