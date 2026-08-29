@@ -18938,5 +18938,144 @@
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ]
+  },
+  "CSC-2026-0257": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-08-17",
+    "data_consegna": "",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73374719",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-08-28 10:47:00",
+        "luogo": "LIMBIATE",
+        "stato": "Consegnato Case closed"
+      },
+      {
+        "data": "2026-08-28 09:19:00",
+        "luogo": "LIMBIATE",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-28 07:03:00",
+        "luogo": "MONZA",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-08-28 00:39:00",
+        "luogo": "MILANO",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-08-26 12:15:00",
+        "luogo": "FARA IN SABINA",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-08-25 16:36:00",
+        "luogo": "FARA IN SABINA",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-08-25 16:06:26",
+        "luogo": "FCO",
+        "stato": "Delivery to last mile operator"
+      },
+      {
+        "data": "2026-08-25 15:38:26",
+        "luogo": "FCO",
+        "stato": "In transItaliao to last mile operator"
+      },
+      {
+        "data": "2026-08-24 17:15:02",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-08-24 16:59:26",
+        "luogo": "FCO",
+        "stato": "Ready for transItalia to last mile operator"
+      },
+      {
+        "data": "2026-08-24 16:58:38",
+        "luogo": "FCO",
+        "stato": "Arrived at Sdoganamento warehouse"
+      },
+      {
+        "data": "2026-08-24 05:40:09",
+        "luogo": "FCO",
+        "stato": "Terminal Notification of Arrival"
+      },
+      {
+        "data": "2026-08-24 05:40:00",
+        "luogo": "FCO",
+        "stato": "Terminal Notification of Arrival"
+      },
+      {
+        "data": "2026-08-23 15:17:00",
+        "luogo": "FCO",
+        "stato": "Arrived at Destinated Airport"
+      },
+      {
+        "data": "2026-08-22 05:03:55",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-08-19 14:55:45",
+        "luogo": "",
+        "stato": "Estimated arrival date is August 22th"
+      },
+      {
+        "data": "2026-08-19 14:52:37",
+        "luogo": "Cina",
+        "stato": "Estimated departure is August 21th"
+      },
+      {
+        "data": "2026-08-18 09:16:19",
+        "luogo": "Cina",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-08-18 08:16:55",
+        "luogo": "Cina",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-08-18 08:16:19",
+        "luogo": "Cina",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
+        "data": "2026-08-18 00:16:19",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-08-17 22:00:58",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-08-17 00:45:58",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-08-16 18:46:01",
+        "luogo": "-",
+        "stato": "Ordine registrato, in attesa del pacco"
+      }
+    ]
   }
 }
