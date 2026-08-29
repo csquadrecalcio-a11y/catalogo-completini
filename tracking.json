@@ -10004,73 +10004,7 @@
       "sped_165_1_30fdb8c2.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": [
-      {
-        "data": "2026-07-31 15:29:00",
-        "luogo": "Italia",
-        "stato": "Consegnato dal postino"
-      },
-      {
-        "data": "2026-07-31 12:27:00",
-        "luogo": "Italia",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-31 11:06:00",
-        "luogo": "Italia",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-07-30 20:46:00",
-        "luogo": "Bologna",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-07-29 11:16:00",
-        "luogo": "Castel san giovanni",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-07-28 11:32:00",
-        "luogo": "Castel san giovanni",
-        "stato": "Prima scansione Poste Italiane"
-      },
-      {
-        "data": "2026-07-26 16:50:48",
-        "luogo": "",
-        "stato": "Inviato al magazzino, in attesa di scansione"
-      },
-      {
-        "data": "2026-07-23 11:42:40",
-        "luogo": "",
-        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
-      },
-      {
-        "data": "2026-07-21 05:03:15",
-        "luogo": "",
-        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
-      },
-      {
-        "data": "2026-07-20 11:00:16",
-        "luogo": "",
-        "stato": "Partito dall'aeroporto di origine"
-      },
-      {
-        "data": "2026-07-18 02:38:31",
-        "luogo": "Cina",
-        "stato": "Uscito dal magazzino, in attesa del volo"
-      },
-      {
-        "data": "2026-07-17 21:38:31",
-        "luogo": "Guangzhou, Cina",
-        "stato": "Pacco in uscita dal centro operativo"
-      },
-      {
-        "data": "2026-07-17 19:37:23",
-        "luogo": "Guangzhou, Cina",
-        "stato": "Arrivato al punto di raccolta"
-      }
-    ]
+    "eventi_cina": []
   },
   "CSC-2026-0168": {
     "stato": "consegnato",
