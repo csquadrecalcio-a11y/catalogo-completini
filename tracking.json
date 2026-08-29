@@ -91,8 +91,21 @@
   "CSC-2026-0253": {
     "stato": "spedito",
     "data_spedizione": "2026-08-14",
+    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73357584",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_253_1_112282f6.jpeg"
+    ],
+    "tracking_cina": "",
     "eventi_cina": [
       {
         "data": "2026-08-26 18:10:53",
@@ -134,10 +147,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [],
-    "foto": [
-      "sped_253_1_112282f6.jpeg"
     ]
   },
   "CSC-2026-0255": {
