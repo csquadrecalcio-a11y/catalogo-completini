@@ -8857,23 +8857,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-24 16:48:08",
-        "luogo": "dalla sede operativa di VASTO (CH)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-24 12:07:18",
-        "luogo": "VASTO (CH)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-24 06:15:26",
-        "luogo": "PESCARA (PE)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0105": {
