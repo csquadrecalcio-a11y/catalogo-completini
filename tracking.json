@@ -10682,23 +10682,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-08-03 16:43:57",
-        "luogo": "dalla sede operativa di ROMA (RM)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-08-03 12:37:37",
-        "luogo": "ROMA (RM)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-03 07:48:39",
-        "luogo": "ROMA (RM)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0125": {
