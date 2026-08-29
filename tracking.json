@@ -3445,23 +3445,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-03 10:13:28",
-        "luogo": "dalla sede operativa di SESTO SAN GIOVANNI (MI)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-03 09:14:32",
-        "luogo": "SESTO SAN GIOVANNI (MI)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-03 05:18:05",
-        "luogo": "PESCHIERA BORROMEO (MI)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0043": {
