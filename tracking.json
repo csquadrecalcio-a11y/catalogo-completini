@@ -7661,5 +7661,163 @@
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ]
+  },
+  "CSC-2026-0091": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-02",
+    "data_consegna": "2026-07-24 14:10:42",
+    "corriere": "DHL",
+    "tracking": "CP040964949DE",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_91_1_1457757c.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-24 13:07:00",
+        "luogo": "",
+        "stato": "Consegnato Case closed"
+      },
+      {
+        "data": "2026-07-24 09:12:00",
+        "luogo": "",
+        "stato": "The shipment is being prepared for delivery in the delivery depot"
+      },
+      {
+        "data": "2026-07-24 02:22:00",
+        "luogo": "",
+        "stato": "The shipment is being prepared for delivery in the delivery depot"
+      },
+      {
+        "data": "2026-07-22 17:59:00",
+        "luogo": "",
+        "stato": "The shipment has been processed in the parcel center"
+      },
+      {
+        "data": "2026-07-22 17:58:00",
+        "luogo": "",
+        "stato": "The shipment has arrived at the parcel center."
+      },
+      {
+        "data": "2026-07-22 03:00:00",
+        "luogo": "",
+        "stato": "The shipment will be transported to the destination country/destination area and, from there, handed over to the delivery organization."
+      },
+      {
+        "data": "2026-07-22 02:57:00",
+        "luogo": "",
+        "stato": "The international shipment has been processed in the export parcel center"
+      },
+      {
+        "data": "2026-07-21 15:34:00",
+        "luogo": "",
+        "stato": "The international shipment has been processed in the parcel center of origin"
+      },
+      {
+        "data": "2026-07-21 05:20:42",
+        "luogo": "",
+        "stato": "Delivery to final service provider"
+      },
+      {
+        "data": "2026-07-20 23:19:54",
+        "luogo": "",
+        "stato": "In transItaliao to final service provider"
+      },
+      {
+        "data": "2026-07-20 20:15:57",
+        "luogo": "",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-07-20 01:59:56",
+        "luogo": "",
+        "stato": "Arrived at Sdoganamento warehouse"
+      },
+      {
+        "data": "2026-07-19 00:42:09",
+        "luogo": "",
+        "stato": "Arrived at Destinated Airport"
+      },
+      {
+        "data": "2026-07-17 22:31:27",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-07-16 12:24:38",
+        "luogo": "",
+        "stato": "Estimated arrival date is July 18th"
+      },
+      {
+        "data": "2026-07-16 12:24:14",
+        "luogo": "Cina",
+        "stato": "Estimated departure is July 17th"
+      },
+      {
+        "data": "2026-07-14 14:15:00",
+        "luogo": "",
+        "stato": "The instruction data for this shipment have been provided by the sender to DHL electronically"
+      },
+      {
+        "data": "2026-07-14 08:15:47",
+        "luogo": "Cina",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-07-14 07:16:23",
+        "luogo": "Cina",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-07-14 07:15:47",
+        "luogo": "Cina",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
+        "data": "2026-07-13 23:15:47",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-13 21:34:35",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-07-12 01:09:38",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-24 13:07:00",
+        "luogo": "dalla sede operativa di Bari (BA)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-24 09:12:00",
+        "luogo": "Filiale SDA Bari (BA)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-23 09:11:00",
+        "luogo": "Bari (BA)",
+        "stato": "In transItaliaoo"
+      },
+      {
+        "data": "2026-07-21 15:34:00",
+        "luogo": "Ufficio Postale Germania",
+        "stato": "Presa in carico"
+      }
+    ]
   }
 }
