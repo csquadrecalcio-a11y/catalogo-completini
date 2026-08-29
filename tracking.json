@@ -4908,5 +4908,131 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0059": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-06-23",
+    "data_consegna": "2026-07-06 15:22:17",
+    "corriere": "DHL",
+    "tracking": "CB778107145DE",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-06 12:19:00",
+        "luogo": "Italiaaly",
+        "stato": "The shipment has been successfully ConsegnatoConsegnato"
+      },
+      {
+        "data": "2026-07-06 10:41:00",
+        "luogo": "Italiaaly",
+        "stato": "The shipment has been loaded onto the delivery vehiclepickup"
+      },
+      {
+        "data": "2026-07-03 17:43:00",
+        "luogo": "Italiaaly",
+        "stato": "The shipment has arrived in the destination country/destination area. (Homepage / online shipment tracking: https://www.logistics.dhl/Italia-Italia/home/tracking/tracking-express.html?submItalia=1&amp;tracking-id=CB778107145DE)transItalia"
+      },
+      {
+        "data": "2026-07-03 00:37:00",
+        "luogo": "Germany",
+        "stato": "The international shipment has been processed in the export parcel centertransItalia"
+      },
+      {
+        "data": "2026-07-01 13:17:00",
+        "luogo": "Germany",
+        "stato": "The international shipment has been processed in the parcel center of origintransItalia"
+      },
+      {
+        "data": "2026-06-29 20:43:42",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-06-29 17:05:14",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-06-27 14:38:13",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-06-26 10:27:59",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-06-25 18:49:59",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:6.26)"
+      },
+      {
+        "data": "2026-06-25 15:08:32",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:6.26)"
+      },
+      {
+        "data": "2026-06-23 20:30:15",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-06-23 16:53:45",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-06-23 09:41:10",
+        "luogo": "",
+        "stato": "Package&nbsp;details&nbsp;received"
+      },
+      {
+        "data": "2026-06-23 04:10:00",
+        "luogo": "",
+        "stato": "The instruction data for this shipment have been provided by the sender to DHL electronically.transItalia"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-06 12:19:00",
+        "luogo": "Italia",
+        "stato": "The shipment has been successfully Consegnato"
+      },
+      {
+        "data": "2026-07-06 10:41:00",
+        "luogo": "Italia",
+        "stato": "The shipment has been loaded onto the delivery vehicle"
+      },
+      {
+        "data": "2026-07-03 17:43:00",
+        "luogo": "Italia",
+        "stato": "The shipment has arrived in the destination country/destination area. (Homepage / online shipment tracking: https://www.logistics.dhl/Italia-Italia/home/tracking/tracking-express.html?submItalia=1&tracking-id=CB778107145DE)"
+      },
+      {
+        "data": "2026-07-03 00:37:00",
+        "luogo": "DE",
+        "stato": "The international shipment has been processed in the export parcel center"
+      },
+      {
+        "data": "2026-07-01 13:17:00",
+        "luogo": "DE",
+        "stato": "The international shipment has been processed in the parcel center of origin"
+      },
+      {
+        "data": "2026-06-23 04:10:00",
+        "luogo": "",
+        "stato": "The instruction data for this shipment have been provided by the sender to DHL electronically."
+      }
+    ]
   }
 }
