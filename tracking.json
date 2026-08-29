@@ -9408,23 +9408,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-28 17:54:00",
-        "luogo": "dalla sede operativa di LUCCA (LU)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-28 11:57:38",
-        "luogo": "LUCCA (LU)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-28 10:12:18",
-        "luogo": "LUCCA (LU)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0111": {
