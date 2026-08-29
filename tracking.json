@@ -2844,7 +2844,7 @@
       {
         "data": "2026-07-03 10:13:00",
         "luogo": "Sesto san giovanni",
-        "stato": "Consegnato Case closed"
+        "stato": "Consegnato"
       },
       {
         "data": "2026-07-03 09:14:00",
@@ -2874,7 +2874,7 @@
       {
         "data": "2026-06-29 15:23:57",
         "luogo": "FCO",
-        "stato": "In transito to last mile operator"
+        "stato": "In transito verso il corriere locale"
       },
       {
         "data": "2026-06-26 19:41:51",
@@ -2884,12 +2884,12 @@
       {
         "data": "2026-06-26 19:41:19",
         "luogo": "FCO",
-        "stato": "Arrived at Sdoganamento warehouse"
+        "stato": "Arrivato al deposito doganale"
       },
       {
         "data": "2026-06-25 20:00:00",
         "luogo": "FCO",
-        "stato": "Terminal Notification of Arrival"
+        "stato": "Avviso di arrivo al terminal"
       },
       {
         "data": "2026-06-24 12:00:00",
@@ -2949,11 +2949,11 @@
       {
         "data": "2026-06-17 00:20:17",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-06-16 18:20:18",
-        "luogo": "-",
+        "luogo": "",
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ]
