@@ -9494,23 +9494,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-28 12:39:06",
-        "luogo": "dalla sede operativa di MILANO (MI)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-28 11:58:53",
-        "luogo": "MILANO (MI)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-28 08:01:04",
-        "luogo": "MILANO (MI)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0112": {
