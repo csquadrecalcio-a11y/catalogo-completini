@@ -17398,5 +17398,131 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ]
+  },
+  "CSC-2026-0232": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-08-08",
+    "data_consegna": "2026-08-20 15:24:46",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73310815",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_232_1_5167f24d.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-08-20 11:04:00",
+        "luogo": "SANTA MARIA CAPUA VETERE",
+        "stato": "Consegnato Case closed"
+      },
+      {
+        "data": "2026-08-20 09:11:00",
+        "luogo": "SANTA MARIA CAPUA VETERE",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-20 04:05:00",
+        "luogo": "NAPOLI",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-08-19 19:34:00",
+        "luogo": "GRICIGNANO DI AVERSA",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-08-18 16:20:00",
+        "luogo": "FARA IN SABINA",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-08-18 14:35:12",
+        "luogo": "FCO",
+        "stato": "In transItaliao to last mile operator"
+      },
+      {
+        "data": "2026-08-17 18:55:22",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-08-17 11:05:20",
+        "luogo": "FCO",
+        "stato": "Ready for transItalia to last mile operator"
+      },
+      {
+        "data": "2026-08-17 11:04:46",
+        "luogo": "FCO",
+        "stato": "Arrived at Sdoganamento warehouse"
+      },
+      {
+        "data": "2026-08-17 09:36:23",
+        "luogo": "FCO",
+        "stato": "Terminal Notification of Arrival"
+      },
+      {
+        "data": "2026-08-14 15:09:21",
+        "luogo": "FCO",
+        "stato": "Arrived at Destinated Airport"
+      },
+      {
+        "data": "2026-08-13 23:49:08",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-08-12 15:27:24",
+        "luogo": "",
+        "stato": "Estimated arrival date is August 14th"
+      },
+      {
+        "data": "2026-08-12 15:27:01",
+        "luogo": "Cina",
+        "stato": "Estimated departure is August 13th"
+      },
+      {
+        "data": "2026-08-11 10:20:34",
+        "luogo": "Cina",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-08-11 09:21:10",
+        "luogo": "Cina",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-08-11 09:20:34",
+        "luogo": "Cina",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
+        "data": "2026-08-11 01:20:34",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-08-10 21:10:12",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-08-10 00:50:42",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-08-09 18:50:44",
+        "luogo": "-",
+        "stato": "Ordine registrato, in attesa del pacco"
+      }
+    ]
   }
 }
