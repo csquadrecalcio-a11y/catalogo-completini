@@ -1088,19 +1088,19 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-06-23 13:21:10",
+        "data": "2026-06-23 13:21",
         "luogo": "dalla sede operativa di CASTIGLIONE DEL LAGO (PG)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
+        "stato": "La spedizione è stata consegnata"
       },
       {
-        "data": "2026-06-23 09:14:40",
-        "luogo": "Filiale SDA CASTIGLIONE DEL LAGO (PG)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-06-23 08:59:18",
+        "data": "2026-06-23 09:14",
         "luogo": "CASTIGLIONE DEL LAGO (PG)",
-        "stato": "In transItaliaoo"
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-06-23 08:59",
+        "luogo": "CASTIGLIONE DEL LAGO (PG)",
+        "stato": "La spedizione è In transItaliaoo"
       }
     ]
   },
