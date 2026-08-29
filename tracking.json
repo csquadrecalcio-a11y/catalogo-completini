@@ -8820,5 +8820,113 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0100": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-04",
+    "data_consegna": "2026-07-20 11:42:48",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D72918389",
+    "corriere_2": "Poste Italiane",
+    "tracking_2": "5P65D72918388",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_100_1_29a78496.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-20 13:14:00",
+        "luogo": "CALTAGIRONE",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-20 11:38:00",
+        "luogo": "CALTAGIRONE",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-20 00:46:00",
+        "luogo": "CATANIA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-16 18:37:00",
+        "luogo": "BOLOGNA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-16 14:30:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-15 13:45:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-15 11:28:17",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-13 13:30:48",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-11 07:30:01",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-10 11:26:43",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-08 21:31:54",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:07.09)"
+      },
+      {
+        "data": "2026-07-07 04:49:16",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-06 23:49:16",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-06 23:18:25",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-20 13:14:30",
+        "luogo": "dalla sede operativa di CALTAGIRONE (CT)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-20 11:38:20",
+        "luogo": "CALTAGIRONE (CT)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-20 00:46:27",
+        "luogo": "CATANIA (CT)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
