@@ -11908,23 +11908,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-30 14:02:42",
-        "luogo": "dalla sede operativa di NETTUNO (RM)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-30 09:47:06",
-        "luogo": "NETTUNO (RM)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-30 05:53:23",
-        "luogo": "FIUMICINO (RM)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0165": {
