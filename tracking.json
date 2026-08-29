@@ -430,8 +430,21 @@
   "CSC-2026-0266": {
     "stato": "spedito",
     "data_spedizione": "2026-08-25",
+    "data_consegna": "",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J939757",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_266_1_ddeb1ec5.jpeg"
+    ],
+    "tracking_cina": "",
     "eventi_cina": [
       {
         "data": "2026-08-28 22:35:18",
@@ -488,10 +501,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [],
-    "foto": [
-      "sped_266_1_ddeb1ec5.jpeg"
     ]
   },
   "CSC-2026-0267": {
