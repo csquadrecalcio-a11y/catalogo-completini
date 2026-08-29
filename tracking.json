@@ -561,5 +561,109 @@
       }
     ],
     "eventi_corriere": []
+  },
+  "CSC-2026-0271": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0272": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0274": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0275": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0276": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0277": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0279": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0280": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0281": {
+    "stato": "attesa_pagamento",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0282": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0283": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0285": {
+    "stato": "attesa_pagamento",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0286": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "corriere": "",
+    "tracking": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
   }
 }
