@@ -12353,23 +12353,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-30 12:37:52",
-        "luogo": "dalla sede operativa di BOBBIO (PC)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-30 09:34:03",
-        "luogo": "BOBBIO (PC)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-29 20:00:02",
-        "luogo": "MILANO (MI)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0175": {
