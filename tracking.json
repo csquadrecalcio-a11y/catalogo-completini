@@ -3309,23 +3309,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-24 16:28:29",
-        "luogo": "dalla sede operativa di TERMINI IMERESE (PA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-24 11:58:15",
-        "luogo": "TERMINI IMERESE (PA)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-06-24 10:59:32",
-        "luogo": "TERMINI IMERESE (PA)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0042": {
