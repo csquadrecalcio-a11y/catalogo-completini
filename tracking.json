@@ -4257,23 +4257,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-27 12:51:00",
-        "luogo": "dalla sede operativa di PALAZZO PIGNANO (CR)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-27 09:17:59",
-        "luogo": "PALAZZO PIGNANO (CR)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-06-27 04:28:26",
-        "luogo": "CREMONA (CR)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0052": {
