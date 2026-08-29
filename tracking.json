@@ -2026,23 +2026,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-24 15:27",
-        "luogo": "dalla sede operativa di FOLLONICA (GR)",
-        "stato": "La spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-24 10:26",
-        "luogo": "FOLLONICA (GR)",
-        "stato": "La spedizione è in consegna"
-      },
-      {
-        "data": "2026-06-24 08:32",
-        "luogo": "FOLLONICA (GR)",
-        "stato": "La spedizione è In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0012": {
