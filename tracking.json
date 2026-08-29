@@ -11544,23 +11544,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-29 12:27:06",
-        "luogo": "dalla sede operativa di SABAUDIA (LT)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-29 10:12:45",
-        "luogo": "SABAUDIA (LT)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-29 09:10:47",
-        "luogo": "SABAUDIA (LT)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0134": {
