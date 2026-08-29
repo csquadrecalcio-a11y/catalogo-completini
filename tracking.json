@@ -2067,5 +2067,153 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0013": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-06-12",
+    "data_consegna": "2026-06-23",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2001J684396",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_13_1_4e574111.jpg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-06-23 13:39:00",
+        "luogo": "NEPI",
+        "stato": "Consegnato Case closed"
+      },
+      {
+        "data": "2026-06-23 11:44:00",
+        "luogo": "NEPI",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-06-23 08:00:00",
+        "luogo": "VItaliaERBO",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-22 16:29:00",
+        "luogo": "FARA IN SABINA",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-22 10:45:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-22 10:29:00",
+        "luogo": "FIANO ROMANO",
+        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+      },
+      {
+        "data": "2026-06-22 09:36:31",
+        "luogo": "FCO",
+        "stato": "Delivery to last mile operator"
+      },
+      {
+        "data": "2026-06-22 08:31:31",
+        "luogo": "FCO",
+        "stato": "In transItaliao to last mile operator"
+      },
+      {
+        "data": "2026-06-19 19:16:28",
+        "luogo": "FCO",
+        "stato": "Ready for transItalia to last mile operator"
+      },
+      {
+        "data": "2026-06-19 19:16:05",
+        "luogo": "FCO",
+        "stato": "Arrived at Sdoganamento warehouse"
+      },
+      {
+        "data": "2026-06-19 18:35:03",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-06-19 06:00:00",
+        "luogo": "FCO",
+        "stato": "Terminal Notification of Arrival"
+      },
+      {
+        "data": "2026-06-18 07:07:00",
+        "luogo": "FCO",
+        "stato": "Arrived at Destinated Airport"
+      },
+      {
+        "data": "2026-06-17 12:33:44",
+        "luogo": "",
+        "stato": "预计Volo抵达时间 Expected to arrive（2026-6-19）"
+      },
+      {
+        "data": "2026-06-17 12:33:36",
+        "luogo": "",
+        "stato": "Volo partItaliao Flight departure"
+      },
+      {
+        "data": "2026-06-17 00:57:15",
+        "luogo": "",
+        "stato": "预计Volo启运时间 Expected departure(2026-6-17)"
+      },
+      {
+        "data": "2026-06-17 00:57:10",
+        "luogo": "",
+        "stato": "货物移交航司 Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-06-17 00:57:04",
+        "luogo": "",
+        "stato": "国内Sdoganamento completato Domestic Sdoganamento is completed"
+      },
+      {
+        "data": "2026-06-15 20:24:41",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-06-15 19:53:57",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-06-10 16:00:54",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-06-10 10:00:57",
+        "luogo": "-",
+        "stato": "Ordine registrato, in attesa del pacco"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-06-23 13:39:18",
+        "luogo": "dalla sede operativa di NEPI (VT)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-06-23 11:44:06",
+        "luogo": "Filiale SDA NEPI (VT)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-06-23 08:00:07",
+        "luogo": "VItaliaERBO (VT)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
