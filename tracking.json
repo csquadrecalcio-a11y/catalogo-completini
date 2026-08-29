@@ -8766,23 +8766,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-16 14:27:30",
-        "luogo": "dalla sede operativa di FIUMICINO (RM)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-16 11:56:21",
-        "luogo": "FIUMICINO (RM)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-16 11:07:47",
-        "luogo": "FIUMICINO (RM)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0104": {
