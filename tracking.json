@@ -1516,19 +1516,19 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-06-24 16:22:52",
+        "data": "2026-06-24 16:22",
         "luogo": "dalla sede operativa di QUARTUCCIU (CA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
+        "stato": "La spedizione è stata consegnata"
       },
       {
-        "data": "2026-06-24 14:35:14",
+        "data": "2026-06-24 14:35",
         "luogo": "QUARTUCCIU (CA)",
-        "stato": "In consegna"
+        "stato": "La spedizione è in consegna"
       },
       {
-        "data": "2026-06-24 06:30:36",
+        "data": "2026-06-24 06:30",
         "luogo": "CAGLIARI (CA)",
-        "stato": "In transItaliaoo"
+        "stato": "La spedizione è In transItaliaoo"
       }
     ]
   },
