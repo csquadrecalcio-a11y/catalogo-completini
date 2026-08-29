@@ -12234,5 +12234,123 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0132": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-13",
+    "data_consegna": "2026-07-29 20:19:43",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73015424",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_132_1_a2b83ece.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-29 16:43:00",
+        "luogo": "VOGHERA",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-29 11:42:00",
+        "luogo": "VOGHERA",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-29 07:19:00",
+        "luogo": "PAVIA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-29 00:58:00",
+        "luogo": "PESCHIERA BORROMEO",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 14:58:00",
+        "luogo": "MILANO",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-27 13:45:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-27 10:43:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-23 14:52:58",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-22 10:41:14",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-20 20:34:00",
+        "luogo": "AMSTERDAM",
+        "stato": "ARRIVED AT DESTINATION AIRPORT"
+      },
+      {
+        "data": "2026-07-19 04:03:21",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-18 19:14:26",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-18 19:14:00",
+        "luogo": "HONG KONG",
+        "stato": "DEPART ORIGIN AIRPORT"
+      },
+      {
+        "data": "2026-07-15 03:11:25",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-14 22:11:25",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-14 19:52:13",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-29 16:43:18",
+        "luogo": "dalla sede operativa di VOGHERA (PV)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-29 11:42:22",
+        "luogo": "VOGHERA (PV)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-29 02:03:34",
+        "luogo": "PAVIA (PV)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
