@@ -6822,23 +6822,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-13 13:30:08",
-        "luogo": "dalla sede operativa di TARQUINIA (VT)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-13 09:48:28",
-        "luogo": "TARQUINIA (VT)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-13 07:43:08",
-        "luogo": "VItaliaERBO (VT)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0086": {
