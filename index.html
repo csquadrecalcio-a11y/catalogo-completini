@@ -171,14 +171,17 @@ gtag('config', 'G-SYPQZL1L7W');
   .btn-volt{background:var(--volt);color:#ffffff;box-shadow:0 8px 28px rgba(37,99,235,.2)}
 
   /* ---------- hero ---------- */
-  .hero{position:relative;padding:90px 0 80px;overflow:hidden}
+  .hero{position:relative;padding:90px 0 80px;overflow:hidden;background:var(--bg)}
   .pitch{
     position:absolute;inset:0;pointer-events:none;
-    background:
-      radial-gradient(700px 500px at 78% 30%, rgba(37,99,235,.09), transparent 60%),
-      radial-gradient(600px 500px at 12% 80%, rgba(37,211,102,.08), transparent 60%);
+    background-image:url('hero-bg.jpg');
+    background-size:cover;background-position:center top;
   }
-  .pitch svg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:.06}
+  .pitch::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(135deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.45) 55%,rgba(0,0,0,.65) 100%);
+  }
+  .pitch svg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:.04;z-index:1}
   .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
