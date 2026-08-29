@@ -12284,73 +12284,7 @@
       "sped_190_1_7a1b4820.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": [
-      {
-        "data": "2026-08-06 13:16:00",
-        "luogo": "VIESTE",
-        "stato": "Consegnato BY POST MAN"
-      },
-      {
-        "data": "2026-08-06 11:18:00",
-        "luogo": "VIESTE",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-06 07:46:00",
-        "luogo": "FOGGIA",
-        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
-      },
-      {
-        "data": "2026-08-05 09:56:00",
-        "luogo": "FARA IN SABINA",
-        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
-      },
-      {
-        "data": "2026-08-04 12:53:00",
-        "luogo": "CASTEL SAN GIOVANNI",
-        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
-      },
-      {
-        "data": "2026-08-02 14:28:57",
-        "luogo": "",
-        "stato": "Inviato al magazzino, in attesa di scansione"
-      },
-      {
-        "data": "2026-07-31 02:48:44",
-        "luogo": "",
-        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
-      },
-      {
-        "data": "2026-07-30 19:21:59",
-        "luogo": "",
-        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
-      },
-      {
-        "data": "2026-07-28 23:37:47",
-        "luogo": "",
-        "stato": "Partito dall'aeroporto di origine"
-      },
-      {
-        "data": "2026-07-27 15:52:13",
-        "luogo": "",
-        "stato": "Orario di partenza stimato del volo (Partenza stimata:7.28)"
-      },
-      {
-        "data": "2026-07-26 04:23:21",
-        "luogo": "Cina",
-        "stato": "Uscito dal magazzino, in attesa del volo"
-      },
-      {
-        "data": "2026-07-25 23:23:20",
-        "luogo": "Guangzhou, Cina",
-        "stato": "Pacco in uscita dal centro operativo"
-      },
-      {
-        "data": "2026-07-25 19:49:08",
-        "luogo": "Guangzhou, Cina",
-        "stato": "Arrivato al punto di raccolta"
-      }
-    ]
+    "eventi_cina": []
   },
   "CSC-2026-0192": {
     "stato": "consegnato",
