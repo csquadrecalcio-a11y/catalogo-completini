@@ -14170,7 +14170,73 @@
       "sped_218_1_ce19b08d.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": []
+    "eventi_cina": [
+      {
+        "data": "2026-08-13 14:42:00",
+        "luogo": "Italia",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-08-13 11:52:00",
+        "luogo": "Italia",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-13 09:45:00",
+        "luogo": "Italia",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-12 20:24:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-12 17:52:52",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-08-10 08:07:27",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-08-08 11:58:37",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-08-08 05:40:59",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-08-08 05:40:00",
+        "luogo": "Shanghai, Cina",
+        "stato": "DEPART ORIGIN AIRPORT"
+      },
+      {
+        "data": "2026-08-07 10:02:39",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:8.8)"
+      },
+      {
+        "data": "2026-08-06 03:14:51",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-08-05 22:14:51",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-08-05 22:08:37",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ]
   },
   "CSC-2026-0219": {
     "stato": "consegnato",
