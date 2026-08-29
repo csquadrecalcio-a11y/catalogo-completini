@@ -9787,23 +9787,6 @@
         "luogo": "",
         "stato": "Package&nbsp;details&nbsp;received"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-30 14:48:53",
-        "luogo": "dalla sede operativa di POGGIO A CAIANO (PO)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-30 10:27:48",
-        "luogo": "POGGIO A CAIANO (PO)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-30 00:49:19",
-        "luogo": "SESTO FIORENTINO (FI)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0115": {
