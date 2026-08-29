@@ -11994,23 +11994,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-31 15:29:11",
-        "luogo": "dalla sede operativa di FORLI' (FC)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-31 12:27:26",
-        "luogo": "FORLI' (FC)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-31 11:06:01",
-        "luogo": "FORLI' (FC)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0168": {
