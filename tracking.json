@@ -14997,5 +14997,103 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0201": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-20",
+    "data_consegna": "2026-08-05 17:43:24",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73094557",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_201_1_80c4c943.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-08-05 13:46:00",
+        "luogo": "DOLO",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-08-05 10:41:00",
+        "luogo": "DOLO",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-05 00:39:00",
+        "luogo": "VENEZIA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-31 13:04:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-29 10:17:46",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-26 23:23:32",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-26 10:30:06",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-25 10:00:23",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-24 16:24:36",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata: 07.25)"
+      },
+      {
+        "data": "2026-07-23 04:00:01",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-22 23:00:00",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-21 19:36:48",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-08-05 13:46:52",
+        "luogo": "dalla sede operativa di DOLO (VE)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-08-05 10:41:19",
+        "luogo": "DOLO (VE)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-05 00:39:31",
+        "luogo": "VENEZIA (VE)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
