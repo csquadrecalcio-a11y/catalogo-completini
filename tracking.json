@@ -4696,28 +4696,28 @@
     "eventi_cina": [
       {
         "data": "2026-07-06 12:19:00",
-        "luogo": "Italiaaly",
-        "stato": "The shipment has been successfully ConsegnatoConsegnato"
+        "luogo": "Italy",
+        "stato": "The shipment has been successfully delivereddelivered"
       },
       {
         "data": "2026-07-06 10:41:00",
-        "luogo": "Italiaaly",
+        "luogo": "Italy",
         "stato": "The shipment has been loaded onto the delivery vehiclepickup"
       },
       {
         "data": "2026-07-03 17:43:00",
-        "luogo": "Italiaaly",
-        "stato": "The shipment has arrived in the destination country/destination area. (Homepage / online shipment tracking: https://www.logistics.dhl/Italia-Italia/home/tracking/tracking-express.html?submItalia=1&amp;tracking-id=CB778107145DE)transItalia"
+        "luogo": "Italy",
+        "stato": "The shipment has arrived in the destination country/destination area. (Homepage / online shipment tracking: https://www.logistics.dhl/Italia-Italia/home/tracking/tracking-express.html?submit=1&amp;tracking-id=CB778107145DE)transit"
       },
       {
         "data": "2026-07-03 00:37:00",
         "luogo": "Germany",
-        "stato": "The international shipment has been processed in the export parcel centertransItalia"
+        "stato": "The international shipment has been processed in the export parcel centertransit"
       },
       {
         "data": "2026-07-01 13:17:00",
         "luogo": "Germany",
-        "stato": "The international shipment has been processed in the parcel center of origintransItalia"
+        "stato": "The international shipment has been processed in the parcel center of origintransit"
       },
       {
         "data": "2026-06-29 20:43:42",
@@ -4767,7 +4767,7 @@
       {
         "data": "2026-06-23 04:10:00",
         "luogo": "",
-        "stato": "The instruction data for this shipment have been provided by the sender to DHL electronically.transItalia"
+        "stato": "The instruction data for this shipment have been provided by the sender to DHL electronically.transit"
       }
     ],
     "eventi_corriere": [
@@ -4784,7 +4784,7 @@
       {
         "data": "2026-07-03 17:43:00",
         "luogo": "Italia",
-        "stato": "The shipment has arrived in the destination country/destination area. (Homepage / online shipment tracking: https://www.logistics.dhl/Italia-Italia/home/tracking/tracking-express.html?submItalia=1&tracking-id=CB778107145DE)"
+        "stato": "The shipment has arrived in the destination country/destination area. (Homepage / online shipment tracking: https://www.logistics.dhl/Italia-Italia/home/tracking/tracking-express.html?submit=1&tracking-id=CB778107145DE)"
       },
       {
         "data": "2026-07-03 00:37:00",
