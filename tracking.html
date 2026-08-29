@@ -288,11 +288,12 @@ async function cerca(){
   if(!o){ r.innerHTML = errCard("Ordine non trovato",`Il codice <strong>${cod}</strong> non è nel sistema.<br>Controlla il messaggio WhatsApp o <a href="https://wa.me/447727750265" style="color:var(--volt)">scrivici</a>.`); return; }
   r.innerHTML = buildCard(cod, o);
   // Anima barra progress e line-fill dopo render
-  setTimeout(()=>{
+  // Due rAF: primo = paint iniziale, secondo = applica transform → browser vede diff → transition scatta
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
     const fill = r.querySelector(".progress-fill");
-    if(fill){ const p = fill.dataset.pct/100; fill.style.transform=`scaleX(${p})`; }
-    r.querySelectorAll(".step-line-fill").forEach(el=>{ el.style.transform="scaleX(1)"; });
-  }, 300);
+    if(fill){ void fill.getBoundingClientRect(); const p = fill.dataset.pct/100; fill.style.transform=`scaleX(${p})`; }
+    r.querySelectorAll(".step-line-fill").forEach(el=>{ void el.getBoundingClientRect(); el.style.transform="scaleX(1)"; });
+  }));
 }
 
 function errCard(t,m){
