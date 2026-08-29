@@ -2592,19 +2592,19 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-06-23 12:23:44",
+        "data": "2026-06-23 12:23",
         "luogo": "dalla sede operativa di NAPOLI (NA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
+        "stato": "La spedizione è stata consegnata"
       },
       {
-        "data": "2026-06-23 08:56:49",
-        "luogo": "Filiale SDA NAPOLI (NA)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-06-23 07:45:33",
+        "data": "2026-06-23 08:56",
         "luogo": "NAPOLI (NA)",
-        "stato": "In transItaliaoo"
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-06-23 07:45",
+        "luogo": "NAPOLI (NA)",
+        "stato": "La spedizione è In transItaliaoo"
       }
     ]
   },
