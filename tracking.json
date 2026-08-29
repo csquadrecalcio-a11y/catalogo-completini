@@ -2419,23 +2419,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-23 12:23",
-        "luogo": "dalla sede operativa di NAPOLI (NA)",
-        "stato": "La spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-23 08:56",
-        "luogo": "NAPOLI (NA)",
-        "stato": "La spedizione è in consegna"
-      },
-      {
-        "data": "2026-06-23 07:45",
-        "luogo": "NAPOLI (NA)",
-        "stato": "La spedizione è In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0036": {
