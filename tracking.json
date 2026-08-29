@@ -12064,73 +12064,7 @@
       "sped_224_1_60a18c90.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": [
-      {
-        "data": "2026-08-14 14:31:00",
-        "luogo": "Italia",
-        "stato": "Consegnato dal postino"
-      },
-      {
-        "data": "2026-08-14 13:25:00",
-        "luogo": "Italia",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-14 08:31:00",
-        "luogo": "Italia",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-08-12 20:24:00",
-        "luogo": "Castel san giovanni",
-        "stato": "Prima scansione Poste Italiane'S LOGISTIC NETWORK"
-      },
-      {
-        "data": "2026-08-12 17:52:52",
-        "luogo": "",
-        "stato": "Inviato al magazzino, in attesa di scansione"
-      },
-      {
-        "data": "2026-08-10 08:07:27",
-        "luogo": "",
-        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
-      },
-      {
-        "data": "2026-08-08 11:58:37",
-        "luogo": "",
-        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
-      },
-      {
-        "data": "2026-08-08 05:40:59",
-        "luogo": "",
-        "stato": "Partito dall'aeroporto di origine"
-      },
-      {
-        "data": "2026-08-08 05:40:00",
-        "luogo": "Shanghai, Cina, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Partito dall'aeroporto di origine"
-      },
-      {
-        "data": "2026-08-07 10:02:39",
-        "luogo": "",
-        "stato": "Orario di partenza stimato del volo (Partenza stimata:8.8)"
-      },
-      {
-        "data": "2026-08-06 03:14:44",
-        "luogo": "Cina",
-        "stato": "Uscito dal magazzino, in attesa del volo"
-      },
-      {
-        "data": "2026-08-05 22:14:43",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Pacco in uscita dal centro operativo"
-      },
-      {
-        "data": "2026-08-05 22:08:15",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Arrivato al punto di raccolta"
-      }
-    ]
+    "eventi_cina": []
   },
   "CSC-2026-0225": {
     "stato": "consegnato",
