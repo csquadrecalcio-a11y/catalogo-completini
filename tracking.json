@@ -9691,23 +9691,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-29 15:21:50",
-        "luogo": "dalla sede operativa di SALERNO (SA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-29 11:56:00",
-        "luogo": "SALERNO (SA)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-29 07:33:55",
-        "luogo": "SALERNO (SA)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0114": {
