@@ -12692,23 +12692,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-08-07 12:57:17",
-        "luogo": "dalla sede operativa di CARATE BRIANZA (MB)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-08-07 10:45:24",
-        "luogo": "CARATE BRIANZA (MB)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-07 00:36:11",
-        "luogo": "MONZA (MB)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0187": {
