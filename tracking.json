@@ -11448,23 +11448,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-29 16:43:18",
-        "luogo": "dalla sede operativa di VOGHERA (PV)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-29 11:42:22",
-        "luogo": "VOGHERA (PV)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-29 02:03:34",
-        "luogo": "PAVIA (PV)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0133": {
