@@ -8588,23 +8588,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-17 13:02:01",
-        "luogo": "dalla sede operativa di VIMERCATE (MB)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-17 10:13:06",
-        "luogo": "VIMERCATE (MB)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-17 02:42:28",
-        "luogo": "MONZA (MB)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0102": {
