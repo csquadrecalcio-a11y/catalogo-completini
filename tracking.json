@@ -9231,23 +9231,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-31 11:32:46",
-        "luogo": "dalla sede operativa di MONCALIERI (TO)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-31 10:56:42",
-        "luogo": "MONCALIERI (TO)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-30 09:01:32",
-        "luogo": "MONCALIERI (TO)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0109": {
