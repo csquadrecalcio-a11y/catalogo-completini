@@ -5038,7 +5038,7 @@
       {
         "data": "2026-07-06 12:43:00",
         "luogo": "Falconara marittima",
-        "stato": "Consegnato Case closed"
+        "stato": "Consegnato"
       },
       {
         "data": "2026-07-06 08:46:00",
@@ -5073,7 +5073,7 @@
       {
         "data": "2026-07-02 07:49:48",
         "luogo": "FCO",
-        "stato": "In transito to last mile operator"
+        "stato": "In transito verso il corriere locale"
       },
       {
         "data": "2026-07-01 11:03:56",
@@ -5083,7 +5083,7 @@
       {
         "data": "2026-07-01 11:03:31",
         "luogo": "FCO",
-        "stato": "Arrived at Sdoganamento warehouse"
+        "stato": "Arrivato al deposito doganale"
       },
       {
         "data": "2026-06-30 18:55:02",
@@ -5093,7 +5093,7 @@
       {
         "data": "2026-06-30 12:00:00",
         "luogo": "FCO",
-        "stato": "Terminal Notification of Arrival"
+        "stato": "Avviso di arrivo al terminal"
       },
       {
         "data": "2026-06-28 13:48:00",
@@ -5103,27 +5103,27 @@
       {
         "data": "2026-06-27 17:18:11",
         "luogo": "",
-        "stato": "预计Volo抵达时间 Expected to arrive（2026-6-28）"
+        "stato": "Arrivo previsto（2026-6-28）"
       },
       {
         "data": "2026-06-27 17:17:59",
         "luogo": "",
-        "stato": "Volo partito Volo partito"
+        "stato": "Volo partito"
       },
       {
         "data": "2026-06-26 11:22:38",
         "luogo": "",
-        "stato": "预计Volo启运时间 Expected departure（2026-6-27）"
+        "stato": "Partenza prevista（2026-6-27）"
       },
       {
         "data": "2026-06-26 11:22:35",
         "luogo": "",
-        "stato": "货物移交航司 Merce consegnata alla compagnia aerea"
+        "stato": "Merce consegnata alla compagnia aerea"
       },
       {
         "data": "2026-06-26 11:22:31",
         "luogo": "",
-        "stato": "国内Sdoganamento completato Domestic Sdoganamento is completed"
+        "stato": "Sdoganamento completato"
       },
       {
         "data": "2026-06-23 00:14:44",
@@ -5138,11 +5138,11 @@
       {
         "data": "2026-06-21 13:16:09",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-06-21 07:16:12",
-        "luogo": "-",
+        "luogo": "",
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ]
