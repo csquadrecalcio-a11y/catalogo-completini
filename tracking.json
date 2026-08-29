@@ -9054,23 +9054,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-28 13:35:26",
-        "luogo": "dalla sede operativa di RONCIGLIONE (VT)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-28 12:05:33",
-        "luogo": "RONCIGLIONE (VT)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-24 05:13:38",
-        "luogo": "VItaliaERBO (VT)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0107": {
