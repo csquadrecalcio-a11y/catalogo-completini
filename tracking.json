@@ -12679,17 +12679,17 @@
       {
         "data": "2026-08-24 02:41:00",
         "luogo": "Roma",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-08-24 01:00:00",
         "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane's logistic network"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-08-23 19:51:00",
         "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane's logistic network"
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-08-21 13:37:15",
@@ -12743,12 +12743,12 @@
       },
       {
         "data": "2026-08-13 05:31:33",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-13 04:13:34",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
+        "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       },
       {
