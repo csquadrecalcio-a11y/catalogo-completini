@@ -3833,23 +3833,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-26 16:14:45",
-        "luogo": "dalla sede operativa di ABBADIA SAN SALVATORE (SI)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-26 12:39:13",
-        "luogo": "ABBADIA SAN SALVATORE (SI)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-06-26 11:00:07",
-        "luogo": "ABBADIA SAN SALVATORE (SI)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0047": {
