@@ -5318,23 +5318,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-04 12:45:28",
-        "luogo": "dalla sede operativa di ZOGNO (BG)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-04 10:23:10",
-        "luogo": "ZOGNO (BG)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-04 07:14:51",
-        "luogo": "BERGAMO (BG)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0062": {
