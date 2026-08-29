@@ -1370,19 +1370,19 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-06-23 12:50:00",
+        "data": "2026-06-23 12:50",
         "luogo": "dalla sede operativa di TItaliaO (PZ)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
+        "stato": "La spedizione è stata consegnata"
       },
       {
-        "data": "2026-06-23 07:30:00",
+        "data": "2026-06-23 07:30",
         "luogo": "TItaliaO (PZ)",
-        "stato": "In consegna"
+        "stato": "La spedizione è in consegna"
       },
       {
-        "data": "2026-06-23 07:04:00",
+        "data": "2026-06-23 07:04",
         "luogo": "TItaliaO (PZ)",
-        "stato": "In transItaliaoo"
+        "stato": "La spedizione è In transItaliaoo"
       }
     ]
   },
