@@ -8227,23 +8227,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-15 16:10:01",
-        "luogo": "dalla sede operativa di DOLO (VE)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-15 10:55:37",
-        "luogo": "DOLO (VE)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-15 03:54:15",
-        "luogo": "VENEZIA (VE)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0097": {
