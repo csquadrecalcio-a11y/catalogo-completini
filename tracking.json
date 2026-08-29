@@ -14894,5 +14894,108 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0200": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-20",
+    "data_consegna": "2026-08-04 19:37:57",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73094551",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_200_1_8bcefa6e.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-08-04 17:40:00",
+        "luogo": "Italia",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-08-04 11:56:00",
+        "luogo": "Italia",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-04 06:42:00",
+        "luogo": "Italia",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-03 15:17:00",
+        "luogo": "MADDALONI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-31 13:03:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-29 10:17:46",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-26 23:23:32",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-26 10:30:06",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-25 10:00:23",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-24 16:24:36",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata: 07.25)"
+      },
+      {
+        "data": "2026-07-23 03:58:16",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-22 22:58:16",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-21 19:36:33",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-08-04 17:40:35",
+        "luogo": "dalla sede operativa di SALERNO (SA)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-08-04 11:56:18",
+        "luogo": "SALERNO (SA)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-04 06:42:37",
+        "luogo": "SALERNO (SA)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
