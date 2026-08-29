@@ -8091,23 +8091,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-13 14:54:02",
-        "luogo": "dalla sede operativa di CATANIA (CT)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-13 12:23:46",
-        "luogo": "CATANIA (CT)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-13 04:56:55",
-        "luogo": "CATANIA (CT)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0096": {
