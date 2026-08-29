@@ -5736,33 +5736,33 @@
     "eventi_cina": [
       {
         "data": "2026-07-06 12:43:00",
-        "luogo": "FALCONARA MARItaliaTIMA",
+        "luogo": "FALCONARA MARITTIMA",
         "stato": "Consegnato Case closed"
       },
       {
         "data": "2026-07-06 08:46:00",
-        "luogo": "FALCONARA MARItaliaTIMA",
+        "luogo": "FALCONARA MARITTIMA",
         "stato": "In consegna"
       },
       {
         "data": "2026-07-04 04:29:00",
         "luogo": "ANCONA",
-        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+        "stato": "In transito nella rete di Poste Italiane&rsquo;s logistic network"
       },
       {
         "data": "2026-07-03 23:33:00",
         "luogo": "BOLOGNA",
-        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+        "stato": "In transito nella rete di Poste Italiane&rsquo;s logistic network"
       },
       {
         "data": "2026-07-02 16:54:00",
         "luogo": "FIANO ROMANO",
-        "stato": "In transItaliaoo nella rete di Poste Italiaaliane&rsquo;s logistic network"
+        "stato": "In transito nella rete di Poste Italiane&rsquo;s logistic network"
       },
       {
         "data": "2026-07-02 16:07:00",
         "luogo": "FIANO ROMANO",
-        "stato": "Prima scansione Poste Italiaaliane&rsquo;s logistic network"
+        "stato": "Prima scansione Poste Italiane&rsquo;s logistic network"
       },
       {
         "data": "2026-07-02 08:35:48",
@@ -5772,12 +5772,12 @@
       {
         "data": "2026-07-02 07:49:48",
         "luogo": "FCO",
-        "stato": "In transItaliao to last mile operator"
+        "stato": "In transito to last mile operator"
       },
       {
         "data": "2026-07-01 11:03:56",
         "luogo": "FCO",
-        "stato": "Ready for transItalia to last mile operator"
+        "stato": "Ready for transit to last mile operator"
       },
       {
         "data": "2026-07-01 11:03:31",
@@ -5807,7 +5807,7 @@
       {
         "data": "2026-06-27 17:17:59",
         "luogo": "",
-        "stato": "Volo partItaliao Flight departure"
+        "stato": "Volo partito Flight departure"
       },
       {
         "data": "2026-06-26 11:22:38",
