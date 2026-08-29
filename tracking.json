@@ -13588,5 +13588,103 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0175": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-15",
+    "data_consegna": "2026-07-31 17:41:50",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73039314",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_175_1_c9e6912e.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-31 12:29:00",
+        "luogo": "ROMA",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-31 10:58:00",
+        "luogo": "ROMA",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-31 02:37:00",
+        "luogo": "ROMA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-30 11:44:00",
+        "luogo": "ROMA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 11:20:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-26 16:50:48",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-23 11:42:40",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-21 05:03:15",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-20 11:00:16",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-18 03:43:51",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-17 22:43:51",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-17 19:38:33",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-31 12:29:15",
+        "luogo": "dalla sede operativa di ROMA (RM)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-31 10:58:37",
+        "luogo": "ROMA (RM)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-31 02:37:49",
+        "luogo": "ROMA (RM)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
