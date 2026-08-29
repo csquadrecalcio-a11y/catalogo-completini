@@ -12244,7 +12244,73 @@
       "sped_187_1_9241530d.jpg"
     ],
     "tracking_cina": "",
-    "eventi_cina": []
+    "eventi_cina": [
+      {
+        "data": "2026-08-06 16:33:00",
+        "luogo": "TREBISACCE",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-08-06 13:55:00",
+        "luogo": "TREBISACCE",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-08-06 02:28:00",
+        "luogo": "LAMEZIA TERME",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-08-04 09:36:00",
+        "luogo": "FARA IN SABINA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-31 15:44:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-29 10:17:46",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-26 23:23:32",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-26 10:30:06",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-25 10:00:23",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-24 16:24:36",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata: 07.25)"
+      },
+      {
+        "data": "2026-07-23 02:51:02",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-22 21:51:02",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-21 19:37:35",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ]
   },
   "CSC-2026-0190": {
     "stato": "consegnato",
