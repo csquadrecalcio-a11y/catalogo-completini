@@ -2923,23 +2923,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-24 17:59",
-        "luogo": "dalla sede operativa di CESANO MADERNO (MB)",
-        "stato": "La spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-24 17:50",
-        "luogo": "CESANO MADERNO (MB)",
-        "stato": "La spedizione è in consegna"
-      },
-      {
-        "data": "2026-06-24 00:41",
-        "luogo": "MONZA (MB)",
-        "stato": "La spedizione è In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0040": {
