@@ -3347,38 +3347,38 @@
     "eventi_cina": [
       {
         "data": "2026-07-02 13:07:00",
-        "luogo": "Italiaaly",
-        "stato": "The shipment has been successfully ConsegnatoConsegnato"
+        "luogo": "Italy",
+        "stato": "The shipment has been successfully delivereddelivered"
       },
       {
         "data": "2026-07-02 09:00:00",
-        "luogo": "Italiaaly",
-        "stato": "The shipment is being prepared for delivery in the delivery depottransItalia"
+        "luogo": "Italy",
+        "stato": "The shipment is being prepared for delivery in the delivery depottransit"
       },
       {
         "data": "2026-06-30 20:33:00",
-        "luogo": "Italiaaly",
-        "stato": "The shipment has been processed in the parcel centertransItalia"
+        "luogo": "Italy",
+        "stato": "The shipment has been processed in the parcel centertransit"
       },
       {
         "data": "2026-06-30 20:32:00",
-        "luogo": "Italiaaly",
-        "stato": "The shipment has arrived at the parcel centertransItalia"
+        "luogo": "Italy",
+        "stato": "The shipment has arrived at the parcel centertransit"
       },
       {
         "data": "2026-06-30 03:20:00",
         "luogo": "Germany",
-        "stato": "The shipment will be transported to the destination country/destination area and, from there, handed over to the delivery organization.transItalia"
+        "stato": "The shipment will be transported to the destination country/destination area and, from there, handed over to the delivery organization.transit"
       },
       {
         "data": "2026-06-30 03:18:00",
         "luogo": "Germany",
-        "stato": "The international shipment has been processed in the export parcel centertransItalia"
+        "stato": "The international shipment has been processed in the export parcel centertransit"
       },
       {
         "data": "2026-06-29 19:02:00",
         "luogo": "Germany",
-        "stato": "The international shipment has been processed in the parcel center of origintransItalia"
+        "stato": "The international shipment has been processed in the parcel center of origintransit"
       },
       {
         "data": "2026-06-23 21:19:53",
@@ -3423,7 +3423,7 @@
       {
         "data": "2026-06-16 07:10:00",
         "luogo": "",
-        "stato": "The instruction data for this shipment have been provided by the sender to DHL electronically.transItalia"
+        "stato": "The instruction data for this shipment have been provided by the sender to DHL electronically.transit"
       }
     ],
     "eventi_corriere": [
@@ -3440,7 +3440,7 @@
       {
         "data": "2026-07-01 08:17:00",
         "luogo": "Bari (BA)",
-        "stato": "In transItaliaoo"
+        "stato": "In transito"
       },
       {
         "data": "2026-06-29 19:02:00",
