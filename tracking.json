@@ -13735,7 +13735,7 @@
       {
         "data": "2026-08-27 11:02:00",
         "luogo": "",
-        "stato": "Consegnato Case closed"
+        "stato": "Consegnato"
       },
       {
         "data": "2026-08-27 09:12:00",
@@ -13830,7 +13830,7 @@
       {
         "data": "2026-08-15 02:39:34",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ]
   },
