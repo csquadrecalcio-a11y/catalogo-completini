@@ -4318,7 +4318,7 @@
       {
         "data": "2026-07-04 10:16:45",
         "luogo": "",
-        "stato": "Forwarding to PackstationtransItalia"
+        "stato": "Forwarding to Packstationtransit"
       },
       {
         "data": "2026-07-04 08:49:41",
@@ -4328,12 +4328,12 @@
       {
         "data": "2026-07-04 02:36:19",
         "luogo": "",
-        "stato": "The shipment arrived in the region of recipient and will be transported to the delivery base in the next step.transItalia"
+        "stato": "The shipment arrived in the region of recipient and will be transported to the delivery base in the next step.transit"
       },
       {
         "data": "2026-07-03 19:01:59",
         "luogo": "",
-        "stato": "The shipment has been processed in the parcel center of origintransItalia"
+        "stato": "The shipment has been processed in the parcel center of origintransit"
       },
       {
         "data": "2026-06-25 21:56:41",
@@ -4378,19 +4378,19 @@
       {
         "data": "2026-06-15 14:44:58",
         "luogo": "",
-        "stato": "The shipment is In transItaliao to DHLtransItalia"
+        "stato": "The shipment is In transito to DHLtransit"
       },
       {
         "data": "2026-06-15 01:02:36",
         "luogo": "",
-        "stato": "The instruction data for this shipment have been provided by the sender to DHL electronicallytransItalia"
+        "stato": "The instruction data for this shipment have been provided by the sender to DHL electronicallytransit"
       }
     ],
     "eventi_corriere": [
       {
         "data": "2026-07-08 11:26:00",
         "luogo": "DE",
-        "stato": "The recipient has RItaliairato dal magazzino the shipment from the Packstation."
+        "stato": "The recipient has Ritirato dal magazzino the shipment from the Packstation."
       },
       {
         "data": "2026-07-04 15:01:00",
