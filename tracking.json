@@ -4483,5 +4483,138 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0055": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-06-15",
+    "data_consegna": "2026-07-08 12:47:39",
+    "corriere": "DHL",
+    "tracking": "00340434756696731192",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_55_1_94629a8a.jpg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-08 11:26:49",
+        "luogo": "",
+        "stato": "Delivery successful.Consegnato"
+      },
+      {
+        "data": "2026-07-04 15:01:39",
+        "luogo": "",
+        "stato": "Shipment ready for collection from PACKSTATION.pickup"
+      },
+      {
+        "data": "2026-07-04 10:16:45",
+        "luogo": "",
+        "stato": "Forwarding to PackstationtransItalia"
+      },
+      {
+        "data": "2026-07-04 08:49:41",
+        "luogo": "",
+        "stato": "The shipment has been loaded onto the delivery vehicle. Delivery is expected to take place today.pickup"
+      },
+      {
+        "data": "2026-07-04 02:36:19",
+        "luogo": "",
+        "stato": "The shipment arrived in the region of recipient and will be transported to the delivery base in the next step.transItalia"
+      },
+      {
+        "data": "2026-07-03 19:01:59",
+        "luogo": "",
+        "stato": "The shipment has been processed in the parcel center of origintransItalia"
+      },
+      {
+        "data": "2026-06-25 21:56:41",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-06-25 13:02:32",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-06-21 22:49:30",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-06-21 08:42:27",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-06-20 17:23:41",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:6.21)"
+      },
+      {
+        "data": "2026-06-19 19:42:10",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-06-18 19:42:09",
+        "luogo": "Shenzhen, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-06-17 22:48:34",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-06-15 14:44:58",
+        "luogo": "",
+        "stato": "The shipment is In transItaliao to DHLtransItalia"
+      },
+      {
+        "data": "2026-06-15 01:02:36",
+        "luogo": "",
+        "stato": "The instruction data for this shipment have been provided by the sender to DHL electronicallytransItalia"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-08 11:26:00",
+        "luogo": "DE",
+        "stato": "The recipient has RItaliairato dal magazzino the shipment from the Packstation."
+      },
+      {
+        "data": "2026-07-04 15:01:00",
+        "luogo": "DE",
+        "stato": "Shipment ready for collection from PACKSTATION."
+      },
+      {
+        "data": "2026-07-04 10:16:00",
+        "luogo": "DE",
+        "stato": "The shipment could not be Consegnato and is being forwarded to a Packstation. The recipient has been notified."
+      },
+      {
+        "data": "2026-07-04 08:49:00",
+        "luogo": "",
+        "stato": "The shipment has been loaded onto the delivery vehicle. Delivery is expected to take place today."
+      },
+      {
+        "data": "2026-07-04 02:36:00",
+        "luogo": "DE",
+        "stato": "The shipment arrived in the region of recipient and will be transported to the delivery base in the next step."
+      },
+      {
+        "data": "2026-07-03 19:01:00",
+        "luogo": "DE",
+        "stato": "The shipment has been processed in the parcel center of origin"
+      }
+    ]
   }
 }
