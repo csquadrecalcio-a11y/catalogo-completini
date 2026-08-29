@@ -13154,23 +13154,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-08-06 10:18:11",
-        "luogo": "dalla sede operativa di PALERMO (PA)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-08-06 08:58:06",
-        "luogo": "PALERMO (PA)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-08-06 07:41:02",
-        "luogo": "PALERMO (PA)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0198": {
