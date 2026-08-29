@@ -11723,5 +11723,113 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0127": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-13",
+    "data_consegna": "2026-07-30 16:14:50",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73000801",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_127_1_5bf90cb3.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-30 15:51:00",
+        "luogo": "Italia",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-30 12:47:00",
+        "luogo": "Italia",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-30 06:53:00",
+        "luogo": "Italia",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 16:39:00",
+        "luogo": "BOLOGNA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 14:45:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 11:42:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-26 16:50:48",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-23 11:03:43",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-20 01:52:47",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-19 07:10:30",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-18 14:01:30",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata: 07.19)"
+      },
+      {
+        "data": "2026-07-15 01:41:03",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-14 20:41:03",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-14 19:52:47",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-30 15:51:11",
+        "luogo": "dalla sede operativa di ELMAS (CA)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-30 12:47:13",
+        "luogo": "ELMAS (CA)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-30 06:53:18",
+        "luogo": "ELMAS (CA)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
