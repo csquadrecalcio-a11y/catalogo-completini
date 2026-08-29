@@ -9878,23 +9878,6 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-29 15:32:04",
-        "luogo": "dalla sede operativa di MATERA (MT)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-29 11:47:15",
-        "luogo": "MATERA (MT)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-29 04:59:54",
-        "luogo": "MATERA (MT)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0116": {
