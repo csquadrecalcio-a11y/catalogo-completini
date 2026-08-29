@@ -4803,23 +4803,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-29 12:53:38",
-        "luogo": "dalla sede operativa di MILANO (MI)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-29 11:46:36",
-        "luogo": "MILANO (MI)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-06-27 06:24:42",
-        "luogo": "MILANO (MI)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0058": {
