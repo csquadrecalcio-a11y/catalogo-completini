@@ -7309,7 +7309,73 @@
       "sped_101_1_8915bf68.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": []
+    "eventi_cina": [
+      {
+        "data": "2026-07-17 13:02:00",
+        "luogo": "Vimercate",
+        "stato": "Consegnato dal postino"
+      },
+      {
+        "data": "2026-07-17 10:13:00",
+        "luogo": "Vimercate",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-17 07:04:00",
+        "luogo": "Monza",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-07-16 23:56:00",
+        "luogo": "Milano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-07-15 13:44:00",
+        "luogo": "Castel san giovanni",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-07-15 11:28:17",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-13 13:30:48",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-11 07:30:01",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-10 11:26:43",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-08 21:31:54",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:07.09)"
+      },
+      {
+        "data": "2026-07-07 04:22:14",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-06 23:22:14",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-06 23:17:50",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ]
   },
   "CSC-2026-0102": {
     "stato": "consegnato",
