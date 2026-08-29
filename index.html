@@ -1800,15 +1800,6 @@ const HERO_PICKS = [
   { id:"1p5PVYSB5muuEin7mLF01BklbeYjxpsxY", name:"Kit Milan Home 26/27" },
 ];
 (async ()=>{
-  const stack = document.getElementById("heroShowcase");
-  stack.classList.remove("skeleton");
-  stack.innerHTML = HERO_PICKS.map((pic,i)=>`
-    <div class="showcase-slide${i===0 ? " on":""}">
-      <img src="${fullUrl(pic.id)}" alt="${pic.name}">
-      <span class="tag">${pic.name}</span>
-    </div>`).join("") +
-    `<div class="showcase-dots">${HERO_PICKS.map((_,i)=>`<span class="${i===0?"on":""}"></span>`).join("")}</div>`;
-  initHeroShowcase(HERO_PICKS.length);
   try{
     const data = await loadCategory(CATALOG[0]);
     document.getElementById("marquee").innerHTML = (()=>{
