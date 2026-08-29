@@ -11839,68 +11839,7 @@
       "sped_173_1_44234e6a.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": [
-      {
-        "data": "2026-07-30 12:37:00",
-        "luogo": "BOBBIO",
-        "stato": "Consegnato BY POST MAN"
-      },
-      {
-        "data": "2026-07-30 09:34:00",
-        "luogo": "BOBBIO",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-29 20:00:00",
-        "luogo": "MILANO",
-        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
-      },
-      {
-        "data": "2026-07-29 13:30:00",
-        "luogo": "CASTEL SAN GIOVANNI",
-        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
-      },
-      {
-        "data": "2026-07-28 11:24:00",
-        "luogo": "CASTEL SAN GIOVANNI",
-        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
-      },
-      {
-        "data": "2026-07-26 16:50:48",
-        "luogo": "",
-        "stato": "Inviato al magazzino, in attesa di scansione"
-      },
-      {
-        "data": "2026-07-23 11:42:40",
-        "luogo": "",
-        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
-      },
-      {
-        "data": "2026-07-21 05:03:15",
-        "luogo": "",
-        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
-      },
-      {
-        "data": "2026-07-20 11:00:16",
-        "luogo": "",
-        "stato": "Partito dall'aeroporto di origine"
-      },
-      {
-        "data": "2026-07-18 04:22:01",
-        "luogo": "Cina",
-        "stato": "Uscito dal magazzino, in attesa del volo"
-      },
-      {
-        "data": "2026-07-17 23:22:00",
-        "luogo": "Guangzhou, Cina",
-        "stato": "Pacco in uscita dal centro operativo"
-      },
-      {
-        "data": "2026-07-17 19:38:09",
-        "luogo": "Guangzhou, Cina",
-        "stato": "Arrivato al punto di raccolta"
-      }
-    ]
+    "eventi_cina": []
   },
   "CSC-2026-0175": {
     "stato": "consegnato",
