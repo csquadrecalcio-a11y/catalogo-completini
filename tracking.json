@@ -2873,19 +2873,19 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-06-25 16:23:15",
+        "data": "2026-06-25 16:23",
         "luogo": "dalla sede operativa di MAZARA DEL VALLO (TP)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
+        "stato": "La spedizione è stata consegnata"
       },
       {
-        "data": "2026-06-25 13:58:40",
+        "data": "2026-06-25 13:58",
         "luogo": "MAZARA DEL VALLO (TP)",
-        "stato": "In consegna"
+        "stato": "La spedizione è in consegna"
       },
       {
-        "data": "2026-06-24 14:29:28",
+        "data": "2026-06-24 14:29",
         "luogo": "PALERMO (PA)",
-        "stato": "In transItaliaoo"
+        "stato": "La spedizione è In transItaliaoo"
       }
     ]
   },
