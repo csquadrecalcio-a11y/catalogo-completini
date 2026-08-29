@@ -7341,78 +7341,7 @@
       "sped_104_1_ebf3faab.jpeg"
     ],
     "tracking_cina": "",
-    "eventi_cina": [
-      {
-        "data": "2026-07-24 16:48:00",
-        "luogo": "Vasto",
-        "stato": "Consegnato dal postino"
-      },
-      {
-        "data": "2026-07-24 12:07:00",
-        "luogo": "Vasto",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-23 15:06:00",
-        "luogo": "Italia",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-07-22 18:44:00",
-        "luogo": "Bologna",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-07-22 11:30:00",
-        "luogo": "Castel san giovanni",
-        "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-07-21 16:46:00",
-        "luogo": "Castel san giovanni",
-        "stato": "Prima scansione Poste Italiane'S LOGISTIC NETWORK"
-      },
-      {
-        "data": "2026-07-19 19:40:25",
-        "luogo": "",
-        "stato": "Inviato al magazzino, in attesa di scansione"
-      },
-      {
-        "data": "2026-07-16 02:01:55",
-        "luogo": "",
-        "stato": "Sdoganamento all'importazione completato, awaiting extraction"
-      },
-      {
-        "data": "2026-07-13 17:30:05",
-        "luogo": "",
-        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
-      },
-      {
-        "data": "2026-07-12 04:20:34",
-        "luogo": "",
-        "stato": "Partito dall'aeroporto di origine"
-      },
-      {
-        "data": "2026-07-11 15:16:50",
-        "luogo": "",
-        "stato": "Orario di partenza stimato del volo (Partenza stimata:7.12)"
-      },
-      {
-        "data": "2026-07-09 01:17:35",
-        "luogo": "Cina",
-        "stato": "Uscito dal magazzino, in attesa del volo"
-      },
-      {
-        "data": "2026-07-08 20:17:35",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Pacco in uscita dal centro operativo"
-      },
-      {
-        "data": "2026-07-07 21:55:50",
-        "luogo": "Guangzhou, Cina, Cina, Cina, Cina, Cina, Cina",
-        "stato": "Arrivato al punto di raccolta"
-      }
-    ]
+    "eventi_cina": []
   },
   "CSC-2026-0105": {
     "stato": "consegnato",
