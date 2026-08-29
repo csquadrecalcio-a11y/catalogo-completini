@@ -13078,5 +13078,103 @@
         "stato": "In transItaliaoo"
       }
     ]
+  },
+  "CSC-2026-0168": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-07-14",
+    "data_consegna": "2026-07-30 14:46:51",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73039232",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_168_1_977e7b4a.jpeg"
+    ],
+    "tracking_cina": "",
+    "eventi_cina": [
+      {
+        "data": "2026-07-30 12:34:00",
+        "luogo": "SAN GIOVANNI ROTONDO",
+        "stato": "Consegnato BY POST MAN"
+      },
+      {
+        "data": "2026-07-30 09:55:00",
+        "luogo": "SAN GIOVANNI ROTONDO",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-30 08:18:00",
+        "luogo": "FOGGIA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-29 14:59:00",
+        "luogo": "FARA IN SABINA",
+        "stato": "TRANSItalia ALONG POSTE ItaliaALIANE&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-28 11:31:00",
+        "luogo": "CASTEL SAN GIOVANNI",
+        "stato": "Prima scansione Poste Italiaaliane&rsquo;S LOGISTIC NETWORK"
+      },
+      {
+        "data": "2026-07-26 16:50:48",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-07-23 11:42:40",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-07-21 05:03:15",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-07-20 11:00:16",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-07-18 02:38:23",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-07-17 21:38:23",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-07-17 19:37:39",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-07-30 12:34:58",
+        "luogo": "dalla sede operativa di SAN GIOVANNI ROTONDO (FG)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-07-30 09:55:19",
+        "luogo": "SAN GIOVANNI ROTONDO (FG)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-07-30 04:30:30",
+        "luogo": "FOGGIA (FG)",
+        "stato": "In transItaliaoo"
+      }
+    ]
   }
 }
