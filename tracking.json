@@ -4120,24 +4120,7 @@
       "sped_49_1_62a320c6.jpg"
     ],
     "tracking_cina": "",
-    "eventi_cina": [],
-    "eventi_corriere": [
-      {
-        "data": "2026-07-02 13:30:36",
-        "luogo": "dalla sede operativa di FASANO (BR)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-07-02 11:36:55",
-        "luogo": "FASANO (BR)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-07-02 07:06:24",
-        "luogo": "OSTUNI (BR)",
-        "stato": "In transItaliaoo"
-      }
-    ]
+    "eventi_cina": []
   },
   "CSC-2026-0050": {
     "stato": "consegnato",
