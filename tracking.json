@@ -4388,23 +4388,6 @@
         "luogo": "-",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ],
-    "eventi_corriere": [
-      {
-        "data": "2026-06-23 13:29:07",
-        "luogo": "dalla sede operativa di BENEVENTO (BN)",
-        "stato": "Consegnata, la spedizione è stata consegnata"
-      },
-      {
-        "data": "2026-06-23 11:11:00",
-        "luogo": "Filiale SDA BENEVENTO (BN)",
-        "stato": "In consegna"
-      },
-      {
-        "data": "2026-06-23 05:34:47",
-        "luogo": "BENEVENTO (BN)",
-        "stato": "In transItaliaoo"
-      }
     ]
   },
   "CSC-2026-0053": {
