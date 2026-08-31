@@ -1,21 +1,26 @@
 // Service Worker — Completini Squadre Calcio 2.0
-const CACHE = 'calcio-v3';
-const INDEX = '/catalogo-completini/index.html';
+// Fa due cose: (1) il sito funziona anche senza rete e si installa come app,
+// (2) riceve le notifiche del tracking e le mostra sul telefono del cliente.
+const CACHE = 'calcio-v4';
+const INDEX = '/index.html';
+// Percorsi dalla RADICE del dominio: prima erano /catalogo-completini/... —
+// il vecchio indirizzo di GitHub Pages — quindi su completinicalcio.it davano
+// 404 e l'installazione falliva in silenzio (31/08/26).
 const ASSETS = [
-  '/catalogo-completini/',
+  '/',
   INDEX,
-  '/catalogo-completini/hero.jpg',
-  '/catalogo-completini/logo.jpg',
-  '/catalogo-completini/nuovi-arrivi.jpg',
-  '/catalogo-completini/coppa-del-mondo.webp',
-  '/catalogo-completini/vintage-banner.png',
-  '/catalogo-completini/sneakers.png',
+  '/tracking.html',
+  '/logo.jpg',
+  '/icona-192.png',
+  '/icona-512.png',
 ];
 
-// Installazione: precache + attiva subito senza aspettare
+// Installazione: precache tollerante (un file mancante non blocca tutto)
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())
+    caches.open(CACHE)
+      .then(c => Promise.all(ASSETS.map(a => c.add(a).catch(() => null))))
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -33,19 +38,22 @@ self.addEventListener('fetch', e => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
 
-  // Google Drive / API / chat — sempre dalla rete, mai in cache
-  if (url.hostname.includes('googleapis') || url.hostname.includes('googleusercontent') || url.hostname.includes('tawk.to')) {
-    return;
-  }
+  // Solo il nostro dominio: API esterne, Drive e chat vanno sempre in rete
+  if (url.origin !== self.location.origin) return;
+  if (url.pathname.startsWith('/api/')) return;
 
-  // Pagina HTML (navigazione) — NETWORK FIRST:
-  // quando c'è internet prende SEMPRE la versione più recente; offline usa la copia salvata
+  // tracking.json cambia in continuazione: sempre dalla rete, mai dalla cache,
+  // altrimenti il cliente vedrebbe uno stato vecchio del suo pacco.
+  if (url.pathname.endsWith('tracking.json') || url.pathname.endsWith('clienti_noti.json')) return;
+
+  // Pagine HTML — NETWORK FIRST: online prende sempre la versione aggiornata,
+  // offline usa la copia salvata.
   const isHTML = req.mode === 'navigate' || (req.headers.get('accept') || '').includes('text/html');
   if (isHTML) {
     e.respondWith(
       fetch(req).then(res => {
         const clone = res.clone();
-        caches.open(CACHE).then(c => c.put(INDEX, clone));
+        caches.open(CACHE).then(c => c.put(req, clone));
         return res;
       }).catch(() =>
         caches.match(req).then(r => r || caches.match(INDEX))
@@ -54,8 +62,7 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // Altri file locali (immagini) — STALE-WHILE-REVALIDATE:
-  // mostra subito la copia salvata (veloce) e intanto scarica l'aggiornamento per la prossima volta
+  // Immagini e file statici — mostra subito la copia salvata e intanto aggiorna
   e.respondWith(
     caches.match(req).then(cached => {
       const network = fetch(req).then(res => {
@@ -66,6 +73,35 @@ self.addEventListener('fetch', e => {
         return res;
       }).catch(() => cached);
       return cached || network;
+    })
+  );
+});
+
+// ─── NOTIFICHE DEL TRACKING ──────────────────────────────────────────────────
+self.addEventListener('push', e => {
+  let d = {};
+  try { d = e.data ? e.data.json() : {}; } catch (err) { d = {}; }
+  const titolo = d.titolo || '📦 Aggiornamento spedizione';
+  e.waitUntil(self.registration.showNotification(titolo, {
+    body: d.testo || 'Il tuo pacco si è mosso, tocca per vedere dov\'è.',
+    icon: '/icona-192.png',
+    badge: '/icona-192.png',
+    tag: d.url || 'tracking',       // sostituisce la precedente invece di accumularle
+    renotify: true,
+    data: { url: d.url || '/tracking.html' },
+  }));
+});
+
+// Toccando la notifica si apre il link dell'ordine (riusa la scheda già aperta)
+self.addEventListener('notificationclick', e => {
+  e.notification.close();
+  const dest = (e.notification.data && e.notification.data.url) || '/tracking.html';
+  e.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true }).then(lista => {
+      for (const c of lista) {
+        if (c.url.includes('tracking.html') && 'focus' in c) { c.focus(); c.navigate(dest); return; }
+      }
+      return clients.openWindow(dest);
     })
   );
 });
