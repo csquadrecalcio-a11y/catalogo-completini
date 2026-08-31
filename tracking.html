@@ -704,19 +704,30 @@ function copiaLinkOrdine(btn){
 }
 
 function bloccoAvvisami(cod){
-  if(!('serviceWorker' in navigator) || !('PushManager' in window)) return "";
+  if(!('serviceWorker' in navigator)) return "";
+  // Su iPhone il supporto alle notifiche (PushManager) compare SOLO dopo che il
+  // sito è stato aggiunto alla schermata Home: se nascondessimo il blocco qui,
+  // il cliente non vedrebbe mai le istruzioni per arrivarci (31/08/26).
+  if(!('PushManager' in window) && !isiOS) return "";
+  // Su iPhone non ancora installato il pulsante non può attivare nulla: apre le
+  // istruzioni, e il testo lo dice chiaramente invece di illudere il cliente.
+  const daInstallare = isiOS && !installata;
+  const testoBtn = daInstallare ? "Come si attiva" : "Avvisami";
+  const sottotitolo = daInstallare
+    ? "Ti mandiamo una notifica a ogni movimento del pacco. Su iPhone serve un passaggio in più, te lo spieghiamo qui."
+    : "Ti mandiamo una notifica a ogni movimento del pacco, così non devi controllare.";
   return `<div class="avvisami">
     <div class="avvisami-top">
       <div class="avvisami-emoji">🔔</div>
       <div class="avvisami-txt">
         <div class="avvisami-tit">Vuoi essere avvisato?</div>
-        <div class="avvisami-sub">Ti mandiamo una notifica a ogni movimento del pacco, così non devi controllare.
+        <div class="avvisami-sub">${sottotitolo}
           <button class="avvisami-link" onclick="document.querySelector('.avvisami-guida').classList.toggle('open')">Come si fa?</button>
         </div>
       </div>
-      <button class="avvisami-btn" id="btnAvvisami" onclick="attivaAvvisi()">Avvisami</button>
+      <button class="avvisami-btn" id="btnAvvisami" onclick="attivaAvvisi()">${testoBtn}</button>
     </div>
-    <div class="avvisami-guida">${guidaHtml()}</div>
+    <div class="avvisami-guida${daInstallare ? " open" : ""}">${guidaHtml()}</div>
   </div>`;
 }
 
