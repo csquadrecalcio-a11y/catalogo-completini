@@ -206,6 +206,13 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-08-31 12:52",
+        "luogo": "CASTEL SAN GIOVANNI (PC)",
+        "stato": "La spedizione è in transito"
+      }
     ]
   },
   "CSC-2026-0256": {
