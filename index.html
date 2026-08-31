@@ -2593,11 +2593,13 @@ async function _consegnaOrdine(payload){
   const SECRET = STRIPE_SITE_SECRET;
   const opzioni = () => ({
     method: "POST",
+    // NON aggiungere altre intestazioni: ogni header extra fa scattare il
+    // controllo preflight CORS e sia il gestionale sia il Worker rifiutano
+    // quelli non previsti, bloccando l'invio. (31/08/26: un
+    // "ngrok-skip-browser-warning" qui aveva bloccato entrambi i canali.)
     headers: {
       "Content-Type": "application/json",
       "X-Site-Secret": SECRET,
-      // evita la pagina di avviso che ngrok mostra ai browser
-      "ngrok-skip-browser-warning": "1",
     },
     body: JSON.stringify(payload),
     // Subito dopo questa chiamata il sito apre WhatsApp: su telefono la pagina
