@@ -192,22 +192,13 @@ footer a{color:var(--volt);font-weight:700}
 
   <div id="result"></div>
 
-  <div class="glossario">
+  <div class="glossario" style="display:none">
     <div class="glossario-head" aria-expanded="false" onclick="toggleGlossario(this)">
       <span class="glossario-head-lbl">📖 Cosa significano le voci del tracking?</span>
       <span class="glossario-chevron">▼</span>
     </div>
-    <div class="glossario-body">
-      <div class="gl-row"><div class="gl-icon">📦</div><div><div class="gl-term">Arrivato al punto di raccolta</div><div class="gl-desc">Il tuo pacco è stato ritirato e registrato presso il centro di smistamento del corriere.</div></div></div>
-      <div class="gl-row"><div class="gl-icon">🏭</div><div><div class="gl-term">Pacco in uscita dal centro operativo</div><div class="gl-desc">Il pacco ha lasciato il magazzino ed è in movimento verso il prossimo hub.</div></div></div>
-      <div class="gl-row"><div class="gl-icon">✈️</div><div><div class="gl-term">Uscito dal magazzino, in attesa del volo</div><div class="gl-desc">Il pacco è pronto per essere caricato sull'aereo. I voli internazionali vengono assegnati in base alla disponibilità.</div></div></div>
-      <div class="gl-row"><div class="gl-icon">🛫</div><div><div class="gl-term">Partito dall'aeroporto di origine</div><div class="gl-desc">Il pacco è in volo verso l'Italia.</div></div></div>
-      <div class="gl-row"><div class="gl-icon">🛬</div><div><div class="gl-term">Volo atterrato</div><div class="gl-desc">L'aereo è atterrato. Il pacco passerà ora ai controlli doganali.</div></div></div>
-      <div class="gl-row"><div class="gl-icon">🔎</div><div><div class="gl-term">Sdoganamento in corso / completato</div><div class="gl-desc">Il pacco viene controllato dalla dogana italiana. È un passaggio obbligatorio per tutti i pacchi internazionali e può richiedere 1–3 giorni.</div></div></div>
-      <div class="gl-row"><div class="gl-icon">📮</div><div><div class="gl-term">Il tuo pacco è in fase di presa in carico da Poste Italiane</div><div class="gl-desc">Il pacco è arrivato e Poste Italiane lo sta registrando nel proprio sistema. A breve sarà disponibile il tracking italiano.</div></div></div>
-      <div class="gl-row"><div class="gl-icon">🚚</div><div><div class="gl-term">In transito nella rete di Poste Italiane</div><div class="gl-desc">Il pacco si sta spostando tra gli hub postali italiani verso la tua città.</div></div></div>
-      <div class="gl-row"><div class="gl-icon">🏠</div><div><div class="gl-term">Consegnato</div><div class="gl-desc">Il pacco è stato consegnato all'indirizzo indicato.</div></div></div>
-    </div>
+    <!-- Riempito da JS: solo le voci presenti nel tracking di questo ordine -->
+    <div class="glossario-body"></div>
   </div>
 </main>
 
@@ -285,8 +276,13 @@ async function cerca(){
     return;
   }
   const o = data[cod];
-  if(!o){ r.innerHTML = errCard("Ordine non trovato",`Il codice <strong>${cod}</strong> non è nel sistema.<br>Controlla il messaggio WhatsApp o <a href="https://wa.me/447727750265" style="color:var(--volt)">scrivici</a>.`); return; }
+  if(!o){
+    r.innerHTML = errCard("Ordine non trovato",`Il codice <strong>${cod}</strong> non è nel sistema.<br>Controlla il messaggio WhatsApp o <a href="https://wa.me/447727750265" style="color:var(--volt)">scrivici</a>.`);
+    aggiornaGlossario(null);
+    return;
+  }
   r.innerHTML = buildCard(cod, o);
+  aggiornaGlossario(o);
   // Anima barra progress e line-fill dopo render
   // Due rAF: primo = paint iniziale, secondo = applica transform → browser vede diff → transition scatta
   requestAnimationFrame(()=>requestAnimationFrame(()=>{
@@ -500,6 +496,58 @@ function toggleGlossario(el){
   const body = el.nextElementSibling;
   const open = body.classList.toggle("open");
   el.setAttribute("aria-expanded", open);
+}
+
+/* Glossario: elenco completo delle voci possibili, in ordine cronologico del
+   viaggio. Ognuna ha le parole chiave con cui riconoscerla negli eventi reali:
+   la legenda mostra SOLO le voci che il cliente vede davvero nel suo tracking,
+   così non legge spiegazioni di passaggi non ancora avvenuti. */
+const GLOSSARIO = [
+  {icon:"📦", term:"Arrivato al punto di raccolta",
+   desc:"Il tuo pacco è stato ritirato e registrato presso il centro di smistamento del corriere.",
+   key:["punto di raccolta","pacco ritirato","ordine registrato","dati della spedizione"]},
+  {icon:"🏭", term:"Pacco in uscita dal centro operativo",
+   desc:"Il pacco ha lasciato il magazzino ed è in movimento verso il prossimo hub.",
+   key:["centro operativo","uscito dal magazzino","entrato in magazzino","centro di smistamento"]},
+  {icon:"✈️", term:"Uscito dal magazzino, in attesa del volo",
+   desc:"Il pacco è pronto per essere caricato sull'aereo. I voli internazionali vengono assegnati in base alla disponibilità.",
+   key:["attesa del volo","in attesa del volo","caricato sull'aereo","compagnia aerea"]},
+  {icon:"🛫", term:"Partito dall'aeroporto di origine",
+   desc:"Il pacco è in volo verso l'Italia.",
+   key:["aeroporto di origine","volo partito","partenza prevista"]},
+  {icon:"🛬", term:"Volo atterrato",
+   desc:"L'aereo è atterrato. Il pacco passerà ora ai controlli doganali.",
+   key:["volo atterrato","aeroporto di destinazione","aeroporto locale","arrivo previsto"]},
+  {icon:"🔎", term:"Sdoganamento in corso / completato",
+   desc:"Il pacco viene controllato dalla dogana italiana. È un passaggio obbligatorio per tutti i pacchi internazionali e può richiedere 1–3 giorni.",
+   key:["sdoganamento","dogana","deposito doganale"]},
+  {icon:"📮", term:"Il tuo pacco è in fase di presa in carico da Poste Italiane",
+   desc:"Il pacco è arrivato e Poste Italiane lo sta registrando nel proprio sistema. A breve sarà disponibile il tracking italiano.",
+   key:["corriere locale","prima scansione","presa in carico","affidato"]},
+  {icon:"🚚", term:"In transito nella rete di Poste Italiane",
+   desc:"Il pacco si sta spostando tra gli hub postali italiani verso la tua città.",
+   key:["in transito","rete di poste"]},
+  {icon:"🏡", term:"In consegna",
+   desc:"Il pacco è affidato al portalettere: la consegna avviene in giornata.",
+   key:["in consegna","mezzo di consegna","disponibile per il ritiro","giacenza"]},
+  {icon:"🏠", term:"Consegnato",
+   desc:"Il pacco è stato consegnato all'indirizzo indicato.",
+   key:["consegnat","postino"]},
+];
+
+function aggiornaGlossario(o){
+  const box  = document.querySelector(".glossario");
+  const body = document.querySelector(".glossario-body");
+  if(!box || !body) return;
+  const testi = [...(o?.eventi_corriere||[]), ...(o?.eventi_cina||[])]
+    .map(e => (e.stato||"").toLowerCase());
+  const voci = GLOSSARIO.filter(g => testi.some(t => g.key.some(k => t.includes(k))));
+  if(!voci.length){ box.style.display = "none"; return; }
+  box.style.display = "";
+  body.innerHTML = voci.map(g =>
+    `<div class="gl-row"><div class="gl-icon">${g.icon}</div><div>
+       <div class="gl-term">${g.term}</div><div class="gl-desc">${g.desc}</div>
+     </div></div>`).join("");
 }
 
 document.getElementById("inp").addEventListener("keydown", e=>{ if(e.key==="Enter") cerca(); });
