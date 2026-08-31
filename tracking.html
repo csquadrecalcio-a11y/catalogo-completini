@@ -146,8 +146,10 @@ h1{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:cla
 
 /* PASSAGGIO AL CORRIERE ITALIANO: avvisa che la sosta è normale */
 /* AVVISAMI: iscrizione alle notifiche + istruzioni per il cliente */
-.avvisami{margin-top:16px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel2)}
-.avvisami-top{padding:16px 18px;display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+/* sta DENTRO la scheda, subito sotto lo stato: è la prima cosa utile che il
+   cliente vede, prima era in fondo dopo le foto e passava inosservato */
+.avvisami{border-bottom:1px solid var(--line);background:rgba(37,99,235,.05)}
+.avvisami-top{padding:15px 24px;display:flex;align-items:center;gap:13px;flex-wrap:wrap}
 .avvisami-emoji{font-size:24px;flex-shrink:0}
 .avvisami-txt{flex:1;min-width:160px}
 .avvisami-tit{font-size:13.5px;font-weight:800;margin-bottom:3px}
@@ -156,7 +158,7 @@ h1{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:cla
 .avvisami-btn:hover{opacity:.88}
 .avvisami-btn.attivo{background:rgba(40,200,100,.16);color:#28c864}
 .avvisami-btn:disabled{opacity:.6;cursor:default}
-.avvisami-guida{border-top:1px solid var(--line);padding:14px 18px;font-size:12.5px;line-height:1.7;color:var(--muted);display:none}
+.avvisami-guida{border-top:1px solid var(--line);padding:14px 24px;font-size:12.5px;line-height:1.7;color:var(--muted);display:none}
 .avvisami-guida.open{display:block}
 .avvisami-guida b{color:var(--text)}
 .avvisami-guida ol{margin:6px 0 0 18px}
@@ -321,9 +323,7 @@ async function cerca(){
     return;
   }
   _codiceCorrente = cod;
-  // Gli avvisi si offrono solo finché il pacco è in viaggio
-  const offriAvvisi = o.stato !== "consegnato" && o.stato !== "annullato";
-  r.innerHTML = buildCard(cod, o) + (offriAvvisi ? bloccoAvvisami(cod) : "");
+  r.innerHTML = buildCard(cod, o);
   aggiornaGlossario(o);
   statoAvvisi();
   // Anima barra progress e line-fill dopo render
@@ -611,6 +611,7 @@ function buildCard(cod, o){
         return gg ? `<div style="margin-top:10px;font-size:11px;font-weight:700;color:var(--muted);text-align:center">📦 In transito da <span style="color:var(--volt)">${gg} giorn${gg===1?"o":"i"} lavorativ${gg===1?"o":"i"}</span></div>` : "";
       })()}
     </div>
+    ${(o.stato !== "consegnato" && o.stato !== "annullato") ? bloccoAvvisami(cod) : ""}
     ${infoItems ? `<div class="info-row">${infoItems}</div>` : ""}
     ${(()=>{
       const etaAll = estraiEta([...(o.eventi_cina||[]),...(o.eventi_corriere||[])]);
