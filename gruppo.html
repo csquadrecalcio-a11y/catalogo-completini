@@ -193,6 +193,11 @@ function disegna(){
 
     <section class="pannello" id="p-io">
       <div class="campo">
+        <label for="f-chi">Il tuo nome</label>
+        <input id="f-chi" placeholder="es. Marco Rossi" autocomplete="name" maxlength="40">
+        <div class="aiuto">Serve al capogruppo per sapere di chi è ogni maglia.</div>
+      </div>
+      <div class="campo">
         <label for="f-tipo">Cosa vuoi</label>
         <select id="f-tipo" onchange="aggiornaTesta()">
           ${S.catalogo.map(p => `<option value="${p.id}">${esc(p.nome)}</option>`).join("")}
@@ -231,6 +236,7 @@ function disegna(){
     </section>`;
 
   taglia = "";
+  try{ const c = localStorage.getItem("csc_gruppo_chi"); if(c) $("f-chi").value = c; }catch(e){}
   aggiornaTesta();
   vista(S.righe.length && mie.length ? "gr" : "io");
 }
@@ -260,6 +266,9 @@ function controllaNumero(){
 
 async function aggiungi(){
   const btn = $("btn-agg");
+  const chi = $("f-chi").value.trim();
+  if(!chi){ $("f-chi").focus(); return; }
+  try{ localStorage.setItem("csc_gruppo_chi", chi); }catch(e){}
   const squadra = $("f-squadra").value.trim();
   if(!squadra){ $("f-squadra").focus(); return; }
   if(!taglia){ $("f-taglie").firstElementChild.focus(); return; }
@@ -268,6 +277,7 @@ async function aggiungi(){
     const d = await fetch(API + "/g/" + encodeURIComponent(token) + "/riga", {
       method:"POST", headers:CAPI,
       body: JSON.stringify({prodotto_id: parseInt($("f-tipo").value),
+        ordinata_da: $("f-chi").value.trim(),
         squadra, nome: $("f-nome").value.trim(), numero: $("f-numero").value.trim(), taglia}),
     }).then(r => r.json());
     if(!d.ok) throw new Error(d.errore || "errore");
@@ -327,12 +337,14 @@ function aggiornaTesta(){
   } else {
     $("elenco").innerHTML = `<div class="lista">` + S.righe.map(r => {
       const mia = mie.includes(r.id);
-      const sigla = ((r.nome || "").replace(/[^A-Za-zÀ-ú]/g,"").slice(0,2) || "??").toUpperCase();
+      const chiRiga = r.ordinata_da || "";
+      const sigla = ((chiRiga || r.nome || "").replace(/[^A-Za-zÀ-ú]/g,"").slice(0,2) || "??").toUpperCase();
+      const stampa = (r.nome || "(senza stampa)") + (r.numero ? " " + r.numero : "");
       return `<div class="voce${mia ? " mia" : ""}">
         <div class="sigla">${esc(sigla)}</div>
         <div class="voce-corpo">
-          <div class="voce-nome">${esc(r.nome || "(senza stampa)")}${r.numero ? " · " + esc(r.numero) : ""}</div>
-          <div class="voce-det">${esc(r.prodotto_nome)} · ${esc(r.squadra || "—")} · taglia ${esc(r.taglia)}</div>
+          <div class="voce-nome">${esc(chiRiga || stampa)}</div>
+          <div class="voce-det">${esc(r.prodotto_nome)} · ${esc(r.squadra || "—")} · ${chiRiga ? esc(stampa) + " · " : ""}taglia ${esc(r.taglia)}</div>
         </div>
         <div class="voce-pz">€${r.prezzo.toFixed(0)}</div>
         ${mia ? `<button class="voce-x" onclick="rimuovi(${r.id})" aria-label="Togli la mia riga">×</button>` : ""}
