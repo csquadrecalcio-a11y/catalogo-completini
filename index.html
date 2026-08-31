@@ -2572,25 +2572,71 @@ function buildOrdinePayload(order, cartItems, tier, sconto){
 
 /* Invia l'ordine anche al gestionale così si compila da solo, senza
    bloccare l'apertura di WhatsApp se il gestionale è offline/irraggiungibile. */
+const CODA_URL = "https://csc-order-queue.csquadrecalcio.workers.dev";
+const GESTIONALE_URL = "https://mosaic-possum-crisping.ngrok-free.dev";
+const CODA_LOCALE = "csc_ordini_da_inviare";
+
+/* Consegna l'ordine con tre reti di sicurezza in cascata:
+   1) direttamente al gestionale;
+   2) se non risponde O risponde con errore → coda online (il gestionale la
+      svuota da solo appena torna raggiungibile);
+   3) se anche la coda fallisce (rete del cliente che blocca i domini, offline)
+      → salvato nel browser del cliente e ritentato al prossimo caricamento.
+   Prima il .catch() scattava SOLO sugli errori di rete: se il gestionale
+   rispondeva 4xx/5xx l'ordine spariva senza finire in coda (31/08/26). */
+async function _consegnaOrdine(payload){
+  const SECRET = STRIPE_SITE_SECRET;
+  const opzioni = () => ({
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Site-Secret": SECRET,
+      // evita la pagina di avviso che ngrok mostra ai browser
+      "ngrok-skip-browser-warning": "1",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  try{
+    const r = await fetch(GESTIONALE_URL + "/api/ordine-sito", opzioni());
+    if (r.ok) return true;
+  }catch(e){}
+
+  try{
+    const r = await fetch(CODA_URL + "/push", opzioni());
+    if (r.ok) return true;
+  }catch(e){}
+
+  try{
+    const attesa = JSON.parse(localStorage.getItem(CODA_LOCALE) || "[]");
+    attesa.push({quando: Date.now(), payload});
+    localStorage.setItem(CODA_LOCALE, JSON.stringify(attesa.slice(-10)));
+  }catch(e){}
+  return false;
+}
+
 function inviaOrdineGestionale(order, cartItems, tier, sconto){
   try{
-    const payload = buildOrdinePayload(order, cartItems, tier, sconto);
-    const SECRET = STRIPE_SITE_SECRET;
-    fetch("https://mosaic-possum-crisping.ngrok-free.dev/api/ordine-sito", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "X-Site-Secret": SECRET },
-      body: JSON.stringify(payload),
-    }).catch(()=>{
-      // Gestionale irraggiungibile (es. Mac spento): metti l'ordine in coda,
-      // verrà importato da solo appena il gestionale torna online.
-      fetch("https://csc-order-queue.csquadrecalcio.workers.dev/push", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "X-Site-Secret": SECRET },
-        body: JSON.stringify(payload),
-      }).catch(()=>{});
-    });
+    _consegnaOrdine(buildOrdinePayload(order, cartItems, tier, sconto));
   }catch(e){}
 }
+
+/* Ordini rimasti nel browser perché nessun canale era raggiungibile:
+   si ritentano appena il cliente riapre il sito. */
+async function _ritentaOrdiniInSospeso(){
+  let attesa;
+  try{ attesa = JSON.parse(localStorage.getItem(CODA_LOCALE) || "[]"); }catch(e){ return; }
+  if(!attesa || !attesa.length) return;
+  const rimasti = [];
+  for(const v of attesa){
+    // più di 7 giorni: si abbandona, ormai l'ordine è stato gestito a mano
+    if(Date.now() - (v.quando||0) > 7*24*3600*1000) continue;
+    const ok = await _consegnaOrdine(v.payload);
+    if(!ok) rimasti.push(v);
+  }
+  try{ localStorage.setItem(CODA_LOCALE, JSON.stringify(rimasti)); }catch(e){}
+}
+setTimeout(_ritentaOrdiniInSospeso, 3000);
 
 /* Iscrizione newsletter (footer): consenso esplicito e separato dall'ordine. */
 function iscrivitiNewsletterGenerico(emailId, consensoId, msgId, onSuccess){
