@@ -312,7 +312,7 @@ function aggiornaTesta(){
         const mancano = succ.min - tot;
         $("sBarra").style.width = Math.round(tot / succ.min * 100) + "%";
         const risparmio = Math.round((prezzoDi(prodSel, tot) - succ.val) * succ.min);
-        $("sMsg").innerHTML = `<b>Manca ${mancano} ${mancano===1?"pezzo":"pezzi"}</b> per scendere a €${succ.val} a maglia: il gruppo risparmierebbe circa €${risparmio}.`;
+        $("sMsg").innerHTML = `<b>${mancano===1?"Manca 1 pezzo":"Mancano "+mancano+" pezzi"}</b> per scendere a €${succ.val} a maglia: il gruppo risparmierebbe circa €${risparmio}.`;
         sc.classList.remove("pieno");
       } else {
         $("sBarra").style.width = "100%";
