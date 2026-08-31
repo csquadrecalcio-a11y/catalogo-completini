@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ordine di gruppo | Completini Squadre Calcio</title>
+<meta name="description" content="Compila la tua riga dell'ordine di gruppo: maglia, nome, numero e taglia.">
+<link rel="icon" href="https://completinicalcio.it/logo.jpg">
+<meta name="theme-color" content="#050d1c">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050d1c;--panel:#0a1628;--panel2:#0f1e36;
+  --line:rgba(232,237,245,.10);--text:#e8edf5;--muted:#8a98b4;
+  --acc:#2563eb;--acc-soft:rgba(37,99,235,.12);
+  --ok:#28c864;--ok-soft:rgba(40,200,100,.14);
+  --warn:#ffb400;--warn-soft:rgba(255,180,0,.13);
+  --radius:16px;
+}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
+  --bg:#eef2f8;--panel:#ffffff;--panel2:#dde6f5;
+  --line:rgba(10,30,70,.12);--text:#0d1829;--muted:#4a5a7a;
+  --acc-soft:rgba(37,99,235,.10);--ok-soft:rgba(40,200,100,.16);--warn-soft:rgba(255,180,0,.18);
+}}
+:root[data-theme="light"]{--bg:#eef2f8;--panel:#ffffff;--panel2:#dde6f5;--line:rgba(10,30,70,.12);
+  --text:#0d1829;--muted:#4a5a7a;--acc-soft:rgba(37,99,235,.10);--ok-soft:rgba(40,200,100,.16);--warn-soft:rgba(255,180,0,.18)}
+:root[data-theme="dark"]{--bg:#050d1c;--panel:#0a1628;--panel2:#0f1e36;--line:rgba(232,237,245,.10);
+  --text:#e8edf5;--muted:#8a98b4;--acc-soft:rgba(37,99,235,.12);--ok-soft:rgba(40,200,100,.14);--warn-soft:rgba(255,180,0,.13)}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,sans-serif;
+     -webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{width:min(560px,100%);margin:0 auto;padding:20px 16px 130px}
+.testata{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.stemma{width:44px;height:44px;border-radius:12px;background:var(--acc);display:grid;place-items:center;font-size:21px;flex-shrink:0}
+.testata h1{font-family:'Archivo Black',Impact,sans-serif;font-size:19px;line-height:1.15;text-transform:uppercase;text-wrap:balance}
+.testata p{font-size:12px;color:var(--muted);margin-top:3px}
+
+.scaglione{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:15px 17px;margin-bottom:14px}
+.scaglione-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:11px}
+.scaglione-tit{font-size:13px;font-weight:700}
+.scaglione-tit b{color:var(--acc)}
+.scaglione-pz{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-variant-numeric:tabular-nums;white-space:nowrap}
+.barra{height:7px;background:var(--panel2);border-radius:99px;overflow:hidden}
+.barra i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),#60a5fa);border-radius:99px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+.scaglione-msg{font-size:12px;color:var(--muted);margin-top:9px;line-height:1.5}
+.scaglione-msg b{color:var(--warn)}
+.scaglione.pieno .scaglione-msg b{color:var(--ok)}
+
+.tabs{display:flex;gap:6px;background:var(--panel2);padding:4px;border-radius:12px;margin-bottom:16px}
+.tabs button{flex:1;padding:9px 8px;border:none;background:transparent;color:var(--muted);font-family:inherit;
+  font-size:13px;font-weight:700;border-radius:9px;cursor:pointer;transition:background .15s,color .15s}
+.tabs button[aria-selected="true"]{background:var(--panel);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.tabs button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.pannello[hidden]{display:none}
+
+.campo{margin-bottom:13px}
+.campo label{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.campo input,.campo select{width:100%;background:var(--panel2);border:1.5px solid var(--line);border-radius:11px;
+  padding:12px 13px;color:var(--text);font-size:15px;font-weight:600;font-family:inherit;outline:none;transition:border-color .15s}
+.campo input:focus,.campo select:focus{border-color:var(--acc)}
+.campo input::placeholder{color:var(--muted);font-weight:400}
+.riga2{display:flex;gap:10px}
+.riga2 .campo{flex:1}
+.aiuto{font-size:11.5px;color:var(--muted);margin-top:5px}
+.errore{font-size:12px;color:var(--warn);margin-top:6px;font-weight:600}
+.taglie{display:flex;gap:6px;flex-wrap:wrap}
+.taglie button{flex:1;min-width:46px;padding:10px 4px;background:var(--panel2);border:1.5px solid var(--line);
+  border-radius:10px;color:var(--text);font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:all .15s}
+.taglie button[aria-pressed="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+.taglie button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
+.btn{width:100%;padding:14px;background:var(--acc);color:#fff;border:none;border-radius:12px;font-family:inherit;
+  font-size:15px;font-weight:800;cursor:pointer;transition:opacity .15s}
+.btn:hover{opacity:.9}
+.btn:disabled{opacity:.45;cursor:default}
+.btn:focus-visible{outline:2px solid var(--text);outline-offset:2px}
+.btn-second{background:transparent;color:var(--acc);border:1.5px solid var(--acc)}
+.btn-second:hover{background:var(--acc);color:#fff;opacity:1}
+
+.vuoto{text-align:center;padding:34px 20px;color:var(--muted);font-size:13.5px;line-height:1.6}
+.vuoto span{font-size:32px;display:block;margin-bottom:10px}
+.lista{display:flex;flex-direction:column;gap:8px}
+.voce{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:12px 14px;display:flex;align-items:center;gap:12px}
+.voce.mia{border-color:var(--acc);background:var(--acc-soft)}
+.sigla{width:36px;height:36px;border-radius:50%;background:var(--panel2);display:grid;place-items:center;font-size:12px;font-weight:800;flex-shrink:0}
+.voce.mia .sigla{background:var(--acc);color:#fff}
+.voce-corpo{flex:1;min-width:0}
+.voce-nome{font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.voce-det{font-size:11.5px;color:var(--muted);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.voce-pz{font-size:14px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.voce-x{background:none;border:none;color:var(--muted);font-size:17px;cursor:pointer;padding:2px 4px;line-height:1;border-radius:6px}
+.voce-x:hover{color:var(--warn)}
+.voce-x:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
+.totale{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:15px 17px;margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.totale-r{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.totale-r.grande{font-size:19px;font-weight:800;color:var(--text);padding-top:8px;border-top:1px solid var(--line)}
+.risparmio{color:var(--ok);font-weight:700}
+
+.fondo{position:fixed;left:0;right:0;bottom:0;background:var(--panel);border-top:1px solid var(--line);
+  padding:11px 16px calc(11px + env(safe-area-inset-bottom));backdrop-filter:blur(12px)}
+.fondo-in{width:min(560px,100%);margin:0 auto;display:flex;align-items:center;gap:12px}
+.fondo-txt{flex:1;min-width:0}
+.fondo-et{font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.fondo-val{font-size:17px;font-weight:800;font-variant-numeric:tabular-nums}
+.fondo .btn{width:auto;padding:12px 20px;font-size:14px}
+
+.esito{background:var(--ok-soft);border:1px solid rgba(40,200,100,.34);border-radius:var(--radius);padding:20px;text-align:center}
+.esito h3{font-size:16px;font-weight:800;color:var(--ok);margin-bottom:8px}
+.esito p{font-size:13px;color:var(--muted);line-height:1.6}
+.esito .cod{font-family:'Archivo Black',sans-serif;font-size:19px;color:var(--text);margin:10px 0}
+.avviso{background:var(--warn-soft);border:1px solid rgba(255,180,0,.3);border-radius:12px;padding:12px 14px;
+  font-size:12.5px;line-height:1.55;margin-bottom:14px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+  <div class="vuoto"><span>⏳</span>Carico l'ordine di gruppo…</div>
+</div>
+
+<script>
+const API = "https://mosaic-possum-crisping.ngrok-free.dev";
+const TAGLIE = ["S","M","L","XL","XXL"];
+const token = new URLSearchParams(location.search).get("g") || "";
+let S = null;              // stato ricevuto dal gestionale
+let taglia = "";
+let mie = [];              // id delle righe aggiunte da questo telefono
+try{ mie = JSON.parse(localStorage.getItem("csc_gruppo_mie_" + token) || "[]"); }catch(e){ mie = []; }
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c =>
+  ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function prezzoDi(prod, tot){
+  let p = prod.fasce[0][1];
+  for(const [min, val] of prod.fasce) if(tot >= min) p = val;
+  return p;
+}
+function prossimaFascia(prod, tot){
+  for(const [min, val] of prod.fasce) if(tot < min) return {min, val};
+  return null;
+}
+const salvaMie = () => { try{ localStorage.setItem("csc_gruppo_mie_" + token, JSON.stringify(mie)); }catch(e){} };
+
+async function carica(){
+  if(!token){ erroreFatale("Link incompleto", "Chiedi al tuo capogruppo di rimandarti il link."); return; }
+  try{
+    const d = await fetch(API + "/api/gruppo/" + encodeURIComponent(token)).then(r => r.json());
+    if(!d.ok){ erroreFatale("Link non valido", d.errore || "Questo ordine di gruppo non esiste più."); return; }
+    S = d; disegna();
+  }catch(e){
+    erroreFatale("Non riesco a collegarmi", "Riprova fra qualche minuto: se il problema resta, scrivici su WhatsApp.");
+  }
+}
+
+function erroreFatale(tit, msg){
+  $("app").innerHTML = `<div class="testata"><div class="stemma">⚽</div>
+    <div><h1>${esc(tit)}</h1><p>Completini Squadre Calcio 2.0</p></div></div>
+    <div class="vuoto"><span>😕</span>${esc(msg)}<br><br>
+    <a href="https://wa.me/447727750265" class="btn" style="display:inline-block;width:auto;padding:12px 22px;text-decoration:none">Scrivici su WhatsApp</a></div>`;
+}
+
+function disegna(){
+  if(S.stato !== "aperto"){
+    $("app").innerHTML = `<div class="testata"><div class="stemma">⚽</div>
+      <div><h1>${esc(S.nome)}</h1><p>Ordine di gruppo · Completini SC 2.0</p></div></div>
+      <div class="esito"><h3>✓ Ordine già inviato</h3>
+      <p>Questo gruppo è stato chiuso: l'ordine è in lavorazione.<br>
+      Per qualsiasi cosa scrivici su WhatsApp.</p></div>`;
+    return;
+  }
+
+  $("app").innerHTML = `
+    <div class="testata"><div class="stemma">⚽</div>
+      <div><h1>${esc(S.nome)}</h1><p>Ordine di gruppo · Completini SC 2.0</p></div></div>
+
+    <div class="scaglione" id="scaglione">
+      <div class="scaglione-top">
+        <div class="scaglione-tit" id="sTit"></div>
+        <div class="scaglione-pz" id="sPz"></div>
+      </div>
+      <div class="barra"><i id="sBarra" style="width:0%"></i></div>
+      <div class="scaglione-msg" id="sMsg"></div>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tab-io" aria-selected="true" onclick="vista('io')">La mia maglia</button>
+      <button role="tab" id="tab-gr" aria-selected="false" onclick="vista('gr')">Il gruppo <span id="conta"></span></button>
+    </div>
+
+    <section class="pannello" id="p-io">
+      <div class="campo">
+        <label for="f-tipo">Cosa vuoi</label>
+        <select id="f-tipo" onchange="aggiornaTesta()">
+          ${S.catalogo.map(p => `<option value="${p.id}">${esc(p.nome)}</option>`).join("")}
+        </select>
+        <div class="aiuto" id="a-prezzo"></div>
+      </div>
+      <div class="campo">
+        <label for="f-squadra">Squadra / modello</label>
+        <input id="f-squadra" placeholder="es. Inter Home 26/27" autocomplete="off">
+      </div>
+      <div class="riga2">
+        <div class="campo">
+          <label for="f-nome">Nome sulla maglia</label>
+          <input id="f-nome" placeholder="LAUTARO" autocomplete="off" maxlength="14">
+        </div>
+        <div class="campo" style="max-width:104px">
+          <label for="f-numero">Numero</label>
+          <input id="f-numero" placeholder="10" inputmode="numeric" maxlength="2" autocomplete="off" oninput="controllaNumero()">
+        </div>
+      </div>
+      <div class="errore" id="err-num" hidden></div>
+      <div class="campo">
+        <label id="lbl-taglia">Taglia</label>
+        <div class="taglie" role="group" aria-labelledby="lbl-taglia" id="f-taglie">
+          ${TAGLIE.map(t => `<button type="button" aria-pressed="false" onclick="sceltaTaglia('${t}',this)">${t}</button>`).join("")}
+        </div>
+      </div>
+      <button class="btn" id="btn-agg" onclick="aggiungi()">Aggiungi al gruppo</button>
+      <div class="aiuto" style="text-align:center;margin-top:9px">Puoi aggiungere più maglie, una alla volta.</div>
+    </section>
+
+    <section class="pannello" id="p-gr" hidden>
+      <div id="elenco"></div>
+      <div id="riepilogo"></div>
+      <div id="esito"></div>
+    </section>`;
+
+  taglia = "";
+  aggiornaTesta();
+  vista(S.righe.length && mie.length ? "gr" : "io");
+}
+
+function sceltaTaglia(t, el){
+  taglia = t;
+  [...$("f-taglie").children].forEach(b => b.setAttribute("aria-pressed", b === el ? "true" : "false"));
+}
+
+function vista(quale){
+  const io = quale === "io";
+  $("p-io").hidden = !io; $("p-gr").hidden = io;
+  $("tab-io").setAttribute("aria-selected", io);
+  $("tab-gr").setAttribute("aria-selected", !io);
+}
+
+function controllaNumero(){
+  const n = $("f-numero").value.trim();
+  const sq = $("f-squadra").value.trim().toLowerCase();
+  const e = $("err-num");
+  const preso = n && S.righe.find(r => r.numero === n && (r.squadra || "").toLowerCase() === sq);
+  if(preso){
+    e.hidden = false;
+    e.textContent = `⚠️ Il numero ${n} l'ha già preso ${preso.nome || "un compagno"} — scegline un altro.`;
+  } else e.hidden = true;
+}
+
+async function aggiungi(){
+  const btn = $("btn-agg");
+  const squadra = $("f-squadra").value.trim();
+  if(!squadra){ $("f-squadra").focus(); return; }
+  if(!taglia){ $("f-taglie").firstElementChild.focus(); return; }
+  btn.disabled = true; btn.textContent = "Aggiungo…";
+  try{
+    const d = await fetch(API + "/api/gruppo/" + encodeURIComponent(token) + "/riga", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({prodotto_id: parseInt($("f-tipo").value),
+        squadra, nome: $("f-nome").value.trim(), numero: $("f-numero").value.trim(), taglia}),
+    }).then(r => r.json());
+    if(!d.ok) throw new Error(d.errore || "errore");
+    const nuove = d.righe.filter(r => !S.righe.some(v => v.id === r.id)).map(r => r.id);
+    mie = mie.concat(nuove); salvaMie();
+    S = Object.assign(S, d);
+    $("f-nome").value = ""; $("f-numero").value = ""; $("err-num").hidden = true;
+    aggiornaTesta(); vista("gr");
+  }catch(e){
+    alert("Non è stato possibile aggiungere la riga. Controlla la connessione e riprova.");
+  }
+  btn.disabled = false; btn.textContent = "Aggiungi al gruppo";
+}
+
+async function rimuovi(id){
+  try{
+    const d = await fetch(API + "/api/gruppo/" + encodeURIComponent(token) + "/riga/" + id + "/elimina",
+      {method:"POST", headers:{"Content-Type":"application/json"}, body:"{}"}).then(r => r.json());
+    if(d.ok){ S = Object.assign(S, d); mie = mie.filter(m => m !== id); salvaMie(); aggiornaTesta(); }
+  }catch(e){}
+}
+
+function aggiornaTesta(){
+  const tot = S.righe.length;
+  const prodSel = S.catalogo.find(p => p.id === parseInt($("f-tipo").value)) || S.catalogo[0];
+  if(prodSel){
+    const uno = prezzoDi(prodSel, Math.max(tot,1));
+    $("a-prezzo").textContent = `€${uno} a pezzo con ${Math.max(tot,1)} ${Math.max(tot,1)===1?"pezzo":"pezzi"} nel gruppo`;
+    const sc = $("scaglione");
+    $("sPz").textContent = `${tot} ${tot===1?"pezzo":"pezzi"}`;
+    if(tot === 0){
+      $("sTit").innerHTML = `Prezzo di partenza <b>€${prodSel.fasce[0][1]}</b>`;
+      $("sBarra").style.width = "0%";
+      $("sMsg").textContent = "Aggiungi la prima maglia: più siete, meno paga ognuno.";
+      sc.classList.remove("pieno");
+    } else {
+      const succ = prossimaFascia(prodSel, tot);
+      $("sTit").innerHTML = `Prezzo attuale <b>€${prezzoDi(prodSel, tot)}</b> · ${esc(prodSel.nome)}`;
+      if(succ){
+        const mancano = succ.min - tot;
+        $("sBarra").style.width = Math.round(tot / succ.min * 100) + "%";
+        const risparmio = Math.round((prezzoDi(prodSel, tot) - succ.val) * succ.min);
+        $("sMsg").innerHTML = `<b>Manca ${mancano} ${mancano===1?"pezzo":"pezzi"}</b> per scendere a €${succ.val} a maglia: il gruppo risparmierebbe circa €${risparmio}.`;
+        sc.classList.remove("pieno");
+      } else {
+        $("sBarra").style.width = "100%";
+        $("sMsg").innerHTML = `<b>Miglior prezzo raggiunto!</b> Siete al massimo dello sconto.`;
+        sc.classList.add("pieno");
+      }
+    }
+  }
+
+  $("conta").textContent = tot ? `(${tot})` : "";
+  if(!tot){
+    $("elenco").innerHTML = `<div class="vuoto"><span>👥</span>Ancora nessuno nel gruppo.<br>Aggiungi la tua maglia e condividi il link con gli altri.</div>`;
+    $("riepilogo").innerHTML = "";
+  } else {
+    $("elenco").innerHTML = `<div class="lista">` + S.righe.map(r => {
+      const mia = mie.includes(r.id);
+      const sigla = ((r.nome || "").replace(/[^A-Za-zÀ-ú]/g,"").slice(0,2) || "??").toUpperCase();
+      return `<div class="voce${mia ? " mia" : ""}">
+        <div class="sigla">${esc(sigla)}</div>
+        <div class="voce-corpo">
+          <div class="voce-nome">${esc(r.nome || "(senza stampa)")}${r.numero ? " · " + esc(r.numero) : ""}</div>
+          <div class="voce-det">${esc(r.prodotto_nome)} · ${esc(r.squadra || "—")} · taglia ${esc(r.taglia)}</div>
+        </div>
+        <div class="voce-pz">€${r.prezzo.toFixed(0)}</div>
+        ${mia ? `<button class="voce-x" onclick="rimuovi(${r.id})" aria-label="Togli la mia riga">×</button>` : ""}
+      </div>`;
+    }).join("") + `</div>`;
+
+    $("riepilogo").innerHTML = `<div class="totale">
+      <div class="totale-r"><span>${tot} ${tot===1?"pezzo":"pezzi"}</span><span>€ ${S.totale.toFixed(2)}</span></div>
+      <div class="totale-r grande"><span>Totale</span><span>€ ${S.totale.toFixed(2)}</span></div>
+    </div>
+    <div class="avviso" style="margin-top:12px">
+      <b>Solo il capogruppo</b> deve premere il pulsante qui sotto, quando ci sono tutti.
+    </div>
+    <button class="btn btn-second" onclick="chiudi()">Invia l'ordine</button>`;
+  }
+}
+
+async function chiudi(){
+  if(!confirm("Confermi l'invio dell'ordine? Dopo non si potranno più aggiungere maglie.")) return;
+  const cliente = prompt("Nome e cognome di chi ritira l'ordine:", "");
+  if(cliente === null) return;
+  const telefono = prompt("Numero di telefono per contattarti:", "");
+  if(telefono === null) return;
+  const indirizzo = prompt("Indirizzo completo di spedizione (via, numero, CAP, città):", "");
+  if(indirizzo === null) return;
+  try{
+    const d = await fetch(API + "/api/gruppo/" + encodeURIComponent(token) + "/chiudi", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({cliente, telefono, indirizzo}),
+    }).then(r => r.json());
+    if(!d.ok) throw new Error(d.errore || "errore");
+    document.getElementById("app").innerHTML = `<div class="testata"><div class="stemma">⚽</div>
+      <div><h1>${esc(S.nome)}</h1><p>Ordine di gruppo · Completini SC 2.0</p></div></div>
+      <div class="esito"><h3>✓ Ordine inviato!</h3>
+        <div class="cod">${esc(d.ordine || "")}</div>
+        <p>${d.pezzi} pezzi · € ${Number(d.totale).toFixed(2)}<br><br>
+        Ti ricontattiamo su WhatsApp per il pagamento.<br>
+        Con questo codice potrai seguire la spedizione.</p></div>`;
+  }catch(e){
+    alert("Non è stato possibile inviare l'ordine. Riprova, oppure scrivici su WhatsApp.");
+  }
+}
+
+carica();
+</script>
+</body>
+</html>
