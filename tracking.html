@@ -131,6 +131,19 @@ h1{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:cla
 .lavorazione-banner-title{font-size:13px;font-weight:800;color:#8fa8ff;margin-bottom:4px}
 .lavorazione-banner-sub{font-size:12px;color:var(--muted);line-height:1.6}
 
+/* FUMETTO DEL PACCO: messaggio simpatico che cambia col viaggio */
+.pacco-dice{display:flex;align-items:center;gap:10px;margin-top:14px;padding:11px 14px;background:rgba(var(--fg-rgb),.04);border:1px solid var(--line);border-radius:14px}
+.pacco-dice-emoji{font-size:22px;flex-shrink:0;animation:pacco-molla 2.6s ease-in-out infinite}
+.pacco-dice-txt{font-size:12.5px;font-weight:600;line-height:1.45}
+@keyframes pacco-molla{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-4px) rotate(3deg)}}
+@media (prefers-reduced-motion:reduce){.pacco-dice-emoji{animation:none}}
+
+/* PASSAGGIO AL CORRIERE ITALIANO: avvisa che la sosta è normale */
+.attesa-banner{padding:16px 24px;background:rgba(255,180,0,.10);border-bottom:1px solid rgba(255,180,0,.28);display:flex;align-items:flex-start;gap:14px}
+.attesa-banner-icon{font-size:24px;flex-shrink:0;margin-top:2px}
+.attesa-banner-title{font-size:13px;font-weight:800;color:#e0a800;margin-bottom:4px}
+.attesa-banner-sub{font-size:12px;color:var(--muted);line-height:1.6}
+
 /* IN CONSEGNA BANNER */
 .consegna-banner{padding:16px 24px;background:linear-gradient(135deg,rgba(255,140,0,.18),rgba(255,180,0,.10));border-bottom:1px solid rgba(255,150,0,.3);display:flex;align-items:center;gap:14px}
 .consegna-banner-icon{font-size:28px;flex-shrink:0;animation:truck 1.2s ease-in-out infinite alternate}
@@ -482,6 +495,64 @@ function buildCard(cod, o){
     ? `<div class="consegna-banner"><div class="consegna-banner-icon">🚚</div><div><div class="consegna-banner-title">Il tuo pacco è in consegna oggi!</div><div class="consegna-banner-sub">Il corriere è in giro con il tuo ordine. Tieniti pronto.</div></div></div>`
     : "";
 
+  /* Il pacco "parla" in prima persona: la frase cambia con la tappa del
+     viaggio, così il cliente capisce a colpo d'occhio dov'è arrivato. */
+  const paccoDice = (()=>{
+    const ev = [...(o.eventi_corriere||[]), ...(o.eventi_cina||[])]
+      .filter(e => e && e.data).sort((a,b) => (b.data||"").localeCompare(a.data||""));
+    const ultimo = (ev[0]?.stato || "").toLowerCase();
+    const ha = (...chiavi) => chiavi.some(k => ultimo.includes(k));
+
+    let emoji = "📦", frase = "";
+    if(o.stato === "consegnato"){
+      emoji = "🎉"; frase = "Sono arrivato a casa tua! Buon divertimento in campo ⚽";
+    } else if(o.stato === "attesa_pagamento" || o.stato === "in_lavorazione" || o.stato === "lavorazione"){
+      emoji = "🧵"; frase = "Mi stanno preparando… ci vediamo prestissimo!";
+    } else if(o.stato === "in_consegna" || ha("in consegna","mezzo di consegna")){
+      emoji = "🏡"; frase = "Ci siamo, sono in giro col corriere: oggi busso alla tua porta!";
+    } else if(ha("in transito","rete di poste")){
+      emoji = "🚚"; frase = "Sto attraversando l'Italia per venire da te. Manca poco!";
+    } else if(ha("corriere locale","presa in carico","prima scansione")){
+      emoji = "📮"; frase = "Sono in Italia! Sto passando nelle mani di Poste, poi corro da te.";
+    } else if(ha("sdoganamento","dogana","deposito doganale","attesa di scansione")){
+      emoji = "🛃"; frase = "Sono atterrato in Italia, sbrigo le ultime formalità in dogana.";
+    } else if(ha("volo atterrato","aeroporto di destinazione","aeroporto locale")){
+      emoji = "🛬"; frase = "Atterrato! Benvenuto in Italia a me 😄";
+    } else if(ha("aeroporto di origine","volo partito","in volo")){
+      emoji = "✈️"; frase = "Sono in volo verso l'Italia, sto guardando le nuvole!";
+    } else if(ha("attesa del volo","compagnia aerea","partenza prevista","arrivo previsto")){
+      emoji = "🕐"; frase = "Sono in aeroporto con la valigia pronta, aspetto il mio volo.";
+    } else if(ha("magazzino","centro operativo","punto di raccolta","pacco ritirato","ordine registrato","dati della spedizione")){
+      emoji = "📦"; frase = "Il viaggio è cominciato: sono partito dal magazzino!";
+    } else {
+      emoji = "📦"; frase = "Sono in viaggio verso di te!";
+    }
+    return `<div class="pacco-dice"><div class="pacco-dice-emoji">${emoji}</div>
+      <div class="pacco-dice-txt">${frase}</div></div>`;
+  })();
+
+  /* Passaggio di consegne al corriere italiano: il tracking resta fermo per
+     qualche giorno ed è la fase in cui i clienti si preoccupano di più.
+     Se l'ultimo movimento è uno di questi, si spiega che serve tempo. */
+  const attesaBanner = (()=>{
+    if(o.stato === "consegnato" || o.stato === "in_consegna") return "";
+    const ev = [...(o.eventi_corriere||[]), ...(o.eventi_cina||[])]
+      .filter(e => e && e.data).sort((a,b) => (b.data||"").localeCompare(a.data||""));
+    if(!ev.length) return "";
+    const ultimo = (ev[0].stato || "").toLowerCase();
+    const inAttesa = [
+      "in attesa di ritiro", "attesa di scansione", "corriere locale",
+      "presa in carico", "deposito doganale", "sdoganamento",
+    ].some(k => ultimo.includes(k));
+    if(!inAttesa) return "";
+    return `<div class="attesa-banner"><div class="attesa-banner-icon">⏳</div><div>
+      <div class="attesa-banner-title">Passaggio a Poste Italiane in corso</div>
+      <div class="attesa-banner-sub">Il pacco è arrivato in Italia e sta passando di mano al corriere:
+      per questo passaggio servono di norma <strong>2–3 giorni lavorativi</strong>.
+      È normale che in questi giorni il tracking resti fermo — appena Poste Italiane
+      lo registra, qui compaiono i nuovi aggiornamenti.</div></div></div>`;
+  })();
+
   return `<div class="card">
     <div class="card-head">
       <div class="order-code">${cod}</div>
@@ -489,6 +560,7 @@ function buildCard(cod, o){
     </div>
     ${lavorazioneBanner}
     ${consegnaBanner}
+    ${attesaBanner}
     <div class="steps-wrap">
       <div class="steps-label">Stato spedizione</div>
       <div class="steps">${stepsHtml}</div>
@@ -496,6 +568,7 @@ function buildCard(cod, o){
         <div class="progress-track"><div class="progress-fill" data-pct="${pct}"></div></div>
         <div class="progress-pct">${pct}%</div>
       </div>
+      ${paccoDice}
       ${(()=>{
         // Si conta dalla data di spedizione (la stessa mostrata in "SPEDITO IL").
         // Prima si prendeva l'ULTIMO elemento della lista eventi unita: essendo
