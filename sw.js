@@ -79,17 +79,44 @@ self.addEventListener('fetch', e => {
 
 // ─── NOTIFICHE DEL TRACKING ──────────────────────────────────────────────────
 self.addEventListener('push', e => {
-  let d = {};
-  try { d = e.data ? e.data.json() : {}; } catch (err) { d = {}; }
-  const titolo = d.titolo || '📦 Aggiornamento spedizione';
-  e.waitUntil(self.registration.showNotification(titolo, {
-    body: d.testo || 'Il tuo pacco si è mosso, tocca per vedere dov\'è.',
-    icon: '/icona-192.png',
-    badge: '/icona-192.png',
-    tag: d.url || 'tracking',       // sostituisce la precedente invece di accumularle
-    renotify: true,
-    data: { url: d.url || '/tracking.html' },
-  }));
+  e.waitUntil((async () => {
+    let d = {};
+    try { d = e.data ? e.data.json() : {}; } catch (err) { d = {}; }
+
+    // Notifica "vuota" mandata dal servizio sempre acceso: non contiene testo,
+    // quindi andiamo a leggere noi cosa e' successo al pacco.
+    if (!d.titolo) {
+      try {
+        const reg = await self.registration;
+        const subs = await reg.pushManager.getSubscription();
+        const r = await fetch('https://csc-gruppi.worker-gruppi.workers.dev/sub/mio', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ endpoint: subs && subs.endpoint }),
+        });
+        const info = await r.json();
+        if (info && info.ok && info.eventi && info.eventi.length) {
+          const ev = info.eventi[0];
+          d = {
+            titolo: info.stato_corriere === 'consegnato' ? '\uD83C\uDF89 Il tuo ordine e\u0027 arrivato!'
+                  : info.stato_corriere === 'in_consegna' ? '\uD83D\uDE9A Il pacco e\u0027 in consegna oggi!'
+                  : '\uD83D\uDCE6 Il tuo pacco si e\u0027 mosso',
+            testo: ev.stato + (ev.luogo ? ' \u00b7 ' + ev.luogo : ''),
+            url: 'https://completinicalcio.it/tracking.html?ordine=' + info.codice,
+          };
+        }
+      } catch (err) {}
+    }
+
+    await self.registration.showNotification(d.titolo || '\uD83D\uDCE6 Aggiornamento spedizione', {
+      body: d.testo || 'Il tuo pacco si e\u0027 mosso, tocca per vedere dov\u0027e\u0027.',
+      icon: '/icona-192.png',
+      badge: '/icona-192.png',
+      tag: d.url || 'tracking',
+      renotify: true,
+      data: { url: d.url || '/tracking.html' },
+    });
+  })());
 });
 
 // Toccando la notifica si apre il link dell'ordine (riusa la scheda già aperta)
