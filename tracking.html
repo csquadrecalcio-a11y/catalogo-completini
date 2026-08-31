@@ -638,6 +638,10 @@ function buildCard(cod, o){
    Su iPhone le notifiche web funzionano SOLO se la pagina è stata prima
    aggiunta alla schermata Home: in quel caso mostriamo le istruzioni. */
 const API_NOTIFICHE = "https://mosaic-possum-crisping.ngrok-free.dev";
+// Chiave PUBBLICA delle notifiche: è fatta per stare nella pagina. Prima veniva
+// chiesta al gestionale, ma quella richiesta non passava i controlli CORS e
+// l'attivazione falliva sempre con "Non è stato possibile attivare" (31/08/26).
+const CHIAVE_PUSH = "BItF4Do0tD5ELmCAG1P-r9NKNIJ3QYXZ6NqLYaLM5ZUE55m2iG9D4ODkDY4qrLzu8PKbw17PzFjzSMLBWvZYBK0";
 let _codiceCorrente = "";
 
 const isiOS = /iphone|ipad|ipod/i.test(navigator.userAgent)
@@ -771,10 +775,9 @@ async function attivaAvvisi(){
       return;
     }
     const reg = await navigator.serviceWorker.ready;
-    const chiave = await fetch(API_NOTIFICHE + "/api/notifiche/chiave").then(r=>r.json());
     const sub = await reg.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey: b64ToUint8(chiave.chiave),
+      applicationServerKey: b64ToUint8(CHIAVE_PUSH),
     });
     const r = await fetch(API_NOTIFICHE + "/api/notifiche/iscrivi", {
       method:"POST", headers:{"Content-Type":"application/json"},
@@ -785,7 +788,8 @@ async function attivaAvvisi(){
   }catch(e){
     btn.disabled = false; btn.textContent = 'Attiva';
     guida.classList.add('open');
-    guida.innerHTML = "<b>Non è stato possibile attivare gli avvisi.</b> Riprova fra poco, oppure scrivici su WhatsApp e ti aggiorniamo noi.";
+    guida.innerHTML = "<b>Non è stato possibile attivare gli avvisi.</b> Riprova fra poco, oppure scrivici su WhatsApp e ti aggiorniamo noi."
+      + `<div style="margin-top:8px;font-size:11px;opacity:.6">Dettaglio tecnico: ${String(e && e.message || e).slice(0,120)}</div>`;
   }
 }
 
