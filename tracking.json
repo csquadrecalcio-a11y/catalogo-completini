@@ -610,6 +610,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-08-31 02:37:26",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
         "data": "2026-08-26 05:46:52",
         "luogo": "",
         "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
