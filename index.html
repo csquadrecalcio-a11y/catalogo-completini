@@ -2515,7 +2515,12 @@ document.getElementById("cartCheckout").onclick = ()=>{
     const nome = `${it.version} ${nomePulito}`.trim();
     const stampa = it.pers || "nessuna stampa";
     const patch = it.patch ? ` • ${it.patch}` : "";
-    lines.push(`🔹 *${nome}*`);
+    // La quantità va SEMPRE mostrata quando è più di 1: senza, due pezzi
+    // identici arrivavano su WhatsApp come una riga sola e sembravano uno
+    // solo (segnalato il 31/08/26 — ordine Armenise, 2 kit letti come 1).
+    const qta = parseInt(it.qty || 1);
+    const quante = qta > 1 ? `${qta}x ` : "";
+    lines.push(`🔹 *${quante}${nome}*`);
     lines.push(`   ${stampa} • taglia ${it.size}${patch}`);
     if ((isVintage || isTuta) && !it.desc && it.thumb) lines.push(`   📷 ${it.thumb}`);
   });
