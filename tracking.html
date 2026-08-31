@@ -636,6 +636,9 @@ let _codiceCorrente = "";
 
 const isiOS = /iphone|ipad|ipod/i.test(navigator.userAgent)
   || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+// Su iPhone tutti i browser usano il motore di Apple, ma l'icona che riceve le
+// notifiche la può creare SOLO Safari: Chrome/Firefox/Edge su iOS non bastano.
+const iosNonSafari = isiOS && /crios|fxios|edgios|opt\//i.test(navigator.userAgent);
 const installata = window.matchMedia('(display-mode: standalone)').matches
   || window.navigator.standalone === true;
 
@@ -646,23 +649,58 @@ function b64ToUint8(base64){
   return Uint8Array.from([...raw].map(c => c.charCodeAt(0)));
 }
 
-function guidaHtml(){
-  if(isiOS && !installata){
-    return `<b>Su iPhone serve un passaggio in più</b> (lo chiede Apple, non noi):
+/* Le guide sono sempre TUTTE disponibili: si mostra quella del dispositivo
+   riconosciuto, ma in fondo c'è il link per vedere l'altra — il riconoscimento
+   può sbagliare (iPad che si spaccia per Mac, browser strani) e nessuno deve
+   restare senza istruzioni. */
+const GUIDE = {
+  safari: `<b>Su iPhone serve un passaggio in più</b> (lo chiede Apple, non noi):
       <ol>
         <li>Tocca il pulsante <b>Condividi</b> ⬆️ in basso in Safari</li>
         <li>Scorri e tocca <b>«Aggiungi a schermata Home»</b></li>
         <li>Conferma con <b>Aggiungi</b>: comparirà l'icona Completini SC</li>
         <li>Apri il sito <b>da quell'icona</b> e tocca di nuovo «Avvisami»</li>
-      </ol>`;
-  }
-  return `<b>Come funziona</b>
+      </ol>`,
+  chromeIos: `<b>Stai usando Chrome su iPhone</b>: le notifiche funzionano solo da Safari,
+      è una regola di Apple.
+      <ol>
+        <li>Tocca <b>«Copia link»</b> qui sotto</li>
+        <li>Apri <b>Safari</b> e incolla il link nella barra degli indirizzi</li>
+        <li>Tocca <b>Condividi</b> ⬆️ → <b>«Aggiungi a schermata Home»</b></li>
+        <li>Apri il sito <b>da quell'icona</b> e tocca «Avvisami»</li>
+      </ol>
+      <button class="avvisami-link" onclick="copiaLinkOrdine(this)">📋 Copia link</button>`,
+  standard: `<b>Come funziona</b>
     <ol>
       <li>Tocca <b>«Avvisami»</b>: il telefono ti chiede il permesso</li>
       <li>Scegli <b>Consenti</b></li>
       <li>Riceverai una notifica a ogni movimento del pacco, anche con la pagina chiusa</li>
     </ol>
-    Puoi disattivarle quando vuoi dallo stesso pulsante.`;
+    Puoi disattivarle quando vuoi dallo stesso pulsante.`,
+};
+
+function guidaHtml(quale){
+  let k = quale;
+  if(!k) k = iosNonSafari ? "chromeIos" : (isiOS && !installata ? "safari" : "standard");
+  const altra = (k === "standard")
+    ? `<button class="avvisami-link" onclick="mostraGuida('safari')">Hai un iPhone? Istruzioni qui</button>`
+    : `<button class="avvisami-link" onclick="mostraGuida('standard')">Hai Android o sei da computer? Istruzioni qui</button>`;
+  return GUIDE[k] + `<div style="margin-top:10px">${altra}</div>`;
+}
+
+function mostraGuida(quale){
+  const g = document.querySelector('.avvisami-guida');
+  if(g){ g.innerHTML = guidaHtml(quale); g.classList.add('open'); }
+}
+
+function copiaLinkOrdine(btn){
+  const url = location.origin + "/tracking.html?ordine=" + _codiceCorrente;
+  const ok = () => { btn.textContent = "✓ Link copiato!"; setTimeout(()=>btn.textContent="📋 Copia link", 2000); };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(ok).catch(()=>{ prompt("Copia il link:", url); });
+  } else {
+    prompt("Copia il link:", url);
+  }
 }
 
 function bloccoAvvisami(cod){
@@ -715,7 +753,8 @@ async function attivaAvvisi(){
     return;
   }
 
-  if(isiOS && !installata){ guida.classList.add('open'); return; }
+  // Su iPhone non si può attivare da qui: prima serve l'icona creata da Safari
+  if(isiOS && !installata){ mostraGuida(iosNonSafari ? "chromeIos" : "safari"); return; }
 
   btn.disabled = true; btn.textContent = 'Attendi…';
   try{
