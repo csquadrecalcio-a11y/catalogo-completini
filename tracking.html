@@ -6,11 +6,11 @@
 <title>Traccia il tuo ordine | Completini Squadre Calcio</title>
 <meta name="description" content="Inserisci il codice del tuo ordine per vedere lo stato e il tracking della spedizione.">
 <link rel="icon" href="https://completinicalcio.it/logo.jpg">
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="/manifest-tracking.json">
 <meta name="theme-color" content="#050d1c">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Completini SC">
+<meta name="apple-mobile-web-app-title" content="Il mio ordine">
 <link rel="apple-touch-icon" href="/icona-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -325,6 +325,7 @@ async function cerca(){
     return;
   }
   _codiceCorrente = cod;
+  try{ localStorage.setItem("csc_ultimo_ordine", cod); }catch(e){}
   r.innerHTML = buildCard(cod, o);
   aggiornaGlossario(o);
   statoAvvisi();
@@ -851,8 +852,12 @@ function aggiornaGlossario(o){
 document.getElementById("inp").addEventListener("keydown", e=>{ if(e.key==="Enter") cerca(); });
 
 // deeplink ?ordine=CSC-2026-0274
+// L'icona aggiunta alla schermata Home apre /tracking.html SENZA il codice
+// ordine: ricordiamo l'ultimo cercato, così il cliente ritrova subito il suo
+// pacco invece di dover riscrivere il codice ogni volta.
+const RICORDA = "csc_ultimo_ordine";
 const p = new URLSearchParams(location.search);
-const pre = p.get("ordine");
+const pre = p.get("ordine") || (()=>{ try{ return localStorage.getItem(RICORDA); }catch(e){ return null; } })();
 if(pre){ document.getElementById("inp").value=pre; cerca(); }
 </script>
 </body>
