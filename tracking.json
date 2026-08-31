@@ -17751,24 +17751,6 @@
       }
     ]
   },
-  "CSC-2026-0290": {
-    "stato": "attesa_pagamento",
-    "data_spedizione": "",
-    "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
-    "corriere_2": "",
-    "tracking_2": "",
-    "corriere_3": "",
-    "tracking_3": "",
-    "corriere_4": "",
-    "tracking_4": "",
-    "corriere_5": "",
-    "tracking_5": "",
-    "foto": [],
-    "tracking_cina": "",
-    "eventi_cina": []
-  },
   "CSC-2026-0291": {
     "stato": "attesa_pagamento",
     "data_spedizione": "",
