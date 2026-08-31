@@ -324,12 +324,15 @@ function giorniLavorativi(dataStr){
   const start = new Date(dataStr.substring(0,10)+"T00:00:00");
   const oggi = new Date(); oggi.setHours(0,0,0,0);
   if(isNaN(start) || start > oggi) return null;
+  // Giorni lavorativi TRASCORSI dalla partenza: il giorno della spedizione non
+  // si conta (identica alla formula del gestionale, che mostrava 11 mentre qui
+  // ne uscivano 12 — 31/08/26).
   let giorni = 0;
   const cur = new Date(start);
-  while(cur <= oggi){
+  while(cur < oggi){
+    cur.setDate(cur.getDate()+1);
     const g = cur.getDay();
     if(g !== 0 && g !== 6) giorni++;
-    cur.setDate(cur.getDate()+1);
   }
   return giorni;
 }
