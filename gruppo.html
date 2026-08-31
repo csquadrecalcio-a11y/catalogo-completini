@@ -121,10 +121,8 @@ body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-s
 </div>
 
 <script>
-const API = "https://mosaic-possum-crisping.ngrok-free.dev";
-// Senza questa intestazione ngrok risponde con la sua pagina di avviso al
-// posto dei dati, e la pagina non riesce a leggere il gruppo (31/08/26).
-const CAPI = {"Content-Type":"application/json","ngrok-skip-browser-warning":"1"};
+const API = "https://csc-gruppi.worker-gruppi.workers.dev";  // sempre acceso: funziona anche a Mac spento
+const CAPI = {"Content-Type":"application/json"};
 const TAGLIE = ["S","M","L","XL","XXL"];
 const token = new URLSearchParams(location.search).get("g") || "";
 let S = null;              // stato ricevuto dal gestionale
@@ -150,7 +148,7 @@ const salvaMie = () => { try{ localStorage.setItem("csc_gruppo_mie_" + token, JS
 async function carica(){
   if(!token){ erroreFatale("Link incompleto", "Chiedi al tuo capogruppo di rimandarti il link."); return; }
   try{
-    const d = await fetch(API + "/api/gruppo/" + encodeURIComponent(token), {headers:CAPI}).then(r => r.json());
+    const d = await fetch(API + "/g/" + encodeURIComponent(token), {headers:CAPI}).then(r => r.json());
     if(!d.ok){ erroreFatale("Link non valido", d.errore || "Questo ordine di gruppo non esiste più."); return; }
     S = d; disegna();
   }catch(e){
@@ -267,7 +265,7 @@ async function aggiungi(){
   if(!taglia){ $("f-taglie").firstElementChild.focus(); return; }
   btn.disabled = true; btn.textContent = "Aggiungo…";
   try{
-    const d = await fetch(API + "/api/gruppo/" + encodeURIComponent(token) + "/riga", {
+    const d = await fetch(API + "/g/" + encodeURIComponent(token) + "/riga", {
       method:"POST", headers:CAPI,
       body: JSON.stringify({prodotto_id: parseInt($("f-tipo").value),
         squadra, nome: $("f-nome").value.trim(), numero: $("f-numero").value.trim(), taglia}),
@@ -286,7 +284,7 @@ async function aggiungi(){
 
 async function rimuovi(id){
   try{
-    const d = await fetch(API + "/api/gruppo/" + encodeURIComponent(token) + "/riga/" + id + "/elimina",
+    const d = await fetch(API + "/g/" + encodeURIComponent(token) + "/riga/" + id + "/del",
       {method:"POST", headers:CAPI, body:"{}"}).then(r => r.json());
     if(d.ok){ S = Object.assign(S, d); mie = mie.filter(m => m !== id); salvaMie(); aggiornaTesta(); }
   }catch(e){}
@@ -361,7 +359,7 @@ async function chiudi(){
   const indirizzo = prompt("Indirizzo completo di spedizione (via, numero, CAP, città):", "");
   if(indirizzo === null) return;
   try{
-    const d = await fetch(API + "/api/gruppo/" + encodeURIComponent(token) + "/chiudi", {
+    const d = await fetch(API + "/g/" + encodeURIComponent(token) + "/chiudi", {
       method:"POST", headers:CAPI,
       body: JSON.stringify({cliente, telefono, indirizzo}),
     }).then(r => r.json());
