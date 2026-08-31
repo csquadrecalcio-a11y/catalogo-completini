@@ -1,0 +1,17 @@
+{
+  "name": "Il mio ordine — Completini SC",
+  "short_name": "Il mio ordine",
+  "description": "Segui la tua spedizione: foto della merce, stato del pacco e notifiche a ogni movimento.",
+  "start_url": "/tracking.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#050d1c",
+  "theme_color": "#050d1c",
+  "lang": "it",
+  "icons": [
+    { "src": "/icona-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icona-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icona-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
