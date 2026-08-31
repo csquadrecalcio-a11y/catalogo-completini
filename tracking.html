@@ -6,6 +6,12 @@
 <title>Traccia il tuo ordine | Completini Squadre Calcio</title>
 <meta name="description" content="Inserisci il codice del tuo ordine per vedere lo stato e il tracking della spedizione.">
 <link rel="icon" href="https://completinicalcio.it/logo.jpg">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#050d1c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Completini SC">
+<link rel="apple-touch-icon" href="/icona-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* Stessa palette del catalogo (index.html): blu notte + accento #2563eb,
@@ -139,6 +145,24 @@ h1{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:cla
 @media (prefers-reduced-motion:reduce){.pacco-dice-emoji{animation:none}}
 
 /* PASSAGGIO AL CORRIERE ITALIANO: avvisa che la sosta è normale */
+/* AVVISAMI: iscrizione alle notifiche + istruzioni per il cliente */
+.avvisami{margin-top:16px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel2)}
+.avvisami-top{padding:16px 18px;display:flex;align-items:center;gap:13px;flex-wrap:wrap}
+.avvisami-emoji{font-size:24px;flex-shrink:0}
+.avvisami-txt{flex:1;min-width:160px}
+.avvisami-tit{font-size:13.5px;font-weight:800;margin-bottom:3px}
+.avvisami-sub{font-size:12px;color:var(--muted);line-height:1.5}
+.avvisami-btn{padding:11px 18px;background:var(--volt);color:#fff;border:none;border-radius:999px;font-weight:800;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;transition:opacity .15s;white-space:nowrap}
+.avvisami-btn:hover{opacity:.88}
+.avvisami-btn.attivo{background:rgba(40,200,100,.16);color:#28c864}
+.avvisami-btn:disabled{opacity:.6;cursor:default}
+.avvisami-guida{border-top:1px solid var(--line);padding:14px 18px;font-size:12.5px;line-height:1.7;color:var(--muted);display:none}
+.avvisami-guida.open{display:block}
+.avvisami-guida b{color:var(--text)}
+.avvisami-guida ol{margin:6px 0 0 18px}
+.avvisami-guida li{margin-bottom:4px}
+.avvisami-link{color:var(--volt);font-weight:700;cursor:pointer;font-size:12px;background:none;border:none;padding:0;font-family:'Inter',sans-serif;text-decoration:underline}
+
 .attesa-banner{padding:16px 24px;background:rgba(255,180,0,.10);border-bottom:1px solid rgba(255,180,0,.28);display:flex;align-items:flex-start;gap:14px}
 .attesa-banner-icon{font-size:24px;flex-shrink:0;margin-top:2px}
 .attesa-banner-title{font-size:13px;font-weight:800;color:#e0a800;margin-bottom:4px}
@@ -296,8 +320,12 @@ async function cerca(){
     aggiornaGlossario(null);
     return;
   }
-  r.innerHTML = buildCard(cod, o);
+  _codiceCorrente = cod;
+  // Gli avvisi si offrono solo finché il pacco è in viaggio
+  const offriAvvisi = o.stato !== "consegnato" && o.stato !== "annullato";
+  r.innerHTML = buildCard(cod, o) + (offriAvvisi ? bloccoAvvisami(cod) : "");
   aggiornaGlossario(o);
+  statoAvvisi();
   // Anima barra progress e line-fill dopo render
   // Due rAF: primo = paint iniziale, secondo = applica transform → browser vede diff → transition scatta
   requestAnimationFrame(()=>requestAnimationFrame(()=>{
@@ -594,6 +622,131 @@ function buildCard(cod, o){
     ${cinaHtml}
     ${fotoHtml}
   </div>`;
+}
+
+/* ═══ AVVISI SUL TELEFONO ═══════════════════════════════════════════════════
+   Il cliente tocca "Avvisami": il browser chiede il permesso e ci consegna un
+   indirizzo di recapito, che salviamo insieme al codice ordine. Da lì in poi
+   ogni movimento del pacco gli arriva come notifica, anche a pagina chiusa.
+   Su iPhone le notifiche web funzionano SOLO se la pagina è stata prima
+   aggiunta alla schermata Home: in quel caso mostriamo le istruzioni. */
+const API_NOTIFICHE = "https://mosaic-possum-crisping.ngrok-free.dev";
+let _codiceCorrente = "";
+
+const isiOS = /iphone|ipad|ipod/i.test(navigator.userAgent)
+  || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const installata = window.matchMedia('(display-mode: standalone)').matches
+  || window.navigator.standalone === true;
+
+function b64ToUint8(base64){
+  const pad = '='.repeat((4 - base64.length % 4) % 4);
+  const b64 = (base64 + pad).replace(/-/g,'+').replace(/_/g,'/');
+  const raw = atob(b64);
+  return Uint8Array.from([...raw].map(c => c.charCodeAt(0)));
+}
+
+function guidaHtml(){
+  if(isiOS && !installata){
+    return `<b>Su iPhone serve un passaggio in più</b> (lo chiede Apple, non noi):
+      <ol>
+        <li>Tocca il pulsante <b>Condividi</b> ⬆️ in basso in Safari</li>
+        <li>Scorri e tocca <b>«Aggiungi a schermata Home»</b></li>
+        <li>Conferma con <b>Aggiungi</b>: comparirà l'icona Completini SC</li>
+        <li>Apri il sito <b>da quell'icona</b> e tocca di nuovo «Avvisami»</li>
+      </ol>`;
+  }
+  return `<b>Come funziona</b>
+    <ol>
+      <li>Tocca <b>«Avvisami»</b>: il telefono ti chiede il permesso</li>
+      <li>Scegli <b>Consenti</b></li>
+      <li>Riceverai una notifica a ogni movimento del pacco, anche con la pagina chiusa</li>
+    </ol>
+    Puoi disattivarle quando vuoi dallo stesso pulsante.`;
+}
+
+function bloccoAvvisami(cod){
+  if(!('serviceWorker' in navigator) || !('PushManager' in window)) return "";
+  return `<div class="avvisami">
+    <div class="avvisami-top">
+      <div class="avvisami-emoji">🔔</div>
+      <div class="avvisami-txt">
+        <div class="avvisami-tit">Vuoi essere avvisato?</div>
+        <div class="avvisami-sub">Ti mandiamo una notifica a ogni movimento del pacco, così non devi controllare.
+          <button class="avvisami-link" onclick="document.querySelector('.avvisami-guida').classList.toggle('open')">Come si fa?</button>
+        </div>
+      </div>
+      <button class="avvisami-btn" id="btnAvvisami" onclick="attivaAvvisi()">Avvisami</button>
+    </div>
+    <div class="avvisami-guida">${guidaHtml()}</div>
+  </div>`;
+}
+
+async function statoAvvisi(){
+  const btn = document.getElementById('btnAvvisami');
+  if(!btn) return;
+  try{
+    const reg = await navigator.serviceWorker.getRegistration();
+    const sub = reg && await reg.pushManager.getSubscription();
+    if(sub && Notification.permission === 'granted'){
+      btn.textContent = '✓ Avvisi attivi';
+      btn.classList.add('attivo');
+    }
+  }catch(e){}
+}
+
+async function attivaAvvisi(){
+  const btn = document.getElementById('btnAvvisami');
+  const guida = document.querySelector('.avvisami-guida');
+  if(!btn) return;
+
+  // Già attivi → spegnili
+  if(btn.classList.contains('attivo')){
+    try{
+      const reg = await navigator.serviceWorker.getRegistration();
+      const sub = reg && await reg.pushManager.getSubscription();
+      if(sub){
+        await fetch(API_NOTIFICHE + "/api/notifiche/disiscrivi", {method:"POST",
+          headers:{"Content-Type":"application/json"}, body: JSON.stringify({endpoint: sub.endpoint})}).catch(()=>{});
+        await sub.unsubscribe();
+      }
+    }catch(e){}
+    btn.textContent = 'Avvisami'; btn.classList.remove('attivo');
+    return;
+  }
+
+  if(isiOS && !installata){ guida.classList.add('open'); return; }
+
+  btn.disabled = true; btn.textContent = 'Attendi…';
+  try{
+    const permesso = await Notification.requestPermission();
+    if(permesso !== 'granted'){
+      btn.disabled = false; btn.textContent = 'Avvisami';
+      guida.classList.add('open');
+      guida.innerHTML = "<b>Permesso negato.</b> Per riattivarlo vai nelle impostazioni del browser, alla voce Notifiche per questo sito, e scegli «Consenti».";
+      return;
+    }
+    const reg = await navigator.serviceWorker.ready;
+    const chiave = await fetch(API_NOTIFICHE + "/api/notifiche/chiave").then(r=>r.json());
+    const sub = await reg.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: b64ToUint8(chiave.chiave),
+    });
+    const r = await fetch(API_NOTIFICHE + "/api/notifiche/iscrivi", {
+      method:"POST", headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({ordine: _codiceCorrente, subscription: sub.toJSON()}),
+    });
+    if(!r.ok) throw new Error("registrazione non riuscita");
+    btn.disabled = false; btn.textContent = '✓ Avvisi attivi'; btn.classList.add('attivo');
+  }catch(e){
+    btn.disabled = false; btn.textContent = 'Avvisami';
+    guida.classList.add('open');
+    guida.innerHTML = "<b>Non è stato possibile attivare gli avvisi.</b> Riprova fra poco, oppure scrivici su WhatsApp e ti aggiorniamo noi.";
+  }
+}
+
+// Registra il service worker: serve sia per le notifiche sia per installare il sito
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(()=>{}));
 }
 
 function toggleGlossario(el){

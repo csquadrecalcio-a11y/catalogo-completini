@@ -1,0 +1,26 @@
+{
+  "name": "Completini Squadre Calcio 2.0",
+  "short_name": "Completini SC",
+  "description": "Maglie e kit calcio personalizzati: catalogo, ordini e tracciamento della spedizione.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#050d1c",
+  "theme_color": "#050d1c",
+  "lang": "it",
+  "categories": ["shopping", "sports"],
+  "icons": [
+    { "src": "/icona-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icona-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icona-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Traccia il mio ordine",
+      "short_name": "Tracking",
+      "url": "/tracking.html",
+      "icons": [{ "src": "/icona-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
