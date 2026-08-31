@@ -148,13 +148,15 @@ h1{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:cla
 /* AVVISAMI: iscrizione alle notifiche + istruzioni per il cliente */
 /* sta DENTRO la scheda, subito sotto lo stato: è la prima cosa utile che il
    cliente vede, prima era in fondo dopo le foto e passava inosservato */
-.avvisami{border-bottom:1px solid var(--line);background:rgba(37,99,235,.05)}
-.avvisami-top{padding:15px 24px;display:flex;align-items:center;gap:13px;flex-wrap:wrap}
-.avvisami-emoji{font-size:24px;flex-shrink:0}
-.avvisami-txt{flex:1;min-width:160px}
-.avvisami-tit{font-size:13.5px;font-weight:800;margin-bottom:3px}
-.avvisami-sub{font-size:12px;color:var(--muted);line-height:1.5}
-.avvisami-btn{padding:11px 18px;background:var(--volt);color:#fff;border:none;border-radius:999px;font-weight:800;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif;transition:opacity .15s;white-space:nowrap}
+/* Una riga sola e discreta: la tracciatura deve restare la protagonista.
+   Le istruzioni compaiono solo se il cliente tocca il pulsante. */
+.avvisami{border-bottom:1px solid var(--line)}
+.avvisami-top{padding:11px 24px;display:flex;align-items:center;gap:10px}
+.avvisami-emoji{font-size:16px;flex-shrink:0}
+.avvisami-txt{flex:1;min-width:0}
+.avvisami-tit{font-size:12.5px;font-weight:700;color:var(--muted)}
+.avvisami-btn{padding:7px 15px;background:transparent;color:var(--volt);border:1.5px solid var(--volt);border-radius:999px;font-weight:800;font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .15s;white-space:nowrap}
+.avvisami-btn:hover{background:var(--volt);color:#fff}
 .avvisami-btn:hover{opacity:.88}
 .avvisami-btn.attivo{background:rgba(40,200,100,.16);color:#28c864}
 .avvisami-btn:disabled{opacity:.6;cursor:default}
@@ -709,25 +711,13 @@ function bloccoAvvisami(cod){
   // sito è stato aggiunto alla schermata Home: se nascondessimo il blocco qui,
   // il cliente non vedrebbe mai le istruzioni per arrivarci (31/08/26).
   if(!('PushManager' in window) && !isiOS) return "";
-  // Su iPhone non ancora installato il pulsante non può attivare nulla: apre le
-  // istruzioni, e il testo lo dice chiaramente invece di illudere il cliente.
-  const daInstallare = isiOS && !installata;
-  const testoBtn = daInstallare ? "Come si attiva" : "Avvisami";
-  const sottotitolo = daInstallare
-    ? "Ti mandiamo una notifica a ogni movimento del pacco. Su iPhone serve un passaggio in più, te lo spieghiamo qui."
-    : "Ti mandiamo una notifica a ogni movimento del pacco, così non devi controllare.";
   return `<div class="avvisami">
     <div class="avvisami-top">
       <div class="avvisami-emoji">🔔</div>
-      <div class="avvisami-txt">
-        <div class="avvisami-tit">Vuoi essere avvisato?</div>
-        <div class="avvisami-sub">${sottotitolo}
-          <button class="avvisami-link" onclick="document.querySelector('.avvisami-guida').classList.toggle('open')">Come si fa?</button>
-        </div>
-      </div>
-      <button class="avvisami-btn" id="btnAvvisami" onclick="attivaAvvisi()">${testoBtn}</button>
+      <div class="avvisami-txt"><div class="avvisami-tit">Avvisami quando il pacco si muove</div></div>
+      <button class="avvisami-btn" id="btnAvvisami" onclick="attivaAvvisi()">Attiva</button>
     </div>
-    <div class="avvisami-guida${daInstallare ? " open" : ""}">${guidaHtml()}</div>
+    <div class="avvisami-guida"></div>
   </div>`;
 }
 
@@ -738,7 +728,7 @@ async function statoAvvisi(){
     const reg = await navigator.serviceWorker.getRegistration();
     const sub = reg && await reg.pushManager.getSubscription();
     if(sub && Notification.permission === 'granted'){
-      btn.textContent = '✓ Avvisi attivi';
+      btn.textContent = '✓ Attive';
       btn.classList.add('attivo');
     }
   }catch(e){}
@@ -760,7 +750,7 @@ async function attivaAvvisi(){
         await sub.unsubscribe();
       }
     }catch(e){}
-    btn.textContent = 'Avvisami'; btn.classList.remove('attivo');
+    btn.textContent = 'Attiva'; btn.classList.remove('attivo');
     return;
   }
 
@@ -771,7 +761,7 @@ async function attivaAvvisi(){
   try{
     const permesso = await Notification.requestPermission();
     if(permesso !== 'granted'){
-      btn.disabled = false; btn.textContent = 'Avvisami';
+      btn.disabled = false; btn.textContent = 'Attiva';
       guida.classList.add('open');
       guida.innerHTML = "<b>Permesso negato.</b> Per riattivarlo vai nelle impostazioni del browser, alla voce Notifiche per questo sito, e scegli «Consenti».";
       return;
@@ -787,9 +777,9 @@ async function attivaAvvisi(){
       body: JSON.stringify({ordine: _codiceCorrente, subscription: sub.toJSON()}),
     });
     if(!r.ok) throw new Error("registrazione non riuscita");
-    btn.disabled = false; btn.textContent = '✓ Avvisi attivi'; btn.classList.add('attivo');
+    btn.disabled = false; btn.textContent = '✓ Attive'; btn.classList.add('attivo');
   }catch(e){
-    btn.disabled = false; btn.textContent = 'Avvisami';
+    btn.disabled = false; btn.textContent = 'Attiva';
     guida.classList.add('open');
     guida.innerHTML = "<b>Non è stato possibile attivare gli avvisi.</b> Riprova fra poco, oppure scrivici su WhatsApp e ti aggiorniamo noi.";
   }
