@@ -233,6 +233,7 @@ footer a{color:var(--volt);font-weight:700}
     <button onclick="cerca()">Traccia →</button>
   </div>
 
+  <div id="benvenutoApp"></div>
   <div id="result"></div>
 
   <div class="glossario" style="display:none">
@@ -326,6 +327,8 @@ async function cerca(){
   }
   _codiceCorrente = cod;
   try{ localStorage.setItem("csc_ultimo_ordine", cod); }catch(e){}
+  const benv = document.getElementById("benvenutoApp");
+  if(benv) benv.innerHTML = "";   // trovato l'ordine: il messaggio di benvenuto non serve più
   r.innerHTML = buildCard(cod, o);
   aggiornaGlossario(o);
   statoAvvisi();
@@ -859,6 +862,18 @@ const RICORDA = "csc_ultimo_ordine";
 const p = new URLSearchParams(location.search);
 const pre = p.get("ordine") || (()=>{ try{ return localStorage.getItem(RICORDA); }catch(e){ return null; } })();
 if(pre){ document.getElementById("inp").value=pre; cerca(); }
+else if(installata){
+  // Aperta dall'icona ma senza codice: iPhone tiene la memoria dell'app
+  // separata da quella di Safari, quindi il codice cercato prima nel browser
+  // qui non c'è. Si inserisce una volta e da lì in poi resta salvato.
+  document.getElementById("benvenutoApp").innerHTML =
+    `<div style="border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:rgba(37,99,235,.06);
+       font-size:13px;line-height:1.6;color:var(--muted);margin-bottom:8px">
+       👋 <b style="color:var(--text)">Benvenuto!</b> Inserisci qui sopra il codice del tuo ordine
+       (lo trovi nel messaggio WhatsApp). <b style="color:var(--text)">Te lo ricordiamo noi</b>:
+       le prossime volte si aprirà da solo.
+     </div>`;
+}
 </script>
 </body>
 </html>
