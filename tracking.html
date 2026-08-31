@@ -327,6 +327,23 @@ async function cerca(){
   }
   _codiceCorrente = cod;
   try{ localStorage.setItem("csc_ultimo_ordine", cod); }catch(e){}
+
+  // Il file pubblicato lo aggiorna il Mac. Il servizio online invece controlla
+  // i corrieri ogni mezz'ora anche a Mac spento: se ha movimenti piu recenti,
+  // li usiamo noi. Cosi il cliente vede sempre l'ultima novita.
+  try{
+    const fresco = await fetch(API_NOTIFICHE + "/t/" + encodeURIComponent(cod))
+      .then(r => r.ok ? r.json() : null).catch(() => null);
+    if(fresco && fresco.ok){
+      const piuRecente = (a, b) => {
+        const da = (a && a.length) ? a[0].data || "" : "";
+        const db2 = (b && b.length) ? b[0].data || "" : "";
+        return db2 > da ? b : a;
+      };
+      o.eventi_corriere = piuRecente(o.eventi_corriere, fresco.eventi);
+      o.eventi_cina     = piuRecente(o.eventi_cina, fresco.eventi_fornitore);
+    }
+  }catch(e){}
   const benv = document.getElementById("benvenutoApp");
   if(benv) benv.innerHTML = "";   // trovato l'ordine: il messaggio di benvenuto non serve più
   r.innerHTML = buildCard(cod, o);
