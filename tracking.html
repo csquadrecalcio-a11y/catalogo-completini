@@ -377,10 +377,22 @@ function pulisciStato(s){
 }
 function pulisciLuogo(l){
   if(!l) return "";
-  // Rimuovi codici paese (CN, IT) e città cinesi
-  l = l.replace(/\bCN\b/g,"").replace(/\bIT\b/g,"");
-  l = l.replace(/\b(Guangzhou|Shenzhen|Shanghai|Beijing|Guangdong)\b/gi,"");
-  return l.trim().replace(/^[·\s]+|[·\s]+$/g,"");
+  l = String(l).trim();
+  // Località che rivelano l'origine cinese: non vanno mostrate al cliente.
+  if(/\b(cina|china|guangzhou|shenzhen|shanghai|beijing|pechino|guangdong|hong ?kong)\b/i.test(l)) return "";
+  if(/^(cn|hk)$/i.test(l)) return "";
+  l = l.replace(/\bCN\b/g,"").replace(/^IT\s+/,"");
+  // Sigle aeroportuali → nome comprensibile
+  l = l.replace(/^FCO$/i,"Roma Fiumicino").replace(/^MXP$/i,"Milano Malpensa");
+  // "dalla sede operativa di CATANIA (CT)" → "Catania (CT)"
+  l = l.replace(/^dalla sede operativa di\s+/i,"").replace(/^filiale\s+/i,"");
+  // Poste scrive tutto maiuscolo: si legge meglio con l'iniziale grande,
+  // lasciando in maiuscolo la sigla della provincia fra parentesi.
+  if(l === l.toUpperCase()){
+    l = l.toLowerCase().replace(/\b[a-zà-ù]/g, c => c.toUpperCase())
+         .replace(/\(([a-z]{2})\)/gi, (m,p) => "("+p.toUpperCase()+")");
+  }
+  return l.trim().replace(/^[·,\s]+|[·,\s]+$/g,"");
 }
 
 function buildCard(cod, o){
@@ -431,7 +443,7 @@ function buildCard(cod, o){
         <div class="ev-dot${i===0?" ev-dot-first":""}"></div>
         <div class="ev-body">
           <div class="ev-stato">${remapStato(pulisciStato(e.stato||""))}</div>
-          <div class="ev-meta">${e.data||""}</div>
+          <div class="ev-meta">${e.data||""}${(()=>{const L=pulisciLuogo(e.luogo);return L?` · 📍 ${L}`:"";})()}</div>
         </div>
       </div>`).join("");
     cinaHtml = `<div class="cina-section">
