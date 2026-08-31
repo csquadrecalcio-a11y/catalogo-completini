@@ -2600,6 +2600,10 @@ async function _consegnaOrdine(payload){
       "ngrok-skip-browser-warning": "1",
     },
     body: JSON.stringify(payload),
+    // Subito dopo questa chiamata il sito apre WhatsApp: su telefono la pagina
+    // viene sospesa e senza keepalive il browser ANNULLA la richiesta ancora in
+    // volo — il messaggio partiva e l'ordine no (caso Armenise, 31/08/26).
+    keepalive: true,
   });
 
   try{
