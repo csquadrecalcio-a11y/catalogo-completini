@@ -494,8 +494,15 @@ function buildCard(cod, o){
         <div class="progress-pct">${pct}%</div>
       </div>
       ${(()=>{
-        const tuttiEvDate = [...(o.eventi_cina||[]),...(o.eventi_corriere||[])];
-        const primaData = tuttiEvDate.length ? tuttiEvDate[tuttiEvDate.length-1].data : o.data_spedizione;
+        // Si conta dalla data di spedizione (la stessa mostrata in "SPEDITO IL").
+        // Prima si prendeva l'ULTIMO elemento della lista eventi unita: essendo
+        // ogni lista ordinata dal più recente, quello era l'ultimo evento del
+        // corriere italiano — un pacco partito da due settimane risultava
+        // "in transito da 1 giorno" (31/08/26).
+        const dateEv = [...(o.eventi_cina||[]), ...(o.eventi_corriere||[])]
+          .map(e => (e.data||"").slice(0,10)).filter(Boolean);
+        const candidate = [(o.data_spedizione||"").slice(0,10), ...dateEv].filter(Boolean).sort();
+        const primaData = candidate[0] || o.data_spedizione;
         const gg = o.stato !== "consegnato" ? giorniLavorativi(primaData) : null;
         return gg ? `<div style="margin-top:10px;font-size:11px;font-weight:700;color:var(--muted);text-align:center">📦 In transito da <span style="color:var(--volt)">${gg} giorn${gg===1?"o":"i"} lavorativ${gg===1?"o":"i"}</span></div>` : "";
       })()}
