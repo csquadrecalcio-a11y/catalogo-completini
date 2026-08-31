@@ -637,7 +637,7 @@ function buildCard(cod, o){
    ogni movimento del pacco gli arriva come notifica, anche a pagina chiusa.
    Su iPhone le notifiche web funzionano SOLO se la pagina è stata prima
    aggiunta alla schermata Home: in quel caso mostriamo le istruzioni. */
-const API_NOTIFICHE = "https://mosaic-possum-crisping.ngrok-free.dev";
+const API_NOTIFICHE = "https://csc-gruppi.worker-gruppi.workers.dev";  // sempre acceso
 // Chiave PUBBLICA delle notifiche: è fatta per stare nella pagina. Prima veniva
 // chiesta al gestionale, ma quella richiesta non passava i controlli CORS e
 // l'attivazione falliva sempre con "Non è stato possibile attivare" (31/08/26).
@@ -753,7 +753,7 @@ async function attivaAvvisi(){
       const reg = await navigator.serviceWorker.getRegistration();
       const sub = reg && await reg.pushManager.getSubscription();
       if(sub){
-        await fetch(API_NOTIFICHE + "/api/notifiche/disiscrivi", {method:"POST",
+        await fetch(API_NOTIFICHE + "/unsub", {method:"POST",
           headers:{"Content-Type":"application/json"}, body: JSON.stringify({endpoint: sub.endpoint})}).catch(()=>{});
         await sub.unsubscribe();
       }
@@ -779,9 +779,9 @@ async function attivaAvvisi(){
       userVisibleOnly: true,
       applicationServerKey: b64ToUint8(CHIAVE_PUSH),
     });
-    const r = await fetch(API_NOTIFICHE + "/api/notifiche/iscrivi", {
+    const r = await fetch(API_NOTIFICHE + "/sub", {
       method:"POST", headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({ordine: _codiceCorrente, subscription: sub.toJSON()}),
+      body: JSON.stringify({codice: _codiceCorrente, subscription: sub.toJSON()}),
     });
     if(!r.ok) throw new Error("registrazione non riuscita");
     btn.disabled = false; btn.textContent = '✓ Attive'; btn.classList.add('attivo');
