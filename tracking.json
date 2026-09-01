@@ -937,7 +937,8 @@
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
       }
-    ]
+    ],
+    "eventi_corriere": []
   },
   "CSC-2026-0272": {
     "stato": "spedito",
