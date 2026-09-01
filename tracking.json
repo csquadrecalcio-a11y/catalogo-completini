@@ -720,7 +720,13 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-09-01 16:36",
+        "luogo": "CASTEL SAN GIOVANNI (PC)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0268": {
     "stato": "spedito",
