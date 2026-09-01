@@ -638,7 +638,13 @@
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-09-01 13:43",
+        "luogo": "Centro Operativo Postale",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0267": {
     "stato": "spedito",
