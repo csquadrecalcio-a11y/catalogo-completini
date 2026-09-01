@@ -269,6 +269,22 @@ const STEPS = [
   {lbl:"Consegnato",     icon:"🏠"},
 ];
 
+/* Lo stato scritto sull'ordine lo aggiorna il gestionale; i movimenti del
+   corriere invece arrivano ogni mezz'ora. Nella finestra tra i due il pacco
+   risultava "spedito" mentre Poste aveva gia scritto "consegnata". Qui lo
+   stato viene alzato in base all'ultimo movimento — solo in avanti, mai
+   indietro, cosi un portale lento non riporta il pacco a uno stadio passato. */
+function statoDaiMovimenti(o){
+  const ev = [...(o.eventi_corriere||[]), ...(o.eventi_cina||[])]
+    .filter(e => e && e.data).sort((a,b) => (b.data||"").localeCompare(a.data||""));
+  if(!ev.length) return o.stato;
+  const u = (ev[0].stato || "").toLowerCase();
+  let dedotto = o.stato;
+  if(/consegnat/.test(u) && !/non andata a buon fine|mancata consegna/.test(u)) dedotto = "consegnato";
+  else if(/in consegna|in distribuzione/.test(u)) dedotto = "in_consegna";
+  return statoIndex(dedotto) > statoIndex(o.stato) ? dedotto : o.stato;
+}
+
 function statoIndex(s){
   if(!s) return 0;
   s = s.toLowerCase();
@@ -371,6 +387,7 @@ async function cerca(){
       o.eventi_cina     = piuRecente(o.eventi_cina, fresco.eventi_fornitore);
     }
   }catch(e){}
+  o.stato = statoDaiMovimenti(o);
   const benv = document.getElementById("benvenutoApp");
   if(benv) benv.innerHTML = "";   // trovato l'ordine: il messaggio di benvenuto non serve più
   r.innerHTML = buildCard(cod, o);
