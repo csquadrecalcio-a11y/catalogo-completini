@@ -692,7 +692,8 @@
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
       }
-    ]
+    ],
+    "eventi_corriere": []
   },
   "CSC-2026-0268": {
     "stato": "spedito",
