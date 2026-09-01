@@ -110,7 +110,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.92);
 .card .pz small{font-family:Jost,sans-serif;font-weight:300;color:var(--muto);font-size:11px;
   letter-spacing:1.4px;text-transform:uppercase}
 /* vetrina delle marche: il logo respira, non viene tagliato come una foto */
-.marca-card .ph.logo{object-fit:contain;padding:34px;background:var(--nero-2)}
+.marca-card .ph.logo{object-fit:contain;padding:30px;background:#f2f0ec;filter:none}
 .marca-card .senza-logo{aspect-ratio:1;display:grid;place-items:center;background:var(--nero-2);
   padding:24px;text-align:center}
 .marca-card .senza-logo span{font-family:"Cormorant Garamond",Garamond,serif;font-size:52px;
@@ -505,7 +505,7 @@ function disegnaVetrinaMarche(tutti, cat){
   const loghi = tutti.loghi || {};
   const senzaMarca = tutti.filter(p => !p.marca);
   marcheEl.innerHTML = "";
-  notaEl.textContent = `${marche.length} marche · ${cat.nome}`;
+  notaEl.textContent = `${marche.length} marc${marche.length === 1 ? "a" : "he"} · ${cat.nome}`;
 
   const vetrina = marche.map(m => {
     const n = tutti.filter(p => p.marca === m).length;
@@ -566,7 +566,7 @@ async function disegnaGriglia(){
   if (marcaAttiva && !marche.includes(marcaAttiva)) marcaAttiva = "";
 
   // più marche e nessuna scelta: si mostra la vetrina dei loghi
-  if (marche.length > 1 && !marcaAttiva) return disegnaVetrinaMarche(tutti, cat);
+  if (marche.length && !marcaAttiva) return disegnaVetrinaMarche(tutti, cat);
 
   disegnaMarche(tutti);
   const prodotti = marcaAttiva ? tutti.filter(p => p.marca === marcaAttiva) : tutti;
