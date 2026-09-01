@@ -2300,7 +2300,7 @@ function cartCount(){ return cart.reduce((n,i)=>n+i.qty, 0); }
 function cartSub(){ return cart.reduce((s,i)=>s+i.price*i.qty, 0); }
 
 function addToCart(it){
-  const sig = i => [i.id,i.version,i.size,i.pers,i.patch].join("|");
+  const sig = i => [i.id,i.version,i.size,i.pers,i.patch,i.colore||""].join("|");
   const found = cart.find(i => sig(i) === sig(it));
   if (found) found.qty += it.qty; else cart.push(it);
   saveCart(); renderCart();
@@ -2423,6 +2423,7 @@ function renderCart(){
   cart.forEach((it,i)=>{
     const eff = unitPriceFor(it, tier);
     const meta = [it.version, `taglia ${it.size}`]
+      .concat(it.colore ? [`🎨 ${it.colore}`] : [])
       .concat(it.pers ? [`✏️ ${it.pers}`] : [])
       .concat(it.patch ? [`🏅 ${it.patch}`] : [])
       .join(" · ");
@@ -2555,7 +2556,8 @@ document.getElementById("cartCheckout").onclick = ()=>{
     const qta = parseInt(it.qty || 1);
     const quante = qta > 1 ? `${qta}x ` : "";
     lines.push(`🔹 *${quante}${nome}*`);
-    lines.push(`   ${stampa} • taglia ${it.size}${patch}`);
+    const colore = it.colore ? ` • colore ${it.colore}` : "";
+    lines.push(`   ${stampa} • taglia ${it.size}${colore}${patch}`);
     if ((isVintage || isTuta) && !it.desc && it.thumb) lines.push(`   📷 ${it.thumb}`);
   });
   lines.push("");
@@ -2593,7 +2595,8 @@ function buildOrdinePayload(order, cartItems, tier, sconto){
       nome_giocatore = parts.join(" ");
     }
     return {
-      name: it.name, tipoVersione: it.version, taglia: it.size, qty: it.qty,
+      name: it.colore ? `${it.name} (${it.colore})` : it.name,
+      tipoVersione: it.version, taglia: it.size, qty: it.qty,
       price: eff, nome_giocatore, numero_maglia, patch: it.patch || "",
     };
   });
