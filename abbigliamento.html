@@ -154,6 +154,15 @@ header{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.92);
 .sheet .prezzo{font-family:"Cormorant Garamond",Garamond,serif;font-size:38px;font-weight:400;color:var(--oro);margin-bottom:6px}
 .lbl{font-size:10.5px;letter-spacing:2.6px;text-transform:uppercase;color:var(--muto);
   font-weight:400;margin:22px 0 10px}
+/* tanti colori (es. 225 scarpe): bottoni-miniatura invece di 225 scritte */
+.tavolozza{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:7px;
+  max-height:230px;overflow-y:auto;padding-right:4px}
+.tavolozza .cerchio{aspect-ratio:1;border:1px solid var(--linea);border-radius:var(--r);
+  background-color:var(--nero-3);background-size:150%;background-position:center;cursor:pointer;
+  padding:0;transition:border-color .15s ease,transform .15s ease}
+.tavolozza .cerchio:hover{border-color:var(--oro);transform:scale(1.06)}
+.tavolozza .cerchio.on{border-color:var(--oro);border-width:2px}
+.quanti{margin-top:8px;font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muto)}
 .pills{display:flex;flex-wrap:wrap;gap:8px}
 .pill{background:var(--nero-3);border:1px solid transparent;color:var(--testo);border-radius:var(--r);
   padding:11px 17px;font-size:13px;font-weight:400;cursor:pointer;font-family:Jost,sans-serif;
@@ -343,13 +352,22 @@ document.getElementById("cartBtn").onclick = ()=>{ location.href = "index.html#c
 
 /* ---- lettura foto da Google Drive ---- */
 const memoria = {};
+/* Drive restituisce al massimo 200 file per volta: senza seguire le pagine
+   successive una cartella con 225 foto ne perdeva 25 per strada. */
 async function drive(q, fields, order){
-  const url = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}`
-            + `&fields=${encodeURIComponent(fields)}&orderBy=${encodeURIComponent(order)}`
-            + `&pageSize=200&key=${API_KEY}`;
-  const r = await fetch(url);
-  if (!r.ok) throw new Error("drive " + r.status);
-  return (await r.json()).files || [];
+  let tutti = [], token = "", giri = 0;
+  do {
+    const url = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}`
+              + `&fields=${encodeURIComponent("nextPageToken," + fields)}`
+              + `&orderBy=${encodeURIComponent(order)}&pageSize=200&key=${API_KEY}`
+              + (token ? `&pageToken=${encodeURIComponent(token)}` : "");
+    const r = await fetch(url);
+    if (!r.ok) throw new Error("drive " + r.status);
+    const d = await r.json();
+    tutti = tutti.concat(d.files || []);
+    token = d.nextPageToken || "";
+  } while (token && ++giri < 10);          // fino a 2000 file per cartella
+  return tutti;
 }
 /* Dal nome (di una cartella o di un file) ricava nome pulito e prezzo.
      "Giubbotto Nike nero - 45"  →  { nome:"Giubbotto Nike nero", prezzo:45 }
@@ -728,11 +746,18 @@ function disegnaScheda(){
     ${prod.marca ? `<div class="marca-scheda">${prod.marca}</div>` : ""}
     <h2>${nome}</h2>
     <div class="prezzo">${senzaPrezzo ? "Su richiesta" : "€" + prezzo}</div>
-    ${colori ? `
+    ${colori ? (colori.length > 10 ? `
+      <div class="lbl">Colore — ${coloreNome}</div>
+      <div class="tavolozza" id="colori">
+        ${colori.map((c,i) =>
+          `<button class="cerchio${i===iCol?" on":""}" data-c="${i}" title="${c.nome}"
+                   style="background-image:url('${thumbUrl(c.foto[0])}')"></button>`).join("")}
+      </div>
+      <div class="quanti">${colori.length} colori disponibili</div>` : `
       <div class="lbl">Colore</div>
       <div class="pills" id="colori">
         ${colori.map((c,i) => `<button class="pill${i===iCol?" on":""}" data-c="${i}">${c.nome}</button>`).join("")}
-      </div>` : ""}
+      </div>`) : ""}
     ${taglie.length ? `
       <div class="lbl">${cat.taglie === "scarpe" ? "Numero" : "Taglia"}</div>
       <div class="pills" id="taglie">
@@ -750,7 +775,7 @@ function disegnaScheda(){
   `;
 
   sheet.querySelector("#x").onclick = chiudiProdotto;
-  sheet.querySelectorAll("#colori .pill").forEach(b =>
+  sheet.querySelectorAll("#colori .pill, #colori .cerchio").forEach(b =>
     b.onclick = ()=>{ scelta.colore = +b.dataset.c; scelta.foto = 0; disegnaScheda(); });
   sheet.querySelectorAll("#angolazioni .mini").forEach(m =>
     m.onclick = ()=>{ scelta.foto = +m.dataset.i; disegnaScheda(); });
