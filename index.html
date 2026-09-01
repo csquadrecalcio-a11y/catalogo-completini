@@ -491,18 +491,20 @@ gtag('config', 'G-SYPQZL1L7W');
   .sheet-preview img.sheet-thumb:hover{opacity:.9}
   .sheet-preview img.sheet-thumb.on{opacity:1;border-color:var(--volt)}
   .nkit{
-    position:absolute;top:12px;right:12px;background:rgba(var(--bg-rgb),.82);
-    color:var(--volt);border:1px solid var(--line);border-radius:999px;
-    padding:4px 10px;font-size:11px;font-weight:800;letter-spacing:.04em;
-    backdrop-filter:blur(6px);
+    display:inline-block;margin-left:6px;background:var(--panel-2);color:var(--volt);
+    border-radius:999px;padding:2px 8px;font-size:10.5px;font-weight:800;letter-spacing:.04em;
   }
-  .kit-strip{display:flex;gap:6px;padding:0 14px 4px;flex-wrap:wrap}
+  /* i kit stanno su una riga sola e si scorrono col dito: impilati facevano
+     diventare il riquadro altissimo sul telefono */
+  .kit-strip{display:flex;gap:6px;padding:0 14px 4px;flex-wrap:nowrap;
+    overflow-x:auto;scrollbar-width:none}
+  .kit-strip::-webkit-scrollbar{display:none}
   .kit-mini{
     display:flex;flex-direction:column;align-items:center;gap:3px;background:none;
-    border:0;padding:0;cursor:pointer;width:52px;
+    border:0;padding:0;cursor:pointer;flex:0 0 auto;width:46px;
   }
   .kit-mini img{
-    width:52px;height:52px;object-fit:cover;border-radius:9px;
+    width:46px;height:46px;object-fit:cover;border-radius:9px;
     border:2px solid transparent;background:var(--panel-2);transition:border-color .15s}
   .kit-mini:hover img{border-color:var(--volt)}
   .kit-mini span{font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.03em}
@@ -1939,9 +1941,9 @@ function renderGrid(){
       <img class="ph" src="${thumbUrl(it.id)}" alt="${cleanName(it.name)}" decoding="async"
            onerror="this.style.opacity=.15">
       <span class="avail">Disponibile</span>
-      ${kits.length > 1 ? `<span class="nkit">${kits.length} kit</span>` : ""}
       <h3>${kits.length > 1 ? cleanName(it.team || it.name) : cleanName(it.name)}</h3>
-      <div class="team">${it.team ? cleanName(it.team) : activeCat.name}</div>
+      <div class="team">${it.team ? cleanName(it.team) : activeCat.name}${
+        kits.length > 1 ? ` <span class="nkit">${kits.length} kit</span>` : ""}</div>
       ${kits.length > 1 ? `<div class="kit-strip">${kits.map((k,n) =>
         `<button class="kit-mini" data-k="${n}" title="${k.etichetta}">
            <img src="${thumbUrl(k.scatti[0].id)}" alt="${k.etichetta}" loading="lazy">
