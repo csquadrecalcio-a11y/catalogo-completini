@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CSC Wear — Abbigliamento</title>
+<meta name="description" content="CSC Wear: giubbotti, scarpe, felpe, tute, t-shirt, pantaloni, cappelli e borse. Spedizione gratuita in tutta Italia, tracciatura e assistenza su WhatsApp.">
+<link rel="canonical" href="https://completinicalcio.it/abbigliamento.html">
+<meta name="theme-color" content="#08080a">
+<meta property="og:title" content="CSC Wear — Abbigliamento">
+<meta property="og:description" content="Giubbotti, scarpe, felpe, tute e altro. Spedizione gratuita in tutta Italia.">
+<meta property="og:image" content="https://completinicalcio.it/social-cover.jpg">
+<meta property="og:url" content="https://completinicalcio.it/abbigliamento.html">
+<link rel="icon" href="icona-192.png">
+<link rel="apple-touch-icon" href="icona-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══ CSC Wear: marchio separato dal sito calcio.
+   Nero e oro, tutto maiuscolo, look streetwear. Il sito delle maglie resta
+   blu: qui il colpo d'occhio deve dire subito "è un'altra cosa". ══ */
+:root{
+  --nero:#08080a; --nero-2:#111114; --nero-3:#1a1a1f;
+  --oro:#d9b45a; --oro-chiaro:#f0d78f;
+  --testo:#f2f0ec; --muto:#8c8880;
+  --linea:rgba(217,180,90,.18);
+  --wa:#25d366;
+  --r:4px;                       /* angoli quasi vivi: più "street" */
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--nero);color:var(--testo);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1220px;margin:0 auto;padding:0 20px}
+h1,h2,h3,.disp{font-family:Archivo,Impact,sans-serif;text-transform:uppercase;letter-spacing:-.02em}
+
+/* ── nastro scorrevole in cima ── */
+.nastro{background:var(--oro);color:#141005;font-weight:800;font-size:11.5px;
+  letter-spacing:2.6px;text-transform:uppercase;padding:8px 0;overflow:hidden;white-space:nowrap}
+.nastro div{display:inline-block;animation:scorri 26s linear infinite}
+.nastro span{padding:0 26px}
+@keyframes scorri{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── barra ── */
+header{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.92);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--linea)}
+.bar{display:flex;align-items:center;gap:16px;height:74px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .mark{width:42px;height:42px;border:2px solid var(--oro);border-radius:var(--r);
+  display:grid;place-items:center;font-family:Archivo,sans-serif;font-weight:900;font-size:15px;
+  color:var(--oro);letter-spacing:-.5px}
+.logo .nome{font-family:Archivo,sans-serif;font-weight:900;font-size:19px;letter-spacing:.06em;line-height:1}
+.logo .nome i{color:var(--oro);font-style:normal}
+.logo .sotto{display:block;font-size:9px;letter-spacing:3px;color:var(--muto);
+  font-weight:600;margin-top:4px;font-family:Inter,sans-serif}
+.bar nav{margin-left:auto;display:flex;align-items:center;gap:4px}
+.bar nav a{font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
+  color:var(--muto);padding:9px 13px}
+.bar nav a:hover{color:var(--oro)}
+.carrello{display:flex;align-items:center;gap:9px;background:var(--oro);color:#141005;border:0;
+  border-radius:var(--r);padding:12px 18px;font-weight:800;font-size:12px;letter-spacing:1.6px;
+  text-transform:uppercase;cursor:pointer;font-family:Archivo,sans-serif}
+.carrello .n{background:rgba(0,0,0,.22);border-radius:3px;min-width:22px;padding:1px 6px;font-size:12px;text-align:center}
+.carrello .n.zero{opacity:.5}
+@media(max-width:820px){ .bar nav{display:none} .logo .sotto{display:none} }
+
+/* ── apertura ── */
+.hero{padding:64px 0 34px;border-bottom:1px solid var(--linea)}
+.hero .kick{font-size:11px;letter-spacing:4px;color:var(--oro);font-weight:800;text-transform:uppercase}
+.hero h1{margin:14px 0 0;font-size:clamp(46px,12vw,124px);font-weight:900;line-height:.86}
+.hero h1 em{font-style:normal;-webkit-text-stroke:1.6px var(--oro);color:transparent}
+.hero p{margin:20px 0 0;max-width:560px;color:var(--muto);font-size:15.5px;line-height:1.65}
+.perks{display:flex;flex-wrap:wrap;gap:26px;margin-top:26px;font-size:11.5px;letter-spacing:1.8px;
+  text-transform:uppercase;font-weight:700;color:var(--muto)}
+.perks b{color:var(--oro);font-weight:800}
+
+/* ── categorie ── */
+.tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--linea)}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;background:none;border:0;border-bottom:2px solid transparent;color:var(--muto);
+  padding:18px 20px;font-size:12px;font-weight:800;letter-spacing:1.8px;text-transform:uppercase;
+  cursor:pointer;font-family:Archivo,sans-serif;white-space:nowrap}
+.tab:hover{color:var(--testo)}
+.tab.on{color:var(--oro);border-bottom-color:var(--oro)}
+
+/* ── griglia ── */
+.nota{color:var(--muto);font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  font-weight:700;padding:20px 2px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(226px,1fr));gap:2px;
+  padding:18px 0 60px;background:var(--linea)}
+.card{background:var(--nero);cursor:pointer;position:relative;overflow:hidden}
+.card .ph{width:100%;aspect-ratio:1;object-fit:cover;background:var(--nero-2);display:block;
+  transition:transform .5s cubic-bezier(.2,.7,.3,1);filter:saturate(.92)}
+.card:hover .ph{transform:scale(1.06);filter:none}
+.card .body{padding:15px 16px 20px}
+.card .nm{font-size:13px;font-weight:700;letter-spacing:.4px;line-height:1.35;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .pz{margin-top:9px;font-family:Archivo,sans-serif;font-size:16px;font-weight:900;color:var(--oro)}
+.card .pz small{font-family:Inter,sans-serif;font-weight:600;color:var(--muto);font-size:11px;
+  letter-spacing:1.4px;text-transform:uppercase}
+.skel{background:var(--nero-2);height:300px;animation:battito 1.3s ease-in-out infinite}
+@keyframes battito{0%,100%{opacity:.4}50%{opacity:.75}}
+
+/* ── categoria ancora vuota ── */
+.vuoto{grid-column:1/-1;background:var(--nero);text-align:center;padding:74px 22px}
+.vuoto .em{font-size:44px}
+.vuoto h3{margin:16px 0 10px;font-size:22px;font-weight:900}
+.vuoto p{margin:0 auto;max-width:430px;color:var(--muto);font-size:14px;line-height:1.7}
+.vuoto a{display:inline-block;margin-top:22px;background:var(--wa);color:#04240f;font-weight:800;
+  border-radius:var(--r);padding:13px 24px;font-size:12px;letter-spacing:1.6px;text-transform:uppercase}
+
+/* ── scheda prodotto ── */
+.ov{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.8);display:none;
+  align-items:flex-end;justify-content:center}
+.ov.open{display:flex}
+.sheet{background:var(--nero-2);width:100%;max-width:540px;max-height:93vh;overflow-y:auto;
+  border-top:2px solid var(--oro);padding:22px 20px calc(24px + env(safe-area-inset-bottom))}
+@media(min-width:640px){ .ov{align-items:center} .sheet{border:2px solid var(--oro);border-radius:var(--r)} }
+.sheet .x{float:right;background:var(--nero-3);border:0;color:var(--testo);width:36px;height:36px;
+  border-radius:var(--r);font-size:16px;cursor:pointer}
+.sheet img.big{width:100%;aspect-ratio:1;object-fit:cover;background:var(--nero-3);border-radius:var(--r)}
+.sheet h2{margin:20px 0 6px;font-size:23px;font-weight:900}
+.sheet .prezzo{font-family:Archivo,sans-serif;font-size:28px;font-weight:900;color:var(--oro);margin-bottom:6px}
+.lbl{font-size:10.5px;letter-spacing:2.4px;text-transform:uppercase;color:var(--muto);
+  font-weight:800;margin:22px 0 10px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{background:var(--nero-3);border:1px solid transparent;color:var(--testo);border-radius:var(--r);
+  padding:11px 17px;font-size:13px;font-weight:700;cursor:pointer;font-family:Archivo,sans-serif;
+  letter-spacing:.6px}
+.pill.on{background:var(--oro);color:#141005}
+.qtyrow{display:flex;align-items:center;gap:16px}
+.qtyrow button{width:40px;height:40px;border-radius:var(--r);border:1px solid var(--linea);
+  background:var(--nero-3);color:var(--testo);font-size:20px;cursor:pointer}
+.qtyrow b{font-family:Archivo,sans-serif;font-size:18px;min-width:28px;text-align:center}
+.btn{display:block;width:100%;margin-top:24px;border:0;border-radius:var(--r);padding:17px;
+  font-family:Archivo,sans-serif;font-size:13px;font-weight:900;letter-spacing:2px;text-transform:uppercase;
+  cursor:pointer;background:var(--oro);color:#141005;text-align:center}
+.btn.wa{background:var(--wa);color:#04240f}
+
+/* ── avviso e piede ── */
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(140px);
+  background:var(--oro);color:#141005;padding:14px 24px;border-radius:var(--r);
+  font-family:Archivo,sans-serif;font-weight:900;font-size:12px;letter-spacing:1.6px;
+  text-transform:uppercase;z-index:120;transition:transform .3s cubic-bezier(.2,.9,.3,1.2)}
+.toast.on{transform:translateX(-50%) translateY(0)}
+footer{border-top:1px solid var(--linea);padding:34px 0 46px;color:var(--muto);font-size:12px;line-height:2}
+footer .fwrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+footer a{color:var(--oro);font-weight:700;letter-spacing:1.4px;text-transform:uppercase;font-size:11.5px}
+</style>
+</head>
+<body>
+
+<div class="nastro"><div>
+  <span>Spedizione gratuita in tutta Italia</span><span>·</span>
+  <span>Tracciatura in tempo reale</span><span>·</span>
+  <span>Assistenza su WhatsApp</span><span>·</span>
+  <span>Spedizione gratuita in tutta Italia</span><span>·</span>
+  <span>Tracciatura in tempo reale</span><span>·</span>
+  <span>Assistenza su WhatsApp</span><span>·</span>
+</div></div>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="abbigliamento.html">
+      <span class="mark">CSC</span>
+      <span>
+        <span class="nome">CSC <i>WEAR</i></span>
+        <span class="sotto">Abbigliamento</span>
+      </span>
+    </a>
+    <nav>
+      <a href="#catalogo">Catalogo</a>
+      <a href="index.html">Maglie da calcio</a>
+      <a href="index.html#contatti">Contatti</a>
+    </nav>
+    <button class="carrello" id="cartBtn">Carrello <span class="n zero" id="cartBadge">0</span></button>
+  </div>
+</header>
+
+<section class="wrap hero">
+  <div class="kick">Nuovo reparto</div>
+  <h1>Non solo<br><em>maglie</em></h1>
+  <p>Giubbotti, scarpe, felpe, tute, t-shirt, pantaloni, cappelli e borse. Stesso servizio delle maglie: spedizione gratuita, pacco tracciato e una persona vera che ti risponde su WhatsApp.</p>
+  <div class="perks">
+    <div><b>01</b> &nbsp;Spedizione gratuita</div>
+    <div><b>02</b> &nbsp;Pacco tracciato</div>
+    <div><b>03</b> &nbsp;Risposte su WhatsApp</div>
+    <div><b>04</b> &nbsp;Stesso carrello delle maglie</div>
+  </div>
+</section>
+
+<div class="wrap" id="catalogo">
+  <div class="tabs" id="tabs"></div>
+  <div class="nota" id="nota"></div>
+</div>
+<div class="wrap"><div class="grid" id="griglia"></div></div>
+
+<footer>
+  <div class="wrap fwrap">
+    <div>CSC Wear — reparto abbigliamento di Completini Squadre Calcio 2.0</div>
+    <a href="index.html">← Torna alle maglie da calcio</a>
+  </div>
+</footer>
+
+<div class="ov" id="ov"><div class="sheet" id="sheet"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════
+   DA RIEMPIRE QUANDO ARRIVANO I PRODOTTI
+
+   Per ogni categoria servono due cose:
+
+   1. cartella  → l'id della cartella Google Drive con le foto.
+                  Si prende dal link della cartella: la parte dopo /folders/
+                  https://drive.google.com/drive/folders/QUESTO_PEZZO_QUI
+                  Finché resta "", la categoria mostra "in arrivo".
+
+   2. prezzo    → prezzo di vendita in euro (numero, senza simbolo).
+                  Finché resta null, il prodotto si può solo chiedere su
+                  WhatsApp: non finisce nel carrello con un prezzo sbagliato.
+
+   taglie: "adulto" (S-XXL) · "scarpe" (39-46) · "unica" (nessuna scelta)
+   ═══════════════════════════════════════════════════════════════════════ */
+const CATEGORIE = [
+  { nome:"Giubbotti",  emoji:"🧥", cartella:"", prezzo:null, taglie:"adulto" },
+  { nome:"Scarpe",     emoji:"👟", cartella:"", prezzo:null, taglie:"scarpe" },
+  { nome:"Felpe",      emoji:"🧶", cartella:"", prezzo:null, taglie:"adulto" },
+  { nome:"T-Shirt",    emoji:"👕", cartella:"", prezzo:null, taglie:"adulto" },
+  { nome:"Tute",       emoji:"🏃", cartella:"", prezzo:null, taglie:"adulto" },
+  { nome:"Pantaloni",  emoji:"👖", cartella:"", prezzo:null, taglie:"adulto" },
+  { nome:"Cappelli",   emoji:"🧢", cartella:"", prezzo:null, taglie:"unica"  },
+  { nome:"Borse",      emoji:"🎒", cartella:"", prezzo:null, taglie:"unica"  },
+];
+
+const TAGLIE = {
+  adulto: ["S","M","L","XL","XXL"],
+  scarpe: ["39","40","41","42","43","44","45","46"],
+  unica:  [],
+};
+
+/* stessa chiave dell'API Drive del sito principale: sola lettura, cartelle
+   pubbliche. Se un giorno cambia lì, va cambiata anche qui. */
+const API_KEY = "AIzaSyBFjNAIrUyOZeI7c3OxdD1gOtUeHlMjRjk";
+const WA = "https://wa.me/447727750265?text=";
+const IMG_Q = "(mimeType='image/jpeg' or mimeType='image/png' or mimeType='image/webp') and trashed=false";
+const thumbUrl = id => `https://drive.google.com/thumbnail?id=${id}&sz=w400`;
+const fullUrl  = id => `https://drive.google.com/thumbnail?id=${id}&sz=w1600`;
+
+/* ---- carrello: stessa memoria del sito principale (csc-cart) ----
+   così una maglia e un giubbotto stanno nello stesso ordine. Qui si
+   aggiunge soltanto; l'ordine si chiude nel carrello di index.html, che ha
+   già tutto (sconti, indirizzo, invio a WhatsApp e al gestionale). */
+function leggiCarrello(){
+  try { return JSON.parse(localStorage.getItem("csc-cart") || "[]"); } catch(e){ return []; }
+}
+function scriviCarrello(c){
+  try { localStorage.setItem("csc-cart", JSON.stringify(c)); } catch(e){}
+  aggiornaBadge();
+}
+function aggiungiAlCarrello(it){
+  const c = leggiCarrello();
+  const firma = i => [i.id,i.version,i.size,i.pers,i.patch].join("|");
+  const uguale = c.find(i => firma(i) === firma(it));
+  if (uguale) uguale.qty += it.qty; else c.push(it);
+  scriviCarrello(c);
+}
+function aggiornaBadge(){
+  const n = leggiCarrello().reduce((s,i)=>s+(i.qty||0), 0);
+  const b = document.getElementById("cartBadge");
+  b.textContent = n;
+  b.classList.toggle("zero", n === 0);
+}
+document.getElementById("cartBtn").onclick = ()=>{ location.href = "index.html#carrello"; };
+
+/* ---- lettura foto da Google Drive ---- */
+const memoria = {};
+async function drive(q, fields, order){
+  const url = `https://www.googleapis.com/drive/v3/files?q=${encodeURIComponent(q)}`
+            + `&fields=${encodeURIComponent(fields)}&orderBy=${encodeURIComponent(order)}`
+            + `&pageSize=200&key=${API_KEY}`;
+  const r = await fetch(url);
+  if (!r.ok) throw new Error("drive " + r.status);
+  return (await r.json()).files || [];
+}
+async function caricaCategoria(cat){
+  if (!cat.cartella) return [];
+  if (memoria[cat.cartella]) return memoria[cat.cartella];
+  let foto = await drive(`'${cat.cartella}' in parents and ${IMG_Q}`, "files(id,name)", "createdTime desc").catch(()=>[]);
+  if (!foto.length){
+    // cartella divisa per marca/modello: si scende di un livello
+    const sotto = await drive(`'${cat.cartella}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`,
+                              "files(id,name)", "name").catch(()=>[]);
+    const gruppi = await Promise.all(sotto.map(s =>
+      drive(`'${s.id}' in parents and ${IMG_Q}`, "files(id,name)", "name")
+        .then(f => f.map(x => ({...x, gruppo: s.name}))).catch(()=>[])
+    ));
+    foto = gruppi.flat();
+  }
+  memoria[cat.cartella] = foto;
+  return foto;
+}
+
+const pulisciNome = n => String(n).replace(/\.(jpe?g|png|webp)$/i,"").replace(/[_-]+/g," ").trim();
+
+/* ---- schermo ---- */
+let attiva = CATEGORIE[0];
+const tabsEl = document.getElementById("tabs");
+const grigliaEl = document.getElementById("griglia");
+const notaEl = document.getElementById("nota");
+
+function disegnaTabs(){
+  tabsEl.innerHTML = "";
+  CATEGORIE.forEach(c => {
+    const b = document.createElement("button");
+    b.className = "tab" + (c === attiva ? " on" : "");
+    b.textContent = c.nome;
+    b.onclick = ()=>{ attiva = c; disegnaTabs(); disegnaGriglia(); };
+    tabsEl.appendChild(b);
+  });
+}
+
+function inArrivo(cat){
+  return `<div class="vuoto">
+    <div class="em">${cat.emoji}</div>
+    <h3>${cat.nome}: in arrivo</h3>
+    <p>Stiamo scegliendo i modelli. Se cerchi qualcosa di preciso scrivici su WhatsApp: te lo cerchiamo noi e ti diciamo prezzo e disponibilità.</p>
+    <a href="${WA + encodeURIComponent('Ciao! Vorrei sapere se avete ' + cat.nome.toLowerCase() + ' disponibili 👟')}" target="_blank" rel="noopener">💬 Chiedi su WhatsApp</a>
+  </div>`;
+}
+
+async function disegnaGriglia(){
+  const cat = attiva;
+  notaEl.textContent = "";
+  if (!cat.cartella){ grigliaEl.innerHTML = inArrivo(cat); return; }
+
+  grigliaEl.innerHTML = Array.from({length:8}, ()=>'<div class="skel"></div>').join("");
+  const foto = await caricaCategoria(cat);
+  if (cat !== attiva) return;                       // l'utente ha cambiato tab
+  if (!foto.length){ grigliaEl.innerHTML = inArrivo(cat); return; }
+
+  notaEl.textContent = `${foto.length} modelli · ${cat.nome}`;
+  grigliaEl.innerHTML = foto.map((f,i) => `
+    <div class="card" data-i="${i}">
+      <img class="ph" loading="lazy" src="${thumbUrl(f.id)}" alt="${pulisciNome(f.name)}">
+      <div class="body">
+        <div class="nm">${pulisciNome(f.name)}</div>
+        <div class="pz">${cat.prezzo != null ? "€" + cat.prezzo : '<small>Prezzo su richiesta</small>'}</div>
+      </div>
+    </div>`).join("");
+  grigliaEl.querySelectorAll(".card").forEach(el =>
+    el.onclick = ()=> apriProdotto(foto[+el.dataset.i], cat));
+}
+
+/* ---- scheda prodotto ---- */
+const ov = document.getElementById("ov");
+const sheet = document.getElementById("sheet");
+let scelta = { foto:null, cat:null, taglia:"", qta:1 };
+
+function apriProdotto(foto, cat){
+  const taglie = TAGLIE[cat.taglie] || [];
+  scelta = { foto, cat, taglia: taglie[1] || taglie[0] || "Unica", qta:1 };
+  disegnaScheda();
+  ov.classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function chiudiProdotto(){
+  ov.classList.remove("open");
+  document.body.style.overflow = "";
+}
+ov.onclick = e => { if (e.target === ov) chiudiProdotto(); };
+document.addEventListener("keydown", e => { if (e.key === "Escape") chiudiProdotto(); });
+
+function disegnaScheda(){
+  const { foto, cat, taglia, qta } = scelta;
+  const taglie = TAGLIE[cat.taglie] || [];
+  const nome = pulisciNome(foto.name);
+  const senzaPrezzo = cat.prezzo == null;
+
+  sheet.innerHTML = `
+    <button class="x" id="x">✕</button>
+    <img class="big" src="${fullUrl(foto.id)}" alt="${nome}">
+    <h2>${nome}</h2>
+    <div class="prezzo">${senzaPrezzo ? "Su richiesta" : "€" + cat.prezzo}</div>
+    ${taglie.length ? `
+      <div class="lbl">${cat.taglie === "scarpe" ? "Numero" : "Taglia"}</div>
+      <div class="pills" id="taglie">
+        ${taglie.map(t => `<button class="pill${t===taglia?" on":""}" data-t="${t}">${t}</button>`).join("")}
+      </div>` : ""}
+    <div class="lbl">Quantità</div>
+    <div class="qtyrow">
+      <button id="meno">−</button><b>${qta}</b><button id="piu">+</button>
+    </div>
+    ${senzaPrezzo
+      ? `<a class="btn wa" target="_blank" rel="noopener"
+             href="${WA + encodeURIComponent(`Ciao! Mi interessa questo articolo: ${nome} (${cat.nome})${taglie.length ? ", taglia " + taglia : ""}. Quanto costa? 😊`)}">
+           Chiedi prezzo su WhatsApp</a>`
+      : `<button class="btn" id="add">Aggiungi al carrello</button>`}
+  `;
+
+  sheet.querySelector("#x").onclick = chiudiProdotto;
+  sheet.querySelectorAll("#taglie .pill").forEach(b =>
+    b.onclick = ()=>{ scelta.taglia = b.dataset.t; disegnaScheda(); });
+  sheet.querySelector("#meno").onclick = ()=>{ if (scelta.qta > 1){ scelta.qta--; disegnaScheda(); } };
+  sheet.querySelector("#piu").onclick  = ()=>{ if (scelta.qta < 20){ scelta.qta++; disegnaScheda(); } };
+
+  const add = sheet.querySelector("#add");
+  if (add) add.onclick = ()=>{
+    aggiungiAlCarrello({
+      id: foto.id,
+      name: nome,
+      thumb: thumbUrl(foto.id),
+      version: cat.nome,
+      versionId: "abb_" + cat.nome.toLowerCase(),
+      size: cat.taglie === "scarpe" ? "EU " + scelta.taglia : (scelta.taglia || "Unica"),
+      price: cat.prezzo,
+      pers: "",
+      patch: "Nessuna",
+      qty: scelta.qta,
+    });
+    chiudiProdotto();
+    avviso("Aggiunto al carrello");
+  };
+}
+
+/* ---- avviso in basso ---- */
+let timerAvviso = null;
+function avviso(testo){
+  const t = document.getElementById("toast");
+  t.textContent = testo;
+  t.classList.add("on");
+  clearTimeout(timerAvviso);
+  timerAvviso = setTimeout(()=> t.classList.remove("on"), 2600);
+}
+
+/* ---- avvio: parte dalla prima categoria che ha davvero dei prodotti ---- */
+attiva = CATEGORIE.find(c => c.cartella) || CATEGORIE[0];
+disegnaTabs();
+disegnaGriglia();
+aggiornaBadge();
+</script>
+</body>
+</html>

@@ -760,6 +760,7 @@ gtag('config', 'G-SYPQZL1L7W');
     </div>
     <nav class="nav-links">
       <a href="#catalogo">Catalogo</a>
+      <a href="abbigliamento.html">CSC Wear</a>
       <a href="#offerte">Offerte</a>
       <a href="#taglie">Guida taglie</a>
       <a href="#come-funziona">Come funziona</a>
@@ -2486,6 +2487,13 @@ document.getElementById("cartClose").onclick = closeCart;
 document.getElementById("cartOverlay").addEventListener("click", e=>{ if(e.target.id==="cartOverlay") closeCart(); });
 document.getElementById("cartClear").onclick = ()=>{ if(cart.length && confirm("Svuotare il carrello?")) clearCart(); };
 document.getElementById("cartClearTop").onclick = ()=>{ if(cart.length && confirm("Svuotare il carrello?")) clearCart(); };
+
+/* chi arriva da abbigliamento.html col link "Carrello" trova il carrello
+   già aperto: il contenuto è lo stesso (memoria csc-cart condivisa). */
+if (location.hash === "#carrello"){
+  history.replaceState(null, "", location.pathname);
+  setTimeout(openCart, 60);
+}
 
 /* "Aggiungi altri prodotti": chiude il carrello (il contenuto resta salvato,
    nulla viene svuotato) e riporta al catalogo per continuare a scegliere. */
