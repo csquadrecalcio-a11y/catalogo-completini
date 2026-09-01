@@ -325,7 +325,28 @@ async function cerca(){
     r.innerHTML = errCard("Errore di connessione","Riprova tra qualche secondo.");
     return;
   }
-  const o = data[cod];
+  let o = data[cod];
+
+  // Il file arriva da GitHub Pages e ci mette 1-2 minuti a pubblicarsi: se
+  // l'ordine e appena stato creato non c'e ancora. Il servizio sempre acceso
+  // invece lo sa subito, quindi glielo chiediamo prima di dire "non trovato".
+  if(!o){
+    try{
+      const fresco = await fetch(API_NOTIFICHE + "/t/" + encodeURIComponent(cod))
+        .then(r => r.ok ? r.json() : null).catch(() => null);
+      if(fresco && fresco.ok){
+        o = {
+          stato: fresco.stato || "in_lavorazione",
+          corriere: fresco.corriere || "",
+          tracking: fresco.tracking || "",
+          foto: [],
+          eventi_corriere: fresco.eventi || [],
+          eventi_cina: fresco.eventi_fornitore || [],
+        };
+      }
+    }catch(e){}
+  }
+
   if(!o){
     r.innerHTML = errCard("Ordine non trovato",`Il codice <strong>${cod}</strong> non è nel sistema.<br>Controlla il messaggio WhatsApp o <a href="https://wa.me/447727750265" style="color:var(--volt)">scrivici</a>.`);
     aggiornaGlossario(null);
