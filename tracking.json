@@ -17,6 +17,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-01 06:31:00",
+        "luogo": "Fiumicino",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-08-31 16:56:00",
         "luogo": "Fara in sabina",
         "stato": "Prima scansione Poste Italiane"
