@@ -120,6 +120,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-08-31 12:20:00",
+        "luogo": "Castel san giovanni",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
         "data": "2026-08-26 18:10:53",
         "luogo": "",
         "stato": "Inviato al magazzino, in attesa di scansione"
