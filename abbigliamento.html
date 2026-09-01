@@ -405,8 +405,17 @@ async function dentro(id){
    c) una foto sciolta = prodotto con una sola immagine
         GIUBBOTTI/Bomber verde - 55.jpg
 
-   STESSO MODELLO IN PIÙ COLORI: dentro la cartella del prodotto, una cartella
-   per colore. Sulla scheda compare la scelta del colore e ogni colore mostra
+   STESSO MODELLO IN PIÙ COLORI — due modi, il primo è il più veloce:
+
+   1) tutto in una cartella, col colore davanti al nome della foto:
+        Nuptse 120€/
+          NERO - 1 davanti.jpg
+          NERO - 2 dietro.jpg
+          BEIGE - 1 davanti.jpg
+      Serve che TUTTE le foto abbiano il colore prima del trattino e che i
+      colori siano almeno due. Prezzo diverso per un colore: "BEIGE 130€ - 1.jpg".
+
+   2) una cartella per colore. Sulla scheda compare la scelta del colore e ogni colore mostra
    le sue foto. Il colore finisce nel carrello, nel messaggio WhatsApp e nel
    gestionale, quindi si sa sempre quale mandare.
         GIUBBOTTI/
@@ -432,6 +441,44 @@ async function dentro(id){
    foto è un PRODOTTO. Non c'è niente da configurare: si capisce da sola.     */
 const E_LOGO = /^(logo|_logo|marchio)\b/i;
 
+/* Colori scritti nel nome delle foto, dentro un'unica cartella prodotto:
+
+     Nuptse 120€/
+       NERO - 1.jpg
+       NERO - 2.jpg
+       BEIGE - 1.jpg
+
+   Si raggruppa per la parte prima del trattino. Serve che TUTTE le foto ce
+   l'abbiano e che i gruppi siano almeno due: così le foto numerate senza
+   colore ("1 davanti.jpg") restano una semplice galleria. Un gruppo può
+   avere un prezzo suo: "BEIGE 130€ - 1.jpg".                              */
+function coloriDaiNomi(foto, base){
+  const gruppi = new Map();
+  for (const f of foto){
+    const senzaEst = String(f.name).replace(/\.(jpe?g|png|webp)$/i, "");
+    const m = senzaEst.match(/^([^-–_]{2,40}?)\s*[-–_]\s*\S/);
+    if (!m) return null;                          // una foto senza colore: niente colori
+    const etichetta = m[1].trim();
+    if (/^\d+$/.test(etichetta)) return null;     // "1 - davanti": è una numerazione
+    const chiave = etichetta.toLowerCase();
+    if (!gruppi.has(chiave)) gruppi.set(chiave, { etichetta, foto: [] });
+    gruppi.get(chiave).foto.push(f);
+  }
+  if (gruppi.size < 2) return null;
+  return [...gruppi.values()].map(g => {
+    const n = leggiNome(g.etichetta, null);
+    // "NERO" scritto tutto maiuscolo sul bottone urla: si ammorbidisce in "Nero"
+    const nome = n.nome === n.nome.toUpperCase()
+      ? n.nome.toLowerCase().replace(/^./, c => c.toUpperCase())
+      : n.nome;
+    return {
+      nome,
+      prezzo: n.prezzo != null ? n.prezzo : base.prezzo,
+      foto: g.foto.map(f => f.id),
+    };
+  });
+}
+
 async function caricaCategoria(cat){
   if (!cat.cartella) return [];
   if (memoria[cat.cartella]) return memoria[cat.cartella];
@@ -451,7 +498,13 @@ async function caricaCategoria(cat){
   async function leggiProdotto(t, marca){
     const ct = await dentro(t.id);
     const foto = ct.foto.filter(f => !E_LOGO.test(f.name));
-    if (foto.length) return prodotto(t, foto, marca);
+    if (foto.length){
+      const base = leggiNome(t.name, cat);
+      const colori = coloriDaiNomi(foto, base);     // "NERO - 1.jpg", "BEIGE - 1.jpg"
+      if (colori) return { chiave: t.id, nome: base.nome, prezzo: colori[0].prezzo,
+                           marca: marca || "", foto: colori[0].foto, colori };
+      return prodotto(t, foto, marca);
+    }
     if (!ct.cartelle.length) return null;
 
     const base = leggiNome(t.name, cat);
