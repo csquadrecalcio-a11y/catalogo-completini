@@ -1562,15 +1562,27 @@ const cache = {};
    Categoria → Tipo (es. "Sneakers") → Marca (es. "Nike") → foto.
    Se una sottocartella non ha foto dirette, si scende di un livello
    in più e si usa la sotto-sottocartella come "squadra" nei filtri. */
+/* Una squadra si raggruppa (un riquadro con Home/Away/Third) quando il nome
+   della SUA CARTELLA su Drive finisce con "+kit". Cosi la scelta e di Alberto,
+   cartella per cartella, senza toccare il sito. Il "+kit" non si vede mai:
+   viene tolto dal nome mostrato ai clienti. */
+const MARCA_KIT = /\s*\+\s*kit\s*$/i;
+const vuoleKit  = nome => MARCA_KIT.test(String(nome || ""));
+const nomeSquadra = nome => String(nome || "").replace(MARCA_KIT, "").trim();
+
 async function loadTeamPhotos(team){
+  const raggruppa = vuoleKit(team.name);
+  const nome = nomeSquadra(team.name);
   const direct = await drive(`'${team.id}' in parents and ${IMG_Q}`,"files(id,name)","name").catch(()=>[]);
-  if (direct.length) return direct.map(f=>({id:f.id, name:f.name, team:team.name}));
+  if (direct.length) return direct.map(f=>({id:f.id, name:f.name, team:nome, raggruppa}));
 
   const subs = await drive(`'${team.id}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`,"files(id,name)","name").catch(()=>[]);
   if (!subs.length) return [];
   const perSub = await Promise.all(subs.map(s =>
     drive(`'${s.id}' in parents and ${IMG_Q}`,"files(id,name)","name")
-      .then(files => files.map(f=>({id:f.id, name:f.name, team:s.name})))
+      .then(files => files.map(f=>({id:f.id, name:f.name,
+                                    team:nomeSquadra(s.name),
+                                    raggruppa: raggruppa || vuoleKit(s.name)})))
       .catch(()=>[])
   ));
   return perSub.flat();
@@ -1608,12 +1620,6 @@ function raggruppaAngolazioni(items){
   return fuori;
 }
 
-/* PROVA sulle sole squadre elencate qui: le loro foto (home, away, third,
-   player version…) diventano UN riquadro solo, e dentro la scheda si sceglie
-   la versione. Le altre squadre restano come sempre, una foto un prodotto.
-   Per estendere basta aggiungere il nome della cartella squadra. */
-const SQUADRE_RAGGRUPPATE = ["inter"];
-
 const ETICHETTE_KIT = [
   [/\bhome\b|\bcasa\b/i,               "Home"],
   [/\baway\b|\btrasferta\b/i,          "Away"],
@@ -1639,8 +1645,7 @@ function baseSquadra(nome){
 }
 
 function raggruppaKit(items){
-  const daRaggruppare = items.filter(i =>
-    SQUADRE_RAGGRUPPATE.includes(String(i.team || "").trim().toLowerCase()) && etichettaKit(i.name));
+  const daRaggruppare = items.filter(i => i.raggruppa && etichettaKit(i.name));
   if (!daRaggruppare.length) return items;
 
   const gruppi = new Map();
