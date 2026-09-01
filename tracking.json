@@ -431,7 +431,8 @@
         "luogo": "",
         "stato": "Ordine registrato, in attesa del pacco"
       }
-    ]
+    ],
+    "eventi_corriere": []
   },
   "CSC-2026-0261": {
     "stato": "spedito",
