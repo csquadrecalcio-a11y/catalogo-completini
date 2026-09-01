@@ -402,13 +402,15 @@ function giorniLavorativi(dataStr){
 }
 
 function estraiEta(eventi){
-  // +15 giorni lavorativi dal primo evento cinese (ultimo in array = più vecchio)
-  const evList = (eventi||[]);
-  if(!evList.length) return null;
-  const primoEv = evList[evList.length - 1]; // più vecchio
-  const dataStr = primoEv.data || "";
-  if(!dataStr) return null;
-  return aggiungiGiorniLavorativi(dataStr, 15);
+  // +15 giorni lavorativi dal PRIMO movimento in assoluto, cioè da quando il
+  // pacco si è mosso in Cina: i tempi di consegna partono da lì.
+  // Prima si prendeva l'ultimo elemento della lista unita: essendo ogni lista
+  // ordinata dal più recente, quello era il movimento più vecchio di POSTE,
+  // e la data prevista risultava molto più in là del dovuto (31/08/26).
+  const date = (eventi || []).map(e => (e && e.data) ? String(e.data).slice(0,10) : "")
+                             .filter(Boolean).sort();
+  if(!date.length) return null;
+  return aggiungiGiorniLavorativi(date[0], 15);
 }
 
 function calcolaPercento(idx, eventi){
