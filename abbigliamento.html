@@ -405,6 +405,24 @@ async function dentro(id){
    c) una foto sciolta = prodotto con una sola immagine
         GIUBBOTTI/Bomber verde - 55.jpg
 
+   STESSO MODELLO IN PIÙ COLORI: dentro la cartella del prodotto, una cartella
+   per colore. Sulla scheda compare la scelta del colore e ogni colore mostra
+   le sue foto. Il colore finisce nel carrello, nel messaggio WhatsApp e nel
+   gestionale, quindi si sa sempre quale mandare.
+        GIUBBOTTI/
+          THE NORTH FACE/
+            Nuptse 120€/
+              NERO/
+                1 davanti.jpg
+                2 dietro.jpg
+              BEIGE/
+                1 davanti.jpg
+   Se un colore costa diverso, il prezzo si scrive nel nome del colore
+   ("BEIGE 130€") e vince su quello del modello.
+   Attenzione: i colori funzionano dentro una marca. Un prodotto messo
+   direttamente nella categoria e diviso in cartelle di colore verrebbe letto
+   come una marca — in quel caso conviene creare comunque la cartella marca.
+
    LOGO DELLA MARCA: dentro la cartella della marca metti un'immagine chiamata
    "logo" (logo.png, logo.jpg…). Diventa la copertina della marca nella prima
    schermata della categoria. Senza logo compare il nome scritto in oro.
@@ -421,10 +439,35 @@ async function caricaCategoria(cat){
   const radice = await dentro(cat.cartella);
   const loghi = {};                       // marca → id dell'immagine del logo
 
-  const prodotto = (cartella, foto, marca) => {
+  const prodotto = (cartella, foto, marca, colori) => {
     const { nome, prezzo } = leggiNome(cartella.name, cat);
-    return { chiave: cartella.id, nome, prezzo, marca: marca || "", foto: foto.map(f => f.id) };
+    return { chiave: cartella.id, nome, prezzo, marca: marca || "",
+             foto: foto.map(f => f.id), colori: colori || null };
   };
+
+  /* Un prodotto può avere i colori: dentro la sua cartella, una cartella per
+     colore con le foto di quel colore. La copertina è la prima foto del primo
+     colore. Se un colore ha un prezzo diverso, si scrive nel suo nome. */
+  async function leggiProdotto(t, marca){
+    const ct = await dentro(t.id);
+    const foto = ct.foto.filter(f => !E_LOGO.test(f.name));
+    if (foto.length) return prodotto(t, foto, marca);
+    if (!ct.cartelle.length) return null;
+
+    const base = leggiNome(t.name, cat);
+    const varianti = await Promise.all(ct.cartelle.map(async v => {
+      const cv = await dentro(v.id);
+      const fv = cv.foto.filter(f => !E_LOGO.test(f.name));
+      if (!fv.length) return null;
+      const n = leggiNome(v.name, cat);
+      return { nome: n.nome, prezzo: n.prezzo != null ? n.prezzo : base.prezzo,
+               foto: fv.map(f => f.id) };
+    }));
+    const colori = varianti.filter(Boolean);
+    if (!colori.length) return null;
+    return { chiave: t.id, nome: base.nome, prezzo: colori[0].prezzo,
+             marca: marca || "", foto: colori[0].foto, colori };
+  }
 
   const gruppi = await Promise.all(radice.cartelle.map(async s => {
     const c = await dentro(s.id);
@@ -434,14 +477,11 @@ async function caricaCategoria(cat){
     // foto vere qui dentro (oltre al logo): è un prodotto senza marca
     if (altre.length) return [prodotto(s, altre, "")];
 
-    // solo cartelle: è una marca, i prodotti stanno un livello sotto
+    // solo cartelle: può essere una marca (prodotti sotto) oppure un prodotto
+    // diviso per colori. Si distingue guardando un livello più in basso.
     const marca = leggiNome(s.name, cat).nome;
     if (logo) loghi[marca] = logo.id;
-    const dentroMarca = await Promise.all(c.cartelle.map(async t => {
-      const ct = await dentro(t.id);
-      const foto = ct.foto.filter(f => !E_LOGO.test(f.name));
-      return foto.length ? prodotto(t, foto, marca) : null;
-    }));
+    const dentroMarca = await Promise.all(c.cartelle.map(t => leggiProdotto(t, marca)));
     return dentroMarca.filter(Boolean);
   }));
 
@@ -576,7 +616,8 @@ async function disegnaGriglia(){
   grigliaEl.innerHTML = prodotti.map((p,i) => `
     <div class="card" data-i="${i}">
       <img class="ph" loading="lazy" src="${thumbUrl(p.foto[0])}" alt="${p.nome}">
-      ${p.foto.length > 1 ? `<span class="nfoto">${p.foto.length} foto</span>` : ""}
+      ${p.colori ? `<span class="nfoto">${p.colori.length} colori</span>`
+                 : p.foto.length > 1 ? `<span class="nfoto">${p.foto.length} foto</span>` : ""}
       <div class="body">
         ${p.marca ? `<div class="mk">${p.marca}</div>` : ""}
         <div class="nm">${p.nome}</div>
@@ -590,11 +631,11 @@ async function disegnaGriglia(){
 /* ---- scheda prodotto ---- */
 const ov = document.getElementById("ov");
 const sheet = document.getElementById("sheet");
-let scelta = { prod:null, cat:null, taglia:"", qta:1, foto:0 };
+let scelta = { prod:null, cat:null, taglia:"", qta:1, foto:0, colore:0 };
 
 function apriProdotto(prod, cat){
   const taglie = TAGLIE[cat.taglie] || [];
-  scelta = { prod, cat, taglia: taglie[1] || taglie[0] || "Unica", qta:1, foto:0 };
+  scelta = { prod, cat, taglia: taglie[1] || taglie[0] || "Unica", qta:1, foto:0, colore:0 };
   disegnaScheda();
   ov.classList.add("open");
   document.body.style.overflow = "hidden";
@@ -609,22 +650,35 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") chiudiProdot
 function disegnaScheda(){
   const { prod, cat, taglia, qta } = scelta;
   const taglie = TAGLIE[cat.taglie] || [];
-  const { nome, prezzo } = prod;
+  const nome = prod.nome;
+
+  // se il prodotto ha i colori, foto e prezzo sono quelli del colore scelto
+  const colori = prod.colori || null;
+  const iCol = colori ? Math.min(scelta.colore, colori.length - 1) : 0;
+  const variante = colori ? colori[iCol] : prod;
+  const foto = variante.foto;
+  const prezzo = variante.prezzo;
+  const coloreNome = colori ? variante.nome : "";
   const senzaPrezzo = prezzo == null;
-  const iFoto = Math.min(scelta.foto, prod.foto.length - 1);
+  const iFoto = Math.min(scelta.foto, foto.length - 1);
 
   sheet.innerHTML = `
     <button class="x" id="x">✕</button>
-    <img class="big" src="${fullUrl(prod.foto[iFoto])}" alt="${nome}">
-    ${prod.foto.length > 1 ? `
+    <img class="big" src="${fullUrl(foto[iFoto])}" alt="${nome}">
+    ${foto.length > 1 ? `
       <div class="angolazioni" id="angolazioni">
-        ${prod.foto.map((id,i) =>
+        ${foto.map((id,i) =>
           `<img class="mini${i===iFoto?" on":""}" data-i="${i}" src="${thumbUrl(id)}" alt="${nome} — foto ${i+1}">`
         ).join("")}
       </div>` : ""}
     ${prod.marca ? `<div class="marca-scheda">${prod.marca}</div>` : ""}
     <h2>${nome}</h2>
     <div class="prezzo">${senzaPrezzo ? "Su richiesta" : "€" + prezzo}</div>
+    ${colori ? `
+      <div class="lbl">Colore</div>
+      <div class="pills" id="colori">
+        ${colori.map((c,i) => `<button class="pill${i===iCol?" on":""}" data-c="${i}">${c.nome}</button>`).join("")}
+      </div>` : ""}
     ${taglie.length ? `
       <div class="lbl">${cat.taglie === "scarpe" ? "Numero" : "Taglia"}</div>
       <div class="pills" id="taglie">
@@ -636,12 +690,14 @@ function disegnaScheda(){
     </div>
     ${senzaPrezzo
       ? `<a class="btn wa" target="_blank" rel="noopener"
-             href="${WA + encodeURIComponent(`Ciao! Mi interessa questo articolo: ${prod.marca ? prod.marca + " " : ""}${nome} (${cat.nome})${taglie.length ? ", taglia " + taglia : ""}. Quanto costa? 😊`)}">
+             href="${WA + encodeURIComponent(`Ciao! Mi interessa questo articolo: ${prod.marca ? prod.marca + " " : ""}${nome} (${cat.nome})${coloreNome ? ", colore " + coloreNome : ""}${taglie.length ? ", taglia " + taglia : ""}. Quanto costa? 😊`)}">
            Chiedi prezzo su WhatsApp</a>`
       : `<button class="btn" id="add">Aggiungi al carrello</button>`}
   `;
 
   sheet.querySelector("#x").onclick = chiudiProdotto;
+  sheet.querySelectorAll("#colori .pill").forEach(b =>
+    b.onclick = ()=>{ scelta.colore = +b.dataset.c; scelta.foto = 0; disegnaScheda(); });
   sheet.querySelectorAll("#angolazioni .mini").forEach(m =>
     m.onclick = ()=>{ scelta.foto = +m.dataset.i; disegnaScheda(); });
   sheet.querySelectorAll("#taglie .pill").forEach(b =>
@@ -652,15 +708,16 @@ function disegnaScheda(){
   const add = sheet.querySelector("#add");
   if (add) add.onclick = ()=>{
     aggiungiAlCarrello({
-      id: prod.chiave,
+      id: coloreNome ? `${prod.chiave}:${coloreNome}` : prod.chiave,
       name: prod.marca ? `${prod.marca} ${nome}` : nome,
-      thumb: thumbUrl(prod.foto[0]),
+      thumb: thumbUrl(foto[0]),
       version: cat.nome,
       versionId: "abb_" + cat.nome.toLowerCase(),
       size: cat.taglie === "scarpe" ? "EU " + scelta.taglia : (scelta.taglia || "Unica"),
       price: prezzo,
+      colore: coloreNome,
       pers: "",
-      patch: "Nessuna",
+      patch: "",
       qty: scelta.qta,
     });
     chiudiProdotto();
