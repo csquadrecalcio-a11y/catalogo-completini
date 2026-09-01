@@ -609,14 +609,16 @@ function buildCard(cod, o){
     return giacenza
       ? `<div class="mancata-banner"><div class="mancata-banner-icon">🏤</div><div>
           <div class="mancata-banner-title">Il pacco ti aspetta in ufficio postale</div>
-          <div class="mancata-banner-sub">Dopo i tentativi di consegna il pacco viene tenuto da Poste
-          per qualche giorno. Porta un documento e ritiralo all'ufficio indicato qui sotto.
-          Se hai dubbi scrivici su WhatsApp, ti diamo una mano.</div></div></div>`
+          <div class="mancata-banner-sub">Dopo i tentativi di consegna Poste Italiane tiene il pacco
+          in giacenza per qualche giorno. Vai a ritirarlo <strong>all'ufficio indicato qui sotto</strong>
+          con un documento e il numero di tracking. Per orari, indirizzo e giorni di giacenza
+          consulta <strong>poste.it</strong> o l'app di Poste Italiane con questo numero di tracking.</div></div></div>`
       : `<div class="mancata-banner"><div class="mancata-banner-icon">🔔</div><div>
           <div class="mancata-banner-title">Il corriere è passato ma non ti ha trovato</div>
-          <div class="mancata-banner-sub">Nessun problema: <strong>riprova il giorno lavorativo
-          successivo</strong>, non devi fare niente. Se domani non puoi esserci, scrivici su
-          WhatsApp e vediamo insieme come fare.</div></div></div>`;
+          <div class="mancata-banner-sub">Il portalettere <strong>riproverà il giorno lavorativo
+          successivo</strong>. Da qui in avanti la consegna è gestita da Poste Italiane: se domani
+          non puoi esserci, entra su <strong>poste.it</strong> o nell'app di Poste con questo numero
+          di tracking e scegli tu come procedere (nuova data, ritiro in ufficio o altro indirizzo).</div></div></div>`;
   })();
 
   /* Passaggio di consegne al corriere italiano: il tracking resta fermo per
