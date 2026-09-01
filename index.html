@@ -1651,6 +1651,7 @@ function baseSquadra(nome){
   return String(nome)
     .replace(/\.(jpe?g|png|webp)$/i, "")
     .replace(/(\d{2})\s*[\/.:]\s*(\d{2})/g, "$1-$2")   // 26/27 = 26.27 = 26-27
+    .replace(/\b(png|jpe?g|webp)\b/gi, " ")            // "… maglia adulto png.png"
     .replace(/\b(kit|maglia|maglie|completo|player\s*version|player|pv|adulto|adulti|bambino|bambini|kids?)\b/gi, " ")
     .replace(new RegExp("\\b(home|casa|away|trasferta|third|terza|3rd|fourth|quarta|gk|portiere|goalkeeper)"
                         + "(\\s+" + DISTINTIVO + ")?\\b", "gi"), " ")
