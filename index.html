@@ -1212,6 +1212,9 @@ gtag('config', 'G-SYPQZL1L7W');
       <div class="sheet-league" id="sheetLeague"></div>
       <h3 id="sheetTeam"></h3>
 
+      <div class="opt-label" id="kitLabel" style="display:none">Kit</div>
+      <div class="pills" id="kitPills" style="display:none"></div>
+
       <div class="opt-label">Versione</div>
       <div class="pills" id="versionPills"></div>
 
@@ -1587,6 +1590,71 @@ function raggruppaAngolazioni(items){
   return fuori;
 }
 
+/* PROVA sulle sole squadre elencate qui: le loro foto (home, away, third,
+   player version…) diventano UN riquadro solo, e dentro la scheda si sceglie
+   la versione. Le altre squadre restano come sempre, una foto un prodotto.
+   Per estendere basta aggiungere il nome della cartella squadra. */
+const SQUADRE_RAGGRUPPATE = ["inter"];
+
+const ETICHETTE_KIT = [
+  [/\bhome\b|\bcasa\b/i,               "Home"],
+  [/\baway\b|\btrasferta\b/i,          "Away"],
+  [/\bthird\b|\bterza\b|\b3rd\b/i,    "Third"],
+  [/\bfourth\b|\bquarta\b/i,           "Fourth"],
+  [/\bgk\b|portiere|goalkeeper/i,       "Portiere"],
+];
+
+/* "kit inter home 26-27" → Home ; "player version inter away 26-27" → Away */
+function etichettaKit(nome){
+  for (const [re, et] of ETICHETTE_KIT) if (re.test(nome)) return et;
+  return "";
+}
+
+/* la base che tiene insieme le foto della stessa squadra-stagione:
+   si tolgono versione (kit/maglia/player…) e kit (home/away/third)  */
+function baseSquadra(nome){
+  return String(nome)
+    .replace(/\.(jpe?g|png|webp)$/i, "")
+    .replace(/\b(kit|maglia|maglie|completo|player\s*version|player|pv|adulto|adulti|bambino|bambini|kids?)\b/gi, " ")
+    .replace(/\b(home|casa|away|trasferta|third|terza|3rd|fourth|quarta|gk|portiere|goalkeeper)\b/gi, " ")
+    .replace(/[\s_-]+/g, " ").trim().toLowerCase();
+}
+
+function raggruppaKit(items){
+  const daRaggruppare = items.filter(i =>
+    SQUADRE_RAGGRUPPATE.includes(String(i.team || "").trim().toLowerCase()) && etichettaKit(i.name));
+  if (!daRaggruppare.length) return items;
+
+  const gruppi = new Map();
+  for (const it of daRaggruppare){
+    const k = it.team + "|" + baseSquadra(it.name);
+    if (!gruppi.has(k)) gruppi.set(k, []);
+    gruppi.get(k).push(it);
+  }
+
+  const ordine = ETICHETTE_KIT.map(e => e[1]);
+  const fusi = [];
+  for (const gruppo of gruppi.values()){
+    if (gruppo.length < 2){ fusi.push(gruppo[0]); continue; }
+    // stesso kit con piu scatti (es. Home in versione tifoso e player):
+    // un bottone solo, e la foto segue la versione che il cliente sceglie
+    const perEtichetta = new Map();
+    for (const it of gruppo){
+      const et = etichettaKit(it.name);
+      if (!perEtichetta.has(et)) perEtichetta.set(et, []);
+      perEtichetta.get(et).push(it);
+    }
+    const varianti = [...perEtichetta.entries()]
+      .map(([etichetta, scatti]) => ({ etichetta, scatti }))
+      .sort((a,b) => ordine.indexOf(a.etichetta) - ordine.indexOf(b.etichetta));
+    // il riquadro del catalogo mostra il primo kit (di solito Home)
+    fusi.push({ ...varianti[0].scatti[0], varianti,
+                cerca: gruppo.map(g => g.name).join(" ") });
+  }
+  const raggruppati = new Set(daRaggruppare);
+  return [...items.filter(i => !raggruppati.has(i)), ...fusi];
+}
+
 async function loadCategory(cat){
   if (cache[cat.id]) return cache[cat.id];
   let items = [], teams = [];
@@ -1604,7 +1672,7 @@ async function loadCategory(cat){
     const files = await drive(`'${cat.id}' in parents and ${IMG_Q}`,"files(id,name)","createdTime desc");
     items = files.map(f=>({id:f.id, name:f.name, team:""}));
   }
-  items = raggruppaAngolazioni(items);
+  items = raggruppaKit(raggruppaAngolazioni(items));
   cache[cat.id] = {items, teams};
   return cache[cat.id];
 }
@@ -1826,7 +1894,7 @@ function renderGrid(){
   const q = searchInp.value.trim().toLowerCase();
   let items = data.items;
   if (activeTeam) items = items.filter(i=>i.team===activeTeam);
-  if (q) items = items.filter(i=>(i.name+" "+i.team).toLowerCase().includes(q));
+  if (q) items = items.filter(i=>(i.name+" "+i.team+" "+(i.cerca||"")).toLowerCase().includes(q));
 
   let priced = items.map(it=>{
     const prof = productProfile(it);
@@ -2159,6 +2227,66 @@ patchLiberaInp.addEventListener("input", ()=>{
   if (S.patchLibera.trim()){ S.patch = patchConfigFor(S.item).none; buildPatch(); }
 });
 
+/* Bottoni Home / Away / Third. Cambiando kit cambia lo scatto: con lui
+   cambiano anche versioni, prezzi e taglie, perche vengono dal nome del file
+   (una squadra puo avere il kit completo in home e solo la maglia in third). */
+/* Un kit puo avere piu foto (tifoso, player version…): le versioni sono
+   l'unione delle loro, e ogni versione ricorda da quale scatto viene, cosi
+   scegliendola cambia anche la foto. */
+function profiloKit(kit){
+  const versions = [];
+  const daScatto = {};
+  let pers = false;
+  for (const it of kit.scatti){
+    const prof = productProfile(it);
+    if (prof.pers) pers = true;
+    for (const v of prof.versions){
+      if (!daScatto[v.id]){ daScatto[v.id] = it; versions.push(v); }
+    }
+  }
+  kit.daScatto = daScatto;
+  return { versions, pers, kind: "jersey" };
+}
+
+function buildKitPills(){
+  const lbl = document.getElementById("kitLabel");
+  const box = document.getElementById("kitPills");
+  if (!S.gruppo || S.gruppo.length < 2){
+    lbl.style.display = box.style.display = "none";
+    box.innerHTML = "";
+    return;
+  }
+  lbl.style.display = ""; box.style.display = "";
+  box.innerHTML = "";
+  S.gruppo.forEach(v => {
+    const b = document.createElement("button");
+    b.className = "pill" + (v === S.kit ? " on" : "");
+    b.textContent = v.etichetta;
+    b.onclick = () => scegliKit(v);
+    box.appendChild(b);
+  });
+}
+
+function scegliKit(v){
+  if (v === S.kit) return;
+  S.kit = v;
+  S.type = profiloKit(v);
+  S.item = v.daScatto[S.type.versions[0].id] || v.scatti[0];
+  S.version = S.type.versions[0].id;
+  S.size = S.type.versions[0].shoe ? "42" : (S.type.versions[0].kid ? "24" : "M");
+  S.patch = "Nessuna"; S.patchLibera = ""; patchLiberaInp.value = "";
+  document.getElementById("sheetTeam").textContent = cleanName(S.item.name);
+  document.getElementById("sheetPhoto").src = fullUrl(S.item.id);
+  document.getElementById("persBlock").style.display = S.type.pers ? "" : "none";
+  buildAngolazioni(S.item);
+  buildPatch();
+  if (S.type.pers){
+    const rosa = rosaPerSquadraCorrente();
+    setPersMode(rosa ? "giocatore" : "personalizzata");
+  }
+  buildKitPills(); buildVersionPills(); buildSizePills(); syncSheet();
+}
+
 /* Miniature sotto la foto: compaiono solo se il capo ha piu di uno scatto. */
 function buildAngolazioni(item){
   const box = document.getElementById("sheetThumbs");
@@ -2176,18 +2304,21 @@ function buildAngolazioni(item){
 }
 
 function openProduct(item){
-  S.item = item;
-  S.type = productProfile(item);
+  S.gruppo = item.varianti || null;      // Home/Away/Third dello stesso capo
+  S.kit = S.gruppo ? S.gruppo[0] : null;
+  S.item = S.kit ? S.kit.scatti[0] : item;
+  S.type = S.kit ? profiloKit(S.kit) : productProfile(S.item);
   S.version = S.type.versions[0].id;
   S.size = S.type.versions[0].shoe ? "42" : (S.type.versions[0].kid ? "24" : "M");
   S.patch = "Nessuna"; S.patchLibera = ""; S.qty = 1;
   pName.value = ""; pNum.value = ""; patchLiberaInp.value = "";
   buildPatch();
   document.getElementById("sheetLeague").textContent =
-    (item.team ? cleanName(item.team) + " · " : "") + activeCat.name;
-  document.getElementById("sheetTeam").textContent = cleanName(item.name);
-  document.getElementById("sheetPhoto").src = fullUrl(item.id);
-  buildAngolazioni(item);
+    (S.item.team ? cleanName(S.item.team) + " · " : "") + activeCat.name;
+  document.getElementById("sheetTeam").textContent = cleanName(S.item.name);
+  document.getElementById("sheetPhoto").src = fullUrl(S.item.id);
+  buildAngolazioni(S.item);
+  buildKitPills();
   document.getElementById("persBlock").style.display = S.type.pers ? "" : "none";
   if (S.type.pers){
     const rosa = rosaPerSquadraCorrente();
@@ -2245,6 +2376,14 @@ function buildVersionPills(){
     b.onclick = ()=>{
       S.version = v.id;
       S.size = v.shoe ? "42" : (v.kid ? "24" : "M");
+      // dentro un kit raggruppato ogni versione ha il suo scatto
+      const scatto = S.kit && S.kit.daScatto && S.kit.daScatto[v.id];
+      if (scatto && scatto !== S.item){
+        S.item = scatto;
+        document.getElementById("sheetTeam").textContent = cleanName(S.item.name);
+        document.getElementById("sheetPhoto").src = fullUrl(S.item.id);
+        buildAngolazioni(S.item);
+      }
       buildVersionPills(); buildSizePills(); syncSheet();
     };
     el.appendChild(b);
