@@ -484,6 +484,11 @@ gtag('config', 'G-SYPQZL1L7W');
     width:100%;height:100%;max-height:520px;object-fit:contain;border-radius:16px;
   }
   .sheet-preview svg{width:min(300px,85%)}
+  .sheet-thumbs{display:none;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+  .sheet-thumb{width:56px;height:56px;object-fit:cover;border-radius:10px;cursor:pointer;
+    border:2px solid transparent;opacity:.6;background:var(--panel-2);transition:opacity .15s,border-color .15s}
+  .sheet-thumb:hover{opacity:.9}
+  .sheet-thumb.on{opacity:1;border-color:var(--volt)}
   .view-toggle{display:none}
   .view-toggle button{
     background:var(--panel);border:1px solid var(--line);color:var(--muted);
@@ -1200,6 +1205,7 @@ gtag('config', 'G-SYPQZL1L7W');
       <button class="sheet-close" id="sheetClose" aria-label="Chiudi">✕</button>
       <button class="sheet-share" id="sheetShare" aria-label="Condividi questo prodotto">🔗 Condividi</button>
       <img id="sheetPhoto" alt="Foto prodotto">
+      <div class="sheet-thumbs" id="sheetThumbs"></div>
     </div>
     <div class="sheet-body">
       <div class="sheet-league" id="sheetLeague"></div>
@@ -1541,6 +1547,38 @@ async function loadTeamPhotos(team){
   return perSub.flat();
 }
 
+/* Davanti e dietro dello stesso capo.
+   Sul calcio ogni foto e un prodotto: caricando anche il retro uscivano due
+   schede uguali. Se una foto ha lo stesso nome di un'altra piu una parola
+   come "dietro", "retro" o "- 2", diventa una FOTO IN PIU di quella, non un
+   prodotto nuovo. Le foto gia caricate non cambiano: nessuna ha quei suffissi.
+     Inter home 25-26.jpg          → il prodotto
+     Inter home 25-26 dietro.jpg   → seconda foto dello stesso prodotto        */
+const CODA_ANGOLAZIONE = /[\s._-]+(dietro|retro|back|posteriore|davanti|fronte|front|[2-6])$/i;
+
+function raggruppaAngolazioni(items){
+  const base = n => String(n||"")
+    .replace(/\.(jpe?g|png|webp)$/i, "")
+    .replace(CODA_ANGOLAZIONE, "")
+    .trim().toLowerCase();
+
+  const perBase = new Map();
+  for (const it of items){
+    const k = it.team + "|" + base(it.name);
+    if (!perBase.has(k)) perBase.set(k, []);
+    perBase.get(k).push(it);
+  }
+  const fuori = [];
+  for (const gruppo of perBase.values()){
+    // il "davanti" e la foto senza suffisso, altrimenti la prima in ordine
+    const principale = gruppo.find(g => !CODA_ANGOLAZIONE.test(
+      String(g.name).replace(/\.(jpe?g|png|webp)$/i, ""))) || gruppo[0];
+    const altre = gruppo.filter(g => g !== principale);
+    fuori.push(altre.length ? { ...principale, extra: altre.map(a => a.id) } : principale);
+  }
+  return fuori;
+}
+
 async function loadCategory(cat){
   if (cache[cat.id]) return cache[cat.id];
   let items = [], teams = [];
@@ -1558,6 +1596,7 @@ async function loadCategory(cat){
     const files = await drive(`'${cat.id}' in parents and ${IMG_Q}`,"files(id,name)","createdTime desc");
     items = files.map(f=>({id:f.id, name:f.name, team:""}));
   }
+  items = raggruppaAngolazioni(items);
   cache[cat.id] = {items, teams};
   return cache[cat.id];
 }
@@ -2112,6 +2151,22 @@ patchLiberaInp.addEventListener("input", ()=>{
   if (S.patchLibera.trim()){ S.patch = patchConfigFor(S.item).none; buildPatch(); }
 });
 
+/* Miniature sotto la foto: compaiono solo se il capo ha piu di uno scatto. */
+function buildAngolazioni(item){
+  const box = document.getElementById("sheetThumbs");
+  const foto = [item.id, ...(item.extra || [])];
+  if (foto.length < 2){ box.innerHTML = ""; box.style.display = "none"; return; }
+  box.style.display = "flex";
+  box.innerHTML = foto.map((id, i) =>
+    `<img class="sheet-thumb${i === 0 ? " on" : ""}" data-id="${id}" src="${thumbUrl(id)}" alt="Foto ${i+1}">`
+  ).join("");
+  box.querySelectorAll(".sheet-thumb").forEach(t => t.onclick = () => {
+    document.getElementById("sheetPhoto").src = fullUrl(t.dataset.id);
+    box.querySelectorAll(".sheet-thumb").forEach(x => x.classList.remove("on"));
+    t.classList.add("on");
+  });
+}
+
 function openProduct(item){
   S.item = item;
   S.type = productProfile(item);
@@ -2124,6 +2179,7 @@ function openProduct(item){
     (item.team ? cleanName(item.team) + " · " : "") + activeCat.name;
   document.getElementById("sheetTeam").textContent = cleanName(item.name);
   document.getElementById("sheetPhoto").src = fullUrl(item.id);
+  buildAngolazioni(item);
   document.getElementById("persBlock").style.display = S.type.pers ? "" : "none";
   if (S.type.pers){
     const rosa = rosaPerSquadraCorrente();
