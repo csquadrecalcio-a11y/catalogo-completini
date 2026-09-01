@@ -89,6 +89,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.92);
   transition:border-color .18s ease,color .18s ease}
 .marche .marca:hover{color:var(--testo);border-color:var(--oro)}
 .marche .marca.on{background:var(--oro);border-color:var(--oro);color:#141005}
+.marche .marca.indietro{border-color:transparent;color:var(--oro);padding-left:0}
+.marche .marca.indietro:hover{border-color:transparent;text-decoration:underline}
 
 /* ── griglia ── */
 .nota{color:var(--muto);font-size:11px;letter-spacing:2.4px;text-transform:uppercase;
@@ -107,6 +109,14 @@ header{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.92);
 .card .pz{margin-top:9px;font-family:"Cormorant Garamond",Garamond,serif;font-size:21px;font-weight:400;color:var(--oro)}
 .card .pz small{font-family:Jost,sans-serif;font-weight:300;color:var(--muto);font-size:11px;
   letter-spacing:1.4px;text-transform:uppercase}
+/* vetrina delle marche: il logo respira, non viene tagliato come una foto */
+.marca-card .ph.logo{object-fit:contain;padding:34px;background:var(--nero-2)}
+.marca-card .senza-logo{aspect-ratio:1;display:grid;place-items:center;background:var(--nero-2);
+  padding:24px;text-align:center}
+.marca-card .senza-logo span{font-family:"Cormorant Garamond",Garamond,serif;font-size:52px;
+  letter-spacing:.06em;color:var(--oro);line-height:1}
+.marca-card:hover .ph{transform:none}
+.marca-card .nm{letter-spacing:2.4px;text-transform:uppercase;font-size:11.5px;color:var(--oro)}
 .card .nfoto{position:absolute;top:12px;right:12px;background:rgba(8,8,10,.72);color:var(--oro);
   border:1px solid var(--linea);border-radius:var(--r);padding:4px 9px;font-size:10px;
   letter-spacing:1.6px;text-transform:uppercase;backdrop-filter:blur(6px)}
@@ -395,14 +405,21 @@ async function dentro(id){
    c) una foto sciolta = prodotto con una sola immagine
         GIUBBOTTI/Bomber verde - 55.jpg
 
+   LOGO DELLA MARCA: dentro la cartella della marca metti un'immagine chiamata
+   "logo" (logo.png, logo.jpg…). Diventa la copertina della marca nella prima
+   schermata della categoria. Senza logo compare il nome scritto in oro.
+
    La copertina è la PRIMA foto in ordine di nome: conviene numerarle 1, 2, 3.
    Una cartella che contiene solo altre cartelle è una MARCA; una che contiene
    foto è un PRODOTTO. Non c'è niente da configurare: si capisce da sola.     */
+const E_LOGO = /^(logo|_logo|marchio)\b/i;
+
 async function caricaCategoria(cat){
   if (!cat.cartella) return [];
   if (memoria[cat.cartella]) return memoria[cat.cartella];
 
   const radice = await dentro(cat.cartella);
+  const loghi = {};                       // marca → id dell'immagine del logo
 
   const prodotto = (cartella, foto, marca) => {
     const { nome, prezzo } = leggiNome(cartella.name, cat);
@@ -411,13 +428,19 @@ async function caricaCategoria(cat){
 
   const gruppi = await Promise.all(radice.cartelle.map(async s => {
     const c = await dentro(s.id);
-    if (c.foto.length) return [prodotto(s, c.foto, "")];        // prodotto diretto
+    const logo = c.foto.find(f => E_LOGO.test(f.name));
+    const altre = c.foto.filter(f => f !== logo);
 
-    // nessuna foto qui dentro: è una marca, i prodotti stanno un livello sotto
+    // foto vere qui dentro (oltre al logo): è un prodotto senza marca
+    if (altre.length) return [prodotto(s, altre, "")];
+
+    // solo cartelle: è una marca, i prodotti stanno un livello sotto
     const marca = leggiNome(s.name, cat).nome;
+    if (logo) loghi[marca] = logo.id;
     const dentroMarca = await Promise.all(c.cartelle.map(async t => {
       const ct = await dentro(t.id);
-      return ct.foto.length ? prodotto(t, ct.foto, marca) : null;
+      const foto = ct.foto.filter(f => !E_LOGO.test(f.name));
+      return foto.length ? prodotto(t, foto, marca) : null;
     }));
     return dentroMarca.filter(Boolean);
   }));
@@ -429,6 +452,7 @@ async function caricaCategoria(cat){
   });
 
   const prodotti = [...gruppi.flat(), ...daFoto];
+  prodotti.loghi = loghi;                 // viaggia insieme, serve alla vetrina
   memoria[cat.cartella] = prodotti;
   return prodotti;
 }
@@ -446,7 +470,7 @@ function disegnaTabs(){
     const b = document.createElement("button");
     b.className = "tab" + (c === attiva ? " on" : "");
     b.textContent = c.nome;
-    b.onclick = ()=>{ attiva = c; disegnaTabs(); disegnaGriglia(); };
+    b.onclick = ()=>{ attiva = c; marcaAttiva = ""; disegnaTabs(); disegnaGriglia(); };
     tabsEl.appendChild(b);
   });
 }
@@ -460,15 +484,70 @@ function inArrivo(cat){
   </div>`;
 }
 
-/* filtro per marca: compare solo se la categoria è divisa per marche */
+/* Vetrina delle marche: entrando in una categoria divisa per marche il
+   cliente vede prima i loghi, poi entra e trova i modelli. Con una marca sola
+   si salta il passaggio e si va dritti ai prodotti. */
 let marcaAttiva = "";
-function disegnaMarche(prodotti, cat){
-  const marche = [...new Set(prodotti.map(p => p.marca).filter(Boolean))].sort();
-  if (marche.length < 2){ marcheEl.innerHTML = ""; marcaAttiva = ""; return; }
-  if (marcaAttiva && !marche.includes(marcaAttiva)) marcaAttiva = "";
-  marcheEl.innerHTML = ["", ...marche].map(m =>
-    `<button class="marca${m === marcaAttiva ? " on" : ""}" data-m="${m}">${m || "Tutte"}</button>`
-  ).join("");
+
+function elencoMarche(prodotti){
+  return [...new Set(prodotti.map(p => p.marca).filter(Boolean))].sort();
+}
+
+/* iniziali usate quando una marca non ha il logo: "The North Face" → TNF */
+function iniziali(nome){
+  const parole = nome.split(/\s+/).filter(Boolean);
+  const brevi = parole.filter(p => p.length > 2);          // salta "the", "di"…
+  return (brevi.length ? brevi : parole).map(p => p[0]).join("").toUpperCase().slice(0,3);
+}
+
+function disegnaVetrinaMarche(tutti, cat){
+  const marche = elencoMarche(tutti);
+  const loghi = tutti.loghi || {};
+  const senzaMarca = tutti.filter(p => !p.marca);
+  marcheEl.innerHTML = "";
+  notaEl.textContent = `${marche.length} marche · ${cat.nome}`;
+
+  const vetrina = marche.map(m => {
+    const n = tutti.filter(p => p.marca === m).length;
+    const logo = loghi[m];
+    return `
+    <div class="card marca-card" data-m="${m}">
+      ${logo
+        ? `<img class="ph logo" loading="lazy" src="${thumbUrl(logo)}" alt="${m}">`
+        : `<div class="ph senza-logo"><span>${iniziali(m)}</span></div>`}
+      <div class="body">
+        <div class="nm">${m}</div>
+        <div class="pz"><small>${n} model${n === 1 ? "lo" : "li"}</small></div>
+      </div>
+    </div>`;
+  });
+
+  // i prodotti che non stanno sotto nessuna marca restano visibili qui sotto,
+  // altrimenti sparirebbero dietro alla vetrina
+  const sciolti = senzaMarca.map((p,i) => `
+    <div class="card senza-marca" data-i="${i}">
+      <img class="ph" loading="lazy" src="${thumbUrl(p.foto[0])}" alt="${p.nome}">
+      ${p.foto.length > 1 ? `<span class="nfoto">${p.foto.length} foto</span>` : ""}
+      <div class="body">
+        <div class="nm">${p.nome}</div>
+        <div class="pz">${p.prezzo != null ? "€" + p.prezzo : '<small>Prezzo su richiesta</small>'}</div>
+      </div>
+    </div>`);
+
+  grigliaEl.innerHTML = [...vetrina, ...sciolti].join("");
+  grigliaEl.querySelectorAll(".marca-card").forEach(el =>
+    el.onclick = ()=>{ marcaAttiva = el.dataset.m; disegnaGriglia(); });
+  grigliaEl.querySelectorAll(".senza-marca").forEach(el =>
+    el.onclick = ()=> apriProdotto(senzaMarca[+el.dataset.i], cat));
+}
+
+/* dentro una marca: la riga in alto per tornare indietro o cambiare marca */
+function disegnaMarche(tutti){
+  const marche = elencoMarche(tutti);
+  if (!marcaAttiva || !marche.length){ marcheEl.innerHTML = ""; return; }
+  marcheEl.innerHTML =
+    `<button class="marca indietro" data-m="">← Tutte le marche</button>`
+    + marche.map(m => `<button class="marca${m === marcaAttiva ? " on" : ""}" data-m="${m}">${m}</button>`).join("");
   marcheEl.querySelectorAll(".marca").forEach(b =>
     b.onclick = ()=>{ marcaAttiva = b.dataset.m; disegnaGriglia(); });
 }
@@ -483,7 +562,13 @@ async function disegnaGriglia(){
   if (cat !== attiva) return;                       // l'utente ha cambiato tab
   if (!tutti.length){ marcheEl.innerHTML = ""; grigliaEl.innerHTML = inArrivo(cat); return; }
 
-  disegnaMarche(tutti, cat);
+  const marche = elencoMarche(tutti);
+  if (marcaAttiva && !marche.includes(marcaAttiva)) marcaAttiva = "";
+
+  // più marche e nessuna scelta: si mostra la vetrina dei loghi
+  if (marche.length > 1 && !marcaAttiva) return disegnaVetrinaMarche(tutti, cat);
+
+  disegnaMarche(tutti);
   const prodotti = marcaAttiva ? tutti.filter(p => p.marca === marcaAttiva) : tutti;
 
   notaEl.textContent = `${prodotti.length} model${prodotti.length === 1 ? "lo" : "li"} · `
