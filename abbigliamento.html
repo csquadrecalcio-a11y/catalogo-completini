@@ -96,6 +96,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.92);
 .card .pz{margin-top:9px;font-family:"Cormorant Garamond",Garamond,serif;font-size:21px;font-weight:400;color:var(--oro)}
 .card .pz small{font-family:Jost,sans-serif;font-weight:300;color:var(--muto);font-size:11px;
   letter-spacing:1.4px;text-transform:uppercase}
+.card .nfoto{position:absolute;top:12px;right:12px;background:rgba(8,8,10,.72);color:var(--oro);
+  border:1px solid var(--linea);border-radius:var(--r);padding:4px 9px;font-size:10px;
+  letter-spacing:1.6px;text-transform:uppercase;backdrop-filter:blur(6px)}
 .skel{background:var(--nero-2);height:300px;animation:battito 1.3s ease-in-out infinite}
 @keyframes battito{0%,100%{opacity:.4}50%{opacity:.75}}
 
@@ -117,6 +120,13 @@ header{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.92);
 .sheet .x{float:right;background:var(--nero-3);border:0;color:var(--testo);width:36px;height:36px;
   border-radius:var(--r);font-size:16px;cursor:pointer}
 .sheet img.big{width:100%;aspect-ratio:1;object-fit:cover;background:var(--nero-3);border-radius:var(--r)}
+.angolazioni{display:flex;gap:8px;margin-top:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.angolazioni::-webkit-scrollbar{display:none}
+.angolazioni .mini{flex:0 0 auto;width:60px;height:60px;object-fit:cover;background:var(--nero-3);
+  border:1px solid transparent;border-radius:var(--r);cursor:pointer;opacity:.55;
+  transition:opacity .18s ease,border-color .18s ease}
+.angolazioni .mini:hover{opacity:.85}
+.angolazioni .mini.on{opacity:1;border-color:var(--oro)}
 .sheet h2{margin:20px 0 6px;font-size:30px;font-weight:400}
 .sheet .prezzo{font-family:"Cormorant Garamond",Garamond,serif;font-size:38px;font-weight:400;color:var(--oro);margin-bottom:6px}
 .lbl{font-size:10.5px;letter-spacing:2.6px;text-transform:uppercase;color:var(--muto);
@@ -218,19 +228,34 @@ footer a{color:var(--oro);font-weight:400;letter-spacing:2.4px;text-transform:up
 
    Tutto si fa da Google Drive, senza toccare questo file.
 
-   FOTO    → si caricano nella cartella Drive della categoria.
-   PREZZO  → si scrive NEL NOME DELLA FOTO, alla fine, dopo un trattino:
+   UN PRODOTTO = UNA CARTELLA. Il nome della cartella porta nome e prezzo,
+   le foto dentro sono le angolazioni (davanti, dietro, dettagli):
 
-               Giubbotto Nike nero - 45.jpg      →  Giubbotto Nike nero · €45
-               Felpa Nike cappuccio - 35.jpg     →  Felpa Nike cappuccio · €35
-               Scarpe Air Force bianche - 90.jpg →  Scarpe Air Force bianche · €90
+     Giubbotti/
+       Giubbotto Nike nero - 45/        ← nome e prezzo stanno qui
+         1 davanti.jpg
+         2 dietro.jpg
+         3 dettaglio cappuccio.jpg
+       Bomber verde militare - 55/
+         1 davanti.jpg
+         2 dietro.jpg
 
-   Il prezzo sparisce dal nome mostrato al cliente: si vede solo il prodotto
-   e il prezzo separato. Funzionano anche "- 45€", "-45", "_45".
+   La copertina è la PRIMA foto in ordine di nome: per questo conviene
+   numerarle 1, 2, 3. Nella scheda il cliente vede le miniature e cambia
+   angolazione toccandole; sulla griglia compare "3 foto" in alto a destra.
 
-   Se una foto non ha il prezzo nel nome si usa il "prezzo" della categoria
-   qui sotto; se anche quello è null, il prodotto esce con "Prezzo su
-   richiesta" e il bottone WhatsApp — mai nel carrello con un prezzo sbagliato.
+   Se un prodotto ha una foto sola, si può anche caricare sciolta nella
+   cartella della categoria, col prezzo nel nome del file:
+       Giubbotti/Bomber verde - 55.jpg
+   I due modi convivono nella stessa categoria.
+
+   PREZZO → sempre alla fine del nome, dopo un trattino. Valgono anche
+   "- 45€", "-45", "_45", "- 27,50". Il prezzo sparisce dal nome mostrato
+   al cliente: si vede il prodotto da una parte e il prezzo dall'altra.
+
+   Senza prezzo nel nome si usa il "prezzo" della categoria qui sotto; se
+   anche quello è null, il prodotto esce con "Prezzo su richiesta" e il
+   bottone WhatsApp — mai nel carrello con un prezzo sbagliato.
 
    Nel codice va toccata UNA COSA SOLA, una volta per categoria:
 
@@ -302,29 +327,11 @@ async function drive(q, fields, order){
   if (!r.ok) throw new Error("drive " + r.status);
   return (await r.json()).files || [];
 }
-async function caricaCategoria(cat){
-  if (!cat.cartella) return [];
-  if (memoria[cat.cartella]) return memoria[cat.cartella];
-  let foto = await drive(`'${cat.cartella}' in parents and ${IMG_Q}`, "files(id,name)", "createdTime desc").catch(()=>[]);
-  if (!foto.length){
-    // cartella divisa per marca/modello: si scende di un livello
-    const sotto = await drive(`'${cat.cartella}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`,
-                              "files(id,name)", "name").catch(()=>[]);
-    const gruppi = await Promise.all(sotto.map(s =>
-      drive(`'${s.id}' in parents and ${IMG_Q}`, "files(id,name)", "name")
-        .then(f => f.map(x => ({...x, gruppo: s.name}))).catch(()=>[])
-    ));
-    foto = gruppi.flat();
-  }
-  memoria[cat.cartella] = foto;
-  return foto;
-}
-
-/* Dal nome del file ricava nome pulito e prezzo.
-   "Giubbotto Nike nero - 45.jpg"  →  { nome:"Giubbotto Nike nero", prezzo:45 }
+/* Dal nome (di una cartella o di un file) ricava nome pulito e prezzo.
+   "Giubbotto Nike nero - 45"  →  { nome:"Giubbotto Nike nero", prezzo:45 }
    Accetta "- 45", "-45€", "_45", "– 45,50". Senza prezzo: prezzo = null. */
-function leggiFoto(nomeFile, cat){
-  let t = String(nomeFile).replace(/\.(jpe?g|png|webp)$/i, "").trim();
+function leggiNome(testo, cat){
+  let t = String(testo).replace(/\.(jpe?g|png|webp)$/i, "").trim();
   let prezzo = null;
   const m = t.match(/[-–_]\s*€?\s*(\d{1,4}(?:[.,]\d{1,2})?)\s*€?\s*$/);
   if (m){
@@ -334,6 +341,50 @@ function leggiFoto(nomeFile, cat){
   t = t.replace(/[_]+/g, " ").replace(/\s{2,}/g, " ").replace(/[\s-–]+$/, "").trim();
   if (prezzo == null) prezzo = (cat && cat.prezzo != null) ? cat.prezzo : null;
   return { nome: t, prezzo };
+}
+
+/* Legge una categoria e restituisce l'elenco dei PRODOTTI.
+
+   Due modi di organizzare Drive, si possono anche mescolare:
+
+   a) una cartella per prodotto — le foto dentro sono le angolazioni
+        Giubbotti/
+          Giubbotto Nike nero - 45/     ← nome e prezzo stanno qui
+            1 davanti.jpg
+            2 dietro.jpg
+            3 dettaglio.jpg
+      La prima foto in ordine di nome è quella di copertina: per questo
+      conviene numerarle (1, 2, 3…).
+
+   b) una foto sciolta = un prodotto con una sola immagine
+        Giubbotti/Bomber verde - 55.jpg                                    */
+async function caricaCategoria(cat){
+  if (!cat.cartella) return [];
+  if (memoria[cat.cartella]) return memoria[cat.cartella];
+
+  const [sciolte, sotto] = await Promise.all([
+    drive(`'${cat.cartella}' in parents and ${IMG_Q}`, "files(id,name)", "createdTime desc").catch(()=>[]),
+    drive(`'${cat.cartella}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`,
+          "files(id,name)", "name").catch(()=>[]),
+  ]);
+
+  // un prodotto per cartella, con tutte le sue angolazioni
+  const daCartelle = await Promise.all(sotto.map(async s => {
+    const foto = await drive(`'${s.id}' in parents and ${IMG_Q}`, "files(id,name)", "name").catch(()=>[]);
+    if (!foto.length) return null;
+    const { nome, prezzo } = leggiNome(s.name, cat);
+    return { chiave: s.id, nome, prezzo, foto: foto.map(f => f.id) };
+  }));
+
+  // un prodotto per foto sciolta
+  const daFoto = sciolte.map(f => {
+    const { nome, prezzo } = leggiNome(f.name, cat);
+    return { chiave: f.id, nome, prezzo, foto: [f.id] };
+  });
+
+  const prodotti = [...daCartelle.filter(Boolean), ...daFoto];
+  memoria[cat.cartella] = prodotti;
+  return prodotti;
 }
 
 /* ---- schermo ---- */
@@ -368,33 +419,32 @@ async function disegnaGriglia(){
   if (!cat.cartella){ grigliaEl.innerHTML = inArrivo(cat); return; }
 
   grigliaEl.innerHTML = Array.from({length:8}, ()=>'<div class="skel"></div>').join("");
-  const foto = await caricaCategoria(cat);
+  const prodotti = await caricaCategoria(cat);
   if (cat !== attiva) return;                       // l'utente ha cambiato tab
-  if (!foto.length){ grigliaEl.innerHTML = inArrivo(cat); return; }
+  if (!prodotti.length){ grigliaEl.innerHTML = inArrivo(cat); return; }
 
-  notaEl.textContent = `${foto.length} modelli · ${cat.nome}`;
-  grigliaEl.innerHTML = foto.map((f,i) => {
-    const p = leggiFoto(f.name, cat);
-    return `
+  notaEl.textContent = `${prodotti.length} modelli · ${cat.nome}`;
+  grigliaEl.innerHTML = prodotti.map((p,i) => `
     <div class="card" data-i="${i}">
-      <img class="ph" loading="lazy" src="${thumbUrl(f.id)}" alt="${p.nome}">
+      <img class="ph" loading="lazy" src="${thumbUrl(p.foto[0])}" alt="${p.nome}">
+      ${p.foto.length > 1 ? `<span class="nfoto">${p.foto.length} foto</span>` : ""}
       <div class="body">
         <div class="nm">${p.nome}</div>
         <div class="pz">${p.prezzo != null ? "€" + p.prezzo : '<small>Prezzo su richiesta</small>'}</div>
       </div>
-    </div>`; }).join("");
+    </div>`).join("");
   grigliaEl.querySelectorAll(".card").forEach(el =>
-    el.onclick = ()=> apriProdotto(foto[+el.dataset.i], cat));
+    el.onclick = ()=> apriProdotto(prodotti[+el.dataset.i], cat));
 }
 
 /* ---- scheda prodotto ---- */
 const ov = document.getElementById("ov");
 const sheet = document.getElementById("sheet");
-let scelta = { foto:null, cat:null, taglia:"", qta:1 };
+let scelta = { prod:null, cat:null, taglia:"", qta:1, foto:0 };
 
-function apriProdotto(foto, cat){
+function apriProdotto(prod, cat){
   const taglie = TAGLIE[cat.taglie] || [];
-  scelta = { foto, cat, taglia: taglie[1] || taglie[0] || "Unica", qta:1 };
+  scelta = { prod, cat, taglia: taglie[1] || taglie[0] || "Unica", qta:1, foto:0 };
   disegnaScheda();
   ov.classList.add("open");
   document.body.style.overflow = "hidden";
@@ -407,14 +457,21 @@ ov.onclick = e => { if (e.target === ov) chiudiProdotto(); };
 document.addEventListener("keydown", e => { if (e.key === "Escape") chiudiProdotto(); });
 
 function disegnaScheda(){
-  const { foto, cat, taglia, qta } = scelta;
+  const { prod, cat, taglia, qta } = scelta;
   const taglie = TAGLIE[cat.taglie] || [];
-  const { nome, prezzo } = leggiFoto(foto.name, cat);
+  const { nome, prezzo } = prod;
   const senzaPrezzo = prezzo == null;
+  const iFoto = Math.min(scelta.foto, prod.foto.length - 1);
 
   sheet.innerHTML = `
     <button class="x" id="x">✕</button>
-    <img class="big" src="${fullUrl(foto.id)}" alt="${nome}">
+    <img class="big" src="${fullUrl(prod.foto[iFoto])}" alt="${nome}">
+    ${prod.foto.length > 1 ? `
+      <div class="angolazioni" id="angolazioni">
+        ${prod.foto.map((id,i) =>
+          `<img class="mini${i===iFoto?" on":""}" data-i="${i}" src="${thumbUrl(id)}" alt="${nome} — foto ${i+1}">`
+        ).join("")}
+      </div>` : ""}
     <h2>${nome}</h2>
     <div class="prezzo">${senzaPrezzo ? "Su richiesta" : "€" + prezzo}</div>
     ${taglie.length ? `
@@ -434,6 +491,8 @@ function disegnaScheda(){
   `;
 
   sheet.querySelector("#x").onclick = chiudiProdotto;
+  sheet.querySelectorAll("#angolazioni .mini").forEach(m =>
+    m.onclick = ()=>{ scelta.foto = +m.dataset.i; disegnaScheda(); });
   sheet.querySelectorAll("#taglie .pill").forEach(b =>
     b.onclick = ()=>{ scelta.taglia = b.dataset.t; disegnaScheda(); });
   sheet.querySelector("#meno").onclick = ()=>{ if (scelta.qta > 1){ scelta.qta--; disegnaScheda(); } };
@@ -442,9 +501,9 @@ function disegnaScheda(){
   const add = sheet.querySelector("#add");
   if (add) add.onclick = ()=>{
     aggiungiAlCarrello({
-      id: foto.id,
+      id: prod.chiave,
       name: nome,
-      thumb: thumbUrl(foto.id),
+      thumb: thumbUrl(prod.foto[0]),
       version: cat.nome,
       versionId: "abb_" + cat.nome.toLowerCase(),
       size: cat.taglie === "scarpe" ? "EU " + scelta.taglia : (scelta.taglia || "Unica"),
