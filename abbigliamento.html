@@ -97,8 +97,14 @@ header{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.92);
   font-weight:400;padding:20px 2px 0}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(226px,1fr));gap:2px;
   padding:18px 0 60px;background:var(--linea)}
+@media(max-width:620px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .card .body{padding:11px 11px 15px}
+  .card .nm{font-size:12px}
+  .card .pz{font-size:18px}
+}
 .card{background:var(--nero);cursor:pointer;position:relative;overflow:hidden}
-.card .ph{width:100%;aspect-ratio:1;object-fit:cover;background:var(--nero-2);display:block;
+.card .ph{width:100%;aspect-ratio:1;object-fit:contain;background:var(--nero-2);display:block;
   transition:transform .5s cubic-bezier(.2,.7,.3,1);filter:saturate(.92)}
 .card:hover .ph{transform:scale(1.06);filter:none}
 .card .body{padding:15px 16px 20px}
@@ -117,6 +123,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.92);
   letter-spacing:.06em;color:var(--oro);line-height:1}
 .marca-card:hover .ph{transform:none}
 .marca-card .nm{letter-spacing:2.4px;text-transform:uppercase;font-size:11.5px;color:var(--oro)}
+.sfoglia{display:flex;align-items:center;gap:5px;margin-top:11px;flex-wrap:wrap}
+.sfoglia .col{width:26px;height:26px;padding:0;border:1px solid var(--linea);border-radius:3px;
+  background-color:var(--nero-3);background-size:150%;background-position:center;cursor:pointer;
+  transition:border-color .15s ease,transform .15s ease}
+.sfoglia .col:hover{border-color:var(--oro);transform:scale(1.12)}
+.sfoglia .altri{font-size:10.5px;letter-spacing:1.4px;color:var(--muto)}
 .card .nfoto{position:absolute;top:12px;right:12px;background:rgba(8,8,10,.72);color:var(--oro);
   border:1px solid var(--linea);border-radius:var(--r);padding:4px 9px;font-size:10px;
   letter-spacing:1.6px;text-transform:uppercase;backdrop-filter:blur(6px)}
@@ -140,7 +152,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.92);
 @media(min-width:640px){ .ov{align-items:center} .sheet{border:2px solid var(--oro);border-radius:var(--r)} }
 .sheet .x{float:right;background:var(--nero-3);border:0;color:var(--testo);width:36px;height:36px;
   border-radius:var(--r);font-size:16px;cursor:pointer}
-.sheet img.big{width:100%;aspect-ratio:1;object-fit:cover;background:var(--nero-3);border-radius:var(--r)}
+.sheet img.big{width:100%;aspect-ratio:1;object-fit:contain;background:#000;border-radius:var(--r)}
 .angolazioni{display:flex;gap:8px;margin-top:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
 .angolazioni::-webkit-scrollbar{display:none}
 .angolazioni .mini{flex:0 0 auto;width:60px;height:60px;object-fit:cover;background:var(--nero-3);
@@ -605,6 +617,20 @@ function elencoMarche(prodotti){
   return [...new Set(prodotti.map(p => p.marca).filter(Boolean))].sort();
 }
 
+/* Anteprima dei colori nel catalogo: prima bisognava aprire il prodotto per
+   scoprire che ce n'erano altri. Se ne mostrano fino a sei, poi "+altri". */
+function anteprimaColori(p, i){
+  if(!p.colori || p.colori.length < 2) return "";
+  const mostrati = p.colori.slice(0, 6);
+  const restanti = p.colori.length - mostrati.length;
+  return `<div class="sfoglia">
+    ${mostrati.map((c, n) =>
+      `<button class="col" data-i="${i}" data-c="${n}" title="${c.nome}"
+               style="background-image:url('${thumbUrl(c.foto[0])}')"></button>`).join("")}
+    ${restanti > 0 ? `<span class="altri">+${restanti}</span>` : ""}
+  </div>`;
+}
+
 /* iniziali usate quando una marca non ha il logo: "The North Face" → TNF */
 function iniziali(nome){
   const parole = nome.split(/\s+/).filter(Boolean);
@@ -694,10 +720,17 @@ async function disegnaGriglia(){
         ${p.marca ? `<div class="mk">${p.marca}</div>` : ""}
         <div class="nm">${p.nome}</div>
         <div class="pz">${p.prezzo != null ? "€" + p.prezzo : '<small>Prezzo su richiesta</small>'}</div>
+        ${anteprimaColori(p, i)}
       </div>
     </div>`).join("");
   grigliaEl.querySelectorAll(".card").forEach(el =>
     el.onclick = ()=> apriProdotto(prodotti[+el.dataset.i], cat));
+  // toccando un colore si apre il prodotto già su quel colore
+  grigliaEl.querySelectorAll(".sfoglia .col").forEach(b =>
+    b.onclick = (e)=>{
+      e.stopPropagation();
+      apriProdotto(prodotti[+b.dataset.i], cat, +b.dataset.c);
+    });
 }
 
 /* ---- scheda prodotto ---- */
@@ -705,9 +738,10 @@ const ov = document.getElementById("ov");
 const sheet = document.getElementById("sheet");
 let scelta = { prod:null, cat:null, taglia:"", qta:1, foto:0, colore:0 };
 
-function apriProdotto(prod, cat){
+function apriProdotto(prod, cat, colore){
   const taglie = TAGLIE[cat.taglie] || [];
-  scelta = { prod, cat, taglia: taglie[1] || taglie[0] || "Unica", qta:1, foto:0, colore:0 };
+  scelta = { prod, cat, taglia: taglie[1] || taglie[0] || "Unica", qta:1, foto:0,
+             colore: colore || 0 };
   disegnaScheda();
   ov.classList.add("open");
   document.body.style.overflow = "hidden";
