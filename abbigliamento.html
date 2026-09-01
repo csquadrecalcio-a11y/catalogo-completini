@@ -763,7 +763,7 @@ function disegnaScheda(){
     aggiungiAlCarrello({
       id: coloreNome ? `${prod.chiave}:${coloreNome}` : prod.chiave,
       name: prod.marca ? `${prod.marca} ${nome}` : nome,
-      thumb: thumbUrl(foto[0]),
+      thumb: thumbUrl(foto[iFoto]),
       version: cat.nome,
       versionId: "abb_" + cat.nome.toLowerCase(),
       size: cat.taglie === "scarpe" ? "EU " + scelta.taglia : (scelta.taglia || "Unica"),
