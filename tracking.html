@@ -569,8 +569,6 @@ function buildCard(cod, o){
       emoji = "🧵"; frase = "Mi stanno preparando… ci vediamo prestissimo!";
     } else if(ha("non andata a buon fine","destinatario assente","mancata consegna")){
       emoji = "🚪"; frase = "Sono passato ma non c'eri! Riprovo il prossimo giorno lavorativo.";
-    } else if(ha("giacenza","disponibile per il ritiro")){
-      emoji = "🏤"; frase = "Ti aspetto in ufficio postale: vieni a prendermi con un documento!";
     } else if(o.stato === "in_consegna" || ha("in consegna","mezzo di consegna")){
       emoji = "🏡"; frase = "Ci siamo, sono in giro col corriere: oggi busso alla tua porta!";
     } else if(ha("in transito","rete di poste")){
@@ -604,19 +602,12 @@ function buildCard(cod, o){
     const ultimo = (ev[0].stato || "").toLowerCase();
     const fallita = ["non andata a buon fine", "destinatario assente", "mancata consegna",
                      "tentativo di consegna"].some(k => ultimo.includes(k));
-    const giacenza = ultimo.includes("giacenza") || ultimo.includes("disponibile per il ritiro");
-    if(!fallita && !giacenza) return "";
-    return giacenza
-      ? `<div class="mancata-banner"><div class="mancata-banner-icon">🏤</div><div>
-          <div class="mancata-banner-title">Il pacco è fermo in giacenza</div>
-          <div class="mancata-banner-sub">La consegna ora è nelle mani di Poste Italiane:
-          organizza il ritiro direttamente con loro, su <strong>poste.it</strong> o nell'app,
-          usando questo numero di tracking.</div></div></div>`
-      : `<div class="mancata-banner"><div class="mancata-banner-icon">🔔</div><div>
-          <div class="mancata-banner-title">Il corriere è passato ma non ti ha trovato</div>
-          <div class="mancata-banner-sub">La consegna ora è nelle mani di Poste Italiane:
-          organizza il nuovo tentativo direttamente con loro, su <strong>poste.it</strong>
-          o nell'app, usando questo numero di tracking.</div></div></div>`;
+    if(!fallita) return "";
+    return `<div class="mancata-banner"><div class="mancata-banner-icon">🔔</div><div>
+      <div class="mancata-banner-title">Il corriere è passato ma non ti ha trovato</div>
+      <div class="mancata-banner-sub">La consegna ora è nelle mani di Poste Italiane:
+      organizza il nuovo tentativo direttamente con loro, su <strong>poste.it</strong>
+      o nell'app, usando questo numero di tracking.</div></div></div>`;
   })();
 
   /* Passaggio di consegne al corriere italiano: il tracking resta fermo per
