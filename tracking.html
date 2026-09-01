@@ -172,6 +172,12 @@ h1{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:cla
 .attesa-banner-title{font-size:13px;font-weight:800;color:#e0a800;margin-bottom:4px}
 .attesa-banner-sub{font-size:12px;color:var(--muted);line-height:1.6}
 
+/* CONSEGNA TENTATA / GIACENZA */
+.mancata-banner{padding:16px 24px;background:rgba(255,90,60,.10);border-bottom:1px solid rgba(255,90,60,.30);display:flex;align-items:flex-start;gap:14px}
+.mancata-banner-icon{font-size:24px;flex-shrink:0;margin-top:2px}
+.mancata-banner-title{font-size:13px;font-weight:800;color:#e2603f;margin-bottom:4px}
+.mancata-banner-sub{font-size:12px;color:var(--muted);line-height:1.6}
+
 /* IN CONSEGNA BANNER */
 .consegna-banner{padding:16px 24px;background:linear-gradient(135deg,rgba(255,140,0,.18),rgba(255,180,0,.10));border-bottom:1px solid rgba(255,150,0,.3);display:flex;align-items:center;gap:14px}
 .consegna-banner-icon{font-size:28px;flex-shrink:0;animation:truck 1.2s ease-in-out infinite alternate}
@@ -561,6 +567,10 @@ function buildCard(cod, o){
       emoji = "🎉"; frase = "Sono arrivato a casa tua! Buon divertimento in campo ⚽";
     } else if(o.stato === "attesa_pagamento" || o.stato === "in_lavorazione" || o.stato === "lavorazione"){
       emoji = "🧵"; frase = "Mi stanno preparando… ci vediamo prestissimo!";
+    } else if(ha("non andata a buon fine","destinatario assente","mancata consegna")){
+      emoji = "🚪"; frase = "Sono passato ma non c'eri! Riprovo il prossimo giorno lavorativo.";
+    } else if(ha("giacenza","disponibile per il ritiro")){
+      emoji = "🏤"; frase = "Ti aspetto in ufficio postale: vieni a prendermi con un documento!";
     } else if(o.stato === "in_consegna" || ha("in consegna","mezzo di consegna")){
       emoji = "🏡"; frase = "Ci siamo, sono in giro col corriere: oggi busso alla tua porta!";
     } else if(ha("in transito","rete di poste")){
@@ -582,6 +592,31 @@ function buildCard(cod, o){
     }
     return `<div class="pacco-dice"><div class="pacco-dice-emoji">${emoji}</div>
       <div class="pacco-dice-txt">${frase}</div></div>`;
+  })();
+
+  /* Consegna tentata e non riuscita: succede spesso (destinatario assente,
+     indirizzo incompleto). Va spiegato subito cosa succede adesso. */
+  const mancataBanner = (()=>{
+    if(o.stato === "consegnato") return "";
+    const ev = [...(o.eventi_corriere||[]), ...(o.eventi_cina||[])]
+      .filter(e => e && e.data).sort((a,b) => (b.data||"").localeCompare(a.data||""));
+    if(!ev.length) return "";
+    const ultimo = (ev[0].stato || "").toLowerCase();
+    const fallita = ["non andata a buon fine", "destinatario assente", "mancata consegna",
+                     "tentativo di consegna"].some(k => ultimo.includes(k));
+    const giacenza = ultimo.includes("giacenza") || ultimo.includes("disponibile per il ritiro");
+    if(!fallita && !giacenza) return "";
+    return giacenza
+      ? `<div class="mancata-banner"><div class="mancata-banner-icon">🏤</div><div>
+          <div class="mancata-banner-title">Il pacco ti aspetta in ufficio postale</div>
+          <div class="mancata-banner-sub">Dopo i tentativi di consegna il pacco viene tenuto da Poste
+          per qualche giorno. Porta un documento e ritiralo all'ufficio indicato qui sotto.
+          Se hai dubbi scrivici su WhatsApp, ti diamo una mano.</div></div></div>`
+      : `<div class="mancata-banner"><div class="mancata-banner-icon">🔔</div><div>
+          <div class="mancata-banner-title">Il corriere è passato ma non ti ha trovato</div>
+          <div class="mancata-banner-sub">Nessun problema: <strong>riprova il giorno lavorativo
+          successivo</strong>, non devi fare niente. Se domani non puoi esserci, scrivici su
+          WhatsApp e vediamo insieme come fare.</div></div></div>`;
   })();
 
   /* Passaggio di consegne al corriere italiano: il tracking resta fermo per
@@ -613,6 +648,7 @@ function buildCard(cod, o){
     </div>
     ${lavorazioneBanner}
     ${consegnaBanner}
+    ${mancataBanner}
     ${attesaBanner}
     <div class="steps-wrap">
       <div class="steps-label">Stato spedizione</div>
