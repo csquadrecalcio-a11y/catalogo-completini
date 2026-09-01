@@ -1621,16 +1621,27 @@ function raggruppaAngolazioni(items){
 }
 
 const ETICHETTE_KIT = [
-  [/\bhome\b|\bcasa\b/i,               "Home"],
-  [/\baway\b|\btrasferta\b/i,          "Away"],
-  [/\bthird\b|\bterza\b|\b3rd\b/i,    "Third"],
+  [/\bgk\b|portiere|goalkeeper/i,       "Portiere"],   // per primo: "portiere away"
   [/\bfourth\b|\bquarta\b/i,           "Fourth"],
-  [/\bgk\b|portiere|goalkeeper/i,       "Portiere"],
+  [/\bthird\b|\bterza\b|\b3rd\b/i,    "Third"],
+  [/\baway\b|\btrasferta\b/i,          "Away"],
+  [/\bhome\b|\bcasa\b/i,               "Home"],
 ];
 
-/* "kit inter home 26-27" → Home ; "player version inter away 26-27" → Away */
+/* Alcune squadre hanno due kit dello stesso tipo (capita coi portieri).
+   Si distinguono aggiungendo UNA parola dopo l'etichetta — un colore o un
+   numero — che finisce sul bottone: "portiere verde" → "Portiere verde". */
+const DISTINTIVO = "(verde|giallo|gialla|rosso|rossa|nero|nera|blu|azzurro|bianco|bianca|"
+                 + "arancione|viola|rosa|grigio|grigia|celeste|oro|argento|"
+                 + "home|casa|away|trasferta|third|terza|[2-4])";
+
+/* "kit inter home 26-27" → Home ; "kit milan portiere verde" → Portiere verde */
 function etichettaKit(nome){
-  for (const [re, et] of ETICHETTE_KIT) if (re.test(nome)) return et;
+  for (const [re, et] of ETICHETTE_KIT){
+    const m = String(nome).match(new RegExp("(?:" + re.source + ")\\s+" + DISTINTIVO + "\\b", "i"));
+    if (m) return et + " " + m[1].toLowerCase();
+    if (re.test(nome)) return et;
+  }
   return "";
 }
 
@@ -1640,7 +1651,8 @@ function baseSquadra(nome){
   return String(nome)
     .replace(/\.(jpe?g|png|webp)$/i, "")
     .replace(/\b(kit|maglia|maglie|completo|player\s*version|player|pv|adulto|adulti|bambino|bambini|kids?)\b/gi, " ")
-    .replace(/\b(home|casa|away|trasferta|third|terza|3rd|fourth|quarta|gk|portiere|goalkeeper)\b/gi, " ")
+    .replace(new RegExp("\\b(home|casa|away|trasferta|third|terza|3rd|fourth|quarta|gk|portiere|goalkeeper)"
+                        + "(\\s+" + DISTINTIVO + ")?\\b", "gi"), " ")
     .replace(/[\s_-]+/g, " ").trim().toLowerCase();
 }
 
@@ -1655,7 +1667,7 @@ function raggruppaKit(items){
     gruppi.get(k).push(it);
   }
 
-  const ordine = ETICHETTE_KIT.map(e => e[1]);
+  const ordine = ["Home", "Away", "Third", "Fourth", "Portiere"];
   const fusi = [];
   for (const gruppo of gruppi.values()){
     if (gruppo.length < 2){ fusi.push(gruppo[0]); continue; }
@@ -1667,9 +1679,13 @@ function raggruppaKit(items){
       if (!perEtichetta.has(et)) perEtichetta.set(et, []);
       perEtichetta.get(et).push(it);
     }
+    const rango = et => {
+      const i = ordine.findIndex(o => et.startsWith(o));
+      return i < 0 ? 99 : i;
+    };
     const varianti = [...perEtichetta.entries()]
       .map(([etichetta, scatti]) => ({ etichetta, scatti }))
-      .sort((a,b) => ordine.indexOf(a.etichetta) - ordine.indexOf(b.etichetta));
+      .sort((a,b) => rango(a.etichetta) - rango(b.etichetta) || a.etichetta.localeCompare(b.etichetta));
     // il riquadro del catalogo mostra il primo kit (di solito Home)
     fusi.push({ ...varianti[0].scatti[0], varianti,
                 cerca: gruppo.map(g => g.name).join(" ") });
