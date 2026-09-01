@@ -757,6 +757,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-08-31 12:19:00",
+        "luogo": "Castel san giovanni",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
         "data": "2026-08-26 18:10:53",
         "luogo": "",
         "stato": "Inviato al magazzino, in attesa di scansione"
@@ -795,6 +800,13 @@
         "data": "2026-08-17 21:48:24",
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-09-01 04:55",
+        "luogo": "CASTEL SAN GIOVANNI (PC)",
+        "stato": "La spedizione è in transito"
       }
     ]
   },
