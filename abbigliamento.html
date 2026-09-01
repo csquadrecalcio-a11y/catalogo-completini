@@ -214,18 +214,30 @@ footer a{color:var(--oro);font-weight:400;letter-spacing:2.4px;text-transform:up
 
 <script>
 /* ═══════════════════════════════════════════════════════════════════════
-   DA RIEMPIRE QUANDO ARRIVANO I PRODOTTI
+   COME SI AGGIUNGONO PRODOTTI E PREZZI
 
-   Per ogni categoria servono due cose:
+   Tutto si fa da Google Drive, senza toccare questo file.
 
-   1. cartella  → l'id della cartella Google Drive con le foto.
-                  Si prende dal link della cartella: la parte dopo /folders/
-                  https://drive.google.com/drive/folders/QUESTO_PEZZO_QUI
-                  Finché resta "", la categoria mostra "in arrivo".
+   FOTO    → si caricano nella cartella Drive della categoria.
+   PREZZO  → si scrive NEL NOME DELLA FOTO, alla fine, dopo un trattino:
 
-   2. prezzo    → prezzo di vendita in euro (numero, senza simbolo).
-                  Finché resta null, il prodotto si può solo chiedere su
-                  WhatsApp: non finisce nel carrello con un prezzo sbagliato.
+               Giubbotto Nike nero - 45.jpg      →  Giubbotto Nike nero · €45
+               Felpa Nike cappuccio - 35.jpg     →  Felpa Nike cappuccio · €35
+               Scarpe Air Force bianche - 90.jpg →  Scarpe Air Force bianche · €90
+
+   Il prezzo sparisce dal nome mostrato al cliente: si vede solo il prodotto
+   e il prezzo separato. Funzionano anche "- 45€", "-45", "_45".
+
+   Se una foto non ha il prezzo nel nome si usa il "prezzo" della categoria
+   qui sotto; se anche quello è null, il prodotto esce con "Prezzo su
+   richiesta" e il bottone WhatsApp — mai nel carrello con un prezzo sbagliato.
+
+   Nel codice va toccata UNA COSA SOLA, una volta per categoria:
+
+   cartella → l'id della cartella Drive, cioè la parte dopo /folders/ nel link
+              https://drive.google.com/drive/folders/QUESTO_PEZZO_QUI
+              La cartella va condivisa: "Chiunque abbia il link · Visualizzatore".
+              Finché resta "", la categoria mostra "in arrivo".
 
    taglie: "adulto" (S-XXL) · "scarpe" (39-46) · "unica" (nessuna scelta)
    ═══════════════════════════════════════════════════════════════════════ */
@@ -308,7 +320,21 @@ async function caricaCategoria(cat){
   return foto;
 }
 
-const pulisciNome = n => String(n).replace(/\.(jpe?g|png|webp)$/i,"").replace(/[_-]+/g," ").trim();
+/* Dal nome del file ricava nome pulito e prezzo.
+   "Giubbotto Nike nero - 45.jpg"  →  { nome:"Giubbotto Nike nero", prezzo:45 }
+   Accetta "- 45", "-45€", "_45", "– 45,50". Senza prezzo: prezzo = null. */
+function leggiFoto(nomeFile, cat){
+  let t = String(nomeFile).replace(/\.(jpe?g|png|webp)$/i, "").trim();
+  let prezzo = null;
+  const m = t.match(/[-–_]\s*€?\s*(\d{1,4}(?:[.,]\d{1,2})?)\s*€?\s*$/);
+  if (m){
+    prezzo = parseFloat(m[1].replace(",", "."));
+    t = t.slice(0, m.index);
+  }
+  t = t.replace(/[_]+/g, " ").replace(/\s{2,}/g, " ").replace(/[\s-–]+$/, "").trim();
+  if (prezzo == null) prezzo = (cat && cat.prezzo != null) ? cat.prezzo : null;
+  return { nome: t, prezzo };
+}
 
 /* ---- schermo ---- */
 let attiva = CATEGORIE[0];
@@ -347,14 +373,16 @@ async function disegnaGriglia(){
   if (!foto.length){ grigliaEl.innerHTML = inArrivo(cat); return; }
 
   notaEl.textContent = `${foto.length} modelli · ${cat.nome}`;
-  grigliaEl.innerHTML = foto.map((f,i) => `
+  grigliaEl.innerHTML = foto.map((f,i) => {
+    const p = leggiFoto(f.name, cat);
+    return `
     <div class="card" data-i="${i}">
-      <img class="ph" loading="lazy" src="${thumbUrl(f.id)}" alt="${pulisciNome(f.name)}">
+      <img class="ph" loading="lazy" src="${thumbUrl(f.id)}" alt="${p.nome}">
       <div class="body">
-        <div class="nm">${pulisciNome(f.name)}</div>
-        <div class="pz">${cat.prezzo != null ? "€" + cat.prezzo : '<small>Prezzo su richiesta</small>'}</div>
+        <div class="nm">${p.nome}</div>
+        <div class="pz">${p.prezzo != null ? "€" + p.prezzo : '<small>Prezzo su richiesta</small>'}</div>
       </div>
-    </div>`).join("");
+    </div>`; }).join("");
   grigliaEl.querySelectorAll(".card").forEach(el =>
     el.onclick = ()=> apriProdotto(foto[+el.dataset.i], cat));
 }
@@ -381,14 +409,14 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") chiudiProdot
 function disegnaScheda(){
   const { foto, cat, taglia, qta } = scelta;
   const taglie = TAGLIE[cat.taglie] || [];
-  const nome = pulisciNome(foto.name);
-  const senzaPrezzo = cat.prezzo == null;
+  const { nome, prezzo } = leggiFoto(foto.name, cat);
+  const senzaPrezzo = prezzo == null;
 
   sheet.innerHTML = `
     <button class="x" id="x">✕</button>
     <img class="big" src="${fullUrl(foto.id)}" alt="${nome}">
     <h2>${nome}</h2>
-    <div class="prezzo">${senzaPrezzo ? "Su richiesta" : "€" + cat.prezzo}</div>
+    <div class="prezzo">${senzaPrezzo ? "Su richiesta" : "€" + prezzo}</div>
     ${taglie.length ? `
       <div class="lbl">${cat.taglie === "scarpe" ? "Numero" : "Taglia"}</div>
       <div class="pills" id="taglie">
@@ -420,7 +448,7 @@ function disegnaScheda(){
       version: cat.nome,
       versionId: "abb_" + cat.nome.toLowerCase(),
       size: cat.taglie === "scarpe" ? "EU " + scelta.taglia : (scelta.taglia || "Unica"),
-      price: cat.prezzo,
+      price: prezzo,
       pers: "",
       patch: "Nessuna",
       qty: scelta.qta,
