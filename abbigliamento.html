@@ -342,12 +342,17 @@ async function drive(q, fields, order){
   return (await r.json()).files || [];
 }
 /* Dal nome (di una cartella o di un file) ricava nome pulito e prezzo.
-   "Giubbotto Nike nero - 45"  →  { nome:"Giubbotto Nike nero", prezzo:45 }
-   Accetta "- 45", "-45€", "_45", "– 45,50". Senza prezzo: prezzo = null. */
+     "Giubbotto Nike nero - 45"  →  { nome:"Giubbotto Nike nero", prezzo:45 }
+     "Ophidia 150€"              →  { nome:"Ophidia", prezzo:150 }
+   Vanno bene "- 45", "-45€", "_45", "– 45,50", "€45".
+   Senza trattino serve il simbolo €: altrimenti un nome che finisce per numero
+   ("North Face 700", "Air Max 90") verrebbe scambiato per un prezzo. */
 function leggiNome(testo, cat){
   let t = String(testo).replace(/\.(jpe?g|png|webp)$/i, "").trim();
   let prezzo = null;
-  const m = t.match(/[-–_]\s*€?\s*(\d{1,4}(?:[.,]\d{1,2})?)\s*€?\s*$/);
+  let m = t.match(/[-–_]\s*€?\s*(\d{1,4}(?:[.,]\d{1,2})?)\s*€?\s*$/);
+  if (!m) m = t.match(/\s*€\s*(\d{1,4}(?:[.,]\d{1,2})?)\s*$/)            // €150 in fondo
+           || t.match(/\s+(\d{1,4}(?:[.,]\d{1,2})?)\s*€\s*$/);            // 150€ in fondo
   if (m){
     prezzo = parseFloat(m[1].replace(",", "."));
     t = t.slice(0, m.index);
