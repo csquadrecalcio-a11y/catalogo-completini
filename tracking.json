@@ -253,6 +253,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-01 11:46",
+        "luogo": "CAZZAGO BRABBIA (VA)",
+        "stato": "Consegna non andata a buon fine per destinatario assente. Qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
+      },
+      {
         "data": "2026-09-01 08:37",
         "luogo": "CAZZAGO BRABBIA (VA)",
         "stato": "La spedizione è in transito"
