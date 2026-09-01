@@ -81,6 +81,15 @@ header{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.92);
 .tab:hover{color:var(--testo)}
 .tab.on{color:var(--oro);border-bottom-color:var(--oro)}
 
+/* ── filtri per marca ── */
+.marche{display:flex;flex-wrap:wrap;gap:8px;padding:22px 0 0}
+.marche .marca{background:transparent;border:1px solid var(--linea);color:var(--muto);
+  border-radius:999px;padding:8px 16px;font-family:Jost,sans-serif;font-size:11px;font-weight:400;
+  letter-spacing:2px;text-transform:uppercase;cursor:pointer;
+  transition:border-color .18s ease,color .18s ease}
+.marche .marca:hover{color:var(--testo);border-color:var(--oro)}
+.marche .marca.on{background:var(--oro);border-color:var(--oro);color:#141005}
+
 /* ── griglia ── */
 .nota{color:var(--muto);font-size:11px;letter-spacing:2.4px;text-transform:uppercase;
   font-weight:400;padding:20px 2px 0}
@@ -91,6 +100,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.92);
   transition:transform .5s cubic-bezier(.2,.7,.3,1);filter:saturate(.92)}
 .card:hover .ph{transform:scale(1.06);filter:none}
 .card .body{padding:15px 16px 20px}
+.card .mk{font-size:9.5px;letter-spacing:2.4px;text-transform:uppercase;color:var(--oro);
+  margin-bottom:6px;opacity:.9}
 .card .nm{font-size:13px;font-weight:400;letter-spacing:.6px;line-height:1.35;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .card .pz{margin-top:9px;font-family:"Cormorant Garamond",Garamond,serif;font-size:21px;font-weight:400;color:var(--oro)}
@@ -127,6 +138,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(8,8,10,.92);
   transition:opacity .18s ease,border-color .18s ease}
 .angolazioni .mini:hover{opacity:.85}
 .angolazioni .mini.on{opacity:1;border-color:var(--oro)}
+.marca-scheda{margin-top:20px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--oro)}
+.marca-scheda + h2{margin-top:6px}
 .sheet h2{margin:20px 0 6px;font-size:30px;font-weight:400}
 .sheet .prezzo{font-family:"Cormorant Garamond",Garamond,serif;font-size:38px;font-weight:400;color:var(--oro);margin-bottom:6px}
 .lbl{font-size:10.5px;letter-spacing:2.6px;text-transform:uppercase;color:var(--muto);
@@ -208,6 +221,7 @@ footer a{color:var(--oro);font-weight:400;letter-spacing:2.4px;text-transform:up
 
 <div class="wrap" id="catalogo">
   <div class="tabs" id="tabs"></div>
+  <div class="marche" id="marche"></div>
   <div class="nota" id="nota"></div>
 </div>
 <div class="wrap"><div class="grid" id="griglia"></div></div>
@@ -343,46 +357,73 @@ function leggiNome(testo, cat){
   return { nome: t, prezzo };
 }
 
+const CARTELLE_Q = "mimeType='application/vnd.google-apps.folder' and trashed=false";
+
+/** Contenuto di una cartella: foto dirette e sottocartelle, in una volta sola. */
+async function dentro(id){
+  const [foto, cartelle] = await Promise.all([
+    drive(`'${id}' in parents and ${IMG_Q}`, "files(id,name)", "name").catch(()=>[]),
+    drive(`'${id}' in parents and ${CARTELLE_Q}`, "files(id,name)", "name").catch(()=>[]),
+  ]);
+  return { foto, cartelle };
+}
+
 /* Legge una categoria e restituisce l'elenco dei PRODOTTI.
 
-   Due modi di organizzare Drive, si possono anche mescolare:
+   Tre modi di organizzare Drive, si possono mescolare nella stessa categoria:
 
-   a) una cartella per prodotto — le foto dentro sono le angolazioni
-        Giubbotti/
-          Giubbotto Nike nero - 45/     ← nome e prezzo stanno qui
+   a) per MARCA — consigliato quando i modelli sono tanti
+        GIUBBOTTI/
+          THE NORTH FACE/                 ← diventa un filtro in cima
+            Nuptse nero - 120/            ← il prodotto
+              1 davanti.jpg
+              2 dietro.jpg
+            Nuptse beige - 120/
+          NIKE/
+            Bomber nero - 55/
+
+   b) senza marca, una cartella per prodotto
+        GIUBBOTTI/
+          Bomber verde militare - 55/
             1 davanti.jpg
-            2 dietro.jpg
-            3 dettaglio.jpg
-      La prima foto in ordine di nome è quella di copertina: per questo
-      conviene numerarle (1, 2, 3…).
 
-   b) una foto sciolta = un prodotto con una sola immagine
-        Giubbotti/Bomber verde - 55.jpg                                    */
+   c) una foto sciolta = prodotto con una sola immagine
+        GIUBBOTTI/Bomber verde - 55.jpg
+
+   La copertina è la PRIMA foto in ordine di nome: conviene numerarle 1, 2, 3.
+   Una cartella che contiene solo altre cartelle è una MARCA; una che contiene
+   foto è un PRODOTTO. Non c'è niente da configurare: si capisce da sola.     */
 async function caricaCategoria(cat){
   if (!cat.cartella) return [];
   if (memoria[cat.cartella]) return memoria[cat.cartella];
 
-  const [sciolte, sotto] = await Promise.all([
-    drive(`'${cat.cartella}' in parents and ${IMG_Q}`, "files(id,name)", "createdTime desc").catch(()=>[]),
-    drive(`'${cat.cartella}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`,
-          "files(id,name)", "name").catch(()=>[]),
-  ]);
+  const radice = await dentro(cat.cartella);
 
-  // un prodotto per cartella, con tutte le sue angolazioni
-  const daCartelle = await Promise.all(sotto.map(async s => {
-    const foto = await drive(`'${s.id}' in parents and ${IMG_Q}`, "files(id,name)", "name").catch(()=>[]);
-    if (!foto.length) return null;
-    const { nome, prezzo } = leggiNome(s.name, cat);
-    return { chiave: s.id, nome, prezzo, foto: foto.map(f => f.id) };
+  const prodotto = (cartella, foto, marca) => {
+    const { nome, prezzo } = leggiNome(cartella.name, cat);
+    return { chiave: cartella.id, nome, prezzo, marca: marca || "", foto: foto.map(f => f.id) };
+  };
+
+  const gruppi = await Promise.all(radice.cartelle.map(async s => {
+    const c = await dentro(s.id);
+    if (c.foto.length) return [prodotto(s, c.foto, "")];        // prodotto diretto
+
+    // nessuna foto qui dentro: è una marca, i prodotti stanno un livello sotto
+    const marca = leggiNome(s.name, cat).nome;
+    const dentroMarca = await Promise.all(c.cartelle.map(async t => {
+      const ct = await dentro(t.id);
+      return ct.foto.length ? prodotto(t, ct.foto, marca) : null;
+    }));
+    return dentroMarca.filter(Boolean);
   }));
 
-  // un prodotto per foto sciolta
-  const daFoto = sciolte.map(f => {
+  // foto sciolte nella categoria: un prodotto con una sola immagine
+  const daFoto = radice.foto.map(f => {
     const { nome, prezzo } = leggiNome(f.name, cat);
-    return { chiave: f.id, nome, prezzo, foto: [f.id] };
+    return { chiave: f.id, nome, prezzo, marca: "", foto: [f.id] };
   });
 
-  const prodotti = [...daCartelle.filter(Boolean), ...daFoto];
+  const prodotti = [...gruppi.flat(), ...daFoto];
   memoria[cat.cartella] = prodotti;
   return prodotti;
 }
@@ -392,6 +433,7 @@ let attiva = CATEGORIE[0];
 const tabsEl = document.getElementById("tabs");
 const grigliaEl = document.getElementById("griglia");
 const notaEl = document.getElementById("nota");
+const marcheEl = document.getElementById("marche");
 
 function disegnaTabs(){
   tabsEl.innerHTML = "";
@@ -413,22 +455,40 @@ function inArrivo(cat){
   </div>`;
 }
 
+/* filtro per marca: compare solo se la categoria è divisa per marche */
+let marcaAttiva = "";
+function disegnaMarche(prodotti, cat){
+  const marche = [...new Set(prodotti.map(p => p.marca).filter(Boolean))].sort();
+  if (marche.length < 2){ marcheEl.innerHTML = ""; marcaAttiva = ""; return; }
+  if (marcaAttiva && !marche.includes(marcaAttiva)) marcaAttiva = "";
+  marcheEl.innerHTML = ["", ...marche].map(m =>
+    `<button class="marca${m === marcaAttiva ? " on" : ""}" data-m="${m}">${m || "Tutte"}</button>`
+  ).join("");
+  marcheEl.querySelectorAll(".marca").forEach(b =>
+    b.onclick = ()=>{ marcaAttiva = b.dataset.m; disegnaGriglia(); });
+}
+
 async function disegnaGriglia(){
   const cat = attiva;
   notaEl.textContent = "";
-  if (!cat.cartella){ grigliaEl.innerHTML = inArrivo(cat); return; }
+  if (!cat.cartella){ marcheEl.innerHTML = ""; grigliaEl.innerHTML = inArrivo(cat); return; }
 
   grigliaEl.innerHTML = Array.from({length:8}, ()=>'<div class="skel"></div>').join("");
-  const prodotti = await caricaCategoria(cat);
+  const tutti = await caricaCategoria(cat);
   if (cat !== attiva) return;                       // l'utente ha cambiato tab
-  if (!prodotti.length){ grigliaEl.innerHTML = inArrivo(cat); return; }
+  if (!tutti.length){ marcheEl.innerHTML = ""; grigliaEl.innerHTML = inArrivo(cat); return; }
 
-  notaEl.textContent = `${prodotti.length} modelli · ${cat.nome}`;
+  disegnaMarche(tutti, cat);
+  const prodotti = marcaAttiva ? tutti.filter(p => p.marca === marcaAttiva) : tutti;
+
+  notaEl.textContent = `${prodotti.length} model${prodotti.length === 1 ? "lo" : "li"} · `
+                     + (marcaAttiva || cat.nome);
   grigliaEl.innerHTML = prodotti.map((p,i) => `
     <div class="card" data-i="${i}">
       <img class="ph" loading="lazy" src="${thumbUrl(p.foto[0])}" alt="${p.nome}">
       ${p.foto.length > 1 ? `<span class="nfoto">${p.foto.length} foto</span>` : ""}
       <div class="body">
+        ${p.marca ? `<div class="mk">${p.marca}</div>` : ""}
         <div class="nm">${p.nome}</div>
         <div class="pz">${p.prezzo != null ? "€" + p.prezzo : '<small>Prezzo su richiesta</small>'}</div>
       </div>
@@ -472,6 +532,7 @@ function disegnaScheda(){
           `<img class="mini${i===iFoto?" on":""}" data-i="${i}" src="${thumbUrl(id)}" alt="${nome} — foto ${i+1}">`
         ).join("")}
       </div>` : ""}
+    ${prod.marca ? `<div class="marca-scheda">${prod.marca}</div>` : ""}
     <h2>${nome}</h2>
     <div class="prezzo">${senzaPrezzo ? "Su richiesta" : "€" + prezzo}</div>
     ${taglie.length ? `
@@ -485,7 +546,7 @@ function disegnaScheda(){
     </div>
     ${senzaPrezzo
       ? `<a class="btn wa" target="_blank" rel="noopener"
-             href="${WA + encodeURIComponent(`Ciao! Mi interessa questo articolo: ${nome} (${cat.nome})${taglie.length ? ", taglia " + taglia : ""}. Quanto costa? 😊`)}">
+             href="${WA + encodeURIComponent(`Ciao! Mi interessa questo articolo: ${prod.marca ? prod.marca + " " : ""}${nome} (${cat.nome})${taglie.length ? ", taglia " + taglia : ""}. Quanto costa? 😊`)}">
            Chiedi prezzo su WhatsApp</a>`
       : `<button class="btn" id="add">Aggiungi al carrello</button>`}
   `;
@@ -502,7 +563,7 @@ function disegnaScheda(){
   if (add) add.onclick = ()=>{
     aggiungiAlCarrello({
       id: prod.chiave,
-      name: nome,
+      name: prod.marca ? `${prod.marca} ${nome}` : nome,
       thumb: thumbUrl(prod.foto[0]),
       version: cat.nome,
       versionId: "abb_" + cat.nome.toLowerCase(),
