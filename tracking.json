@@ -191,6 +191,21 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-08-31 20:35:00",
+        "luogo": "Milano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-08-31 13:15:00",
+        "luogo": "Castel san giovanni",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-08-31 12:25:00",
+        "luogo": "Castel san giovanni",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-08-26 18:10:53",
         "luogo": "",
         "stato": "Inviato al magazzino, in attesa di scansione"
@@ -233,8 +248,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-08-31 20:35",
-        "luogo": "MILANO (MI)",
+        "data": "2026-09-01 08:37",
+        "luogo": "CAZZAGO BRABBIA (VA)",
         "stato": "La spedizione è in transito"
       }
     ]
