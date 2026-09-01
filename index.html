@@ -484,11 +484,12 @@ gtag('config', 'G-SYPQZL1L7W');
     width:100%;height:100%;max-height:520px;object-fit:contain;border-radius:16px;
   }
   .sheet-preview svg{width:min(300px,85%)}
-  .sheet-thumbs{display:none;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
-  .sheet-thumb{width:56px;height:56px;object-fit:cover;border-radius:10px;cursor:pointer;
-    border:2px solid transparent;opacity:.6;background:var(--panel-2);transition:opacity .15s,border-color .15s}
-  .sheet-thumb:hover{opacity:.9}
-  .sheet-thumb.on{opacity:1;border-color:var(--volt)}
+  .sheet-thumbs{display:none;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px;flex:none}
+  .sheet-preview img.sheet-thumb{width:60px;height:60px;min-height:0;max-height:60px;
+    object-fit:cover;border-radius:10px;cursor:pointer;border:2px solid transparent;
+    opacity:.65;background:var(--panel);transition:opacity .15s,border-color .15s}
+  .sheet-preview img.sheet-thumb:hover{opacity:.9}
+  .sheet-preview img.sheet-thumb.on{opacity:1;border-color:var(--volt)}
   .view-toggle{display:none}
   .view-toggle button{
     background:var(--panel);border:1px solid var(--line);color:var(--muted);
@@ -1462,9 +1463,15 @@ const OPT_SCARPE = [{id:"scarpe", label:"Scarpe", price:90, kid:false, shoe:true
 
 /* sceglie opzioni e prezzi in base a categoria + nome + cartella,
    e restringe al tipo specifico se il nome lo indica (come il sito) */
+/* Alcune maglie hanno la stampa gia fatta (celebrative, edizioni speciali):
+   niente nome, numero o patch, solo la taglia. Si segnala scrivendo
+   "solo taglia" nel nome del file su Drive — la scritta non si vede sul sito. */
+const SENZA_PERSONALIZZAZIONE = /\b(solo\s*taglia|nopers|no\s*pers)\b/i;
+
 function productProfile(item){
   const cat = (typeof activeCat !== "undefined" && activeCat) ? activeCat.name : "";
   const hay = ((item.team||"") + " " + (item.name||"") + " " + cat).toLowerCase();
+  const soloTaglia = SENZA_PERSONALIZZAZIONE.test(item.name || "");
   const only = (arr, id) => { const f = arr.filter(o=>o.id===id); return f.length ? f : arr; };
 
   if (/scarp|sneaker/.test(hay)) return { versions:OPT_SCARPE, pers:false, kind:"scarpe" };
@@ -1486,7 +1493,7 @@ function productProfile(item){
   }
   if (/vintage/.test(hay)){
     const isKidVintage = /bambin|\bkids?\b/.test(hay);
-    return { versions: isKidVintage ? OPT_VINTAGE_KID : OPT_VINTAGE, pers:true, kind:"vintage" };
+    return { versions: isKidVintage ? OPT_VINTAGE_KID : OPT_VINTAGE, pers:!soloTaglia, kind:"vintage" };
   }
 
   /* maglia: le opzioni dipendono dalla parola chiave nel nome file (come sul sito)
@@ -1504,7 +1511,7 @@ function productProfile(item){
   else if (isAdultKit) versions = [OPT_MAGLIA[2]]; // solo Kit Adulto
   else if (isMaglia)   versions = [OPT_MAGLIA[0]]; // solo Maglia
   else                 versions = OPT_MAGLIA;      // kit generico → tutte e 3
-  return { versions, pers:true, kind:"jersey" };
+  return { versions, pers:!soloTaglia, kind:"jersey" };
 }
 const ADULT_SIZES = ["S","M","L","XL","XXL"];
 const KID_SIZES   = ["16","18","20","22","24","26","28"];
@@ -1512,6 +1519,7 @@ const SHOE_SIZES  = ["39","40","41","42","43","44","45"];
 
 function cleanName(fn){
   let s = fn.replace(/\.(jpe?g|png|webp)$/i,"");
+  s = s.replace(/\b(solo\s*taglia|nopers|no\s*pers)\b/gi, "");   // marcatore interno
   s = s.replace(/(\d{2})[_-](\d{2})/g,"$1/$2");
   s = s.replace(/[_]+/g," ").replace(/\s+/g," ").trim();
   return s.split(" ").map(w => w.length<=3 && !/\d/.test(w) && w.length<3
@@ -2253,7 +2261,7 @@ function buildSizePills(){
   const el = document.getElementById("sizePills");
   const v = S.type.versions.find(x=>x.id===S.version);
   el.innerHTML = "";
-  const isAdultOnly = /adulto/.test((S.item&&S.item.name||"").toLowerCase());
+  const isAdultOnly = /\badult[oi]\b/.test((S.item&&S.item.name||"").toLowerCase());
   if (v.bothSizes && !isAdultOnly){
     // "Maglia"/"Player Version": taglie adulto e bambino insieme, come sul sito
     const gA = document.createElement("div"); gA.className = "size-group-lbl"; gA.textContent = "Adulto";
