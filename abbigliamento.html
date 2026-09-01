@@ -538,8 +538,9 @@ async function caricaCategoria(cat){
     return dentroMarca.filter(Boolean);
   }));
 
-  // foto sciolte nella categoria: un prodotto con una sola immagine
-  const daFoto = radice.foto.map(f => {
+  // foto sciolte nella categoria: un prodotto con una sola immagine.
+  // Un file chiamato "logo" finito qui per sbaglio va ignorato, non venduto.
+  const daFoto = radice.foto.filter(f => !E_LOGO.test(f.name)).map(f => {
     const { nome, prezzo } = leggiNome(f.name, cat);
     return { chiave: f.id, nome, prezzo, marca: "", foto: [f.id] };
   });
