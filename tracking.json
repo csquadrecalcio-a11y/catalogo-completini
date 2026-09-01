@@ -17,6 +17,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-08-31 16:56:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
         "data": "2026-08-28 17:01:00",
         "luogo": "FCO",
         "stato": "Pronto per la consegna al corriere locale"
@@ -85,6 +90,13 @@
         "data": "2026-08-14 21:47:55",
         "luogo": "",
         "stato": "Ordine registrato, in attesa del pacco"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-09-01 04:43",
+        "luogo": "FIUMICINO (RM)",
+        "stato": "La spedizione è in transito"
       }
     ]
   },
