@@ -372,6 +372,21 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-01 14:06:00",
+        "luogo": "Fiano romano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-01 13:47:00",
+        "luogo": "Fiano romano",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-09-01 11:47:21",
+        "luogo": "Centro Operativo Postale",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-09-01 00:38:20",
         "luogo": "FCO",
         "stato": "Ready for transfer to final service provider"
@@ -449,8 +464,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-01 13:47",
-        "luogo": "Centro Operativo Postale",
+        "data": "2026-09-02 04:28",
+        "luogo": "MILANO (MI)",
         "stato": "La spedizione è in transito"
       }
     ]
