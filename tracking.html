@@ -696,16 +696,14 @@ function buildCard(cod, o){
       </div>
       ${paccoDice}
       ${(()=>{
-        // Si conta dalla data di spedizione (la stessa mostrata in "SPEDITO IL").
-        // Prima si prendeva l'ULTIMO elemento della lista eventi unita: essendo
-        // ogni lista ordinata dal più recente, quello era l'ultimo evento del
-        // corriere italiano — un pacco partito da due settimane risultava
-        // "in transito da 1 giorno" (31/08/26).
+        // Si conta dal PRIMO MOVIMENTO vero del pacco, non dalla data in cui
+        // l'ordine è stato segnato spedito: il fornitore crea l'etichetta anche
+        // giorni prima di consegnarlo al corriere. Finché non c'è nessun
+        // movimento non si conta niente (01/09/26).
         const dateEv = [...(o.eventi_cina||[]), ...(o.eventi_corriere||[])]
-          .map(e => (e.data||"").slice(0,10)).filter(Boolean);
-        const candidate = [(o.data_spedizione||"").slice(0,10), ...dateEv].filter(Boolean).sort();
-        const primaData = candidate[0] || o.data_spedizione;
-        const gg = o.stato !== "consegnato" ? giorniLavorativi(primaData) : null;
+          .map(e => (e.data||"").slice(0,10)).filter(Boolean).sort();
+        const primaData = dateEv[0];
+        const gg = (primaData && o.stato !== "consegnato") ? giorniLavorativi(primaData) : null;
         return gg ? `<div style="margin-top:10px;font-size:11px;font-weight:700;color:var(--muted);text-align:center">📦 In transito da <span style="color:var(--volt)">${gg} giorn${gg===1?"o":"i"} lavorativ${gg===1?"o":"i"}</span></div>` : "";
       })()}
     </div>
