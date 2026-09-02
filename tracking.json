@@ -211,6 +211,21 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-01 11:46:00",
+        "luogo": "Cazzago brabbia",
+        "stato": "Consegna non riuscita: destinatario assente"
+      },
+      {
+        "data": "2026-09-01 09:50:00",
+        "luogo": "Cazzago brabbia",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-09-01 07:46:00",
+        "luogo": "Varese",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-08-31 20:35:00",
         "luogo": "Milano",
         "stato": "In transito nella rete di Poste Italiane"
