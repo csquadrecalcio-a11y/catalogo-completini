@@ -1553,6 +1553,13 @@ const SHOE_SIZES  = ["39","40","41","42","43","44","45"];
 function cleanName(fn){
   let s = fn.replace(/\.(jpe?g|png|webp)$/i,"");
   s = s.replace(/\b(solo\s*taglia|nopers|no\s*pers)\b/gi, "");   // marcatore interno
+  // Sulle tute "bambino" nel nome serve solo a far comparire la taglia
+  // ragazzino tra le versioni: nel titolo confondeva ("Tuta Roma Bambino"
+  // sembrava una tuta solo da bambino). Sulle maglie invece resta, perche
+  // "Kit Bambino" e davvero il nome del prodotto.
+  if (/\btut[ae]\b|felpa|giacc/i.test(s)){
+    s = s.replace(/\b(solo\s+)?(bambin[oi]|kids?|ragazz[oi])\b/gi, "");
+  }
   s = s.replace(/(\d{2})[_-](\d{2})/g,"$1/$2");
   s = s.replace(/[_]+/g," ").replace(/\s+/g," ").trim();
   return s.split(" ").map(w => w.length<=3 && !/\d/.test(w) && w.length<3
