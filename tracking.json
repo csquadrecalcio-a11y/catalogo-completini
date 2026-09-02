@@ -387,6 +387,16 @@
         "stato": "In transito, la spedizione è in transito"
       },
       {
+        "data": "2026-09-01 02:29:38",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
+      },
+      {
+        "data": "2026-09-01 00:45:11",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
         "data": "2026-09-01 00:38:20",
         "luogo": "FCO",
         "stato": "Ready for transfer to final service provider"
@@ -449,12 +459,12 @@
       {
         "data": "2026-08-25 23:40:09",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-08-25 23:40:09",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-08-25 17:40:11",
