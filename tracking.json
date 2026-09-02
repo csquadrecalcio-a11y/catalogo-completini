@@ -194,9 +194,9 @@
     ]
   },
   "CSC-2026-0255": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-08-16",
-    "data_consegna": "",
+    "data_consegna": "2026-09-02 17:44:48",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73357601",
     "corriere_2": "",
@@ -283,9 +283,14 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-01 11:46",
+        "data": "2026-09-02 15:35",
+        "luogo": "dalla sede operativa di CAZZAGO BRABBIA (VA)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-02 13:13",
         "luogo": "CAZZAGO BRABBIA (VA)",
-        "stato": "Consegna non andata a buon fine per destinatario assente. qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
+        "stato": "La spedizione è in consegna"
       },
       {
         "data": "2026-09-01 08:37",
