@@ -1480,6 +1480,9 @@ const OPT_TUTA = [
   {id:"tuta_pass", label:"Tuta Passeggio",    price:60, kid:false},
   {id:"tuta_capp", label:"Tuta con Cappuccio",price:65, kid:false},
 ];
+// La stessa tuta esiste anche in taglie bambino: compare come versione a parte
+// nella scheda, senza caricare una seconda foto (01/09/26).
+const OPT_TUTA_KID = {id:"tuta_kid", label:"Tuta Bambino", price:45, kid:true};
 const OPT_SCARPE = [{id:"scarpe", label:"Scarpe", price:90, kid:false, shoe:true}];
 
 /* sceglie opzioni e prezzi in base a categoria + nome + cartella,
@@ -1502,6 +1505,12 @@ function productProfile(item){
     if (/allenamento/.test(hay)) v = only(OPT_TUTA,"tuta_all");
     else if (/cappuccio/.test(hay)) v = only(OPT_TUTA,"tuta_capp");
     else if (/passeggio/.test(hay)) v = only(OPT_TUTA,"tuta_pass");
+    // "bambino" nel nome → la taglia ragazzino si puo scegliere qui dentro.
+    // Con "solo bambino"/"kids only" resta l'unica versione disponibile.
+    const conKid = /bambin|\bkids?\b|ragazz/.test(hay);
+    const soloKid = /solo\s+(bambin|kids?)|\bkids?\s+only\b/.test(hay);
+    if (soloKid) v = [OPT_TUTA_KID];
+    else if (conKid) v = [...v, OPT_TUTA_KID];
     return { versions:v, pers:false, kind:"tuta" };
   }
   if (/estiv|completini estivi|\bpolo\b|canotta|t.?shirt|jordan/.test(hay)){
