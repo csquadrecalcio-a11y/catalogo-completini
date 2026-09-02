@@ -745,6 +745,21 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-01 20:37:00",
+        "luogo": "Bologna",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-01 17:15:00",
+        "luogo": "Castel san giovanni",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-01 14:47:00",
+        "luogo": "Castel san giovanni",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
         "data": "2026-08-31 02:37:26",
         "luogo": "",
         "stato": "Inviato al magazzino, in attesa di scansione"
