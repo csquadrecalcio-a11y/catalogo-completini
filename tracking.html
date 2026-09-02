@@ -275,13 +275,21 @@ const STEPS = [
    stato viene alzato in base all'ultimo movimento — solo in avanti, mai
    indietro, cosi un portale lento non riporta il pacco a uno stadio passato. */
 function statoDaiMovimenti(o){
-  const ev = [...(o.eventi_corriere||[]), ...(o.eventi_cina||[])]
+  /* Solo i movimenti del corriere italiano: in Cina "consegnato" vuol dire
+     consegnato alla compagnia aerea o al magazzino, non al cliente, e il
+     pacco risultava gia arrivato mentre era ancora in volo. */
+  const ev = (o.eventi_corriere || [])
     .filter(e => e && e.data).sort((a,b) => (b.data||"").localeCompare(a.data||""));
   if(!ev.length) return o.stato;
   const u = (ev[0].stato || "").toLowerCase();
+
+  // passaggi di mano fra operatori: non sono la consegna al destinatario
+  const passaggio = /compagnia aerea|aeroporto|magazzino|centro|corriere|dogana|hub|deposito|sede/.test(u);
+  const fallita   = /non andata a buon fine|mancata consegna|destinatario assente/.test(u);
+
   let dedotto = o.stato;
-  if(/consegnat/.test(u) && !/non andata a buon fine|mancata consegna/.test(u)) dedotto = "consegnato";
-  else if(/in consegna|in distribuzione/.test(u)) dedotto = "in_consegna";
+  if(/consegnat/.test(u) && !passaggio && !fallita) dedotto = "consegnato";
+  else if(/in consegna|in distribuzione/.test(u) && !fallita) dedotto = "in_consegna";
   return statoIndex(dedotto) > statoIndex(o.stato) ? dedotto : o.stato;
 }
 
