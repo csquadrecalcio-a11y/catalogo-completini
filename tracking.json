@@ -1514,6 +1514,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-03 22:58:15",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
         "data": "2026-09-02 22:30:27",
         "luogo": "Guangzhou, Cina",
         "stato": "Arrivato al punto di raccolta"
