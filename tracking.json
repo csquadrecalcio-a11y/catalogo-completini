@@ -407,6 +407,16 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-03 06:57:00",
+        "luogo": "Monza",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-03 04:57:15",
+        "luogo": "Monza (mb)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-09-02 18:04:00",
         "luogo": "Milano",
         "stato": "In transito nella rete di Poste Italiane"
