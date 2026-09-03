@@ -192,6 +192,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-03 14:25",
+        "luogo": "MELDOLA (FC)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
         "data": "2026-09-03 04:37",
         "luogo": "FORLI' (FC)",
         "stato": "La spedizione è in transito"
