@@ -18697,20 +18697,23 @@
     "eventi_corriere": []
   },
   "CSC-2026-0306": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-09-03",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
-    "corriere_2": "",
-    "tracking_2": "",
+    "corriere": "Spedizione internazionale",
+    "tracking": "GFNL26246150769539",
+    "corriere_2": "Spedizione internazionale",
+    "tracking_2": "GFNL26246126672063",
     "corriere_3": "",
     "tracking_3": "",
     "corriere_4": "",
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": [],
+    "foto": [
+      "sped_306_1_276d5e68.jpg",
+      "sped_306_3_826b0c90.jpg"
+    ],
     "tracking_cina": "",
     "eventi_cina": [],
     "eventi_corriere": []
