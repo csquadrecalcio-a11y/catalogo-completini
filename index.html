@@ -2804,7 +2804,7 @@ function goShopping(){
 document.getElementById("cartAddMore").onclick = goShopping;
 document.getElementById("cartAddMoreEmpty").onclick = goShopping;
 
-document.getElementById("cartCheckout").onclick = ()=>{
+document.getElementById("cartCheckout").onclick = async ()=>{
   if (!cart.length) return;
   if (!validateOrder()) return;
   const order = getOrderData();
@@ -2817,7 +2817,20 @@ document.getElementById("cartCheckout").onclick = ()=>{
   const pad = x => String(x).padStart(2,"0");
   const cod = `CSC-${String(now.getFullYear()).slice(2)}${pad(now.getMonth()+1)}${pad(now.getDate())}-${pad(now.getHours())}${pad(now.getMinutes())}`;
 
-  const lines = [`🛒 *Nuovo ordine #${cod.replace('CSC-','')}*`, ""];
+  // Si aspetta il gestionale giusto il tempo di farsi dire il numero vero
+  // dell'ordine: prima il messaggio WhatsApp portava un numero inventato da
+  // data e ora (#260903-0934) diverso da quello del gestionale (03/09/26).
+  const btn = document.getElementById("cartCheckout");
+  const testoBtn = btn.textContent;
+  btn.disabled = true; btn.textContent = "Invio in corso…";
+  const esito = await Promise.race([
+    inviaOrdineGestionale(order, cart, tier, { codiceSconto, codiceDiscount }),
+    new Promise(r => setTimeout(() => r(false), 3000)),
+  ]);
+  btn.disabled = false; btn.textContent = testoBtn;
+  const codVero = (typeof esito === "string" && esito) ? esito : cod;
+
+  const lines = [`🛒 *Nuovo ordine #${codVero.replace('CSC-','')}*`, ""];
   cart.forEach(it=>{
     const isVintage = /vintage/i.test(it.name) || /vintage/i.test(it.version);
     const isTuta = /tuta/i.test(it.name) || /tuta/i.test(it.version);
@@ -2851,13 +2864,14 @@ document.getElementById("cartCheckout").onclick = ()=>{
   lines.push(`📱 ${order.tel}`);
   if (order.note) lines.push(`📝 Note: ${order.note}`);
 
-  inviaOrdineGestionale(order, cart, tier, { codiceSconto, codiceDiscount });
   const telPulito = (order.tel || "").replace(/\D/g, "");
   const msgEnc = encodeURIComponent(lines.join("\n"));
   const noti = _clientiNoti || [];
   const noto = noti.some(n => n === telPulito.slice(-9));
   const waNum = noto ? WA_PERSONALE : WA_BUSINESS;
-  window.open(`https://wa.me/${waNum}?text=${msgEnc}`, "_blank");
+  const urlWA = `https://wa.me/${waNum}?text=${msgEnc}`;
+  const w = window.open(urlWA, "_blank");
+  if (!w) location.href = urlWA;
 };
 
 const STRIPE_SITE_SECRET = "bI6J_mKjyTgr518wkrXffWjpqRmo4YAd";
@@ -2926,7 +2940,12 @@ async function _consegnaOrdine(payload){
 
   try{
     const r = await fetch(GESTIONALE_URL + "/api/ordine-sito", opzioni());
-    if (r.ok) return true;
+    if (r.ok){
+      // il gestionale risponde col numero vero dell'ordine (CSC-2026-0309):
+      // serve per scrivere lo STESSO numero nel messaggio WhatsApp
+      const d = await r.json().catch(() => null);
+      return (d && d.cod) ? d.cod : true;
+    }
   }catch(e){}
 
   try{
@@ -2944,8 +2963,8 @@ async function _consegnaOrdine(payload){
 
 function inviaOrdineGestionale(order, cartItems, tier, sconto){
   try{
-    _consegnaOrdine(buildOrdinePayload(order, cartItems, tier, sconto));
-  }catch(e){}
+    return _consegnaOrdine(buildOrdinePayload(order, cartItems, tier, sconto));
+  }catch(e){ return Promise.resolve(false); }
 }
 
 /* Ordini rimasti nel browser perché nessun canale era raggiungibile:
