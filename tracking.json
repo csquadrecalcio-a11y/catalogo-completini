@@ -1069,6 +1069,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-03 15:14",
+        "luogo": "dalla sede operativa di ROMA (RM)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
         "data": "2026-09-03 13:13",
         "luogo": "ROMA (RM)",
         "stato": "La spedizione è in consegna"
