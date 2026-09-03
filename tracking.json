@@ -121,9 +121,9 @@
     ]
   },
   "CSC-2026-0253": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-08-14",
-    "data_consegna": "",
+    "data_consegna": "2026-09-03 18:41:49",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73357584",
     "corriere_2": "",
@@ -191,6 +191,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-03 18:06",
+        "luogo": "dalla sede operativa di MELDOLA (FC)",
+        "stato": "La spedizione è stata consegnata"
+      },
       {
         "data": "2026-09-03 14:25",
         "luogo": "MELDOLA (FC)",
