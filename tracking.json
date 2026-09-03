@@ -983,6 +983,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-03 16:01",
+        "luogo": "dalla sede operativa di LECCE (LE)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
         "data": "2026-09-03 13:22",
         "luogo": "LECCE (LE)",
         "stato": "La spedizione è in consegna"
