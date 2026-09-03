@@ -18594,6 +18594,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-04 01:48:43",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
         "data": "2026-09-03 20:48:43",
         "luogo": "Guangzhou, Cina",
         "stato": "Pacco in uscita dal centro operativo"
