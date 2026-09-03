@@ -1845,12 +1845,20 @@ async function ensureAllCategoriesLoaded(){
   return searchAllCache;
 }
 let searchAllResults = [];
+/* Cerca TUTTE le parole scritte, in qualsiasi ordine: "tuta bambino" trova
+   "tuta allenamento roma bambino", che con la ricerca a frase intera dava
+   zero risultati (03/09/26). */
+function corrisponde(testo, q){
+  const t = (testo || "").toLowerCase();
+  return q.toLowerCase().split(/\s+/).filter(Boolean).every(p => t.includes(p));
+}
+
 async function doGlobalSearch(q){
   skeletons();
   chipsEl.innerHTML = "";
   const all = await ensureAllCategoriesLoaded();
   const ql = q.toLowerCase();
-  const filtered = all.filter(i => (i.name+" "+i.team+" "+i._cat.name).toLowerCase().includes(ql));
+  const filtered = all.filter(i => corrisponde(i.name+" "+i.team+" "+i._cat.name+" "+(i.cerca||""), ql));
   const seen = new Set();
   searchAllResults = filtered.filter(i => { const key = (i._cat.id+"|"+i.name).toLowerCase(); if (seen.has(key)) return false; seen.add(key); return true; });
   renderSearchResults(searchAllResults);
@@ -1970,7 +1978,7 @@ function renderGrid(){
   const q = searchInp.value.trim().toLowerCase();
   let items = data.items;
   if (activeTeam) items = items.filter(i=>i.team===activeTeam);
-  if (q) items = items.filter(i=>(i.name+" "+i.team+" "+(i.cerca||"")).toLowerCase().includes(q));
+  if (q) items = items.filter(i=>corrisponde(i.name+" "+i.team+" "+(i.cerca||""), q));
 
   let priced = items.map(it=>{
     const prof = productProfile(it);
