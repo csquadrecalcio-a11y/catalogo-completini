@@ -679,6 +679,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-03 01:29:38",
+        "luogo": "Padova (pd)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-09-02 20:34:00",
         "luogo": "Roma",
         "stato": "In transito nella rete di Poste Italiane"
