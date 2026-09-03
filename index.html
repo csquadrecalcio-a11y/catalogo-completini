@@ -1800,6 +1800,10 @@ CATALOG.forEach((c,i)=>{
 // Deeplink ?cat=nuovi-arrivi → apre direttamente la categoria
 (()=>{
   const p = new URLSearchParams(location.search);
+  // ?squadra=inter (o ?q=inter) apre il catalogo gia filtrato: serve per
+  // mandare al cliente il link diretto della sua squadra da WhatsApp.
+  const cercaParam = (p.get('squadra') || p.get('q') || '').trim();
+  if (cercaParam) window._cercaIniziale = cercaParam;
   const catParam = (p.get('cat')||'').toLowerCase().replace(/[-_ ]/g,'');
   if(catParam){
     const match = CATALOG.findIndex(c => c.name.toLowerCase().replace(/[-_ ]/g,'').includes(catParam));
@@ -1934,6 +1938,17 @@ async function showCategory(){
         b.onclick = ()=>{ activeTeam = t.name; setChip(b); };
         chipsEl.appendChild(b);
       });
+    }
+    if (window._cercaIniziale){
+      const testo = window._cercaIniziale;
+      window._cercaIniziale = null;
+      searchInp.value = testo;
+      if (headerSearchInp) headerSearchInp.value = testo;
+      searchMode = true;
+      doGlobalSearch(testo);
+      setTimeout(()=>document.getElementById("catalogo")
+        .scrollIntoView({behavior:"smooth"}), 300);
+      return;
     }
     renderGrid();
   }catch(e){
