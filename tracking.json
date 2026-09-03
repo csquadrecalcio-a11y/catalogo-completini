@@ -300,7 +300,7 @@
     ]
   },
   "CSC-2026-0256": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-08-14",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -318,6 +318,11 @@
     ],
     "tracking_cina": "",
     "eventi_cina": [
+      {
+        "data": "2026-09-02 05:53:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
       {
         "data": "2026-08-31 12:24:00",
         "luogo": "Castel san giovanni",
@@ -365,6 +370,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-03 07:49",
+        "luogo": "INCORONATA (FG)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-08-31 14:32",
         "luogo": "CASTEL SAN GIOVANNI (PC)",
