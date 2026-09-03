@@ -545,6 +545,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-03 09:02:58",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
         "data": "2026-08-30 23:11:10",
         "luogo": "",
         "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
@@ -557,6 +562,11 @@
       {
         "data": "2026-08-29 05:28:09",
         "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-08-29 05:28:00",
+        "luogo": "Shanghai, Cina",
         "stato": "Partito dall'aeroporto di origine"
       },
       {
