@@ -18399,6 +18399,31 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-03 14:00:34",
+        "luogo": "Cina",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-09-03 13:01:10",
+        "luogo": "Cina",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-09-03 13:00:34",
+        "luogo": "Cina",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
+        "data": "2026-09-03 05:00:34",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-09-03 04:12:35",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
         "data": "2026-09-03 03:05:23",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
