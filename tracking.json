@@ -140,6 +140,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-02 22:46:00",
+        "luogo": "Bologna",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-08-31 12:20:00",
         "luogo": "Castel san giovanni",
         "stato": "Prima scansione Poste Italiane"
@@ -187,8 +192,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-01 15:13",
-        "luogo": "BOLOGNA (BO)",
+        "data": "2026-09-03 04:37",
+        "luogo": "FORLI' (FC)",
         "stato": "La spedizione è in transito"
       }
     ]
