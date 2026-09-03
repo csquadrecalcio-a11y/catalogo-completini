@@ -553,8 +553,27 @@ function buildCard(cod, o){
   let infoItems = "";
   if(o.data_spedizione) infoItems += `<div class="info-item"><label>Spedito il</label><span>${fmtData(o.data_spedizione)}</span></div>`;
   if(o.data_consegna)   infoItems += `<div class="info-item"><label>Consegnato</label><span>${fmtData(o.data_consegna)}</span></div>`;
-  if(o.corriere)        infoItems += `<div class="info-item"><label>Corriere</label><span>${corriereLogo(o.corriere)} ${o.corriere}</span></div>`;
-  if(o.tracking)        infoItems += `<div class="info-item"><label>N° tracking</label><span style="font-family:monospace;font-size:12px;letter-spacing:.04em">${o.tracking}</span></div>`;
+  // Un ordine puo partire in piu pacchi (fino a 5): il gestionale pubblica
+  // corriere_2..5 / tracking_2..5. Prima mostravamo solo il primo e il cliente
+  // vedeva un codice solo pur avendone ricevuti due.
+  const colli = [[o.corriere, o.tracking],
+                 [o.corriere_2, o.tracking_2], [o.corriere_3, o.tracking_3],
+                 [o.corriere_4, o.tracking_4], [o.corriere_5, o.tracking_5]]
+    .map(([c,t]) => ({corriere:(c||"").trim(), tracking:(t||"").trim()}))
+    .filter(x => x.tracking);
+  const monoStile = 'style="font-family:monospace;font-size:12px;letter-spacing:.04em"';
+
+  if(colli.length <= 1){
+    if(o.corriere) infoItems += `<div class="info-item"><label>Corriere</label><span>${corriereLogo(o.corriere)} ${o.corriere}</span></div>`;
+    if(o.tracking) infoItems += `<div class="info-item"><label>N° tracking</label><span ${monoStile}>${o.tracking}</span></div>`;
+  } else {
+    colli.forEach((c,i)=>{
+      const eti = `Collo ${i+1} di ${colli.length}`;
+      infoItems += `<div class="info-item"><label>${eti}</label><span ${monoStile}>${c.tracking}</span>`
+                +  (c.corriere ? `<span style="display:block;font-size:11px;opacity:.7;margin-top:2px">${corriereLogo(c.corriere)} ${c.corriere}</span>` : "")
+                +  `</div>`;
+    });
+  }
 
   let trackHtml = "";
 
