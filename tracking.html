@@ -901,7 +901,7 @@ function toggleGlossario(el){
 const GLOSSARIO = [
   {icon:"📦", term:"Arrivato al punto di raccolta",
    desc:"Il tuo pacco è stato ritirato e registrato presso il centro di smistamento del corriere.",
-   key:["punto di raccolta","pacco ritirato","ordine registrato","dati della spedizione"]},
+   key:["punto di raccolta","pacco ritirato"]},
   {icon:"🏭", term:"Pacco in uscita dal centro operativo",
    desc:"Il pacco ha lasciato il magazzino ed è in movimento verso il prossimo hub.",
    key:["centro operativo","uscito dal magazzino","entrato in magazzino","centro di smistamento"]},
@@ -928,12 +928,16 @@ const GLOSSARIO = [
    key:["in consegna","mezzo di consegna","disponibile per il ritiro","giacenza"]},
   {icon:"🏠", term:"Consegnato",
    desc:"Il pacco è stato consegnato all'indirizzo indicato.",
-   key:["consegnat","postino"]},
+   key:["consegnat","postino"],
+   // "consegnata alla compagnia aerea", "consegnato al corriere locale" sono
+   // passaggi di mano, non la consegna al cliente: qui non c'entrano
+   escludi:["compagnia aerea","aeroporto","corriere","magazzino","centro","dogana","poste italiane"]},
   /* voci aggiunte dopo aver riletto tutti i movimenti degli ordini gia
      consegnati, di entrambi i fornitori (03/09/26) */
   {icon:"📝", term:"Spedizione registrata / informazioni ricevute",
    desc:"Il fornitore ha comunicato al corriere i dati del pacco. La merce non si è ancora mossa: è il primo passo, quello burocratico.",
-   key:["registrata dal mittente","informazioni elettroniche","dettagli della spedizione","spedizione creata"]},
+   key:["registrata dal mittente","informazioni elettroniche","dati della spedizione",
+        "dettagli della spedizione","spedizione creata","ordine registrato"]},
   {icon:"📥", term:"Inviato al magazzino, in attesa di scansione",
    desc:"Il pacco è arrivato al magazzino di partenza e aspetta di essere registrato. In questa fase il tracking può restare fermo qualche giorno.",
    key:["attesa di scansione","inviato al magazzino"]},
@@ -969,7 +973,8 @@ function aggiornaGlossario(o){
   if(!box || !body) return;
   const testi = [...(o?.eventi_corriere||[]), ...(o?.eventi_cina||[])]
     .map(e => (e.stato||"").toLowerCase());
-  const voci = GLOSSARIO.filter(g => testi.some(t => g.key.some(k => t.includes(k))));
+  const voci = GLOSSARIO.filter(g => testi.some(t =>
+    g.key.some(k => t.includes(k)) && !(g.escludi || []).some(x => t.includes(x))));
   if(!voci.length){ box.style.display = "none"; return; }
   box.style.display = "";
   body.innerHTML = voci.map(g =>
