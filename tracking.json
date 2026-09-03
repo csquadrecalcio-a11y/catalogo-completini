@@ -904,7 +904,7 @@
     ]
   },
   "CSC-2026-0268": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-08-22",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -967,6 +967,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-03 13:22",
+        "luogo": "LECCE (LE)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-03 03:55",
         "luogo": "LECCE (LE)",
