@@ -2628,6 +2628,12 @@ ORDER_FIELDS.concat(["orderNote"]).forEach(id=>{
   if (el) el.addEventListener("input", ()=>el.classList.remove("field-error"));
 });
 
+// Il "Via" mancante lo aggiungiamo appena esce dal campo, così il cliente lo
+// vede e può correggerlo se la sua è una piazza o una contrada.
+document.getElementById("orderIndirizzo")?.addEventListener("blur", e=>{
+  e.target.value = normalizzaIndirizzo(e.target.value);
+});
+
 /* Codici sconto personali monouso: generati dal gestionale per chi si
    iscrive alla newsletter, verificati qui via API (non un elenco fisso). */
 let codiceScontoApplicato = null;
@@ -2652,12 +2658,22 @@ function cartTotals(){
   };
 }
 
+// Molti scrivono solo "Palau 119" senza il "Via" davanti: al fornitore e a
+// Poste arriva un indirizzo monco. Se manca il tipo di strada lo mettiamo noi.
+const TIPI_VIA = /^\s*(via|viale|v\.?le|v\.?a\b|piazza|p\.?zza|piazzale|corso|c\.?so|largo|vicolo|strada|str\.|contrada|c\.?da|localit|loc\.|frazione|fraz\.|borgo|salita|discesa|traversa|lungomare|lungotevere|circonvallazione|rotonda|passaggio|galleria|parco|residence|s\.?s\.?\s*\d|s\.?p\.?\s*\d)/i;
+
+function normalizzaIndirizzo(testo){
+  const v = String(testo || "").replace(/\s+/g, " ").trim();
+  if (!v || TIPI_VIA.test(v)) return v;
+  return "Via " + v;
+}
+
 function getOrderData(){
   const val = id => (document.getElementById(id)?.value || "").trim();
   return {
     nome: val("orderNome"),
     cognome: val("orderCognome"),
-    indirizzo: val("orderIndirizzo"),
+    indirizzo: normalizzaIndirizzo(val("orderIndirizzo")),
     citta: val("orderCitta"),
     provincia: val("orderProvincia").toUpperCase(),
     cap: val("orderCap"),
