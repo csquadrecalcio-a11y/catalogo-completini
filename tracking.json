@@ -1040,6 +1040,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-03 14:26:56",
+        "luogo": "Cina",
+        "stato": "Estimated departure is September 5th"
+      },
+      {
         "data": "2026-09-01 07:14:20",
         "luogo": "Cina",
         "stato": "Merce consegnata alla compagnia aerea"
