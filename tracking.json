@@ -882,6 +882,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-03 11:52",
+        "luogo": "NOLA (NA)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
         "data": "2026-09-03 06:25",
         "luogo": "NOLA (NA)",
         "stato": "La spedizione è in transito"
