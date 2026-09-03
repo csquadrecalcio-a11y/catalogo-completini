@@ -376,6 +376,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-03 12:43",
+        "luogo": "dalla sede operativa di INCORONATA (FG)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
         "data": "2026-09-03 07:49",
         "luogo": "INCORONATA (FG)",
         "stato": "La spedizione è in consegna"
