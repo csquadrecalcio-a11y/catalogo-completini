@@ -398,9 +398,9 @@
     ]
   },
   "CSC-2026-0258": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-08-29",
-    "data_consegna": "",
+    "data_consegna": "2026-09-03 17:43:54",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J939750",
     "corriere_2": "",
@@ -538,6 +538,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-03 15:25",
+        "luogo": "dalla sede operativa di BRUGHERIO (MB)",
+        "stato": "La spedizione è stata consegnata"
+      },
       {
         "data": "2026-09-03 12:43",
         "luogo": "BRUGHERIO (MB)",
