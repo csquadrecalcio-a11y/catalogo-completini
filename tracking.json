@@ -18580,6 +18580,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-04 12:12:55",
+        "luogo": "Cina",
+        "stato": "Partenza prevista il 6 settembre"
+      },
+      {
         "data": "2026-09-03 14:00:34",
         "luogo": "Cina",
         "stato": "Merce consegnata alla compagnia aerea"
@@ -18608,6 +18613,11 @@
         "data": "2026-09-03 03:05:23",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
+      },
+      {
+        "data": "2026-09-03 03:05:23",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": []
