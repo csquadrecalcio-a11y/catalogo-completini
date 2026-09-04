@@ -839,6 +839,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-04 11:33",
+        "luogo": "CASTEL GOFFREDO (MN)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
         "data": "2026-09-04 05:15",
         "luogo": "MANTOVA (MN)",
         "stato": "La spedizione è in transito"
