@@ -707,6 +707,21 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-04 03:15:37",
+        "luogo": "Mantova (mn)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-03 16:00:19",
+        "luogo": "Verona (vr)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-03 15:44:00",
+        "luogo": "Padova",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-03 01:29:38",
         "luogo": "Padova (pd)",
         "stato": "In transito, la spedizione è in transito"
@@ -724,12 +739,12 @@
       {
         "data": "2026-09-01 13:43:00",
         "luogo": "Fiano romano",
-        "stato": "Prima scansione Poste Italiane"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-09-01 13:43:00",
         "luogo": "Fiano romano",
-        "stato": "In transito nella rete di Poste Italiane"
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-09-01 11:43:55",
@@ -824,8 +839,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-03 18:00",
-        "luogo": "VERONA (VR)",
+        "data": "2026-09-04 05:15",
+        "luogo": "MANTOVA (MN)",
         "stato": "La spedizione è in transito"
       }
     ]
