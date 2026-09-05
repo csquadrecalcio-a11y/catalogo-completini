@@ -1531,7 +1531,8 @@ const VERSIONI_PER_NOME = [
   [/player|\bpv\b/gi,       "player"],
   [/magli[ae]/gi,            "maglia"],
   [/\bbambin[oi]\b|\bkids?\b/gi, "kitb"],   // "bambino" da solo = kit bambino
-  [/\badult[oi]\b/gi,       "kita"],
+  // "adulto" da solo NON è il kit adulto: vuol dire "solo taglie da adulto"
+  // ("Cagliari Home 26/27 Maglia Adulto" è una maglia, non un kit — 05/09/26).
 ];
 const TUTTE_LE_VERSIONI = {
   maglia:     OPT_MAGLIA[0],
