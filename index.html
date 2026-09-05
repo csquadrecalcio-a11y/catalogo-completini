@@ -1821,6 +1821,10 @@ function etichettaKit(nome){
    si tolgono versione (kit/maglia/player…) e kit (home/away/third)  */
 function baseSquadra(nome){
   return String(nome)
+    // Drive restituisce gli accenti in due forme diverse a seconda di come
+    // e stato scritto il nome ("Mönchengladbach" con la ö sola o con o + dieresi):
+    // senza appiattirli due foto della stessa squadra sembravano squadre diverse.
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
     .replace(/\.(jpe?g|png|webp)$/i, "")
     // "presto"/"non disponibile" e la versione che li precede non fanno parte
     // del nome: senza toglierli il capo non si univa agli altri kit (05/09/26)
@@ -2429,7 +2433,9 @@ const PATCH_SETS = [
   { kw:["bologna"], opts:["Serie A 26/27"] },
   { kw:["chelsea"], opts:["Premier League","Premier League + No Room For Racism","CWC Winners Badge","Premier League + CWC Winners Badge"] },
   { kw:["liverpool","manchester","man city","man united","arsenal","tottenham","newcastle","nottingham","aston villa","premier"], opts:["Premier League","Champions League"] },
-  { kw:["real","madrid","barcellona","barcelona","barça","atletico","bilbao","betis","siviglia","valencia","liga"], opts:["La Liga","Champions League"] },
+  { kw:["bayern","dortmund","lipsia","leipzig","leverkusen","gladbach","monchengladbach","mönchengladbach","stoccarda","stuttgart","francoforte","frankfurt","brema","bremen","schalke","shalke","union berlino","bundesliga"], opts:["Bundesliga","Champions League"] },
+  // "liga" da sola pescava anche la bundesLIGA: ora serve la parola intera
+  { kw:["real","madrid","barcellona","barcelona","barça","atletico","bilbao","betis","siviglia","valencia","la liga","liga spagnola"], no:["bundesliga"], opts:["La Liga","Champions League"] },
   { kw:["serie a","milan","napoli","roma","lazio","atalanta","fiorentina","torino","udinese","como","parma","cagliari","venezia","genoa"], opts:["Serie A","Champions League"] },
 ];
 const PATCH_DEFAULT = ["Champions League","Europa League","Conference League","Serie A"];
