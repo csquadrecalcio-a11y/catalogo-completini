@@ -1217,6 +1217,16 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-04 22:57:23",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-09-03 11:57:04",
+        "luogo": "",
+        "stato": "Data di arrivo stimata: 5 settembre"
+      },
+      {
         "data": "2026-09-02 11:37:48",
         "luogo": "Cina",
         "stato": "Partenza prevista il 4 settembre"
@@ -1249,12 +1259,12 @@
       {
         "data": "2026-08-29 02:07:43",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-08-29 02:07:43",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": []
