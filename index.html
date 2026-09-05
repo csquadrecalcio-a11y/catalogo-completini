@@ -1550,15 +1550,26 @@ const PULISCI_NON_DISP = /(?:\b(?:kit\s*adult[oi]|kit\s*bambin[oi]|kit\s*kids?|m
    non risalgo fino al nome della squadra. */
 const COPPIE_VERSIONE = /^(?:kit\s*adult[oi]|kit\s*bambin[oi]|kit\s*kids?|magli[ae]\s*bambin[oi]|magli[ae]\s*kids?)$/i;
 const PAROLA_SINGOLA  = /^(?:kit|magli[ae]|bambin[oi]|adult[oi]|kids?|player|pv)$/i;
+const CONGIUNZIONE    = /^(?:e|ed|\+|&|,|\/|il|lo|la|i|gli|le)$/i;
 
+/* Le versioni nominate PRIMA del marcatore: "kit non disponibile", ma anche
+   "kit e bambino non disponibili". Si risale finche si trovano parole di
+   versione o congiunzioni, al massimo cinque, per non arrivare al nome della
+   squadra. */
 function versioniPrimaDelMarcatore(testo){
   const parole = testo.trim().split(/[\s_.-]+/).filter(Boolean);
-  if (parole.length >= 2){
-    const coppia = parole.slice(-2).join(" ");
-    if (COPPIE_VERSIONE.test(coppia)) return coppia;
+  const coda = [];
+  for (let i = parole.length - 1; i >= 0 && coda.length < 5; i--){
+    const w = parole[i];
+    if (PAROLA_SINGOLA.test(w) || (coda.length && CONGIUNZIONE.test(w))){
+      coda.unshift(w);
+      continue;
+    }
+    break;
   }
-  const ultima = parole[parole.length - 1] || "";
-  return PAROLA_SINGOLA.test(ultima) ? ultima : "";
+  while (coda.length && CONGIUNZIONE.test(coda[0])) coda.shift();
+  if (coda.length >= 2 && COPPIE_VERSIONE.test(coda.join(" "))) return coda.join(" ");
+  return coda.join(" ");
 }
 
 function versioniNominate(testo, tabella){
