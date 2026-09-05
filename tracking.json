@@ -18783,6 +18783,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-05 14:53:53",
+        "luogo": "Cina",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
         "data": "2026-09-05 13:54:29",
         "luogo": "Cina",
         "stato": "Sdoganamento all'export completato"
