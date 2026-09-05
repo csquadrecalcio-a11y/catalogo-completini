@@ -1469,6 +1469,9 @@ const OPT_MAGLIA = [
   {id:"kitb",   label:"Kit Bambino", price:35, kid:true},
   {id:"kita",   label:"Kit Adulto",  price:40, kid:false},
 ];
+// Maglia singola in taglie bambino: stesso prezzo della maglia adulto, ma
+// compare solo sui capi da bambino, dove la "Maglia" normale non c'e (05/09/26).
+const OPT_MAGLIA_KID = {id:"maglia_kid", label:"Maglia Bambino", price:30, kid:true};
 const OPT_PLAYER = {id:"player", label:"Player Version", price:35, kid:false};
 const OPT_VINTAGE = [{id:"vintage", label:"Maglia Vintage", price:35, kid:false}];
 const OPT_VINTAGE_KID = [{id:"vintage_kid", label:"Kit Vintage Bambino", price:35, kid:true}];
@@ -1569,7 +1572,8 @@ function productProfile(item){
   const isMaglia = /\bmagli[ae]\b/.test(hay);
   let versions;
   if (isPlayer)      versions = [OPT_PLAYER];      // solo Player Version
-  else if (isKidKit)   versions = [OPT_MAGLIA[1]]; // solo Kit Bambino
+  // capo da bambino: si puo prendere il kit intero o la sola maglia
+  else if (isKidKit)   versions = [OPT_MAGLIA[1], OPT_MAGLIA_KID];
   // kit da adulto: si puo prendere il kit intero o la sola maglia, mai bambino
   else if (isAdultKit) versions = [OPT_MAGLIA[0], OPT_MAGLIA[2]];
   else if (isMaglia)   versions = [OPT_MAGLIA[0]]; // solo Maglia
