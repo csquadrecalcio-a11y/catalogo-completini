@@ -2537,7 +2537,10 @@ function profiloKit(kit){
 /* Il gruppo si chiama "Kit" solo se dentro c'e davvero un kit: se sono
    soltanto maglie (Cagliari, Como...) la riga si chiama "Maglia" (05/09/26). */
 function gruppoConKit(gruppo){
-  return (gruppo || []).some(v => profiloKit(v).versions.some(x => x.id === "kitb" || x.id === "kita"));
+  // conta solo i kit ordinabili: uno segnato "presto disponibile" non basta
+  // a far chiamare "kit" un gruppo di sole maglie (05/09/26)
+  return (gruppo || []).some(v => profiloKit(v).versions
+    .some(x => !x.soldOut && (x.id === "kitb" || x.id === "kita")));
 }
 
 function buildKitPills(){
