@@ -1972,8 +1972,19 @@ async function doGlobalSearch(q){
   const all = await ensureAllCategoriesLoaded();
   const ql = q.toLowerCase();
   const filtered = all.filter(i => corrisponde(i.name+" "+i.team+" "+i._cat.name+" "+(i.cerca||""), ql));
-  const seen = new Set();
-  searchAllResults = filtered.filter(i => { const key = (i._cat.id+"|"+i.name).toLowerCase(); if (seen.has(key)) return false; seen.add(key); return true; });
+  /* Lo stesso capo sta sia in "Nuovi arrivi" sia nella cartella della sua
+     lega: nella ricerca usciva due volte. Ne teniamo uno solo, preferendo la
+     categoria vera a Nuovi arrivi — li la scheda ha squadra e gruppo giusti
+     (05/09/26). */
+  const eNuoviArrivi = c => /nuov[io]\s*arriv/i.test((c && c.name) || "");
+  const chiave = i => (cleanName(i.name) + "|" + (i.team || "")).toLowerCase().replace(/\s+/g, " ").trim();
+  const migliori = new Map();
+  filtered.forEach(i => {
+    const k = chiave(i);
+    const gia = migliori.get(k);
+    if (!gia || (eNuoviArrivi(gia._cat) && !eNuoviArrivi(i._cat))) migliori.set(k, i);
+  });
+  searchAllResults = filtered.filter(i => migliori.get(chiave(i)) === i);
   renderSearchResults(searchAllResults);
 }
 function renderSearchResults(items){
