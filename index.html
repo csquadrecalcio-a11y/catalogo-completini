@@ -1498,36 +1498,79 @@ const OPT_SCARPE = [{id:"scarpe", label:"Scarpe", price:90, kid:false, shoe:true
    "solo taglia" nel nome del file su Drive — la scritta non si vede sul sito. */
 const SENZA_PERSONALIZZAZIONE = /\b(solo\s*taglia|nopers|no\s*pers)\b/i;
 
-/* Una versione puo essere gia annunciata ma non ancora arrivata: si scrive
-   "adulto non disponibile" (o "bambino non disponibile") nel nome del file su
-   Drive. La versione compare nella scheda, spenta e non ordinabile, cosi il
-   cliente sa che sta per arrivare senza dover ricaricare le foto (05/09/26).
-   Va bene anche la forma corta "no adulto" / "no bambino". */
+/* VERSIONI ACCESE E SPENTE, UNA PER UNA (05/09/26)
+   Le versioni di partenza le decide il nome del file come sempre ("kit
+   bambino", "kit adulto", "player"...). Poi si puo correggere il tiro capo
+   per capo, scrivendo nel nome del file:
+       +maglia          la aggiunge (disponibile)
+       -kit adulto      la mostra spenta, con scritto "presto disponibile"
+   Valgono: maglia, kit adulto, kit bambino, maglia bambino, player.
+   Restano buone anche le forme vecchie "adulto non disponibile" e
+   "bambino non disponibile", che spengono tutto il gruppo in un colpo.
+   Niente di tutto questo si vede nel titolo sul sito. */
+const VERSIONI_PER_NOME = [
+  [/kit\s*adult[oi]/i,     "kita"],
+  [/kit\s*bambin[oi]/i,    "kitb"],
+  [/maglia\s*bambin[oi]/i, "maglia_kid"],
+  [/player/i,              "player"],
+  [/maglia/i,              "maglia"],
+];
+const TUTTE_LE_VERSIONI = {
+  maglia:     OPT_MAGLIA[0],
+  kitb:       OPT_MAGLIA[1],
+  kita:       OPT_MAGLIA[2],
+  maglia_kid: OPT_MAGLIA_KID,
+  player:     OPT_PLAYER,
+};
+const SEGNO_VERSIONE = /([+-])\s*(kit\s*adult[oi]|kit\s*bambin[oi]|maglia\s*bambin[oi]|player|maglia)/gi;
 const NON_DISP_ADULTO  = /\b(?:adult[oi]\s*(?:non\s*disponibil\w*|in\s*arrivo)|no\s*adult[oi])\b/i;
 const NON_DISP_BAMBINO = /\b(?:bambin[oi]\s*(?:non\s*disponibil\w*|in\s*arrivo)|no\s*bambin[oi])\b/i;
-const PULISCI_NON_DISP = /\b(?:(?:adult[oi]|bambin[oi])\s*(?:non\s*disponibil\w*|in\s*arrivo)|no\s*(?:adult[oi]|bambin[oi]))\b/gi;
+const PULISCI_NON_DISP = /(?:[+-]\s*(?:kit\s*adult[oi]|kit\s*bambin[oi]|maglia\s*bambin[oi]|player|maglia))|\b(?:(?:adult[oi]|bambin[oi])\s*(?:non\s*disponibil\w*|in\s*arrivo)|no\s*(?:adult[oi]|bambin[oi]))\b/gi;
 
-/* Aggiunge le versioni annunciate ma non ancora ordinabili (spente). */
+function idVersione(testo){
+  for (const [re, id] of VERSIONI_PER_NOME) if (re.test(testo)) return id;
+  return null;
+}
+
+/* Applica al listino di partenza i marcatori scritti nel nome del file. */
 function conNonDisponibili(versions, hay){
-  const spegni = (v) => ({ ...v, soldOut: true });
+  const spegni = v => ({ ...v, soldOut: true });
   let out = versions.slice();
-  const haGia = id => out.some(v => v.id === id);
+  const trova = id => out.findIndex(v => v.id === id);
 
-  if (NON_DISP_ADULTO.test(hay)){
-    out = out.map(v => v.kid ? v : spegni(v));
-    [OPT_MAGLIA[0], OPT_MAGLIA[2]].forEach(v => { if (!haGia(v.id)) out.push(spegni(v)); });
+  const accendi = (id) => {
+    const v = TUTTE_LE_VERSIONI[id]; if (!v) return;
+    const i = trova(id);
+    if (i < 0) out.push(v); else out[i] = v;
+  };
+  const spegniId = (id) => {
+    const v = TUTTE_LE_VERSIONI[id]; if (!v) return;
+    const i = trova(id);
+    if (i < 0) out.push(spegni(v)); else out[i] = spegni(out[i]);
+  };
+
+  // gruppi interi: "adulto non disponibile" / "bambino non disponibile"
+  if (NON_DISP_ADULTO.test(hay))  ["maglia", "kita"].forEach(spegniId);
+  if (NON_DISP_BAMBINO.test(hay)) ["kitb", "maglia_kid"].forEach(spegniId);
+
+  // singole versioni: "+maglia", "-kit adulto"
+  SEGNO_VERSIONE.lastIndex = 0;
+  let m;
+  while ((m = SEGNO_VERSIONE.exec(hay)) !== null){
+    const id = idVersione(m[2]);
+    if (id) (m[1] === "+" ? accendi : spegniId)(id);
   }
-  if (NON_DISP_BAMBINO.test(hay)){
-    out = out.map(v => v.kid ? spegni(v) : v);
-    if (!haGia(OPT_MAGLIA[1].id)) out.push(spegni(OPT_MAGLIA[1]));
-  }
-  // le disponibili restano davanti, cosi la scheda si apre su una ordinabile
+
+  // le ordinabili davanti, cosi la scheda si apre su una che si puo comprare
   return out.filter(v => !v.soldOut).concat(out.filter(v => v.soldOut));
 }
 
 function productProfile(item){
   const cat = (typeof activeCat !== "undefined" && activeCat) ? activeCat.name : "";
-  const hay = ((item.team||"") + " " + (item.name||"") + " " + cat).toLowerCase();
+  const hayMarcatori = ((item.team||"") + " " + (item.name||"") + " " + cat).toLowerCase();
+  // I marcatori vanno tolti prima di capire che capo è, altrimenti un
+  // "-kit adulto" verrebbe letto come "questo è un kit adulto" (05/09/26).
+  const hay = hayMarcatori.replace(PULISCI_NON_DISP, " ").replace(/\s+/g, " ");
   const soloTaglia = SENZA_PERSONALIZZAZIONE.test(item.name || "");
   const only = (arr, id) => { const f = arr.filter(o=>o.id===id); return f.length ? f : arr; };
 
@@ -1578,7 +1621,7 @@ function productProfile(item){
   else if (isAdultKit) versions = [OPT_MAGLIA[0], OPT_MAGLIA[2]];
   else if (isMaglia)   versions = [OPT_MAGLIA[0]]; // solo Maglia
   else                 versions = OPT_MAGLIA;      // kit generico → tutte e 3
-  versions = conNonDisponibili(versions, hay);
+  versions = conNonDisponibili(versions, hayMarcatori);
   return { versions, pers:!soloTaglia, kind:"jersey" };
 }
 const ADULT_SIZES = ["S","M","L","XL","XXL"];
