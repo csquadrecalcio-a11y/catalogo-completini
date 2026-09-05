@@ -1786,6 +1786,10 @@ const ETICHETTE_KIT = [
   [/\bthird\b|\bterza\b|\b3rd\b/i,    "Third"],
   [/\baway\b|\btrasferta\b/i,          "Away"],
   [/\bhome\b|\bcasa\b/i,               "Home"],
+  // maglie celebrative: sono varianti della stessa squadra, non capi a se
+  // (la Fiorentina del centenario stava fuori dal gruppo — 05/09/26)
+  [/centenari[oa]|anniversari[oa]/i,    "Centenario"],
+  [/celebrativ[ao]|special\s*edition|edizione\s*speciale|limited/i, "Speciale"],
 ];
 
 /* Alcune squadre hanno due kit dello stesso tipo (capita coi portieri).
@@ -1833,6 +1837,7 @@ function baseSquadra(nome){
     .replace(/\b(png|jpe?g|webp)\b/gi, " ")            // "… maglia adulto png.png"
     .replace(/[.]+/g, " ")                              // punti rimasti da ".png.png"
     .replace(/\b(kit|maglia|maglie|completo|player\s*version|player|pv|adulto|adulti|bambino|bambini|kids?)\b/gi, " ")
+    .replace(/\b(centenari[oa]|anniversari[oa]|celebrativ[ao]|edizione\s*speciale|special\s*edition|limited)\b/gi, " ")
     .replace(new RegExp("\\b(home|casa|away|trasferta|third|terza|3rd|fourth|quarta|gk|portiere|goalkeeper)"
                         + "(\\s+" + DISTINTIVO + ")?\\b", "gi"), " ")
     // il colore distingue le versioni, non la squadra: fuori anche se staccato
@@ -1851,7 +1856,7 @@ function raggruppaKit(items){
     gruppi.get(k).push(it);
   }
 
-  const ordine = ["Home", "Away", "Third", "Fourth", "Portiere"];
+  const ordine = ["Home", "Away", "Third", "Fourth", "Portiere", "Centenario", "Speciale"];
   const fusi = [];
   for (const gruppo of gruppi.values()){
     if (gruppo.length < 2){ fusi.push(gruppo[0]); continue; }
