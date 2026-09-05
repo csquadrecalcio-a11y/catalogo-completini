@@ -19151,7 +19151,23 @@
       "sped_310_2_3b24d150.jpg"
     ],
     "tracking_cina": "",
-    "eventi_cina": [],
+    "eventi_cina": [
+      {
+        "data": "2026-09-06 01:11:49",
+        "luogo": "Cina",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-09-05 20:11:49",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-09-05 20:06:21",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
     "eventi_corriere": []
   },
   "CSC-2026-0311": {
