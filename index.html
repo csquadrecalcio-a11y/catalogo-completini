@@ -1673,6 +1673,12 @@ function cleanName(fn){
   if (/\btut[ae]\b|felpa|giacc/i.test(s)){
     s = s.replace(/\b(solo\s+)?(bambin[oi]|kids?|ragazz[oi])\b/gi, "");
   }
+  // Sui completi estivi la parola serve solo a scegliere la versione
+  // ("Completo Estivo Roma solo con t-shirt" → "Completo Estivo Roma"):
+  // la versione il cliente la vede gia nelle pillole (05/09/26).
+  if (/\bestiv/i.test(s)){
+    s = s.replace(/\b(solo\s+)?(con\s+)?(canotta|t[\s._-]?shirt|polo|jordan)\b/gi, "");
+  }
   s = s.replace(/(\d{2})[_-](\d{2})/g,"$1/$2");
   s = s.replace(/[_]+/g," ").replace(/\s+/g," ").trim();
   return s.split(" ").map(w => w.length<=3 && !/\d/.test(w) && w.length<3
