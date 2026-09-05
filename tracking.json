@@ -623,6 +623,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-05 11:45",
+        "luogo": "dalla sede operativa di LIVORNO (LI)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
         "data": "2026-09-05 10:44",
         "luogo": "LIVORNO (LI)",
         "stato": "La spedizione è in consegna"
