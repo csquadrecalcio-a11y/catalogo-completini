@@ -1521,6 +1521,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-05 20:02:25",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
         "data": "2026-09-04 12:01:57",
         "luogo": "",
         "stato": "Data di arrivo stimata: 6 settembre"
