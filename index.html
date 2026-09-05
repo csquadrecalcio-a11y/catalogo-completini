@@ -1791,16 +1791,28 @@ const ETICHETTE_KIT = [
 /* Alcune squadre hanno due kit dello stesso tipo (capita coi portieri).
    Si distinguono aggiungendo UNA parola dopo l'etichetta — un colore o un
    numero — che finisce sul bottone: "portiere verde" → "Portiere verde". */
+// I colori del fornitore arrivano spesso in inglese ("Portiere 26/27 Green"):
+// senza questi il capo non entrava nel gruppo della squadra (05/09/26).
 const DISTINTIVO = "(verde|giallo|gialla|rosso|rossa|nero|nera|blu|azzurro|bianco|bianca|"
                  + "arancione|viola|rosa|grigio|grigia|celeste|oro|argento|"
+                 + "green|red|blue|black|white|yellow|orange|purple|pink|grey|gray|gold|silver|"
                  + "home|casa|away|trasferta|ospiti|third|terza|riserva|alternativo|[2-4])";
 
-/* "kit inter home 26-27" → Home ; "kit milan portiere verde" → Portiere verde */
+/* I colori da soli: servono a distinguere due kit dello stesso tipo
+   ("Portiere 26/27 Green" e "Portiere 26/27" sono due portieri diversi). */
+const COLORE_KIT = /\b(verde|giallo|gialla|rosso|rossa|nero|nera|blu|azzurro|bianco|bianca|arancione|viola|rosa|grigio|grigia|celeste|oro|argento|green|red|blue|black|white|yellow|orange|purple|pink|grey|gray|gold|silver)\b/i;
+
+/* "kit inter home 26-27" → Home ; "kit milan portiere verde" → Portiere verde
+   Il colore vale anche staccato: "Kit Bayern Portiere 26/27 Green" → Portiere green */
 function etichettaKit(nome){
+  const testo = String(nome).replace(/\.(jpe?g|png|webp)$/i, "");
   for (const [re, et] of ETICHETTE_KIT){
-    const m = String(nome).match(new RegExp("(?:" + re.source + ")\\s+" + DISTINTIVO + "\\b", "i"));
+    const m = testo.match(new RegExp("(?:" + re.source + ")\\s+" + DISTINTIVO + "\\b", "i"));
     if (m) return et + " " + m[1].toLowerCase();
-    if (re.test(nome)) return et;
+    if (re.test(testo)){
+      const c = testo.match(COLORE_KIT);
+      return c ? et + " " + c[1].toLowerCase() : et;
+    }
   }
   return "";
 }
@@ -1819,6 +1831,8 @@ function baseSquadra(nome){
     .replace(/\b(kit|maglia|maglie|completo|player\s*version|player|pv|adulto|adulti|bambino|bambini|kids?)\b/gi, " ")
     .replace(new RegExp("\\b(home|casa|away|trasferta|third|terza|3rd|fourth|quarta|gk|portiere|goalkeeper)"
                         + "(\\s+" + DISTINTIVO + ")?\\b", "gi"), " ")
+    // il colore distingue le versioni, non la squadra: fuori anche se staccato
+    .replace(new RegExp(COLORE_KIT.source, "gi"), " ")
     .replace(/[\s_-]+/g, " ").trim().toLowerCase();
 }
 
