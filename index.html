@@ -1543,7 +1543,7 @@ const TUTTE_LE_VERSIONI = {
 };
 // Dal titolo sparisce il marcatore, quello che lo segue e le parole di
 // versione che lo precedono ("… kit bambino kit non disponibile" → "… kit bambino")
-const PULISCI_NON_DISP = /(?:\b(?:kit\s*adult[oi]|kit\s*bambin[oi]|kit\s*kids?|magli[ae]\s*bambin[oi]|magli[ae]\s*kids?|kit|magli[ae]|bambin[oi]|adult[oi]|kids?|player|pv)\b[\s_.-]*)?\b(?:presto|in\s*arrivo|non\s*disponibil\w*|esaurit[oi])\b[\s\S]*$/i;
+const PULISCI_NON_DISP = /(?:\b(?:kit\s*adult[oi]|kit\s*bambin[oi]|kit\s*kids?|magli[ae]\s*bambin[oi]|magli[ae]\s*kids?|kit|magli[ae]|bambin[oi]|adult[oi]|kids?|player|pv|ed?)\b[\s_.,+&\/-]*){0,5}\b(?:presto|in\s*arrivo|non\s*disponibil\w*|esaurit[oi])\b[\s\S]*$/i;
 
 /* La versione nominata subito PRIMA del marcatore: "kit non disponibile",
    "maglia bambino esaurita". Guardo le ultime due parole, non di piu, cosi
