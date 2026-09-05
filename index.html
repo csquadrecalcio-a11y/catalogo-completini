@@ -550,6 +550,9 @@ gtag('config', 'G-SYPQZL1L7W');
   .pill:hover{border-color:rgba(var(--fg-rgb),.3)}
   .pill.on{background:rgba(37,99,235,.12);border-color:var(--volt);color:var(--volt)}
   .pill.on small{color:rgba(37,99,235,.7)}
+  /* versione annunciata ma non ancora ordinabile: si vede, non si clicca */
+  .pill-off{opacity:.45;cursor:not-allowed;text-decoration:line-through}
+  .pill-off small{text-decoration:none;font-style:italic}
   .patch-pills .pill{display:inline-flex;align-items:center;gap:8px}
   .patch-pills .pill img{height:22px;width:auto;max-width:36px;object-fit:contain;display:block}
   .inputs-row{display:grid;grid-template-columns:1.6fr 1fr;gap:12px}
@@ -1492,6 +1495,33 @@ const OPT_SCARPE = [{id:"scarpe", label:"Scarpe", price:90, kid:false, shoe:true
    "solo taglia" nel nome del file su Drive — la scritta non si vede sul sito. */
 const SENZA_PERSONALIZZAZIONE = /\b(solo\s*taglia|nopers|no\s*pers)\b/i;
 
+/* Una versione puo essere gia annunciata ma non ancora arrivata: si scrive
+   "adulto non disponibile" (o "bambino non disponibile") nel nome del file su
+   Drive. La versione compare nella scheda, spenta e non ordinabile, cosi il
+   cliente sa che sta per arrivare senza dover ricaricare le foto (05/09/26).
+   Va bene anche la forma corta "no adulto" / "no bambino". */
+const NON_DISP_ADULTO  = /\b(?:adult[oi]\s*(?:non\s*disponibil\w*|in\s*arrivo)|no\s*adult[oi])\b/i;
+const NON_DISP_BAMBINO = /\b(?:bambin[oi]\s*(?:non\s*disponibil\w*|in\s*arrivo)|no\s*bambin[oi])\b/i;
+const PULISCI_NON_DISP = /\b(?:(?:adult[oi]|bambin[oi])\s*(?:non\s*disponibil\w*|in\s*arrivo)|no\s*(?:adult[oi]|bambin[oi]))\b/gi;
+
+/* Aggiunge le versioni annunciate ma non ancora ordinabili (spente). */
+function conNonDisponibili(versions, hay){
+  const spegni = (v) => ({ ...v, soldOut: true });
+  let out = versions.slice();
+  const haGia = id => out.some(v => v.id === id);
+
+  if (NON_DISP_ADULTO.test(hay)){
+    out = out.map(v => v.kid ? v : spegni(v));
+    [OPT_MAGLIA[0], OPT_MAGLIA[2]].forEach(v => { if (!haGia(v.id)) out.push(spegni(v)); });
+  }
+  if (NON_DISP_BAMBINO.test(hay)){
+    out = out.map(v => v.kid ? spegni(v) : v);
+    if (!haGia(OPT_MAGLIA[1].id)) out.push(spegni(OPT_MAGLIA[1]));
+  }
+  // le disponibili restano davanti, cosi la scheda si apre su una ordinabile
+  return out.filter(v => !v.soldOut).concat(out.filter(v => v.soldOut));
+}
+
 function productProfile(item){
   const cat = (typeof activeCat !== "undefined" && activeCat) ? activeCat.name : "";
   const hay = ((item.team||"") + " " + (item.name||"") + " " + cat).toLowerCase();
@@ -1544,6 +1574,7 @@ function productProfile(item){
   else if (isAdultKit) versions = [OPT_MAGLIA[0], OPT_MAGLIA[2]];
   else if (isMaglia)   versions = [OPT_MAGLIA[0]]; // solo Maglia
   else                 versions = OPT_MAGLIA;      // kit generico → tutte e 3
+  versions = conNonDisponibili(versions, hay);
   return { versions, pers:!soloTaglia, kind:"jersey" };
 }
 const ADULT_SIZES = ["S","M","L","XL","XXL"];
@@ -1553,6 +1584,7 @@ const SHOE_SIZES  = ["39","40","41","42","43","44","45"];
 function cleanName(fn){
   let s = fn.replace(/\.(jpe?g|png|webp)$/i,"");
   s = s.replace(/\b(solo\s*taglia|nopers|no\s*pers)\b/gi, "");   // marcatore interno
+  s = s.replace(PULISCI_NON_DISP, "");                             // "adulto non disponibile"
   // Sulle tute "bambino" nel nome serve solo a far comparire la taglia
   // ragazzino tra le versioni: nel titolo confondeva ("Tuta Roma Bambino"
   // sembrava una tuta solo da bambino). Sulle maglie invece resta, perche
@@ -1875,7 +1907,8 @@ function renderSearchResults(items){
     const savedCat = activeCat;
     activeCat = it._cat; // serve a productProfile per calcolare prezzi/tipo corretti
     const prof = productProfile(it);
-    const minPrice = Math.min(...prof.versions.map(v=>v.price));
+    const ordinabili = prof.versions.filter(v=>!v.soldOut);
+    const minPrice = Math.min(...(ordinabili.length ? ordinabili : prof.versions).map(v=>v.price));
     activeCat = savedCat;
     return { it, prof, minPrice };
   });
@@ -1898,7 +1931,7 @@ function renderSearchResults(items){
       <h3>${cleanName(it.name)}</h3>
       <div class="team">${it._cat.flag} ${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
       <div class="card-foot">
-        <div class="price">${prof.versions.length>1?"da ":""}${minPrice}€<small>spedizione inclusa</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>spedizione inclusa</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -1982,7 +2015,8 @@ function renderGrid(){
 
   let priced = items.map(it=>{
     const prof = productProfile(it);
-    const minPrice = Math.min(...prof.versions.map(v=>v.price));
+    const ordinabili = prof.versions.filter(v=>!v.soldOut);
+    const minPrice = Math.min(...(ordinabili.length ? ordinabili : prof.versions).map(v=>v.price));
     return { it, prof, minPrice };
   });
   priced = applyPriceSort(priced);
@@ -2016,7 +2050,7 @@ function renderGrid(){
            <span>${k.etichetta}</span>
          </button>`).join("")}</div>` : ""}
       <div class="card-foot">
-        <div class="price">${prof.versions.length>1?"da ":""}${minPrice}€<small>spedizione inclusa</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>spedizione inclusa</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>openProduct(it);
@@ -2370,9 +2404,10 @@ function scegliKit(v){
   if (v === S.kit) return;
   S.kit = v;
   S.type = profiloKit(v);
-  S.item = v.daScatto[S.type.versions[0].id] || v.scatti[0];
-  S.version = S.type.versions[0].id;
-  S.size = S.type.versions[0].shoe ? "42" : (S.type.versions[0].kid ? "24" : "M");
+  const primaOk = S.type.versions.find(x=>!x.soldOut) || S.type.versions[0];
+  S.item = v.daScatto[primaOk.id] || v.scatti[0];
+  S.version = primaOk.id;
+  S.size = primaOk.shoe ? "42" : (primaOk.kid ? "24" : "M");
   S.patch = "Nessuna"; S.patchLibera = ""; patchLiberaInp.value = "";
   document.getElementById("sheetTeam").textContent = cleanName(S.item.name);
   document.getElementById("sheetPhoto").src = fullUrl(S.item.id);
@@ -2407,8 +2442,9 @@ function openProduct(item){
   S.kit = S.gruppo ? S.gruppo[0] : null;
   S.item = S.kit ? S.kit.scatti[0] : item;
   S.type = S.kit ? profiloKit(S.kit) : productProfile(S.item);
-  S.version = S.type.versions[0].id;
-  S.size = S.type.versions[0].shoe ? "42" : (S.type.versions[0].kid ? "24" : "M");
+  const primaOk = S.type.versions.find(x=>!x.soldOut) || S.type.versions[0];
+  S.version = primaOk.id;
+  S.size = primaOk.shoe ? "42" : (primaOk.kid ? "24" : "M");
   S.patch = "Nessuna"; S.patchLibera = ""; S.qty = 1;
   pName.value = ""; pNum.value = ""; patchLiberaInp.value = "";
   buildPatch();
@@ -2470,6 +2506,13 @@ function buildVersionPills(){
   el.innerHTML = "";
   S.type.versions.forEach(v=>{
     const b = document.createElement("button");
+    if (v.soldOut){
+      b.className = "pill pill-off";
+      b.disabled = true;
+      b.innerHTML = `${v.label}<small>presto disponibile</small>`;
+      el.appendChild(b);
+      return;
+    }
     b.className = "pill" + (S.version===v.id ? " on" : "");
     b.innerHTML = `${v.label}<small>${v.price}€</small>`;
     b.onclick = ()=>{
