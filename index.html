@@ -2701,11 +2701,26 @@ function sizePill(sz, label){
   b.onclick = ()=>{ S.size = sz; buildSizePills(); };
   return b;
 }
+/* Chi scrive "bambini non disponibili" non vuole nemmeno le taglie da
+   bambino sulla maglia singola: sarebbe una taglia ordinabile per un capo
+   che non c'e (05/09/26). */
+function bambinoNonDisponibile(nome){
+  const testo = String(nome || "").toLowerCase();
+  const taglio = testo.search(PAROLA_PRESTO);
+  if (taglio < 0) return false;
+  const dopo = versioniNominate(testo.slice(taglio), VERSIONI_MARCATORE);
+  const ids = dopo.length
+    ? dopo
+    : versioniNominate(versioniPrimaDelMarcatore(testo.slice(0, taglio)), VERSIONI_MARCATORE);
+  return ids.includes("kitb") || ids.includes("maglia_kid");
+}
+
 function buildSizePills(){
   const el = document.getElementById("sizePills");
   const v = S.type.versions.find(x=>x.id===S.version);
   el.innerHTML = "";
-  const isAdultOnly = /\badult[oi]\b/.test((S.item&&S.item.name||"").toLowerCase());
+  const nomeItem = (S.item && S.item.name || "").toLowerCase();
+  const isAdultOnly = /\badult[oi]\b/.test(nomeItem) || bambinoNonDisponibile(nomeItem);
   if (v.bothSizes && !isAdultOnly){
     // "Maglia"/"Player Version": taglie adulto e bambino insieme, come sul sito
     const gA = document.createElement("div"); gA.className = "size-group-lbl"; gA.textContent = "Adulto";
