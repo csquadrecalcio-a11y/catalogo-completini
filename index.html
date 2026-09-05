@@ -1509,7 +1509,21 @@ const SENZA_PERSONALIZZAZIONE = /\b(solo\s*taglia|nopers|no\s*pers)\b/i;
    scritto "presto disponibile", e non si puo ordinare. Quando arriva basta
    togliere la parola "presto" dal nome del file.
    Niente di tutto questo si vede nel titolo sul sito. */
-const PAROLA_PRESTO = /\b(?:presto|in\s*arrivo|non\s*disponibil\w*)\b/i;
+const PAROLA_PRESTO = /\b(?:presto|in\s*arrivo|non\s*disponibil\w*|esaurit[oi])\b/i;
+// Le parole di versione che possono stare attaccate al marcatore ("kit non
+// disponibile"): li "kit" da solo vuol dire kit adulto.
+const PAROLE_VERSIONE = /\b(?:kit\s*adult[oi]|kit\s*bambin[oi]|magli[ae]\s*bambin[oi]|kit|magli[ae]|bambin[oi]|adult[oi]|kids?|player)\b/i;
+// Nel pezzo attaccato al marcatore "kit" da solo vale come kit adulto:
+// fuori di lì no, perché quasi tutti i file cominciano con "Kit <squadra>".
+const VERSIONI_MARCATORE = [
+  [/kit\s*adult[oi]/gi,     "kita"],
+  [/kit\s*bambin[oi]|kit\s*kids?/gi, "kitb"],
+  [/magli[ae]\s*bambin[oi]|magli[ae]\s*kids?/gi, "maglia_kid"],
+  [/player|\bpv\b/gi,       "player"],
+  [/\bbambin[oi]\b|\bkids?\b/gi, "kitb"],
+  [/\bkit\b|\badult[oi]\b/gi, "kita"],
+  [/magli[ae]/gi,            "maglia"],
+];
 const VERSIONI_PER_NOME = [
   [/kit\s*adult[oi]/gi,     "kita"],
   [/kit\s*bambin[oi]|kit\s*kids?/gi, "kitb"],
@@ -1526,13 +1540,30 @@ const TUTTE_LE_VERSIONI = {
   maglia_kid: OPT_MAGLIA_KID,
   player:     OPT_PLAYER,
 };
-const PULISCI_NON_DISP = /\b(?:presto|in\s*arrivo|non\s*disponibil\w*)\b[\s\S]*$/i;
+// Dal titolo sparisce il marcatore, quello che lo segue e le parole di
+// versione che lo precedono ("… kit bambino kit non disponibile" → "… kit bambino")
+const PULISCI_NON_DISP = /(?:\b(?:kit\s*adult[oi]|kit\s*bambin[oi]|magli[ae]\s*bambin[oi]|kit|magli[ae]|bambin[oi]|adult[oi]|kids?|player)\b[\s_.-]*){0,3}\b(?:presto|in\s*arrivo|non\s*disponibil\w*|esaurit[oi])\b[\s\S]*$/i;
 
-/* Quali versioni nomina questo pezzo di testo (in ordine, senza doppioni). */
-function versioniNominate(testo){
+/* La versione nominata subito PRIMA del marcatore: "kit non disponibile",
+   "maglia bambino esaurita". Guardo le ultime due parole, non di piu, cosi
+   non risalgo fino al nome della squadra. */
+const COPPIE_VERSIONE = /^(?:kit\s*adult[oi]|kit\s*bambin[oi]|kit\s*kids?|magli[ae]\s*bambin[oi]|magli[ae]\s*kids?)$/i;
+const PAROLA_SINGOLA  = /^(?:kit|magli[ae]|bambin[oi]|adult[oi]|kids?|player|pv)$/i;
+
+function versioniPrimaDelMarcatore(testo){
+  const parole = testo.trim().split(/[\s_.-]+/).filter(Boolean);
+  if (parole.length >= 2){
+    const coppia = parole.slice(-2).join(" ");
+    if (COPPIE_VERSIONE.test(coppia)) return coppia;
+  }
+  const ultima = parole[parole.length - 1] || "";
+  return PAROLA_SINGOLA.test(ultima) ? ultima : "";
+}
+
+function versioniNominate(testo, tabella){
   let resto = " " + (testo || "").toLowerCase() + " ";
   const trovate = [];
-  for (const [re, id] of VERSIONI_PER_NOME){
+  for (const [re, id] of (tabella || VERSIONI_PER_NOME)){
     re.lastIndex = 0;
     if (re.test(resto)){
       if (!trovate.includes(id)) trovate.push(id);
@@ -1590,9 +1621,16 @@ function productProfile(item){
   const parteDisponibile = taglio < 0 ? hayMarcatori : hayMarcatori.slice(0, taglio);
   const parteInArrivo    = taglio < 0 ? ""           : hayMarcatori.slice(taglio);
 
-  const idInArrivo    = versioniNominate(parteInArrivo);
+  // senza marcatore non c'è niente "in arrivo": il nome parla solo di cosa c'è
+  // Se dopo il marcatore c'è già scritto cosa manca ("presto kit adulto"),
+  // vale quello. Altrimenti si guarda la parola prima ("kit non disponibile").
+  const idDopo     = taglio < 0 ? [] : versioniNominate(parteInArrivo, VERSIONI_MARCATORE);
+  const codaPrima  = (taglio < 0 || idDopo.length) ? "" : versioniPrimaDelMarcatore(parteDisponibile);
+  const idInArrivo = idDopo.length ? idDopo
+                     : versioniNominate(codaPrima, VERSIONI_MARCATORE);
   // se una versione è annunciata come "presto", non è disponibile: vince il presto
-  const idDisponibili = versioniNominate(parteDisponibile).filter(id => !idInArrivo.includes(id));
+  const idDisponibili = versioniNominate(parteDisponibile.slice(0, parteDisponibile.length - codaPrima.length))
+                          .filter(id => !idInArrivo.includes(id));
 
   let versions;
   if (idDisponibili.includes("player")){
