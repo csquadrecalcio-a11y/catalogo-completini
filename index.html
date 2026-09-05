@@ -1799,6 +1799,9 @@ function etichettaKit(nome){
 function baseSquadra(nome){
   return String(nome)
     .replace(/\.(jpe?g|png|webp)$/i, "")
+    // "presto"/"non disponibile" e la versione che li precede non fanno parte
+    // del nome: senza toglierli il capo non si univa agli altri kit (05/09/26)
+    .replace(PULISCI_NON_DISP, " ")
     .replace(/(\d{2})\s*[\/.:]\s*(\d{2})/g, "$1-$2")   // 26/27 = 26.27 = 26-27
     .replace(/\b(png|jpe?g|webp)\b/gi, " ")            // "… maglia adulto png.png"
     .replace(/[.]+/g, " ")                              // punti rimasti da ".png.png"
