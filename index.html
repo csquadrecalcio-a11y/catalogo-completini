@@ -2156,7 +2156,7 @@ function renderGrid(){
       <span class="avail">Disponibile</span>
       <h3>${kits.length > 1 ? cleanName(it.team || it.name) : cleanName(it.name)}</h3>
       <div class="team">${it.team ? cleanName(it.team) : activeCat.name}${
-        kits.length > 1 ? ` <span class="nkit">${kits.length} kit</span>` : ""}</div>
+        kits.length > 1 ? ` <span class="nkit">${kits.length} ${gruppoConKit(kits) ? "kit" : "maglie"}</span>` : ""}</div>
       ${kits.length > 1 ? `<div class="kit-strip">${kits.map((k,n) =>
         `<button class="kit-mini" data-k="${n}" title="${k.etichetta}">
            <img src="${thumbUrl(k.scatti[0].id)}" alt="${k.etichetta}" loading="lazy">
@@ -2494,6 +2494,12 @@ function profiloKit(kit){
   return { versions, pers, kind: "jersey" };
 }
 
+/* Il gruppo si chiama "Kit" solo se dentro c'e davvero un kit: se sono
+   soltanto maglie (Cagliari, Como...) la riga si chiama "Maglia" (05/09/26). */
+function gruppoConKit(gruppo){
+  return (gruppo || []).some(v => profiloKit(v).versions.some(x => x.id === "kitb" || x.id === "kita"));
+}
+
 function buildKitPills(){
   const lbl = document.getElementById("kitLabel");
   const box = document.getElementById("kitPills");
@@ -2502,6 +2508,7 @@ function buildKitPills(){
     box.innerHTML = "";
     return;
   }
+  lbl.textContent = gruppoConKit(S.gruppo) ? "Kit" : "Maglia";
   lbl.style.display = ""; box.style.display = "";
   box.innerHTML = "";
   S.gruppo.forEach(v => {
