@@ -1694,6 +1694,15 @@ async function drive(q, fields, orderBy){
   return (await r.json()).files || [];
 }
 const IMG_Q = "(mimeType='image/jpeg' or mimeType='image/png' or mimeType='image/webp') and trashed=false";
+
+/* Il nome vero di una cartella su Drive (le categorie qui hanno il nome
+   scritto nel sito, ma il "+kit" va letto da Drive). */
+async function nomeCartella(id){
+  try{
+    const r = await fetch(`https://www.googleapis.com/drive/v3/files/${id}?fields=name&key=${API_KEY}`);
+    return r.ok ? ((await r.json()).name || "") : "";
+  }catch(e){ return ""; }
+}
 const cache = {};
 
 /* alcune cartelle (es. "Scarpe") hanno un livello in più:
@@ -1708,8 +1717,9 @@ const MARCA_KIT = /\s*\+\s*kit\s*$/i;
 const vuoleKit  = nome => MARCA_KIT.test(String(nome || ""));
 const nomeSquadra = nome => String(nome || "").replace(MARCA_KIT, "").trim();
 
-async function loadTeamPhotos(team){
-  const raggruppa = vuoleKit(team.name);
+async function loadTeamPhotos(team, tuttaLaCategoria){
+  // "+kit" sulla cartella della lega vale per tutte le squadre che contiene
+  const raggruppa = tuttaLaCategoria || vuoleKit(team.name);
   const nome = nomeSquadra(team.name);
   const direct = await drive(`'${team.id}' in parents and ${IMG_Q}`,"files(id,name)","name").catch(()=>[]);
   if (direct.length) return direct.map(f=>({id:f.id, name:f.name, team:nome, raggruppa}));
@@ -1842,7 +1852,9 @@ async function loadCategory(cat){
     teams = await drive(`'${cat.id}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`,"files(id,name)","name");
     // l'API con sola chiave consente una cartella per query: una chiamata
     // per squadra, in parallelo (stesso schema del sito attuale)
-    const perTeam = await Promise.all(teams.map(loadTeamPhotos));
+    // se la cartella della lega finisce con "+kit", si raggruppano tutte le squadre
+    const kitDiCategoria = vuoleKit(await nomeCartella(cat.id));
+    const perTeam = await Promise.all(teams.map(t => loadTeamPhotos(t, kitDiCategoria)));
     items = perTeam.flat();
     // i chip di filtro devono riflettere i nomi "squadra" usati davvero negli item
     // (es. Nike/Adidas invece di "Scarpe da calcio" se si è scesi di un livello)
