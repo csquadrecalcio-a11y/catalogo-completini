@@ -19475,7 +19475,18 @@
       "sped_317_2_b9c32aa8.jpg"
     ],
     "tracking_cina": "",
-    "eventi_cina": [],
+    "eventi_cina": [
+      {
+        "data": "2026-09-07 23:43:11",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-09-07 22:44:15",
+        "luogo": "Guangzhou, Cina",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
     "eventi_corriere": []
   },
   "CSC-2026-0318": {
