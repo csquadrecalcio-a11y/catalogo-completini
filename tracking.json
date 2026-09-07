@@ -19275,11 +19275,11 @@
     "eventi_corriere": []
   },
   "CSC-2026-0317": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-09-07",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73552176",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -19288,7 +19288,10 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": [],
+    "foto": [
+      "sped_317_1_634f7f1e.jpg",
+      "sped_317_2_b9c32aa8.jpg"
+    ],
     "tracking_cina": "",
     "eventi_cina": [],
     "eventi_corriere": []
