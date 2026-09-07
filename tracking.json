@@ -1396,6 +1396,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-05 23:07:02",
+        "luogo": "FCO",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
         "data": "2026-09-04 22:57:23",
         "luogo": "",
         "stato": "Il volo è decollato"
@@ -1444,6 +1449,11 @@
         "data": "2026-08-31 03:04:01",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
+      },
+      {
+        "data": "2026-08-30 21:04:01",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
     "eventi_corriere": []
