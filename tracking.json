@@ -19300,6 +19300,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-07 15:28:04",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:09.08)"
+      },
+      {
         "data": "2026-09-06 01:11:49",
         "luogo": "Cina",
         "stato": "Uscito dal magazzino, in attesa del volo"
