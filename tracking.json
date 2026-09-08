@@ -1809,6 +1809,16 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-08 10:32:58",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-09-07 12:00:25",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
         "data": "2026-09-04 22:58:15",
         "luogo": "Cina",
         "stato": "Uscito dal magazzino, in attesa del volo"
