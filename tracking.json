@@ -1978,12 +1978,17 @@
       {
         "data": "2026-08-31 03:06:00",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-08-31 03:06:00",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
+      },
+      {
+        "data": "2026-08-30 21:06:01",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
     "eventi_corriere": []
