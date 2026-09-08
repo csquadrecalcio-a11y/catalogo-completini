@@ -2115,6 +2115,11 @@
         "data": "2026-09-01 01:28:37",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
+      },
+      {
+        "data": "2026-08-31 19:28:38",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
     "eventi_corriere": []
