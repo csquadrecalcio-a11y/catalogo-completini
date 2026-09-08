@@ -1438,6 +1438,11 @@
         "data": "2026-08-31 03:04:37",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
+      },
+      {
+        "data": "2026-08-30 21:04:38",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
     "eventi_corriere": [
