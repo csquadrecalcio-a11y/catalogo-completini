@@ -19345,6 +19345,11 @@
         "data": "2026-09-03 02:37:51",
         "luogo": "",
         "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-09-02 20:37:52",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
     "eventi_corriere": []
