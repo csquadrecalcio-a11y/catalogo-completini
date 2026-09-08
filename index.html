@@ -220,6 +220,22 @@ gtag('config', 'G-SYPQZL1L7W');
   .stat b i{color:var(--volt);font-style:normal}
   .stat span{font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
 
+  /* ---------- fascia squadre: l'immagine si vede INTERA, mai ritagliata.
+       Il tetto di 1206px e la larghezza vera del file: oltre quella si
+       ingrandirebbe e diventerebbe sgranata (08/09/26). ---------- */
+  .fascia-squadre{background:var(--bg);padding:0 0 8px}
+  .fascia-squadre .cornice{
+    max-width:1206px;margin:0 auto;padding:0 18px;
+  }
+  .fascia-squadre img{
+    display:block;width:100%;height:auto;border-radius:16px;
+    box-shadow:0 18px 50px rgba(0,0,0,.45);
+  }
+  @media(max-width:760px){
+    .fascia-squadre .cornice{padding:0 12px}
+    .fascia-squadre img{border-radius:12px}
+  }
+
   /* ---------- vetrina hero: una foto sola, elegante, che cambia da sola ---------- */
   .hero-stack{position:relative;height:480px;display:flex;align-items:center;justify-content:center}
   .showcase{
@@ -851,6 +867,14 @@ gtag('config', 'G-SYPQZL1L7W');
     </div>
   </div>
 </section>
+
+<!-- ============ FASCIA SQUADRE ============ -->
+<div class="fascia-squadre">
+  <div class="cornice">
+    <img src="champions-europa.jpg" width="1206" height="741" loading="lazy" decoding="async"
+         alt="I campioni delle migliori squadre europee con le maglie della stagione">
+  </div>
+</div>
 
 <!-- ============ MARQUEE ============ -->
 <div class="marquee"><div class="marquee-track" id="marquee"></div></div>
