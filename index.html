@@ -187,10 +187,14 @@ gtag('config', 'G-SYPQZL1L7W');
   .btn-volt{background:var(--volt);color:#ffffff;box-shadow:0 8px 28px rgba(37,99,235,.2)}
 
   /* ---------- hero ---------- */
-  .hero{position:relative;padding:90px 0 80px;overflow:hidden;background:var(--bg);min-height:100svh}
+  /* La copertina si adatta alla foto invece di ritagliarla: l'altezza segue
+     le proporzioni dell'immagine (1206x741), cosi si vede per intero su ogni
+     schermo. Il testo ci sta sopra, leggibile grazie alla sfumatura (08/09/26). */
+  .hero{position:relative;padding:90px 0 80px;overflow:hidden;background:var(--bg);
+        min-height:min(84svh, 62vw)}
   .pitch{
     position:absolute;inset:0;pointer-events:none;
-    background-image:url('hero-bg.jpg');
+    background-image:url('champions-europa.jpg');
     background-size:cover;background-position:center center;
   }
   .pitch::after{
@@ -219,22 +223,6 @@ gtag('config', 'G-SYPQZL1L7W');
   .stat b{font-family:'Archivo Black';font-size:30px;display:block}
   .stat b i{color:var(--volt);font-style:normal}
   .stat span{font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
-
-  /* ---------- fascia squadre: l'immagine si vede INTERA, mai ritagliata.
-       Il tetto di 1206px e la larghezza vera del file: oltre quella si
-       ingrandirebbe e diventerebbe sgranata (08/09/26). ---------- */
-  .fascia-squadre{background:var(--bg);padding:0 0 8px}
-  .fascia-squadre .cornice{
-    max-width:1206px;margin:0 auto;padding:0 18px;
-  }
-  .fascia-squadre img{
-    display:block;width:100%;height:auto;border-radius:16px;
-    box-shadow:0 18px 50px rgba(0,0,0,.45);
-  }
-  @media(max-width:760px){
-    .fascia-squadre .cornice{padding:0 12px}
-    .fascia-squadre img{border-radius:12px}
-  }
 
   /* ---------- vetrina hero: una foto sola, elegante, che cambia da sola ---------- */
   .hero-stack{position:relative;height:480px;display:flex;align-items:center;justify-content:center}
@@ -767,6 +755,13 @@ gtag('config', 'G-SYPQZL1L7W');
     .header-search{max-width:none;margin:0 16px}
   }
   @media (max-width:1000px){
+    /* Telefono: la foto sta larga quanto lo schermo e si vede tutta, il testo
+       scende sotto invece di coprirla. */
+    .hero{min-height:0;padding:0 0 54px;background:#0b0f17}
+    .pitch{position:relative;inset:auto;width:100%;aspect-ratio:1206/741;
+           background-size:contain;background-repeat:no-repeat;background-position:top center}
+    .pitch::after{background:linear-gradient(to bottom,rgba(0,0,0,0) 55%,rgba(11,15,23,.9) 100%)}
+    .hero .container{padding-top:26px}
     .hero-grid{grid-template-columns:1fr}
     .hero-stack{order:-1;height:340px}
     .showcase{width:min(300px,80%)}
@@ -867,14 +862,6 @@ gtag('config', 'G-SYPQZL1L7W');
     </div>
   </div>
 </section>
-
-<!-- ============ FASCIA SQUADRE ============ -->
-<div class="fascia-squadre">
-  <div class="cornice">
-    <img src="champions-europa.jpg" width="1206" height="741" loading="lazy" decoding="async"
-         alt="I campioni delle migliori squadre europee con le maglie della stagione">
-  </div>
-</div>
 
 <!-- ============ MARQUEE ============ -->
 <div class="marquee"><div class="marquee-track" id="marquee"></div></div>
