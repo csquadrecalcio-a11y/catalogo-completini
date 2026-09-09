@@ -1349,12 +1349,12 @@
       {
         "data": "2026-09-03 11:57:04",
         "luogo": "",
-        "stato": "Data di arrivo stimata: 5 settembre"
+        "stato": "Arrivo in Italia previsto: 5 settembre"
       },
       {
         "data": "2026-09-02 11:37:48",
         "luogo": "Cina",
-        "stato": "Partenza prevista il 4 settembre"
+        "stato": "Partenza del volo prevista il 4 settembre"
       },
       {
         "data": "2026-09-01 13:29:32",
@@ -1398,6 +1398,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-09 13:10",
+        "luogo": "FIUMICINO (RM)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-09 09:41",
         "luogo": "FIUMICINO (RM)",
