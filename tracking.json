@@ -2219,6 +2219,11 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-09 06:59:32",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
         "data": "2026-09-08 10:32:58",
         "luogo": "",
         "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
