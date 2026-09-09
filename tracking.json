@@ -1514,7 +1514,7 @@
     ]
   },
   "CSC-2026-0274": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-08-31",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -1532,6 +1532,31 @@
     ],
     "tracking_cina": "",
     "eventi_cina": [
+      {
+        "data": "2026-09-08 18:14:00",
+        "luogo": "Fiano romano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-08 15:49:24",
+        "luogo": "Centro Operativo Postale",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-08 15:49:00",
+        "luogo": "Fiano romano",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-09-08 04:44:38",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
+      },
+      {
+        "data": "2026-09-08 00:44:15",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
       {
         "data": "2026-09-07 21:29:40",
         "luogo": "FCO",
@@ -1610,8 +1635,13 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-08 09:49",
-        "luogo": "Centro Operativo Postale",
+        "data": "2026-09-09 11:44",
+        "luogo": "SALERNO (SA)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-09-09 06:40",
+        "luogo": "SALERNO (SA)",
         "stato": "La spedizione è in transito"
       }
     ]
