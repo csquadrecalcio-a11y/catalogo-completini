@@ -1268,7 +1268,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0271": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-08-31",
     "data_consegna": "",
     "corriere": "Poste Italiane",
