@@ -19512,6 +19512,16 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-09 07:39:36",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-09-08 16:39:05",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-09-07 23:34:49",
         "luogo": "FCO",
         "stato": "Arrivato all'aeroporto di destinazione"
@@ -19524,12 +19534,12 @@
       {
         "data": "2026-09-05 14:10:17",
         "luogo": "",
-        "stato": "Arrivo in Italia previsto: 7 settembre"
+        "stato": "Data di arrivo stimata: 7 settembre"
       },
       {
         "data": "2026-09-04 12:12:55",
         "luogo": "Cina",
-        "stato": "Partenza del volo prevista il 6 settembre"
+        "stato": "Partenza prevista il 6 settembre"
       },
       {
         "data": "2026-09-03 14:02:33",
