@@ -1685,6 +1685,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-09 15:02",
+        "luogo": "dalla sede operativa di SALERNO (SA)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
         "data": "2026-09-09 11:44",
         "luogo": "SALERNO (SA)",
         "stato": "La spedizione è in consegna"
