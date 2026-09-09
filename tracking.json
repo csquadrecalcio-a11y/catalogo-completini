@@ -640,9 +640,9 @@
     ]
   },
   "CSC-2026-0262": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-08-25",
-    "data_consegna": "",
+    "data_consegna": "2026-09-09 12:10:59",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73441390",
     "corriere_2": "",
@@ -717,8 +717,18 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-07 17:01",
-        "luogo": "Centro Operativo Postale",
+        "data": "2026-09-09 11:43",
+        "luogo": "dalla sede operativa di BARUMINI (VS)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-09 09:51",
+        "luogo": "BARUMINI (VS)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-09-09 00:53",
+        "luogo": "ELMAS (CA)",
         "stato": "La spedizione è in transito"
       }
     ]
