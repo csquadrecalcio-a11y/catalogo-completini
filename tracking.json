@@ -19138,14 +19138,19 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-08 23:36:30",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
         "data": "2026-09-07 15:36:05",
         "luogo": "",
-        "stato": "Arrivo in Italia previsto: 9 settembre"
+        "stato": "Data di arrivo stimata: 9 settembre"
       },
       {
         "data": "2026-09-07 14:12:09",
         "luogo": "Cina",
-        "stato": "Partenza del volo prevista il 8 settembre"
+        "stato": "Partenza prevista il 8 settembre"
       },
       {
         "data": "2026-09-05 14:54:27",
