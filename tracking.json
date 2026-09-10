@@ -20716,8 +20716,7 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": [],
-    "fornitore": "Sian Huang"
+    "eventi_corriere": []
   },
   "CSC-2026-0323": {
     "stato": "spedito",
