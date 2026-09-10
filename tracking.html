@@ -507,14 +507,23 @@ function remapStato(s){
   for(const [k,v] of Object.entries(_REMAP_STATI)) if(sl===k) return v;
   return s;
 }
+/* Ultima rete: se una frase arriva ancora in cinese (portale nuovo, voce non
+   ancora nel dizionario) il cliente non deve vedere ideogrammi (10/09/26). */
+const HA_IDEOGRAMMI = /[\u4e00-\u9fff]/;
+
 function pulisciStato(s){
   s = s.replace(/[‘’]S LOGISTIC NETWORK/gi,"").replace(/’S LOGISTIC NETWORK/gi,"").trim();
   s = s.replace(/\bIn transitoo\b/gi,"In transito").replace(/\s{2,}/g," ");
+  if(HA_IDEOGRAMMI.test(s)){
+    const senzaCinese = s.replace(/[\u4e00-\u9fff]+/g," ").replace(/\s{2,}/g," ").trim(" ,;·-");
+    s = senzaCinese.length >= 8 ? senzaCinese : "Aggiornamento dal corriere";
+  }
   return s;
 }
 function pulisciLuogo(l){
   if(!l) return "";
   l = String(l).trim();
+  if(HA_IDEOGRAMMI.test(l)) return "";          // citta scritta in cinese: fuori
   // Località che rivelano l'origine cinese: non vanno mostrate al cliente.
   if(/\b(cina|china|guangzhou|shenzhen|shanghai|beijing|pechino|guangdong|hong ?kong)\b/i.test(l)) return "";
   if(/^(cn|hk)$/i.test(l)) return "";
