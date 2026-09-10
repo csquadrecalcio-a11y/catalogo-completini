@@ -20621,7 +20621,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0338": {
-    "stato": "attesa_pagamento",
+    "stato": "in_lavorazione",
     "data_spedizione": "",
     "data_consegna": "",
     "corriere": "",
