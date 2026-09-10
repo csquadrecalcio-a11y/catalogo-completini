@@ -19420,7 +19420,13 @@
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-09-10 12:14",
+        "luogo": "Centro Operativo Postale",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0295": {
     "stato": "spedito",
