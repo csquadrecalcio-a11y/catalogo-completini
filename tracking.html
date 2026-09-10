@@ -570,22 +570,14 @@ function buildCard(cod, o){
     .filter(x => x.tracking);
   const monoStile = 'style="font-family:monospace;font-size:12px;letter-spacing:.04em"';
 
-  // bottone per seguire il pacco sul sito del corriere giusto
-  const segui = (c, t) => t
-    ? `<a href="${trackingUrl(c, t, o.fornitore)}" target="_blank" rel="noopener"
-          style="display:inline-block;margin-top:6px;font-size:12px;font-weight:700;
-                 text-decoration:none;color:#1565c0">📍 Segui il pacco</a>`
-    : "";
-
   if(colli.length <= 1){
     if(o.corriere) infoItems += `<div class="info-item"><label>Corriere</label><span>${corriereLogo(o.corriere)} ${o.corriere}</span></div>`;
-    if(o.tracking) infoItems += `<div class="info-item"><label>N° tracking</label><span ${monoStile}>${o.tracking}</span>${segui(o.corriere, o.tracking)}</div>`;
+    if(o.tracking) infoItems += `<div class="info-item"><label>N° tracking</label><span ${monoStile}>${o.tracking}</span></div>`;
   } else {
     colli.forEach((c,i)=>{
       const eti = `Collo ${i+1} di ${colli.length}`;
       infoItems += `<div class="info-item"><label>${eti}</label><span ${monoStile}>${c.tracking}</span>`
                 +  (c.corriere ? `<span style="display:block;font-size:11px;opacity:.7;margin-top:2px">${corriereLogo(c.corriere)} ${c.corriere}</span>` : "")
-                +  segui(c.corriere, c.tracking)
                 +  `</div>`;
     });
   }
