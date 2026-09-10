@@ -20091,6 +20091,16 @@
         "stato": "Arrivato al punto di raccolta"
       },
       {
+        "data": "2026-09-08 02:08:46",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
+      },
+      {
+        "data": "2026-09-08 02:08:45",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
         "data": "2026-09-08 02:08:44",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
