@@ -19286,6 +19286,16 @@
     "tracking_cina": "",
     "eventi_cina": [
       {
+        "data": "2026-09-10 05:23:54",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-09-09 14:22:27",
+        "luogo": "FCO",
+        "stato": "Pronto per il passaggio al corriere finale"
+      },
+      {
         "data": "2026-09-09 07:39:36",
         "luogo": "FCO",
         "stato": "Sdoganamento completato"
@@ -19343,12 +19353,12 @@
       {
         "data": "2026-09-03 03:05:23",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-09-03 03:05:23",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-09-02 21:05:23",
