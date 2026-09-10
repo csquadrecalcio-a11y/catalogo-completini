@@ -514,10 +514,14 @@ const HA_IDEOGRAMMI = /[\u4e00-\u9fff]/;
 function pulisciStato(s){
   s = s.replace(/[‘’]S LOGISTIC NETWORK/gi,"").replace(/’S LOGISTIC NETWORK/gi,"").trim();
   s = s.replace(/\bIn transitoo\b/gi,"In transito").replace(/\s{2,}/g," ");
-  if(HA_IDEOGRAMMI.test(s)){
-    const senzaCinese = s.replace(/[\u4e00-\u9fff]+/g," ").replace(/\s{2,}/g," ").trim(" ,;·-");
-    s = senzaCinese.length >= 8 ? senzaCinese : "Aggiornamento dal corriere";
-  }
+  // via ideogrammi e nomi di citta cinesi, anche quando il dizionario li ha
+  // tradotti ("Guangzhou, Cina") o attaccati alla frase
+  const prima = s;
+  s = s.replace(/[\u4e00-\u9fff]+/g," ")
+       .replace(/(Guangzhou|Shenzhen|Shanghai|Beijing|Pechino|Guangdong|Hong ?Kong|Yiwu|Dongguan|Foshan|Hangzhou|Cina|China)(?=[A-Z])/g," ")
+       .replace(/\b(guangzhou|shenzhen|shanghai|beijing|pechino|guangdong|hong ?kong|yiwu|dongguan|foshan|hangzhou|cina|china)\b[,\s]*/gi," ")
+       .replace(/\s{2,}/g," ").replace(/^[\s,;·-]+|[\s,;·-]+$/g,"");
+  if(s !== prima && s.length < 8) s = "Aggiornamento dal corriere";
   return s;
 }
 function pulisciLuogo(l){
