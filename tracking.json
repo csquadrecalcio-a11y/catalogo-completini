@@ -19887,6 +19887,7 @@
       "sped_302_2_068a6ad9.jpg"
     ],
     "tracking_cina": "",
+    "fornitore": "In Sport",
     "eventi_cina": [
       {
         "data": "2026-09-09 22:26:18",
@@ -19905,32 +19906,32 @@
       },
       {
         "data": "2026-09-07 14:12:09",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Partenza del volo prevista il 8 settembre"
       },
       {
         "data": "2026-09-05 14:55:10",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Merce consegnata alla compagnia aerea"
       },
       {
         "data": "2026-09-05 13:55:46",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Sdoganamento all'export completato"
       },
       {
         "data": "2026-09-05 13:55:10",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Pacco imballato e consegnato all'aeroporto"
       },
       {
         "data": "2026-09-05 05:55:10",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-09-05 04:06:57",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -19949,8 +19950,7 @@
         "stato": "Dati della spedizione ricevuti"
       }
     ],
-    "eventi_corriere": [],
-    "fornitore": "In Sport"
+    "eventi_corriere": []
   },
   "CSC-2026-0303": {
     "stato": "spedito",
