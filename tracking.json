@@ -20910,18 +20910,28 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-10 19:10:37",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-09-10 13:16:57",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
         "data": "2026-09-08 04:43:58",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Uscito dal magazzino, in attesa del volo"
       },
       {
         "data": "2026-09-07 23:43:58",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-09-07 22:43:45",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Arrivato al punto di raccolta"
       }
     ],
