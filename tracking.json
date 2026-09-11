@@ -2478,6 +2478,11 @@
         "stato": "Prima scansione Poste Italiane"
       },
       {
+        "data": "2026-09-10 07:31:57",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
+      },
+      {
         "data": "2026-09-10 05:23:54",
         "luogo": "FCO",
         "stato": "In transito to final service provider"
@@ -2560,8 +2565,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-10 13:07",
-        "luogo": "Centro Operativo Postale",
+        "data": "2026-09-11 16:38",
+        "luogo": "MILANO (MI)",
         "stato": "La spedizione è in transito"
       }
     ]
