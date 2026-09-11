@@ -1189,11 +1189,22 @@
       "sped_270_1_b91bd98a.jpeg"
     ],
     "tracking_cina": "",
+    "fornitore": "In Sport",
     "eventi_cina": [
+      {
+        "data": "2026-09-10 20:35:00",
+        "luogo": "Fiano romano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
       {
         "data": "2026-09-10 15:34:25",
         "luogo": "Centro Operativo Postale",
         "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-10 15:34:00",
+        "luogo": "Fiano romano",
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-09-08 05:43:01",
@@ -1237,32 +1248,32 @@
       },
       {
         "data": "2026-09-03 14:26:56",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Partenza del volo prevista il 5 settembre"
       },
       {
         "data": "2026-09-01 07:14:20",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Merce consegnata alla compagnia aerea"
       },
       {
         "data": "2026-09-01 06:14:56",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Sdoganamento all'export completato"
       },
       {
         "data": "2026-09-01 06:14:20",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Pacco imballato e consegnato all'aeroporto"
       },
       {
         "data": "2026-08-31 22:14:20",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-08-31 20:29:57",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -1287,8 +1298,7 @@
         "luogo": "Centro Operativo Postale",
         "stato": "La spedizione è in transito"
       }
-    ],
-    "fornitore": "In Sport"
+    ]
   },
   "CSC-2026-0271": {
     "stato": "consegnato",
