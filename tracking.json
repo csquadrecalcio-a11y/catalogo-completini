@@ -19749,6 +19749,7 @@
       "sped_295_2_40d603cb.jpg"
     ],
     "tracking_cina": "",
+    "fornitore": "Sian Huang",
     "eventi_cina": [
       {
         "data": "2026-09-09 06:59:32",
@@ -19767,22 +19768,21 @@
       },
       {
         "data": "2026-09-04 01:48:43",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Uscito dal magazzino, in attesa del volo"
       },
       {
         "data": "2026-09-03 20:48:43",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-09-02 22:31:09",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": [],
-    "fornitore": "Sian Huang"
+    "eventi_corriere": []
   },
   "CSC-2026-0301": {
     "stato": "spedito",
