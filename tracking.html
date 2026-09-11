@@ -302,15 +302,9 @@ function statoIndex(s){
   return 1; // in_lavorazione o altro
 }
 
-/* I pacchi che partono con DHL dal fornitore In Sport si seguono sul portale
-   del corriere HL: mostra tutta la tratta, dalla Cina fino alla consegna,
-   mentre DHL da sola non li trova (10/09/26). */
-const LINK_HL = num => `https://oms.hstsz.com/oms/#/logisticsTracking?companyId=80100&nos=${num}`;
-
 function trackingUrl(corriere, num, fornitore){
   const c = (corriere||"").toLowerCase();
   const f = (fornitore||"").toLowerCase();
-  if(c.includes("dhl") && f.includes("in sport")) return LINK_HL(num);
   if(c.includes("poste"))
     return `https://www.poste.it/cerca/index.html#/risultati-spedizioni/${num}`;
   if(c.includes("dhl"))
