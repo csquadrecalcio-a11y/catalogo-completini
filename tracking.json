@@ -20038,6 +20038,11 @@
         "stato": "Prima scansione Poste Italiane"
       },
       {
+        "data": "2026-09-10 07:31:57",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
+      },
+      {
         "data": "2026-09-10 05:23:54",
         "luogo": "FCO",
         "stato": "In transito to final service provider"
