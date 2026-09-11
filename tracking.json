@@ -1908,9 +1908,9 @@
     "fornitore": "In Sport"
   },
   "CSC-2026-0276": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-08-31",
-    "data_consegna": "",
+    "data_consegna": "2026-09-11 17:32:08",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J023028",
     "corriere_2": "",
@@ -1927,6 +1927,11 @@
     "tracking_cina": "",
     "fornitore": "In Sport",
     "eventi_cina": [
+      {
+        "data": "2026-09-11 12:34:48",
+        "luogo": "Napoli (na)",
+        "stato": "In transito, la spedizione è in transito"
+      },
       {
         "data": "2026-09-11 05:50:57",
         "luogo": "Napoli (na)",
@@ -2049,6 +2054,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-11 15:01",
+        "luogo": "dalla sede operativa di NAPOLI (NA)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-11 12:51",
+        "luogo": "NAPOLI (NA)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-11 06:34",
         "luogo": "NAPOLI (NA)",
