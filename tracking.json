@@ -1915,7 +1915,38 @@
       "sped_276_1_c265e50f.jpg"
     ],
     "tracking_cina": "",
+    "fornitore": "In Sport",
     "eventi_cina": [
+      {
+        "data": "2026-09-11 05:50:57",
+        "luogo": "Napoli (na)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-11 02:36:00",
+        "luogo": "Roma",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-10 22:55:22",
+        "luogo": "Centro Operativo Postale",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-10 20:33:00",
+        "luogo": "Fiano romano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-10 19:12:55",
+        "luogo": "Centro Operativo Postale",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-10 19:12:00",
+        "luogo": "Fiano romano",
+        "stato": "Prima scansione Poste Italiane"
+      },
       {
         "data": "2026-09-09 14:36:00",
         "luogo": "FCO",
@@ -1963,32 +1994,32 @@
       },
       {
         "data": "2026-09-03 14:26:56",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Partenza del volo prevista il 5 settembre"
       },
       {
         "data": "2026-09-01 13:31:09",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Merce consegnata alla compagnia aerea"
       },
       {
         "data": "2026-09-01 12:31:45",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Sdoganamento all'export completato"
       },
       {
         "data": "2026-09-01 12:31:09",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Pacco imballato e consegnato all'aeroporto"
       },
       {
         "data": "2026-09-01 04:31:09",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-09-01 04:04:09",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -2009,12 +2040,11 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-10 16:55",
-        "luogo": "Centro Operativo Postale",
+        "data": "2026-09-11 06:34",
+        "luogo": "NAPOLI (NA)",
         "stato": "La spedizione è in transito"
       }
-    ],
-    "fornitore": "In Sport"
+    ]
   },
   "CSC-2026-0277": {
     "stato": "spedito",
