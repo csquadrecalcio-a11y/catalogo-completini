@@ -20100,30 +20100,31 @@
       "sped_304_2_2239dbec.jpg"
     ],
     "tracking_cina": "",
+    "fornitore": "In Sport",
     "eventi_cina": [
       {
         "data": "2026-09-10 14:26:39",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Merce consegnata alla compagnia aerea"
       },
       {
         "data": "2026-09-10 13:27:15",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Sdoganamento all'export completato"
       },
       {
         "data": "2026-09-10 13:26:39",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Pacco imballato e consegnato all'aeroporto"
       },
       {
         "data": "2026-09-10 05:26:39",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-09-10 04:28:38",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -20132,8 +20133,7 @@
         "stato": "Dati della spedizione ricevuti"
       }
     ],
-    "eventi_corriere": [],
-    "fornitore": "In Sport"
+    "eventi_corriere": []
   },
   "CSC-2026-0305": {
     "stato": "spedito",
