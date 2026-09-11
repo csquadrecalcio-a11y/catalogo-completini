@@ -2445,7 +2445,23 @@
       "sped_283_2_48685908.jpg"
     ],
     "tracking_cina": "",
+    "fornitore": "In Sport",
     "eventi_cina": [
+      {
+        "data": "2026-09-10 19:14:00",
+        "luogo": "Fiano romano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-10 19:07:41",
+        "luogo": "Centro Operativo Postale",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-10 19:07:00",
+        "luogo": "Fiano romano",
+        "stato": "Prima scansione Poste Italiane"
+      },
       {
         "data": "2026-09-10 05:23:54",
         "luogo": "FCO",
@@ -2483,32 +2499,32 @@
       },
       {
         "data": "2026-09-04 12:12:55",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Partenza del volo prevista il 6 settembre"
       },
       {
         "data": "2026-09-03 14:02:36",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Merce consegnata alla compagnia aerea"
       },
       {
         "data": "2026-09-03 13:03:12",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Sdoganamento all'export completato"
       },
       {
         "data": "2026-09-03 13:02:36",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Pacco imballato e consegnato all'aeroporto"
       },
       {
         "data": "2026-09-03 05:02:36",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-09-03 04:12:40",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -2533,8 +2549,7 @@
         "luogo": "Centro Operativo Postale",
         "stato": "La spedizione è in transito"
       }
-    ],
-    "fornitore": "In Sport"
+    ]
   },
   "CSC-2026-0286": {
     "stato": "spedito",
