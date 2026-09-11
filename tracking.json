@@ -2231,7 +2231,43 @@
       "sped_281_2_aeea1af7.jpeg"
     ],
     "tracking_cina": "",
+    "fornitore": "In Sport",
     "eventi_cina": [
+      {
+        "data": "2026-09-11 04:07:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-11 04:07:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-11 01:49:00",
+        "luogo": "Roma",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-10 22:55:22",
+        "luogo": "Centro Operativo Postale",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-10 16:27:00",
+        "luogo": "Fiano romano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-10 16:24:36",
+        "luogo": "Centro Operativo Postale",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-10 16:24:00",
+        "luogo": "Fiano romano",
+        "stato": "Prima scansione Poste Italiane"
+      },
       {
         "data": "2026-09-08 05:43:01",
         "luogo": "FCO",
@@ -2274,27 +2310,27 @@
       },
       {
         "data": "2026-09-02 13:30:44",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Merce consegnata alla compagnia aerea"
       },
       {
         "data": "2026-09-02 12:31:20",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Sdoganamento all'export completato"
       },
       {
         "data": "2026-09-02 12:30:44",
-        "luogo": "Cina",
+        "luogo": "",
         "stato": "Pacco imballato e consegnato all'aeroporto"
       },
       {
         "data": "2026-09-02 04:30:43",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
         "data": "2026-09-02 04:23:47",
-        "luogo": "Guangzhou, Cina",
+        "luogo": "",
         "stato": "Arrivato al punto di raccolta"
       },
       {
@@ -2315,12 +2351,11 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-10 16:55",
-        "luogo": "Centro Operativo Postale",
+        "data": "2026-09-11 05:37",
+        "luogo": "FARA IN SABINA (RI)",
         "stato": "La spedizione è in transito"
       }
-    ],
-    "fornitore": "In Sport"
+    ]
   },
   "CSC-2026-0282": {
     "stato": "spedito",
