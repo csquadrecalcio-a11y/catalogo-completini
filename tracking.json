@@ -20315,6 +20315,21 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-12 00:54:24",
+        "luogo": "FCO",
+        "stato": "Pronto per il passaggio al corriere finale"
+      },
+      {
+        "data": "2026-09-11 19:54:06",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-09-11 16:53:52",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-09-10 23:29:37",
         "luogo": "",
         "stato": "Arrivato all'aeroporto di destinazione"
