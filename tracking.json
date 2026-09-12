@@ -19693,6 +19693,21 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-12 01:46:56",
+        "luogo": "Centro Operativo Postale",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-11 21:13:25",
+        "luogo": "Milano (mi)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-11 21:13:00",
+        "luogo": "Milano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-10 18:34:00",
         "luogo": "Fiano romano",
         "stato": "In transito nella rete di Poste Italiane"
@@ -19795,8 +19810,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-11 19:46",
-        "luogo": "Centro Operativo Postale",
+        "data": "2026-09-12 08:37",
+        "luogo": "PESCHIERA BORROMEO (MI)",
         "stato": "La spedizione è in transito"
       }
     ]
