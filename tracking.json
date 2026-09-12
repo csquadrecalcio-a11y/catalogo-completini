@@ -20101,6 +20101,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-11 11:55:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-11 11:55:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-09-11 01:49:00",
         "luogo": "Roma",
         "stato": "In transito nella rete di Poste Italiane"
@@ -20208,8 +20218,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-11 05:55",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-09-12 07:10",
+        "luogo": "INCORONATA (FG)",
         "stato": "La spedizione è in transito"
       }
     ]
