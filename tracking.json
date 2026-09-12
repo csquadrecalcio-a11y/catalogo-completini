@@ -20415,6 +20415,26 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-12 04:47:28",
+        "luogo": "",
+        "stato": "Departed from the regional hub"
+      },
+      {
+        "data": "2026-09-11 21:39:08",
+        "luogo": "",
+        "stato": "Arrived at the regional hub"
+      },
+      {
+        "data": "2026-09-11 19:28:45",
+        "luogo": "",
+        "stato": "Departed from the sorting center"
+      },
+      {
+        "data": "2026-09-11 19:08:28",
+        "luogo": "",
+        "stato": "Arrived at the sorting center"
+      },
+      {
         "data": "2026-09-11 10:11:49",
         "luogo": "",
         "stato": "Inviato al magazzino, in attesa di scansione"
