@@ -19997,6 +19997,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-12 00:55:29",
+        "luogo": "FCO",
+        "stato": "Pronto per il passaggio al corriere finale"
+      },
+      {
+        "data": "2026-09-11 18:55:04",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
         "data": "2026-09-11 07:30:51",
         "luogo": "FCO",
         "stato": "Arrivato al deposito doganale"
@@ -20049,7 +20059,7 @@
       {
         "data": "2026-09-03 23:51:35",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-09-03 23:51:35",
@@ -20059,10 +20069,16 @@
       {
         "data": "2026-09-03 23:51:35",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-09-12 10:07",
+        "luogo": "Centro Operativo Postale",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0303": {
     "stato": "spedito",
