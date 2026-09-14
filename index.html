@@ -636,7 +636,8 @@ gtag('config', 'G-SYPQZL1L7W');
   /* Ultimo passo del checkout: il bottone per WhatsApp e un link vero, che il
      telefono apre sempre. L'apertura automatica dopo l'attesa del gestionale
      su molti telefoni veniva bloccata in silenzio (14/09/26). */
-  .wa-conferma{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+  /* sopra tutto, anche sopra il banner dei cookie che copriva il bottone */
+  .wa-conferma{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;
     background:rgba(0,0,0,.6);padding:18px}
   .wa-conferma.open{display:flex}
   .wa-conferma-box{width:min(420px,100%);background:var(--panel);border:1px solid var(--line);
