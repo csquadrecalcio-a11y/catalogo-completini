@@ -21477,6 +21477,21 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-13 21:37:26",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-09-13 10:37:16",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 14 settembre"
+      },
+      {
+        "data": "2026-09-13 10:37:01",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 13 settembre"
+      },
+      {
         "data": "2026-09-11 14:15:00",
         "luogo": "",
         "stato": "Spedizione registrata dal mittente"
