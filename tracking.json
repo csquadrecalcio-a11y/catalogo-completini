@@ -19633,6 +19633,26 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-12 19:23:00",
+        "luogo": "Fiano romano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-12 16:02:00",
+        "luogo": "Fiano romano",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-09-12 12:57:15",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
+      },
+      {
+        "data": "2026-09-12 00:57:39",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
         "data": "2026-09-12 00:55:29",
         "luogo": "FCO",
         "stato": "Pronto per il passaggio al corriere finale"
