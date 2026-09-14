@@ -2268,7 +2268,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0281": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-02",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -2435,6 +2435,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-14 13:50",
+        "luogo": "dalla sede operativa di BARI (BA)",
+        "stato": "La spedizione è stata consegnata"
+      },
       {
         "data": "2026-09-14 09:29",
         "luogo": "BARI (BA)",
