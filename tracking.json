@@ -2289,9 +2289,14 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
-        "data": "2026-09-12 13:37:00",
+        "data": "2026-09-14 15:29:00",
         "luogo": "Bari",
         "stato": "In consegna"
+      },
+      {
+        "data": "2026-09-14 09:56:00",
+        "luogo": "Bari (ba)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-09-12 13:37:00",
@@ -2299,9 +2304,9 @@
         "stato": "In transito, la spedizione è in transito"
       },
       {
-        "data": "2026-09-11 11:37:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "data": "2026-09-12 13:37:00",
+        "luogo": "Bari",
+        "stato": "In consegna"
       },
       {
         "data": "2026-09-11 11:37:00",
@@ -2309,14 +2314,19 @@
         "stato": "In transito nella rete di Poste Italiane"
       },
       {
-        "data": "2026-09-11 04:07:00",
-        "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "data": "2026-09-11 11:37:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-09-11 04:07:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-11 04:07:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-09-11 01:49:00",
