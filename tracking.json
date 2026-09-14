@@ -2498,6 +2498,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-12 15:53:30",
+        "luogo": "Milano (mi)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-12 12:48:00",
+        "luogo": "Peschiera borromeo",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-12 06:06:37",
         "luogo": "Peschiera borromeo (mi)",
         "stato": "In transito, la spedizione è in transito"
