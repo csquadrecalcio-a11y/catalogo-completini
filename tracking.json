@@ -1172,9 +1172,9 @@
     "fornitore": "Sian Huang"
   },
   "CSC-2026-0270": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-08-29",
-    "data_consegna": "",
+    "data_consegna": "2026-09-14 19:18:50",
     "corriere": "Poste Italiane",
     "tracking": "9C2002J993389",
     "corriere_2": "",
@@ -1308,6 +1308,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-14 16:28",
+        "luogo": "dalla sede operativa di CALTAGIRONE (CT)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-14 14:47",
+        "luogo": "CALTAGIRONE (CT)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-14 04:41",
         "luogo": "CATANIA (CT)",
