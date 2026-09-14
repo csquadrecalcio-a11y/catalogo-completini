@@ -21928,7 +21928,13 @@
     ],
     "tracking_cina": "",
     "fornitore": "Sian Huang",
-    "eventi_cina": [],
+    "eventi_cina": [
+      {
+        "data": "2026-09-14 22:05:35",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
     "eventi_corriere": []
   },
   "CSC-2026-0337": {
