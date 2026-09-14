@@ -19737,7 +19737,7 @@
     ]
   },
   "CSC-2026-0294": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-09-02",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -19884,6 +19884,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-14 12:31",
+        "luogo": "PESCHIERA BORROMEO (MI)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-12 08:37",
         "luogo": "PESCHIERA BORROMEO (MI)",
