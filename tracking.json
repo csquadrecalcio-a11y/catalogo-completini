@@ -20146,6 +20146,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-12 13:10:00",
+        "luogo": "Incoronata (fg)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-12 13:10:00",
+        "luogo": "Foggia",
+        "stato": "In consegna"
+      },
+      {
         "data": "2026-09-11 11:55:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
