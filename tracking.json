@@ -21338,11 +21338,11 @@
     "eventi_corriere": []
   },
   "CSC-2026-0327": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-09-14",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2247J237038",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -21351,11 +21351,44 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": [],
+    "foto": [
+      "sped_327_1_0976d561.jpg"
+    ],
     "tracking_cina": "",
-    "eventi_cina": [],
-    "eventi_corriere": [],
-    "fornitore": "In Sport"
+    "fornitore": "In Sport",
+    "eventi_cina": [
+      {
+        "data": "2026-09-12 14:19:19",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-09-12 13:19:55",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-09-12 13:19:19",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
+        "data": "2026-09-12 05:19:19",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-09-12 04:15:03",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-09-12 03:07:12",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
+    "eventi_corriere": []
   },
   "CSC-2026-0328": {
     "stato": "spedito",
