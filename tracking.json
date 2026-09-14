@@ -2522,9 +2522,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0283": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-02",
-    "data_consegna": "",
+    "data_consegna": "2026-09-14 19:19:00",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J040841",
     "corriere_2": "",
@@ -2669,6 +2669,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-14 11:53",
+        "luogo": "dalla sede operativa di MILANO (MI)",
+        "stato": "La spedizione è stata consegnata"
+      },
       {
         "data": "2026-09-14 09:25",
         "luogo": "MILANO (MI)",
