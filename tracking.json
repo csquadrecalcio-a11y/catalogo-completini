@@ -20261,9 +20261,9 @@
     ]
   },
   "CSC-2026-0303": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-02",
-    "data_consegna": "",
+    "data_consegna": "2026-09-14 19:19:19",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J078640",
     "corriere_2": "",
@@ -20407,6 +20407,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-14 16:03",
+        "luogo": "dalla sede operativa di INCORONATA (FG)",
+        "stato": "La spedizione è stata consegnata"
+      },
       {
         "data": "2026-09-14 09:43",
         "luogo": "INCORONATA (FG)",
