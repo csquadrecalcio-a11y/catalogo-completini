@@ -633,6 +633,21 @@ gtag('config', 'G-SYPQZL1L7W');
     display:none;justify-content:flex-end;
   }
   .cart-overlay.open{display:flex}
+  /* Ultimo passo del checkout: il bottone per WhatsApp e un link vero, che il
+     telefono apre sempre. L'apertura automatica dopo l'attesa del gestionale
+     su molti telefoni veniva bloccata in silenzio (14/09/26). */
+  .wa-conferma{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center;
+    background:rgba(0,0,0,.6);padding:18px}
+  .wa-conferma.open{display:flex}
+  .wa-conferma-box{width:min(420px,100%);background:var(--panel);border:1px solid var(--line);
+    border-radius:20px;padding:26px 22px;text-align:center}
+  .wa-conferma-box h3{font-size:20px;font-weight:800;margin:6px 0 8px}
+  .wa-conferma-box p{color:var(--muted);font-size:14.5px;line-height:1.6;margin:0 0 18px}
+  .wa-conferma-btn{display:block;background:#25D366;color:#fff;font-weight:800;font-size:17px;
+    text-decoration:none;padding:16px;border-radius:14px}
+  .wa-conferma-cod{font-family:monospace;font-size:13px;color:var(--muted);margin-top:14px}
+  .wa-conferma-chiudi{background:none;border:0;color:var(--muted);font-size:13px;margin-top:12px;cursor:pointer;text-decoration:underline}
+
   .cart-drawer{
     width:min(480px,100%);height:100%;background:var(--panel);
     border-left:1px solid rgba(var(--fg-rgb),.12);
@@ -1296,6 +1311,18 @@ gtag('config', 'G-SYPQZL1L7W');
 </div>
 
 <!-- ============ CARRELLO ============ -->
+<div class="wa-conferma" id="waConferma" role="dialog" aria-modal="true" aria-labelledby="waConfermaTitolo">
+  <div class="wa-conferma-box">
+    <div style="font-size:40px">📲</div>
+    <h3 id="waConfermaTitolo">Ultimo passo: invia l'ordine</h3>
+    <p>Si apre WhatsApp con il tuo ordine già scritto.<br>
+       <strong>Premi Invio ➤</strong> per mandarcelo: così lo prendiamo in carico e ti rispondiamo.</p>
+    <a class="wa-conferma-btn" id="waConfermaLink" href="#" target="_blank" rel="noopener">Apri WhatsApp e invia</a>
+    <div class="wa-conferma-cod" id="waConfermaCod"></div>
+    <button class="wa-conferma-chiudi" id="waConfermaChiudi" type="button">Fatto, chiudi</button>
+  </div>
+</div>
+
 <div class="cart-overlay" id="cartOverlay">
   <aside class="cart-drawer" role="dialog" aria-modal="true" aria-label="Carrello">
     <div class="cart-head">
@@ -3141,9 +3168,18 @@ document.getElementById("cartCheckout").onclick = async ()=>{
   const noto = noti.some(n => n === telPulito.slice(-9));
   const waNum = noto ? WA_PERSONALE : WA_BUSINESS;
   const urlWA = `https://wa.me/${waNum}?text=${msgEnc}`;
-  const w = window.open(urlWA, "_blank");
-  if (!w) location.href = urlWA;
+
+  // Il riquadro resta sempre a schermo col bottone vero: se l'apertura
+  // automatica viene bloccata (succede sui telefoni dopo l'attesa, e nei
+  // browser interni di Instagram/Facebook) il cliente ha comunque il tasto.
+  document.getElementById("waConfermaLink").href = urlWA;
+  document.getElementById("waConfermaCod").textContent = `Ordine ${codVero}`;
+  document.getElementById("waConferma").classList.add("open");
+  try { window.open(urlWA, "_blank"); } catch(e) {}
 };
+
+document.getElementById("waConfermaChiudi").onclick = () =>
+  document.getElementById("waConferma").classList.remove("open");
 
 const STRIPE_SITE_SECRET = "bI6J_mKjyTgr518wkrXffWjpqRmo4YAd";
 
