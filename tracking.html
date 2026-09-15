@@ -372,6 +372,15 @@ async function cerca(){
     }catch(e){}
   }
 
+  // Ordini consegnati da piu di un mese: stanno in un file a parte, che si
+  // scarica solo quando serve. Il link vecchio del cliente funziona lo stesso.
+  if(!o){
+    try{
+      const arch = await fetch("tracking-archivio.json?t="+Date.now()).then(r => r.ok ? r.json() : {});
+      if(arch && arch[cod]) o = arch[cod];
+    }catch(e){}
+  }
+
   if(!o){
     r.innerHTML = errCard("Ordine non trovato",`Il codice <strong>${cod}</strong> non è nel sistema.<br>Controlla il messaggio WhatsApp o <a href="https://wa.me/447727750265" style="color:var(--volt)">scrivici</a>.`);
     aggiornaGlossario(null);

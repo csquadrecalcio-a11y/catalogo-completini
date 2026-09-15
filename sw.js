@@ -44,7 +44,7 @@ self.addEventListener('fetch', e => {
 
   // tracking.json cambia in continuazione: sempre dalla rete, mai dalla cache,
   // altrimenti il cliente vedrebbe uno stato vecchio del suo pacco.
-  if (url.pathname.endsWith('tracking.json') || url.pathname.endsWith('clienti_noti.json')) return;
+  if (url.pathname.endsWith('tracking.json') || url.pathname.endsWith('tracking-archivio.json') || url.pathname.endsWith('clienti_noti.json')) return;
 
   // Pagine HTML — NETWORK FIRST: online prende sempre la versione aggiornata,
   // offline usa la copia salvata.
