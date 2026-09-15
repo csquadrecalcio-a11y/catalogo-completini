@@ -187,21 +187,24 @@ gtag('config', 'G-SYPQZL1L7W');
   .btn-volt{background:var(--volt);color:#ffffff;box-shadow:0 8px 28px rgba(37,99,235,.2)}
 
   /* ---------- hero ---------- */
-  /* La copertina si adatta alla foto invece di ritagliarla: l'altezza segue
-     le proporzioni dell'immagine (1206x741), cosi si vede per intero su ogni
-     schermo. Il testo ci sta sopra, leggibile grazie alla sfumatura (08/09/26). */
-  .hero{position:relative;padding:90px 0 80px;overflow:hidden;background:var(--bg);
-        min-height:min(84svh, 62vw)}
+  /* Copertina senza foto: titolo grande su una sfumatura dei colori del
+     negozio (blu notte → blu). Leggera, nitida su ogni schermo e senza
+     immagini di terzi (15/09/26). Resta scura anche col tema chiaro, perché
+     il testo sopra è bianco. */
+  .hero{position:relative;padding:110px 0 96px;overflow:hidden;
+        background:#050d1c;min-height:min(78svh,760px);display:flex;align-items:center}
   .pitch{
     position:absolute;inset:0;pointer-events:none;
-    background-image:url('champions-europa.jpg');
-    background-size:cover;background-position:center center;
+    background:
+      radial-gradient(900px 520px at 82% 18%, rgba(37,99,235,.55), transparent 62%),
+      radial-gradient(700px 460px at 8% 100%, rgba(37,99,235,.22), transparent 60%),
+      linear-gradient(160deg, #050d1c 0%, #0a1a3a 55%, #0e2c6b 100%);
   }
   .pitch::after{
     content:'';position:absolute;inset:0;
-    background:linear-gradient(to right,rgba(0,0,0,.80) 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.15) 100%);
+    background:linear-gradient(to bottom, rgba(5,13,28,0) 70%, rgba(5,13,28,.55) 100%);
   }
-  .pitch svg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:.04;z-index:1}
+  .pitch svg{position:absolute;left:72%;top:50%;transform:translate(-50%,-50%);opacity:.07;z-index:1}
   .hero-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
@@ -210,7 +213,7 @@ gtag('config', 'G-SYPQZL1L7W');
     padding:8px 16px;border-radius:999px;margin-bottom:26px;
     background:rgba(37,99,235,.06);
   }
-  .hero h1{font-size:clamp(42px,6vw,78px);letter-spacing:-.01em;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5)}
+  .hero h1{font-size:clamp(48px,7.4vw,104px);line-height:.98;letter-spacing:-.015em;color:#fff;text-wrap:balance}
   .hero h1 .volt{color:var(--volt)}
   .hero p.lead{margin:24px 0 32px;font-size:17.5px;color:rgba(255,255,255,.85);max-width:520px;line-height:1.65}
   .hero .eyebrow{color:#fff;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.1)}
@@ -771,13 +774,9 @@ gtag('config', 'G-SYPQZL1L7W');
     .header-search{max-width:none;margin:0 16px}
   }
   @media (max-width:1000px){
-    /* Telefono: la foto sta larga quanto lo schermo e si vede tutta, il testo
-       scende sotto invece di coprirla. */
-    .hero{min-height:0;padding:0 0 54px;background:#0b0f17}
-    .pitch{position:relative;inset:auto;width:100%;aspect-ratio:1206/741;
-           background-size:contain;background-repeat:no-repeat;background-position:top center}
-    .pitch::after{background:linear-gradient(to bottom,rgba(0,0,0,0) 55%,rgba(11,15,23,.9) 100%)}
-    .hero .container{padding-top:26px}
+    /* Telefono: niente foto da incastrare, solo spazi piu stretti */
+    .hero{min-height:0;padding:64px 0 56px}
+    .pitch svg{left:50%;opacity:.06}
     .hero-grid{grid-template-columns:1fr}
     .hero-stack{order:-1;height:340px}
     .showcase{width:min(300px,80%)}
