@@ -5449,9 +5449,9 @@
     "fornitore": "In Sport"
   },
   "CSC-2026-0291": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-03",
-    "data_consegna": "",
+    "data_consegna": "2026-09-15 16:26:51",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J096370",
     "corriere_2": "",
