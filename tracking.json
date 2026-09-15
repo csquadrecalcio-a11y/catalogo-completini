@@ -20032,6 +20032,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-15 02:29:00",
+        "luogo": "Roma",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-12 17:47:00",
         "luogo": "Fiano romano",
         "stato": "In transito nella rete di Poste Italiane"
@@ -20129,8 +20134,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-14 17:22",
-        "luogo": "Centro Operativo Postale",
+        "data": "2026-09-15 06:46",
+        "luogo": "TORINO (TO)",
         "stato": "La spedizione è in transito"
       }
     ]
