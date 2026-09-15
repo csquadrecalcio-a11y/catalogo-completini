@@ -20555,6 +20555,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-15 11:53:00",
+        "luogo": "Fiumicino",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-15 07:46:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-15 04:46:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
