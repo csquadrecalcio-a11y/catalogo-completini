@@ -20531,7 +20531,13 @@
         "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-09-15 11:33",
+        "luogo": "Centro Operativo Postale",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0305": {
     "stato": "spedito",
