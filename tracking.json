@@ -20535,6 +20535,26 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-15 04:46:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-15 02:13:00",
+        "luogo": "Roma",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-14 15:36:00",
+        "luogo": "Fiano romano",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-09-14 15:35:00",
+        "luogo": "Fiano romano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-12 12:56:06",
         "luogo": "FCO",
         "stato": "Consegnato al corriere locale"
@@ -20622,8 +20642,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-14 15:50",
-        "luogo": "Centro Operativo Postale",
+        "data": "2026-09-15 02:15",
+        "luogo": "FIUMICINO (RM)",
         "stato": "La spedizione è in transito"
       }
     ]
