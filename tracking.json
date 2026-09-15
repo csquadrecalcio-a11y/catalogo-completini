@@ -7867,6 +7867,11 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-16 02:07:12",
+        "luogo": "",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
         "data": "2026-09-15 21:07:12",
         "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
