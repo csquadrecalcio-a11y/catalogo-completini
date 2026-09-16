@@ -7553,6 +7553,11 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-15 12:20:00",
+        "luogo": "Castel san giovanni",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
         "data": "2026-09-14 10:17:56",
         "luogo": "",
         "stato": "Inviato al magazzino, in attesa di scansione"
