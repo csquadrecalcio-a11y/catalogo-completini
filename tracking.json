@@ -7155,6 +7155,21 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-15 20:55:00",
+        "luogo": "Bologna",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-15 14:45:00",
+        "luogo": "Castel san giovanni",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-15 12:19:00",
+        "luogo": "Castel san giovanni",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
         "data": "2026-09-14 10:17:56",
         "luogo": "",
         "stato": "Inviato al magazzino, in attesa di scansione"
