@@ -7305,6 +7305,26 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-16 01:04:00",
+        "luogo": "Peschiera borromeo",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-15 16:53:00",
+        "luogo": "Milano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-15 13:15:00",
+        "luogo": "Castel san giovanni",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-15 12:20:00",
+        "luogo": "Castel san giovanni",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
         "data": "2026-09-14 10:17:56",
         "luogo": "",
         "stato": "Inviato al magazzino, in attesa di scansione"
@@ -7342,8 +7362,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-15 19:44",
-        "luogo": "PESCHIERA BORROMEO (MI)",
+        "data": "2026-09-16 02:13",
+        "luogo": "PAVIA (PV)",
         "stato": "La spedizione è in transito"
       }
     ]
