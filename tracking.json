@@ -2097,9 +2097,9 @@
     ]
   },
   "CSC-2026-0277": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-08-29",
-    "data_consegna": "",
+    "data_consegna": "2026-09-16 11:54",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73488397",
     "corriere_2": "",
@@ -2157,7 +2157,23 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-09-16 11:54",
+        "luogo": "dalla sede operativa di GALLARATE (VA)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-16 10:47",
+        "luogo": "GALLARATE (VA)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-09-16 09:58",
+        "luogo": "GALLARATE (VA)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0279": {
     "stato": "consegnato",
