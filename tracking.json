@@ -7542,7 +7542,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0322": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-09-07",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -7605,7 +7605,12 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-15 17:42",
+        "data": "2026-09-16 11:57",
+        "luogo": "TORINO (TO)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-09-16 08:54",
         "luogo": "TORINO (TO)",
         "stato": "La spedizione è in transito"
       }
