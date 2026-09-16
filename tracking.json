@@ -7448,6 +7448,16 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-16 10:57",
+        "luogo": "VIDIGULFO (PV)",
+        "stato": "La spedizione è in transito"
+      },
+      {
+        "data": "2026-09-16 10:17",
+        "luogo": "VIDIGULFO (PV)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
         "data": "2026-09-16 02:13",
         "luogo": "PAVIA (PV)",
         "stato": "La spedizione è in transito"
