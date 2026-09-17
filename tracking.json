@@ -8365,7 +8365,23 @@
     ],
     "tracking_cina": "",
     "fornitore": "In Sport",
-    "eventi_cina": [],
+    "eventi_cina": [
+      {
+        "data": "2026-09-17 19:25",
+        "luogo": "Centro di smistamento",
+        "stato": "Codice di tracciamento assegnato"
+      },
+      {
+        "data": "2026-09-17 19:25",
+        "luogo": "Centro di smistamento",
+        "stato": "Spedizione preannunciata"
+      },
+      {
+        "data": "2026-09-17 19:24",
+        "luogo": "Centro di smistamento",
+        "stato": "Ordine registrato"
+      }
+    ],
     "eventi_corriere": []
   },
   "CSC-2026-0340": {
