@@ -6713,9 +6713,9 @@
     ]
   },
   "CSC-2026-0308": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-04",
-    "data_consegna": "",
+    "data_consegna": "2026-09-17 14:00:04",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73533946",
     "corriere_2": "",
@@ -6785,6 +6785,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-17 12:04",
+        "luogo": "dalla sede operativa di VITERBO (VT)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-17 11:25",
+        "luogo": "VITERBO (VT)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-17 07:22",
         "luogo": "VITERBO (VT)",
