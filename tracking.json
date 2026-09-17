@@ -2813,8 +2813,13 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-17 02:06",
-        "luogo": "NOVARA (NO)",
+        "data": "2026-09-17 09:41",
+        "luogo": "POMBIA (NO)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-09-17 08:22",
+        "luogo": "POMBIA (NO)",
         "stato": "La spedizione è in transito"
       }
     ]
