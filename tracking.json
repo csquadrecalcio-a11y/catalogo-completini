@@ -7348,9 +7348,9 @@
     ]
   },
   "CSC-2026-0317": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-07",
-    "data_consegna": "",
+    "data_consegna": "2026-09-17 20:00:13",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73552176",
     "corriere_2": "",
@@ -7415,6 +7415,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-17 16:52",
+        "luogo": "dalla sede operativa di CANOSA DI PUGLIA (BT)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-17 14:50",
+        "luogo": "CANOSA DI PUGLIA (BT)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-17 06:34",
         "luogo": "MODUGNO (BA)",
