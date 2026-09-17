@@ -2235,9 +2235,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0280": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-08-29",
-    "data_consegna": "",
+    "data_consegna": "2026-09-17 13:59:35",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73488407",
     "corriere_2": "",
@@ -2302,6 +2302,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-17 12:01",
+        "luogo": "dalla sede operativa di CASTAGNETO CARDUCCI (LI)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-17 11:10",
+        "luogo": "CASTAGNETO CARDUCCI (LI)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-17 02:10",
         "luogo": "PISA (PI)",
