@@ -6381,6 +6381,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-17 13:35",
+        "luogo": "dalla sede operativa di CASTIGLIONE DEL LAGO (PG)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
         "data": "2026-09-17 09:14",
         "luogo": "CASTIGLIONE DEL LAGO (PG)",
         "stato": "La spedizione è in consegna"
