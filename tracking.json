@@ -7321,6 +7321,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-17 13:31",
+        "luogo": "SALERNO (SA)",
+        "stato": "Consegna non andata a buon fine perché l'indirizzo del destinatario risulta errato o incompleto. contatta assistenza"
+      },
+      {
         "data": "2026-09-17 07:24",
         "luogo": "SALERNO (SA)",
         "stato": "La spedizione è in transito"
