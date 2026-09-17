@@ -6803,7 +6803,7 @@
     ]
   },
   "CSC-2026-0309": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-09-08",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -6920,8 +6920,13 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-17 08:14",
-        "luogo": "VARESE (VA)",
+        "data": "2026-09-17 13:07",
+        "luogo": "CAZZAGO BRABBIA (VA)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-09-17 09:38",
+        "luogo": "CAZZAGO BRABBIA (VA)",
         "stato": "La spedizione è in transito"
       }
     ]
