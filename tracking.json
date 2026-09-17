@@ -6849,6 +6849,11 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-16 08:29:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-15 12:13:00",
         "luogo": "Castel san giovanni",
         "stato": "Prima scansione Poste Italiane"
@@ -6896,8 +6901,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-16 08:29",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-09-17 07:22",
+        "luogo": "VITERBO (VT)",
         "stato": "La spedizione è in transito"
       }
     ]
