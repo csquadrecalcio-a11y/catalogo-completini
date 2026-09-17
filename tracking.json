@@ -5917,6 +5917,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-17 16:27",
+        "luogo": "dalla sede operativa di SAVONA (SV)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
         "data": "2026-09-17 14:12",
         "luogo": "SAVONA (SV)",
         "stato": "La spedizione è in consegna"
