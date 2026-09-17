@@ -7354,6 +7354,11 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-16 11:59:00",
+        "luogo": "Maddaloni",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-15 20:55:00",
         "luogo": "Bologna",
         "stato": "In transito nella rete di Poste Italiane"
@@ -7406,8 +7411,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-16 13:13",
-        "luogo": "MADDALONI (CE)",
+        "data": "2026-09-17 07:24",
+        "luogo": "SALERNO (SA)",
         "stato": "La spedizione è in transito"
       }
     ]
