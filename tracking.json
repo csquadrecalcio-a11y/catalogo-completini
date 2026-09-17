@@ -7198,6 +7198,16 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-16 14:41:00",
+        "luogo": "Tito",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-16 14:41:00",
+        "luogo": "Tito",
+        "stato": "In consegna"
+      },
+      {
         "data": "2026-09-15 12:20:00",
         "luogo": "Castel san giovanni",
         "stato": "Prima scansione Poste Italiane"
@@ -7238,7 +7248,13 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-09-17 06:02",
+        "luogo": "TITO (PZ)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0313": {
     "stato": "spedito",
