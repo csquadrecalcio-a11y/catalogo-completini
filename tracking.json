@@ -7076,7 +7076,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0312": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-09-05",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -7149,6 +7149,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-17 08:30",
+        "luogo": "TITO (PZ)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-17 06:02",
         "luogo": "TITO (PZ)",
