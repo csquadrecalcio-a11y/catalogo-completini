@@ -5774,9 +5774,9 @@
     ]
   },
   "CSC-2026-0301": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-03",
-    "data_consegna": "",
+    "data_consegna": "2026-09-17 16:27",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J096327",
     "corriere_2": "",
