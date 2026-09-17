@@ -2751,6 +2751,16 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-17 02:06:00",
+        "luogo": "Italia",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-16 17:12:00",
+        "luogo": "Milano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-15 14:30:00",
         "luogo": "Castel san giovanni",
         "stato": "Prima scansione Poste Italiane"
@@ -2793,8 +2803,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-16 17:12",
-        "luogo": "MILANO (MI)",
+        "data": "2026-09-17 02:06",
+        "luogo": "NOVARA (NO)",
         "stato": "La spedizione è in transito"
       }
     ]
