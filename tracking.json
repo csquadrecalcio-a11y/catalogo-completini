@@ -7493,9 +7493,9 @@
     ]
   },
   "CSC-2026-0319": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-07",
-    "data_consegna": "",
+    "data_consegna": "2026-09-17 14:00:30",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73552185",
     "corriere_2": "",
@@ -7560,6 +7560,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-17 13:52",
+        "luogo": "dalla sede operativa di DOLO (VE)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-17 10:43",
+        "luogo": "DOLO (VE)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-17 04:27",
         "luogo": "VENEZIA (VE)",
