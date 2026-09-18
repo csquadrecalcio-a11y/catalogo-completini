@@ -8378,6 +8378,16 @@
         "stato": "Ordine registrato"
       },
       {
+        "data": "2026-09-17 15:10",
+        "luogo": "Italia",
+        "stato": "Spedizione registrata dal mittente"
+      },
+      {
+        "data": "2026-09-17 11:25",
+        "luogo": "",
+        "stato": "shipment information received"
+      },
+      {
         "data": "2026-09-17 11:25",
         "luogo": "",
         "stato": "shipment information received"
