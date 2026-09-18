@@ -2526,6 +2526,11 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-17 11:06:00",
+        "luogo": "Gricignano di aversa",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-16 21:14:00",
         "luogo": "Bologna",
         "stato": "In transito nella rete di Poste Italiane"
