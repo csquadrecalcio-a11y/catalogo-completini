@@ -7324,6 +7324,21 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-17 13:31:00",
+        "luogo": "Italia",
+        "stato": "Failed delivery for reason: wrong recipient address or address related problem"
+      },
+      {
+        "data": "2026-09-17 11:45:00",
+        "luogo": "Italia",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-09-17 07:24:00",
+        "luogo": "Italia",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-16 11:59:00",
         "luogo": "Maddaloni",
         "stato": "In transito nella rete di Poste Italiane"
