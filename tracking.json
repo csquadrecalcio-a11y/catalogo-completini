@@ -8445,6 +8445,11 @@
         "data": "2026-09-17 19:24",
         "luogo": "Centro di smistamento",
         "stato": "Ordine registrato"
+      },
+      {
+        "data": "2026-09-17 11:25",
+        "luogo": "",
+        "stato": "shipment information received"
       }
     ],
     "eventi_corriere": []
