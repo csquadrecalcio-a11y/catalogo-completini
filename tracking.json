@@ -2776,6 +2776,16 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-17 14:37:00",
+        "luogo": "Pombia",
+        "stato": "Consegna non riuscita: destinatario assente"
+      },
+      {
+        "data": "2026-09-17 09:41:00",
+        "luogo": "Pombia",
+        "stato": "In consegna"
+      },
+      {
         "data": "2026-09-17 02:06:00",
         "luogo": "Italia",
         "stato": "In transito nella rete di Poste Italiane"
