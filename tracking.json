@@ -7271,6 +7271,16 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-18 17:25:00",
+        "luogo": "Napoli",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-18 15:10:00",
+        "luogo": "Napoli",
+        "stato": "Back to sender In transito"
+      },
+      {
         "data": "2026-09-17 13:31:00",
         "luogo": "Italia",
         "stato": "Failed delivery for reason: wrong recipient address or address related problem"
@@ -7342,6 +7352,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-18 17:25",
+        "luogo": "NAPOLI (NA)",
+        "stato": "La spedizione è in transito"
+      },
+      {
+        "data": "2026-09-18 15:10",
+        "luogo": "NAPOLI (NA)",
+        "stato": "In restituzione al mittente"
+      },
       {
         "data": "2026-09-17 13:31",
         "luogo": "SALERNO (SA)",
