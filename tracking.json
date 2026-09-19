@@ -7751,6 +7751,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-18 14:05:00",
+        "luogo": "",
+        "stato": "Lavorato nel centro di smistamento di partenza"
+      },
+      {
         "data": "2026-09-18 00:10:29",
         "luogo": "",
         "stato": "Consegnato al corriere finale"
