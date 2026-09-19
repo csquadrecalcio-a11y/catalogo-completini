@@ -8227,6 +8227,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-19 14:16:36",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-09-19 14:16:00",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
         "data": "2026-09-19 06:16:00",
         "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
