@@ -6625,6 +6625,11 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-18 16:36:00",
+        "luogo": "Bologna",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-15 12:20:00",
         "luogo": "Castel san giovanni",
         "stato": "Prima scansione Poste Italiane"
@@ -6667,8 +6672,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-18 16:36",
-        "luogo": "BOLOGNA (BO)",
+        "data": "2026-09-18 18:33",
+        "luogo": "FORLI' (FC)",
         "stato": "La spedizione è in transito"
       }
     ]
