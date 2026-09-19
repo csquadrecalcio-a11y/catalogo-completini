@@ -8399,6 +8399,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-18 20:35",
+        "luogo": "GZ",
+        "stato": "Pacco ricevuto in magazzino"
+      },
+      {
         "data": "2026-09-17 19:25",
         "luogo": "Centro di smistamento",
         "stato": "Codice di tracciamento assegnato"
