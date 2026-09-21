@@ -7622,6 +7622,21 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-21 21:22:31",
+        "luogo": "FCO",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
+        "data": "2026-09-20 21:22:10",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-09-19 21:21:49",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 21 settembre"
+      },
+      {
         "data": "2026-09-18 22:38:26",
         "luogo": "",
         "stato": "Partenza del volo prevista il 20 settembre"
