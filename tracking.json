@@ -5718,9 +5718,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0307": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-05",
-    "data_consegna": "",
+    "data_consegna": "2026-09-21 18:13:09",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73533959",
     "corriere_2": "",
