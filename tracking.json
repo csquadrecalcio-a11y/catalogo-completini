@@ -6888,7 +6888,13 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-09-21 16:10",
+        "luogo": "LONATE POZZOLO (VA)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0324": {
     "stato": "spedito",
