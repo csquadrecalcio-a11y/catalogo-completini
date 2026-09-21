@@ -5786,6 +5786,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-21 13:07",
+        "luogo": "FORLI' (FC)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
         "data": "2026-09-21 10:24",
         "luogo": "FORLI' (FC)",
         "stato": "La spedizione è in transito"
