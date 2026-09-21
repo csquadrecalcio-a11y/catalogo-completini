@@ -2865,9 +2865,9 @@
     ]
   },
   "CSC-2026-0287": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-01",
-    "data_consegna": "",
+    "data_consegna": "2026-09-21 14:53:48",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73488418",
     "corriere_2": "",
