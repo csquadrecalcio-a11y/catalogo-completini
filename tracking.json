@@ -7335,6 +7335,11 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-21 16:22:42",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:9.22)"
+      },
+      {
         "data": "2026-09-16 02:04:29",
         "luogo": "",
         "stato": "Uscito dal magazzino, in attesa del volo"
