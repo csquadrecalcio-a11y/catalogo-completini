@@ -7938,11 +7938,11 @@
     "eventi_corriere": []
   },
   "CSC-2026-0358": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-09-21",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2247J363643",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -7951,11 +7951,20 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": [],
+    "foto": [
+      "sped_358_1_9d780b56.jpeg",
+      "sped_358_2_9202fe23.jpeg"
+    ],
     "tracking_cina": "",
-    "eventi_cina": [],
-    "eventi_corriere": [],
-    "fornitore": "In Sport"
+    "fornitore": "In Sport",
+    "eventi_cina": [
+      {
+        "data": "2026-09-19 02:36:38",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
+    "eventi_corriere": []
   },
   "CSC-2026-0359": {
     "stato": "spedito",
