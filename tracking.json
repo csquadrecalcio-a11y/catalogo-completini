@@ -2933,6 +2933,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-21 13:38",
+        "luogo": "dalla sede operativa di CASOLI (CH)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
         "data": "2026-09-21 10:27",
         "luogo": "CASOLI (CH)",
         "stato": "La spedizione è in consegna"
