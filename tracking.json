@@ -7629,6 +7629,11 @@
         "stato": "Pacco imballato e consegnato all'aeroporto"
       },
       {
+        "data": "2026-09-19 14:15:00",
+        "luogo": "",
+        "stato": "Spedizione registrata dal mittente"
+      },
+      {
         "data": "2026-09-19 06:16:00",
         "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
