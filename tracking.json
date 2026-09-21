@@ -8198,6 +8198,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-21 22:56:21",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-09-21 22:05:36",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
         "data": "2026-09-21 01:03:16",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
