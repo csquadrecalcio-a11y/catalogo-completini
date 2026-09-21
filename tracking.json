@@ -2933,6 +2933,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-21 10:27",
+        "luogo": "CASOLI (CH)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
         "data": "2026-09-18 00:54",
         "luogo": "PESCARA (PE)",
         "stato": "La spedizione è in transito"
