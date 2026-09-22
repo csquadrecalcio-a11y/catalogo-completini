@@ -1341,6 +1341,9 @@ gtag('config', 'G-SYPQZL1L7W');
       <button class="btn btn-ghost" id="cartAddMore" style="width:100%;margin-bottom:18px">🛍️ Aggiungi altri prodotti</button>
       <div class="cart-row"><span>Articoli</span><b id="cartCount">0</b></div>
       <div class="cart-row"><span>Subtotale</span><b id="cartSub">0€</b></div>
+      <div class="cart-row" id="cartShipRow" style="display:none">
+        <span>Spedizione pronta consegna</span><b id="cartShipCost">8€</b>
+      </div>
       <div class="cart-row cart-disc" id="cartDiscRow" style="display:none"><span id="cartDiscLbl">Sconto</span><b id="cartDisc">0€</b></div>
       <div style="display:flex;gap:6px;margin:10px 0">
         <input type="text" id="codiceScontoInput" placeholder="Codice sconto" style="flex:1;background:#161a10;border:1px solid #333;border-radius:8px;padding:8px 10px;color:#fff;font-size:13px;text-transform:uppercase">
@@ -1487,6 +1490,8 @@ const CATALOG = [
   { name:"Resto del Mondo",  flag:"🌐", id:"13NLaWPvV-9ldy2e5jofbogaXKKT87o2G", subs:true },
   { name:"Vintage",          flag:"🏆", id:"1zI1CEJ4f8RXTovUzkfZoY_ifAUW5X9jS", subs:true },
   { name:"Tute",             flag:"🏃", id:"1KeNMrvV_qgI0hH3FGUdoN8069_-LnyDZ", subs:false },
+  // Roba gia in casa: parte da noi in 2/3 giorni, con 8€ di spedizione (22/09/26)
+  { name:"Pronta Consegna",  flag:"⚡", id:"1q5L6UkE7C5Dma_6dih5MIZ-8I4BiBfWd", subs:false, pronta:true },
 ];
 
 /* -------- prezzi e opzioni per categoria (identici al sito live) --------
@@ -1535,6 +1540,53 @@ const OPT_SCARPE = [{id:"scarpe", label:"Scarpe", price:90, kid:false, shoe:true
    niente nome, numero o patch, solo la taglia. Si segnala scrivendo
    "solo taglia" nel nome del file su Drive — la scritta non si vede sul sito. */
 const SENZA_PERSONALIZZAZIONE = /\b(solo\s*taglia|nopers|no\s*pers)\b/i;
+
+/* ---- PRONTA CONSEGNA (22/09/26) ----
+   Cartella a parte su Drive: roba gia in magazzino, un pezzo solo per foto.
+   Nel nome del file si scrive il capo, la taglia e, se serve, il prezzo:
+
+       kit roma home XL
+       maglia napoli home M 35e
+       kit bambino juventus 26
+
+   Il capo parte da noi in 2/3 giorni e la spedizione costa 8€, una volta
+   sola per ordine. Niente nome e numero: il capo e gia fatto.
+   Quando si vende, si sposta la foto nella sottocartella "Venduti" oppure
+   si aggiunge "venduto" al nome: sparisce dal sito da solo. */
+const PRONTA_SPEDIZIONE = 8;
+const PRONTA_VENDUTO = /\b(venduto|venduta|sold)\b/i;
+
+// Prezzo scritto nel nome ("35e", "45 euro"): vince sul listino
+function prezzoDaNome(nome){
+  const m = String(nome||"").match(/(\d{2,3})\s*(?:e\b|€|euro)/i);
+  return m ? parseInt(m[1], 10) : null;
+}
+
+// Taglia scritta nel nome: lettere per gli adulti, numeri pari per i bambini
+function tagliaDaNome(nome){
+  const testo = " " + String(nome||"").toLowerCase().replace(/[^a-z0-9]+/g, " ") + " ";
+  const adulto = testo.match(/\s(3xl|xxxl|xxl|2xl|xl|xs|s|m|l)\s/);
+  const bambino = testo.match(/\s(1[68]|2[02468])\s/);
+  if (bambino) return { size: bambino[1], kid: true };
+  if (adulto){
+    const t = adulto[1].toUpperCase().replace("XXXL","3XL").replace("2XL","XXL");
+    return { size: t, kid: false };
+  }
+  return null;
+}
+
+// Che capo e, per prezzo ed etichetta: si legge dal nome come nel catalogo
+function capoPronta(nome){
+  const hay = " " + String(nome||"").toLowerCase() + " ";
+  if (/scarp|sneaker/.test(hay))                      return { label:"Scarpe", price:90, kid:false };
+  if (/tuta.*bambin|bambin.*tuta/.test(hay))          return { label:"Tuta Bambino", price:45, kid:true };
+  if (/cappuccio/.test(hay))                          return { label:"Tuta con Cappuccio", price:65, kid:false };
+  if (/\btut[ae]\b/.test(hay))                        return { label:"Tuta", price:60, kid:false };
+  if (/vintage/.test(hay))                            return { label:"Maglia Vintage", price:35, kid:false };
+  if (/kit\s*(bambin|kids?)|bambin|\bkids?\b/.test(hay)) return { label:"Kit Bambino", price:35, kid:true };
+  if (/magli[ae]/.test(hay))                          return { label:"Maglia", price:30, kid:false };
+  return { label:"Kit Adulto", price:40, kid:false };
+}
 
 /* COSA C'E E COSA ARRIVA PRESTO (05/09/26)
    Nel nome del file si scrivono le versioni che si vendono, come sempre
@@ -1625,6 +1677,17 @@ function versioniNominate(testo, tabella){
 
 function productProfile(item){
   const cat = (typeof activeCat !== "undefined" && activeCat) ? activeCat.name : "";
+  // Pronta consegna: pezzo unico gia pronto, una versione e una taglia sola
+  if (typeof activeCat !== "undefined" && activeCat && activeCat.pronta){
+    const capo = capoPronta(item.name);
+    const taglia = tagliaDaNome(item.name);
+    const prezzo = prezzoDaNome(item.name) || capo.price;
+    return {
+      versions: [{ id:"pronta", label: capo.label, price: prezzo, kid: capo.kid,
+                   sizes: taglia ? [taglia.size] : null, pronta:true }],
+      pers:false, kind:"pronta", pronta:true,
+    };
+  }
   const hayMarcatori = ((item.team||"") + " " + (item.name||"") + " " + cat).toLowerCase();
   // I marcatori vanno tolti prima di capire che capo è, altrimenti un
   // "-kit adulto" verrebbe letto come "questo è un kit adulto" (05/09/26).
@@ -1938,7 +2001,9 @@ async function loadCategory(cat){
     teams = [...realTeamNames].map(name => ({ id:name, name }));
   } else {
     const files = await drive(`'${cat.id}' in parents and ${IMG_Q}`,"files(id,name)","createdTime desc");
-    items = files.map(f=>({id:f.id, name:f.name, team:""}));
+    // Pronta consegna: il pezzo venduto sparisce dal sito (22/09/26)
+    items = files.filter(f => !(cat.pronta && PRONTA_VENDUTO.test(f.name)))
+                 .map(f=>({id:f.id, name:f.name, team:""}));
   }
   items = raggruppaKit(raggruppaAngolazioni(items));
   cache[cat.id] = {items, teams};
@@ -2120,7 +2185,7 @@ function renderSearchResults(items){
       <h3>${cleanName(it.name)}</h3>
       <div class="team">${it._cat.flag} ${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>spedizione inclusa</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "+ 8€ spedizione · 2/3 giorni" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -2239,7 +2304,7 @@ function renderGrid(){
            <span>${k.etichetta}</span>
          </button>`).join("")}</div>` : ""}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>spedizione inclusa</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "+ 8€ spedizione · 2/3 giorni" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>openProduct(it);
@@ -2608,7 +2673,7 @@ function scegliKit(v){
   const primaOk = S.type.versions.find(x=>!x.soldOut) || S.type.versions[0];
   S.item = v.daScatto[primaOk.id] || v.scatti[0];
   S.version = primaOk.id;
-  S.size = primaOk.shoe ? "42" : (primaOk.kid ? "24" : "M");
+  S.size = (primaOk.sizes && primaOk.sizes[0]) || (primaOk.shoe ? "42" : (primaOk.kid ? "24" : "M"));
   S.patch = "Nessuna"; S.patchLibera = ""; patchLiberaInp.value = "";
   document.getElementById("sheetTeam").textContent = cleanName(S.item.name);
   document.getElementById("sheetPhoto").src = fullUrl(S.item.id);
@@ -2645,7 +2710,7 @@ function openProduct(item){
   S.type = S.kit ? profiloKit(S.kit) : productProfile(S.item);
   const primaOk = S.type.versions.find(x=>!x.soldOut) || S.type.versions[0];
   S.version = primaOk.id;
-  S.size = primaOk.shoe ? "42" : (primaOk.kid ? "24" : "M");
+  S.size = (primaOk.sizes && primaOk.sizes[0]) || (primaOk.shoe ? "42" : (primaOk.kid ? "24" : "M"));
   S.patch = "Nessuna"; S.patchLibera = ""; S.qty = 1;
   pName.value = ""; pNum.value = ""; patchLiberaInp.value = "";
   buildPatch();
@@ -2661,6 +2726,16 @@ function openProduct(item){
     setPersMode(rosa ? "giocatore" : "personalizzata");
   }
   buildVersionPills(); buildSizePills(); syncSheet();
+  // Pronta consegna: parte da noi, quindi tempi corti ma spedizione a pagamento
+  const boxSped = document.getElementById("shipBox");
+  const lblTot  = document.querySelector(".total-bar .lbl");
+  if (S.type.pronta){
+    if (boxSped) boxSped.textContent = "⚡ Pronta consegna · ti arriva in 2/3 giorni lavorativi";
+    if (lblTot)  lblTot.textContent = "Prezzo · + 8€ di spedizione";
+  } else {
+    if (boxSped) boxSped.textContent = `🚚 Spedizione gratuita · Consegna entro il ${geoConsegna.entro}`;
+    if (lblTot)  lblTot.textContent = "Prezzo · spedizione inclusa";
+  }
   overlay.classList.add("open");
   document.body.style.overflow = "hidden";
   // riflette il prodotto aperto nell'indirizzo, così copiando il link del
@@ -2769,7 +2844,7 @@ function buildSizePills(){
     KID_SIZES.forEach(sz => el.appendChild(sizePill(sz)));
     return;
   }
-  const sizes = v.shoe ? SHOE_SIZES : (v.kid ? KID_SIZES : ADULT_SIZES);
+  const sizes = v.sizes ? v.sizes : (v.shoe ? SHOE_SIZES : (v.kid ? KID_SIZES : ADULT_SIZES));
   sizes.forEach(sz => el.appendChild(sizePill(sz, v.shoe ? `EU ${sz}` : sz)));
 }
 
@@ -2847,6 +2922,7 @@ document.getElementById("sheetAddCart").onclick = ()=>{
     pers: currentPers(),
     patch: currentPatch(),
     qty: S.qty,
+    pronta: !!v.pronta,
   });
   toast("🛒 Aggiunto al carrello!");
   closeProduct();
@@ -2908,9 +2984,11 @@ function cartTotals(){
   });
   const codicePct = codiceScontoApplicato ? codiceScontoPercentuale : 0;
   const codiceDiscount = Math.round(totalQty * codicePct) / 100;
-  const total = totalQty - codiceDiscount;
+  // La pronta consegna parte da noi: 8€ di spedizione, una volta sola per ordine
+  const spedizione = cart.some(i => i.pronta) ? PRONTA_SPEDIZIONE : 0;
+  const total = totalQty - codiceDiscount + spedizione;
   return {
-    sub, n: cartCount(), qCount, tier, total,
+    sub, n: cartCount(), qCount, tier, total, spedizione,
     discount: sub - totalQty,
     codiceSconto: codicePct ? codiceScontoApplicato : null,
     codicePct, codiceDiscount,
@@ -2996,10 +3074,10 @@ function renderCart(){
     return;
   }
   empty.style.display = "none"; foot.style.display = "block"; wrap.style.display = "flex";
-  const { sub, n, qCount, tier, total, discount, codiceDiscount } = cartTotals();
+  const { sub, n, qCount, tier, total, discount, codiceDiscount, spedizione } = cartTotals();
   cart.forEach((it,i)=>{
     const eff = unitPriceFor(it, tier);
-    const meta = [it.version, `taglia ${it.size}`]
+    const meta = (it.pronta ? ["⚡ Pronta consegna"] : []).concat([it.version, `taglia ${it.size}`])
       .concat(it.colore ? [`🎨 ${it.colore}`] : [])
       .concat(it.pers ? [`✏️ ${it.pers}`] : [])
       .concat(it.patch ? [`🏅 ${it.patch}`] : [])
@@ -3026,6 +3104,11 @@ function renderCart(){
   });
   document.getElementById("cartCount").textContent = n;
   document.getElementById("cartSub").textContent = `${sub}€`;
+  const shipRow = document.getElementById("cartShipRow");
+  if (shipRow){
+    shipRow.style.display = spedizione ? "flex" : "none";
+    document.getElementById("cartShipCost").textContent = `${spedizione}€`;
+  }
   const discRow = document.getElementById("cartDiscRow");
   if (discount > 0){
     discRow.style.display = "flex";
@@ -3198,6 +3281,7 @@ function buildOrdinePayload(order, cartItems, tier, sconto){
       name: it.colore ? `${it.name} (${it.colore})` : it.name,
       tipoVersione: it.version, taglia: it.size, qty: it.qty,
       price: eff, nome_giocatore, numero_maglia, patch: it.patch || "",
+      pronta_consegna: !!it.pronta,
     };
   });
   return {
@@ -3207,6 +3291,7 @@ function buildOrdinePayload(order, cartItems, tier, sconto){
       cap: order.cap, email: order.email, squadra_cuore: order.squadraCuore,
     },
     metodo_pagamento: order.pagamento, note: order.note, articoli,
+    spedizione: cartItems.some(i=>i.pronta) ? PRONTA_SPEDIZIONE : 0,
     sconto_codice: (sconto && sconto.codiceSconto) || "",
     sconto_importo: (sconto && sconto.codiceDiscount) || 0,
   };
