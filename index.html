@@ -1579,7 +1579,9 @@ function prezzoDaNome(nome){
 
 // Taglia scritta nel nome: lettere per gli adulti, numeri pari per i bambini
 function tagliaDaNome(nome){
-  const testo = " " + String(nome||"").toLowerCase().replace(/[^a-z0-9]+/g, " ") + " ";
+  const testo = " " + String(nome||"").toLowerCase()
+                 .replace(/\btagli[ae]\b/g, " ")
+                 .replace(/[^a-z0-9]+/g, " ") + " ";
   const adulto = testo.match(/\s(3xl|xxxl|xxl|2xl|xl|xs|s|m|l)\s/);
   const bambino = testo.match(/\s(1[68]|2[02468])\s/);
   if (bambino) return { size: bambino[1], kid: true };
@@ -1599,8 +1601,10 @@ function capoPronta(nome){
   if (/\btut[ae]\b/.test(hay))                        return { label:"Tuta", price:60, kid:false };
   if (/vintage/.test(hay))                            return { label:"Maglia Vintage", price:35, kid:false };
   if (/kit\s*(bambin|kids?)|bambin|\bkids?\b/.test(hay)) return { label:"Kit Bambino", price:35, kid:true };
-  if (/magli[ae]/.test(hay))                          return { label:"Maglia", price:30, kid:false };
-  return { label:"Kit Adulto", price:40, kid:false };
+  if (/player|\bpv\b/.test(hay))                      return { label:"Player Version", price:35, kid:false };
+  if (/\bkit\b|completin/.test(hay))                  return { label:"Kit Adulto", price:40, kid:false };
+  // senza altre parole e una maglia: il kit si scrive sempre "kit"
+  return { label:"Maglia", price:30, kid:false };
 }
 
 /* COSA C'E E COSA ARRIVA PRESTO (05/09/26)
@@ -1810,6 +1814,7 @@ function cleanName(fn){
   // Pronta consegna: taglia e prezzo servono al sito, non al titolo
   if (typeof activeCat !== "undefined" && activeCat && activeCat.pronta){
     s = s.replace(/\s*\b\d{2,3}\s*(?:e|€|euro)\b/gi, "");
+    s = s.replace(/\btagli[ae]\b/gi, "");
     s = s.replace(/[\s_-]+(?:3xl|xxxl|xxl|2xl|xl|xs|s|m|l|1[68]|2[02468])\s*$/i, "");
     s = s.replace(/\b(venduto|venduta|sold)\b/gi, "");
   }
