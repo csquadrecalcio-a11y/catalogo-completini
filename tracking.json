@@ -7102,6 +7102,16 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-21 16:25:00",
+        "luogo": "Ferno",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-09-21 16:25:00",
+        "luogo": "Ferno",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-21 01:32:48",
         "luogo": "",
         "stato": "Inviato al magazzino, in attesa di scansione"
