@@ -7009,9 +7009,9 @@
     ]
   },
   "CSC-2026-0329": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-09",
-    "data_consegna": "",
+    "data_consegna": "2026-09-22 16:01:48",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73587260",
     "corriere_2": "",
@@ -7086,6 +7086,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-22 13:53",
+        "luogo": "dalla sede operativa di CASTEL GOFFREDO (MN)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-22 12:42",
+        "luogo": "CASTEL GOFFREDO (MN)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-22 05:10",
         "luogo": "MANTOVA (MN)",
