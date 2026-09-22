@@ -6810,9 +6810,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0327": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-14",
-    "data_consegna": "",
+    "data_consegna": "2026-09-22 16:01:36",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J237038",
     "corriere_2": "",
@@ -6829,6 +6829,21 @@
     "tracking_cina": "",
     "fornitore": "In Sport",
     "eventi_cina": [
+      {
+        "data": "2026-09-22 13:45:00",
+        "luogo": "Siena",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-22 11:28:09",
+        "luogo": "Siena (si)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-22 09:47:00",
+        "luogo": "Sesto fiorentino",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
       {
         "data": "2026-09-22 03:36:00",
         "luogo": "Roma",
@@ -6896,6 +6911,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-22 14:43",
+        "luogo": "dalla sede operativa di ABBADIA SAN SALVATORE (SI)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-22 11:56",
+        "luogo": "ABBADIA SAN SALVATORE (SI)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-22 05:28",
         "luogo": "SIENA (SI)",
