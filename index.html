@@ -1792,6 +1792,12 @@ function cleanName(fn){
   if (/\bestiv/i.test(s)){
     s = s.replace(/\b(solo\s+)?(con\s+)?(canotta|t[\s._-]?shirt|polo|jordan)\b/gi, "");
   }
+  // Pronta consegna: taglia e prezzo servono al sito, non al titolo
+  if (typeof activeCat !== "undefined" && activeCat && activeCat.pronta){
+    s = s.replace(/\s*\b\d{2,3}\s*(?:e|€|euro)\b/gi, "");
+    s = s.replace(/[\s_-]+(?:3xl|xxxl|xxl|2xl|xl|xs|s|m|l|1[68]|2[02468])\s*$/i, "");
+    s = s.replace(/\b(venduto|venduta|sold)\b/gi, "");
+  }
   s = s.replace(/(\d{2})[_-](\d{2})/g,"$1/$2");
   s = s.replace(/[_]+/g," ").replace(/\s+/g," ").trim();
   return s.split(" ").map(w => w.length<=3 && !/\d/.test(w) && w.length<3
