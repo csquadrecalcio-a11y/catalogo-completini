@@ -1284,8 +1284,8 @@ gtag('config', 'G-SYPQZL1L7W');
         <input type="text" id="patchLibera" maxlength="30" placeholder="Altra patch? Scrivila qui…" style="margin-top:10px">
       </div>
 
-      <div class="opt-label">Quantità</div>
-      <div class="qty-row">
+      <div class="opt-label" id="qtyLabel">Quantità</div>
+      <div class="qty-row" id="qtyRow">
         <button class="qty-btn" id="qtyMinus">−</button>
         <span class="qty-val" id="qtyVal">1</span>
         <button class="qty-btn" id="qtyPlus">+</button>
@@ -2735,10 +2735,18 @@ function openProduct(item){
   // Pronta consegna: parte da noi, quindi tempi corti ma spedizione a pagamento
   const boxSped = document.getElementById("shipBox");
   const lblTot  = document.querySelector(".total-bar .lbl");
+  const qtyRow = document.getElementById("qtyRow");
+  const qtyLbl = document.getElementById("qtyLabel");
   if (S.type.pronta){
-    if (boxSped) boxSped.textContent = "⚡ Pronta consegna · ti arriva in 2/3 giorni lavorativi";
+    if (boxSped) boxSped.textContent = "⚡ Pronta consegna · pezzo unico, ti arriva in 2/3 giorni lavorativi";
     if (lblTot)  lblTot.textContent = "Prezzo · + 8€ di spedizione";
+    // niente selettore quantita: di quel capo ce n'e uno solo
+    S.qty = 1;
+    if (qtyRow) qtyRow.style.display = "none";
+    if (qtyLbl) qtyLbl.style.display = "none";
   } else {
+    if (qtyRow) qtyRow.style.display = "";
+    if (qtyLbl) qtyLbl.style.display = "";
     if (boxSped) boxSped.textContent = `🚚 Spedizione gratuita · Consegna entro il ${geoConsegna.entro}`;
     if (lblTot)  lblTot.textContent = "Prezzo · spedizione inclusa";
   }
@@ -2857,7 +2865,11 @@ function buildSizePills(){
 pName.addEventListener("input", syncSheet);
 pNum.addEventListener("input", ()=>{ pNum.value = pNum.value.replace(/\D/g,""); syncSheet(); });
 document.getElementById("qtyMinus").onclick = ()=>{ if(S.qty>1){S.qty--; syncSheet();} };
-document.getElementById("qtyPlus").onclick  = ()=>{ if(S.qty<20){S.qty++; syncSheet();} };
+document.getElementById("qtyPlus").onclick  = ()=>{
+  // Pronta consegna: e un pezzo solo, non se ne possono comprare due (22/09/26)
+  if (S.type && S.type.pronta) return;
+  if(S.qty<20){S.qty++; syncSheet();}
+};
 
 
 /* sconto per QUANTITÀ TOTALE (maglie+kit+tutto insieme), come sul sito:
@@ -2945,10 +2957,12 @@ function cartSub(){ return cart.reduce((s,i)=>s+i.price*i.qty, 0); }
 function addToCart(it){
   const sig = i => [i.id,i.version,i.size,i.pers,i.patch,i.colore||""].join("|");
   const found = cart.find(i => sig(i) === sig(it));
-  if (found) found.qty += it.qty; else cart.push(it);
+  if (it.pronta) it.qty = 1;                 // pezzo unico
+  if (found) found.qty = it.pronta ? 1 : found.qty + it.qty; else cart.push(it);
   saveCart(); renderCart();
 }
 function changeQty(i, d){
+  if (cart[i].pronta && d > 0) return;       // di quel capo ce n'e uno solo
   cart[i].qty += d;
   if (cart[i].qty <= 0) cart.splice(i,1);
   saveCart(); renderCart();
