@@ -6723,6 +6723,16 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-21 20:55:00",
+        "luogo": "Ferno",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-09-21 20:55:00",
+        "luogo": "Ferno",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-21 01:32:48",
         "luogo": "",
         "stato": "Inviato al magazzino, in attesa di scansione"
@@ -6763,7 +6773,13 @@
         "stato": "Arrivato al punto di raccolta"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-09-21 20:55",
+        "luogo": "LONATE POZZOLO (VA)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0322": {
     "stato": "consegnato",
