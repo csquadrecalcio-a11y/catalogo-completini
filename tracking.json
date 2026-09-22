@@ -7005,6 +7005,11 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-22 02:39:00",
+        "luogo": "Verona",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-21 20:20:00",
         "luogo": "Ferno",
         "stato": "Prima scansione Poste Italiane"
