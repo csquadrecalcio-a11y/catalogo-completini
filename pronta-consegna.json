@@ -1,0 +1,16 @@
+[
+  {
+    "id": "mag1",
+    "titolo": "Maglia Prova Inter Home",
+    "tipo": "Maglia",
+    "prezzo": 30.0,
+    "foto": [
+      "pronta-consegna/capo1_0.png"
+    ],
+    "taglie": [
+      "L",
+      "XL"
+    ],
+    "esaurito": false
+  }
+]
