@@ -8334,6 +8334,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-22 17:34:58",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 24 settembre"
+      },
+      {
         "data": "2026-09-22 07:57:41",
         "luogo": "",
         "stato": "Merce consegnata alla compagnia aerea"
@@ -8366,12 +8371,12 @@
       {
         "data": "2026-09-20 02:33:52",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Ordine registrato, in attesa del pacco"
       },
       {
         "data": "2026-09-20 02:33:52",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": []
