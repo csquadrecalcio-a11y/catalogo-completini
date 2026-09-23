@@ -6443,7 +6443,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0321": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-09-09",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -6525,6 +6525,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-23 12:13",
+        "luogo": "CAMERINO (MC)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-23 04:37",
         "luogo": "MACERATA (MC)",
