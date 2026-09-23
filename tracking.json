@@ -7323,9 +7323,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0338": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-11",
-    "data_consegna": "",
+    "data_consegna": "2026-09-23 12:36:49",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J236408",
     "corriere_2": "",
@@ -7347,6 +7347,16 @@
         "data": "2026-09-23 08:49:57",
         "luogo": "Roma (rm)",
         "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-23 07:59:00",
+        "luogo": "Roma",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-22 23:37:13",
+        "luogo": "FCO",
+        "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
         "data": "2026-09-22 22:08:00",
@@ -7425,6 +7435,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-23 11:53",
+        "luogo": "dalla sede operativa di ROMA (RM)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-23 10:43",
+        "luogo": "ROMA (RM)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-23 02:49",
         "luogo": "ROMA (RM)",
