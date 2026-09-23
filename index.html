@@ -1589,11 +1589,29 @@ fetch("pronta-venduti.json?v=" + Date.now())
   .then(d => { prontaVendute = d || {}; })
   .catch(() => {});
 
-function statoPronta(id){
-  const quando = prontaVendute[id];
-  if (!quando) return "";
-  const giorni = (Date.now() - new Date(quando + "T00:00:00").getTime()) / 86400000;
-  return giorni <= PRONTA_GIORNI_VETRINA ? "venduto" : "sparito";
+/* Cosa e gia stato venduto di questo capo. Il gestionale scrive o una data
+   secca (tutto il capo, vecchio formato) o una riga per taglia (22-23/09/26). */
+function venduteDi(id){
+  const v = prontaVendute[id];
+  if (!v) return {};
+  return (typeof v === "string") ? {"*": v} : v;
+}
+function giorniDa(quando){
+  return (Date.now() - new Date(quando + "T00:00:00").getTime()) / 86400000;
+}
+// Le taglie ancora in magazzino, fra quelle scritte nel nome del file
+function taglieDisponibili(item){
+  const vendute = venduteDi(item.id);
+  if (vendute["*"]) return [];
+  return taglieDaNome(item.name).filter(t => !vendute[t]);
+}
+function statoPronta(id, item){
+  const vendute = venduteDi(id);
+  if (!Object.keys(vendute).length) return "";
+  // Finche resta anche una taglia sola, il capo e ancora in vendita
+  if (item && taglieDisponibili(item).length) return "";
+  const ultima = Object.values(vendute).sort().pop();
+  return giorniDa(ultima) <= PRONTA_GIORNI_VETRINA ? "venduto" : "sparito";
 }
 const PRONTA_VENDUTO = /\b(venduto|venduta|sold)\b/i;
 
@@ -1603,19 +1621,19 @@ function prezzoDaNome(nome){
   return m ? parseInt(m[1], 10) : null;
 }
 
-// Taglia scritta nel nome: lettere per gli adulti, numeri pari per i bambini
-function tagliaDaNome(nome){
+// Taglie scritte nel nome: lettere per gli adulti, numeri pari per i bambini.
+// Se ce n'e piu di una ("... M L XL"), il capo ha piu taglie in magazzino.
+function taglieDaNome(nome){
   const testo = " " + String(nome||"").toLowerCase()
+                 .replace(/\b\d{2}\s*[\/-]\s*\d{2}\b/g, " ")   // stagione 26/27, non e una taglia
                  .replace(/\btagli[ae]\b/g, " ")
                  .replace(/[^a-z0-9]+/g, " ") + " ";
-  const adulto = testo.match(/\s(3xl|xxxl|xxl|2xl|xl|xs|s|m|l)\s/);
-  const bambino = testo.match(/\s(1[68]|2[02468])\s/);
-  if (bambino) return { size: bambino[1], kid: true };
-  if (adulto){
-    const t = adulto[1].toUpperCase().replace("XXXL","3XL").replace("2XL","XXL");
-    return { size: t, kid: false };
+  const trovate = [];
+  for (const m of testo.matchAll(/\s(3xl|xxxl|xxl|2xl|xl|xs|s|m|l|1[68]|2[02468])(?=\s)/g)){
+    const t = m[1].toUpperCase().replace("XXXL","3XL").replace("2XL","XXL");
+    if (!trovate.includes(t)) trovate.push(t);
   }
-  return null;
+  return trovate;
 }
 
 // Che capo e, per prezzo ed etichetta: si legge dal nome come nel catalogo
@@ -1725,11 +1743,11 @@ function productProfile(item){
   // Pronta consegna: pezzo unico gia pronto, una versione e una taglia sola
   if (typeof activeCat !== "undefined" && activeCat && activeCat.pronta){
     const capo = capoPronta(item.name);
-    const taglia = tagliaDaNome(item.name);
+    const rimaste = taglieDisponibili(item);
     const prezzo = prezzoDaNome(item.name) || capo.price;
     return {
       versions: [{ id:"pronta", label: capo.label, price: prezzo, kid: capo.kid,
-                   sizes: taglia ? [taglia.size] : null, pronta:true }],
+                   sizes: rimaste.length ? rimaste : null, pronta:true }],
       pers:false, kind:"pronta", pronta:true,
     };
   }
@@ -1841,7 +1859,7 @@ function cleanName(fn){
   if (typeof activeCat !== "undefined" && activeCat && activeCat.pronta){
     s = s.replace(/\s*\b\d{2,3}\s*(?:e|€|euro)\b/gi, "");
     s = s.replace(/\btagli[ae]\b/gi, "");
-    s = s.replace(/[\s_-]+(?:3xl|xxxl|xxl|2xl|xl|xs|s|m|l|1[68]|2[02468])\s*$/i, "");
+    s = s.replace(/(?:[\s_-]+(?:3xl|xxxl|xxl|2xl|xl|xs|s|m|l|1[68]|2[02468]))+\s*$/i, "");
     s = s.replace(/\b(venduto|venduta|sold)\b/gi, "");
   }
   s = s.replace(/(\d{2})[_-](\d{2})/g,"$1/$2");
@@ -2055,7 +2073,7 @@ async function loadCategory(cat){
     const files = await drive(`'${cat.id}' in parents and ${IMG_Q}`,"files(id,name)","createdTime desc");
     // Pronta consegna: il pezzo venduto sparisce dal sito (22/09/26)
     items = files.filter(f => !(cat.pronta && PRONTA_VENDUTO.test(f.name)))
-                 .filter(f => !(cat.pronta && statoPronta(f.id) === "sparito"))
+                 .filter(f => !(cat.pronta && statoPronta(f.id, {id:f.id, name:f.name}) === "sparito"))
                  .map(f=>({id:f.id, name:f.name, team:""}));
   }
   items = raggruppaKit(raggruppaAngolazioni(items));
@@ -2261,7 +2279,7 @@ function renderSearchResults(items){
     card.innerHTML = `
       <img class="ph" src="${thumbUrl(it.id)}" alt="${cleanName(it.name)}" decoding="async"
            onerror="this.style.opacity=.15">
-      <span class="avail"${statoPronta(it.id) === "venduto" ? ' style="background:#c62828;color:#fff"' : ""}>${statoPronta(it.id) === "venduto" ? "VENDUTO" : "Disponibile"}</span>
+      <span class="avail"${statoPronta(it.id, it) === "venduto" ? ' style="background:#c62828;color:#fff"' : ""}>${statoPronta(it.id, it) === "venduto" ? "VENDUTO" : "Disponibile"}</span>
       <h3>${cleanName(it.name)}</h3>
       <div class="team">${it._cat.flag} ${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
       <div class="card-foot">
@@ -2269,7 +2287,7 @@ function renderSearchResults(items){
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
-      if (statoPronta(it.id) === "venduto"){ toast("Questo pezzo è già stato venduto"); return; }
+      if (statoPronta(it.id, it) === "venduto"){ toast("Questo pezzo è già stato venduto"); return; }
       activeCat = it._cat;
       const idx = CATALOG.indexOf(it._cat);
       document.querySelectorAll("#tabs .tab").forEach(t=>t.classList.remove("active"));
@@ -2375,7 +2393,7 @@ function renderGrid(){
     card.innerHTML = `
       <img class="ph" src="${thumbUrl(it.id)}" alt="${cleanName(it.name)}" decoding="async"
            onerror="this.style.opacity=.15">
-      <span class="avail"${statoPronta(it.id) === "venduto" ? ' style="background:#c62828;color:#fff"' : ""}>${statoPronta(it.id) === "venduto" ? "VENDUTO" : "Disponibile"}</span>
+      <span class="avail"${statoPronta(it.id, it) === "venduto" ? ' style="background:#c62828;color:#fff"' : ""}>${statoPronta(it.id, it) === "venduto" ? "VENDUTO" : "Disponibile"}</span>
       <h3>${kits.length > 1 ? cleanName(it.team || it.name) : cleanName(it.name)}</h3>
       <div class="team">${it.team ? cleanName(it.team) : activeCat.name}${
         kits.length > 1 ? ` <span class="nkit">${kits.length} ${gruppoConKit(kits) ? "kit" : "maglie"}</span>` : ""}</div>
@@ -2389,7 +2407,7 @@ function renderGrid(){
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
-      if (statoPronta(it.id) === "venduto"){ toast("Questo pezzo è già stato venduto"); return; }
+      if (statoPronta(it.id, it) === "venduto"){ toast("Questo pezzo è già stato venduto"); return; }
       openProduct(it);
     };
     // toccando un kit si apre la scheda gia su quel kit
