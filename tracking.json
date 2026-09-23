@@ -7981,8 +7981,8 @@
     "stato": "spedito",
     "data_spedizione": "2026-09-21",
     "data_consegna": "",
-    "corriere": "Poste Italiane",
-    "tracking": "9C2247J363616",
+    "corriere": "DHL",
+    "tracking": "CP042996860DE",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -7999,7 +7999,7 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
-        "data": "2026-09-19 02:36:01",
+        "data": "2026-09-23 02:39:02",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
       }
