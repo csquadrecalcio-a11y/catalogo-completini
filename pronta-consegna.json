@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "id": "mag4",
+    "titolo": "Maglia Bayern Monaco Olise 17 Champions League",
+    "tipo": "Maglia",
+    "prezzo": 30.0,
+    "foto": [
+      "pronta-consegna/capo4_0.jpg",
+      "pronta-consegna/capo4_1.jpg"
+    ],
+    "taglie": [
+      "M"
+    ],
+    "esaurito": false
+  },
+  {
+    "id": "mag3",
+    "titolo": "Maglia Napoli Third Player Version",
+    "tipo": "Player Version",
+    "prezzo": 35.0,
+    "foto": [
+      "pronta-consegna/capo3_0.jpg",
+      "pronta-consegna/capo3_1.jpg"
+    ],
+    "taglie": [
+      "L"
+    ],
+    "esaurito": false
+  },
+  {
+    "id": "mag2",
+    "titolo": "Maglia Napoli Home Player Version Patch Serie A",
+    "tipo": "Player Version",
+    "prezzo": 35.0,
+    "foto": [
+      "pronta-consegna/capo2_0.jpg",
+      "pronta-consegna/capo2_1.jpg"
+    ],
+    "taglie": [
+      "XL"
+    ],
+    "esaurito": false
+  }
+]
