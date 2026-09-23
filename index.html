@@ -1487,8 +1487,11 @@ const WA_PERSONALE = "393792126743";
 const WA_BUSINESS  = "447727750265";
 let _clientiNoti = null;
 fetch("/clienti_noti.json").then(r=>r.json()).then(d=>{ _clientiNoti=d; }).catch(()=>{ _clientiNoti=[]; });
-const thumbUrl = id => `https://drive.google.com/thumbnail?id=${id}&sz=w400`;
-const fullUrl  = id => `https://drive.google.com/thumbnail?id=${id}&sz=w1600`;
+// Le foto della pronta consegna le carica Alberto dal gestionale e stanno qui
+// sul sito: si riconoscono dal percorso e non passano da Drive (23/09/26).
+const fotoNostra = id => /^(pronta-consegna\/|https?:|\/)/.test(String(id||""));
+const thumbUrl = id => fotoNostra(id) ? id : `https://drive.google.com/thumbnail?id=${id}&sz=w400`;
+const fullUrl  = id => fotoNostra(id) ? id : `https://drive.google.com/thumbnail?id=${id}&sz=w1600`;
 
 /* "Cuscinetto" nella cronologia del browser: senza questo, il primo tocco
    sul tasto Indietro del telefono esce subito dal sito (verso qualsiasi
@@ -1606,6 +1609,7 @@ function taglieDisponibili(item){
   return taglieDaNome(item.name).filter(t => !vendute[t]);
 }
 function statoPronta(id, item){
+  if (item && item.mag) return item.mag.esaurito ? "venduto" : "";
   const vendute = venduteDi(id);
   if (!Object.keys(vendute).length) return "";
   // Finche resta anche una taglia sola, il capo e ancora in vendita
@@ -1741,6 +1745,14 @@ function versioniNominate(testo, tabella){
 function productProfile(item){
   const cat = (typeof activeCat !== "undefined" && activeCat) ? activeCat.name : "";
   // Pronta consegna: pezzo unico gia pronto, una versione e una taglia sola
+  if (item && item.mag){
+    const m = item.mag;
+    return {
+      versions: [{ id:"pronta", label: m.tipo, price: m.prezzo, kid: /bambin/i.test(m.tipo),
+                   sizes: (m.taglie && m.taglie.length) ? m.taglie : null, pronta:true }],
+      pers:false, kind:"pronta", pronta:true,
+    };
+  }
   if (typeof activeCat !== "undefined" && activeCat && activeCat.pronta){
     const capo = capoPronta(item.name);
     const rimaste = taglieDisponibili(item);
@@ -2069,6 +2081,32 @@ async function loadCategory(cat){
     // (es. Nike/Adidas invece di "Scarpe da calcio" se si è scesi di un livello)
     const realTeamNames = new Set(items.map(i=>i.team));
     teams = [...realTeamNames].map(name => ({ id:name, name }));
+  } else if (cat.pronta){
+    // Magazzino gestito dal gestionale: foto, taglie e prezzi arrivano da qui.
+    // Se il file non c'e ancora, si ripiega sulla cartella Drive di prima.
+    let capi = [];
+    try{
+      const r = await fetch("pronta-consegna.json?v=" + Date.now());
+      if (r.ok) capi = await r.json();
+    }catch(e){}
+    if (capi.length){
+      items = capi.map(c => ({
+        id: (c.foto && c.foto[0]) || "",
+        name: c.titolo,
+        team: "",
+        extra: (c.foto || []).slice(1),
+        mag: c,
+      }));
+      cache[cat.id] = {items, teams: []};
+      return cache[cat.id];
+    }
+    const files = await drive(`'${cat.id}' in parents and ${IMG_Q}`,"files(id,name)","createdTime desc");
+    items = files.filter(f => !PRONTA_VENDUTO.test(f.name))
+                 .filter(f => statoPronta(f.id, {id:f.id, name:f.name}) !== "sparito")
+                 .map(f=>({id:f.id, name:f.name, team:""}));
+    items = raggruppaKit(raggruppaAngolazioni(items));
+    cache[cat.id] = {items, teams: []};
+    return cache[cat.id];
   } else {
     const files = await drive(`'${cat.id}' in parents and ${IMG_Q}`,"files(id,name)","createdTime desc");
     // Pronta consegna: il pezzo venduto sparisce dal sito (22/09/26)
