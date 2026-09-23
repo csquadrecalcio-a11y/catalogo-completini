@@ -1,5 +1,19 @@
 [
   {
+    "id": "mag5",
+    "titolo": "Maglia Roma Away Player Version Patch Champions League",
+    "tipo": "Player Version",
+    "prezzo": 35.0,
+    "foto": [
+      "pronta-consegna/capo5_0.jpg",
+      "pronta-consegna/capo5_1.jpg"
+    ],
+    "taglie": [
+      "XL"
+    ],
+    "esaurito": false
+  },
+  {
     "id": "mag4",
     "titolo": "Maglia Bayern Monaco Olise 17 Champions League",
     "tipo": "Maglia",
