@@ -285,6 +285,20 @@ gtag('config', 'G-SYPQZL1L7W');
   .tab.active{background:var(--volt);color:#ffffff;border-color:var(--volt)}
   .toolbar{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:24px}
   .team-chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;flex:1;min-width:0;max-width:100%;scrollbar-width:thin}
+  /* Sul desktop nessuno scorre di lato: le squadre vanno a capo e si vedono
+     tutte insieme (23/09/26) */
+  @media (min-width:860px){
+    .team-chips{flex-wrap:wrap;overflow-x:visible;max-height:none}
+  }
+  /* Scorciatoie: le squadre piu cercate, sempre in vista sopra le categorie */
+  .quick-teams{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 14px}
+  .quick-teams .ql{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-right:4px}
+  .chip-q{
+    padding:9px 16px;border-radius:999px;font-size:13px;font-weight:800;cursor:pointer;
+    background:rgba(37,99,235,.08);color:var(--volt);border:1px solid rgba(37,99,235,.35);
+    transition:all .15s ease;white-space:nowrap;
+  }
+  .chip-q:hover{background:var(--volt);color:#fff;border-color:var(--volt)}
   .chip-t{
     flex:none;padding:8px 15px;border-radius:999px;font-size:12.5px;font-weight:700;
     background:transparent;color:var(--muted);border:1px solid var(--line);cursor:pointer;
@@ -890,6 +904,18 @@ gtag('config', 'G-SYPQZL1L7W');
         <h2 class="display">Scegli. Apri. Personalizza.</h2>
       </div>
       <p>Le foto arrivano in diretta dal nostro archivio: quello che vedi è quello che spediamo. Clicca un prodotto per aprire la scheda.</p>
+    </div>
+    <div class="quick-teams reveal" id="quickTeams">
+      <span class="ql">Vai subito a</span>
+      <button class="chip-q" data-squadra="Inter">Inter</button>
+      <button class="chip-q" data-squadra="Napoli">Napoli</button>
+      <button class="chip-q" data-squadra="Juventus">Juventus</button>
+      <button class="chip-q" data-squadra="Milan">Milan</button>
+      <button class="chip-q" data-squadra="Roma">Roma</button>
+      <button class="chip-q" data-squadra="Barcellona">Barcellona</button>
+      <button class="chip-q" data-squadra="Real Madrid">Real Madrid</button>
+      <button class="chip-q" data-squadra="Argentina">Argentina</button>
+      <button class="chip-q" data-squadra="bambino">Bambino</button>
     </div>
     <div class="cat-tabs reveal" id="tabs"></div>
     <div class="toolbar reveal">
@@ -2130,6 +2156,33 @@ searchInp.addEventListener("input", ()=>{
   }
 });
 moreBtn.onclick = ()=>{ renderLimit += 24; if (searchMode) renderSearchResults(searchAllResults); else renderGrid(); };
+
+/* Scorciatoie squadre: portano dritti ai prodotti di quella squadra, senza
+   passare per lega → squadra. Usano la ricerca globale, che guarda in tutte
+   le categorie insieme (23/09/26). */
+function vaiAllaSquadra(nome){
+  searchInp.value = nome;
+  if (headerSearchInp) headerSearchInp.value = nome;
+  searchInp.dispatchEvent(new Event("input"));
+  document.getElementById("catalogo").scrollIntoView({behavior:"smooth", block:"start"});
+}
+document.querySelectorAll("#quickTeams .chip-q").forEach(b=>{
+  b.onclick = ()=>{
+    document.querySelectorAll("#quickTeams .chip-q").forEach(x=>x.classList.remove("active"));
+    b.classList.add("active");
+    vaiAllaSquadra(b.dataset.squadra);
+  };
+});
+
+/* Sul telefono i chip delle squadre scorrono di lato: con la rotella del mouse
+   o il trackpad il movimento verticale diventa orizzontale, se no sul portatile
+   sembrava che le altre squadre non ci fossero (23/09/26). */
+chipsEl.addEventListener("wheel", e=>{
+  if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+  if (chipsEl.scrollWidth <= chipsEl.clientWidth) return;
+  e.preventDefault();
+  chipsEl.scrollLeft += e.deltaY;
+}, {passive:false});
 
 /* -------- ricerca su TUTTE le categorie, non solo quella aperta -------- */
 async function ensureAllCategoriesLoaded(){
