@@ -8133,6 +8133,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-23 17:34:21",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 24 settembre"
+      },
+      {
         "data": "2026-09-22 08:13:09",
         "luogo": "",
         "stato": "Merce consegnata alla compagnia aerea"
@@ -8165,12 +8170,12 @@
       {
         "data": "2026-09-20 02:33:18",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-09-20 02:33:18",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": []
