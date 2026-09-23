@@ -2100,7 +2100,8 @@ async function loadCategory(cat){
       cache[cat.id] = {items, teams: []};
       return cache[cat.id];
     }
-    const files = await drive(`'${cat.id}' in parents and ${IMG_Q}`,"files(id,name)","createdTime desc");
+    const files = await drive(`'${cat.id}' in parents and ${IMG_Q}`,"files(id,name)","createdTime desc")
+                        .catch(()=>[]);
     items = files.filter(f => !PRONTA_VENDUTO.test(f.name))
                  .filter(f => statoPronta(f.id, {id:f.id, name:f.name}) !== "sparito")
                  .map(f=>({id:f.id, name:f.name, team:""}));
