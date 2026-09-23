@@ -7391,6 +7391,31 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-23 08:49:57",
+        "luogo": "Roma (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-22 22:08:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-22 22:08:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-22 15:36:00",
+        "luogo": "Fiano romano",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-09-22 15:34:00",
+        "luogo": "Fiano romano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-21 22:32:26",
         "luogo": "",
         "stato": "Il volo è decollato"
@@ -7438,18 +7463,18 @@
       {
         "data": "2026-09-12 01:53:10",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-09-12 01:53:10",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-22 09:36",
-        "luogo": "Centro Operativo Postale",
+        "data": "2026-09-23 02:49",
+        "luogo": "ROMA (RM)",
         "stato": "La spedizione è in transito"
       }
     ]
