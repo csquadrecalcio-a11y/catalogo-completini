@@ -6464,6 +6464,16 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-23 07:43:00",
+        "luogo": "Macerata",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-23 02:16:00",
+        "luogo": "Ancona",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-21 20:55:00",
         "luogo": "Ferno",
         "stato": "Prima scansione Poste Italiane"
