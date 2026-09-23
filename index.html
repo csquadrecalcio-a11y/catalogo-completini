@@ -145,15 +145,34 @@ gtag('config', 'G-SYPQZL1L7W');
     background:rgba(var(--bg-rgb),.72);
     border-bottom:1px solid var(--line);
   }
-  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:10px}
+  /* Il nome resta leggibile: a stringersi e la ricerca, che ha comunque
+     un minimo sotto il quale non scende (23/09/26) */
+  .nav .logo{flex:0 1 auto;min-width:0;max-width:340px}
+  /* Sotto una certa larghezza il nome del sito viene prima di FAQ e Contatti,
+     che stanno comunque nel fondo pagina (23/09/26) */
+  @media (max-width:1500px){
+    .nav-links a[href="#faq"], .nav-links a[href="#contatti"]{display:none}
+  }
+  @media (max-width:1500px){
+    .nav-links a[href="#recensioni"], .nav-links a[href="#come-funziona"]{display:none}
+  }
+  /* Quando c'e il menu completo, il bottone dorato CSC Wear e un doppione
+     del link "CSC Wear": si toglie e lo spazio va al nome (23/09/26) */
+  @media (min-width:1201px){ .wear-link{display:none} }
   .logo{display:flex;align-items:center;gap:12px;font-weight:800}
   .logo-mark{
     width:44px;height:44px;border-radius:12px;flex:none;
     object-fit:cover;background:var(--panel-2);border:1px solid var(--line);
   }
-  .logo b{display:block;font-size:15.5px;font-weight:800;line-height:1.2}
-  .logo small{display:block;font-size:10.5px;font-weight:600;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px}
-  .nav-links{display:flex;gap:18px;font-size:13.5px;font-weight:600;color:var(--muted);flex:none;white-space:nowrap}
+  /* Nome e sottotitolo su una riga sola: se lo spazio finisce si accorciano
+     con i puntini invece di accavallarsi (23/09/26) */
+  .logo span{min-width:0;overflow:hidden}
+  .logo b{display:block;font-size:15.5px;font-weight:800;line-height:1.2;
+          white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .logo small{display:block;font-size:10.5px;font-weight:600;color:var(--muted);letter-spacing:.1em;
+          text-transform:uppercase;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .nav-links{display:flex;gap:13px;font-size:12.5px;font-weight:600;color:var(--muted);flex:none;white-space:nowrap}
   /* accesso a CSC Wear: resta visibile anche su telefono, dove il menu
      sparisce (sotto i 1300px). Oro su fondo scuro = marchio dell'altro negozio. */
   .wear-link{
@@ -165,7 +184,7 @@ gtag('config', 'G-SYPQZL1L7W');
   .wear-link:hover{background:#d9b45a;color:#141005}
   @media (prefers-color-scheme: dark){ .wear-link{color:#d9b45a} }
   .nav-links a:hover{color:var(--text)}
-  .header-search{position:relative;flex:1;min-width:0;max-width:280px;margin:0 20px}
+  .header-search{position:relative;flex:1 1 200px;min-width:200px;max-width:280px;margin:0 20px}
   .header-search input{
     width:100%;background:var(--panel-2);border:1px solid var(--line);border-radius:999px;
     padding:11px 16px 11px 40px;color:var(--text);font-size:14px;font-weight:600;
@@ -783,7 +802,7 @@ gtag('config', 'G-SYPQZL1L7W');
   }
   .reveal.in{opacity:1;transform:perspective(1200px) rotateX(0deg) translateY(0) scale(1)}
 
-  @media (max-width:1300px){
+  @media (max-width:1200px){
     .nav-links{display:none}
     .header-search{max-width:none;margin:0 16px}
   }
