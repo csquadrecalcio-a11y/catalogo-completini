@@ -8929,11 +8929,11 @@
     "fornitore": "In Sport"
   },
   "CSC-2026-0379": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-09-24",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "DHL",
+    "tracking": "CJ126600203DE",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -8942,11 +8942,14 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": [],
+    "foto": [
+      "sped_379_1_1d9e8862.jpg",
+      "sped_379_2_40e9f598.jpg"
+    ],
     "tracking_cina": "",
+    "fornitore": "In Sport",
     "eventi_cina": [],
-    "eventi_corriere": [],
-    "fornitore": "In Sport"
+    "eventi_corriere": []
   },
   "CSC-2026-0380": {
     "stato": "spedito",
