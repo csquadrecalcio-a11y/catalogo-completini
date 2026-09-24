@@ -6828,9 +6828,9 @@
     ]
   },
   "CSC-2026-0331": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-10",
-    "data_consegna": "",
+    "data_consegna": "2026-09-24 12:46:25",
     "corriere": "DHL",
     "tracking": "CP042719190DE",
     "corriere_2": "",
