@@ -50,9 +50,7 @@
       "pronta-consegna/capo2_0.jpg",
       "pronta-consegna/capo2_1.jpg"
     ],
-    "taglie": [
-      "XL"
-    ],
-    "esaurito": false
+    "taglie": [],
+    "esaurito": true
   }
 ]
