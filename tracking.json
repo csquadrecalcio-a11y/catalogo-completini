@@ -8230,6 +8230,11 @@
         "stato": "Il volo è decollato"
       },
       {
+        "data": "2026-09-22 19:26:45",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 23 settembre"
+      },
+      {
         "data": "2026-09-22 17:34:58",
         "luogo": "",
         "stato": "Arrivo in Italia previsto: 24 settembre"
@@ -8262,12 +8267,12 @@
       {
         "data": "2026-09-20 02:33:52",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Ordine registrato, in attesa del pacco"
       },
       {
         "data": "2026-09-20 02:33:52",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-09-20 02:33:52",
