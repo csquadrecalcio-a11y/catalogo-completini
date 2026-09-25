@@ -7194,9 +7194,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0340": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-16",
-    "data_consegna": "",
+    "data_consegna": "2026-09-25 18:00:33",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J326950",
     "corriere_2": "",
@@ -7296,6 +7296,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-25 15:01",
+        "luogo": "dalla sede operativa di SAN FERDINANDO DI PUGLIA (BT)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-25 13:56",
+        "luogo": "SAN FERDINANDO DI PUGLIA (BT)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-25 05:04",
         "luogo": "Centro Operativo Postale",
