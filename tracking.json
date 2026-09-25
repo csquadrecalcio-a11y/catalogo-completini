@@ -7096,6 +7096,11 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-24 18:08:03",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
         "data": "2026-09-23 14:06:03",
         "luogo": "",
         "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
