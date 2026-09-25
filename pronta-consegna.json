@@ -22,10 +22,8 @@
       "pronta-consegna/capo4_0.jpg",
       "pronta-consegna/capo4_1.jpg"
     ],
-    "taglie": [
-      "M"
-    ],
-    "esaurito": false
+    "taglie": [],
+    "esaurito": true
   },
   {
     "id": "mag3",
