@@ -6331,6 +6331,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-27 23:51",
+        "luogo": "Italia",
+        "stato": "in facility"
+      },
+      {
+        "data": "2026-09-27 23:49",
+        "luogo": "Italia",
+        "stato": "movement / tour vehicle arrived"
+      },
+      {
         "data": "2026-09-25 13:46",
         "luogo": "Italia",
         "stato": "unloaded from movement / tour vehicle"
