@@ -7156,6 +7156,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-27 23:45:20",
+        "luogo": "",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
+        "data": "2026-09-26 23:42:22",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
         "data": "2026-09-25 14:37:05",
         "luogo": "",
         "stato": "Arrivo in Italia previsto: 27 settembre"
@@ -7169,6 +7179,11 @@
         "data": "2026-09-24 14:51:48",
         "luogo": "",
         "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-09-24 14:15:00",
+        "luogo": "",
+        "stato": "Spedizione registrata dal mittente"
       },
       {
         "data": "2026-09-24 13:52:24",
