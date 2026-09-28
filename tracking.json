@@ -8489,6 +8489,11 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-09-27 00:01:47",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
         "data": "2026-09-26 05:35:13",
         "luogo": "",
         "stato": "Partito dall'aeroporto di origine"
