@@ -7925,11 +7925,11 @@
     "eventi_corriere": []
   },
   "CSC-2026-0366": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-09-28",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "DHL",
+    "tracking": "CJ126600234DE",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -7938,7 +7938,10 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": [],
+    "foto": [
+      "sped_366_1_8bad875c.jpg",
+      "sped_366_2_d76c05c3.jpg"
+    ],
     "tracking_cina": "",
     "fornitore": "In Sport",
     "eventi_cina": [],
