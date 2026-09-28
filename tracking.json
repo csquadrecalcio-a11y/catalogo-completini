@@ -6863,7 +6863,7 @@
     ]
   },
   "CSC-2026-0347": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-09-16",
     "data_consegna": "",
     "corriere": "Poste Italiane",
