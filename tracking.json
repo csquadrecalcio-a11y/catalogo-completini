@@ -8073,6 +8073,21 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-26 08:31:46",
+        "luogo": "",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-09-25 13:31:30",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-09-25 09:30:43",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-09-24 17:27:02",
         "luogo": "FCO",
         "stato": "Arrivato all'aeroporto di destinazione"
@@ -8120,17 +8135,17 @@
       {
         "data": "2026-09-20 02:33:52",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
-      },
-      {
-        "data": "2026-09-20 02:33:52",
-        "luogo": "",
         "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-09-20 02:33:52",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
+      },
+      {
+        "data": "2026-09-20 02:33:52",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
     "eventi_corriere": []
