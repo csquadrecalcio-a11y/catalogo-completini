@@ -7765,6 +7765,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-29 15:49:07",
+        "luogo": "Catania (ct)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-09-28 17:24:00",
         "luogo": "Fiano romano",
         "stato": "In transito nella rete di Poste Italiane"
@@ -7862,8 +7867,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-28 09:37",
-        "luogo": "Centro Operativo Postale",
+        "data": "2026-09-29 09:49",
+        "luogo": "CATANIA (CT)",
         "stato": "La spedizione è in transito"
       }
     ]
