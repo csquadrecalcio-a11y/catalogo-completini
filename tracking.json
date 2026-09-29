@@ -8755,9 +8755,19 @@
         "stato": "Arrivato al punto di raccolta"
       },
       {
+        "data": "2026-09-24 23:37:46",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
+      },
+      {
         "data": "2026-09-24 23:37:44",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
+      },
+      {
+        "data": "2026-09-24 23:37:44",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": []
