@@ -8111,7 +8111,13 @@
         "stato": "Dati della spedizione ricevuti"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-09-29 11:02",
+        "luogo": "Centro Operativo Postale",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0363": {
     "stato": "spedito",
