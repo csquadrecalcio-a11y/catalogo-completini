@@ -7932,7 +7932,7 @@
     ]
   },
   "CSC-2026-0359": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-09-20",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -8063,6 +8063,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-30 11:11",
+        "luogo": "MAZARA DEL VALLO (TP)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-30 05:50",
         "luogo": "MAZARA DEL VALLO (TP)",
