@@ -6101,6 +6101,16 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-30 12:47",
+        "luogo": "dalla sede operativa di SIRACUSA (SR)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-30 10:39",
+        "luogo": "SIRACUSA (SR)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
         "data": "2026-09-30 05:38",
         "luogo": "SIRACUSA (SR)",
         "stato": "La spedizione è in transito"
