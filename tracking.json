@@ -6018,9 +6018,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0334": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-11",
-    "data_consegna": "",
+    "data_consegna": "2026-09-30 12:47",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73587264",
     "corriere_2": "",
