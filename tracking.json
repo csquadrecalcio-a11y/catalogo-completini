@@ -6821,9 +6821,9 @@
     ]
   },
   "CSC-2026-0344": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-17",
-    "data_consegna": "",
+    "data_consegna": "2026-09-30 14:17:16",
     "corriere": "DHL",
     "tracking": "CP042839847DE",
     "corriere_2": "",
