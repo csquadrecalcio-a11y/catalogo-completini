@@ -6406,32 +6406,32 @@
       {
         "data": "2026-09-29 02:48",
         "luogo": "Italia",
-        "stato": "loaded to movement / tour vehicle"
+        "stato": "Caricato sul mezzo di trasporto"
       },
       {
         "data": "2026-09-27 23:51",
         "luogo": "Italia",
-        "stato": "in facility"
+        "stato": "Nel centro di smistamento"
       },
       {
         "data": "2026-09-27 23:49",
         "luogo": "Italia",
-        "stato": "movement / tour vehicle arrived"
+        "stato": "Mezzo di trasporto arrivato"
       },
       {
         "data": "2026-09-25 13:46",
         "luogo": "Italia",
-        "stato": "unloaded from movement / tour vehicle"
+        "stato": "Scaricato dal mezzo di trasporto"
       },
       {
         "data": "2026-09-24 23:35",
         "luogo": "Italia",
-        "stato": "loaded to movement / tour vehicle"
+        "stato": "Caricato sul mezzo di trasporto"
       },
       {
         "data": "2026-09-24 23:34",
         "luogo": "Italia",
-        "stato": "sorted"
+        "stato": "Smistato"
       },
       {
         "data": "2026-09-24 23:34",
@@ -6446,7 +6446,7 @@
       {
         "data": "2026-09-24 05:21",
         "luogo": "Italia",
-        "stato": "pick-up was successful."
+        "stato": "Ritiro avvenuto."
       },
       {
         "data": "2026-09-23 20:55",
@@ -6461,7 +6461,7 @@
       {
         "data": "2026-09-23 10:47",
         "luogo": "AMS",
-        "stato": "，Sdoganamento in corso"
+        "stato": "Sdoganamento in corso"
       },
       {
         "data": "2026-09-23 03:17",
@@ -6471,12 +6471,12 @@
       {
         "data": "2026-09-22 22:25",
         "luogo": "",
-        "stato": "VoloVolo partito，"
+        "stato": "Volo partito"
       },
       {
         "data": "2026-09-22 09:01",
         "luogo": "",
-        "stato": "9 23 Volo"
+        "stato": "23/09 Volo"
       },
       {
         "data": "2026-09-22 08:31",
@@ -6490,7 +6490,7 @@
       },
       {
         "data": "2026-09-18 20:35",
-        "luogo": "GZ",
+        "luogo": "",
         "stato": "Pacco ricevuto in magazzino"
       },
       {
@@ -6516,12 +6516,12 @@
       {
         "data": "2026-09-17 11:25",
         "luogo": "",
-        "stato": "shipment information received"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-09-17 11:25",
         "luogo": "",
-        "stato": "shipment information received"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": []
