@@ -7871,6 +7871,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-30 07:42:47",
+        "luogo": "Palermo (pa)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-29 23:26:00",
+        "luogo": "Catania",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-09-29 15:49:07",
         "luogo": "Catania (ct)",
         "stato": "In transito, la spedizione è in transito"
@@ -7973,8 +7983,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-29 09:49",
-        "luogo": "CATANIA (CT)",
+        "data": "2026-09-30 05:50",
+        "luogo": "MAZARA DEL VALLO (TP)",
         "stato": "La spedizione è in transito"
       }
     ]
