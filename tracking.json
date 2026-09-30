@@ -7393,6 +7393,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-29 18:18:21",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-09-29 11:18:00",
+        "luogo": "",
+        "stato": "In transito to final service provider"
+      },
+      {
         "data": "2026-09-28 11:56:41",
         "luogo": "",
         "stato": "Sdoganamento completato"
