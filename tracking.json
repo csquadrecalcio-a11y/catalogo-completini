@@ -5583,8 +5583,13 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-29 09:42",
-        "luogo": "BOLOGNA (BO)",
+        "data": "2026-09-30 12:50",
+        "luogo": "FORLI' (FC)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-09-30 10:30",
+        "luogo": "FORLI' (FC)",
         "stato": "La spedizione è in transito"
       }
     ]
