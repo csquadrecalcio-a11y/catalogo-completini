@@ -6900,9 +6900,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0345": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-16",
-    "data_consegna": "",
+    "data_consegna": "2026-09-30 12:27:12",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J325829",
     "corriere_2": "",
@@ -7031,6 +7031,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-30 12:07",
+        "luogo": "dalla sede operativa di SIRACUSA (SR)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-30 11:07",
+        "luogo": "SIRACUSA (SR)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-30 05:38",
         "luogo": "SIRACUSA (SR)",
