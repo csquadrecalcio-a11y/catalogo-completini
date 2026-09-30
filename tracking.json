@@ -6389,6 +6389,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-29 08:06",
+        "luogo": "piazza armerina,Italia",
+        "stato": "Consegnato"
+      },
+      {
         "data": "2026-09-29 02:48",
         "luogo": "Italia",
         "stato": "loaded to movement / tour vehicle"
