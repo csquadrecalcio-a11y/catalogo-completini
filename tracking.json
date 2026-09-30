@@ -8207,6 +8207,46 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-09-30 04:22:47",
+        "luogo": "Roma (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-29 18:56:00",
+        "luogo": "Fiano romano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-29 17:02:01",
+        "luogo": "Centro Operativo Postale",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-29 17:02:00",
+        "luogo": "Fiano romano",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-09-29 12:22:10",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-09-29 05:21:29",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-09-28 14:20:55",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-09-28 08:20:25",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-09-27 22:35:48",
         "luogo": "FCO",
         "stato": "Arrivato all'aeroporto di destinazione"
@@ -8259,18 +8299,18 @@
       {
         "data": "2026-09-22 00:23:59",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-09-22 00:23:59",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-29 11:02",
-        "luogo": "Centro Operativo Postale",
+        "data": "2026-09-30 06:55",
+        "luogo": "ROMA (RM)",
         "stato": "La spedizione è in transito"
       }
     ]
