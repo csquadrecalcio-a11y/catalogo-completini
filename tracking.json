@@ -9277,11 +9277,11 @@
     "eventi_corriere": []
   },
   "CSC-2026-0392": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-09-30",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "DHL",
+    "tracking": "CJ126987270DE",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -9290,10 +9290,48 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": [],
-    "tracking_cina": "",
+    "foto": [
+      "sped_392_1_ff8e4273.jpeg"
+    ],
+    "tracking_cina": "CJ126987270DE",
     "fornitore": "In Sport",
-    "eventi_cina": [],
+    "eventi_cina": [
+      {
+        "data": "2026-09-29 20:14",
+        "luogo": "",
+        "stato": "Pacco ricevuto in magazzino"
+      },
+      {
+        "data": "2026-09-29 18:49",
+        "luogo": "Centro di smistamento",
+        "stato": "Codice di tracciamento assegnato"
+      },
+      {
+        "data": "2026-09-29 18:49",
+        "luogo": "Centro di smistamento",
+        "stato": "Spedizione preannunciata"
+      },
+      {
+        "data": "2026-09-29 18:49",
+        "luogo": "Centro di smistamento",
+        "stato": "Ordine registrato"
+      },
+      {
+        "data": "2026-09-29 15:10",
+        "luogo": "Italia",
+        "stato": "Spedizione registrata dal mittente"
+      },
+      {
+        "data": "2026-09-29 10:49",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      },
+      {
+        "data": "2026-09-29 10:49",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
     "eventi_corriere": []
   },
   "CSC-2026-0393": {
