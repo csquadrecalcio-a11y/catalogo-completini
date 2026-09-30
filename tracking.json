@@ -6667,9 +6667,9 @@
     ]
   },
   "CSC-2026-0343": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-16",
-    "data_consegna": "",
+    "data_consegna": "2026-09-30 12:18",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J307382",
     "corriere_2": "",
@@ -6803,6 +6803,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-30 12:18",
+        "luogo": "dalla sede operativa di ROMA (RM)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-30 11:30",
+        "luogo": "ROMA (RM)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-30 01:53",
         "luogo": "FIUMICINO (RM)",
