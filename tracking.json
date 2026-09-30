@@ -7952,9 +7952,9 @@
     ]
   },
   "CSC-2026-0359": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-20",
-    "data_consegna": "",
+    "data_consegna": "2026-09-30 14:15:34",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J378594",
     "corriere_2": "",
