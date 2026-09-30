@@ -5510,7 +5510,7 @@
     ]
   },
   "CSC-2026-0324": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-09-11",
     "data_consegna": "",
     "corriere": "Poste Italiane",
