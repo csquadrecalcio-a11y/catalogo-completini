@@ -5232,9 +5232,9 @@
     ]
   },
   "CSC-2026-0324": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-11",
-    "data_consegna": "",
+    "data_consegna": "2026-10-01 18:55:42",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73587148",
     "corriere_2": "",
@@ -5304,6 +5304,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-01 12:38",
+        "luogo": "dalla sede operativa di FORLI' (FC)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-01 10:21",
+        "luogo": "FORLI' (FC)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-09-30 15:27",
         "luogo": "FORLI' (FC)",
