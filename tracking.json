@@ -5159,9 +5159,9 @@
     ]
   },
   "CSC-2026-0320": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-11",
-    "data_consegna": "",
+    "data_consegna": "2026-10-01 06:35:08",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73612876",
     "corriere_2": "",
@@ -5236,6 +5236,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-09-30 14:15",
+        "luogo": "dalla sede operativa di PRATO (PO)",
+        "stato": "La spedizione è stata consegnata"
+      },
       {
         "data": "2026-09-30 11:11",
         "luogo": "PRATO (PO)",
