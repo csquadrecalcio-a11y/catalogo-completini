@@ -5855,9 +5855,9 @@
     ]
   },
   "CSC-2026-0336": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-14",
-    "data_consegna": "",
+    "data_consegna": "2026-10-01 18:55:46",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73612823",
     "corriere_2": "",
@@ -5922,6 +5922,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-01 16:50",
+        "luogo": "dalla sede operativa di POTENZA (PZ)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-01 12:44",
+        "luogo": "POTENZA (PZ)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-01 06:28",
         "luogo": "POTENZA (PZ)",
