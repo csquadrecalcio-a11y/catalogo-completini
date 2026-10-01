@@ -5588,6 +5588,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-09-30 15:27",
+        "luogo": "FORLI' (FC)",
+        "stato": "Non è stato possibile effettuare la consegna. la spedizione sarà in consegna il primo giorno lavorativo utile a partire dal 2026-09-30 15:27"
+      },
+      {
         "data": "2026-09-30 12:50",
         "luogo": "FORLI' (FC)",
         "stato": "La spedizione è in consegna"
