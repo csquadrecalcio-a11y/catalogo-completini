@@ -5940,9 +5940,9 @@
     ]
   },
   "CSC-2026-0337": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-11",
-    "data_consegna": "",
+    "data_consegna": "2026-10-01 18:55:51",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73612828",
     "corriere_2": "",
@@ -6008,8 +6008,18 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-01 03:01",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-10-01 14:03",
+        "luogo": "dalla sede operativa di TARQUINIA (VT)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-01 10:11",
+        "luogo": "TARQUINIA (VT)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-01 07:00",
+        "luogo": "VITERBO (VT)",
         "stato": "La spedizione è in transito"
       }
     ]
