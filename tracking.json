@@ -7279,9 +7279,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0355": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-20",
-    "data_consegna": "",
+    "data_consegna": "2026-10-01 18:56:05",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J378592",
     "corriere_2": "",
@@ -7397,7 +7397,17 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-09-30 22:22",
+        "data": "2026-10-01 14:47",
+        "luogo": "dalla sede operativa di ROMA (RM)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-01 13:01",
+        "luogo": "ROMA (RM)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-01 07:27",
         "luogo": "ROMA (RM)",
         "stato": "La spedizione è in transito"
       }
