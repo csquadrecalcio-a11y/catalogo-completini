@@ -6991,9 +6991,9 @@
     ]
   },
   "CSC-2026-0349": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-21",
-    "data_consegna": "",
+    "data_consegna": "2026-10-01 18:55:56",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J345122",
     "corriere_2": "",
@@ -7094,6 +7094,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-01 17:05",
+        "luogo": "dalla sede operativa di ABBADIA SAN SALVATORE (SI)",
+        "stato": "La spedizione è stata consegnata"
+      },
       {
         "data": "2026-10-01 05:27",
         "luogo": "SIENA (SI)",
