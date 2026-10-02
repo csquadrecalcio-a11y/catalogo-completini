@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-tema="autunno">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -224,6 +224,21 @@ gtag('config', 'G-SYPQZL1L7W');
     background:linear-gradient(to bottom, rgba(5,13,28,0) 70%, rgba(5,13,28,.55) 100%);
   }
   .pitch svg{position:absolute;left:72%;top:50%;transform:translate(-50%,-50%);opacity:.07;z-index:1}
+
+  /* ---------- tema stagionale ----------
+     Si cambia da una riga sola: <html data-tema="...">. Valori: (vuoto) = normale,
+     autunno. Calendario: ottobre autunno, 20/10 halloween, 26-30/11 black friday,
+     1-23/12 natale (02/10/26). */
+  html[data-tema="autunno"] .strip{background:linear-gradient(90deg,#c2570f,#e8742a 50%,#c2570f)}
+  html[data-tema="autunno"] .strip::before{content:"🍂 "}
+  html[data-tema="autunno"] .hero{--volt:#f08a3c}
+  html[data-tema="autunno"] .hero .btn-volt{color:#fff}
+  html[data-tema="autunno"] .pitch{
+    background:
+      radial-gradient(900px 520px at 82% 18%, rgba(232,116,42,.50), transparent 62%),
+      radial-gradient(700px 460px at 8% 100%, rgba(194,87,15,.28), transparent 60%),
+      linear-gradient(160deg, #140b07 0%, #2e1708 55%, #6b2f0e 100%);
+  }
   .hero-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
   .eyebrow{
     display:inline-flex;align-items:center;gap:8px;
