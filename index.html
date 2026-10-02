@@ -916,50 +916,68 @@ gtag('config', 'G-SYPQZL1L7W');
   <div class="container hero-grid">
     <div>
       <span class="eyebrow">⚽ Nuovi arrivi ogni settimana</span>
-      <h1 class="display typing" id="heroTitle" aria-label="Indossa la tua passione.">Indossa la tua <span class="volt">passione.</span></h1>
+      <h1 class="display typing" id="heroTitle" aria-label="Indossa la tua passione. Scendi in campo con noi.">Indossa la tua <span class="volt">passione.</span></h1>
       <script>
-      /* Titolo che si scrive e si cancella da solo. Ogni lettera esiste gia nella
-         pagina (solo nascosta), quindi il titolo non salta e non cambia riga
-         mentre scrive. Con "riduci movimento" attivo resta fermo e leggibile. */
+      /* Titolo hero che si scrive e si cancella da solo, a giri:
+         1) "Indossa la tua passione." -> si cancella fino a "Indossa" e lo riscrive
+         2) si cancella tutto e scrive "Scendi in campo con noi."
+         3) si cancella tutto e torna a "Indossa la tua passione."
+         Ogni lettera esiste gia nella pagina (solo nascosta) e l'altezza e
+         fissata sulla frase piu lunga: il titolo non salta. Con "riduci
+         movimento" resta fermo e leggibile (03/10/26). */
       (function(){
         var h=document.getElementById("heroTitle"); if(!h) return;
         if(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        var chars=[], frag=document.createDocumentFragment();
-        function wrap(node){
-          var out=[];
-          node.childNodes.forEach(function(n){
-            if(n.nodeType===3){
-              n.textContent.split(/(\s+)/).forEach(function(w){
-                if(!w) return;
-                if(/^\s+$/.test(w)){ out.push(document.createTextNode(" ")); return; }
-                var word=document.createElement("span"); word.className="tw";
-                w.split("").forEach(function(c){ var e=document.createElement("span"); e.className="ch"; e.textContent=c; word.appendChild(e); chars.push(e); });
-                out.push(word);
-              });
-            } else if(n.nodeType===1){
-              var c=n.cloneNode(false); wrap(n).forEach(function(k){c.appendChild(k);}); out.push(c);
-            }
+        var FRASI=[
+          [{t:"Indossa la tua ",c:""},{t:"passione.",c:"volt"}],
+          [{t:"Scendi in campo ",c:""},{t:"con noi.",c:"volt"}]
+        ];
+        var chars=[], caret=document.createElement("span");
+        caret.className="caret"; caret.setAttribute("aria-hidden","true");
+        function costruisci(k){
+          chars=[]; h.textContent="";
+          FRASI[k].forEach(function(seg){
+            var box=seg.c ? document.createElement("span") : h;
+            if(seg.c) box.className=seg.c;
+            seg.t.split(/(\s+)/).forEach(function(w){
+              if(!w) return;
+              if(/^\s+$/.test(w)){ box.appendChild(document.createTextNode(" ")); return; }
+              var word=document.createElement("span"); word.className="tw";
+              w.split("").forEach(function(c){ var e=document.createElement("span"); e.className="ch"; e.textContent=c; word.appendChild(e); chars.push(e); });
+              box.appendChild(word);
+            });
+            if(seg.c) h.appendChild(box);
           });
-          return out;
         }
-        wrap(h).forEach(function(k){frag.appendChild(k);});
-        h.textContent=""; h.appendChild(frag); h.classList.add("js");
-        var caret=document.createElement("span"); caret.className="caret"; caret.setAttribute("aria-hidden","true");
-        var n=0, KEEP=7; /* "Indossa" resta, si cancella solo il resto */
-        function show(k){
-          chars.forEach(function(c,i){ c.classList.toggle("on", i<k); });
-          if(k<chars.length && chars[k]) chars[k].parentNode.insertBefore(caret, chars[k]);
+        function mostra(n){
+          chars.forEach(function(c,i){ c.classList.toggle("on", i<n); });
+          if(n<chars.length && chars[n]) chars[n].parentNode.insertBefore(caret, chars[n]);
           else if(chars.length) chars[chars.length-1].parentNode.appendChild(caret);
         }
-        function step(dir){
-          if(dir>0){
-            if(n<chars.length){ n++; show(n); return setTimeout(function(){step(1);}, 85+Math.random()*60); }
-            return setTimeout(function(){step(-1);}, 2400);
-          }
-          if(n>KEEP){ n--; show(n); return setTimeout(function(){step(-1);}, 38); }
-          return setTimeout(function(){step(1);}, 650);
+        function altezza(){ /* la frase piu alta decide, cosi il titolo non salta */
+          var m=0; h.classList.add("js");
+          FRASI.forEach(function(_,k){ costruisci(k); m=Math.max(m,h.getBoundingClientRect().height); });
+          h.style.minHeight=m+"px";
         }
-        show(0); setTimeout(function(){step(1);}, 500);
+        var giro=0, frase=0, n=0;
+        function scrivi(){
+          if(n<chars.length){ n++; mostra(n); return setTimeout(scrivi, 85+Math.random()*60); }
+          setTimeout(cancella, 2400);
+        }
+        function cancella(){
+          /* giro 0: tiene "Indossa"; gli altri giri cancellano tutto */
+          var tieni = (giro===0 ? 7 : 0);
+          (function passo(){
+            if(n>tieni){ n--; mostra(n); return setTimeout(passo, 38); }
+            setTimeout(function(){
+              if(giro===0){ giro=1; scrivi(); }            /* riscrive "la tua passione." */
+              else { giro = (giro===1 ? 2 : 0); frase = (frase+1)%2; costruisci(frase); n=0; mostra(0); scrivi(); }
+            }, 650);
+          })();
+        }
+        altezza(); costruisci(0); mostra(0);
+        window.addEventListener("resize", function(){ var k=frase, nn=n; h.style.minHeight=""; altezza(); costruisci(k); n=Math.min(nn,chars.length); mostra(n); });
+        setTimeout(scrivi, 500);
       })();
       </script>
       <p class="lead">Maglie, kit, tute e molto altro delle migliori squadre europee e non solo. Scegli dal catalogo con foto reali, personalizza con <b style="color:var(--volt)">nome e numero gratis</b> e ordina in un messaggio.</p>
