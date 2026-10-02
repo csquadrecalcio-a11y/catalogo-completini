@@ -249,6 +249,14 @@ gtag('config', 'G-SYPQZL1L7W');
   }
   .hero h1{font-size:clamp(48px,7.4vw,104px);line-height:.98;letter-spacing:-.015em;color:#fff;text-wrap:balance}
   .hero h1 .volt{color:var(--volt)}
+  /* titolo hero che si scrive e si cancella */
+  .hero h1.typing.js .ch{visibility:hidden}
+  .hero h1.typing.js .ch.on{visibility:visible}
+  .hero h1.typing .tw{display:inline-block;white-space:nowrap}
+  .hero h1.typing .caret{display:inline-block;width:.06em;height:.82em;margin:0 -.03em 0 .02em;background:var(--volt);
+        vertical-align:-.05em;animation:heroCaret 1s steps(1) infinite}
+  @keyframes heroCaret{50%{opacity:0}}
+  @media (prefers-reduced-motion:reduce){ .hero h1.typing .caret{display:none} }
   .hero p.lead{margin:24px 0 32px;font-size:17.5px;color:rgba(255,255,255,.85);max-width:520px;line-height:1.65}
   .hero .eyebrow{color:#fff;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.1)}
   .hero .stat b{color:#fff}
@@ -908,7 +916,52 @@ gtag('config', 'G-SYPQZL1L7W');
   <div class="container hero-grid">
     <div>
       <span class="eyebrow">⚽ Nuovi arrivi ogni settimana</span>
-      <h1 class="display">Indossa la tua <span class="volt">passione.</span></h1>
+      <h1 class="display typing" id="heroTitle" aria-label="Indossa la tua passione.">Indossa la tua <span class="volt">passione.</span></h1>
+      <script>
+      /* Titolo che si scrive e si cancella da solo. Ogni lettera esiste gia nella
+         pagina (solo nascosta), quindi il titolo non salta e non cambia riga
+         mentre scrive. Con "riduci movimento" attivo resta fermo e leggibile. */
+      (function(){
+        var h=document.getElementById("heroTitle"); if(!h) return;
+        if(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var chars=[], frag=document.createDocumentFragment();
+        function wrap(node){
+          var out=[];
+          node.childNodes.forEach(function(n){
+            if(n.nodeType===3){
+              n.textContent.split(/(\s+)/).forEach(function(w){
+                if(!w) return;
+                if(/^\s+$/.test(w)){ out.push(document.createTextNode(" ")); return; }
+                var word=document.createElement("span"); word.className="tw";
+                w.split("").forEach(function(c){ var e=document.createElement("span"); e.className="ch"; e.textContent=c; word.appendChild(e); chars.push(e); });
+                out.push(word);
+              });
+            } else if(n.nodeType===1){
+              var c=n.cloneNode(false); wrap(n).forEach(function(k){c.appendChild(k);}); out.push(c);
+            }
+          });
+          return out;
+        }
+        wrap(h).forEach(function(k){frag.appendChild(k);});
+        h.textContent=""; h.appendChild(frag); h.classList.add("js");
+        var caret=document.createElement("span"); caret.className="caret"; caret.setAttribute("aria-hidden","true");
+        var n=0;
+        function show(k){
+          chars.forEach(function(c,i){ c.classList.toggle("on", i<k); });
+          if(k<chars.length && chars[k]) chars[k].parentNode.insertBefore(caret, chars[k]);
+          else if(chars.length) chars[chars.length-1].parentNode.appendChild(caret);
+        }
+        function step(dir){
+          if(dir>0){
+            if(n<chars.length){ n++; show(n); return setTimeout(function(){step(1);}, 85+Math.random()*60); }
+            return setTimeout(function(){step(-1);}, 2400);
+          }
+          if(n>0){ n--; show(n); return setTimeout(function(){step(-1);}, 38); }
+          return setTimeout(function(){step(1);}, 650);
+        }
+        show(0); setTimeout(function(){step(1);}, 500);
+      })();
+      </script>
       <p class="lead">Maglie, kit, tute e molto altro delle migliori squadre europee e non solo. Scegli dal catalogo con foto reali, personalizza con <b style="color:var(--volt)">nome e numero gratis</b> e ordina in un messaggio.</p>
       <div class="hero-ctas">
         <a class="btn btn-volt" href="#catalogo">Apri il catalogo</a>
