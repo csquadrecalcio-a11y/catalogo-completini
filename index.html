@@ -945,7 +945,7 @@ gtag('config', 'G-SYPQZL1L7W');
         wrap(h).forEach(function(k){frag.appendChild(k);});
         h.textContent=""; h.appendChild(frag); h.classList.add("js");
         var caret=document.createElement("span"); caret.className="caret"; caret.setAttribute("aria-hidden","true");
-        var n=0;
+        var n=0, KEEP=7; /* "Indossa" resta, si cancella solo il resto */
         function show(k){
           chars.forEach(function(c,i){ c.classList.toggle("on", i<k); });
           if(k<chars.length && chars[k]) chars[k].parentNode.insertBefore(caret, chars[k]);
@@ -956,7 +956,7 @@ gtag('config', 'G-SYPQZL1L7W');
             if(n<chars.length){ n++; show(n); return setTimeout(function(){step(1);}, 85+Math.random()*60); }
             return setTimeout(function(){step(-1);}, 2400);
           }
-          if(n>0){ n--; show(n); return setTimeout(function(){step(-1);}, 38); }
+          if(n>KEEP){ n--; show(n); return setTimeout(function(){step(-1);}, 38); }
           return setTimeout(function(){step(1);}, 650);
         }
         show(0); setTimeout(function(){step(1);}, 500);
