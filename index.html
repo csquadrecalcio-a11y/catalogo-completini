@@ -916,12 +916,11 @@ gtag('config', 'G-SYPQZL1L7W');
   <div class="container hero-grid">
     <div>
       <span class="eyebrow">⚽ Nuovi arrivi ogni settimana</span>
-      <h1 class="display typing" id="heroTitle" aria-label="Indossa la tua passione. Scendi in campo con noi.">Indossa la tua <span class="volt">passione.</span></h1>
+      <h1 class="display typing" id="heroTitle" aria-label="Indossa la tua passione. Scendi in campo con noi.">Indossa la tua <span class="volt">passione</span></h1>
       <script>
       /* Titolo hero che si scrive e si cancella da solo, a giri:
-         1) "Indossa la tua passione." -> si cancella fino a "Indossa" e lo riscrive
-         2) si cancella tutto e scrive "Scendi in campo con noi."
-         3) si cancella tutto e torna a "Indossa la tua passione."
+         "Indossa la tua passione." -> si cancella tutto -> "Scendi in campo con noi."
+         -> si cancella tutto -> torna alla prima, e cosi via.
          Ogni lettera esiste gia nella pagina (solo nascosta) e l'altezza e
          fissata sulla frase piu lunga: il titolo non salta. Con "riduci
          movimento" resta fermo e leggibile (03/10/26). */
@@ -929,8 +928,8 @@ gtag('config', 'G-SYPQZL1L7W');
         var h=document.getElementById("heroTitle"); if(!h) return;
         if(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
         var FRASI=[
-          [{t:"Indossa la tua ",c:""},{t:"passione.",c:"volt"}],
-          [{t:"Scendi in campo ",c:""},{t:"con noi.",c:"volt"}]
+          [{t:"Indossa la tua ",c:""},{t:"passione",c:"volt"}],
+          [{t:"Scendi in campo ",c:""},{t:"con noi",c:"volt"}]
         ];
         var chars=[], caret=document.createElement("span");
         caret.className="caret"; caret.setAttribute("aria-hidden","true");
@@ -959,20 +958,15 @@ gtag('config', 'G-SYPQZL1L7W');
           FRASI.forEach(function(_,k){ costruisci(k); m=Math.max(m,h.getBoundingClientRect().height); });
           h.style.minHeight=m+"px";
         }
-        var giro=0, frase=0, n=0;
+        var frase=0, n=0;
         function scrivi(){
           if(n<chars.length){ n++; mostra(n); return setTimeout(scrivi, 85+Math.random()*60); }
           setTimeout(cancella, 2400);
         }
         function cancella(){
-          /* giro 0: tiene "Indossa"; gli altri giri cancellano tutto */
-          var tieni = (giro===0 ? 7 : 0);
           (function passo(){
-            if(n>tieni){ n--; mostra(n); return setTimeout(passo, 38); }
-            setTimeout(function(){
-              if(giro===0){ giro=1; scrivi(); }            /* riscrive "la tua passione." */
-              else { giro = (giro===1 ? 2 : 0); frase = (frase+1)%2; costruisci(frase); n=0; mostra(0); scrivi(); }
-            }, 650);
+            if(n>0){ n--; mostra(n); return setTimeout(passo, 38); }
+            setTimeout(function(){ frase=(frase+1)%FRASI.length; costruisci(frase); n=0; mostra(0); scrivi(); }, 650);
           })();
         }
         altezza(); costruisci(0); mostra(0);
