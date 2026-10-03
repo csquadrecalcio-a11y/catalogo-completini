@@ -8175,9 +8175,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0364": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-21",
-    "data_consegna": "",
+    "data_consegna": "2026-10-02 18:11",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J391301",
     "corriere_2": "",
@@ -8297,7 +8297,12 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-01 13:47",
+        "data": "2026-10-02 18:11",
+        "luogo": "dalla sede operativa di TALSANO (TA)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-02 12:17",
         "luogo": "TALSANO (TA)",
         "stato": "La spedizione è in consegna"
       },
