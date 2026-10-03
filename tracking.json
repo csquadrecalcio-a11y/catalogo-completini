@@ -8544,7 +8544,13 @@
         "stato": "Dati della spedizione ricevuti"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-10-03 09:37",
+        "luogo": "NAPOLI (NA)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0369": {
     "stato": "spedito",
