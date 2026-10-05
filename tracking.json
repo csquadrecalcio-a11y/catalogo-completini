@@ -6933,6 +6933,11 @@
     "eventi_cina": [
       {
         "data": "2026-10-03 06:58:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-10-03 06:58:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
       },
@@ -6942,9 +6947,24 @@
         "stato": "In transito nella rete di Poste Italiane"
       },
       {
-        "data": "2026-10-03 06:58:00",
-        "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "data": "2026-10-01 10:20:45",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
+      },
+      {
+        "data": "2026-10-01 00:21:05",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-09-30 20:21:19",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-09-30 00:21:33",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
       },
       {
         "data": "2026-09-29 19:45:33",
@@ -6999,12 +7019,12 @@
       {
         "data": "2026-09-21 01:04:03",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-09-21 01:04:03",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": [
