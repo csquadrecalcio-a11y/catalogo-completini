@@ -1,5 +1,34 @@
 [
   {
+    "id": "mag8",
+    "titolo": "Maglia Juventus Home Patch Serie A",
+    "tipo": "Maglia",
+    "prezzo": 30.0,
+    "foto": [
+      "pronta-consegna/capo8_0.jpg",
+      "pronta-consegna/capo8_1.jpg"
+    ],
+    "taglie": [
+      "M",
+      "L (YILDIZ 10)"
+    ],
+    "esaurito": false
+  },
+  {
+    "id": "mag7",
+    "titolo": "Maglia Roma Away Patch Serie A",
+    "tipo": "Maglia",
+    "prezzo": 30.0,
+    "foto": [
+      "pronta-consegna/capo7_0.jpg"
+    ],
+    "taglie": [
+      "M",
+      "L"
+    ],
+    "esaurito": false
+  },
+  {
     "id": "mag6",
     "titolo": "Maglia Inter Home Patch Serie A",
     "tipo": "Maglia",
