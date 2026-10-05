@@ -8550,6 +8550,36 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-05 06:38:25",
+        "luogo": "Roma (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-05 04:50:00",
+        "luogo": "Roma",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-05 04:12:10",
+        "luogo": "Roma (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-03 07:44:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-03 07:44:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-03 07:44:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
         "data": "2026-09-29 19:45:33",
         "luogo": "FCO",
         "stato": "Arrivato all'aeroporto di destinazione"
@@ -8602,18 +8632,18 @@
       {
         "data": "2026-09-24 02:42:54",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-09-24 02:42:54",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-03 01:44",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-10-05 00:38",
+        "luogo": "ROMA (RM)",
         "stato": "La spedizione è in transito"
       }
     ]
