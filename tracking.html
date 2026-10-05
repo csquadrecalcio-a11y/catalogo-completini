@@ -464,15 +464,34 @@ function giorniLavorativi(dataStr){
 }
 
 function estraiEta(eventi){
-  // +15 giorni lavorativi dal PRIMO movimento in assoluto, cioè da quando il
-  // pacco si è mosso in Cina: i tempi di consegna partono da lì.
+  // Finestra di consegna "dal X al Y": da 10 a 15 giorni lavorativi dal PRIMO
+  // movimento in assoluto, cioè da quando il pacco si è mosso in Cina: i tempi
+  // di consegna partono da lì. Prima c'era una data secca (il massimo) e molti
+  // clienti la leggevano come una promessa (05/10/26).
   // Prima si prendeva l'ultimo elemento della lista unita: essendo ogni lista
   // ordinata dal più recente, quello era il movimento più vecchio di POSTE,
   // e la data prevista risultava molto più in là del dovuto (31/08/26).
   const date = (eventi || []).map(e => (e && e.data) ? String(e.data).slice(0,10) : "")
                              .filter(Boolean).sort();
   if(!date.length) return null;
-  return aggiungiGiorniLavorativi(date[0], 15);
+  const dal = dataLavorativa(date[0], 10), al = dataLavorativa(date[0], 15);
+  if(!dal || !al) return null;
+  const mesi = ["gen","feb","mar","apr","mag","giu","lug","ago","set","ott","nov","dic"];
+  if(dal.getMonth() === al.getMonth())
+    return `dal ${dal.getDate()} al ${al.getDate()} ${mesi[al.getMonth()]}`;
+  return `dal ${dal.getDate()} ${mesi[dal.getMonth()]} al ${al.getDate()} ${mesi[al.getMonth()]}`;
+}
+
+function dataLavorativa(dataStr, giorni){
+  const d = new Date(dataStr.substring(0,10));
+  if(isNaN(d)) return null;
+  let aggiunti = 0;
+  while(aggiunti < giorni){
+    d.setDate(d.getDate()+1);
+    const dw = d.getDay();
+    if(dw !== 0 && dw !== 6) aggiunti++;
+  }
+  return d;
 }
 
 function calcolaPercento(idx, eventi){
@@ -774,7 +793,7 @@ function buildCard(cod, o){
     ${(()=>{
       const etaAll = estraiEta([...(o.eventi_cina||[]),...(o.eventi_corriere||[])]);
       return (etaAll && o.stato !== "consegnato")
-        ? `<div class="eta-banner"><div class="eta-icon">📅</div><div><div class="eta-label">Data prevista di consegna</div><div class="eta-value">${etaAll}</div></div></div>`
+        ? `<div class="eta-banner"><div class="eta-icon">📅</div><div><div class="eta-label">Consegna prevista</div><div class="eta-value">${etaAll}</div></div></div>`
         : "";
     })()}
     ${trackHtml}
