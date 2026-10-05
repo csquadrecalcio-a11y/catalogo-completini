@@ -599,12 +599,13 @@ gtag('config', 'G-SYPQZL1L7W');
   .opt-label{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:20px 0 10px;display:flex;justify-content:space-between;align-items:center}
   .opt-label .free{color:var(--volt)}
   .pills{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
-  .pronta-info{width:100%;font-size:12.5px;line-height:1.55;color:var(--muted);background:var(--panel-2);
-        border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
-  .pronta-info b{color:var(--text)}
+  .taglie-card{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 2px}
+  .taglie-card .tg{font:inherit;font-size:11px;font-weight:700;line-height:1;padding:5px 9px;border-radius:999px;
+        background:transparent;color:var(--text);border:1px solid var(--line);cursor:pointer}
+  .taglie-card .tg:hover{border-color:var(--volt);color:var(--volt)}
+  .taglie-card .tg.tg-nome{border-style:dashed;border-color:var(--volt);color:var(--volt)}
   .pill.pill-nome{border-style:dashed}
   .pill.pill-nome.on{border-style:solid}
-  .pronta-riep{width:100%;font-size:12.5px;font-weight:700;color:var(--volt);margin-top:8px}
   .size-group-lbl{
     width:100%;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
     color:var(--volt);margin:8px 0 -2px;
@@ -2426,6 +2427,7 @@ function renderSearchResults(items){
       <span class="avail"${statoPronta(it.id, it) === "venduto" ? ' style="background:#c62828;color:#fff"' : ""}>${statoPronta(it.id, it) === "venduto" ? "VENDUTO" : "Disponibile"}</span>
       <h3>${cleanName(it.name)}</h3>
       <div class="team">${it._cat.flag} ${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
+      ${taglieVetrinaHtml(it)}
       <div class="card-foot">
         <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "+ 8€ spedizione · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
@@ -2438,6 +2440,10 @@ function renderSearchResults(items){
       if (tabsEl.children[idx]) tabsEl.children[idx].classList.add("active");
       openProduct(it);
     };
+    collegaTaglieVetrina(card, it, () => {
+      if (statoPronta(it.id, it) === "venduto") return;
+      activeCat = it._cat; openProduct(it);
+    });
     catEl.appendChild(card);
   });
   moreBtn.style.display = priced.length > renderLimit ? "inline-flex" : "none";
@@ -2546,6 +2552,7 @@ function renderGrid(){
            <img src="${thumbUrl(k.scatti[0].id)}" alt="${k.etichetta}" loading="lazy">
            <span>${k.etichetta}</span>
          </button>`).join("")}</div>` : ""}
+      ${taglieVetrinaHtml(it)}
       <div class="card-foot">
         <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "+ 8€ spedizione · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
@@ -2560,6 +2567,7 @@ function renderGrid(){
       openProduct(it);
       scegliKit(kits[+b.dataset.k]);
     });
+    collegaTaglieVetrina(card, it, () => { if (statoPronta(it.id, it) === "venduto") return; openProduct(it); });
     catEl.appendChild(card);
   });
   moreBtn.style.display = priced.length > renderLimit ? "inline-flex" : "none";
@@ -3106,41 +3114,41 @@ function buildSizePills(){
 /* Pronta consegna: ogni taglia e un pezzo unico e se ne possono scegliere
    piu di una. Le maglie con nome e numero gia stampati (es. "L (LAUTARO 10)")
    sono spiegate in una frase e hanno il pulsante evidenziato (05/10/26). */
+/* Vetrina pronta consegna: le taglie (e le maglie con nome) si vedono gia
+   sul riquadro, senza aprire il prodotto. Toccandone una si apre la scheda
+   con quella taglia gia scelta (05/10/26). */
+function taglieVetrinaHtml(it){
+  if (!(it && it.mag && it.mag.taglie && it.mag.taglie.length) || it.mag.esaurito) return "";
+  return `<div class="taglie-card">` + it.mag.taglie.map(sz =>
+    `<button type="button" class="tg${taglieConNome(sz) ? " tg-nome" : ""}" data-sz="${String(sz).replace(/"/g,"&quot;")}">${etichettaTaglia(sz)}</button>`
+  ).join("") + `</div>`;
+}
+function collegaTaglieVetrina(card, it, apri){
+  card.querySelectorAll(".taglie-card .tg").forEach(b => b.onclick = e => {
+    e.stopPropagation();
+    window._tagliaIniziale = b.dataset.sz;
+    apri();
+  });
+}
 const taglieConNome = sz => /\(.+\)/.test(sz);
 function etichettaTaglia(sz){
   const m = /^(\S+)\s*\((.+)\)$/.exec(sz);
   return m ? `${m[1]} · ${m[2]}` : sz;
 }
 function buildSizePillsPronta(el, sizes){
-  if (S.selItem !== S.item || !Array.isArray(S.sel) || !S.sel.every(x => sizes.includes(x)) || !S.sel.length){
-    S.selItem = S.item; S.sel = [sizes[0]];
-  }
-  S.size = S.sel[0];
-  const nominate = sizes.filter(taglieConNome);
-  const info = document.createElement("div"); info.className = "pronta-info";
-  info.innerHTML =
-    `<b>⚡ Ogni taglia è un pezzo unico, già pronto.</b> Puoi sceglierne <b>più di una</b>: tocca tutte quelle che vuoi.` +
-    (nominate.length
-      ? `<br>✍️ Le taglie con un nome (es. <b>${etichettaTaglia(nominate[0])}</b>) hanno già <b>nome e numero stampati</b> e non si cambiano.`
-      : `<br>Nome e numero non sono personalizzabili: è un pezzo già confezionato.`);
-  el.appendChild(info);
+  /* una taglia alla volta: toccandone un'altra la prima si spegne. Se il cliente
+     arriva dalla vetrina toccando una taglia, quella e gia scelta (05/10/26). */
+  if (window._tagliaIniziale && sizes.includes(window._tagliaIniziale)) S.size = window._tagliaIniziale;
+  window._tagliaIniziale = null;
+  if (!sizes.includes(S.size)) S.size = sizes[0];
+  S.sel = [S.size];
   sizes.forEach(sz => {
     const b = document.createElement("button");
-    b.className = "pill" + (S.sel.includes(sz) ? " on" : "") + (taglieConNome(sz) ? " pill-nome" : "");
+    b.className = "pill" + (S.size === sz ? " on" : "") + (taglieConNome(sz) ? " pill-nome" : "");
     b.textContent = etichettaTaglia(sz);
-    b.onclick = () => {
-      const i = S.sel.indexOf(sz);
-      if (i >= 0){ if (S.sel.length > 1) S.sel.splice(i, 1); } else S.sel.push(sz);
-      S.sel.sort((x, y) => sizes.indexOf(x) - sizes.indexOf(y));
-      S.size = S.sel[0];
-      buildSizePills(); syncSheet();
-    };
+    b.onclick = () => { S.size = sz; S.sel = [sz]; buildSizePills(); syncSheet(); };
     el.appendChild(b);
   });
-  const n = S.sel.length;
-  const riepilogo = document.createElement("div"); riepilogo.className = "pronta-riep";
-  riepilogo.textContent = n > 1 ? `Hai scelto ${n} taglie: ${S.sel.map(etichettaTaglia).join(" + ")}` : "";
-  if (n > 1) el.appendChild(riepilogo);
 }
 
 pName.addEventListener("input", syncSheet);
