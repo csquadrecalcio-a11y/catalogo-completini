@@ -1,5 +1,20 @@
 [
   {
+    "id": "mag10",
+    "titolo": "Maglia Barcellona Home Patch Liga",
+    "tipo": "Maglia",
+    "prezzo": 30.0,
+    "foto": [
+      "pronta-consegna/capo10_0.jpg",
+      "pronta-consegna/capo10_1.jpg"
+    ],
+    "taglie": [
+      "M (LAMINE YAMAL 10)",
+      "L"
+    ],
+    "esaurito": false
+  },
+  {
     "id": "mag9",
     "titolo": "Maglia Argentina Home Patch World Cup 2026",
     "tipo": "Maglia",
@@ -9,9 +24,7 @@
       "pronta-consegna/capo9_1.jpg"
     ],
     "taglie": [
-      "M",
-      "(MESSI",
-      "10)"
+      "M (MESSI 10)"
     ],
     "esaurito": false
   },
@@ -85,6 +98,23 @@
     ],
     "taglie": [
       "L"
+    ],
+    "esaurito": false
+  },
+  {
+    "id": "mag2",
+    "titolo": "Maglia Napoli Home Player Version Patch Serie A",
+    "tipo": "Player Version",
+    "prezzo": 35.0,
+    "foto": [
+      "pronta-consegna/capo2_n.jpg",
+      "pronta-consegna/capo2_0.jpg",
+      "pronta-consegna/capo2_1.jpg"
+    ],
+    "taglie": [
+      "M",
+      "L",
+      "XXL"
     ],
     "esaurito": false
   }
