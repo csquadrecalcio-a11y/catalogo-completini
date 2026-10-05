@@ -1,5 +1,21 @@
 [
   {
+    "id": "mag9",
+    "titolo": "Maglia Argentina Home Patch World Cup 2026",
+    "tipo": "Maglia",
+    "prezzo": 30.0,
+    "foto": [
+      "pronta-consegna/capo9_0.jpg",
+      "pronta-consegna/capo9_1.jpg"
+    ],
+    "taglie": [
+      "M",
+      "(MESSI",
+      "10)"
+    ],
+    "esaurito": false
+  },
+  {
     "id": "mag8",
     "titolo": "Maglia Juventus Home Patch Serie A",
     "tipo": "Maglia",
