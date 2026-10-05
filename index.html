@@ -151,12 +151,11 @@ gtag('config', 'G-SYPQZL1L7W');
   .nav .logo{flex:0 1 auto;min-width:0;max-width:340px}
   /* Sotto una certa larghezza il nome del sito viene prima di FAQ e Contatti,
      che stanno comunque nel fondo pagina (23/09/26) */
-  @media (max-width:1500px){
-    .nav-links a[href="#faq"], .nav-links a[href="#contatti"]{display:none}
-  }
-  @media (max-width:1500px){
-    .nav-links a[href="#recensioni"], .nav-links a[href="#come-funziona"]{display:none}
-  }
+  /* Il menu e lo stesso a ogni larghezza (Pronta consegna, Catalogo, CSC Wear,
+     Offerte): con il link Pronta consegna in piu il nome del sito veniva
+     schiacciato a 14px sugli schermi grandi (05/10/26) */
+  .nav-links a[href="#faq"], .nav-links a[href="#contatti"],
+  .nav-links a[href="#recensioni"], .nav-links a[href="#come-funziona"]{display:none}
   /* Quando c'e il menu completo, il bottone dorato CSC Wear e un doppione
      del link "CSC Wear": si toglie e lo spazio va al nome (23/09/26) */
   @media (min-width:1201px){ .wear-link{display:none} }
@@ -599,6 +598,41 @@ gtag('config', 'G-SYPQZL1L7W');
   .opt-label{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:20px 0 10px;display:flex;justify-content:space-between;align-items:center}
   .opt-label .free{color:var(--volt)}
   .pills{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+
+  /* ---------- pronta consegna in evidenza (05/10/26) ---------- */
+  .pc-home{padding:56px 0 48px;background:linear-gradient(180deg,rgba(255,180,0,.10),rgba(255,180,0,0) 70%);
+           border-bottom:1px solid var(--line)}
+  .pc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+  .pc-kick{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.12em;
+           text-transform:uppercase;color:#1a1200;background:#ffb400;border-radius:999px;padding:6px 12px;margin-bottom:12px}
+  .pc-kick i{width:8px;height:8px;border-radius:50%;background:#1a1200;animation:pcPulse 1.4s ease-in-out infinite}
+  @keyframes pcPulse{50%{opacity:.25;transform:scale(.7)}}
+  .pc-head h2{font-size:clamp(30px,4.6vw,52px);margin:0}
+  .pc-head p{margin:10px 0 0;color:var(--muted);font-size:15.5px;max-width:560px;line-height:1.55}
+  .pc-head p b{color:var(--text)}
+  .pc-row{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 2px 14px;
+          scrollbar-width:thin}
+  .pc-card{flex:0 0 232px;scroll-snap-align:start;position:relative;background:var(--panel);border:1px solid var(--line);
+           border-radius:18px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;
+           transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .pc-card:hover{transform:translateY(-4px);border-color:#ffb400;box-shadow:0 14px 30px rgba(0,0,0,.18)}
+  .pc-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:var(--panel-2)}
+  .pc-ult{position:absolute;top:10px;right:10px;background:#c62828;color:#fff;font-size:11px;font-weight:800;
+          letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:5px 9px}
+  .pc-body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .pc-body h3{font-size:14px;line-height:1.3;margin:0;font-weight:800}
+  .pc-tg{display:flex;flex-wrap:wrap;gap:5px}
+  .pc-tg span{font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px;border:1px solid var(--line)}
+  .pc-tg span.nome{border-style:dashed;border-color:var(--volt);color:var(--volt)}
+  .pc-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;font-weight:800}
+  .pc-foot small{color:var(--muted);font-weight:600;font-size:11px}
+  .pc-cta{white-space:nowrap}
+  .nav-links a.nav-pc{color:#1a1200;background:#ffb400;border-radius:999px;padding:6px 12px;font-weight:800}
+  .nav-links a.nav-pc:hover{filter:brightness(1.08)}
+  .tab.tab-pc{background:#ffb400;color:#1a1200;border-color:#ffb400;font-weight:800}
+  .tab.tab-pc.active{background:var(--volt);color:#fff;border-color:var(--volt)}
+  /* con il link Pronta consegna in piu, "Guida taglie" esce dal menu (resta nella pagina) */
+  .nav-links a[href="#taglie"]{display:none}
   .taglie-card{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0 2px}
   .taglie-card .tg{font:inherit;font-size:11px;font-weight:700;line-height:1;padding:5px 9px;border-radius:999px;
         background:transparent;color:var(--text);border:1px solid var(--line);cursor:pointer}
@@ -891,6 +925,7 @@ gtag('config', 'G-SYPQZL1L7W');
       <input id="headerSearchInp" type="text" placeholder="Cerca maglia, squadra…">
     </div>
     <nav class="nav-links">
+      <a class="nav-pc" href="?cat=Pronta%20Consegna">⚡ Pronta consegna</a>
       <a href="#catalogo">Catalogo</a>
       <a href="abbigliamento.html">CSC Wear</a>
       <a href="#offerte">Offerte</a>
@@ -997,6 +1032,47 @@ gtag('config', 'G-SYPQZL1L7W');
     </div>
   </div>
 </section>
+
+<!-- ============ PRONTA CONSEGNA IN EVIDENZA ============ -->
+<section class="pc-home" id="pronta-home" style="display:none">
+  <div class="container">
+    <div class="pc-head">
+      <div>
+        <div class="pc-kick"><i></i> Pronta consegna</div>
+        <h2 class="display">Non vuoi aspettare?</h2>
+        <p><b>Maglie già pronte, a casa nostra.</b> Spedizione in <b>24-48 ore</b>, 8€ di spedizione. Sono <b>pezzi unici</b>: quando una taglia finisce, finisce.</p>
+      </div>
+      <a class="btn btn-volt pc-cta" id="pcTutte" href="?cat=Pronta%20Consegna">Vedi tutta la pronta consegna →</a>
+    </div>
+    <div class="pc-row" id="pcRow"></div>
+  </div>
+</section>
+<script>
+/* Vetrina pronta consegna in home: le maglie del magazzino subito sotto la copertina */
+window.addEventListener("load", function(){
+  fetch("pronta-consegna.json?v=" + Date.now()).then(function(r){ return r.ok ? r.json() : []; }).then(function(capi){
+    capi = (capi || []).filter(function(c){ return !c.esaurito && c.taglie && c.taglie.length; });
+    if (!capi.length) return;
+    var row = document.getElementById("pcRow"), tot = 0;
+    var pulisci = function(t){ return String(t || "").replace(/^Maglia\s+/i, ""); };
+    var lab = function(sz){ var m = /^(\S+)\s*\((.+)\)$/.exec(sz); return m ? m[1] + " · " + m[2] : sz; };
+    capi.forEach(function(c){
+      tot += c.taglie.length;
+      var a = document.createElement("a");
+      a.className = "pc-card";
+      a.href = "?cat=Pronta%20Consegna&photo=" + encodeURIComponent((c.foto && c.foto[0]) || "");
+      var ult = c.taglie.length <= 2 ? '<span class="pc-ult">' + (c.taglie.length === 1 ? "Ultimo pezzo" : "Ultimi 2 pezzi") + "</span>" : "";
+      a.innerHTML = '<img src="' + ((c.foto && c.foto[0]) || "") + '" alt="' + pulisci(c.titolo).replace(/"/g, "") + '" loading="lazy">' + ult +
+        '<div class="pc-body"><h3>' + pulisci(c.titolo) + '</h3><div class="pc-tg">' +
+        c.taglie.map(function(sz){ return '<span' + (/\(.+\)/.test(sz) ? ' class="nome"' : "") + ">" + lab(sz) + "</span>"; }).join("") +
+        '</div><div class="pc-foot"><span>' + c.prezzo + '€ <small>+ 8€ sped.</small></span><span style="color:var(--volt)">Apri →</span></div></div>';
+      row.appendChild(a);
+    });
+    document.getElementById("pcTutte").textContent = "Vedi tutte le " + tot + " maglie pronte →";
+    document.getElementById("pronta-home").style.display = "";
+  }).catch(function(){});
+});
+</script>
 
 <!-- ============ MARQUEE ============ -->
 <div class="marquee"><div class="marquee-track" id="marquee"></div></div>
@@ -2276,6 +2352,7 @@ CATALOG.forEach((c,i)=>{
   const b = document.createElement("button");
   b.className = "tab" + (i===0 ? " active" : "");
   b.textContent = `${c.flag} ${c.name}`;
+  if (c.pronta) b.classList.add("tab-pc");
   b.onclick = ()=>{
     document.querySelectorAll("#tabs .tab").forEach(t=>t.classList.remove("active"));
     b.classList.add("active");
