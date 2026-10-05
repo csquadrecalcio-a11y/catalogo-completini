@@ -7877,9 +7877,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0380": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-24",
-    "data_consegna": "",
+    "data_consegna": "2026-10-05 15:16:06",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J446770",
     "corriere_2": "",
@@ -8008,6 +8008,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-05 11:48",
+        "luogo": "dalla sede operativa di ROMA (RM)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-05 10:54",
+        "luogo": "ROMA (RM)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-05 00:38",
         "luogo": "ROMA (RM)",
