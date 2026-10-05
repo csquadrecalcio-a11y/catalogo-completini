@@ -599,6 +599,12 @@ gtag('config', 'G-SYPQZL1L7W');
   .opt-label{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:20px 0 10px;display:flex;justify-content:space-between;align-items:center}
   .opt-label .free{color:var(--volt)}
   .pills{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+  .pronta-info{width:100%;font-size:12.5px;line-height:1.55;color:var(--muted);background:var(--panel-2);
+        border:1px solid var(--line);border-radius:12px;padding:10px 12px;margin-bottom:8px}
+  .pronta-info b{color:var(--text)}
+  .pill.pill-nome{border-style:dashed}
+  .pill.pill-nome.on{border-style:solid}
+  .pronta-riep{width:100%;font-size:12.5px;font-weight:700;color:var(--volt);margin-top:8px}
   .size-group-lbl{
     width:100%;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
     color:var(--volt);margin:8px 0 -2px;
@@ -2421,7 +2427,7 @@ function renderSearchResults(items){
       <h3>${cleanName(it.name)}</h3>
       <div class="team">${it._cat.flag} ${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "+ 8€ spedizione · 2/3 giorni" : "spedizione inclusa"}</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "+ 8€ spedizione · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -2541,7 +2547,7 @@ function renderGrid(){
            <span>${k.etichetta}</span>
          </button>`).join("")}</div>` : ""}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "+ 8€ spedizione · 2/3 giorni" : "spedizione inclusa"}</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "+ 8€ spedizione · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -2972,7 +2978,7 @@ function openProduct(item){
   const qtyRow = document.getElementById("qtyRow");
   const qtyLbl = document.getElementById("qtyLabel");
   if (S.type.pronta){
-    if (boxSped) boxSped.textContent = "⚡ Pronta consegna · pezzo unico, ti arriva in 2/3 giorni lavorativi";
+    if (boxSped) boxSped.textContent = "⚡ Pronta consegna · pezzo unico, spedizione in 24-48h";
     if (lblTot)  lblTot.textContent = "Prezzo · + 8€ di spedizione";
     // niente selettore quantita: di quel capo ce n'e uno solo
     S.qty = 1;
@@ -3093,7 +3099,48 @@ function buildSizePills(){
     return;
   }
   const sizes = v.sizes ? v.sizes : (v.shoe ? SHOE_SIZES : (v.kid ? KID_SIZES : ADULT_SIZES));
+  if (S.type && S.type.pronta && v.sizes){ buildSizePillsPronta(el, sizes); return; }
   sizes.forEach(sz => el.appendChild(sizePill(sz, v.shoe ? `EU ${sz}` : sz)));
+}
+
+/* Pronta consegna: ogni taglia e un pezzo unico e se ne possono scegliere
+   piu di una. Le maglie con nome e numero gia stampati (es. "L (LAUTARO 10)")
+   sono spiegate in una frase e hanno il pulsante evidenziato (05/10/26). */
+const taglieConNome = sz => /\(.+\)/.test(sz);
+function etichettaTaglia(sz){
+  const m = /^(\S+)\s*\((.+)\)$/.exec(sz);
+  return m ? `${m[1]} · ${m[2]}` : sz;
+}
+function buildSizePillsPronta(el, sizes){
+  if (S.selItem !== S.item || !Array.isArray(S.sel) || !S.sel.every(x => sizes.includes(x)) || !S.sel.length){
+    S.selItem = S.item; S.sel = [sizes[0]];
+  }
+  S.size = S.sel[0];
+  const nominate = sizes.filter(taglieConNome);
+  const info = document.createElement("div"); info.className = "pronta-info";
+  info.innerHTML =
+    `<b>⚡ Ogni taglia è un pezzo unico, già pronto.</b> Puoi sceglierne <b>più di una</b>: tocca tutte quelle che vuoi.` +
+    (nominate.length
+      ? `<br>✍️ Le taglie con un nome (es. <b>${etichettaTaglia(nominate[0])}</b>) hanno già <b>nome e numero stampati</b> e non si cambiano.`
+      : `<br>Nome e numero non sono personalizzabili: è un pezzo già confezionato.`);
+  el.appendChild(info);
+  sizes.forEach(sz => {
+    const b = document.createElement("button");
+    b.className = "pill" + (S.sel.includes(sz) ? " on" : "") + (taglieConNome(sz) ? " pill-nome" : "");
+    b.textContent = etichettaTaglia(sz);
+    b.onclick = () => {
+      const i = S.sel.indexOf(sz);
+      if (i >= 0){ if (S.sel.length > 1) S.sel.splice(i, 1); } else S.sel.push(sz);
+      S.sel.sort((x, y) => sizes.indexOf(x) - sizes.indexOf(y));
+      S.size = S.sel[0];
+      buildSizePills(); syncSheet();
+    };
+    el.appendChild(b);
+  });
+  const n = S.sel.length;
+  const riepilogo = document.createElement("div"); riepilogo.className = "pronta-riep";
+  riepilogo.textContent = n > 1 ? `Hai scelto ${n} taglie: ${S.sel.map(etichettaTaglia).join(" + ")}` : "";
+  if (n > 1) el.appendChild(riepilogo);
 }
 
 pName.addEventListener("input", syncSheet);
@@ -3148,7 +3195,8 @@ function syncSheet(){
   const projectedQCount = qualifyingCount() + (qualifying ? S.qty : 0);
   const projectedTier = tierFor(projectedQCount);
   const unit = qualifying ? TIER_PRICE[v.id][projectedTier] : v.price;
-  document.getElementById("totVal").textContent = `${unit * S.qty}€`;
+  const nTaglie = (S.type && S.type.pronta && Array.isArray(S.sel) && S.sel.length) ? S.sel.length : 1;
+  document.getElementById("totVal").textContent = `${unit * S.qty * nTaglie}€`;
 
   if (qualifying){
     const p = discountProgress(projectedQCount);
@@ -3163,6 +3211,16 @@ function syncSheet(){
 /* aggiungi al carrello */
 document.getElementById("sheetAddCart").onclick = ()=>{
   const v = S.type.versions.find(x=>x.id===S.version);
+  if (S.type.pronta && Array.isArray(S.sel) && S.sel.length > 1){
+    S.sel.forEach(sz => addToCart({
+      id: S.item.id, name: cleanName(S.item.name), thumb: thumbUrl(S.item.id),
+      version: v.label, versionId: v.id, size: sz, price: v.price,
+      pers: "", patch: "", qty: 1, pronta: true,
+    }));
+    toast(`🛒 ${S.sel.length} maglie aggiunte al carrello!`);
+    closeProduct();
+    return;
+  }
   addToCart({
     id: S.item.id,
     name: cleanName(S.item.name),
