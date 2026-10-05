@@ -7175,9 +7175,9 @@
     ]
   },
   "CSC-2026-0365": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-21",
-    "data_consegna": "",
+    "data_consegna": "2026-10-05 15:15:46",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73698717",
     "corriere_2": "",
@@ -7237,6 +7237,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-05 12:58",
+        "luogo": "dalla sede operativa di SALZANO (VE)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-05 09:34",
+        "luogo": "SALZANO (VE)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-05 01:49",
         "luogo": "VENEZIA (VE)",
