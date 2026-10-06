@@ -8057,6 +8057,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-06 10:10:00",
+        "luogo": "Fiumicino",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-06 10:01:01",
         "luogo": "Fiumicino (rm)",
         "stato": "In transito, la spedizione è in transito"
@@ -8069,12 +8074,12 @@
       {
         "data": "2026-10-06 05:35:00",
         "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-10-06 05:35:00",
         "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-10-03 12:18:09",
