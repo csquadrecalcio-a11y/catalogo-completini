@@ -8117,6 +8117,21 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-06 04:58:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-10-06 04:58:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-06 04:58:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-03 12:18:09",
         "luogo": "",
         "stato": "Consegnato al corriere finale"
@@ -8189,15 +8204,21 @@
       {
         "data": "2026-09-24 23:37:44",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-09-24 23:37:44",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-10-05 22:58",
+        "luogo": "FARA IN SABINA (RI)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0385": {
     "stato": "attesa_pagamento",
