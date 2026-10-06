@@ -8087,7 +8087,13 @@
         "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-10-06 04:01",
+        "luogo": "FIUMICINO (RM)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0386": {
     "stato": "spedito",
