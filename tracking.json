@@ -7606,6 +7606,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-05 19:27:03",
+        "luogo": "Varese (va)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-05 16:30:00",
+        "luogo": "Milano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-05 04:04:29",
         "luogo": "Milano (mi)",
         "stato": "In transito, la spedizione è in transito"
@@ -7713,7 +7723,7 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-05 13:27",
+        "data": "2026-10-06 07:12",
         "luogo": "VARESE (VA)",
         "stato": "La spedizione è in transito"
       }
