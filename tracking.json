@@ -7358,6 +7358,21 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-06 07:28:08",
+        "luogo": "Bergamo (bg)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-05 18:09:03",
+        "luogo": "Milano (mi)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-05 18:09:00",
+        "luogo": "Milano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-05 04:04:29",
         "luogo": "Milano (mi)",
         "stato": "In transito, la spedizione è in transito"
@@ -7370,12 +7385,12 @@
       {
         "data": "2026-10-03 06:57:00",
         "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-10-03 06:57:00",
         "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-10-01 10:20:45",
@@ -7460,8 +7475,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-05 12:09",
-        "luogo": "MILANO (MI)",
+        "data": "2026-10-06 01:28",
+        "luogo": "BERGAMO (BG)",
         "stato": "La spedizione è in transito"
       }
     ]
