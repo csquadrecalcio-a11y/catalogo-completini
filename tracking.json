@@ -7688,6 +7688,36 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-06 19:45:48",
+        "luogo": "Saronno (va)",
+        "stato": "In consegna, consegna non andata a buon fine per destinatario assente. Qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
+      },
+      {
+        "data": "2026-10-06 19:45:00",
+        "luogo": "Saronno",
+        "stato": "Consegna non riuscita: destinatario assente"
+      },
+      {
+        "data": "2026-10-06 16:16:56",
+        "luogo": "Saronno (va)",
+        "stato": "In consegna, la spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-06 16:16:00",
+        "luogo": "Saronno",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-10-06 14:39:47",
+        "luogo": "Saronno (va)",
+        "stato": "In transito"
+      },
+      {
+        "data": "2026-10-06 13:17:00",
+        "luogo": "Varese",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-05 19:27:03",
         "luogo": "Varese (va)",
         "stato": "In transito, la spedizione è in transito"
@@ -7709,6 +7739,11 @@
       },
       {
         "data": "2026-10-03 00:27:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-03 00:27:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
       },
@@ -7716,11 +7751,6 @@
         "data": "2026-10-03 00:27:00",
         "luogo": "Fara in sabina",
         "stato": "Prima scansione Poste Italiane"
-      },
-      {
-        "data": "2026-10-03 00:27:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-10-01 10:20:45",
@@ -7795,19 +7825,19 @@
       {
         "data": "2026-09-24 02:48:12",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-09-24 02:48:12",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-06 10:16",
+        "data": "2026-10-06 13:45",
         "luogo": "SARONNO (VA)",
-        "stato": "La spedizione è in consegna"
+        "stato": "Consegna non andata a buon fine per destinatario assente. qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
       },
       {
         "data": "2026-10-06 08:39",
