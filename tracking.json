@@ -8278,9 +8278,9 @@
     ]
   },
   "CSC-2026-0386": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-24",
-    "data_consegna": "",
+    "data_consegna": "2026-10-07 18:09:42",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J463753",
     "corriere_2": "",
@@ -8400,6 +8400,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-07 13:57",
+        "luogo": "dalla sede operativa di FOGGIA (FG)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-07 11:50",
+        "luogo": "FOGGIA (FG)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-07 09:07",
         "luogo": "FOGGIA (FG)",
