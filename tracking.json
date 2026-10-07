@@ -8562,6 +8562,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-07 09:40:17",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
         "data": "2026-10-05 03:43:45",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
