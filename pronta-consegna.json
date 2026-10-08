@@ -23,10 +23,8 @@
       "pronta-consegna/capo9_0.jpg",
       "pronta-consegna/capo9_1.jpg"
     ],
-    "taglie": [
-      "M (MESSI 10)"
-    ],
-    "esaurito": false
+    "taglie": [],
+    "esaurito": true
   },
   {
     "id": "mag8",
