@@ -1107,9 +1107,9 @@ window.addEventListener("load", function(){
 <style>
   .va{position:relative;display:none;overflow:hidden;background:var(--va-bg,#0b1426);color:var(--va-ink,#fff);
       transition:background-color .8s cubic-bezier(.22,.8,.24,1),color .8s cubic-bezier(.22,.8,.24,1)}
-  .va-scena{min-height:100vh;display:flex;align-items:center;position:relative;padding:70px 0}
+  .va-scena{min-height:72vh;display:flex;align-items:center;position:relative;padding:48px 0}
   .va-gig{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max-content;font-family:'Archivo Black',sans-serif;
-          text-transform:uppercase;font-size:clamp(90px,22vw,330px);opacity:.12;pointer-events:none;white-space:nowrap;line-height:1}
+          text-transform:uppercase;font-size:clamp(80px,18vw,260px);opacity:.12;pointer-events:none;white-space:nowrap;line-height:1}
   .va-riga{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 22px;width:100%}
   .va-testo{opacity:0;transform:translateY(40px);transition:all .9s cubic-bezier(.22,.8,.24,1)}
   .va-scena.in .va-testo{opacity:1;transform:none}
@@ -1119,7 +1119,7 @@ window.addEventListener("load", function(){
   .va-btn{display:inline-block;text-decoration:none;font-weight:800;padding:14px 26px;border-radius:999px;background:var(--va-ink,#fff);color:var(--va-bg,#0b1426);
           transition:transform .25s ease,box-shadow .25s ease}
   .va-btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.3)}
-  .va-carta{position:relative;justify-self:center;width:100%;max-width:500px;will-change:transform}
+  .va-carta{position:relative;justify-self:center;width:100%;max-width:430px;will-change:transform}
   .va-carta img{width:100%;display:block;border-radius:26px;box-shadow:0 40px 80px rgba(0,0,0,.45);opacity:0;
                 transform:scale(.88) rotate(-7deg);transition:all 1s cubic-bezier(.22,.8,.24,1)}
   .va-scena.in .va-carta img{opacity:1;transform:rotate(-3deg)}
@@ -1129,8 +1129,8 @@ window.addEventListener("load", function(){
   @media (max-width:760px){
     .va-riga{grid-template-columns:1fr;gap:24px;text-align:center}
     .va-testo p{margin-inline:auto}
-    .va-carta{order:-1;max-width:420px}
-    .va-scena{min-height:96vh}
+    .va-carta{order:-1;max-width:340px}
+    .va-scena{min-height:auto;padding:40px 0}
   }
   @media (prefers-reduced-motion:reduce){
     .va,.va-testo,.va-carta img{transition:none!important}
@@ -1142,7 +1142,7 @@ window.addEventListener("load", function(){
 /* Scene a scorrimento: una per ogni capo in pronta consegna. Il colore cambia solo dentro questa sezione. */
 window.addEventListener("load", function(){
   fetch("pronta-consegna.json?v=" + Date.now()).then(function(r){ return r.ok ? r.json() : []; }).then(function(capi){
-    capi = (capi || []).filter(function(c){ return !c.esaurito && c.taglie && c.taglie.length && c.foto && c.foto.length; }).slice(0, 6);
+    capi = (capi || []).filter(function(c){ return !c.esaurito && c.taglie && c.taglie.length && c.foto && c.foto.length; }).slice(0, 3);
     if (!capi.length) return;
     var COL = [
       [/napoli/i,"#0d6fd6","#ffffff","#ffd34a"], [/inter/i,"#0a1640","#ffffff","#4d86ff"],
