@@ -1160,6 +1160,42 @@ window.addEventListener("load", function(){
   </div>
 </section>
 
+<!-- ============ ORDINE DI GRUPPO ============ -->
+<section id="ordine-gruppo" style="padding-top:0">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div>
+        <div class="kicker">Squadre, amici, famiglie</div>
+        <h2 class="display">Ordine di gruppo</h2>
+      </div>
+      <p>Nomi, numeri e taglie diverse per ognuno, e il prezzo scende da solo man mano che vi aggiungete.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num">01</div>
+        <h3>Crei il gruppo</h3>
+        <p>Scrivici su WhatsApp la squadra e quanti siete: ti prepariamo un link tutto vostro.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">02</div>
+        <h3>Ognuno compila la sua riga</h3>
+        <p>Giri il link nel gruppo: ognuno sceglie maglia, nome, numero e taglia, senza mandarti niente a mano.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num">03</div>
+        <h3>Invii e ci pensiamo noi</h3>
+        <p>Quando ci siete tutti confermi l'ordine. Spedizione in tutta Italia con tracking in chat.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px">
+      <a class="btn btn-volt" target="_blank" rel="noopener"
+         href="https://wa.me/447727750265?text=Ciao!%20Vorrei%20fare%20un%20ordine%20di%20gruppo%20con%20nomi%20e%20numeri%20diversi.%0ASquadra%2Fmodello%3A%20%0AQuanti%20siamo%3A%20">
+        👥 Crea il tuo ordine di gruppo su WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ TABELLA TAGLIE ============ -->
 <section id="taglie">
   <div class="container">
@@ -1502,6 +1538,7 @@ window.addEventListener("load", function(){
       <div class="prog">
         <div class="prog-track"><div class="prog-fill" id="qtyProgFill"></div></div>
         <div class="prog-text" id="qtyHint"></div>
+        <div class="prog-text" id="gruppoHint" style="display:none;margin-top:6px;font-weight:600"></div>
       </div>
 
       <div class="ship-box" id="shipBox">🚚 Spedizione gratuita · Consegna stimata…</div>
@@ -3291,6 +3328,18 @@ function syncSheet(){
   } else {
     document.getElementById("qtyProgFill").style.width = "0%";
     document.getElementById("qtyHint").textContent = "Questo prodotto è sempre a prezzo pieno, non rientra negli sconti quantità";
+  }
+  // Da 3 pezzi in su: nomi e numeri diversi si ordinano meglio con l'ordine di gruppo
+  const gh = document.getElementById("gruppoHint");
+  if (gh){
+    if (S.qty >= 3 && !(S.type && S.type.pronta)){
+      const msg = "Ciao! Vorrei fare un ordine di gruppo con nomi e numeri diversi.\nQuanti siamo: " + S.qty;
+      gh.innerHTML = '👥 Nomi e numeri diversi per ognuno? <a href="https://wa.me/447727750265?text=' + encodeURIComponent(msg) +
+                     '" target="_blank" rel="noopener" style="text-decoration:underline">Fai un ordine di gruppo</a>';
+      gh.style.display = "";
+    } else {
+      gh.style.display = "none";
+    }
   }
 }
 
