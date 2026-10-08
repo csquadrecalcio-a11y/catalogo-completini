@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Anteprima animazioni | Completini Squadre Calcio 2.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#07101f;--ink:#fff;--accent:#ffb400;--ease:cubic-bezier(.22,.8,.24,1)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);
+       transition:background-color .8s var(--ease),color .8s var(--ease);overflow-x:hidden}
+  a{color:inherit}
+  .display{font-family:'Archivo Black',sans-serif;text-transform:uppercase;line-height:.92;letter-spacing:-.01em}
+
+  /* ---------- caricamento ---------- */
+  #loader{position:fixed;inset:0;z-index:100;background:#050a14;display:flex;flex-direction:column;
+          align-items:center;justify-content:center;gap:22px;transition:opacity .7s ease,visibility .7s}
+  #loader.fine{opacity:0;visibility:hidden}
+  #loader img{width:92px;height:92px;border-radius:50%;object-fit:cover;animation:pulsa 1.6s ease-in-out infinite}
+  #loader .nome{font-family:'Archivo Black';font-size:14px;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+  #loader .barra{width:min(260px,60vw);height:4px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden}
+  #loader .barra i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ffb400,#ff5a36);transition:width .25s ease}
+  @keyframes pulsa{50%{transform:scale(1.07)}}
+
+  /* ---------- barra in alto ---------- */
+  .top{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;
+       padding:14px 22px;pointer-events:none}
+  .top a{pointer-events:auto;text-decoration:none;font-weight:800;font-size:13px;padding:9px 16px;border-radius:999px;
+         background:rgba(0,0,0,.35);backdrop-filter:blur(8px);color:#fff}
+  .top .logo{display:flex;align-items:center;gap:10px;background:none;padding:0;backdrop-filter:none}
+  .top .logo img{width:38px;height:38px;border-radius:50%}
+
+  section{position:relative}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+
+  /* ---------- hero ---------- */
+  .hero{min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:110px 0 60px}
+  .hero h1{font-size:clamp(54px,12.5vw,190px);position:relative;z-index:2}
+  .hero h1 span{display:block;overflow:hidden}
+  .hero h1 span b{display:block;font-weight:400;transform:translateY(110%);transition:transform 1s var(--ease)}
+  .hero.in h1 span b{transform:none}
+  .hero.in h1 span:nth-child(2) b{transition-delay:.12s}
+  .hero .script{font-family:'Caveat',cursive;font-size:clamp(26px,4vw,46px);color:var(--accent);margin-top:18px;
+                opacity:0;transition:opacity 1s .5s}
+  .hero.in .script{opacity:1}
+  .hero .float{position:absolute;width:clamp(120px,19vw,270px);border-radius:20px;box-shadow:0 30px 60px rgba(0,0,0,.45);
+               will-change:transform;z-index:1}
+  .hero .float img{width:100%;display:block;border-radius:20px}
+  .f1{right:6%;top:14%;transform:rotate(8deg)}
+  .f2{right:23%;bottom:7%;transform:rotate(-9deg)}
+  .f3{right:-2%;bottom:18%;transform:rotate(14deg)}
+  .scrollhint{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);font-size:12px;letter-spacing:.2em;
+              text-transform:uppercase;opacity:.65;animation:su 1.8s ease-in-out infinite}
+  @keyframes su{50%{transform:translate(-50%,8px)}}
+
+  /* ---------- fascia che scorre ---------- */
+  .marq{overflow:hidden;white-space:nowrap;padding:18px 0;border-block:1px solid rgba(255,255,255,.18)}
+  .marq div{display:inline-block;animation:scorri 32s linear infinite;will-change:transform}
+  .marq.inv div{animation-direction:reverse;animation-duration:38s}
+  .marq span{font-family:'Archivo Black';font-size:clamp(26px,5vw,60px);text-transform:uppercase;padding:0 .6em;
+             -webkit-text-stroke:1.5px currentColor;color:transparent}
+  .marq em{font-style:normal;color:var(--accent);padding:0 .1em;font-size:clamp(20px,3vw,36px)}
+  @keyframes scorri{to{transform:translateX(-50%)}}
+
+  /* ---------- scene squadre ---------- */
+  .scena{min-height:118vh;display:flex;align-items:center;overflow:hidden;padding:90px 0}
+  .scena .gigante{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max-content;
+                  font-size:clamp(90px,24vw,360px);opacity:.13;pointer-events:none;white-space:nowrap}
+  .scena .riga{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;position:relative;z-index:2}
+  .scena .testo{opacity:0;transform:translateY(40px);transition:all .9s var(--ease)}
+  .scena.in .testo{opacity:1;transform:none}
+  .scena .kick{font-weight:800;letter-spacing:.16em;font-size:12.5px;text-transform:uppercase;opacity:.75;margin-bottom:14px}
+  .scena h2{font-size:clamp(40px,7vw,96px);margin-bottom:16px}
+  .scena p{font-size:clamp(16px,1.6vw,20px);line-height:1.5;max-width:30ch;opacity:.9;margin-bottom:26px}
+  .btn{display:inline-block;text-decoration:none;font-weight:800;padding:15px 28px;border-radius:999px;
+       background:var(--ink);color:var(--bg);transition:transform .25s var(--ease),box-shadow .25s}
+  .btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.3)}
+  .btn.vuoto{background:none;color:var(--ink);border:2px solid currentColor}
+  .scena .carta{position:relative;justify-self:center;width:min(520px,86vw);will-change:transform}
+  .scena .carta img{width:100%;display:block;border-radius:26px;box-shadow:0 40px 80px rgba(0,0,0,.45);
+                    opacity:0;transform:scale(.86) rotate(-7deg);transition:all 1s var(--ease)}
+  .scena.in .carta img{opacity:1;transform:rotate(-3deg)}
+  .scena:nth-of-type(even) .carta img{transform:scale(.86) rotate(7deg)}
+  .scena:nth-of-type(even).in .carta img{transform:rotate(3deg)}
+  .scena .pallino{position:absolute;right:-6px;top:-10px;background:var(--accent);color:#111;font-weight:800;
+                  font-size:12.5px;padding:8px 14px;border-radius:999px;transform:rotate(6deg);z-index:3}
+
+  /* ---------- finale ---------- */
+  .finale{min-height:100vh;display:flex;align-items:center;text-align:center;padding:100px 0}
+  .finale h2{font-size:clamp(46px,10vw,150px)}
+  .finale h2 span{display:block;opacity:0;transform:translateY(60px);transition:all 1s var(--ease)}
+  .finale.in h2 span{opacity:1;transform:none}
+  .finale.in h2 span:nth-child(2){transition-delay:.15s}
+  .finale .script{font-family:'Caveat',cursive;font-size:clamp(28px,4.4vw,56px);color:var(--accent);margin:22px 0 34px}
+  .finale .bottoni{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  @media (max-width:760px){
+    .scena .riga{grid-template-columns:1fr;gap:26px;text-align:center}
+    .scena p{margin-inline:auto}
+    .scena .carta{order:-1}
+    .scena{min-height:100vh}
+    .f1{right:-4%;top:9%} .f2{display:none} .f3{right:-8%;bottom:11%}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .hero h1 span b,.scena .testo,.scena .carta img,.finale h2 span{opacity:1!important;transform:none!important}
+  }
+</style>
+</head>
+<body>
+
+<div id="loader" aria-label="Caricamento">
+  <img src="logo.jpg" alt="Completini Squadre Calcio 2.0">
+  <div class="nome">Completini Squadre Calcio</div>
+  <div class="barra"><i id="barra"></i></div>
+</div>
+
+<div class="top">
+  <a class="logo" href="index.html"><img src="logo.jpg" alt=""><b class="display" style="font-size:13px">Completini SC 2.0</b></a>
+  <a href="index.html">← Torna al sito</a>
+</div>
+
+<section class="hero" data-bg="#07101f" data-ink="#ffffff" data-accent="#ffb400">
+  <div class="float f1" data-speed="-0.10"><img src="pronta-consegna/capo2_n.jpg" alt="Napoli Home"></div>
+  <div class="float f2" data-speed="0.07"><img src="pronta-consegna/capo6_0.jpg" alt="Inter Home"></div>
+  <div class="float f3" data-speed="-0.18"><img src="pronta-consegna/capo9_0.jpg" alt="Argentina Home"></div>
+  <div class="wrap">
+    <h1 class="display"><span><b>Indossa</b></span><span><b>la tua</b></span><span><b>passione</b></span></h1>
+    <div class="script">maglie vere, già pronte a partire</div>
+  </div>
+  <div class="scrollhint">Scorri ↓</div>
+</section>
+
+<div class="marq" data-bg="#07101f" data-ink="#ffffff" data-accent="#ffb400">
+  <div><span>Inter</span><em>✦</em><span>Juventus</span><em>✦</em><span>Napoli</span><em>✦</em><span>Roma</span><em>✦</em><span>Milan</span><em>✦</em><span>Barcellona</span><em>✦</em><span>Argentina</span><em>✦</em>
+       <span>Inter</span><em>✦</em><span>Juventus</span><em>✦</em><span>Napoli</span><em>✦</em><span>Roma</span><em>✦</em><span>Milan</span><em>✦</em><span>Barcellona</span><em>✦</em><span>Argentina</span><em>✦</em></div>
+</div>
+
+<!-- ===== SCENE: ogni squadra ha il suo colore ===== -->
+<section class="scena" data-bg="#0d6fd6" data-ink="#ffffff" data-accent="#ffd34a">
+  <div class="gigante display">Napoli</div>
+  <div class="wrap riga">
+    <div class="testo">
+      <div class="kick">Pronta consegna · 24-48 ore</div>
+      <h2 class="display">Napoli<br>Centenario</h2>
+      <p>La maglia dei cento anni, già in magazzino. Spedizione in 24-48 ore.</p>
+      <a class="btn" href="index.html?cat=Pronta%20Consegna">Vedi la maglia →</a>
+    </div>
+    <div class="carta" data-speed="-0.07"><span class="pallino">Pezzo unico</span><img src="pronta-consegna/capo2_n.jpg" alt="Maglia Napoli Home Centenario"></div>
+  </div>
+</section>
+
+<section class="scena" data-bg="#0a1640" data-ink="#ffffff" data-accent="#4d86ff">
+  <div class="gigante display">Inter</div>
+  <div class="wrap riga">
+    <div class="testo">
+      <div class="kick">Pronta consegna · 24-48 ore</div>
+      <h2 class="display">Inter<br>Nerazzurra</h2>
+      <p>Righe blu e nere, patch Serie A. Taglie M e L pronte a partire.</p>
+      <a class="btn" href="index.html?cat=Pronta%20Consegna">Vedi la maglia →</a>
+    </div>
+    <div class="carta" data-speed="-0.07"><span class="pallino">Patch Serie A</span><img src="pronta-consegna/capo6_0.jpg" alt="Maglia Inter Home"></div>
+  </div>
+</section>
+
+<section class="scena" data-bg="#efefef" data-ink="#101010" data-accent="#101010">
+  <div class="gigante display">Juve</div>
+  <div class="wrap riga">
+    <div class="testo">
+      <div class="kick">Pronta consegna · 24-48 ore</div>
+      <h2 class="display">Juventus<br>Bianconera</h2>
+      <p>Le righe più famose d'Italia, già pronte per essere indossate.</p>
+      <a class="btn" href="index.html?cat=Pronta%20Consegna">Vedi la maglia →</a>
+    </div>
+    <div class="carta" data-speed="-0.07"><span class="pallino">Serie A</span><img src="pronta-consegna/capo8_0.jpg" alt="Maglia Juventus Home"></div>
+  </div>
+</section>
+
+<section class="scena" data-bg="#7a1020" data-ink="#ffe3b0" data-accent="#ffb400">
+  <div class="gigante display">Roma</div>
+  <div class="wrap riga">
+    <div class="testo">
+      <div class="kick">Pronta consegna · 24-48 ore</div>
+      <h2 class="display">Roma<br>Giallorossa</h2>
+      <p>La trasferta bianca con la banda giallorossa. Un pezzo da collezione.</p>
+      <a class="btn" href="index.html?cat=Pronta%20Consegna">Vedi la maglia →</a>
+    </div>
+    <div class="carta" data-speed="-0.07"><span class="pallino">Away</span><img src="pronta-consegna/capo7_0.jpg" alt="Maglia Roma Away"></div>
+  </div>
+</section>
+
+<section class="scena" data-bg="#8fcdf2" data-ink="#0b2a4a" data-accent="#0b2a4a">
+  <div class="gigante display">Argentina</div>
+  <div class="wrap riga">
+    <div class="testo">
+      <div class="kick">Pronta consegna · 24-48 ore</div>
+      <h2 class="display">Argentina<br>Campione</h2>
+      <p>Celeste e bianca, con la patch World Cup 2026. Taglia M con Messi 10.</p>
+      <a class="btn" href="index.html?cat=Pronta%20Consegna">Vedi la maglia →</a>
+    </div>
+    <div class="carta" data-speed="-0.07"><span class="pallino">World Cup 2026</span><img src="pronta-consegna/capo9_0.jpg" alt="Maglia Argentina Home"></div>
+  </div>
+</section>
+
+<section class="scena" data-bg="#0b1f5e" data-ink="#ffffff" data-accent="#ff4d5e">
+  <div class="gigante display">Barça</div>
+  <div class="wrap riga">
+    <div class="testo">
+      <div class="kick">Pronta consegna · 24-48 ore</div>
+      <h2 class="display">Barcellona<br>Blaugrana</h2>
+      <p>Blu e granata con lo sponsor Spotify. Anche con il nome di Lamine Yamal.</p>
+      <a class="btn" href="index.html?cat=Pronta%20Consegna">Vedi la maglia →</a>
+    </div>
+    <div class="carta" data-speed="-0.07"><span class="pallino">Patch Liga</span><img src="pronta-consegna/capo10_0.jpg" alt="Maglia Barcellona Home"></div>
+  </div>
+</section>
+
+<div class="marq inv" data-bg="#07101f" data-ink="#ffffff" data-accent="#ffb400">
+  <div><span>Nome e numero gratis</span><em>✦</em><span>Spedizione 24-48 ore</span><em>✦</em><span>Paghi anche a rate</span><em>✦</em><span>Foto reali</span><em>✦</em>
+       <span>Nome e numero gratis</span><em>✦</em><span>Spedizione 24-48 ore</span><em>✦</em><span>Paghi anche a rate</span><em>✦</em><span>Foto reali</span><em>✦</em></div>
+</div>
+
+<section class="finale" data-bg="#07101f" data-ink="#ffffff" data-accent="#ffb400">
+  <div class="wrap">
+    <h2 class="display"><span>Scendi</span><span>in campo</span></h2>
+    <div class="script">con la maglia della tua squadra</div>
+    <div class="bottoni">
+      <a class="btn" href="index.html">Vai al catalogo →</a>
+      <a class="btn vuoto" target="_blank" rel="noopener" href="https://wa.me/447727750265?text=Ciao!%20Vorrei%20informazioni%20su%20una%20maglia">Scrivici su WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var root = document.documentElement;
+
+  /* caricamento: aspetta le immagini, ma mai meno di 1,3 secondi e mai piu di 6 */
+  var imgs = Array.prototype.slice.call(document.images).filter(function(i){ return i.closest("#loader") == null; });
+  var fatte = 0, barra = document.getElementById("barra"), inizio = Date.now();
+  function aggiorna(){ barra.style.width = Math.round(Math.min(1, fatte / Math.max(imgs.length, 1)) * 100) + "%"; }
+  function chiudi(){
+    var resta = Math.max(0, 1300 - (Date.now() - inizio));
+    setTimeout(function(){
+      document.getElementById("loader").classList.add("fine");
+      document.querySelector(".hero").classList.add("in");
+    }, resta);
+  }
+  var chiuso = false;
+  function una(){ fatte++; aggiorna(); if (fatte >= imgs.length && !chiuso){ chiuso = true; chiudi(); } }
+  imgs.forEach(function(i){ if (i.complete) una(); else { i.addEventListener("load", una); i.addEventListener("error", una); } });
+  if (!imgs.length) una();
+  setTimeout(function(){ if (!chiuso){ chiuso = true; chiudi(); } }, 6000);
+
+  /* colore di sfondo che cambia con la sezione al centro dello schermo */
+  var blocchi = Array.prototype.slice.call(document.querySelectorAll("[data-bg]"));
+  function colori(el){
+    root.style.setProperty("--bg", el.getAttribute("data-bg"));
+    root.style.setProperty("--ink", el.getAttribute("data-ink"));
+    root.style.setProperty("--accent", el.getAttribute("data-accent"));
+  }
+  if ("IntersectionObserver" in window){
+    var oss = new IntersectionObserver(function(voci){
+      voci.forEach(function(v){
+        if (v.isIntersecting){ colori(v.target); if (v.target.classList.contains("scena") || v.target.classList.contains("finale")) v.target.classList.add("in"); }
+      });
+    }, {rootMargin:"-45% 0px -45% 0px", threshold:0});
+    blocchi.forEach(function(b){ oss.observe(b); });
+    /* le scene compaiono un po' prima di arrivare al centro */
+    var oss2 = new IntersectionObserver(function(voci){
+      voci.forEach(function(v){ if (v.isIntersecting) v.target.classList.add("in"); });
+    }, {rootMargin:"0px 0px -25% 0px", threshold:0});
+    blocchi.forEach(function(b){ if (b.classList.contains("scena") || b.classList.contains("finale")) oss2.observe(b); });
+  } else {
+    blocchi.forEach(function(b){ b.classList.add("in"); });
+  }
+
+  /* parallasse: gli oggetti salgono e scendono a velocita diverse mentre scorri */
+  var mov = Array.prototype.slice.call(document.querySelectorAll("[data-speed]"));
+  var mx = 0, my = 0, ticking = false;
+  function parallasse(){
+    ticking = false;
+    var vh = window.innerHeight;
+    mov.forEach(function(el){
+      var r = el.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > vh + 200) return;
+      var d = (r.top + r.height / 2 - vh / 2);
+      var v = parseFloat(el.getAttribute("data-speed"));
+      var extra = el.classList.contains("float") ? "translate3d(" + (mx * v * -60) + "px," + (d * v + my * v * -40) + "px,0)" : "translate3d(0," + (d * v) + "px,0)";
+      el.style.transform = el.classList.contains("float") ? extra + " rotate(" + (el.dataset.rot || 0) + "deg)" : extra;
+    });
+  }
+  function richiedi(){ if (!ticking){ ticking = true; requestAnimationFrame(parallasse); } }
+  if (!reduce){
+    document.querySelectorAll(".float").forEach(function(el){
+      var m = /rotate\((-?\d+)deg\)/.exec(getComputedStyle(el).transform === "none" ? "" : "");
+      el.dataset.rot = ({f1:8, f2:-9, f3:14})[el.className.split(" ").filter(function(c){ return /^f\d$/.test(c); })[0]] || 0;
+    });
+    window.addEventListener("scroll", richiedi, {passive:true});
+    window.addEventListener("resize", richiedi);
+    window.addEventListener("mousemove", function(e){
+      mx = (e.clientX / window.innerWidth - .5); my = (e.clientY / window.innerHeight - .5); richiedi();
+    }, {passive:true});
+    richiedi();
+  }
+})();
+</script>
+</body>
+</html>
