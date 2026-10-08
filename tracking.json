@@ -5705,6 +5705,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-08 09:43:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-10-07 01:53:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
@@ -5718,6 +5723,11 @@
         "data": "2026-10-07 01:04:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-06 19:59:45",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-10-05 12:01:52",
@@ -5802,7 +5812,7 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-06 19:04",
+        "data": "2026-10-08 03:43",
         "luogo": "FARA IN SABINA (RI)",
         "stato": "La spedizione è in transito"
       }
