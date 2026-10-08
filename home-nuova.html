@@ -1068,7 +1068,7 @@ gtag('config', 'G-SYPQZL1L7W');
       <div>
         <div class="pc-kick"><i></i> Pronta consegna</div>
         <h2 class="display">Non vuoi aspettare?</h2>
-        <p><b>Maglie già in magazzino, pronte a partire.</b> Spedizione in <b>24-48 ore</b>, 8€ di spedizione. Sono <b>pezzi unici</b>: quando una taglia finisce, finisce.</p>
+        <p><b>Maglie già in magazzino, pronte a partire.</b> Spedizione <b>gratuita</b> in <b>24-48 ore</b>. Sono <b>pezzi unici</b>: quando una taglia finisce, finisce.</p>
         <p style="margin-top:10px;font-size:.95em;opacity:.9">💳 Le maglie in pronta consegna le trovi anche su <a href="https://www.ebay.it/sch/i.html?_ssn=csc2.0" target="_blank" rel="noopener" style="text-decoration:underline"><b>eBay</b></a>, dove puoi pagare con carta, PayPal o a rate con Klarna.</p>
       </div>
       <a class="btn btn-volt pc-cta" id="pcTutte" href="?cat=Pronta%20Consegna">Vedi tutta la pronta consegna →</a>
@@ -1094,7 +1094,7 @@ window.addEventListener("load", function(){
       a.innerHTML = '<img src="' + ((c.foto && c.foto[0]) || "") + '" alt="' + pulisci(c.titolo).replace(/"/g, "") + '" loading="lazy">' + ult +
         '<div class="pc-body"><h3>' + pulisci(c.titolo) + '</h3><div class="pc-tg">' +
         c.taglie.map(function(sz){ return '<span' + (/\(.+\)/.test(sz) ? ' class="nome"' : "") + ">" + lab(sz) + "</span>"; }).join("") +
-        '</div><div class="pc-foot"><span>' + c.prezzo + '€ <small>+ 8€ sped.</small></span><span style="color:var(--volt)">Apri →</span></div></div>';
+        '</div><div class="pc-foot"><span>' + c.prezzo + '€ <small>sped. inclusa</small></span><span style="color:var(--volt)">Apri →</span></div></div>';
       row.appendChild(a);
     });
     document.getElementById("pcTutte").textContent = "Vedi tutte le " + tot + " maglie pronte →";
@@ -1945,7 +1945,7 @@ const CATALOG = [
   { name:"Resto del Mondo",  flag:"🌐", id:"13NLaWPvV-9ldy2e5jofbogaXKKT87o2G", subs:true },
   { name:"Vintage",          flag:"🏆", id:"1zI1CEJ4f8RXTovUzkfZoY_ifAUW5X9jS", subs:true },
   { name:"Tute",             flag:"🏃", id:"1KeNMrvV_qgI0hH3FGUdoN8069_-LnyDZ", subs:false },
-  // Roba gia in casa: parte da noi in 2/3 giorni, con 8€ di spedizione (22/09/26)
+  // Roba gia in casa: parte da noi in 2/3 giorni, con spedizione gratuita (dal 08/10/26)
   { name:"Pronta Consegna",  flag:"⚡", id:"1q5L6UkE7C5Dma_6dih5MIZ-8I4BiBfWd", subs:false, pronta:true },
 ];
 
@@ -2004,11 +2004,10 @@ const SENZA_PERSONALIZZAZIONE = /\b(solo\s*taglia|nopers|no\s*pers)\b/i;
        maglia napoli home M 35e
        kit bambino juventus 26
 
-   Il capo parte da noi in 2/3 giorni e la spedizione costa 8€, una volta
-   sola per ordine. Niente nome e numero: il capo e gia fatto.
+   Il capo parte da noi in 2/3 giorni e la spedizione e gratuita (dal 08/10/26). Niente nome e numero: il capo e gia fatto.
    Quando si vende, si sposta la foto nella sottocartella "Venduti" oppure
    si aggiunge "venduto" al nome: sparisce dal sito da solo. */
-const PRONTA_SPEDIZIONE = 8;
+const PRONTA_SPEDIZIONE = 0;   // dal 08/10/26 la pronta consegna ha spedizione gratuita, come eBay
 // I pezzi gia venduti: il gestionale li scrive qui appena arriva l'ordine.
 // Restano in vetrina col bollino VENDUTO per qualche giorno, poi spariscono.
 const PRONTA_GIORNI_VETRINA = 3;
@@ -2750,7 +2749,7 @@ function renderSearchResults(items){
       <div class="team">${it._cat.flag} ${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
       ${taglieVetrinaHtml(it)}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "+ 8€ spedizione · 24-48h" : "spedizione inclusa"}</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "spedizione inclusa · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -2875,7 +2874,7 @@ function renderGrid(){
          </button>`).join("")}</div>` : ""}
       ${taglieVetrinaHtml(it)}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "+ 8€ spedizione · 24-48h" : "spedizione inclusa"}</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "spedizione inclusa · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -3308,7 +3307,7 @@ function openProduct(item){
   const qtyLbl = document.getElementById("qtyLabel");
   if (S.type.pronta){
     if (boxSped) boxSped.textContent = "⚡ Pronta consegna · pezzo unico, spedizione in 24-48h";
-    if (lblTot)  lblTot.textContent = "Prezzo · + 8€ di spedizione";
+    if (lblTot)  lblTot.textContent = "Prezzo · spedizione inclusa";
     // niente selettore quantita: di quel capo ce n'e uno solo
     S.qty = 1;
     if (qtyRow) qtyRow.style.display = "none";
