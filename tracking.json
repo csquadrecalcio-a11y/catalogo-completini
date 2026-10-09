@@ -9783,6 +9783,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-09 20:52:42",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
         "data": "2026-10-09 19:53:18",
         "luogo": "",
         "stato": "Sdoganamento all'export completato"
@@ -9926,6 +9931,26 @@
         "stato": "Dati della spedizione ricevuti"
       }
     ],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0420": {
+    "stato": "attesa_pagamento",
+    "data_spedizione": "",
+    "data_consegna": "",
+    "corriere": "",
+    "tracking": "",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "fornitore": "",
+    "eventi_cina": [],
     "eventi_corriere": []
   }
 }
