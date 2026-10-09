@@ -5685,7 +5685,7 @@
     ]
   },
   "CSC-2026-0350": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-09-17",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -5812,8 +5812,13 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-08 03:43",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-10-09 10:13",
+        "luogo": "SEMONTE (PG)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-09 08:31",
+        "luogo": "SEMONTE (PG)",
         "stato": "La spedizione è in transito"
       }
     ]
