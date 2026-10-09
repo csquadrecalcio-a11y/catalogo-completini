@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="it" data-tema="autunno">
 <head>
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="noindex">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="referrer" content="no-referrer">
@@ -1068,8 +1068,7 @@ gtag('config', 'G-SYPQZL1L7W');
       <div>
         <div class="pc-kick"><i></i> Pronta consegna</div>
         <h2 class="display">Non vuoi aspettare?</h2>
-        <p><b>Maglie già in magazzino, pronte a partire.</b> Spedizione <b>gratuita</b> in <b>24-48 ore</b>. Sono <b>pezzi unici</b>: quando una taglia finisce, finisce.</p>
-        <p style="margin-top:10px;font-size:.95em;opacity:.9">💳 Le maglie in pronta consegna le trovi anche su <a href="https://www.ebay.it/sch/i.html?_ssn=csc2.0" target="_blank" rel="noopener" style="text-decoration:underline"><b>eBay</b></a>, dove puoi pagare con carta, PayPal o a rate con Klarna.</p>
+        <p><b>Maglie già in magazzino, pronte a partire.</b> Spedizione in <b>24-48 ore</b>, 6€ di spedizione. Sono <b>pezzi unici</b>: quando una taglia finisce, finisce.</p>
       </div>
       <a class="btn btn-volt pc-cta" id="pcTutte" href="?cat=Pronta%20Consegna">Vedi tutta la pronta consegna →</a>
     </div>
@@ -1094,116 +1093,11 @@ window.addEventListener("load", function(){
       a.innerHTML = '<img src="' + ((c.foto && c.foto[0]) || "") + '" alt="' + pulisci(c.titolo).replace(/"/g, "") + '" loading="lazy">' + ult +
         '<div class="pc-body"><h3>' + pulisci(c.titolo) + '</h3><div class="pc-tg">' +
         c.taglie.map(function(sz){ return '<span' + (/\(.+\)/.test(sz) ? ' class="nome"' : "") + ">" + lab(sz) + "</span>"; }).join("") +
-        '</div><div class="pc-foot"><span>' + c.prezzo + '€ <small>sped. inclusa</small></span><span style="color:var(--volt)">Apri →</span></div></div>';
+        '</div><div class="pc-foot"><span>' + c.prezzo + '€ <small>+ 6€ sped.</small></span><span style="color:var(--volt)">Apri →</span></div></div>';
       row.appendChild(a);
     });
     document.getElementById("pcTutte").textContent = "Vedi tutte le " + tot + " maglie pronte →";
     document.getElementById("pronta-home").style.display = "";
-  }).catch(function(){});
-});
-</script>
-
-<!-- ============ VETRINA ANIMATA: scene dalla pronta consegna ============ -->
-<style>
-  .va{position:relative;display:none;overflow:hidden;background:var(--va-bg,#0b1426);color:var(--va-ink,#fff);
-      transition:background-color .8s cubic-bezier(.22,.8,.24,1),color .8s cubic-bezier(.22,.8,.24,1)}
-  .va-scena{min-height:64vh;display:flex;align-items:center;position:relative;padding:36px 0}
-  .va-gig{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max-content;font-family:'Archivo Black',sans-serif;
-          text-transform:uppercase;font-size:clamp(80px,18vw,260px);opacity:.12;pointer-events:none;white-space:nowrap;line-height:1}
-  .va-riga{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 22px;width:100%}
-  .va-testo{opacity:0;transform:translateY(40px);transition:all .9s cubic-bezier(.22,.8,.24,1)}
-  .va-scena.in .va-testo{opacity:1;transform:none}
-  .va-kick{font-weight:800;letter-spacing:.16em;font-size:12.5px;text-transform:uppercase;opacity:.75;margin-bottom:14px}
-  .va-testo h2{font-family:'Archivo Black',sans-serif;text-transform:uppercase;line-height:.95;font-size:clamp(38px,6.4vw,92px);margin-bottom:16px}
-  .va-testo p{font-size:clamp(15px,1.5vw,19px);line-height:1.5;max-width:34ch;opacity:.9;margin-bottom:24px}
-  .va-btn{display:inline-block;text-decoration:none;font-weight:800;padding:14px 26px;border-radius:999px;background:var(--va-ink,#fff);color:var(--va-bg,#0b1426);
-          transition:transform .25s ease,box-shadow .25s ease}
-  .va-btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(0,0,0,.3)}
-  .va-carta{position:relative;justify-self:center;width:100%;max-width:430px;will-change:transform}
-  .va-carta img{width:100%;display:block;border-radius:26px;box-shadow:0 40px 80px rgba(0,0,0,.45);opacity:0;
-                transform:scale(.88) rotate(-7deg);transition:all 1s cubic-bezier(.22,.8,.24,1)}
-  .va-scena.in .va-carta img{opacity:1;transform:rotate(-3deg)}
-  .va-scena.pari.in .va-carta img{transform:rotate(3deg)}
-  .va-scena.pari .va-carta img{transform:scale(.88) rotate(7deg)}
-  .va-pall{position:absolute;right:6px;top:-10px;background:var(--va-acc,#ffb400);color:#111;font-weight:800;font-size:12.5px;padding:8px 14px;border-radius:999px;transform:rotate(6deg);z-index:3}
-  @media (max-width:760px){
-    .va-riga{grid-template-columns:1fr;gap:24px;text-align:center}
-    .va-testo p{margin-inline:auto}
-    .va-carta{order:-1;max-width:340px}
-    .va-scena{min-height:auto;padding:40px 0}
-  }
-  @media (prefers-reduced-motion:reduce){
-    .va,.va-testo,.va-carta img{transition:none!important}
-    .va-testo,.va-carta img{opacity:1!important;transform:none!important}
-  }
-</style>
-<section class="va" id="vetrina-anim" aria-label="Maglie in pronta consegna"><div id="vaScene"></div></section>
-<script>
-/* Scene a scorrimento: una per ogni capo in pronta consegna. Il colore cambia solo dentro questa sezione. */
-window.addEventListener("load", function(){
-  fetch("pronta-consegna.json?v=" + Date.now()).then(function(r){ return r.ok ? r.json() : []; }).then(function(capi){
-    capi = (capi || []).filter(function(c){ return !c.esaurito && c.taglie && c.taglie.length && c.foto && c.foto.length; }).sort(function(a, b){ return b.taglie.length - a.taglie.length; }).slice(0, 2);
-    if (!capi.length) return;
-    var COL = [
-      [/napoli/i,"#0d6fd6","#ffffff","#ffd34a"], [/inter/i,"#0a1640","#ffffff","#4d86ff"],
-      [/juve/i,"#efefef","#101010","#101010"],  [/roma/i,"#7a1020","#ffe3b0","#ffb400"],
-      [/argentina/i,"#8fcdf2","#0b2a4a","#0b2a4a"], [/barcellona|barça|barca/i,"#0b1f5e","#ffffff","#ff4d5e"],
-      [/milan/i,"#9b0f1f","#ffffff","#ffd34a"], [/bayern/i,"#b5122b","#ffffff","#ffd34a"],
-      [/real/i,"#f4f4f4","#1a1a3a","#c9a227"], [/lazio/i,"#7fb7e6","#0b2a4a","#0b2a4a"]
-    ];
-    var esc = function(t){ return String(t == null ? "" : t).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); };
-    var host = document.getElementById("vaScene"), sec = document.getElementById("vetrina-anim");
-    capi.forEach(function(c, i){
-      var base = String(c.titolo || "").replace(/^Maglia\s+/i, "");
-      var nome = base.replace(/\s+Patch\s+.*/i, "").replace(/\s+Player Version/i, "").trim();
-      var m = /Patch\s+(.+)$/i.exec(base), pall = m ? m[1].replace(/\s*2026\s*$/, "") : "Pezzo unico";
-      var col = ["#14213d","#ffffff","#ffb400"];
-      for (var k = 0; k < COL.length; k++) if (COL[k][0].test(c.titolo)){ col = [COL[k][1], COL[k][2], COL[k][3]]; break; }
-      var righe = nome.split(" "), titolo = esc(righe[0]) + (righe.length > 1 ? "<br>" + esc(righe.slice(1).join(" ")) : "");
-      var taglie = c.taglie.slice(0, 5).map(function(t){ var x = /^(\S+)\s*\((.+)\)$/.exec(t); return x ? x[1] + " (" + x[2] + ")" : t; }).join(" · ");
-      var d = document.createElement("div");
-      d.className = "va-scena" + (i % 2 ? " pari" : "");
-      d.setAttribute("data-bg", col[0]); d.setAttribute("data-ink", col[1]); d.setAttribute("data-acc", col[2]);
-      d.innerHTML =
-        '<div class="va-gig">' + esc(righe[0]) + '</div>' +
-        '<div class="va-riga"><div class="va-testo">' +
-          '<div class="va-kick">Pronta consegna · 24-48 ore</div>' +
-          '<h2>' + titolo + '</h2>' +
-          '<p>Taglie: ' + esc(taglie) + '. ' + esc(c.prezzo) + '€, spedizione gratuita.</p>' +
-          '<a class="va-btn" href="?cat=Pronta%20Consegna">Vedi la maglia →</a>' +
-        '</div><div class="va-carta" data-speed="-0.07"><span class="va-pall">' + esc(pall) + '</span>' +
-          '<img src="' + esc(c.foto[0]) + '" alt="' + esc(c.titolo) + '" loading="lazy"></div></div>';
-      host.appendChild(d);
-    });
-    sec.style.display = "block";
-    var scene = Array.prototype.slice.call(host.children);
-    if ("IntersectionObserver" in window){
-      var centro = new IntersectionObserver(function(v){
-        v.forEach(function(e){ if (e.isIntersecting){
-          sec.style.setProperty("--va-bg", e.target.getAttribute("data-bg"));
-          sec.style.setProperty("--va-ink", e.target.getAttribute("data-ink"));
-          sec.style.setProperty("--va-acc", e.target.getAttribute("data-acc"));
-        }});
-      }, {rootMargin:"-45% 0px -45% 0px"});
-      var ingresso = new IntersectionObserver(function(v){
-        v.forEach(function(e){ if (e.isIntersecting) e.target.classList.add("in"); });
-      }, {rootMargin:"0px 0px -22% 0px"});
-      scene.forEach(function(s){ centro.observe(s); ingresso.observe(s); });
-    } else {
-      scene.forEach(function(s){ s.classList.add("in"); });
-    }
-    var mov = Array.prototype.slice.call(host.querySelectorAll("[data-speed]")), tick = false;
-    function par(){
-      tick = false; var vh = window.innerHeight;
-      mov.forEach(function(el){
-        var r = el.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return;
-        el.style.transform = "translate3d(0," + ((r.top + r.height / 2 - vh / 2) * parseFloat(el.getAttribute("data-speed"))) + "px,0)";
-      });
-    }
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
-      window.addEventListener("scroll", function(){ if (!tick){ tick = true; requestAnimationFrame(par); } }, {passive:true});
-      par();
-    }
   }).catch(function(){});
 });
 </script>
@@ -1794,7 +1688,7 @@ window.addEventListener("load", function(){
       <div class="cart-row"><span>Articoli</span><b id="cartCount">0</b></div>
       <div class="cart-row"><span>Subtotale</span><b id="cartSub">0€</b></div>
       <div class="cart-row" id="cartShipRow" style="display:none">
-        <span>Spedizione pronta consegna</span><b id="cartShipCost">8€</b>
+        <span>Spedizione pronta consegna</span><b id="cartShipCost">6€</b>
       </div>
       <div class="cart-row cart-disc" id="cartDiscRow" style="display:none"><span id="cartDiscLbl">Sconto</span><b id="cartDisc">0€</b></div>
       <div style="display:flex;gap:6px;margin:10px 0">
@@ -1945,7 +1839,7 @@ const CATALOG = [
   { name:"Resto del Mondo",  flag:"🌐", id:"13NLaWPvV-9ldy2e5jofbogaXKKT87o2G", subs:true },
   { name:"Vintage",          flag:"🏆", id:"1zI1CEJ4f8RXTovUzkfZoY_ifAUW5X9jS", subs:true },
   { name:"Tute",             flag:"🏃", id:"1KeNMrvV_qgI0hH3FGUdoN8069_-LnyDZ", subs:false },
-  // Roba gia in casa: parte da noi in 2/3 giorni, con spedizione gratuita (dal 08/10/26)
+  // Roba gia in casa: parte da noi in 2/3 giorni, con 6€ di spedizione
   { name:"Pronta Consegna",  flag:"⚡", id:"1q5L6UkE7C5Dma_6dih5MIZ-8I4BiBfWd", subs:false, pronta:true },
 ];
 
@@ -2004,10 +1898,10 @@ const SENZA_PERSONALIZZAZIONE = /\b(solo\s*taglia|nopers|no\s*pers)\b/i;
        maglia napoli home M 35e
        kit bambino juventus 26
 
-   Il capo parte da noi in 2/3 giorni e la spedizione e gratuita (dal 08/10/26). Niente nome e numero: il capo e gia fatto.
+   Il capo parte da noi in 2/3 giorni e la spedizione costa 6€, una volta sola per ordine. Niente nome e numero: il capo e gia fatto.
    Quando si vende, si sposta la foto nella sottocartella "Venduti" oppure
    si aggiunge "venduto" al nome: sparisce dal sito da solo. */
-const PRONTA_SPEDIZIONE = 0;   // dal 08/10/26 la pronta consegna ha spedizione gratuita, come eBay
+const PRONTA_SPEDIZIONE = 6;   // dal 09/10/26: 6€ di spedizione sulla pronta consegna, una volta per ordine
 // I pezzi gia venduti: il gestionale li scrive qui appena arriva l'ordine.
 // Restano in vetrina col bollino VENDUTO per qualche giorno, poi spariscono.
 const PRONTA_GIORNI_VETRINA = 3;
@@ -2749,7 +2643,7 @@ function renderSearchResults(items){
       <div class="team">${it._cat.flag} ${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
       ${taglieVetrinaHtml(it)}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "spedizione inclusa · 24-48h" : "spedizione inclusa"}</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "+ 6€ spedizione · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -2874,7 +2768,7 @@ function renderGrid(){
          </button>`).join("")}</div>` : ""}
       ${taglieVetrinaHtml(it)}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "spedizione inclusa · 24-48h" : "spedizione inclusa"}</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "+ 6€ spedizione · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -3307,7 +3201,7 @@ function openProduct(item){
   const qtyLbl = document.getElementById("qtyLabel");
   if (S.type.pronta){
     if (boxSped) boxSped.textContent = "⚡ Pronta consegna · pezzo unico, spedizione in 24-48h";
-    if (lblTot)  lblTot.textContent = "Prezzo · spedizione inclusa";
+    if (lblTot)  lblTot.textContent = "Prezzo · + 6€ di spedizione";
     // niente selettore quantita: di quel capo ce n'e uno solo
     S.qty = 1;
     if (qtyRow) qtyRow.style.display = "none";
@@ -3636,7 +3530,7 @@ function cartTotals(){
   });
   const codicePct = codiceScontoApplicato ? codiceScontoPercentuale : 0;
   const codiceDiscount = Math.round(totalQty * codicePct) / 100;
-  // La pronta consegna parte da noi: 8€ di spedizione, una volta sola per ordine
+  // La pronta consegna parte da noi: 6€ di spedizione, una volta sola per ordine
   const spedizione = cart.some(i => i.pronta) ? PRONTA_SPEDIZIONE : 0;
   const total = totalQty - codiceDiscount + spedizione;
   return {
