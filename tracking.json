@@ -7717,9 +7717,9 @@
     ]
   },
   "CSC-2026-0371": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-24",
-    "data_consegna": "",
+    "data_consegna": "2026-10-09 13:30:15",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J446842",
     "corriere_2": "",
