@@ -5685,9 +5685,9 @@
     ]
   },
   "CSC-2026-0350": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-17",
-    "data_consegna": "",
+    "data_consegna": "2026-10-09 10:59:49",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J345106",
     "corriere_2": "",
@@ -9579,7 +9579,7 @@
       {
         "data": "2026-10-09 08:11:36",
         "luogo": "",
-        "stato": "Arrivato al punto di raccolta Arrive at the receiving point"
+        "stato": "Arrivato al punto di raccolta"
       },
       {
         "data": "2026-10-09 00:50:24",
