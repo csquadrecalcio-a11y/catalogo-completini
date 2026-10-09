@@ -9508,6 +9508,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-09 20:52:41",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
         "data": "2026-10-09 19:53:17",
         "luogo": "",
         "stato": "Sdoganamento all'export completato"
