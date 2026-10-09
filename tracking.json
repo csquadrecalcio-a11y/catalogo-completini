@@ -7738,9 +7738,24 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-08 19:21:26",
+        "luogo": "Ufficio Postale GERENZANO VIA CARLO BERRA 12, 21040 GERENZANO (VA)",
+        "stato": "In consegna, disponibile per il ritiro dal giorno lavorativo successivo alla data indicata"
+      },
+      {
+        "data": "2026-10-08 19:21:00",
+        "luogo": "Gerenzano,via carlo berra 12,21040,gerenzano,va(gerenzano)",
+        "stato": "Parcel available for recipient Pick Up at Post Office or Collect Point"
+      },
+      {
         "data": "2026-10-08 01:36:00",
         "luogo": "Saronno",
         "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-08 01:35:57",
+        "luogo": "Saronno (va)",
+        "stato": "In transito"
       },
       {
         "data": "2026-10-08 01:35:57",
@@ -7820,7 +7835,7 @@
       {
         "data": "2026-10-03 00:27:00",
         "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-10-03 00:27:00",
@@ -7830,7 +7845,7 @@
       {
         "data": "2026-10-03 00:27:00",
         "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-10-01 10:20:45",
