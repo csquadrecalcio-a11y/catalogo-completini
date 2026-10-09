@@ -7588,9 +7588,9 @@
     ]
   },
   "CSC-2026-0370": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-24",
-    "data_consegna": "",
+    "data_consegna": "2026-10-09 13:31:20",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J446835",
     "corriere_2": "",
