@@ -9655,6 +9655,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-09 11:52:42",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-10-09 03:34:34",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
         "data": "2026-10-09 00:52:21",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
@@ -9775,7 +9785,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0419": {
-    "stato": "attesa_pagamento",
+    "stato": "in_lavorazione",
     "data_spedizione": "",
     "data_consegna": "",
     "corriere": "",
