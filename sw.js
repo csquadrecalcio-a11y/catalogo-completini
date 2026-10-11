@@ -42,6 +42,10 @@ self.addEventListener('fetch', e => {
   if (url.origin !== self.location.origin) return;
   if (url.pathname.startsWith('/api/')) return;
 
+  // Video: li gestisce il browser da solo (richieste a pezzi "Range");
+  // passarli dalla cache del service worker blocca la riproduzione su iPhone.
+  if (url.pathname.endsWith('.mp4')) return;
+
   // tracking.json cambia in continuazione: sempre dalla rete, mai dalla cache,
   // altrimenti il cliente vedrebbe uno stato vecchio del suo pacco.
   if (url.pathname.endsWith('tracking.json') || url.pathname.endsWith('tracking-archivio.json') || url.pathname.endsWith('clienti_noti.json') || url.pathname.endsWith('pronta-venduti.json')) return;
