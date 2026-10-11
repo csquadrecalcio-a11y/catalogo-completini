@@ -9158,6 +9158,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-10 21:05:18",
+        "luogo": "FCO",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
         "data": "2026-10-09 21:48:45",
         "luogo": "",
         "stato": "Il volo è decollato"
