@@ -9617,11 +9617,11 @@
     "eventi_corriere": []
   },
   "CSC-2026-0418": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-10-11",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2247J773155",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -9630,12 +9630,15 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": [],
+    "foto": [
+      "sped_418_1_85c4ad29.jpg",
+      "sped_418_2_d505f37c.jpg"
+    ],
     "tracking_cina": "",
     "fornitore": "In Sport",
     "eventi_cina": [
       {
-        "data": "2026-10-08 00:38:16",
+        "data": "2026-10-12 00:12:51",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
       }
