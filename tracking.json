@@ -7700,6 +7700,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-11 09:40",
+        "luogo": "AMS",
+        "stato": "Aggiornamento dal corriere"
+      },
+      {
         "data": "2026-10-10 03:20",
         "luogo": "",
         "stato": "Volo partito"
