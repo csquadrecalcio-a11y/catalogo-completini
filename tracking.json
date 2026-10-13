@@ -9592,6 +9592,16 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-10-13 11:24:27",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-10-13 02:33:57",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
         "data": "2026-10-10 00:20:14",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
