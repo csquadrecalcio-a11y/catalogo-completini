@@ -3439,13 +3439,19 @@ function syncSheet(){
     document.getElementById("qtyProgFill").style.width = "0%";
     document.getElementById("qtyHint").textContent = "Questo prodotto è sempre a prezzo pieno, non rientra negli sconti quantità";
   }
-  // Da 3 pezzi in su: nomi e numeri diversi si ordinano meglio con l'ordine di gruppo
+  // Da 2 pezzi in su: avviso chiaro che la quantita ripete LO STESSO prodotto (stessa squadra,
+  // nome e numero). Un cliente voleva PSG + Real Madrid, ha messo "2" e gli e arrivato 2 PSG (13/10/26).
   const gh = document.getElementById("gruppoHint");
   if (gh){
-    if (S.qty >= 3 && !(S.type && S.type.pronta)){
-      const msg = "Ciao! Vorrei fare un ordine di gruppo con nomi e numeri diversi.\nQuanti siamo: " + S.qty;
-      gh.innerHTML = '👥 Nomi e numeri diversi per ognuno? <a href="https://wa.me/447727750265?text=' + encodeURIComponent(msg) +
-                     '" target="_blank" rel="noopener" style="text-decoration:underline">Fai un ordine di gruppo</a>';
+    if (S.qty >= 2 && !(S.type && S.type.pronta)){
+      let h = '⚠️ <b>Stessa maglia per tutti e ' + S.qty + ' i pezzi</b> (stessa squadra, nome, numero e taglia). ' +
+              'Ne vuoi di diverse? <b>Aggiungi questa al carrello e poi scegli l\'altra.</b>';
+      if (S.qty >= 3){
+        const msg = "Ciao! Vorrei fare un ordine di gruppo con nomi e numeri diversi.\nQuanti siamo: " + S.qty;
+        h += ' <br>👥 Nomi e numeri diversi per ognuno? <a href="https://wa.me/447727750265?text=' + encodeURIComponent(msg) +
+             '" target="_blank" rel="noopener" style="text-decoration:underline">Fai un ordine di gruppo</a>';
+      }
+      gh.innerHTML = h;
       gh.style.display = "";
     } else {
       gh.style.display = "none";
@@ -3646,6 +3652,7 @@ function renderCart(){
       <div class="ci-body">
         <h4>${it.name}</h4>
         <div class="ci-meta">${meta}</div>
+        ${(!it.pronta && it.qty>=2) ? `<div style="font-size:11.5px;font-weight:700;color:#b45309;margin:2px 0 4px">⚠️ ${it.qty} pezzi identici (stessa squadra, nome e numero). Per uno diverso, usa «Aggiungi altri prodotti».</div>` : ""}
         <div class="ci-bottom">
           <div class="ci-qty">
             <button data-a="minus">−</button><span>${it.qty}</span><button data-a="plus">+</button>
