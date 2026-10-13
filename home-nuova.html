@@ -157,9 +157,6 @@ gtag('config', 'G-SYPQZL1L7W');
      schiacciato a 14px sugli schermi grandi (05/10/26) */
   .nav-links a[href="#faq"], .nav-links a[href="#contatti"],
   .nav-links a[href="#recensioni"], .nav-links a[href="#come-funziona"]{display:none}
-  /* Quando c'e il menu completo, il bottone dorato CSC Wear e un doppione
-     del link "CSC Wear": si toglie e lo spazio va al nome (23/09/26) */
-  @media (min-width:1201px){ .wear-link{display:none} }
   .logo{display:flex;align-items:center;gap:12px;font-weight:800}
   .logo-mark{
     width:44px;height:44px;border-radius:12px;flex:none;
@@ -173,16 +170,6 @@ gtag('config', 'G-SYPQZL1L7W');
   .logo small{display:block;font-size:10.5px;font-weight:600;color:var(--muted);letter-spacing:.1em;
           text-transform:uppercase;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .nav-links{display:flex;gap:13px;font-size:12.5px;font-weight:600;color:var(--muted);flex:none;white-space:nowrap}
-  /* accesso a CSC Wear: resta visibile anche su telefono, dove il menu
-     sparisce (sotto i 1300px). Oro su fondo scuro = marchio dell'altro negozio. */
-  .wear-link{
-    display:inline-flex;align-items:center;gap:7px;flex:none;white-space:nowrap;
-    border:1px solid #d9b45a;color:#a9812a;border-radius:999px;
-    padding:8px 14px;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-    transition:background .18s ease,color .18s ease;
-  }
-  .wear-link:hover{background:#d9b45a;color:#141005}
-  @media (prefers-color-scheme: dark){ .wear-link{color:#d9b45a} }
   .nav-links a:hover{color:var(--text)}
   .header-search{position:relative;flex:1 1 200px;min-width:200px;max-width:280px;margin:0 20px}
   .header-search input{
@@ -464,6 +451,24 @@ gtag('config', 'G-SYPQZL1L7W');
   .step .num{font-family:'Archivo Black';font-size:64px;color:transparent;-webkit-text-stroke:1.5px rgba(37,99,235,.5);margin-bottom:18px}
   .step h3{font-size:19px;font-weight:800;margin-bottom:12px}
   .step p{color:var(--muted);font-size:14.5px;line-height:1.65}
+  /* video tutorial "Come ordinare": parte solo al tocco (preload none), così non pesa sulla pagina */
+  .how-wrap{display:grid;grid-template-columns:minmax(240px,320px) 1fr;gap:36px;align-items:center}
+  .how-wrap .steps{grid-template-columns:1fr;gap:16px}
+  .how-wrap .step{padding:24px 26px}
+  .how-wrap .step .num{font-size:44px;margin-bottom:8px}
+  .how-video{position:relative;aspect-ratio:9/16;border-radius:26px;overflow:hidden;background:#071127;
+    border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+  .how-video video{width:100%;height:100%;display:block;object-fit:cover;background:#071127}
+  .how-play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:12px;
+    padding:0 16px 30px;border:0;cursor:pointer;color:#fff;font:inherit;
+    background:linear-gradient(to top,rgba(5,13,28,.88) 0%,rgba(5,13,28,0) 45%)}
+  .how-play .pbtn{width:72px;height:72px;border-radius:50%;background:var(--volt);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 30px rgba(37,99,235,.55);transition:transform .2s ease}
+  .how-play:hover .pbtn{transform:scale(1.07)}
+  .how-play .plbl{font-weight:800;font-size:15px;text-shadow:0 2px 8px rgba(0,0,0,.5)}
+  .how-play .plbl small{display:block;font-weight:600;font-size:12.5px;opacity:.8;margin-top:3px}
+  .how-link{display:inline-block;margin-top:8px;font-weight:700;color:var(--volt);text-decoration:none}
+  .how-link:hover{text-decoration:underline}
 
   .google-badge{
     display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
@@ -879,6 +884,8 @@ gtag('config', 'G-SYPQZL1L7W');
     .hero-stack{order:-1;height:340px}
     .showcase{width:min(300px,80%)}
     .offer-grid,.steps,.reviews{grid-template-columns:1fr}
+    .how-wrap{grid-template-columns:1fr;gap:28px}
+    .how-video{width:min(300px,78vw);margin:0 auto}
     .foot-grid{grid-template-columns:1fr}
     section{padding:64px 0}
     .sheet{grid-template-columns:1fr;max-height:94vh;overflow-y:auto}
@@ -902,8 +909,6 @@ gtag('config', 'G-SYPQZL1L7W');
     .card h3{font-size:13px;min-height:36px}
     .logo small{display:none}
     .cart-btn span:not(.cart-badge){display:none}
-    .wear-link{padding:8px 11px;letter-spacing:.1em}
-    .wear-link .lungo{display:none}
     .logo b{font-size:14px}
     .header-search{margin:0 8px}
   }
@@ -955,7 +960,6 @@ gtag('config', 'G-SYPQZL1L7W');
     <nav class="nav-links">
       <a class="nav-pc" href="?cat=Pronta%20Consegna">⚡ Pronta consegna</a>
       <a href="#catalogo">Catalogo</a>
-      <a href="abbigliamento.html">CSC Wear</a>
       <a href="#offerte">Offerte</a>
       <a href="#taglie">Guida taglie</a>
       <a href="#come-funziona">Come funziona</a>
@@ -963,9 +967,6 @@ gtag('config', 'G-SYPQZL1L7W');
       <a href="#faq">FAQ</a>
       <a href="#contatti">Contatti</a>
     </nav>
-    <a class="wear-link" href="abbigliamento.html" aria-label="CSC Wear, abbigliamento">
-      <span class="lungo">CSC</span> Wear
-    </a>
     <button class="cart-btn" id="cartBtn" aria-label="Apri carrello">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
       <span>Carrello</span>
@@ -1113,7 +1114,8 @@ window.addEventListener("load", function(){
         <div class="kicker">Catalogo · foto reali</div>
         <h2 class="display">Scegli. Apri. Personalizza.</h2>
       </div>
-      <p>Le foto arrivano in diretta dal nostro archivio: quello che vedi è quello che spediamo. Clicca un prodotto per aprire la scheda.</p>
+      <p>Le foto arrivano in diretta dal nostro archivio: quello che vedi è quello che spediamo. Clicca un prodotto per aprire la scheda.
+        <a href="#come-funziona" class="how-link">▶ Prima volta? Guarda come si ordina (1 min)</a></p>
     </div>
     <div class="quick-teams reveal" id="quickTeams">
       <span class="ql">Vai subito a</span>
@@ -1388,6 +1390,16 @@ window.addEventListener("load", function(){
         <div class="kicker">Semplice e veloce</div>
         <h2 class="display">Come funziona</h2>
       </div>
+      <p>Guarda il video: in un minuto ti mostriamo tutto l'ordine, dalla scelta della maglia all'invio su WhatsApp.</p>
+    </div>
+    <div class="how-wrap">
+    <div class="how-video reveal">
+      <video id="howVideo" src="video/come-ordinare.mp4" poster="video/come-ordinare-poster.jpg"
+             preload="none" playsinline width="720" height="1280"></video>
+      <button class="how-play" id="howPlay" type="button" aria-label="Guarda il video: come ordinare sul sito">
+        <span class="pbtn"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="plbl">Guarda come ordinare<small>1 minuto · con sottotitoli</small></span>
+      </button>
     </div>
     <div class="steps">
       <div class="step reveal">
@@ -1405,6 +1417,7 @@ window.addEventListener("load", function(){
         <h3>Ricevilo a casa</h3>
         <p>Spedizione gratuita in tutta Italia in 15 giorni lavorativi, con tracking in chat. Taglia sbagliata? Cambio gratis.</p>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -1540,7 +1553,6 @@ window.addEventListener("load", function(){
       </div>
       <div>
         <h4>Info utili</h4>
-        <a href="abbigliamento.html">CSC Wear — abbigliamento</a>
         <a href="#offerte">Offerte e sconti</a>
         <a href="#taglie">Guida alle taglie</a>
         <a href="#come-funziona">Spedizioni e tempi</a>
@@ -4112,6 +4124,16 @@ const io = new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} });
 },{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+/* Video "Come ordinare": si carica solo quando il cliente preme play */
+(()=>{
+  const v = document.getElementById("howVideo"), b = document.getElementById("howPlay");
+  if (!v || !b) return;
+  b.onclick = ()=>{
+    b.remove(); v.controls = true; v.play().catch(()=>{});
+    if (typeof gtag === "function") gtag("event", "tutorial_play");
+  };
+})();
 
 
 // Popup recensioni dopo 4 secondi (una sola volta per sessione)
