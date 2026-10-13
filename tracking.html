@@ -308,7 +308,7 @@ function trackingUrl(corriere, num, fornitore){
   if(c.includes("poste"))
     return `https://www.poste.it/cerca/index.html#/risultati-spedizioni/${num}`;
   if(c.includes("dhl"))
-    return `https://www.dhl.com/it-it/home/tracking/tracking-parcel.html?submit=1&tracking-id=${num}`;
+    return `https://www.dhl.com/it-it/home/tracking.html?tracking-id=${num}&submit=1`;
   return `https://t.17track.net/it#nums=${num}`;
 }
 
@@ -790,6 +790,17 @@ function buildCard(cod, o){
     </div>
     ${(o.stato !== "consegnato" && o.stato !== "annullato") ? bloccoAvvisami(cod) : ""}
     ${infoItems ? `<div class="info-row">${infoItems}</div>` : ""}
+    ${(()=>{
+      // Link diretto a DHL col codice gia inserito (09/10/26): per i pacchi DHL il cliente puo
+      // aprire il sito del corriere e vedere subito l'ultimo aggiornamento.
+      if(o.stato === "annullato") return "";
+      const dhl = colli.filter(c => /dhl/i.test(c.corriere));
+      if(!dhl.length) return "";
+      return `<div style="margin:12px 0 4px;display:flex;flex-direction:column;gap:8px">` + dhl.map(c =>
+        `<a href="${trackingUrl("DHL", c.tracking)}" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--volt);color:#0a0a0a;text-decoration:none;font-weight:800;font-size:14px;border-radius:12px;padding:12px 16px">`
+        + `<span>🔎 Segui il pacco sul sito DHL</span><span style="font-family:monospace;font-size:12px;opacity:.75">${c.tracking}</span></a>`).join("")
+        + `<div style="font-size:11px;opacity:.7;text-align:center">Si apre il sito di DHL con il tuo codice già inserito</div></div>`;
+    })()}
     ${(()=>{
       const etaAll = estraiEta([...(o.eventi_cina||[]),...(o.eventi_corriere||[])]);
       return (etaAll && o.stato !== "consegnato")
