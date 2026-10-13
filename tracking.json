@@ -9747,6 +9747,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-12 23:41:21",
+        "luogo": "",
+        "stato": "Volo, 15 Volo The"
+      },
+      {
         "data": "2026-10-12 15:41:39",
         "luogo": "",
         "stato": "Volo The"
@@ -9765,6 +9770,26 @@
     "eventi_corriere": []
   },
   "CSC-2026-0420": {
+    "stato": "attesa_pagamento",
+    "data_spedizione": "",
+    "data_consegna": "",
+    "corriere": "",
+    "tracking": "",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "fornitore": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0422": {
     "stato": "attesa_pagamento",
     "data_spedizione": "",
     "data_consegna": "",
