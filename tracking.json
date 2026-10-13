@@ -9378,7 +9378,7 @@
       {
         "data": "2026-10-11 19:44:47",
         "luogo": "",
-        "stato": "Volo partito, 12 The"
+        "stato": "Volo partito, 12"
       },
       {
         "data": "2026-10-09 19:19:00",
@@ -9388,12 +9388,12 @@
       {
         "data": "2026-10-09 18:50:47",
         "luogo": "",
-        "stato": "11 Volo The"
+        "stato": "Aggiornamento dal corriere"
       },
       {
         "data": "2026-10-09 18:50:24",
         "luogo": "",
-        "stato": "Volo The"
+        "stato": "Consegnato all'aeroporto, in attesa del volo"
       },
       {
         "data": "2026-10-09 13:19:00",
@@ -9807,6 +9807,47 @@
     "tracking_cina": "",
     "fornitore": "",
     "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0424": {
+    "stato": "spedito",
+    "data_spedizione": "2026-10-13",
+    "data_consegna": "",
+    "corriere": "DHL",
+    "tracking": "CR437999475DE",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "fornitore": "In Sport",
+    "eventi_cina": [
+      {
+        "data": "2026-10-12 23:41:21",
+        "luogo": "",
+        "stato": "Volo programmato, previsto il 15"
+      },
+      {
+        "data": "2026-10-12 15:41:39",
+        "luogo": "",
+        "stato": "Consegnato all'aeroporto, in attesa del volo"
+      },
+      {
+        "data": "2026-10-12 08:12:55",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-10-11 00:42:55",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
     "eventi_corriere": []
   }
 }
