@@ -1619,7 +1619,7 @@ window.addEventListener("load", function(){
           <input id="orderCap" type="text" inputmode="numeric" maxlength="5" placeholder="CAP *" autocomplete="postal-code">
           <input id="orderTel" type="tel" placeholder="Telefono *" autocomplete="tel">
           <input id="orderEmail" class="wide" type="email" placeholder="Email *" autocomplete="email">
-          <input id="orderConsigliato" class="wide" type="text" placeholder="Presentato da (nome del cliente che ti ha consigliato) *" autocomplete="off">
+          <input id="orderConsigliato" class="wide" type="text" placeholder="Presentato da (nome e cognome del cliente) *" autocomplete="off">
           <input id="orderSquadraCuore" class="wide" type="text" placeholder="Squadra del cuore (facoltativo)" autocomplete="off">
         </div>
       </div>
@@ -3485,6 +3485,12 @@ function validateOrder(){
     el.classList.toggle("field-error", !ok);
     if (!ok && !firstInvalid) firstInvalid = el;
   });
+  // "Presentato da": servono nome E cognome (almeno due parole)
+  const pres = document.getElementById("orderConsigliato");
+  if (pres && pres.value.trim() && pres.value.trim().split(/\s+/).filter(w=>w.length>=2).length < 2){
+    pres.classList.add("field-error");
+    firstInvalid = firstInvalid || pres;
+  }
   const cap = document.getElementById("orderCap");
   if (cap && cap.value.trim() && !/^\d{5}$/.test(cap.value.trim())){
     cap.classList.add("field-error");
