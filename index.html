@@ -131,6 +131,8 @@ gtag('config', 'G-SYPQZL1L7W');
   img,svg{display:block}
   button{font-family:inherit}
 
+  .passaparola{background:#0d1512;color:#fff;font-size:12.5px;line-height:1.45;text-align:center;padding:9px 14px;border-bottom:2px solid #c6ff2e}
+  .passaparola b{color:#c6ff2e}.passaparola a{color:#c6ff2e;text-decoration:underline}
   .strip{
     background:var(--volt);color:#ffffff;
     font-size:13px;font-weight:700;letter-spacing:.04em;
@@ -944,6 +946,7 @@ gtag('config', 'G-SYPQZL1L7W');
 
 
 <div class="strip"><span id="stripShip">🚚 Spedizione gratuita in tutta Italia</span> · ✏️ Nome e numero GRATIS · ⭐ 100+ recensioni 5 stelle su Google · 🏷 Da 5 pezzi −17% · Da 10 pezzi −33%</div>
+<div class="passaparola"><b>🤝 Lavoriamo su passaparola.</b> Il sito è una vetrina: per ordinare serve il nome di chi ti ha consigliato. Hai dubbi? <a href="https://wa.me/447727750265?text=Ciao!%20Vorrei%20qualche%20informazione" target="_blank" rel="noopener">Scrivici su WhatsApp</a></div>
 
 
 <header>
@@ -1725,6 +1728,7 @@ window.addEventListener("load", function(){
           <input id="orderCap" type="text" inputmode="numeric" maxlength="5" placeholder="CAP *" autocomplete="postal-code">
           <input id="orderTel" type="tel" placeholder="Telefono *" autocomplete="tel">
           <input id="orderEmail" class="wide" type="email" placeholder="Email *" autocomplete="email">
+          <input id="orderConsigliato" class="wide" type="text" placeholder="Chi ti ha consigliato? (nome e cognome di un nostro cliente) *" autocomplete="off">
           <input id="orderSquadraCuore" class="wide" type="text" placeholder="Squadra del cuore (facoltativo)" autocomplete="off">
         </div>
       </div>
@@ -1735,11 +1739,11 @@ window.addEventListener("load", function(){
             <option value="">Metodo di pagamento *</option>
             <option>PostePay</option>
             <option>Bonifico bancario</option>
-            <option>PayPal Amici e Familiari</option>
+            <option value="PayPal Amici e Familiari">PayPal Amici e Familiari (senza protezione acquisti)</option>
           </select>
           <textarea id="orderNote" class="wide" placeholder="Note per l'ordine (opzionale)"></textarea>
         </div>
-        <p class="checkout-note">Il pagamento si conferma in chat: il sito prepara il riepilogo completo e lo invia su WhatsApp.</p>
+        <p class="checkout-note">Il pagamento si conferma in chat: il sito prepara il riepilogo completo e lo invia su WhatsApp.<br><b>Pagamenti accettati:</b> bonifico, PostePay e PayPal Amici e Familiari (senza protezione acquisti). Lavoriamo su passaparola, con clienti che conosciamo.</p>
       </div>
       <label class="privacy-check" id="privacyCheckWrap">
         <input type="checkbox" id="orderPrivacy">
@@ -3520,7 +3524,7 @@ function updateBadge(){
   b.classList.toggle("empty", n === 0);
 }
 
-const ORDER_FIELDS = ["orderNome","orderCognome","orderIndirizzo","orderCitta","orderProvincia","orderCap","orderTel","orderEmail","orderPagamento"];
+const ORDER_FIELDS = ["orderNome","orderCognome","orderIndirizzo","orderCitta","orderProvincia","orderCap","orderTel","orderEmail","orderConsigliato","orderPagamento"];
 ORDER_FIELDS.concat(["orderNote"]).forEach(id=>{
   const el = document.getElementById(id);
   if (el) el.addEventListener("input", ()=>el.classList.remove("field-error"));
@@ -3582,6 +3586,7 @@ function getOrderData(){
     pagamento: val("orderPagamento"),
     note: val("orderNote"),
     squadraCuore: val("orderSquadraCuore"),
+    consigliato: val("orderConsigliato"),
   };
 }
 
@@ -3807,6 +3812,7 @@ document.getElementById("cartCheckout").onclick = async ()=>{
   lines.push(`📦 *${order.nome} ${order.cognome}*`);
   lines.push(`${order.indirizzo}, ${order.cap} ${order.citta}`);
   lines.push(`📱 ${order.tel}`);
+  if (order.consigliato) lines.push(`🤝 Consigliato da: ${order.consigliato}`);
   if (order.note) lines.push(`📝 Note: ${order.note}`);
 
   const telPulito = (order.tel || "").replace(/\D/g, "");
@@ -3855,6 +3861,7 @@ function buildOrdinePayload(order, cartItems, tier, sconto){
       cap: order.cap, email: order.email, squadra_cuore: order.squadraCuore,
     },
     metodo_pagamento: order.pagamento, note: order.note, articoli,
+    consigliato_da: order.consigliato,
     spedizione: cartItems.some(i=>i.pronta) ? PRONTA_SPEDIZIONE : 0,
     sconto_codice: (sconto && sconto.codiceSconto) || "",
     sconto_importo: (sconto && sconto.codiceDiscount) || 0,
