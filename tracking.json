@@ -8347,6 +8347,26 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-11 15:27:19",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-10-10 22:27:41",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-10-10 17:28:11",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-10-10 08:28:26",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-10-09 21:49:31",
         "luogo": "FCO",
         "stato": "Arrivato all'aeroporto di destinazione"
@@ -8399,15 +8419,21 @@
       {
         "data": "2026-10-04 18:01:19",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-10-04 18:01:19",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-10-12 14:18",
+        "luogo": "FARA IN SABINA (RI)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0395": {
     "stato": "spedito",
