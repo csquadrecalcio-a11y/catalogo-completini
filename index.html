@@ -946,7 +946,7 @@ gtag('config', 'G-SYPQZL1L7W');
 
 
 <div class="strip"><span id="stripShip">🚚 Spedizione gratuita in tutta Italia</span> · ✏️ Nome e numero GRATIS · ⭐ 100+ recensioni 5 stelle su Google · 🏷 Da 5 pezzi −17% · Da 10 pezzi −33%</div>
-<div class="passaparola"><b>🤝 Lavoriamo su passaparola.</b> Il sito è una vetrina: per ordinare serve il nome di chi ti ha consigliato. Hai dubbi? <a href="https://wa.me/447727750265?text=Ciao!%20Vorrei%20qualche%20informazione" target="_blank" rel="noopener">Scrivici su WhatsApp</a></div>
+<div class="passaparola"><b>🤝 Servizio riservato ai clienti su presentazione.</b> Per ordinare indica chi ti ha presentato. Hai dubbi? <a href="https://wa.me/447727750265?text=Ciao!%20Vorrei%20qualche%20informazione" target="_blank" rel="noopener">Scrivici su WhatsApp</a></div>
 
 
 <header>
@@ -1728,7 +1728,7 @@ window.addEventListener("load", function(){
           <input id="orderCap" type="text" inputmode="numeric" maxlength="5" placeholder="CAP *" autocomplete="postal-code">
           <input id="orderTel" type="tel" placeholder="Telefono *" autocomplete="tel">
           <input id="orderEmail" class="wide" type="email" placeholder="Email *" autocomplete="email">
-          <input id="orderConsigliato" class="wide" type="text" placeholder="Chi ti ha consigliato? (nome cliente) *" autocomplete="off">
+          <input id="orderConsigliato" class="wide" type="text" placeholder="Presentato da (nome del cliente che ti ha consigliato) *" autocomplete="off">
           <input id="orderSquadraCuore" class="wide" type="text" placeholder="Squadra del cuore (facoltativo)" autocomplete="off">
         </div>
       </div>
@@ -1743,7 +1743,7 @@ window.addEventListener("load", function(){
           </select>
           <textarea id="orderNote" class="wide" placeholder="Note per l'ordine (opzionale)"></textarea>
         </div>
-        <p class="checkout-note">Il pagamento si conferma in chat: il sito prepara il riepilogo completo e lo invia su WhatsApp.<br><b>Pagamenti accettati:</b> bonifico, PostePay e PayPal Amici e Familiari (senza protezione acquisti). Lavoriamo su passaparola, con clienti che conosciamo.</p>
+        <p class="checkout-note">Il pagamento si conferma in chat: il sito prepara il riepilogo completo e lo invia su WhatsApp.<br><b>Pagamenti accettati:</b> bonifico, PostePay e PayPal Amici e Familiari (senza protezione acquisti). Il nostro servizio è riservato ai clienti su presentazione.</p>
       </div>
       <label class="privacy-check" id="privacyCheckWrap">
         <input type="checkbox" id="orderPrivacy">
@@ -3812,7 +3812,7 @@ document.getElementById("cartCheckout").onclick = async ()=>{
   lines.push(`📦 *${order.nome} ${order.cognome}*`);
   lines.push(`${order.indirizzo}, ${order.cap} ${order.citta}`);
   lines.push(`📱 ${order.tel}`);
-  if (order.consigliato) lines.push(`🤝 Consigliato da: ${order.consigliato}`);
+  if (order.consigliato) lines.push(`🤝 Presentato da: ${order.consigliato}`);
   if (order.note) lines.push(`📝 Note: ${order.note}`);
 
   const telPulito = (order.tel || "").replace(/\D/g, "");
