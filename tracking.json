@@ -8195,9 +8195,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0392": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-30",
-    "data_consegna": "",
+    "data_consegna": "2026-10-14 13:42:47",
     "corriere": "DHL",
     "tracking": "CJ126987270DE",
     "corriere_2": "",
