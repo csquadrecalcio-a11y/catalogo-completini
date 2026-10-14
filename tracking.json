@@ -9417,18 +9417,38 @@
       },
       {
         "data": "2026-10-13 16:14:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-13 16:14:00",
         "luogo": "Fara in sabina",
         "stato": "Prima scansione Poste Italiane"
       },
       {
-        "data": "2026-10-13 16:14:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "data": "2026-10-13 15:35:38",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-10-13 00:35:57",
+        "luogo": "",
+        "stato": "In transito to final service provider"
       },
       {
         "data": "2026-10-13 00:26:03",
         "luogo": "FCO",
         "stato": "Consegnato al corriere locale"
+      },
+      {
+        "data": "2026-10-12 22:36:30",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-10-12 19:36:46",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
       },
       {
         "data": "2026-10-11 21:26:06",
@@ -9483,12 +9503,12 @@
       {
         "data": "2026-10-04 17:56:04",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-10-04 17:56:04",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": [
