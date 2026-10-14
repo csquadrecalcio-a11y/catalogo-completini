@@ -9,22 +9,9 @@
       "pronta-consegna/capo10_1.jpg"
     ],
     "taglie": [
-      "M (LAMINE YAMAL 10)",
       "L"
     ],
     "esaurito": false
-  },
-  {
-    "id": "mag9",
-    "titolo": "Maglia Argentina Home Patch World Cup 2026",
-    "tipo": "Maglia",
-    "prezzo": 30.0,
-    "foto": [
-      "pronta-consegna/capo9_0.jpg",
-      "pronta-consegna/capo9_1.jpg"
-    ],
-    "taglie": [],
-    "esaurito": true
   },
   {
     "id": "mag8",
