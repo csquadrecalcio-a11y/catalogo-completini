@@ -9747,11 +9747,11 @@
     "eventi_corriere": []
   },
   "CSC-2026-0411": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-10-14",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "DHL",
+    "tracking": "CR438095088D",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -9760,7 +9760,10 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": [],
+    "foto": [
+      "sped_411_1_592e2cf8.jpg",
+      "sped_411_2_45033385.jpg"
+    ],
     "tracking_cina": "",
     "fornitore": "In Sport",
     "eventi_cina": [],
