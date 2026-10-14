@@ -6225,6 +6225,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-10-14 17:51",
+        "luogo": "BARLETTA (BT)",
+        "stato": "Consegna non andata a buon fine per destinatario assente. qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
+      },
+      {
         "data": "2026-10-14 06:53",
         "luogo": "MODUGNO (BA)",
         "stato": "La spedizione è in transito"
