@@ -9618,6 +9618,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-14 22:35:12",
+        "luogo": "FCO",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
         "data": "2026-10-13 21:30:05",
         "luogo": "",
         "stato": "Il volo è decollato"
