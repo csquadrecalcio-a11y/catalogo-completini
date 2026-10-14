@@ -1258,13 +1258,13 @@ window.addEventListener("load", function(){
             </tbody>
           </table>
           <table class="stable" id="tblTuteKid">
-            <thead><tr><th>Taglia</th><th>Lungh. corpo (cm)</th><th>Circ. petto (cm)</th><th>Lungh. manica (cm)</th><th>Lungh. pantaloni (cm)</th><th>Altezza (cm)</th></tr></thead>
+            <thead><tr><th>Taglia</th><th>Età</th><th>Altezza (cm)</th><th>Peso (kg)</th><th>Lungh. pantaloni (cm)</th><th>Lungh. felpa (cm)</th><th>Petto (cm)</th><th>Lungh. manica (cm)</th><th>Largh. spalle (cm)</th><th>Girovita (cm)</th></tr></thead>
             <tbody>
-              <tr><td><b>10</b></td><td>56</td><td>83</td><td>58,5</td><td>78</td><td>115–125</td></tr>
-              <tr><td><b>12</b></td><td>58</td><td>87</td><td>60,5</td><td>80</td><td>125–135</td></tr>
-              <tr><td><b>14</b></td><td>60</td><td>91</td><td>62,5</td><td>82</td><td>135–145</td></tr>
-              <tr><td><b>16</b></td><td>62</td><td>95</td><td>64,5</td><td>84</td><td>145–155</td></tr>
-              <tr><td><b>18</b></td><td>64</td><td>99</td><td>66,5</td><td>86</td><td>150–160</td></tr>
+              <tr><td><b>10</b></td><td>7 – 8 anni</td><td>120 – 130</td><td>20 – 27,5</td><td>78</td><td>55</td><td>80</td><td>59,5</td><td>36</td><td>46</td></tr>
+              <tr><td><b>12</b></td><td>8 – 9 anni</td><td>130 – 140</td><td>28 – 35</td><td>82</td><td>57,5</td><td>84</td><td>61</td><td>38</td><td>48</td></tr>
+              <tr><td><b>14</b></td><td>10 – 11 anni</td><td>140 – 150</td><td>33 – 40</td><td>85</td><td>60</td><td>88</td><td>63,5</td><td>40</td><td>50</td></tr>
+              <tr><td><b>16</b></td><td>12 – 13 anni</td><td>150 – 155</td><td>38 – 45</td><td>88</td><td>62,5</td><td>92</td><td>66</td><td>42</td><td>52</td></tr>
+              <tr><td><b>18</b></td><td>13 – 14 anni</td><td>155 – 160</td><td>45 – 50</td><td>91</td><td>65</td><td>96</td><td>68,5</td><td>44</td><td>54</td></tr>
             </tbody>
           </table>
         </div>
@@ -2073,6 +2073,9 @@ function productProfile(item){
 }
 const ADULT_SIZES = ["S","M","L","XL","XXL"];
 const KID_SIZES   = ["16","18","20","22","24","26","28"];
+// Tuta Bambino: taglie del fornitore (14/10/26), con l'eta accanto
+const TUTA_KID_SIZES = ["10","12","14","16","18"];
+const TUTA_KID_ETA = {"10":"7-8 anni","12":"8-9 anni","14":"10-11 anni","16":"12-13 anni","18":"13-14 anni"};
 const SHOE_SIZES  = ["39","40","41","42","43","44","45"];
 
 function cleanName(fn){
@@ -3136,7 +3139,14 @@ function closeProduct(){
 document.getElementById("sheetClose").onclick = closeProduct;
 overlay.addEventListener("click", e=>{ if(e.target===overlay) closeProduct(); });
 document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeProduct(); });
-document.getElementById("sizeGuideLink").addEventListener("click", closeProduct);
+document.getElementById("sizeGuideLink").addEventListener("click", ()=>{
+  const vv = (S && S.type && S.type.versions) ? S.type.versions.find(x=>x.id===S.version) : null;
+  const tutaKid = vv && vv.id === "tuta_kid";
+  closeProduct();
+  if (tutaKid){
+    setTimeout(()=>{ document.getElementById("swTute")?.click(); document.getElementById("szTuteKid")?.click(); }, 120);
+  }
+});
 
 /* bottone "Condividi": copia (o apre la condivisione nativa su telefono)
    il link diretto a QUESTO prodotto, con foto e squadra corrette */
@@ -3224,6 +3234,10 @@ function buildSizePills(){
     const gB = document.createElement("div"); gB.className = "size-group-lbl"; gB.textContent = "Bambino";
     el.appendChild(gB);
     KID_SIZES.forEach(sz => el.appendChild(sizePill(sz)));
+    return;
+  }
+  if (v.id === "tuta_kid"){
+    TUTA_KID_SIZES.forEach(sz => el.appendChild(sizePill(sz, `${sz} · ${TUTA_KID_ETA[sz]}`)));
     return;
   }
   const sizes = v.sizes ? v.sizes : (v.shoe ? SHOE_SIZES : (v.kid ? KID_SIZES : ADULT_SIZES));
