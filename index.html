@@ -1071,7 +1071,7 @@ gtag('config', 'G-SYPQZL1L7W');
       <div>
         <div class="pc-kick"><i></i> Pronta consegna</div>
         <h2 class="display">Non vuoi aspettare?</h2>
-        <p><b>Maglie già in magazzino, pronte a partire.</b> Spedizione in <b>24-48 ore</b>, 8€ di spedizione. Sono <b>pezzi unici</b>: quando una taglia finisce, finisce.</p>
+        <p><b>Maglie già in magazzino, pronte a partire.</b> Spedizione in <b>24-48 ore</b>, 8€ di spedizione, <b>gratis da 3 maglie</b>. Sono <b>pezzi unici</b>: quando una taglia finisce, finisce.</p>
       </div>
       <a class="btn btn-volt pc-cta" id="pcTutte" href="?cat=Pronta%20Consegna">Vedi tutta la pronta consegna →</a>
     </div>
@@ -1808,6 +1808,11 @@ const SENZA_PERSONALIZZAZIONE = /\b(solo\s*taglia|nopers|no\s*pers)\b/i;
    Il capo parte da noi in 2/3 giorni e la spedizione costa 8€, una volta sola per ordine. Niente nome e numero: il capo e gia fatto.
    Quando si vende, si sposta la foto nella sottocartella "Venduti" oppure
    si aggiunge "venduto" al nome: sparisce dal sito da solo. */
+const PRONTA_GRATIS_DA = 3;    // con 3 o piu maglie in pronta consegna la spedizione e gratis (14/10/26)
+function prontaSpedizione(items){
+  const n = (items||[]).filter(i=>i.pronta).reduce((a,i)=>a+(parseInt(i.qty)||1),0);
+  return n === 0 ? 0 : (n >= PRONTA_GRATIS_DA ? 0 : PRONTA_SPEDIZIONE);
+}
 const PRONTA_SPEDIZIONE = 8;   // dal 14/10/26: 8€ di spedizione (costo reale del corriere fuori da eBay) sulla pronta consegna, una volta per ordine
 // I pezzi gia venduti: il gestionale li scrive qui appena arriva l'ordine.
 // Restano in vetrina col bollino VENDUTO per qualche giorno, poi spariscono.
@@ -3111,7 +3116,7 @@ function openProduct(item){
   const qtyLbl = document.getElementById("qtyLabel");
   if (S.type.pronta){
     if (boxSped) boxSped.textContent = "⚡ Pronta consegna · pezzo unico, spedizione in 24-48h";
-    if (lblTot)  lblTot.textContent = "Prezzo · + 8€ di spedizione";
+    if (lblTot)  lblTot.textContent = "Prezzo · + 8€ di spedizione (gratis da 3 maglie)";
     // niente selettore quantita: di quel capo ce n'e uno solo
     S.qty = 1;
     if (qtyRow) qtyRow.style.display = "none";
@@ -3467,7 +3472,7 @@ function cartTotals(){
   const codicePct = codiceScontoApplicato ? codiceScontoPercentuale : 0;
   const codiceDiscount = Math.round(totalQty * codicePct) / 100;
   // La pronta consegna parte da noi: 8€ di spedizione, una volta sola per ordine
-  const spedizione = cart.some(i => i.pronta) ? PRONTA_SPEDIZIONE : 0;
+  const spedizione = prontaSpedizione(cart);
   const total = totalQty - codiceDiscount + spedizione;
   return {
     sub, n: cartCount(), qCount, tier, total, spedizione,
@@ -3596,8 +3601,9 @@ function renderCart(){
   document.getElementById("cartSub").textContent = `${sub}€`;
   const shipRow = document.getElementById("cartShipRow");
   if (shipRow){
-    shipRow.style.display = spedizione ? "flex" : "none";
-    document.getElementById("cartShipCost").textContent = `${spedizione}€`;
+    const nPronta = cart.filter(i=>i.pronta).reduce((a,i)=>a+(parseInt(i.qty)||1),0);
+    shipRow.style.display = nPronta ? "flex" : "none";
+    document.getElementById("cartShipCost").textContent = spedizione ? `${spedizione}€ (gratis da ${PRONTA_GRATIS_DA} maglie)` : "gratis ✅";
   }
   const discRow = document.getElementById("cartDiscRow");
   if (discount > 0){
@@ -3783,7 +3789,7 @@ function buildOrdinePayload(order, cartItems, tier, sconto){
     },
     metodo_pagamento: order.pagamento, note: order.note, articoli,
     consigliato_da: order.consigliato,
-    spedizione: cartItems.some(i=>i.pronta) ? PRONTA_SPEDIZIONE : 0,
+    spedizione: prontaSpedizione(cartItems),
     sconto_codice: (sconto && sconto.codiceSconto) || "",
     sconto_importo: (sconto && sconto.codiceDiscount) || 0,
   };
