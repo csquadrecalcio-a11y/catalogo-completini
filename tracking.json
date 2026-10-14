@@ -8429,6 +8429,11 @@
       {
         "data": "2026-10-12 20:18:00",
         "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-12 20:18:00",
+        "luogo": "Fara in sabina",
         "stato": "Prima scansione Poste Italiane"
       },
       {
@@ -8437,9 +8442,9 @@
         "stato": "In transito, la spedizione è in transito"
       },
       {
-        "data": "2026-10-12 20:18:00",
-        "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "data": "2026-10-12 16:22:16",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-10-11 15:27:19",
