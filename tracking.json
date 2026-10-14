@@ -9751,7 +9751,7 @@
     "data_spedizione": "2026-10-14",
     "data_consegna": "",
     "corriere": "DHL",
-    "tracking": "CR438095088D",
+    "tracking": "CR438095088DE",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -9766,7 +9766,18 @@
     ],
     "tracking_cina": "",
     "fornitore": "In Sport",
-    "eventi_cina": [],
+    "eventi_cina": [
+      {
+        "data": "2026-10-14 06:57:42",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-10-14 00:49:55",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
     "eventi_corriere": []
   },
   "CSC-2026-0412": {
