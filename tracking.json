@@ -8215,6 +8215,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-13 23:41",
+        "luogo": "Italia",
+        "stato": "Mezzo di trasporto arrivato"
+      },
+      {
         "data": "2026-10-13 10:42",
         "luogo": "Italia",
         "stato": "Scaricato dal mezzo di trasporto"
