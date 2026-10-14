@@ -1214,6 +1214,7 @@ window.addEventListener("load", function(){
           <button class="tab active" id="szAdult">Adulto</button>
           <button class="tab" id="szKid">Bambino</button>
         </div>
+        <p class="size-note" id="noteKitBambino" style="display:none;margin:0 0 10px"><b>Taglie bambino per maglie e kit.</b> Le <b>tute</b> hanno taglie diverse (10-18): le trovi nella scheda <button type="button" id="vaiTuteBambino" style="background:none;border:0;padding:0;font:inherit;font-weight:800;color:var(--volt);text-decoration:underline;cursor:pointer">Tute → Bambino</button>.</p>
         <div class="table-scroll">
           <table class="stable on" id="tblAdult">
             <thead><tr><th>Taglia</th><th>Petto (cm)</th><th>Altezza (cm)</th><th>Corrisponde a</th></tr></thead>
@@ -3139,6 +3140,20 @@ function closeProduct(){
 document.getElementById("sheetClose").onclick = closeProduct;
 overlay.addEventListener("click", e=>{ if(e.target===overlay) closeProduct(); });
 document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeProduct(); });
+/* Guida taglie: sul tab Bambino di "Maglie & Kit" si ricorda che le tute hanno altre taglie (14/10/26) */
+(function(){
+  const nota = document.getElementById("noteKitBambino");
+  const kid = document.getElementById("szKid"), ad = document.getElementById("szAdult");
+  if(!nota || !kid || !ad) return;
+  kid.addEventListener("click", ()=>{ nota.style.display = ""; });
+  ad.addEventListener("click", ()=>{ nota.style.display = "none"; });
+  const vai = document.getElementById("vaiTuteBambino");
+  if(vai) vai.addEventListener("click", ()=>{
+    document.getElementById("swTute")?.click();
+    document.getElementById("szTuteKid")?.click();
+  });
+})();
+
 document.getElementById("sizeGuideLink").addEventListener("click", ()=>{
   const vv = (S && S.type && S.type.versions) ? S.type.versions.find(x=>x.id===S.version) : null;
   const tutaKid = vv && vv.id === "tuta_kid";
