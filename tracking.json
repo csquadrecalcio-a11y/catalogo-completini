@@ -10267,5 +10267,83 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [],
     "eventi_corriere": []
+  },
+  "CSC-2026-0427": {
+    "stato": "spedito",
+    "data_spedizione": "2026-10-07",
+    "data_consegna": "",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2247J697591",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_409_1_1b788738.jpeg"
+    ],
+    "tracking_cina": "",
+    "fornitore": "In Sport",
+    "eventi_cina": [
+      {
+        "data": "2026-10-13 21:30:05",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-10-13 00:24:36",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 14 ottobre"
+      },
+      {
+        "data": "2026-10-13 00:24:16",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 13 ottobre"
+      },
+      {
+        "data": "2026-10-09 20:52:41",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-10-09 19:53:17",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-10-09 19:52:41",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
+        "data": "2026-10-09 11:52:41",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-10-09 03:33:12",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-10-08 00:38:17",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
+      },
+      {
+        "data": "2026-10-08 00:38:16",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-10-08 00:38:16",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
+    "eventi_corriere": []
   }
 }
