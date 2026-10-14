@@ -8412,7 +8412,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0394": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-10-05",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -8534,8 +8534,13 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-12 14:18",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-10-14 13:24",
+        "luogo": "TALSANO (TA)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-14 10:04",
+        "luogo": "TALSANO (TA)",
         "stato": "La spedizione è in transito"
       }
     ]
