@@ -10499,6 +10499,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-15 15:49:22",
+        "luogo": "",
+        "stato": "Volo partito, 16"
+      },
+      {
         "data": "2026-10-13 19:33:00",
         "luogo": "",
         "stato": "Spedizione registrata dal mittente"
@@ -10755,6 +10760,26 @@
     "foto": [],
     "tracking_cina": "",
     "fornitore": "Pronta consegna",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0431": {
+    "stato": "attesa_pagamento",
+    "data_spedizione": "",
+    "data_consegna": "",
+    "corriere": "",
+    "tracking": "",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "fornitore": "",
     "eventi_cina": [],
     "eventi_corriere": []
   }
