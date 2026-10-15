@@ -7776,9 +7776,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0393": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-05",
-    "data_consegna": "",
+    "data_consegna": "2026-10-15 15:08:06",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J642055",
     "corriere_2": "",
