@@ -7508,7 +7508,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0378": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-10-01",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -7634,6 +7634,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-15 09:45",
+        "luogo": "ORVIETO (TR)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-14 07:06",
         "luogo": "TERNI (TR)",
