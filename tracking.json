@@ -8734,9 +8734,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0402": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-05",
-    "data_consegna": "",
+    "data_consegna": "2026-10-15 14:01:58",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J633250",
     "corriere_2": "",
@@ -8753,6 +8753,31 @@
     "tracking_cina": "",
     "fornitore": "In Sport",
     "eventi_cina": [
+      {
+        "data": "2026-10-15 15:30:24",
+        "luogo": "Torino (to)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-15 15:17:00",
+        "luogo": "Settimo torinese",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-14 23:17:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-14 23:16:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-14 23:16:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
       {
         "data": "2026-10-12 11:32:53",
         "luogo": "",
@@ -8826,12 +8851,12 @@
       {
         "data": "2026-10-04 17:56:57",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-10-04 17:56:57",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": [
