@@ -6911,9 +6911,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0378": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-01",
-    "data_consegna": "",
+    "data_consegna": "2026-10-15 14:02:24",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J571876",
     "corriere_2": "",
