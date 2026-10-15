@@ -8670,9 +8670,9 @@
     ]
   },
   "CSC-2026-0399": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-05",
-    "data_consegna": "",
+    "data_consegna": "2026-10-15 17:21:33",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J633259",
     "corriere_2": "",
