@@ -6123,9 +6123,44 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-14 23:51:23",
+        "luogo": "Barletta (bt)",
+        "stato": "In consegna, consegna non andata a buon fine per destinatario assente. Qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
+      },
+      {
+        "data": "2026-10-14 23:51:00",
+        "luogo": "Barletta",
+        "stato": "Consegna non riuscita: destinatario assente"
+      },
+      {
+        "data": "2026-10-14 20:47:20",
+        "luogo": "Barletta (bt)",
+        "stato": "In consegna, la spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-14 20:47:00",
+        "luogo": "Barletta",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-10-14 12:53:51",
+        "luogo": "Modugno (ba)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-14 12:53:51",
+        "luogo": "Modugno (ba)",
+        "stato": "In transito"
+      },
+      {
         "data": "2026-10-14 10:11:23",
         "luogo": "Centro Operativo Postale",
         "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-14 10:11:00",
+        "luogo": "Bari",
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-10-12 20:09:00",
