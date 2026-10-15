@@ -9341,6 +9341,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-15 09:55:09",
+        "luogo": "AMS",
+        "stato": "Sdoganamento completato"
+      },
+      {
         "data": "2026-10-12 23:23:48",
         "luogo": "AMS",
         "stato": "Aggiornamento dal corriere"
