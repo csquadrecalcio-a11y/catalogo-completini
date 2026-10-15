@@ -10216,6 +10216,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-15 14:59:26",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 17 ottobre"
+      },
+      {
+        "data": "2026-10-15 14:58:52",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 16 ottobre"
+      },
+      {
         "data": "2026-10-13 20:19:21",
         "luogo": "",
         "stato": "Merce consegnata alla compagnia aerea"
@@ -10248,12 +10258,12 @@
       {
         "data": "2026-10-11 01:01:14",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-10-11 01:01:14",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": []
