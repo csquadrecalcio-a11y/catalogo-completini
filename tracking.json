@@ -8904,9 +8904,9 @@
     ]
   },
   "CSC-2026-0403": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-05",
-    "data_consegna": "",
+    "data_consegna": "2026-10-16 15:38:52",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J633219",
     "corriere_2": "",
@@ -8924,6 +8924,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-16 13:14:05",
+        "luogo": "Siracusa (sr)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-16 13:14:00",
+        "luogo": "Siracusa",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-16 06:25:57",
         "luogo": "Catania (ct)",
         "stato": "In transito, la spedizione è in transito"
@@ -8940,13 +8950,13 @@
       },
       {
         "data": "2026-10-13 16:14:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-10-13 16:14:00",
-        "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-10-13 15:35:38",
@@ -9035,6 +9045,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-16 15:26",
+        "luogo": "dalla sede operativa di SIRACUSA (SR)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-16 15:01",
+        "luogo": "SIRACUSA (SR)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-16 07:14",
         "luogo": "SIRACUSA (SR)",
