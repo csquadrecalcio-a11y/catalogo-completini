@@ -9809,6 +9809,16 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-10-16 17:27:31",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 18 ottobre"
+      },
+      {
+        "data": "2026-10-16 17:27:20",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 17 ottobre"
+      },
+      {
         "data": "2026-10-13 20:24:27",
         "luogo": "",
         "stato": "Merce consegnata alla compagnia aerea"
@@ -9841,12 +9851,12 @@
       {
         "data": "2026-10-10 00:21:12",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-10-10 00:21:12",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": []
