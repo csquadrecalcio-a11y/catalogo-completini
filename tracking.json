@@ -8546,7 +8546,7 @@
     ]
   },
   "CSC-2026-0401": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-10-05",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -8565,6 +8565,16 @@
     "tracking_cina": "",
     "fornitore": "In Sport",
     "eventi_cina": [
+      {
+        "data": "2026-10-16 05:22:00",
+        "luogo": "Sesto fiorentino",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-15 23:17:59",
+        "luogo": "Sesto fiorentino (fi)",
+        "stato": "In transito, la spedizione è in transito"
+      },
       {
         "data": "2026-10-15 00:16:00",
         "luogo": "Fara in sabina",
@@ -8663,8 +8673,13 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-14 18:16",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-10-16 10:15",
+        "luogo": "POGGIO A CAIANO (PO)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-16 05:09",
+        "luogo": "SESTO FIORENTINO (FI)",
         "stato": "La spedizione è in transito"
       }
     ]
