@@ -3728,7 +3728,8 @@ document.getElementById("cartCheckout").onclick = async ()=>{
     lines.push(`🔹 *${quante}${nome}*`);
     const colore = it.colore ? ` • colore ${it.colore}` : "";
     lines.push(`   ${stampa} • taglia ${it.size}${colore}${patch}`);
-    if ((isVintage || isTuta) && !it.desc && it.thumb) lines.push(`   📷 ${it.thumb}`);
+    // Link alla foto (grande) per tute e vintage: il modello preciso che ha scelto il cliente (16/10/26)
+    if ((isVintage || isTuta) && it.id) lines.push(`   📷 ${fullUrl(it.id)}`);
   });
   lines.push("");
   if (discount > 0 || codiceSconto) {
@@ -3780,6 +3781,8 @@ function buildOrdinePayload(order, cartItems, tier, sconto){
       tipoVersione: it.version, taglia: it.size, qty: it.qty,
       price: eff, nome_giocatore, numero_maglia, patch: it.patch || "",
       pronta_consegna: !!it.pronta, drive_id: it.pronta ? it.id : "",
+      // foto del modello scelto: il gestionale la mostra e la manda al fornitore (16/10/26)
+      foto_url: (!it.pronta && it.id) ? fullUrl(it.id) : "",
     };
   });
   return {
