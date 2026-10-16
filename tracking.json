@@ -9372,6 +9372,11 @@
         "stato": "Lavorato nel centro di smistamento di partenza"
       },
       {
+        "data": "2026-10-15 17:06:28",
+        "luogo": "AMS",
+        "stato": "Trasferito al corriere destinazionetransferred"
+      },
+      {
         "data": "2026-10-15 09:55:09",
         "luogo": "AMS",
         "stato": "Sdoganamento completato"
