@@ -9865,11 +9865,11 @@
     "eventi_corriere": []
   },
   "CSC-2026-0420": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-10-16",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2247J848615",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -9878,10 +9878,19 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": [],
+    "foto": [
+      "sped_420_1_d7b81554.jpg",
+      "sped_420_2_dfbdc11d.jpg"
+    ],
     "tracking_cina": "",
     "fornitore": "Sian Huang",
-    "eventi_cina": [],
+    "eventi_cina": [
+      {
+        "data": "2026-10-15 12:48:34",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
     "eventi_corriere": []
   },
   "CSC-2026-0424": {
