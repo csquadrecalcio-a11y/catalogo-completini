@@ -8335,6 +8335,11 @@
     "eventi_cina": [
       {
         "data": "2026-10-13 22:03:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-13 22:03:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
       },
@@ -8416,15 +8421,21 @@
       {
         "data": "2026-10-04 18:00:38",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-10-04 18:00:38",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-10-13 16:03",
+        "luogo": "FARA IN SABINA (RI)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0398": {
     "stato": "spedito",
