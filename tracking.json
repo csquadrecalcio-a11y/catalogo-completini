@@ -9126,7 +9126,22 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-15 20:20:02",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-10-15 19:56:37",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-10-14 22:35:12",
+        "luogo": "FCO",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
+        "data": "2026-10-14 18:38:00",
         "luogo": "FCO",
         "stato": "Arrivato all'aeroporto di destinazione"
       },
@@ -9169,6 +9184,11 @@
         "data": "2026-10-09 03:33:00",
         "luogo": "",
         "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-10-08 00:36:55",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
       },
       {
         "data": "2026-10-08 00:36:54",
