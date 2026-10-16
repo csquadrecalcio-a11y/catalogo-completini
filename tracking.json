@@ -10139,7 +10139,18 @@
     "tracking_cina": "",
     "fornitore": "Pronta consegna",
     "eventi_cina": [],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-10-15 19:44",
+        "luogo": "MADDALONI (CE)",
+        "stato": "La spedizione è in transito"
+      },
+      {
+        "data": "2026-10-15 13:31",
+        "luogo": "MADDALONI (CE)",
+        "stato": "La spedizione è stata presa in carico da un nostro operatore presso il domicilio del mittente"
+      }
+    ]
   },
   "CSC-2026-0431": {
     "stato": "in_lavorazione",
