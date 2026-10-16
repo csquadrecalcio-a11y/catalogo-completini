@@ -19795,5 +19795,140 @@
       }
     ],
     "eventi_corriere": []
+  },
+  "CSC-2026-0291": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-09-03",
+    "data_consegna": "2026-09-15 16:26:51",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2247J096370",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_291_1_ddb05ba2.jpg",
+      "sped_291_2_e87cbd46.jpg"
+    ],
+    "tracking_cina": "",
+    "fornitore": "In Sport",
+    "eventi_cina": [
+      {
+        "data": "2026-09-14 22:29:00",
+        "luogo": "Roma",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-12 19:23:00",
+        "luogo": "Fiano romano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-12 16:02:00",
+        "luogo": "Fiano romano",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-09-12 12:57:15",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
+      },
+      {
+        "data": "2026-09-12 00:57:39",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-09-12 00:55:29",
+        "luogo": "FCO",
+        "stato": "Pronto per il passaggio al corriere finale"
+      },
+      {
+        "data": "2026-09-11 18:55:04",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-09-11 07:30:51",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
+        "data": "2026-09-09 22:26:18",
+        "luogo": "FCO",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
+        "data": "2026-09-08 23:36:30",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-09-07 15:36:05",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 9 settembre"
+      },
+      {
+        "data": "2026-09-07 14:12:09",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 8 settembre"
+      },
+      {
+        "data": "2026-09-05 14:54:27",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-09-05 13:55:03",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-09-05 13:54:27",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
+        "data": "2026-09-05 05:54:27",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-09-05 04:06:55",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-09-03 23:58:47",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
+      },
+      {
+        "data": "2026-09-03 23:58:46",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-09-03 23:58:46",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-09-15 12:01",
+        "luogo": "FIUMICINO (RM)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-09-15 11:24",
+        "luogo": "FIUMICINO (RM)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   }
 }
