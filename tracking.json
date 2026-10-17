@@ -7701,9 +7701,9 @@
     ]
   },
   "CSC-2026-0395": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-05",
-    "data_consegna": "",
+    "data_consegna": "2026-10-17 12:30",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J633273",
     "corriere_2": "",
@@ -7722,19 +7722,34 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-17 14:40:03",
+        "luogo": "La spezia (sp)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-17 14:40:00",
+        "luogo": "",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-17 10:14:00",
+        "luogo": "Genova",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-17 07:36:45",
         "luogo": "Genova (ge)",
         "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-10-13 18:40:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-10-13 18:40:00",
-        "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-10-13 18:40:00",
@@ -7823,6 +7838,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-17 12:30",
+        "luogo": "dalla sede operativa di LA SPEZIA (SP)",
+        "stato": "La spedizione è stata consegnata"
+      },
       {
         "data": "2026-10-17 10:59",
         "luogo": "LA SPEZIA (SP)",
