@@ -8244,6 +8244,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-17 10:53:59",
+        "luogo": "Verona (vr)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-10-13 22:03:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
@@ -8341,8 +8346,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-13 16:03",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-10-17 04:53",
+        "luogo": "VERONA (VR)",
         "stato": "La spedizione è in transito"
       }
     ]
