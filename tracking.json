@@ -10251,6 +10251,21 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-10-17 20:19:06",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-10-17 19:19:42",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-10-17 19:19:06",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
         "data": "2026-10-17 11:19:06",
         "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
@@ -10263,17 +10278,17 @@
       {
         "data": "2026-10-15 12:49:21",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
-      },
-      {
-        "data": "2026-10-15 12:49:21",
-        "luogo": "",
         "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-10-15 12:49:21",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
+      },
+      {
+        "data": "2026-10-15 12:49:21",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
     "eventi_corriere": []
