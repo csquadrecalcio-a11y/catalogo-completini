@@ -8105,6 +8105,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-16 19:14:01",
+        "luogo": "Catania (ct)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-10-15 23:45:00",
         "luogo": "Roma",
         "stato": "In transito nella rete di Poste Italiane"
@@ -8116,6 +8121,11 @@
       },
       {
         "data": "2026-10-14 23:54:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-14 23:54:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
       },
@@ -8123,11 +8133,6 @@
         "data": "2026-10-14 23:54:00",
         "luogo": "Fara in sabina",
         "stato": "Prima scansione Poste Italiane"
-      },
-      {
-        "data": "2026-10-14 23:54:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-10-12 11:32:53",
