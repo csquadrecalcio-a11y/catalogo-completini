@@ -9059,6 +9059,11 @@
     "eventi_cina": [
       {
         "data": "2026-10-17 06:39:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-17 06:39:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
       },
@@ -9068,9 +9073,9 @@
         "stato": "Prima scansione Poste Italiane"
       },
       {
-        "data": "2026-10-17 06:39:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "data": "2026-10-16 14:43:46",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-10-16 10:30:21",
