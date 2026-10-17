@@ -7940,7 +7940,7 @@
     ]
   },
   "CSC-2026-0395": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-10-05",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -7960,6 +7960,11 @@
     "tracking_cina": "",
     "fornitore": "In Sport",
     "eventi_cina": [
+      {
+        "data": "2026-10-17 07:36:45",
+        "luogo": "Genova (ge)",
+        "stato": "In transito, la spedizione è in transito"
+      },
       {
         "data": "2026-10-13 18:40:00",
         "luogo": "Fara in sabina (ri)",
@@ -8058,8 +8063,13 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-13 12:40",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-10-17 10:59",
+        "luogo": "LA SPEZIA (SP)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-17 08:40",
+        "luogo": "LA SPEZIA (SP)",
         "stato": "La spedizione è in transito"
       }
     ]
