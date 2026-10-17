@@ -9631,6 +9631,41 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-17 03:09:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-17 03:09:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-10-17 03:09:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-16 23:28:58",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-10-16 18:29:19",
+        "luogo": "",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-10-16 01:30:46",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-10-16 00:29:40",
+        "luogo": "FCo",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-10-15 22:29:42",
         "luogo": "FCO",
         "stato": "Arrivato all'aeroporto di destinazione"
@@ -9678,12 +9713,12 @@
       {
         "data": "2026-10-09 00:51:22",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-10-09 00:51:22",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Ordine registrato, in attesa del pacco"
       },
       {
         "data": "2026-10-09 00:51:21",
@@ -9691,7 +9726,13 @@
         "stato": "Dati della spedizione ricevuti"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-10-16 21:09",
+        "luogo": "FARA IN SABINA (RI)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0413": {
     "stato": "spedito",
