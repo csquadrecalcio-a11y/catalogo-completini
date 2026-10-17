@@ -5321,9 +5321,9 @@
     ]
   },
   "CSC-2026-0361": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-29",
-    "data_consegna": "",
+    "data_consegna": "2026-10-17 11:25:28",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J429125",
     "corriere_2": "",
@@ -5477,6 +5477,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-16 17:15",
+        "luogo": "dalla sede operativa di BARLETTA (BT)",
+        "stato": "La spedizione è stata consegnata"
+      },
       {
         "data": "2026-10-16 15:05",
         "luogo": "BARLETTA (BT)",
