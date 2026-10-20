@@ -9408,11 +9408,11 @@
     ]
   },
   "CSC-2026-0431": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-10-20",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2247J915946",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -9421,10 +9421,39 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": [],
+    "foto": [
+      "sped_431_1_3b44549d.jpg",
+      "sped_431_2_24a128db.jpg"
+    ],
     "tracking_cina": "",
     "fornitore": "Sian Huang",
-    "eventi_cina": [],
+    "eventi_cina": [
+      {
+        "data": "2026-10-20 16:03:26",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 22 ottobre"
+      },
+      {
+        "data": "2026-10-20 16:03:08",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 21 ottobre"
+      },
+      {
+        "data": "2026-10-20 12:15:37",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-10-20 01:57:15",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-10-18 20:42:32",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
     "eventi_corriere": []
   },
   "CSC-2026-0433": {
