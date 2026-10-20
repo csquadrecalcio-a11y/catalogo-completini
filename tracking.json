@@ -9615,6 +9615,21 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-10-20 21:15:37",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-10-20 20:16:13",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-10-20 20:15:37",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
         "data": "2026-10-20 16:03:26",
         "luogo": "",
         "stato": "Arrivo in Italia previsto: 22 ottobre"
