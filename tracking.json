@@ -9733,6 +9733,21 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-10-20 21:15:37",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-10-20 20:16:13",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-10-20 20:15:37",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
         "data": "2026-10-20 12:15:37",
         "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
@@ -9907,6 +9922,26 @@
     "foto": [],
     "tracking_cina": "",
     "fornitore": "In Sport",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0445": {
+    "stato": "attesa_pagamento",
+    "data_spedizione": "",
+    "data_consegna": "",
+    "corriere": "",
+    "tracking": "",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "fornitore": "",
     "eventi_cina": [],
     "eventi_corriere": []
   }
