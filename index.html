@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="it" data-tema="autunno">
 <head>
+<script>
+/* Tema stagionale in base alla data (20/10/26): ottobre autunno, 20/10-2/11 Halloween, dal 3/11 normale.
+   Black Friday e Natale si aggiungono qui. Per forzare un tema: scrivi ?tema=halloween nell'indirizzo. */
+(function(){
+  var d=new Date(), m=d.getMonth()+1, g=d.getDate(), t="";
+  if (m===10) t = g>=20 ? "halloween" : "autunno";
+  else if (m===11 && g<=2) t = "halloween";
+  try{ var q=new URLSearchParams(location.search).get("tema"); if (q!==null) t=q; }catch(e){}
+  if (t) document.documentElement.setAttribute("data-tema", t); else document.documentElement.removeAttribute("data-tema");
+})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="referrer" content="no-referrer">
@@ -221,6 +232,24 @@ gtag('config', 'G-SYPQZL1L7W');
   html[data-tema="autunno"] .strip::before{content:"🍂 "}
   html[data-tema="autunno"] .hero{--volt:#f08a3c}
   html[data-tema="autunno"] .hero .btn-volt{color:#fff}
+  /* Halloween (20/10 - 2/11): nero, arancio e un tocco di viola */
+  .halloween-bar{display:none}
+  html[data-tema="halloween"] .halloween-bar{
+    display:block;background:linear-gradient(90deg,#120a1f,#2a1049 50%,#120a1f);color:#ffd9b0;text-align:center;
+    font-size:14px;font-weight:700;padding:10px 16px;letter-spacing:.02em;cursor:pointer;
+    border-bottom:1px solid rgba(255,122,26,.45)}
+  html[data-tema="halloween"] .halloween-bar b{background:#ff7a1a;color:#1a0b00;padding:2px 9px;border-radius:6px;letter-spacing:.08em;margin:0 3px}
+  html[data-tema="halloween"] .halloween-bar small{opacity:.8;font-weight:600;margin-left:6px}
+  html[data-tema="halloween"] .strip{background:linear-gradient(90deg,#c2570f,#ff7a1a 50%,#c2570f);color:#1a0b00}
+  html[data-tema="halloween"] .strip::before{content:"🎃 "}
+  html[data-tema="halloween"] .hero{--volt:#ff7a1a}
+  html[data-tema="halloween"] .hero .btn-volt{color:#1a0b00}
+  html[data-tema="halloween"] .pitch{
+    background:
+      radial-gradient(900px 520px at 82% 18%, rgba(255,122,26,.42), transparent 62%),
+      radial-gradient(700px 460px at 8% 100%, rgba(124,58,237,.30), transparent 60%),
+      linear-gradient(160deg, #0b0612 0%, #1c0f2e 55%, #4a1d0a 100%);
+  }
   html[data-tema="autunno"] .pitch{
     background:
       radial-gradient(900px 520px at 82% 18%, rgba(232,116,42,.50), transparent 62%),
@@ -945,6 +974,7 @@ gtag('config', 'G-SYPQZL1L7W');
 </script>
 
 
+<div class="halloween-bar" id="halloweenBar" role="button" tabindex="0" title="Tocca per copiare il codice">🎃 Dolcetto o scherzetto? Nel carrello usa il codice <b>DOLCETTO</b> e hai il −10% <small>fino al 2 novembre · tocca per copiare</small></div>
 <div class="strip"><span id="stripShip">🚚 Spedizione gratuita in tutta Italia</span> · ✏️ Nome e numero GRATIS · ⭐ 100+ recensioni 5 stelle su Google · 🏷 Da 5 pezzi −17% · Da 10 pezzi −33%</div>
 <div class="passaparola"><b>🤝 Servizio riservato ai clienti su presentazione.</b> Per ordinare indica chi ti ha presentato. Hai dubbi? <a href="https://wa.me/447727750265?text=Ciao!%20Vorrei%20qualche%20informazione" target="_blank" rel="noopener">Scrivici su WhatsApp</a></div>
 
@@ -3657,6 +3687,18 @@ function applicaCodiceSconto(){
   });
 }
 document.getElementById("btnApplicaCodice").onclick = applicaCodiceSconto;
+(function(){
+  var bar = document.getElementById("halloweenBar");
+  if (!bar) return;
+  var copia = function(){
+    var inp = document.getElementById("codiceScontoInput");
+    if (inp) inp.value = "DOLCETTO";
+    var ok = function(){ toast("🎃 Codice DOLCETTO copiato! Incollalo nel carrello"); };
+    if (navigator.clipboard) navigator.clipboard.writeText("DOLCETTO").then(ok, ok); else ok();
+  };
+  bar.addEventListener("click", copia);
+  bar.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " ") copia(); });
+})();
 
 function openCart(){ renderCart(); document.getElementById("cartOverlay").classList.add("open"); document.body.style.overflow = "hidden"; }
 function closeCart(){ document.getElementById("cartOverlay").classList.remove("open"); document.body.style.overflow = ""; }
