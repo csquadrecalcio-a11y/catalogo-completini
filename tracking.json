@@ -8249,9 +8249,9 @@
     ]
   },
   "CSC-2026-0398": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-05",
-    "data_consegna": "",
+    "data_consegna": "2026-10-20 10:33:31",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J633268",
     "corriere_2": "",
@@ -8268,6 +8268,36 @@
     "tracking_cina": "",
     "fornitore": "In Sport",
     "eventi_cina": [
+      {
+        "data": "2026-10-19 22:22:59",
+        "luogo": "dalla sede operativa di DOLO (VE)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-19 16:44:19",
+        "luogo": "Dolo (ve)",
+        "stato": "In consegna, la spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-19 16:44:19",
+        "luogo": "Dolo (ve)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-10-19 10:38:23",
+        "luogo": "Venezia (ve)",
+        "stato": "In transito"
+      },
+      {
+        "data": "2026-10-19 10:38:23",
+        "luogo": "Venezia (ve)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-19 10:38:00",
+        "luogo": "Venezia",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
       {
         "data": "2026-10-14 12:11:00",
         "luogo": "Fara in sabina (ri)",
@@ -8371,8 +8401,18 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-14 06:11",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-10-19 16:22",
+        "luogo": "dalla sede operativa di DOLO (VE)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-19 10:44",
+        "luogo": "DOLO (VE)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-19 04:38",
+        "luogo": "VENEZIA (VE)",
         "stato": "La spedizione è in transito"
       }
     ]
