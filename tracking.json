@@ -9397,6 +9397,26 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-20 08:05:07",
+        "luogo": "Roma (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-19 18:30:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-10-19 18:30:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-19 18:30:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-16 10:30:21",
         "luogo": "",
         "stato": "Consegnato al corriere finale"
@@ -9469,15 +9489,21 @@
       {
         "data": "2026-10-08 00:38:16",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-10-08 00:38:16",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-10-20 02:05",
+        "luogo": "ROMA (RM)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0410": {
     "stato": "spedito",
