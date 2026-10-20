@@ -8591,7 +8591,13 @@
         "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-10-20 14:54",
+        "luogo": "FARA IN SABINA (RI)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0417": {
     "stato": "spedito",
