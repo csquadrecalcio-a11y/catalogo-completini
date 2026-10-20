@@ -8809,9 +8809,9 @@
     ]
   },
   "CSC-2026-0419": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-11",
-    "data_consegna": "",
+    "data_consegna": "2026-10-20 19:24:40",
     "corriere": "DHL",
     "tracking": "CR438019104DE",
     "corriere_2": "",
@@ -8830,9 +8830,29 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-20 19:59:00",
+        "luogo": "",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-20 19:59:00",
+        "luogo": "Italia",
+        "stato": "Consegnato"
+      },
+      {
         "data": "2026-10-20 17:31:00",
         "luogo": "",
         "stato": "In consegna, la spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-20 17:31:00",
+        "luogo": "Italia",
+        "stato": "In preparazione per la consegna"
+      },
+      {
+        "data": "2026-10-20 17:31:00",
+        "luogo": "",
+        "stato": "In consegna"
       },
       {
         "data": "2026-10-20 15:29:00",
