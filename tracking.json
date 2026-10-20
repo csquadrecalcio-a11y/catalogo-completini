@@ -8205,6 +8205,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-10-20 12:29",
+        "luogo": "ABBADIA SAN SALVATORE (SI)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
         "data": "2026-10-20 05:39",
         "luogo": "SIENA (SI)",
         "stato": "La spedizione è in transito"
