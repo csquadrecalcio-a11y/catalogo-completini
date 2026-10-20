@@ -7891,9 +7891,9 @@
     ]
   },
   "CSC-2026-0396": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-30",
-    "data_consegna": "",
+    "data_consegna": "2026-10-20 10:33:23",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J555535",
     "corriere_2": "",
@@ -7911,6 +7911,31 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-19 22:09:32",
+        "luogo": "dalla sede operativa di CALTAGIRONE (CT)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-19 21:39:46",
+        "luogo": "Caltagirone (ct)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-10-19 10:17:28",
+        "luogo": "Catania (ct)",
+        "stato": "In transito"
+      },
+      {
+        "data": "2026-10-19 10:17:28",
+        "luogo": "Catania (ct)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-19 10:17:00",
+        "luogo": "Catania",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-16 19:14:01",
         "luogo": "Catania (ct)",
         "stato": "In transito, la spedizione è in transito"
@@ -7927,11 +7952,6 @@
       },
       {
         "data": "2026-10-14 23:54:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
-      },
-      {
-        "data": "2026-10-14 23:54:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
       },
@@ -7939,6 +7959,11 @@
         "data": "2026-10-14 23:54:00",
         "luogo": "Fara in sabina",
         "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-10-14 23:54:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-10-12 11:32:53",
@@ -8013,17 +8038,27 @@
       {
         "data": "2026-09-30 01:02:05",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-09-30 01:02:05",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-16 13:14",
+        "data": "2026-10-19 16:09",
+        "luogo": "dalla sede operativa di CALTAGIRONE (CT)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-19 15:39",
+        "luogo": "CALTAGIRONE (CT)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-19 04:17",
         "luogo": "CATANIA (CT)",
         "stato": "La spedizione è in transito"
       }
