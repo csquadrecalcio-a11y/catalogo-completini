@@ -250,6 +250,16 @@ gtag('config', 'G-SYPQZL1L7W');
       radial-gradient(700px 460px at 8% 100%, rgba(124,58,237,.30), transparent 60%),
       linear-gradient(160deg, #0b0612 0%, #1c0f2e 55%, #4a1d0a 100%);
   }
+  /* Pipistrelli che volano per lo schermo (solo Halloween, non bloccano i clic) */
+  #bats{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:45}
+  .bat{position:absolute;left:0;will-change:transform;animation:batFly linear infinite}
+  .bat > div{animation:batBob ease-in-out infinite alternate}
+  .bat svg{display:block;fill:#0b0612;filter:drop-shadow(0 0 7px rgba(255,122,26,.8));animation:batFlap .32s ease-in-out infinite alternate;transform-origin:50% 20%}
+  @keyframes batFly{from{transform:translateX(-120px)}to{transform:translateX(calc(100vw + 120px))}}
+  @keyframes batBob{from{transform:translateY(-18px)}to{transform:translateY(18px)}}
+  @keyframes batFlap{from{transform:scaleY(1)}to{transform:scaleY(.4)}}
+  @media (prefers-reduced-motion:reduce){ #bats{display:none} }
+
   html[data-tema="autunno"] .pitch{
     background:
       radial-gradient(900px 520px at 82% 18%, rgba(232,116,42,.50), transparent 62%),
@@ -3687,6 +3697,29 @@ function applicaCodiceSconto(){
   });
 }
 document.getElementById("btnApplicaCodice").onclick = applicaCodiceSconto;
+(function(){
+  // Pipistrelli: solo con il tema Halloween e se l'utente non ha disattivato le animazioni
+  if (document.documentElement.getAttribute("data-tema") !== "halloween") return;
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var box = document.createElement("div"); box.id = "bats";
+  var N = window.innerWidth < 700 ? 3 : 6;
+  var SVG = '<svg viewBox="0 0 64 30" aria-hidden="true"><path d="M29 11 L30 4 L32 9 L34 4 L35 11 C41 6 52 6 61 12 C56 13 54 16 54 20 C50 17 46 17 43 21 C40 18 36 18 32 25 C28 18 24 18 21 21 C18 17 14 17 10 20 C10 16 8 13 3 12 C12 6 23 6 29 11 Z"/></svg>';
+  for (var i = 0; i < N; i++){
+    var b = document.createElement("div"); b.className = "bat";
+    var w = 52 + Math.random()*46;
+    var dur = 16 + Math.random()*14;
+    b.style.top = (6 + Math.random()*55) + "vh";
+    b.style.width = w + "px";
+    b.style.animationDuration = dur + "s";
+    b.style.animationDelay = (-Math.random()*dur + i*2.2) + "s";
+    var inner = document.createElement("div");
+    inner.style.animationDuration = (1.4 + Math.random()*1.6) + "s";
+    inner.innerHTML = SVG;
+    b.appendChild(inner);
+    box.appendChild(b);
+  }
+  document.body.appendChild(box);
+})();
 (function(){
   var bar = document.getElementById("halloweenBar");
   if (!bar) return;
