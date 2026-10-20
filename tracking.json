@@ -8065,9 +8065,9 @@
     ]
   },
   "CSC-2026-0397": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-05",
-    "data_consegna": "",
+    "data_consegna": "2026-10-20 10:33:27",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J633286",
     "corriere_2": "",
@@ -8084,6 +8084,46 @@
     "tracking_cina": "",
     "fornitore": "In Sport",
     "eventi_cina": [
+      {
+        "data": "2026-10-19 22:32:16",
+        "luogo": "dalla sede operativa di MANIAGO (PN)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-19 22:32:00",
+        "luogo": "Maniago",
+        "stato": "Consegnato dal postino"
+      },
+      {
+        "data": "2026-10-19 20:11:35",
+        "luogo": "Maniago (pn)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-10-19 20:11:35",
+        "luogo": "Maniago (pn)",
+        "stato": "In consegna, la spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-19 20:11:00",
+        "luogo": "Maniago",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-10-19 13:20:00",
+        "luogo": "Pordenone",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-19 11:56:54",
+        "luogo": "Pordenone (pn)",
+        "stato": "In transito"
+      },
+      {
+        "data": "2026-10-19 11:56:54",
+        "luogo": "Pordenone (pn)",
+        "stato": "In transito, la spedizione è in transito"
+      },
       {
         "data": "2026-10-17 10:53:59",
         "luogo": "Verona (vr)",
@@ -8182,18 +8222,28 @@
       {
         "data": "2026-10-04 18:00:38",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-10-04 18:00:38",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-17 04:53",
-        "luogo": "VERONA (VR)",
+        "data": "2026-10-19 16:32",
+        "luogo": "dalla sede operativa di MANIAGO (PN)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-19 14:11",
+        "luogo": "MANIAGO (PN)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-19 05:56",
+        "luogo": "PORDENONE (PN)",
         "stato": "La spedizione è in transito"
       }
     ]
