@@ -10338,6 +10338,21 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-19 22:43:00",
+        "luogo": "Italia",
+        "stato": "Lavorato nel centro di smistamento"
+      },
+      {
+        "data": "2026-10-19 22:42:00",
+        "luogo": "Italia",
+        "stato": "Arrivato al centro di smistamento"
+      },
+      {
+        "data": "2026-10-19 22:42:00",
+        "luogo": "Bentivoglio (bo)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-10-17 11:00:00",
         "luogo": "DE",
         "stato": "In partenza verso l'Italia, poi affidato al corriere locale"
@@ -10349,13 +10364,18 @@
       },
       {
         "data": "2026-10-16 20:39:00",
-        "luogo": "DE",
-        "stato": "Lavorato nel centro di smistamento di partenza"
+        "luogo": "Ufficio Postale GERMANIA GERMANIA",
+        "stato": "Presa in carico"
       },
       {
         "data": "2026-10-16 20:39:00",
         "luogo": "Ufficio Postale GERMANIA GERMANIA",
         "stato": "Presa in carico, la spedizione è stata presa in carico da un nostro operatore presso l'Ufficio Postale"
+      },
+      {
+        "data": "2026-10-16 20:39:00",
+        "luogo": "DE",
+        "stato": "Lavorato nel centro di smistamento di partenza"
       },
       {
         "data": "2026-10-16 06:31:29",
