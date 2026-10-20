@@ -8374,6 +8374,16 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-10-20 12:47",
+        "luogo": "dalla sede operativa di VIDIGULFO (PV)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-20 11:59",
+        "luogo": "VIDIGULFO (PV)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
         "data": "2026-10-20 04:27",
         "luogo": "PAVIA (PV)",
         "stato": "La spedizione è in transito"
