@@ -8217,9 +8217,9 @@
     ]
   },
   "CSC-2026-0413": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-08",
-    "data_consegna": "",
+    "data_consegna": "2026-10-20 12:47",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J719694",
     "corriere_2": "",
