@@ -9802,12 +9802,27 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
-        "data": "2026-10-17 06:17:00",
-        "luogo": "Fara in sabina (ri)",
+        "data": "2026-10-20 09:27:13",
+        "luogo": "Peschiera borromeo (mi)",
         "stato": "In transito, la spedizione è in transito"
       },
       {
-        "data": "2026-10-17 01:48:00",
+        "data": "2026-10-19 19:02:02",
+        "luogo": "Peschiera borromeo (mi)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-19 16:42:00",
+        "luogo": "Milano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-19 02:38:55",
+        "luogo": "Milano (mi)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-17 06:17:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
       },
@@ -9820,6 +9835,11 @@
         "data": "2026-10-17 01:48:00",
         "luogo": "Fara in sabina",
         "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-10-17 01:48:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-10-16 23:28:58",
@@ -9904,8 +9924,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-17 00:17",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-10-20 04:27",
+        "luogo": "PAVIA (PV)",
         "stato": "La spedizione è in transito"
       }
     ]
