@@ -10602,6 +10602,21 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-10-20 16:04:56",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-10-19 17:03:23",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 21 ottobre"
+      },
+      {
+        "data": "2026-10-19 17:03:07",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 20 ottobre"
+      },
+      {
         "data": "2026-10-17 20:19:06",
         "luogo": "",
         "stato": "Merce consegnata alla compagnia aerea"
@@ -10629,17 +10644,17 @@
       {
         "data": "2026-10-15 12:49:21",
         "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
+      },
+      {
+        "data": "2026-10-15 12:49:21",
+        "luogo": "",
         "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-10-15 12:49:21",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
-      },
-      {
-        "data": "2026-10-15 12:49:21",
-        "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
     "eventi_corriere": []
