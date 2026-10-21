@@ -5168,6 +5168,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-20 13:14",
+        "luogo": "Italia",
+        "stato": "Nel centro di smistamento"
+      },
+      {
         "data": "2026-10-19 09:53",
         "luogo": "Italia",
         "stato": "Scaricato dal mezzo di trasporto"
