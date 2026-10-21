@@ -9520,7 +9520,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0430": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-10-16",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -9539,9 +9539,9 @@
     "eventi_cina": [],
     "eventi_corriere": [
       {
-        "data": "2026-10-19 10:44",
+        "data": "2026-10-21 09:43",
         "luogo": "SAVONA (SV)",
-        "stato": "Consegna non andata a buon fine per destinatario assente. qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
+        "stato": "La spedizione è in consegna"
       },
       {
         "data": "2026-10-19 05:08",
