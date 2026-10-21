@@ -7813,9 +7813,9 @@
     ]
   },
   "CSC-2026-0409": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-07",
-    "data_consegna": "",
+    "data_consegna": "2026-10-21 17:36",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J697591",
     "corriere_2": "",
@@ -7970,9 +7970,14 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-20 13:36",
+        "data": "2026-10-21 17:36",
+        "luogo": "dalla sede operativa di ROMA (RM)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-21 14:42",
         "luogo": "ROMA (RM)",
-        "stato": "Consegna non andata a buon fine per destinatario assente. qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
+        "stato": "La spedizione è in consegna"
       },
       {
         "data": "2026-10-20 10:49",
