@@ -9202,6 +9202,16 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-21 17:39:00",
+        "luogo": "Italia",
+        "stato": "The shipment has been processed in the delivery depot."
+      },
+      {
+        "data": "2026-10-21 17:36:00",
+        "luogo": "Italia",
+        "stato": "In preparazione per la consegna"
+      },
+      {
         "data": "2026-10-20 15:58:00",
         "luogo": "Italia",
         "stato": "The shipment has been processed in the delivery depot."
