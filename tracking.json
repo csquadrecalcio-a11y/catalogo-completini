@@ -7977,9 +7977,9 @@
     ]
   },
   "CSC-2026-0410": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-09",
-    "data_consegna": "",
+    "data_consegna": "2026-10-21 11:19:25",
     "corriere": "DHL",
     "tracking": "CR437931677DE",
     "corriere_2": "",
