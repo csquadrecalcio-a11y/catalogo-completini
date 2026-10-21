@@ -7997,6 +7997,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-21 00:11:00",
+        "luogo": "Italia",
+        "stato": "Arrivato in Italia"
+      },
+      {
         "data": "2026-10-20 05:29:00",
         "luogo": "DE",
         "stato": "Lavorato nel centro di smistamento per l'estero"
