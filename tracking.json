@@ -8499,6 +8499,21 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-10-22 06:24:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-22 06:24:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-22 06:24:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
         "data": "2026-10-19 11:07:04",
         "luogo": "",
         "stato": "Consegnato al corriere finale"
@@ -8564,6 +8579,11 @@
         "stato": "Arrivato al punto di raccolta"
       },
       {
+        "data": "2026-10-10 00:20:15",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
+      },
+      {
         "data": "2026-10-10 00:20:14",
         "luogo": "",
         "stato": "Informazioni elettroniche della merce ricevute"
@@ -8574,7 +8594,13 @@
         "stato": "Dati della spedizione ricevuti"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-10-22 00:24",
+        "luogo": "FARA IN SABINA (RI)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0416": {
     "stato": "spedito",
