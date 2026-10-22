@@ -4874,6 +4874,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-22 11:52:15",
+        "luogo": "Ostuni (br)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-10-21 15:11:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
@@ -4892,6 +4897,11 @@
         "data": "2026-10-20 22:20:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-20 19:52:00",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-10-19 21:28:05",
@@ -4991,8 +5001,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-21 09:11",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-10-22 05:52",
+        "luogo": "OSTUNI (BR)",
         "stato": "La spedizione è in transito"
       }
     ]
