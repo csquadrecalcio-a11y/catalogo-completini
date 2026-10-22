@@ -8567,9 +8567,9 @@
     ]
   },
   "CSC-2026-0417": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-09",
-    "data_consegna": "",
+    "data_consegna": "2026-10-22 13:31:38",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J739300",
     "corriere_2": "",
@@ -8591,6 +8591,11 @@
         "data": "2026-10-22 11:49:21",
         "luogo": "Ostuni (br)",
         "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-22 11:49:00",
+        "luogo": "Ostuni",
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-10-21 10:30:00",
@@ -8714,6 +8719,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-22 12:04",
+        "luogo": "dalla sede operativa di FASANO (BR)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-22 09:34",
+        "luogo": "FASANO (BR)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-22 05:49",
         "luogo": "OSTUNI (BR)",
