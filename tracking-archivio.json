@@ -21824,5 +21824,175 @@
         "stato": "La spedizione è in transito"
       }
     ]
+  },
+  "CSC-2026-0287": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-09-01",
+    "data_consegna": "2026-09-21 14:53:48",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73488418",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_287_1_2bf17f79.jpg",
+      "sped_287_2_30794d4b.jpg"
+    ],
+    "tracking_cina": "",
+    "fornitore": "Sian Huang",
+    "eventi_cina": [
+      {
+        "data": "2026-09-17 12:10:00",
+        "luogo": "Italia",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-15 14:30:00",
+        "luogo": "Castel san giovanni",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-09-14 18:20:58",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-09-09 06:59:32",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-09-08 10:32:58",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-09-07 12:00:25",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-09-04 01:47:52",
+        "luogo": "",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-09-03 20:47:52",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-09-02 22:31:01",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-09-21 13:38",
+        "luogo": "dalla sede operativa di CASOLI (CH)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-21 10:27",
+        "luogo": "CASOLI (CH)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-09-18 00:54",
+        "luogo": "PESCARA (PE)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
+  },
+  "CSC-2026-0307": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-09-05",
+    "data_consegna": "2026-09-21 18:13:09",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73533959",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_307_1_3c117f61.jpg",
+      "sped_307_2_5f4d99dd.jpg"
+    ],
+    "tracking_cina": "",
+    "fornitore": "Sian Huang",
+    "eventi_cina": [
+      {
+        "data": "2026-09-18 16:36:00",
+        "luogo": "Bologna",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-15 12:20:00",
+        "luogo": "Castel san giovanni",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-09-14 10:17:56",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-09-12 12:32:26",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-09-10 19:10:37",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-09-10 13:16:57",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-09-08 04:43:59",
+        "luogo": "",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-09-07 23:43:59",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-09-07 22:43:33",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-09-21 15:11",
+        "luogo": "dalla sede operativa di FORLI' (FC)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-09-21 13:07",
+        "luogo": "FORLI' (FC)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-09-21 10:24",
+        "luogo": "FORLI' (FC)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   }
 }
