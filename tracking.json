@@ -8113,9 +8113,9 @@
     ]
   },
   "CSC-2026-0415": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-09",
-    "data_consegna": "",
+    "data_consegna": "2026-10-23 18:02:05",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J739290",
     "corriere_2": "Poste Italiane",
@@ -8231,6 +8231,21 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-23 13:26",
+        "luogo": "dalla sede operativa di CASTIGLIONE DEL LAGO (PG)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-23 10:26",
+        "luogo": "CASTIGLIONE DEL LAGO (PG)",
+        "stato": "La spedizione è in transito"
+      },
+      {
+        "data": "2026-10-23 09:15",
+        "luogo": "CASTIGLIONE DEL LAGO (PG)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-23 04:55",
         "luogo": "PERUGIA (PG)",
