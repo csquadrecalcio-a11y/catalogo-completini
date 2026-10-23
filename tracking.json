@@ -8896,9 +8896,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0424": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-13",
-    "data_consegna": "",
+    "data_consegna": "2026-10-23 08:26:49",
     "corriere": "DHL",
     "tracking": "CR437999475DE",
     "corriere_2": "",
