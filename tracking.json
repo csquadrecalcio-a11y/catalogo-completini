@@ -9420,6 +9420,26 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-10-23 11:50:51",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-10-22 20:50:31",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-10-22 14:49:52",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-10-22 02:49:29",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-10-21 17:07:10",
         "luogo": "",
         "stato": "Arrivato all'aeroporto di destinazione"
@@ -9472,12 +9492,12 @@
       {
         "data": "2026-10-15 12:53:21",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-10-15 12:53:21",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": []
