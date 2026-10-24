@@ -9408,7 +9408,13 @@
         "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-10-24 02:13",
+        "luogo": "FARA IN SABINA (RI)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0428": {
     "stato": "spedito",
@@ -10346,7 +10352,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0448": {
-    "stato": "attesa_pagamento",
+    "stato": "in_lavorazione",
     "data_spedizione": "",
     "data_consegna": "",
     "corriere": "",
@@ -10361,7 +10367,7 @@
     "tracking_5": "",
     "foto": [],
     "tracking_cina": "",
-    "fornitore": "In Sport",
+    "fornitore": "Sian Huang",
     "eventi_cina": [],
     "eventi_corriere": []
   }
