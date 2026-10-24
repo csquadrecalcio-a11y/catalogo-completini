@@ -8589,6 +8589,16 @@
     "eventi_cina": [
       {
         "data": "2026-10-24 08:12:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-24 08:12:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-10-24 08:12:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
       },
@@ -8665,12 +8675,12 @@
       {
         "data": "2026-10-15 12:49:21",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Ordine registrato, in attesa del pacco"
       },
       {
         "data": "2026-10-15 12:49:21",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": [
