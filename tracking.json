@@ -8714,13 +8714,13 @@
     "eventi_cina": [
       {
         "data": "2026-10-23 22:40:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-10-23 22:40:00",
-        "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-10-23 15:38:00",
@@ -8736,6 +8736,11 @@
         "data": "2026-10-23 15:38:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-23 15:30:00",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-10-23 11:50:51",
