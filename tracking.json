@@ -9926,6 +9926,11 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-10-25 22:23:06",
+        "luogo": "FCO",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
         "data": "2026-10-24 14:29:24",
         "luogo": "",
         "stato": "Il volo è decollato"
@@ -9968,7 +9973,7 @@
       {
         "data": "2026-10-22 22:35:04",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Ordine registrato, in attesa del pacco"
       },
       {
         "data": "2026-10-22 22:35:04",
@@ -9978,7 +9983,7 @@
       {
         "data": "2026-10-22 22:35:04",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": []
