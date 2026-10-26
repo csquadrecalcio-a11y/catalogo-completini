@@ -3672,7 +3672,8 @@ function applicaCodiceSconto(){
   msg.style.color = "#9aa";
   msg.textContent = "Verifica in corso…";
   btn.disabled = true;
-  fetch("https://mosaic-possum-crisping.ngrok-free.dev/api/verifica-codice-sconto", {
+  codiceErroreRete = false;
+  return fetch("https://mosaic-possum-crisping.ngrok-free.dev/api/verifica-codice-sconto", {
     method: "POST",
     headers: { "Content-Type": "application/json", "X-Site-Secret": STRIPE_SITE_SECRET },
     body: JSON.stringify({ codice: code }),
@@ -3692,10 +3693,12 @@ function applicaCodiceSconto(){
     renderCart();
   }).catch(() => {
     btn.disabled = false;
+    codiceErroreRete = true;
     msg.style.color = "#ff6b6b";
     msg.textContent = "Errore di rete, riprova.";
   });
 }
+let codiceErroreRete = false;
 document.getElementById("btnApplicaCodice").onclick = applicaCodiceSconto;
 (function(){
   // Pipistrelli: solo con il tema Halloween e se l'utente non ha disattivato le animazioni
@@ -3760,8 +3763,26 @@ document.getElementById("cartAddMoreEmpty").onclick = goShopping;
 document.getElementById("cartCheckout").onclick = async ()=>{
   if (!cart.length) return;
   if (!validateOrder()) return;
+  // Codice scritto nella casella ma "Applica" non premuto: lo applico io prima di confermare (26/10/26)
+  const inpCodice = document.getElementById("codiceScontoInput");
+  const codiceScritto = inpCodice ? inpCodice.value.trim().toUpperCase() : "";
+  let codiceNonVerificato = "";
+  if (codiceScritto && codiceScritto !== codiceScontoApplicato){
+    await applicaCodiceSconto();
+    if (!codiceScontoApplicato){
+      if (codiceErroreRete){
+        // Verifica non raggiungibile: l'ordine parte lo stesso e il codice lo controlla il gestionale
+        codiceNonVerificato = codiceScritto;
+      } else {
+        toast("Il codice sconto non è valido o è scaduto: correggilo o cancellalo, poi conferma di nuovo");
+        return;
+      }
+    }
+  }
   const order = getOrderData();
-  const { sub, n, total, discount, tier, codiceSconto, codiceDiscount } = cartTotals();
+  const tot0 = cartTotals();
+  const { sub, n, total, discount, tier, codiceDiscount } = tot0;
+  const codiceSconto = tot0.codiceSconto || (codiceNonVerificato || null);
 
   // Codice generato subito dal sito (data+ora): non è l'ID interno del gestionale,
   // ma apre WhatsApp all'istante invece di far aspettare il cliente la risposta
@@ -3816,6 +3837,7 @@ document.getElementById("cartCheckout").onclick = async ()=>{
   lines.push(`📦 *${order.nome} ${order.cognome}*`);
   lines.push(`${order.indirizzo}, ${order.cap} ${order.citta}`);
   lines.push(`📱 ${order.tel}`);
+  if (codiceNonVerificato) lines.push(`🏷 Codice sconto inserito: ${codiceNonVerificato} (non verificato dal sito, lo controlla il gestionale)`);
   if (order.consigliato) lines.push(`🤝 Presentato da: ${order.consigliato}`);
   if (order.note) lines.push(`📝 Note: ${order.note}`);
 
