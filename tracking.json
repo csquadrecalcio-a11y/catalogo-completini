@@ -8693,7 +8693,17 @@
         "stato": "In transito, la spedizione è in transito"
       },
       {
+        "data": "2026-10-26 12:53:00",
+        "luogo": "Policoro",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-24 09:13:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-24 08:13:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
       },
@@ -8706,11 +8716,6 @@
         "data": "2026-10-24 08:13:00",
         "luogo": "Fara in sabina",
         "stato": "Prima scansione Poste Italiane"
-      },
-      {
-        "data": "2026-10-24 08:13:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-10-23 11:50:51",
