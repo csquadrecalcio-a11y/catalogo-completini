@@ -8273,6 +8273,11 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-10-24 09:06:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-10-24 08:06:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
