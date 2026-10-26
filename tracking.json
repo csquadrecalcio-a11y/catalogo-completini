@@ -8644,9 +8644,14 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
-        "data": "2026-10-23 22:40:00",
-        "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "data": "2026-10-26 14:37:27",
+        "luogo": "Castiglione cosentino (cs)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-23 23:40:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-10-23 22:40:00",
@@ -8654,7 +8659,7 @@
         "stato": "In transito, la spedizione è in transito"
       },
       {
-        "data": "2026-10-23 15:38:00",
+        "data": "2026-10-23 22:40:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
       },
@@ -8667,6 +8672,11 @@
         "data": "2026-10-23 15:38:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-23 15:38:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-10-23 15:30:00",
@@ -8741,12 +8751,12 @@
       {
         "data": "2026-10-15 12:50:08",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-10-15 12:50:08",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Ordine registrato, in attesa del pacco"
       },
       {
         "data": "2026-10-15 12:50:08",
@@ -8756,8 +8766,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-23 16:40",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-10-26 07:37",
+        "luogo": "CASTIGLIONE COSENTINO (CS)",
         "stato": "La spedizione è in transito"
       }
     ]
