@@ -8394,7 +8394,17 @@
         "stato": "In transito, la spedizione è in transito"
       },
       {
+        "data": "2026-10-26 14:05:00",
+        "luogo": "Foggia",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-24 09:12:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-24 08:12:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
       },
@@ -8407,11 +8417,6 @@
         "data": "2026-10-24 08:12:00",
         "luogo": "Fara in sabina",
         "stato": "Prima scansione Poste Italiane"
-      },
-      {
-        "data": "2026-10-24 08:12:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-10-23 11:50:51",
