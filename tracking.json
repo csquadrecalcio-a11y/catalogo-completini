@@ -8503,7 +8503,7 @@
     ]
   },
   "CSC-2026-0426": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-10-17",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -8529,6 +8529,11 @@
         "stato": "In transito, la spedizione è in transito"
       },
       {
+        "data": "2026-10-26 14:37:00",
+        "luogo": "",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-23 23:40:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
@@ -8545,11 +8550,6 @@
       },
       {
         "data": "2026-10-23 15:38:00",
-        "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
-      },
-      {
-        "data": "2026-10-23 15:38:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
       },
@@ -8557,6 +8557,11 @@
         "data": "2026-10-23 15:38:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-23 15:38:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-10-23 15:30:00",
@@ -8645,6 +8650,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-26 12:57",
+        "luogo": "CASTIGLIONE COSENTINO (CS)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-26 07:37",
         "luogo": "CASTIGLIONE COSENTINO (CS)",
