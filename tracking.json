@@ -8509,6 +8509,16 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-10-26 14:05:49",
+        "luogo": "Foggia (fg)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-24 09:12:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-10-24 08:12:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
@@ -8606,8 +8616,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-10-24 02:12",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-10-26 07:05",
+        "luogo": "FOGGIA (FG)",
         "stato": "La spedizione è in transito"
       }
     ]
