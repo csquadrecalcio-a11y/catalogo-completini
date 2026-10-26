@@ -9712,6 +9712,11 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-26 20:01:40",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
         "data": "2026-10-24 23:51:45",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
