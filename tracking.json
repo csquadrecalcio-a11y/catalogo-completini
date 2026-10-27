@@ -9408,6 +9408,21 @@
     "fornitore": "In Sport",
     "eventi_cina": [
       {
+        "data": "2026-10-27 01:32:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-10-27 01:32:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-27 01:32:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-26 10:23:48",
         "luogo": "",
         "stato": "Consegnato al corriere finale"
@@ -9480,12 +9495,12 @@
       {
         "data": "2026-10-21 00:43:29",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-10-21 00:43:29",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": [
