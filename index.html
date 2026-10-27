@@ -3368,7 +3368,9 @@ const TIER_PRICE = {
   kita:   [40, 30, 25],
 };
 function isQualifying(it){ return Object.prototype.hasOwnProperty.call(TIER_PRICE, it.versionId); }
-function qualifyingCount(){ return cart.reduce((n,i)=> n + (isQualifying(i) ? i.qty : 0), 0); }
+// Per gli scaglioni (5 pezzi / 10 pezzi) contano TUTTI i pezzi del carrello, anche misti (tute comprese);
+// lo sconto pero si applica solo a maglie e kit, il resto resta a prezzo pieno (27/10/26)
+function qualifyingCount(){ return cart.reduce((n,i)=> n + (parseInt(i.qty)||1), 0); }
 function tierFor(n){ return n>=10 ? 2 : n>=5 ? 1 : 0; }
 function unitPriceFor(it, tier){ return isQualifying(it) ? TIER_PRICE[it.versionId][tier] : it.price; }
 
@@ -3395,7 +3397,7 @@ function syncSheet(){
   document.getElementById("qtyVal").textContent = S.qty;
 
   const qualifying = isQualifying({versionId:v.id});
-  const projectedQCount = qualifyingCount() + (qualifying ? S.qty : 0);
+  const projectedQCount = qualifyingCount() + S.qty;   // contano tutti i pezzi, anche le tute
   const projectedTier = tierFor(projectedQCount);
   const unit = qualifying ? TIER_PRICE[v.id][projectedTier] : v.price;
   const nTaglie = (S.type && S.type.pronta && Array.isArray(S.sel) && S.sel.length) ? S.sel.length : 1;
@@ -3407,7 +3409,7 @@ function syncSheet(){
     document.getElementById("qtyHint").textContent = p.text;
   } else {
     document.getElementById("qtyProgFill").style.width = "0%";
-    document.getElementById("qtyHint").textContent = "Questo prodotto è sempre a prezzo pieno, non rientra negli sconti quantità";
+    document.getElementById("qtyHint").textContent = "Questo prodotto è a prezzo pieno, ma conta per gli sconti quantità su maglie e kit";
   }
   // Da 2 pezzi in su: avviso chiaro che la quantita ripete LO STESSO prodotto (stessa squadra,
   // nome e numero). Un cliente voleva PSG + Real Madrid, ha messo "2" e gli e arrivato 2 PSG (13/10/26).
