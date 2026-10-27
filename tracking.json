@@ -10184,7 +10184,13 @@
     ],
     "tracking_cina": "",
     "fornitore": "Sian Huang",
-    "eventi_cina": [],
+    "eventi_cina": [
+      {
+        "data": "2026-10-27 18:29:03",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
     "eventi_corriere": []
   },
   "CSC-2026-0448": {
