@@ -3031,6 +3031,11 @@
       },
       {
         "data": "2026-10-16 22:03",
+        "luogo": "günzburg",
+        "stato": "Lavorato nel centro di smistamento di destinazione"
+      },
+      {
+        "data": "2026-10-16 22:03",
         "luogo": "Italia",
         "stato": "Smistato"
       },
@@ -3038,6 +3043,11 @@
         "data": "2026-10-16 22:03",
         "luogo": "günzburg",
         "stato": "Lavorato nel centro di smistamento di destinazione"
+      },
+      {
+        "data": "2026-10-16 07:29",
+        "luogo": "Italia",
+        "stato": "Ritiro avvenuto."
       },
       {
         "data": "2026-10-16 07:29",
