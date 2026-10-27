@@ -10377,7 +10377,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0454": {
-    "stato": "attesa_pagamento",
+    "stato": "in_lavorazione",
     "data_spedizione": "",
     "data_consegna": "",
     "corriere": "",
@@ -10392,7 +10392,7 @@
     "tracking_5": "",
     "foto": [],
     "tracking_cina": "",
-    "fornitore": "In Sport",
+    "fornitore": "Sian Huang",
     "eventi_cina": [],
     "eventi_corriere": []
   },
@@ -10432,7 +10432,7 @@
     "tracking_5": "",
     "foto": [],
     "tracking_cina": "",
-    "fornitore": "In Sport",
+    "fornitore": "Sian Huang",
     "eventi_cina": [],
     "eventi_corriere": []
   }
