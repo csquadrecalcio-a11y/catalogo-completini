@@ -3665,12 +3665,41 @@ function renderCart(){
   document.getElementById("cartHint").textContent = p.text;
 }
 
-function applicaCodiceSconto(){
+/* Codici validi per tutti (es. DOLCETTO): il sito li controlla da solo con l'elenco codici-pubblici.json
+   (solo impronte, non i codici in chiaro), cosi funzionano anche quando il gestionale e spento (27/10/26).
+   Il gestionale li ricontrolla comunque quando riceve l'ordine. */
+let CODICI_PUBBLICI = [];
+fetch("codici-pubblici.json?v=" + Date.now()).then(r => r.ok ? r.json() : []).then(d => { CODICI_PUBBLICI = d || []; }).catch(() => {});
+async function sha256Hex(t){
+  const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t));
+  return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join("");
+}
+async function codicePubblicoLocale(code){
+  try{
+    if (!CODICI_PUBBLICI.length) return null;
+    const h = await sha256Hex(code);
+    const d = new Date(), p2 = n => String(n).padStart(2, "0");
+    const oggi = `${d.getFullYear()}-${p2(d.getMonth() + 1)}-${p2(d.getDate())}`;
+    return CODICI_PUBBLICI.find(c => c.h === h && c.dal <= oggi && oggi <= c.al) || null;
+  }catch(e){ return null; }
+}
+
+async function applicaCodiceSconto(){
   const input = document.getElementById("codiceScontoInput");
   const msg = document.getElementById("codiceScontoMsg");
   const btn = document.getElementById("btnApplicaCodice");
   const code = input.value.trim().toUpperCase();
   if (!code){ msg.style.color = "#ff6b6b"; msg.textContent = "Inserisci un codice."; return; }
+  const locale = await codicePubblicoLocale(code);
+  if (locale){
+    codiceErroreRete = false;
+    codiceScontoApplicato = code;
+    codiceScontoPercentuale = locale.pct;
+    msg.style.color = "var(--volt)";
+    msg.textContent = `✅ Codice applicato: −${locale.pct}%`;
+    renderCart();
+    return;
+  }
   msg.style.color = "#9aa";
   msg.textContent = "Verifica in corso…";
   btn.disabled = true;
