@@ -8738,9 +8738,9 @@
     ]
   },
   "CSC-2026-0427": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-16",
-    "data_consegna": "",
+    "data_consegna": "2026-10-27 14:43:08",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J862720",
     "corriere_2": "",
@@ -8869,6 +8869,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-27 13:19",
+        "luogo": "dalla sede operativa di SCANZANO JONICO (MT)",
+        "stato": "La spedizione è stata consegnata"
+      },
       {
         "data": "2026-10-27 09:37",
         "luogo": "SCANZANO JONICO (MT)",
