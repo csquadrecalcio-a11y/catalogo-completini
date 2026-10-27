@@ -8383,9 +8383,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0425": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-16",
-    "data_consegna": "",
+    "data_consegna": "2026-10-26 17:30",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J848633",
     "corriere_2": "",
@@ -8404,6 +8404,21 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-10-27 00:30:51",
+        "luogo": "dalla sede operativa di MANFREDONIA (FG)",
+        "stato": "Consegnata, la spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-26 21:11:04",
+        "luogo": "Manfredonia (fg)",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-10-26 14:05:49",
+        "luogo": "Foggia (fg)",
+        "stato": "In transito"
+      },
+      {
         "data": "2026-10-26 14:05:49",
         "luogo": "Foggia (fg)",
         "stato": "In transito, la spedizione è in transito"
@@ -8420,11 +8435,6 @@
       },
       {
         "data": "2026-10-24 08:12:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
-      },
-      {
-        "data": "2026-10-24 08:12:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
       },
@@ -8432,6 +8442,11 @@
         "data": "2026-10-24 08:12:00",
         "luogo": "Fara in sabina",
         "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-10-24 08:12:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-10-23 11:50:51",
@@ -8501,12 +8516,12 @@
       {
         "data": "2026-10-15 12:49:21",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Ordine registrato, in attesa del pacco"
       },
       {
         "data": "2026-10-15 12:49:21",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-10-15 12:49:21",
@@ -8515,6 +8530,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-26 17:30",
+        "luogo": "dalla sede operativa di MANFREDONIA (FG)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-26 14:11",
+        "luogo": "MANFREDONIA (FG)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-26 07:05",
         "luogo": "FOGGIA (FG)",
