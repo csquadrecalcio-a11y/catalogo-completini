@@ -10300,6 +10300,11 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-10-28 01:57:13",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
         "data": "2026-10-27 18:30:36",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
