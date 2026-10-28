@@ -7584,6 +7584,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-10-28 12:57:20",
+        "luogo": "Siracusa (sr)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-28 10:09:00",
+        "luogo": "Catania",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-27 16:59:55",
         "luogo": "Catania (ct)",
         "stato": "In transito, la spedizione è in transito"
@@ -7605,8 +7615,8 @@
       },
       {
         "data": "2026-10-20 20:54:00",
-        "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-10-20 20:54:00",
@@ -7615,8 +7625,8 @@
       },
       {
         "data": "2026-10-20 20:54:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-10-20 19:52:00",
@@ -7696,12 +7706,12 @@
       {
         "data": "2026-10-11 01:01:14",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-10-11 01:01:14",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": [
