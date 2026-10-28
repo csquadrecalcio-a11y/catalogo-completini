@@ -9602,9 +9602,9 @@
     ]
   },
   "CSC-2026-0435": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-20",
-    "data_consegna": "",
+    "data_consegna": "2026-10-28 11:45",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J915962",
     "corriere_2": "",
@@ -9719,6 +9719,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-28 11:45",
+        "luogo": "dalla sede operativa di ROMA (RM)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-28 09:45",
+        "luogo": "ROMA (RM)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-28 05:05",
         "luogo": "ROMA (RM)",
