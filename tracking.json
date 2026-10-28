@@ -9458,9 +9458,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0434": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-20",
-    "data_consegna": "",
+    "data_consegna": "2026-10-28 18:11:23",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J968952",
     "corriere_2": "",
