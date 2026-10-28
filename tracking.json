@@ -9747,9 +9747,9 @@
     ]
   },
   "CSC-2026-0437": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-23",
-    "data_consegna": "",
+    "data_consegna": "2026-10-28 17:29",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J013423",
     "corriere_2": "",
@@ -9869,6 +9869,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-28 17:29",
+        "luogo": "dalla sede operativa di ROMA (RM)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-28 14:47",
+        "luogo": "ROMA (RM)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-28 03:00",
         "luogo": "FIUMICINO (RM)",
