@@ -8932,9 +8932,9 @@
     ]
   },
   "CSC-2026-0428": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-16",
-    "data_consegna": "",
+    "data_consegna": "2026-10-28 20:47:09",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J848662",
     "corriere_2": "Poste Italiane",
@@ -8953,6 +8953,11 @@
     "tracking_cina": "",
     "fornitore": "",
     "eventi_cina": [
+      {
+        "data": "2026-10-28 08:00:43",
+        "luogo": "Pescara (pe)",
+        "stato": "In transito, la spedizione è in transito"
+      },
       {
         "data": "2026-10-27 16:49:00",
         "luogo": "",
@@ -9070,6 +9075,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-28 16:02",
+        "luogo": "dalla sede operativa di VASTO (CH)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-28 15:09",
+        "luogo": "VASTO (CH)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-28 01:00",
         "luogo": "PESCARA (PE)",
@@ -10765,6 +10780,26 @@
     "eventi_corriere": []
   },
   "CSC-2026-0458": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "data_consegna": "",
+    "corriere": "",
+    "tracking": "",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "fornitore": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0446": {
     "stato": "in_lavorazione",
     "data_spedizione": "",
     "data_consegna": "",
