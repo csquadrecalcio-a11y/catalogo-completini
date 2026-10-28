@@ -9458,7 +9458,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0434": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-10-20",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -9599,6 +9599,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-28 11:10",
+        "luogo": "NAPOLI (NA)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-28 07:43",
         "luogo": "NAPOLI (NA)",
