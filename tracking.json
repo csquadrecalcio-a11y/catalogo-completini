@@ -9075,6 +9075,21 @@
     "fornitore": "Sian Huang",
     "eventi_cina": [
       {
+        "data": "2026-10-28 04:58:24",
+        "luogo": "Napoli (na)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-28 02:14:26",
+        "luogo": "Gricignano di aversa (ce)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-28 02:14:00",
+        "luogo": "Gricignano di aversa",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-24 11:36:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
@@ -9082,12 +9097,12 @@
       {
         "data": "2026-10-24 10:36:00",
         "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-10-24 10:36:00",
         "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-10-24 10:36:00",
