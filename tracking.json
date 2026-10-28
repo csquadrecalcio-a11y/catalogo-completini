@@ -7006,9 +7006,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0411": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-14",
-    "data_consegna": "",
+    "data_consegna": "2026-10-28 15:01:02",
     "corriere": "DHL",
     "tracking": "CR438095088DE",
     "corriere_2": "",
@@ -7026,6 +7026,16 @@
     "tracking_cina": "",
     "fornitore": "",
     "eventi_cina": [
+      {
+        "data": "2026-10-28 17:09:00",
+        "luogo": "Italia",
+        "stato": "Caricato sul mezzo di consegna"
+      },
+      {
+        "data": "2026-10-28 15:25:00",
+        "luogo": "Italia",
+        "stato": "In preparazione per la consegna"
+      },
       {
         "data": "2026-10-28 03:49:00",
         "luogo": "Italia",
@@ -10628,6 +10638,26 @@
     "eventi_corriere": []
   },
   "CSC-2026-0457": {
+    "stato": "in_lavorazione",
+    "data_spedizione": "",
+    "data_consegna": "",
+    "corriere": "",
+    "tracking": "",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "fornitore": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0458": {
     "stato": "in_lavorazione",
     "data_spedizione": "",
     "data_consegna": "",
