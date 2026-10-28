@@ -8177,7 +8177,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0420": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-10-16",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -8309,6 +8309,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-10-28 11:35",
+        "luogo": "IGLESIAS (CI)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-28 05:04",
         "luogo": "IGLESIAS (CI)",
