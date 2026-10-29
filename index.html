@@ -1662,6 +1662,7 @@ window.addEventListener("load", function(){
           <input id="orderTel" type="tel" placeholder="Telefono *" autocomplete="tel">
           <input id="orderEmail" class="wide" type="email" placeholder="Email *" autocomplete="email">
           <input id="orderConsigliato" class="wide" type="text" placeholder="Presentato da (nome e cognome del cliente) *" autocomplete="off">
+          <div id="presentatoMsg" class="wide" style="display:none;font-size:13px;line-height:1.45;padding:2px 2px 6px"></div>
           <input id="orderSquadraCuore" class="wide" type="text" placeholder="Squadra del cuore (facoltativo)" autocomplete="off">
         </div>
       </div>
@@ -1753,8 +1754,78 @@ const API_KEY = "AIzaSyBFjNAIrUyOZeI7c3OxdD1gOtUeHlMjRjk";
 const WA = "https://wa.me/447727750265?text=";
 const WA_PERSONALE = "393792126743";
 const WA_BUSINESS  = "447727750265";
-let _clientiNoti = null;
-fetch("/clienti_noti.json").then(r=>r.json()).then(d=>{ _clientiNoti=d; }).catch(()=>{ _clientiNoti=[]; });
+/* Elenchi dei clienti veri: solo impronte cifrate (telefoni e nomi), mai i dati in chiaro (29/10/26).
+   Servono a due cose: smistare il WhatsApp e controllare chi ha presentato un nuovo cliente. */
+let _clientiNoti = null;      // impronte dei telefoni
+let _nomiNoti = null;         // impronte dei nomi (null = elenco non caricato: il controllo non blocca)
+fetch("/clienti_noti.json?v="+Date.now()).then(r=>r.json()).then(d=>{ _clientiNoti=new Set(d); }).catch(()=>{ _clientiNoti=new Set(); });
+fetch("/clienti-nomi.json?v="+Date.now()).then(r=>r.ok?r.json():null).then(d=>{ _nomiNoti = d ? new Set(d) : null; }).catch(()=>{ _nomiNoti=null; });
+async function _sha256Hex(t){
+  const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t));
+  return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join("");
+}
+function _tokenNome(t){
+  return ((t||"").normalize("NFKD").toLowerCase().replace(/[\u0300-\u036f]/g,"").match(/[a-z]+/g) || []).filter(x=>x.length>=2);
+}
+function _chiaviNome(nome){
+  const tok = _tokenNome(nome), out = new Set();
+  for (let i=0;i<tok.length;i++) for (let j=i+1;j<tok.length;j++) out.add([tok[i],tok[j]].sort().join(" "));
+  return out;
+}
+async function nomeNoto(nome){
+  if (_nomiNoti === null) return null;           // elenco non disponibile
+  for (const k of _chiaviNome(nome)){
+    if (_nomiNoti.has(await _sha256Hex("csc-nome:" + k))) return true;
+  }
+  return false;
+}
+async function telefonoNoto(tel){
+  const c = (tel||"").replace(/\D/g,"").slice(-9);
+  if (c.length < 9 || !_clientiNoti) return false;
+  return _clientiNoti.has(await _sha256Hex("csc-tel:" + c));
+}
+function _stessiNomi(a,b){
+  const ka=_chiaviNome(a), kb=_chiaviNome(b);
+  for (const k of ka) if (kb.has(k)) return true;
+  return false;
+}
+function _waVerifica(){
+  const nome = ((document.getElementById("orderNome")||{}).value||"") + " " + ((document.getElementById("orderCognome")||{}).value||"");
+  const pres = (document.getElementById("orderConsigliato")||{}).value||"";
+  const t = "Ciao! Ho provato a ordinare dal sito ma non riesco a indicare chi mi ha consigliato." +
+    (pres.trim() ? " Ho scritto: " + pres.trim() + "." : "") +
+    (nome.trim() ? " Mi chiamo " + nome.trim() + "." : "") + " Potete verificare?";
+  return "https://wa.me/" + WA_BUSINESS + "?text=" + encodeURIComponent(t);
+}
+/* Esito del controllo: "ok" (puo ordinare), "self", "no", "vuoto". */
+async function verificaPresentazione(mostra){
+  const campo = document.getElementById("orderConsigliato");
+  const box = document.getElementById("presentatoMsg");
+  const pres = campo ? campo.value.trim() : "";
+  const proprio = ((document.getElementById("orderNome")||{}).value||"") + " " + ((document.getElementById("orderCognome")||{}).value||"");
+  const tel = (document.getElementById("orderTel")||{}).value||"";
+  const say = (html, color) => { if (!mostra || !box) return; box.style.display = html ? "block" : "none"; box.style.color = color || "inherit"; box.innerHTML = html; };
+  // chi ha gia ordinato da noi non ha bisogno di nessuno che lo presenti
+  const giaNoto = (await telefonoNoto(tel)) || ((_tokenNome(proprio).length >= 2) && (await nomeNoto(proprio)) === true);
+  if (giaNoto){ say("✅ Bentornato! Ti riconosciamo come nostro cliente.", "#15803d"); return "ok"; }
+  if (!pres){ say(""); return "vuoto"; }
+  if (_stessiNomi(pres, proprio)){
+    say("Qui serve il nome e cognome di <b>un nostro cliente che ti ha consigliato</b>, non il tuo. <a href=\"" + _waVerifica() + "\" target=\"_blank\" rel=\"noopener\">Non riesci? Scrivici su WhatsApp</a> e lo verifichiamo insieme.", "#b45309");
+    return "self";
+  }
+  const noto = await nomeNoto(pres);
+  if (noto === null) return "ok";                // elenco non caricato: non blocco, il gestionale segna da verificare
+  if (noto){ say("✅ Cliente riconosciuto, grazie!", "#15803d"); return "ok"; }
+  say("Non trovo questo nome tra i nostri clienti. Controlla nome e cognome. <a href=\"" + _waVerifica() + "\" target=\"_blank\" rel=\"noopener\"><b>Non lo trovi? Scrivici su WhatsApp</b></a> e lo verifichiamo insieme.", "#b45309");
+  return "no";
+}
+(function(){
+  let t = null;
+  const run = () => { clearTimeout(t); t = setTimeout(() => verificaPresentazione(true), 450); };
+  ["orderConsigliato","orderNome","orderCognome","orderTel"].forEach(id => {
+    const el = document.getElementById(id); if (el) el.addEventListener("input", run);
+  });
+})();
 // Le foto della pronta consegna le carica Alberto dal gestionale e stanno qui
 // sul sito: si riconoscono dal percorso e non passano da Drive (23/09/26).
 const fotoNostra = id => /^(pronta-consegna\/|https?:|\/)/.test(String(id||""));
@@ -3793,6 +3864,19 @@ document.getElementById("cartAddMoreEmpty").onclick = goShopping;
 
 document.getElementById("cartCheckout").onclick = async ()=>{
   if (!cart.length) return;
+  // Chi non e gia cliente deve indicare un cliente vero che lo ha presentato (29/10/26)
+  const _pres = await verificaPresentazione(true);
+  if (_pres === "self" || _pres === "no"){
+    const c = document.getElementById("orderConsigliato");
+    if (c){ c.classList.add("field-error"); c.focus(); }
+    toast("Indica un nostro cliente che ti ha presentato, oppure scrivici su WhatsApp");
+    return;
+  }
+  if (_pres === "ok") {
+    // se e un cliente gia noto il campo puo restare vuoto: non lo richiedo
+    const c = document.getElementById("orderConsigliato");
+    if (c && !c.value.trim()) c.value = "Cliente già noto";
+  }
   if (!validateOrder()) return;
   // Codice scritto nella casella ma "Applica" non premuto: lo applico io prima di confermare (26/10/26)
   const inpCodice = document.getElementById("codiceScontoInput");
@@ -3874,8 +3958,7 @@ document.getElementById("cartCheckout").onclick = async ()=>{
 
   const telPulito = (order.tel || "").replace(/\D/g, "");
   const msgEnc = encodeURIComponent(lines.join("\n"));
-  const noti = _clientiNoti || [];
-  const noto = noti.some(n => n === telPulito.slice(-9));
+  const noto = await telefonoNoto(telPulito);
   const waNum = noto ? WA_PERSONALE : WA_BUSINESS;
   const urlWA = `https://wa.me/${waNum}?text=${msgEnc}`;
 
