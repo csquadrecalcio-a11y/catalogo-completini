@@ -22953,5 +22953,160 @@
         "stato": "La spedizione è in transito"
       }
     ]
+  },
+  "CSC-2026-0347": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-09-16",
+    "data_consegna": "2026-09-28 14:57:17",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2247J325820",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_347_1_dec77f9a.jpeg",
+      "sped_347_2_3aadf9c8.jpeg"
+    ],
+    "tracking_cina": "",
+    "fornitore": "",
+    "eventi_cina": [
+      {
+        "data": "2026-09-28 06:04:55",
+        "luogo": "Peschiera borromeo (mi)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-28 01:33:05",
+        "luogo": "Milano (mi)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-28 01:33:00",
+        "luogo": "Milano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-26 11:19:23",
+        "luogo": "Milano (mi)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-25 21:47:35",
+        "luogo": "Centro Operativo Postale",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-24 18:56:00",
+        "luogo": "Fiano romano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-09-24 18:43:02",
+        "luogo": "Centro Operativo Postale",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-09-24 18:43:00",
+        "luogo": "Fiano romano",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-09-24 03:29:07",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-09-23 18:28:51",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-09-23 11:28:30",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-09-23 00:28:03",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
+        "data": "2026-09-22 23:37:13",
+        "luogo": "FCO",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
+        "data": "2026-09-21 21:21:04",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-09-20 21:20:41",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 22 settembre"
+      },
+      {
+        "data": "2026-09-19 16:46:59",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 21 settembre"
+      },
+      {
+        "data": "2026-09-17 14:42:42",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-09-17 13:43:18",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-09-17 13:42:42",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
+        "data": "2026-09-17 05:42:42",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-09-17 05:29:18",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-09-17 01:03:57",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
+      },
+      {
+        "data": "2026-09-17 01:03:56",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-09-17 01:03:56",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-09-28 12:43",
+        "luogo": "PESCHIERA BORROMEO (MI)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-09-28 09:57",
+        "luogo": "PESCHIERA BORROMEO (MI)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   }
 }
