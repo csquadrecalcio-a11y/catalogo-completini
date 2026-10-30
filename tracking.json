@@ -2840,6 +2840,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-10-30 03:53",
+        "luogo": "Italia",
+        "stato": "Nel centro di smistamento"
+      },
+      {
+        "data": "2026-10-30 02:31",
+        "luogo": "Italia",
+        "stato": "Caricato sul mezzo di trasporto"
+      },
+      {
         "data": "2026-10-29 05:54",
         "luogo": "Italia",
         "stato": "Nel centro di smistamento"
