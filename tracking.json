@@ -10072,6 +10072,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-10-29 22:52:06",
+        "luogo": "AMS",
+        "stato": "Trasferito al corriere destinazionetransferred"
+      },
+      {
+        "data": "2026-10-29 10:50:19",
+        "luogo": "AMS",
+        "stato": "Sdoganamento completato"
+      },
+      {
         "data": "2026-10-28 23:46:45",
         "luogo": "AMS",
         "stato": "Aggiornamento dal corriere"
