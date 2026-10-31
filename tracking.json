@@ -2840,6 +2840,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-10-30 10:26",
+        "luogo": "san cipriano d'aversa,Italia",
+        "stato": "Consegnato"
+      },
+      {
         "data": "2026-10-30 03:53",
         "luogo": "Italia",
         "stato": "Nel centro di smistamento"
