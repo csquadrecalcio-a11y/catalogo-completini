@@ -10682,7 +10682,17 @@
       {
         "data": "2026-10-27 18:31:17",
         "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
+      },
+      {
+        "data": "2026-10-27 18:31:17",
+        "luogo": "",
         "stato": "Dati della spedizione ricevuti"
+      },
+      {
+        "data": "2026-10-27 18:31:16",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": []
