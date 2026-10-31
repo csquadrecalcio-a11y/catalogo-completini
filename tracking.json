@@ -10129,6 +10129,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-10-31 11:03:00",
+        "luogo": "DE",
+        "stato": "Lavorato nel centro di smistamento per l'estero"
+      },
+      {
         "data": "2026-10-30 16:59:00",
         "luogo": "DE",
         "stato": "Lavorato nel centro di smistamento di partenza"
