@@ -10783,6 +10783,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-10-31 10:52:16",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
         "data": "2026-10-31 02:11:24",
         "luogo": "",
         "stato": "Arrivato al punto di raccolta"
