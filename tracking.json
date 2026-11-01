@@ -1074,9 +1074,9 @@
     ]
   },
   "CSC-2026-0366": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-09-28",
-    "data_consegna": "",
+    "data_consegna": "2026-11-01 12:01:15",
     "corriere": "DHL",
     "tracking": "CJ126600234DE",
     "corriere_2": "",
