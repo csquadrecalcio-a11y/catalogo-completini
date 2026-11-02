@@ -8051,6 +8051,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-03 00:51:00",
+        "luogo": "Italia",
+        "stato": "Arrivato in Italia"
+      },
+      {
         "data": "2026-10-31 11:03:00",
         "luogo": "DE",
         "stato": "Lavorato nel centro di smistamento per l'estero"
@@ -9451,7 +9456,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0471": {
-    "stato": "attesa_pagamento",
+    "stato": "in_lavorazione",
     "data_spedizione": "",
     "data_consegna": "",
     "corriere": "",
