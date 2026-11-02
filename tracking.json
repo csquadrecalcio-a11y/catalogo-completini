@@ -9332,6 +9332,11 @@
         "stato": "Pacco in uscita dal centro operativo"
       },
       {
+        "data": "2026-10-31 14:15:00",
+        "luogo": "",
+        "stato": "Spedizione registrata dal mittente"
+      },
+      {
         "data": "2026-10-31 01:56:02",
         "luogo": "",
         "stato": "Arrivato al punto di raccolta"
