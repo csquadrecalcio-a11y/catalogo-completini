@@ -9131,6 +9131,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-02 19:45:28",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
         "data": "2026-11-02 18:46:04",
         "luogo": "",
         "stato": "Sdoganamento all'export completato"
@@ -9158,12 +9163,12 @@
       {
         "data": "2026-10-30 00:54:04",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-10-30 00:54:04",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": []
