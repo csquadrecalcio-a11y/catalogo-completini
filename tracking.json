@@ -9121,6 +9121,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-02 18:46:04",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-11-02 18:45:28",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
         "data": "2026-11-02 10:45:28",
         "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
