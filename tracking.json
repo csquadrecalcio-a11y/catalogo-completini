@@ -7520,9 +7520,9 @@
     ]
   },
   "CSC-2026-0433": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-20",
-    "data_consegna": "",
+    "data_consegna": "2026-11-02 11:06:03",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J915954",
     "corriere_2": "",
@@ -7541,6 +7541,21 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-10-31 12:37:09",
+        "luogo": "Roma (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-31 11:42:00",
+        "luogo": "Roma",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-31 09:57:00",
+        "luogo": "Fiumicino",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-10-31 09:08:36",
         "luogo": "Fiumicino (rm)",
         "stato": "In transito, la spedizione è in transito"
@@ -7548,12 +7563,17 @@
       {
         "data": "2026-10-31 01:34:00",
         "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-10-31 01:34:00",
         "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-10-30 17:45:00",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-10-23 20:33:25",
@@ -7637,6 +7657,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-02 10:24",
+        "luogo": "dalla sede operativa di ROMA (RM)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-02 09:51",
+        "luogo": "ROMA (RM)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-10-31 05:37",
         "luogo": "ROMA (RM)",
