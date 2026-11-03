@@ -7823,6 +7823,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-03 20:46:00",
+        "luogo": "Italia",
+        "stato": "Caricato sul mezzo di consegna"
+      },
+      {
+        "data": "2026-11-03 17:33:00",
+        "luogo": "Italia",
+        "stato": "The shipment has been processed in the delivery depot."
+      },
+      {
         "data": "2026-11-03 13:09:00",
         "luogo": "Italia",
         "stato": "In preparazione per la consegna"
