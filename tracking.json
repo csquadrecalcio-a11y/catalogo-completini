@@ -7802,9 +7802,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0441": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-26",
-    "data_consegna": "",
+    "data_consegna": "2026-11-03 15:36:33",
     "corriere": "DHL",
     "tracking": "CR438471265DE",
     "corriere_2": "",
