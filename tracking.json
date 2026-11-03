@@ -9200,6 +9200,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-03 19:10:09",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-11-03 19:09:33",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
         "data": "2026-11-03 11:09:33",
         "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
