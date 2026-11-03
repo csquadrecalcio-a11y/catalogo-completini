@@ -8175,7 +8175,13 @@
         "stato": "Dati della spedizione ricevuti"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-11-03 13:25",
+        "luogo": "CASTEL SAN GIOVANNI (PC)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0445": {
     "stato": "in_lavorazione",
