@@ -8066,6 +8066,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-03 13:09:00",
+        "luogo": "Italia",
+        "stato": "In preparazione per la consegna"
+      },
+      {
         "data": "2026-11-03 00:51:00",
         "luogo": "Italia",
         "stato": "Arrivato in Italia"
