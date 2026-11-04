@@ -6800,6 +6800,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-04 03:27:45",
+        "luogo": "Milano (mi)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-11-02 18:27:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
@@ -6902,8 +6907,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-03 20:27",
-        "luogo": "MILANO (MI)",
+        "data": "2026-11-04 07:13",
+        "luogo": "PESCHIERA BORROMEO (MI)",
         "stato": "La spedizione è in transito"
       }
     ]
