@@ -8146,6 +8146,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-03 20:25:00",
+        "luogo": "Castel san giovanni (pc)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-10-29 00:19:48",
         "luogo": "AMS",
         "stato": "Trasferito al corriere destinazionetransferred"
