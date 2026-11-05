@@ -8262,7 +8262,13 @@
         "stato": "Dati della spedizione ricevuti"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-11-05 15:01",
+        "luogo": "FARA IN SABINA (RI)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0450": {
     "stato": "spedito",
