@@ -25479,5 +25479,234 @@
         "stato": "La spedizione è in transito"
       }
     ]
+  },
+  "CSC-2026-0365": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-09-21",
+    "data_consegna": "2026-10-05 15:15:46",
+    "corriere": "Poste Italiane",
+    "tracking": "5P65D73698717",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_365_1_2fe6de47.jpeg",
+      "sped_365_2_d5fc8b5f.jpeg"
+    ],
+    "tracking_cina": "",
+    "fornitore": "",
+    "eventi_cina": [
+      {
+        "data": "2026-10-01 09:01:07",
+        "luogo": "",
+        "stato": "Inviato al magazzino, in attesa di scansione"
+      },
+      {
+        "data": "2026-09-28 06:56:24",
+        "luogo": "",
+        "stato": "Sdoganamento all'importazione completato, in attesa di ritiro"
+      },
+      {
+        "data": "2026-09-27 00:01:47",
+        "luogo": "",
+        "stato": "Volo atterrato, consegna al magazzino dopo sdoganamento"
+      },
+      {
+        "data": "2026-09-26 05:35:13",
+        "luogo": "",
+        "stato": "Partito dall'aeroporto di origine"
+      },
+      {
+        "data": "2026-09-24 17:16:11",
+        "luogo": "",
+        "stato": "Orario di partenza stimato del volo (Partenza stimata:9.25)"
+      },
+      {
+        "data": "2026-09-23 02:40:18",
+        "luogo": "",
+        "stato": "Uscito dal magazzino, in attesa del volo"
+      },
+      {
+        "data": "2026-09-22 21:40:18",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-09-21 22:16:42",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-10-05 12:58",
+        "luogo": "dalla sede operativa di SALZANO (VE)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-05 09:34",
+        "luogo": "SALZANO (VE)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-05 01:49",
+        "luogo": "VENEZIA (VE)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
+  },
+  "CSC-2026-0380": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-09-24",
+    "data_consegna": "2026-10-05 15:16:06",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2247J446770",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "sped_380_1_6285cc9b.jpg"
+    ],
+    "tracking_cina": "",
+    "fornitore": "",
+    "eventi_cina": [
+      {
+        "data": "2026-10-05 06:38:25",
+        "luogo": "Roma (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-05 04:50:00",
+        "luogo": "Roma",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-05 04:12:10",
+        "luogo": "Roma (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-03 07:44:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-03 07:44:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-03 07:44:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-10-01 10:20:45",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
+      },
+      {
+        "data": "2026-10-01 00:21:05",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-09-30 20:21:19",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-09-30 00:21:33",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
+        "data": "2026-09-29 19:45:33",
+        "luogo": "FCO",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
+        "data": "2026-09-28 18:45:16",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-09-28 15:44:58",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 29 settembre"
+      },
+      {
+        "data": "2026-09-28 15:34:55",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 28 settembre"
+      },
+      {
+        "data": "2026-09-24 15:59:13",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-09-24 14:59:49",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-09-24 14:59:13",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
+        "data": "2026-09-24 06:59:13",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-09-24 04:20:50",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-09-24 02:42:55",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
+      },
+      {
+        "data": "2026-09-24 02:42:54",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-09-24 02:42:54",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-10-05 11:48",
+        "luogo": "dalla sede operativa di ROMA (RM)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-05 10:54",
+        "luogo": "ROMA (RM)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-05 00:38",
+        "luogo": "ROMA (RM)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   }
 }
