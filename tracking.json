@@ -4829,9 +4829,9 @@
     ]
   },
   "CSC-2026-0416": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-11",
-    "data_consegna": "",
+    "data_consegna": "2026-11-05 17:30",
     "corriere": "Poste Italiane",
     "tracking": "9C2247J759122",
     "corriere_2": "",
@@ -4990,6 +4990,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-05 17:30",
+        "luogo": "dalla sede operativa di SIRACUSA (SR)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-05 12:01",
+        "luogo": "SIRACUSA (SR)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-02 08:29",
         "luogo": "SIRACUSA (SR)",
