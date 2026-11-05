@@ -8573,6 +8573,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-04 23:26:24",
+        "luogo": "FCO",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
         "data": "2026-11-03 14:56:28",
         "luogo": "",
         "stato": "Il volo è decollato"
