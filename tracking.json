@@ -8714,6 +8714,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-05 23:01:24",
+        "luogo": "",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
         "data": "2026-11-04 23:01:14",
         "luogo": "",
         "stato": "Il volo è decollato"
