@@ -8841,6 +8841,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-06 15:48:28",
+        "luogo": "",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-11-05 16:25:20",
         "luogo": "FCO",
         "stato": "Arrivato all'aeroporto di destinazione"
@@ -8893,12 +8898,12 @@
       {
         "data": "2026-10-30 00:55:33",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-10-30 00:55:33",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": []
