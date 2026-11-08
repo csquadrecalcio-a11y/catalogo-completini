@@ -7562,14 +7562,24 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-07 13:53:03",
+        "luogo": "Bergamo (bg)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-07 11:27:00",
+        "luogo": "Milano",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-11-06 08:23:00",
         "luogo": "Milano (mi)",
         "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-05 21:01:00",
-        "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-05 21:01:00",
@@ -7578,8 +7588,8 @@
       },
       {
         "data": "2026-11-05 21:01:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-11-05 18:00:41",
