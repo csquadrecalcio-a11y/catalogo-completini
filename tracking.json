@@ -7053,9 +7053,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0447": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-27",
-    "data_consegna": "",
+    "data_consegna": "2026-11-09 22:28:45",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J133449",
     "corriere_2": "",
@@ -7185,6 +7185,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-09 16:02",
+        "luogo": "dalla sede operativa di ALZANO LOMBARDO (BG)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-09 13:38",
+        "luogo": "ALZANO LOMBARDO (BG)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-09 07:05",
         "luogo": "BERGAMO (BG)",
