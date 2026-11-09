@@ -7937,6 +7937,26 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-08 00:26:05",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-11-07 14:25:37",
+        "luogo": "",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-11-07 08:23:47",
+        "luogo": "",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-11-06 14:23:35",
+        "luogo": "",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-11-05 05:15:55",
         "luogo": "",
         "stato": "Arrivato all'aeroporto di destinazione"
