@@ -8864,11 +8864,11 @@
     "eventi_corriere": []
   },
   "CSC-2026-0474": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-11-09",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2307J421806",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -8877,10 +8877,34 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": [],
+    "foto": [
+      "sped_474_1_87d21f8f.jpg",
+      "sped_474_2_3a061ed7.jpg"
+    ],
     "tracking_cina": "",
     "fornitore": "",
-    "eventi_cina": [],
+    "eventi_cina": [
+      {
+        "data": "2026-11-09 15:49:03",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 12 novembre"
+      },
+      {
+        "data": "2026-11-09 15:48:49",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 11 novembre"
+      },
+      {
+        "data": "2026-11-07 01:56:29",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-11-06 22:35:47",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
     "eventi_corriere": []
   },
   "CSC-2026-0475": {
