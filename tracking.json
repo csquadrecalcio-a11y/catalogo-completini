@@ -6881,7 +6881,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0444": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-10-26",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -6957,6 +6957,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-09 09:45",
+        "luogo": "BOBBIO (PC)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-05 04:03",
         "luogo": "MILANO (MI)",
