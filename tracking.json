@@ -6896,9 +6896,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0444": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-26",
-    "data_consegna": "",
+    "data_consegna": "2026-11-09 11:46:29",
     "corriere": "Poste Italiane",
     "tracking": "5P65D73982532",
     "corriere_2": "",
