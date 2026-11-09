@@ -8852,6 +8852,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-09 18:32:40",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
         "data": "2026-11-07 01:56:46",
         "luogo": "",
         "stato": "Arrivato al punto di raccolta"
