@@ -6813,6 +6813,21 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-08 15:09:16",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-11-07 22:08:50",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-11-07 16:08:31",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
         "data": "2026-11-06 15:48:28",
         "luogo": "",
         "stato": "Arrivato al deposito doganale"
@@ -8817,6 +8832,26 @@
   },
   "CSC-2026-0478": {
     "stato": "attesa_pagamento",
+    "data_spedizione": "",
+    "data_consegna": "",
+    "corriere": "",
+    "tracking": "",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "fornitore": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0479": {
+    "stato": "in_lavorazione",
     "data_spedizione": "",
     "data_consegna": "",
     "corriere": "",
