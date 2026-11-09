@@ -8625,6 +8625,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-09 15:51:18",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
         "data": "2026-11-06 15:46:39",
         "luogo": "",
         "stato": "Arrivo in Italia previsto: 10 novembre"
@@ -8662,12 +8667,12 @@
       {
         "data": "2026-11-04 18:55:32",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Ordine registrato, in attesa del pacco"
       },
       {
         "data": "2026-11-04 18:55:32",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-11-04 18:55:32",
