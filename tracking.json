@@ -7472,6 +7472,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-10 13:19:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-11-05 15:05:52",
         "luogo": "FCO",
         "stato": "Sdoganamento completato"
@@ -7542,7 +7547,13 @@
         "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-11-10 06:19",
+        "luogo": "FARA IN SABINA (RI)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0453": {
     "stato": "spedito",
