@@ -7232,9 +7232,9 @@
     ]
   },
   "CSC-2026-0448": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-27",
-    "data_consegna": "",
+    "data_consegna": "2026-11-10 18:43:55",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J133484",
     "corriere_2": "Poste Italiane",
@@ -7254,6 +7254,26 @@
     "tracking_cina": "",
     "fornitore": "",
     "eventi_cina": [
+      {
+        "data": "2026-11-10 20:48:26",
+        "luogo": "La spezia (sp)",
+        "stato": "In consegna, la spedizione è in consegna"
+      },
+      {
+        "data": "2026-11-10 20:48:00",
+        "luogo": "",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-11-10 17:52:28",
+        "luogo": "La spezia (sp)",
+        "stato": "In transito"
+      },
+      {
+        "data": "2026-11-10 17:52:00",
+        "luogo": "",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
       {
         "data": "2026-11-10 07:00:50",
         "luogo": "Genova (ge)",
@@ -7366,6 +7386,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-10 17:22",
+        "luogo": "dalla sede operativa di LA SPEZIA (SP)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-10 13:48",
+        "luogo": "LA SPEZIA (SP)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-10 10:52",
         "luogo": "LA SPEZIA (SP)",
