@@ -7238,9 +7238,24 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-10 07:00:50",
+        "luogo": "Genova (ge)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-10 07:00:00",
+        "luogo": "Genova",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-11-06 11:13:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-05 22:01:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-11-05 22:01:00",
@@ -7251,11 +7266,6 @@
         "data": "2026-11-05 22:01:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
-      },
-      {
-        "data": "2026-11-05 22:01:00",
-        "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-11-05 18:00:41",
@@ -7340,8 +7350,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-06 04:13",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-11-10 00:00",
+        "luogo": "GENOVA (GE)",
         "stato": "La spedizione è in transito"
       }
     ]
