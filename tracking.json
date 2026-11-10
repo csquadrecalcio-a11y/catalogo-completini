@@ -7383,6 +7383,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-06 10:38:11",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-11-05 16:38:00",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
         "data": "2026-11-05 15:05:52",
         "luogo": "FCO",
         "stato": "Sdoganamento completato"
