@@ -7028,6 +7028,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-10 20:01:00",
+        "luogo": "Bentivoglio (bo)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-11-09 09:04:40",
         "luogo": "",
         "stato": "Trasferito al corriere destinazionetransferred"
