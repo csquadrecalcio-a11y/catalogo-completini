@@ -7974,6 +7974,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-09 08:52:00",
+        "luogo": "",
+        "stato": "Lavorato nel centro di smistamento di partenza"
+      },
+      {
         "data": "2026-11-08 00:26:05",
         "luogo": "",
         "stato": "Consegnato al corriere finale"
