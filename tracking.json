@@ -8968,6 +8968,31 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-10 15:10:02",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 13 novembre"
+      },
+      {
+        "data": "2026-11-10 15:09:07",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 12 novembre"
+      },
+      {
+        "data": "2026-11-10 03:32:38",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-11-10 02:33:14",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-11-10 02:32:38",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
         "data": "2026-11-09 18:32:38",
         "luogo": "",
         "stato": "Pacco in uscita dal centro operativo"
