@@ -6899,7 +6899,13 @@
         "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-11-10 05:44",
+        "luogo": "FARA IN SABINA (RI)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0444": {
     "stato": "consegnato",
