@@ -8029,9 +8029,9 @@
     ]
   },
   "CSC-2026-0455": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-28",
-    "data_consegna": "",
+    "data_consegna": "2026-11-11 12:53:51",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J133543",
     "corriere_2": "Poste Italiane",
@@ -8153,7 +8153,17 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-11 01:58",
+        "data": "2026-11-11 11:06",
+        "luogo": "dalla sede operativa di ROMA (RM)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-11 09:43",
+        "luogo": "ROMA (RM)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-11-11 08:16",
         "luogo": "ROMA (RM)",
         "stato": "La spedizione è in transito"
       }
