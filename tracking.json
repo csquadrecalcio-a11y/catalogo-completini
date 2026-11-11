@@ -8494,14 +8494,14 @@
     "fornitore": "",
     "eventi_cina": [
       {
-        "data": "2026-11-11 08:05:17",
-        "luogo": "",
-        "stato": "Consegnato al corriere finale"
+        "data": "2026-11-11 19:45:12",
+        "luogo": "Lucca (lu)",
+        "stato": "In consegna, la spedizione è in consegna"
       },
       {
-        "data": "2026-11-10 21:45:00",
-        "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "data": "2026-11-11 18:30:46",
+        "luogo": "Lucca (lu)",
+        "stato": "In transito"
       },
       {
         "data": "2026-11-10 21:45:00",
@@ -8512,6 +8512,21 @@
         "data": "2026-11-10 21:45:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-10 21:45:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-10 08:08:28",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-11-09 20:06:49",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
       },
       {
         "data": "2026-11-09 06:06:31",
@@ -8576,12 +8591,12 @@
       {
         "data": "2026-10-30 00:54:04",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-10-30 00:54:04",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": [
