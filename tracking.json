@@ -7098,6 +7098,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-11 15:42:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-11-10 20:01:00",
         "luogo": "Bentivoglio (bo)",
         "stato": "In transito, la spedizione è in transito"
@@ -7150,8 +7155,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-10 13:01",
-        "luogo": "BENTIVOGLIO (BO)",
+        "data": "2026-11-11 08:42",
+        "luogo": "FARA IN SABINA (RI)",
         "stato": "La spedizione è in transito"
       }
     ]
