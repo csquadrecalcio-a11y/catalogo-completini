@@ -7495,6 +7495,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-11 05:09:31",
+        "luogo": "Roma (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-11-10 12:50:00",
         "luogo": "Fara in sabina",
         "stato": "Prima scansione Poste Italiane"
