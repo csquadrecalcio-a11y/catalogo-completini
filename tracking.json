@@ -8779,6 +8779,11 @@
         "stato": "In transito, la spedizione è in transito"
       },
       {
+        "data": "2026-11-11 09:35:00",
+        "luogo": "Bari",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-11-11 07:56:01",
         "luogo": "Modugno (ba)",
         "stato": "In transito, la spedizione è in transito"
@@ -8790,13 +8795,13 @@
       },
       {
         "data": "2026-11-10 16:44:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-11-10 16:44:00",
-        "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-10 03:35:00",
