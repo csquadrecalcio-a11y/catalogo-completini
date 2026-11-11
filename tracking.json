@@ -8778,9 +8778,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0463": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-01",
-    "data_consegna": "",
+    "data_consegna": "2026-11-11 19:08:50",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J200193",
     "corriere_2": "",
@@ -8915,6 +8915,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-11 15:23",
+        "luogo": "dalla sede operativa di MANFREDONIA (FG)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-11 14:38",
+        "luogo": "MANFREDONIA (FG)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-11 04:25",
         "luogo": "FOGGIA (FG)",
