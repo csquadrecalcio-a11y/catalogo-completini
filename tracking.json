@@ -8041,6 +8041,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-11 08:58:12",
+        "luogo": "Roma (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-11-10 12:42:00",
         "luogo": "Fara in sabina",
         "stato": "Prima scansione Poste Italiane"
