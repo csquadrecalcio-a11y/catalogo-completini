@@ -7889,7 +7889,7 @@
     ]
   },
   "CSC-2026-0454": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-10-29",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -8016,6 +8016,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-11 12:28",
+        "luogo": "MENTANA (RM)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-11 03:44",
         "luogo": "ROMA (RM)",
