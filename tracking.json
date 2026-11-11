@@ -7885,6 +7885,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-11 05:09:31",
+        "luogo": "Roma (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-11-10 20:31:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
@@ -7982,8 +7987,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-10 02:21",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-11-11 03:44",
+        "luogo": "ROMA (RM)",
         "stato": "La spedizione è in transito"
       }
     ]
