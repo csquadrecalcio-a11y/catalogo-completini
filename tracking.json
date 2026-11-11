@@ -8473,9 +8473,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0446": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-01",
-    "data_consegna": "",
+    "data_consegna": "2026-11-11 19:08:25",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J200175",
     "corriere_2": "",
@@ -8600,6 +8600,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-11 15:20",
+        "luogo": "dalla sede operativa di LUCCA (LU)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-11 12:45",
+        "luogo": "LUCCA (LU)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-11 11:30",
         "luogo": "LUCCA (LU)",
