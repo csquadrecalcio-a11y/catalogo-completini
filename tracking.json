@@ -7750,6 +7750,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-11 06:04:15",
+        "luogo": "Fiumicino (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-11 05:02:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-11-10 12:51:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
@@ -7847,8 +7857,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-10 03:02",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-11-10 23:04",
+        "luogo": "FIUMICINO (RM)",
         "stato": "La spedizione è in transito"
       }
     ]
