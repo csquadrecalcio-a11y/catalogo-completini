@@ -1011,6 +1011,21 @@ html[data-tema="stadio"] .tab{padding:9px 15px;font-size:13px}
 html[data-tema="stadio"] .quick-teams{margin-bottom:12px}
 html[data-tema="stadio"] .filters-bar{gap:10px;margin-bottom:16px}
 }
+/* Stadio: rifinitura (12/11/26) - cookie, Telegram, barra offerte, tasto Apri */
+html[data-tema="stadio"] .cookie-card{background:#151517;border:1px solid rgba(242,183,5,.3);box-shadow:0 10px 40px rgba(0,0,0,.6)}
+html[data-tema="stadio"] .cookie-card div{color:#f6f1e4!important}
+html[data-tema="stadio"] .cookie-card p{color:#a9a395!important}
+html[data-tema="stadio"] #cookieAcceptAll{background:linear-gradient(135deg,#ffd54a,#f2b705 55%,#c98f00)!important;color:#111!important}
+html[data-tema="stadio"] #cookieNecessaryOnly{background:transparent!important;color:#d9d3c2!important;border:1px solid rgba(242,183,5,.35)!important}
+html[data-tema="stadio"] a.btn[href*="t.me/csc2_0"]{background:transparent!important;color:#f6f1e4!important;border:1px solid rgba(242,183,5,.5);box-shadow:none}
+html[data-tema="stadio"] a.btn[href*="t.me/csc2_0"]:hover{background:rgba(242,183,5,.14)!important}
+html[data-tema="stadio"] .strip{min-height:36px;display:flex;align-items:center;justify-content:center}
+@media (max-width:700px){
+html[data-tema="stadio"] .card .go{padding:10px 16px;font-size:13.5px;min-height:40px;flex:none}
+html[data-tema="stadio"] .card-foot{gap:8px}
+html[data-tema="stadio"] .card .price{font-size:19px}
+html[data-tema="stadio"] .card .price small{font-size:10px}
+}
 </style>
 </head>
 <body>
@@ -1043,7 +1058,7 @@ html[data-tema="stadio"] .filters-bar{gap:10px;margin-bottom:16px}
 
 
 <div class="halloween-bar" id="halloweenBar" role="button" tabindex="0" title="Tocca per copiare il codice">🎃 Dolcetto o scherzetto? Nel carrello usa il codice <b>DOLCETTO</b> e hai il −10% <small>fino al 2 novembre · tocca per copiare</small></div>
-<div class="strip"><span id="stripShip">🚚 Spedizione gratuita in tutta Italia</span> · ✏️ Nome e numero GRATIS · ⭐ 100+ recensioni 5 stelle su Google · 🏷 Da 5 pezzi −17% · Da 10 pezzi −33%</div>
+<div class="strip"><span id="stripShip">Spedizione gratuita in tutta Italia</span></div>
 
 
 <header>
@@ -1085,7 +1100,7 @@ html[data-tema="stadio"] .filters-bar{gap:10px;margin-bottom:16px}
   </div>
   <div class="container hero-grid">
     <div>
-      <span class="eyebrow">⚽ Nuovi arrivi ogni settimana</span>
+      <span class="eyebrow">Nuovi arrivi ogni settimana</span>
       <h1 class="display typing" id="heroTitle" aria-label="Indossa la tua passione. Scendi in campo con noi.">Indossa la tua <span class="volt">passione</span></h1>
       <script>
       /* Titolo hero che si scrive e si cancella da solo, a giri:
@@ -1147,7 +1162,7 @@ html[data-tema="stadio"] .filters-bar{gap:10px;margin-bottom:16px}
       <p class="lead">Maglie, kit, tute e molto altro delle migliori squadre europee e non solo. Scegli dal catalogo con foto reali, personalizza con <b style="color:var(--volt)">nome e numero gratis</b> e ordina in un messaggio.</p>
       <div class="hero-ctas">
         <a class="btn btn-volt" href="#catalogo">Apri il catalogo</a>
-        <a class="btn" href="https://t.me/csc2_0" target="_blank" style="background:#229ED9;color:#fff;font-weight:700">✈️ Scrivici su Telegram</a>
+        <a class="btn" href="https://t.me/csc2_0" target="_blank" style="background:#229ED9;color:#fff;font-weight:700">Scrivici su Telegram</a>
       </div>
       <div class="stats">
         <div class="stat"><b>3<i>+</i></b><span>Anni di attività</span></div>
@@ -1539,8 +1554,8 @@ window.addEventListener("load", function(){
       <div>
         <h4>Contatti</h4>
         <a href="https://www.instagram.com/c_s_c_2.0" target="_blank">📸 Instagram · @c_s_c_2.0</a>
-        <a href="https://t.me/csc2_0" target="_blank">✈️ Telegram · Scrivici direttamente</a>
-        <a href="https://t.me/completinisc" target="_blank">👥 Gruppo Telegram · Unisciti</a>
+        <a href="https://t.me/csc2_0" target="_blank">Telegram · Scrivici direttamente</a>
+        <a href="https://t.me/completinisc" target="_blank">Gruppo Telegram · Unisciti</a>
         <a href="mailto:info@completinicalcio.it">✉️ info@completinicalcio.it</a>
       </div>
       <div>
@@ -1747,11 +1762,10 @@ window.addEventListener("load", function(){
 
 <!-- ============ COOKIE BANNER (GDPR) ============ -->
 <div class="cookie-card" id="cookieCard">
-  <div style="font-size:22px;margin-bottom:8px;">🍪</div>
   <div style="font-size:13px;font-weight:800;color:#111;margin-bottom:5px;">Usiamo i cookie</div>
   <p style="font-size:11.5px;color:#777;line-height:1.6;margin:0 0 14px;">Utilizziamo cookie tecnici e di analisi per migliorare la tua esperienza di navigazione.</p>
   <div style="display:flex;gap:8px;">
-    <button id="cookieAcceptAll" style="flex:1;background:linear-gradient(135deg,#25d366,#1ebe5d);color:#fff;border:none;border-radius:8px;padding:9px 6px;font-size:12px;font-weight:800;cursor:pointer;">✓ Accetta tutti</button>
+    <button id="cookieAcceptAll" style="flex:1;background:linear-gradient(135deg,#25d366,#1ebe5d);color:#fff;border:none;border-radius:8px;padding:9px 6px;font-size:12px;font-weight:800;cursor:pointer;">Accetta tutti</button>
     <button id="cookieNecessaryOnly" style="flex:1;background:#f5f5f5;color:#666;border:1px solid #e0e0e0;border-radius:8px;padding:9px 6px;font-size:12px;font-weight:700;cursor:pointer;">Solo necessari</button>
   </div>
 </div>
@@ -2570,7 +2584,7 @@ const tabsEl = document.getElementById("tabs");
 CATALOG.forEach((c,i)=>{
   const b = document.createElement("button");
   b.className = "tab" + (i===0 ? " active" : "");
-  b.textContent = `${c.flag} ${c.name}`;
+  b.textContent = c.name;
   if (c.pronta) b.classList.add("tab-pc");
   b.onclick = ()=>{
     document.querySelectorAll("#tabs .tab").forEach(t=>t.classList.remove("active"));
@@ -2718,11 +2732,11 @@ function renderSearchResults(items){
     card.className = "card";
     card.style.animationDelay = `${Math.min(i,10)*40}ms`;
     card.innerHTML = `
-      <img class="ph" src="${thumbUrl(it.id)}" alt="${cleanName(it.name)}" decoding="async"
+      <img class="ph" src="${thumbUrl(it.id)}" alt="${cleanName(it.name)}" loading="lazy" decoding="async"
            onerror="this.style.opacity=.15">
       <span class="avail"${statoPronta(it.id, it) === "venduto" ? ' style="background:#c62828;color:#fff"' : ""}>${statoPronta(it.id, it) === "venduto" ? "VENDUTO" : "Disponibile"}</span>
       <h3>${cleanName(it.name)}</h3>
-      <div class="team">${it._cat.flag} ${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
+      <div class="team">${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
       ${taglieVetrinaHtml(it)}
       <div class="card-foot">
         <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "spedizione gratis · 24-48h" : "spedizione inclusa"}</small></div>
@@ -2837,7 +2851,7 @@ function renderGrid(){
     // il riquadro unico faceva pensare che ce ne fosse solo uno
     const kits = it.varianti || [];
     card.innerHTML = `
-      <img class="ph" src="${thumbUrl(it.id)}" alt="${cleanName(it.name)}" decoding="async"
+      <img class="ph" src="${thumbUrl(it.id)}" alt="${cleanName(it.name)}" loading="lazy" decoding="async"
            onerror="this.style.opacity=.15">
       <span class="avail"${statoPronta(it.id, it) === "venduto" ? ' style="background:#c62828;color:#fff"' : ""}>${statoPronta(it.id, it) === "venduto" ? "VENDUTO" : "Disponibile"}</span>
       <h3>${kits.length > 1 ? cleanName(it.team || it.name) : cleanName(it.name)}</h3>
@@ -4298,11 +4312,22 @@ function renderConsegna(){
   const strip = document.getElementById("stripShip");
   const ship = document.getElementById("shipBox");
   const cartShip = document.getElementById("cartShipBox");
-  if (strip)    strip.textContent = `🚚 Spedizione gratuita · Consegna ${testo}`;
+  window._stripConsegna = `Spedizione gratuita · Consegna ${testo}`;
   if (ship)     ship.textContent  = `🚚 Spedizione gratuita · Consegna ${testo}`;
   if (cartShip) cartShip.textContent = `🚚 Spedizione gratuita · Consegna ${testo}`;
 }
 renderConsegna();
+/* Barra in alto: un'offerta alla volta, a rotazione (12/11/26) */
+(function(){
+  var el=document.getElementById("stripShip"); if(!el) return;
+  var i=0;
+  function msgs(){ return [window._stripConsegna||"Spedizione gratuita in tutta Italia","Nome e numero gratis","100+ recensioni 5 stelle su Google","Da 5 pezzi −17% · Da 10 pezzi −33%"]; }
+  function show(){ el.textContent=msgs()[i%4]; }
+  show();
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  el.style.transition="opacity .35s ease";
+  setInterval(function(){ el.style.opacity=0; setTimeout(function(){ i++; show(); el.style.opacity=1; },350); },4200);
+})();
 
 /* ================= tabella taglie ================= */
 // Maglie/Tute switch
