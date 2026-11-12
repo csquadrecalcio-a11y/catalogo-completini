@@ -1242,7 +1242,6 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
       <a class="btn btn-volt pc-cta" id="pcTutte" href="?cat=Pronta%20Consegna">Vedi tutta la pronta consegna →</a>
     </div>
     <div class="pc-row" id="pcRow"></div>
-    <div class="pc-more" id="pcTuteMore" style="display:none;text-align:center;margin-top:18px"><a class="btn btn-ghost" href="?cat=Tute">Vedi tutte le tute &rarr;</a></div>
   </div>
 </section>
 <script>
@@ -1252,31 +1251,6 @@ window.addEventListener("load", function(){
     capi = (capi || []).filter(function(c){ return !c.esaurito && c.taglie && c.taglie.length; });
     if (!capi.length) return;
     var row = document.getElementById("pcRow"), tot = 0;
-    /* Sotto "Non vuoi aspettare": prima le TUTE (dalla cartella Tute del catalogo), poi il cliente sceglie (13/11/26).
-       Se le tute non si caricano restano le maglie in pronta consegna. */
-    var tuteOk = false;
-    function mostraTute(){
-      var q = "'1KeNMrvV_qgI0hH3FGUdoN8069_-LnyDZ' in parents and mimeType contains 'image/' and trashed=false";
-      var u = "https://www.googleapis.com/drive/v3/files?q=" + encodeURIComponent(q) + "&fields=files(id,name)&orderBy=modifiedTime%20desc&pageSize=40&key=" + API_KEY;
-      return fetch(u).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
-        var files = ((d && d.files) || []).filter(function(f){ return !/bambin|non\s*disp|venduto/i.test(f.name); }).slice(0, 8);
-        if (files.length < 3) return false;
-        row.innerHTML = "";
-        files.forEach(function(f){
-          var nome = cleanName(f.name).replace(/Paseggio/i, "Passeggio");
-          var prezzo = /cappuccio/i.test(f.name) ? 65 : (/pass?eggio/i.test(f.name) ? 60 : 50);
-          var a = document.createElement("a");
-          a.className = "pc-card";
-          a.href = "?cat=Tute&photo=" + encodeURIComponent(f.id);
-          a.innerHTML = '<img src="' + thumbUrl(f.id) + '" alt="' + nome.replace(/"/g, "") + '" loading="lazy">' +
-            '<div class="pc-body"><h3>' + nome + '</h3><div class="pc-tg"><span>S</span><span>M</span><span>L</span><span>XL</span><span>XXL</span></div>' +
-            '<div class="pc-foot"><span>' + prezzo + '&euro; <small>spedizione gratis</small></span><span style="color:var(--volt)">Apri &rarr;</span></div></div>';
-          row.appendChild(a);
-        });
-        document.getElementById("pcTuteMore").style.display = "";
-        return true;
-      }).catch(function(){ return false; });
-    }
     var pulisci = function(t){ return String(t || "").replace(/^Maglia\s+/i, ""); };
     var lab = function(sz){ var m = /^(\S+)\s*\((.+)\)$/.exec(sz); return m ? m[1] + " · " + m[2] : sz; };
     capi.forEach(function(c){
@@ -1292,7 +1266,7 @@ window.addEventListener("load", function(){
       row.appendChild(a);
     });
     document.getElementById("pcTutte").textContent = "Vedi tutte le " + tot + " maglie pronte →";
-    mostraTute().then(function(){ document.getElementById("pronta-home").style.display = ""; });
+    document.getElementById("pronta-home").style.display = "";
   }).catch(function(){});
 });
 </script>
