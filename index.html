@@ -5,7 +5,7 @@
 /* Tema stagionale in base alla data (20/10/26): ottobre autunno, 20/10-2/11 Halloween, dal 3/11 normale.
    Black Friday e Natale si aggiungono qui. Per forzare un tema: scrivi ?tema=halloween nell'indirizzo. */
 (function(){
-  var d=new Date(), m=d.getMonth()+1, g=d.getDate(), t="";
+  var d=new Date(), m=d.getMonth()+1, g=d.getDate(), t="stadio";
   if (m===10) t = g>=20 ? "halloween" : "autunno";
   else if (m===11 && g<=2) t = "halloween";
   try{ var q=new URLSearchParams(location.search).get("tema"); if (q!==null) t=q; }catch(e){}
@@ -953,6 +953,49 @@ gtag('config', 'G-SYPQZL1L7W');
     .header-search{margin:0 8px}
   }
 
+</style>
+<style id="tema-stadio">
+/* Tema Stadio (nero e oro), attivo dal 12/11/26. Per tornare al blu: nello script in alto rimettere t="" */
+html[data-tema="stadio"]{--bg:#0a0a0b;--panel:#141416;--panel-2:#1d1d20;--text:#f6f1e4;--muted:#a49e8c;--volt:#f2b705;--bg-rgb:10,10,11;--fg-rgb:246,241,228}
+html[data-tema="stadio"] .btn-volt,html[data-tema="stadio"] .tab.active{color:#111!important}
+html[data-tema="stadio"] .strip{background:linear-gradient(90deg,#8a6a00,#f2b705 50%,#8a6a00);color:#111}
+html[data-tema="stadio"] .hero{background:#0a0a0b}
+html[data-tema="stadio"] .pitch{background:radial-gradient(900px 520px at 82% 18%,rgba(242,183,5,.28),transparent 62%),radial-gradient(700px 460px at 8% 100%,rgba(242,183,5,.10),transparent 60%),linear-gradient(160deg,#050505 0%,#121214 55%,#1f1a08 100%)}
+html[data-tema="stadio"] body{background:radial-gradient(1200px 500px at 50% -80px,rgba(242,183,5,.07),transparent 70%),#0a0a0b}
+html[data-tema="stadio"] ::selection{background:#f2b705;color:#111}
+html[data-tema="stadio"] .btn-volt{background:linear-gradient(135deg,#ffd54a 0%,#f2b705 55%,#c98f00 100%);color:#111;font-weight:800;box-shadow:0 8px 28px rgba(242,183,5,.28),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .2s,box-shadow .2s}
+html[data-tema="stadio"] .btn-volt:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(242,183,5,.42),inset 0 1px 0 rgba(255,255,255,.4)}
+html[data-tema="stadio"] .btn-ghost{border-color:rgba(242,183,5,.45);color:#f6f1e4}
+html[data-tema="stadio"] .btn-ghost:hover{background:rgba(242,183,5,.12)}
+html[data-tema="stadio"] .nav{background:rgba(10,10,11,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(242,183,5,.22)}
+html[data-tema="stadio"] .hero .eyebrow{border-color:rgba(242,183,5,.5);background:rgba(242,183,5,.08);color:#ffe08a}
+html[data-tema="stadio"] .card{background:linear-gradient(180deg,#18181b,#111113);border:1px solid rgba(242,183,5,.14);box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .25s,border-color .25s,box-shadow .25s}
+html[data-tema="stadio"] .card:hover{transform:translateY(-5px);border-color:rgba(242,183,5,.7);box-shadow:0 18px 44px rgba(0,0,0,.6),0 0 0 1px rgba(242,183,5,.25),0 0 40px rgba(242,183,5,.12)}
+html[data-tema="stadio"] .price{color:#ffd54a}
+html[data-tema="stadio"] .kicker,html[data-tema="stadio"] .sheet-league{color:#f2b705;letter-spacing:.18em}
+html[data-tema="stadio"] .sec-head h2::after{content:"";display:block;width:56px;height:3px;margin-top:12px;border-radius:3px;background:linear-gradient(90deg,#f2b705,transparent)}
+html[data-tema="stadio"] .stat,html[data-tema="stadio"] .offer,html[data-tema="stadio"] .step,html[data-tema="stadio"] .review,html[data-tema="stadio"] .pc-card{border:1px solid rgba(242,183,5,.16);background:linear-gradient(180deg,#17171a,#101012)}
+html[data-tema="stadio"] .pc-card:hover,html[data-tema="stadio"] .stat:hover{border-color:rgba(242,183,5,.6)}
+html[data-tema="stadio"] .pill.active,html[data-tema="stadio"] .tab.active,html[data-tema="stadio"] .chip-p.active{background:#f2b705;color:#111;border-color:#f2b705}
+html[data-tema="stadio"] .google-badge{border:1px solid rgba(242,183,5,.25)}
+html[data-tema="stadio"] .stars,html[data-tema="stadio"] .gb-stars{color:#f2b705}
+html[data-tema="stadio"] .btn-wa{box-shadow:0 8px 26px rgba(37,211,102,.22)}
+html[data-tema="stadio"] ::-webkit-scrollbar{width:10px}html[data-tema="stadio"] ::-webkit-scrollbar-thumb{background:#2a2a2e;border-radius:10px}
+html[data-tema="stadio"] .hero{min-height:min(86svh,820px);text-align:center}
+html[data-tema="stadio"] .hero-grid{grid-template-columns:1fr;justify-items:center}
+html[data-tema="stadio"] .hero-grid>div{max-width:860px;display:flex;flex-direction:column;align-items:center}
+html[data-tema="stadio"] .hero h1{font-size:clamp(40px,6.4vw,92px);letter-spacing:.01em;text-align:center}
+html[data-tema="stadio"] .hero h1 .volt{background:linear-gradient(180deg,#ffe27a 0%,#f2b705 55%,#b88300 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 24px rgba(242,183,5,.35))}
+html[data-tema="stadio"] .hero h1 .caret{background:#f2b705}
+html[data-tema="stadio"] .hero h1::after{content:"";display:block;width:120px;height:3px;margin:22px auto 0;border-radius:3px;background:linear-gradient(90deg,transparent,#f2b705,transparent)}
+html[data-tema="stadio"] .hero p.lead{margin:22px auto 30px;max-width:620px;text-align:center}
+html[data-tema="stadio"] .hero-ctas{justify-content:center}
+html[data-tema="stadio"] .hero .stats{justify-content:center;gap:16px;margin-top:44px}
+html[data-tema="stadio"] .hero .stat{min-width:150px;padding:16px 22px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(242,183,5,.22);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);text-align:center}
+html[data-tema="stadio"] .hero .stat b{color:#fff;font-size:32px}
+html[data-tema="stadio"] .hero .stat span{color:rgba(246,241,228,.65);font-size:11.5px}
+html[data-tema="stadio"] .pitch svg{left:50%!important;right:auto!important;top:50%!important;transform:translate(-50%,-50%)!important;opacity:.22}
+html[data-tema="stadio"] .pitch{background:radial-gradient(700px 420px at 50% 40%,rgba(242,183,5,.22),transparent 65%),radial-gradient(900px 500px at 50% 110%,rgba(242,183,5,.10),transparent 60%),linear-gradient(180deg,#050505 0%,#101012 60%,#17120a 100%)}
 </style>
 </head>
 <body>
