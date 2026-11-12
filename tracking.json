@@ -10136,6 +10136,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-12 19:43:41",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
         "data": "2026-11-12 18:44:17",
         "luogo": "",
         "stato": "Sdoganamento all'export completato"
