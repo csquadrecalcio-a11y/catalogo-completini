@@ -1221,15 +1221,60 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
         </a>
       </div>
     <div class="hero-photos">
-      <a class="hp hp1" href="#catalogo" aria-label="Maglie Roma"><img src="hero/roma.jpg" alt="Kit Roma Home 26/27" width="640" height="640"><span>Roma</span></a>
-      <a class="hp hp2" href="#catalogo" aria-label="Maglie Milan"><img src="hero/milan.jpg" alt="Kit Milan Home 26/27" width="640" height="640"><span>Milan</span></a>
-      <a class="hp hp3" href="#catalogo" aria-label="Maglie Napoli"><img src="hero/napoli.jpg" alt="Kit Napoli Home 26/27" width="640" height="640"><span>Napoli</span></a>
+      <a class="hp hp1" href="?cat=Pronta%20Consegna" aria-label="Maglie Inter in pronta consegna"><img src="hero/inter.jpg" alt="Maglia Inter Home, pronta consegna" width="600" height="600"><span>Inter</span></a>
+      <a class="hp hp2" href="?cat=Pronta%20Consegna" aria-label="Maglie Juventus in pronta consegna"><img src="hero/juventus.jpg" alt="Maglia Juventus Home, pronta consegna" width="600" height="600"><span>Juventus</span></a>
+      <a class="hp hp3" href="?cat=Pronta%20Consegna" aria-label="Maglie Barcellona in pronta consegna"><img src="hero/barcellona.jpg" alt="Maglia Barcellona Home, pronta consegna" width="600" height="600"><span>Barcellona</span></a>
     </div>
     </div>
   </div>
 </section>
 
 <!-- ============ PRONTA CONSEGNA IN EVIDENZA ============ -->
+<section class="pc-home" id="pronta-home" style="display:none">
+  <div class="container">
+    <div class="pc-head">
+      <div>
+        <div class="pc-kick"><i></i> Pronta consegna</div>
+        <h2 class="display">Non vuoi aspettare?</h2>
+        <p><b>Maglie già in magazzino, pronte a partire.</b> Spedizione in <b>24-48 ore</b> e <b>spedizione gratuita</b>. Sono <b>pezzi unici</b>: quando una taglia finisce, finisce.</p>
+        <p style="margin-top:10px"><b>Spedizione gratis</b> su tutte le maglie in pronta consegna.</p>
+      </div>
+      <a class="btn btn-volt pc-cta" id="pcTutte" href="?cat=Pronta%20Consegna">Vedi tutta la pronta consegna →</a>
+    </div>
+    <div class="pc-row" id="pcRow"></div>
+  </div>
+</section>
+<script>
+/* Vetrina pronta consegna in home: le maglie del magazzino subito sotto la copertina */
+window.addEventListener("load", function(){
+  fetch("pronta-consegna.json?v=" + Date.now()).then(function(r){ return r.ok ? r.json() : []; }).then(function(capi){
+    capi = (capi || []).filter(function(c){ return !c.esaurito && c.taglie && c.taglie.length; });
+    if (!capi.length) return;
+    var row = document.getElementById("pcRow"), tot = 0;
+    var pulisci = function(t){ return String(t || "").replace(/^Maglia\s+/i, ""); };
+    var lab = function(sz){ var m = /^(\S+)\s*\((.+)\)$/.exec(sz); return m ? m[1] + " · " + m[2] : sz; };
+    capi.forEach(function(c){
+      tot += c.taglie.length;
+      var a = document.createElement("a");
+      a.className = "pc-card";
+      a.href = "?cat=Pronta%20Consegna&photo=" + encodeURIComponent((c.foto && c.foto[0]) || "");
+      var ult = c.taglie.length <= 2 ? '<span class="pc-ult">' + (c.taglie.length === 1 ? "Ultimo pezzo" : "Ultimi 2 pezzi") + "</span>" : "";
+      a.innerHTML = '<img src="' + ((c.foto && c.foto[0]) || "") + '" alt="' + pulisci(c.titolo).replace(/"/g, "") + '" loading="lazy">' + ult +
+        '<div class="pc-body"><h3>' + pulisci(c.titolo) + '</h3><div class="pc-tg">' +
+        c.taglie.map(function(sz){ return '<span' + (/\(.+\)/.test(sz) ? ' class="nome"' : "") + ">" + lab(sz) + "</span>"; }).join("") +
+        '</div><div class="pc-foot"><span>' + c.prezzo + '€ <small>spedizione gratis</small></span><span style="color:var(--volt)">Apri →</span></div></div>';
+      row.appendChild(a);
+    });
+    document.getElementById("pcTutte").textContent = "Vedi tutte le " + tot + " maglie pronte →";
+    document.getElementById("pronta-home").style.display = "";
+  }).catch(function(){});
+});
+</script>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee"><div class="marquee-track" id="marquee"></div></div>
+
+<!-- ============ CATALOGO ============ -->
 <section id="catalogo">
   <div class="container">
     <div class="sec-head reveal">
@@ -1438,51 +1483,6 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
 </section>
 
 <!-- ============ RECENSIONI ============ -->
-<section class="pc-home" id="pronta-home" style="display:none">
-  <div class="container">
-    <div class="pc-head">
-      <div>
-        <div class="pc-kick"><i></i> Pronta consegna</div>
-        <h2 class="display">Non vuoi aspettare?</h2>
-        <p><b>Maglie già in magazzino, pronte a partire.</b> Spedizione in <b>24-48 ore</b> e <b>spedizione gratuita</b>. Sono <b>pezzi unici</b>: quando una taglia finisce, finisce.</p>
-        <p style="margin-top:10px"><b>Spedizione gratis</b> su tutte le maglie in pronta consegna.</p>
-      </div>
-      <a class="btn btn-volt pc-cta" id="pcTutte" href="?cat=Pronta%20Consegna">Vedi tutta la pronta consegna →</a>
-    </div>
-    <div class="pc-row" id="pcRow"></div>
-  </div>
-</section>
-<script>
-/* Vetrina pronta consegna in home: le maglie del magazzino subito sotto la copertina */
-window.addEventListener("load", function(){
-  fetch("pronta-consegna.json?v=" + Date.now()).then(function(r){ return r.ok ? r.json() : []; }).then(function(capi){
-    capi = (capi || []).filter(function(c){ return !c.esaurito && c.taglie && c.taglie.length; });
-    if (!capi.length) return;
-    var row = document.getElementById("pcRow"), tot = 0;
-    var pulisci = function(t){ return String(t || "").replace(/^Maglia\s+/i, ""); };
-    var lab = function(sz){ var m = /^(\S+)\s*\((.+)\)$/.exec(sz); return m ? m[1] + " · " + m[2] : sz; };
-    capi.forEach(function(c){
-      tot += c.taglie.length;
-      var a = document.createElement("a");
-      a.className = "pc-card";
-      a.href = "?cat=Pronta%20Consegna&photo=" + encodeURIComponent((c.foto && c.foto[0]) || "");
-      var ult = c.taglie.length <= 2 ? '<span class="pc-ult">' + (c.taglie.length === 1 ? "Ultimo pezzo" : "Ultimi 2 pezzi") + "</span>" : "";
-      a.innerHTML = '<img src="' + ((c.foto && c.foto[0]) || "") + '" alt="' + pulisci(c.titolo).replace(/"/g, "") + '" loading="lazy">' + ult +
-        '<div class="pc-body"><h3>' + pulisci(c.titolo) + '</h3><div class="pc-tg">' +
-        c.taglie.map(function(sz){ return '<span' + (/\(.+\)/.test(sz) ? ' class="nome"' : "") + ">" + lab(sz) + "</span>"; }).join("") +
-        '</div><div class="pc-foot"><span>' + c.prezzo + '€ <small>spedizione gratis</small></span><span style="color:var(--volt)">Apri →</span></div></div>';
-      row.appendChild(a);
-    });
-    document.getElementById("pcTutte").textContent = "Vedi tutte le " + tot + " maglie pronte →";
-    document.getElementById("pronta-home").style.display = "";
-  }).catch(function(){});
-});
-</script>
-
-<!-- ============ MARQUEE ============ -->
-<div class="marquee"><div class="marquee-track" id="marquee"></div></div>
-
-<!-- ============ CATALOGO ============ -->
 <section id="recensioni" style="padding-top:0">
   <div class="container">
     <div class="sec-head reveal">
