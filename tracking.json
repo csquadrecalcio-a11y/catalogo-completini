@@ -7123,9 +7123,9 @@
     ]
   },
   "CSC-2026-0445": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-03",
-    "data_consegna": "",
+    "data_consegna": "2026-11-12 15:17:26",
     "corriere": "Poste Italiane",
     "tracking": "5P73D10050812",
     "corriere_2": "",
@@ -7214,6 +7214,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-12 14:32",
+        "luogo": "dalla sede operativa di NETTUNO (RM)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-12 11:25",
+        "luogo": "NETTUNO (RM)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-12 04:36",
         "luogo": "FIUMICINO (RM)",
