@@ -1026,6 +1026,55 @@ html[data-tema="stadio"] .card-foot{gap:8px}
 html[data-tema="stadio"] .card .price{font-size:19px}
 html[data-tema="stadio"] .card .price small{font-size:10px}
 }
+/* Stadio: foto delle maglie piu vendute nella parte in alto (12/11/26) */
+.hero-photos{display:none}
+html[data-tema="stadio"] .hero-photos{display:flex;justify-content:center;align-items:center;width:100%;margin-top:54px;padding-bottom:10px}
+html[data-tema="stadio"] .hp{position:relative;display:block;flex:none;width:clamp(86px,22vw,250px);aspect-ratio:4/3;border-radius:16px;overflow:hidden;border:1px solid rgba(242,183,5,.4);box-shadow:0 18px 40px rgba(0,0,0,.65),0 0 44px rgba(242,183,5,.12);margin:0 clamp(-14px,-1.2vw,-8px);transition:transform .3s ease,box-shadow .3s ease;background:#111}
+html[data-tema="stadio"] .hp img{width:100%;height:100%;object-fit:cover;display:block}
+html[data-tema="stadio"] .hp span{position:absolute;left:8px;bottom:8px;padding:4px 10px;border-radius:999px;background:rgba(10,10,11,.78);color:#ffd54a;font:800 10.5px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;border:1px solid rgba(242,183,5,.4)}
+html[data-tema="stadio"] .hp1{transform:rotate(-6deg) translateY(12px)}
+html[data-tema="stadio"] .hp2{transform:rotate(-2deg);z-index:1}
+html[data-tema="stadio"] .hp3{transform:rotate(2deg);z-index:1}
+html[data-tema="stadio"] .hp4{transform:rotate(6deg) translateY(12px)}
+html[data-tema="stadio"] .hp:hover{transform:translateY(-10px) rotate(0) scale(1.05);z-index:3;box-shadow:0 26px 54px rgba(0,0,0,.75),0 0 60px rgba(242,183,5,.28)}
+@media (max-width:700px){
+html[data-tema="stadio"] .hp{width:27vw;margin:0 -2vw}
+html[data-tema="stadio"] .hp span{left:5px;bottom:5px;padding:3px 7px;font-size:8.5px}
+html[data-tema="stadio"] .hero .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;width:100%;max-width:100%;box-sizing:border-box}
+html[data-tema="stadio"] .hero-grid>div{width:100%;min-width:0}
+html[data-tema="stadio"] .hero .stat span{white-space:normal;overflow-wrap:anywhere}
+html[data-tema="stadio"] .hero .stat{min-width:0;padding:12px 6px}
+html[data-tema="stadio"] .hero .stat b{font-size:24px}
+html[data-tema="stadio"] .hero .stat span{font-size:9.5px;letter-spacing:.03em}
+}
+/* Stadio: scheda prodotto, recensioni, pronta consegna, fondo pagina (12/11/26) */
+html[data-tema="stadio"] .pill.on{background:rgba(242,183,5,.14);border-color:#f2b705;color:#ffd54a}
+html[data-tema="stadio"] .pill.on small{color:rgba(255,213,74,.8)}
+html[data-tema="stadio"] .sheet{border:1px solid rgba(242,183,5,.28);box-shadow:0 30px 80px rgba(0,0,0,.75),0 0 60px rgba(242,183,5,.08)}
+html[data-tema="stadio"] .sheet-preview{background:radial-gradient(520px 360px at 50% 42%,rgba(242,183,5,.14),transparent 70%),#0d0d0f}
+html[data-tema="stadio"] .sheet-preview img{filter:drop-shadow(0 18px 30px rgba(0,0,0,.55))}
+html[data-tema="stadio"] .sheet-body h3{letter-spacing:.01em}
+html[data-tema="stadio"] .sheet-close{border:1px solid rgba(242,183,5,.35)}
+html[data-tema="stadio"] .review{background:linear-gradient(180deg,#17171a,#101012);border:1px solid rgba(242,183,5,.18);box-shadow:0 10px 30px rgba(0,0,0,.4);transition:transform .25s,border-color .25s}
+html[data-tema="stadio"] .review:hover{transform:translateY(-4px);border-color:rgba(242,183,5,.55)}
+html[data-tema="stadio"] .review p{color:#d9d4c6}
+html[data-tema="stadio"] .rev-photo{border:1px solid rgba(242,183,5,.25);box-shadow:0 8px 24px rgba(0,0,0,.5);border-radius:16px}
+html[data-tema="stadio"] .rev-photo:hover{border-color:#f2b705;box-shadow:0 14px 34px rgba(0,0,0,.65),0 0 30px rgba(242,183,5,.2)}
+html[data-tema="stadio"] .pc-home{background:radial-gradient(900px 320px at 50% 0%,rgba(242,183,5,.14),transparent 70%),linear-gradient(180deg,#121008,#0a0a0b);border-top:1px solid rgba(242,183,5,.25);border-bottom:1px solid rgba(242,183,5,.12)}
+html[data-tema="stadio"] .pc-kick{background:linear-gradient(135deg,#ffd54a,#f2b705 55%,#c98f00);color:#111}
+html[data-tema="stadio"] .pc-card{background:linear-gradient(180deg,#17171a,#101012);border:1px solid rgba(242,183,5,.2);box-shadow:0 12px 30px rgba(0,0,0,.5);transition:transform .25s,border-color .25s}
+html[data-tema="stadio"] .pc-card:hover{transform:translateY(-5px);border-color:rgba(242,183,5,.65)}
+html[data-tema="stadio"] footer{background:linear-gradient(180deg,#0e0e10,#070708);border-top:1px solid rgba(242,183,5,.25)}
+html[data-tema="stadio"] footer h4,html[data-tema="stadio"] footer .foot-grid h4{color:#f2b705;letter-spacing:.14em}
+html[data-tema="stadio"] footer a{transition:color .15s,transform .15s}
+html[data-tema="stadio"] footer a:hover{color:#ffd54a}
+html[data-tema="stadio"] .foot-teams-grid a{border:1px solid rgba(242,183,5,.2);background:rgba(255,255,255,.02)}
+html[data-tema="stadio"] .foot-teams-grid a:hover{border-color:#f2b705;color:#ffd54a;transform:translateY(-2px)}
+html[data-tema="stadio"] .foot-bottom{border-top:1px solid rgba(242,183,5,.18)}
+/* entrata morbida delle sezioni quando scorri */
+@media (prefers-reduced-motion:no-preference){
+html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
+}
 </style>
 </head>
 <body>
@@ -1072,7 +1121,7 @@ html[data-tema="stadio"] .card .price small{font-size:10px}
       <input id="headerSearchInp" type="text" placeholder="Cerca maglia, squadra…">
     </div>
     <nav class="nav-links">
-      <a class="nav-pc" href="?cat=Pronta%20Consegna">⚡ Pronta consegna</a>
+      <a class="nav-pc" href="?cat=Pronta%20Consegna">Pronta consegna</a>
       <a href="#catalogo">Catalogo</a>
       <a href="#offerte">Offerte</a>
       <a href="#taglie">Guida taglie</a>
@@ -1172,6 +1221,12 @@ html[data-tema="stadio"] .card .price small{font-size:10px}
           <span>Recensioni Google</span>
         </a>
       </div>
+    <div class="hero-photos">
+      <a class="hp hp1" href="#catalogo" aria-label="Maglie Roma"><img src="hero/roma.jpg" alt="Kit Roma Home 26/27" width="560" height="420"><span>Roma</span></a>
+      <a class="hp hp2" href="#catalogo" aria-label="Maglie Juventus"><img src="hero/juventus.jpg" alt="Kit Juventus Home 26/27" width="560" height="420"><span>Juventus</span></a>
+      <a class="hp hp3" href="#catalogo" aria-label="Maglie Milan"><img src="hero/milan.jpg" alt="Kit Milan Home 26/27" width="560" height="420"><span>Milan</span></a>
+      <a class="hp hp4" href="#catalogo" aria-label="Maglie Inter"><img src="hero/inter.jpg" alt="Kit Inter Home 26/27" width="560" height="420"><span>Inter</span></a>
+    </div>
     </div>
   </div>
 </section>
@@ -1184,7 +1239,7 @@ html[data-tema="stadio"] .card .price small{font-size:10px}
         <div class="pc-kick"><i></i> Pronta consegna</div>
         <h2 class="display">Non vuoi aspettare?</h2>
         <p><b>Maglie già in magazzino, pronte a partire.</b> Spedizione in <b>24-48 ore</b> e <b>spedizione gratuita</b>. Sono <b>pezzi unici</b>: quando una taglia finisce, finisce.</p>
-        <p style="margin-top:10px"><b>🎁 Spedizione gratis</b> su tutte le maglie in pronta consegna.</p>
+        <p style="margin-top:10px"><b>Spedizione gratis</b> su tutte le maglie in pronta consegna.</p>
       </div>
       <a class="btn btn-volt pc-cta" id="pcTutte" href="?cat=Pronta%20Consegna">Vedi tutta la pronta consegna →</a>
     </div>
@@ -3297,7 +3352,7 @@ function openProduct(item){
   const qtyRow = document.getElementById("qtyRow");
   const qtyLbl = document.getElementById("qtyLabel");
   if (S.type.pronta){
-    if (boxSped) boxSped.textContent = "⚡ Pronta consegna · pezzo unico, 24-48h · 🎁 spedizione gratis";
+    if (boxSped) boxSped.textContent = "Pronta consegna · pezzo unico, 24-48h · spedizione gratis";
     if (lblTot)  lblTot.textContent = "Prezzo · spedizione gratis";
     // niente selettore quantita: di quel capo ce n'e uno solo
     S.qty = 1;
