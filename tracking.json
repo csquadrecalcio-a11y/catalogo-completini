@@ -6854,7 +6854,7 @@
     ]
   },
   "CSC-2026-0443": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-11-01",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -6875,6 +6875,21 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-12 08:54:04",
+        "luogo": "Napoli (na)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-11 23:42:10",
+        "luogo": "Gricignano di aversa (ce)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-11 23:42:00",
+        "luogo": "Gricignano di aversa",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-11-11 11:02:30",
         "luogo": "Napoli (na)",
         "stato": "In transito, la spedizione è in transito"
@@ -6891,13 +6906,13 @@
       },
       {
         "data": "2026-11-10 09:22:00",
-        "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-10 09:22:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-11-08 15:09:16",
@@ -6982,8 +6997,13 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-11 16:42",
-        "luogo": "GRICIGNANO DI AVERSA (CE)",
+        "data": "2026-11-12 10:19",
+        "luogo": "NAPOLI (NA)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-11-12 08:57",
+        "luogo": "NAPOLI (NA)",
         "stato": "La spedizione è in transito"
       }
     ]
