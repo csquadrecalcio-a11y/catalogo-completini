@@ -6506,6 +6506,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-11 13:48:45",
+        "luogo": "Torino (to)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-11-11 04:15:00",
         "luogo": "Roma",
         "stato": "In transito nella rete di Poste Italiane"
