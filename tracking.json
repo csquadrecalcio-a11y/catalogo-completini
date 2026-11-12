@@ -8336,6 +8336,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-11 17:15:00",
+        "luogo": "",
+        "stato": "Arrivato in Italia"
+      },
+      {
         "data": "2026-11-10 05:55:00",
         "luogo": "",
         "stato": "Lavorato nel centro di smistamento per l'estero"
