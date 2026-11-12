@@ -8730,6 +8730,11 @@
     "eventi_cina": [
       {
         "data": "2026-11-11 11:19:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-11 11:19:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
       },
