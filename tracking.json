@@ -9054,6 +9054,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-11 15:34:01",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-11-10 18:33:43",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-11-09 20:52:43",
         "luogo": "FCO",
         "stato": "Arrivato all'aeroporto di destinazione"
@@ -9106,12 +9116,12 @@
       {
         "data": "2026-11-01 14:08:34",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-11-01 14:08:34",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": []
