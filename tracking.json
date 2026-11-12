@@ -10106,6 +10106,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-12 18:44:17",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-11-12 18:43:41",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
         "data": "2026-11-12 18:30:56",
         "luogo": "",
         "stato": "Arrivo in Italia previsto: 15 novembre"
