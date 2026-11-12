@@ -1782,6 +1782,7 @@ window.addEventListener("load", function(){
 
     <h3 style="font-size:15px;margin-top:20px;">Quali dati raccogliamo</h3>
     <p>Quando effettui un ordine raccogliamo: nome e cognome, indirizzo di spedizione, numero di telefono. Questi dati sono necessari esclusivamente per elaborare ed evadere il tuo ordine.</p>
+    <p>Per mostrarti la data di consegna stimata nella tua città, il sito ricava la tua posizione approssimativa (solo la città) dal tuo indirizzo IP tramite un servizio esterno (ipwho.is). Il dato non viene salvato da noi né associato a te.</p>
 
     <h3 style="font-size:15px;margin-top:20px;">Come usiamo i tuoi dati</h3>
     <ul>
@@ -3305,7 +3306,7 @@ function openProduct(item){
   } else {
     if (qtyRow) qtyRow.style.display = "";
     if (qtyLbl) qtyLbl.style.display = "";
-    if (boxSped) boxSped.textContent = `🚚 Spedizione gratuita · Consegna entro il ${geoConsegna.entro}`;
+    if (boxSped) boxSped.textContent = `Spedizione gratuita · Consegna ${consegnaTesto()}`;
     if (lblTot)  lblTot.textContent = "Prezzo · spedizione inclusa";
   }
   overlay.classList.add("open");
@@ -4294,29 +4295,58 @@ document.getElementById("privacyModal").addEventListener("click", e=>{
    8-15 giorni LAVORATIVI da oggi. (Rimossa la città via geolocalizzazione IP:
    su rete mobile spesso risultava sbagliata, es. IP registrati sul gateway
    regionale dell'operatore invece che sulla città reale del cliente.) */
+/* Giorni lavorativi da oggi, saltando sabato, domenica e le feste fisse italiane (12/11/26) */
+const FESTIVI_IT = ["01-01","01-06","04-25","05-01","06-02","08-15","11-01","12-08","12-25","12-26"];
 function ggLav(giorni){
   const d = new Date();
   let agg = 0;
   while (agg < giorni){
     d.setDate(d.getDate()+1);
     const g = d.getDay();
-    if (g !== 0 && g !== 6) agg++;
+    const mmdd = String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+    if (g !== 0 && g !== 6 && FESTIVI_IT.indexOf(mmdd) < 0) agg++;
   }
   return d.toLocaleDateString("it-IT", {day:"numeric", month:"long"});
 }
 
-const geoConsegna = { entro: ggLav(20) };
+/* Consegna stimata: max 2 giorni lavorativi di preparazione e spedizione + 15 giorni lavorativi di consegna = 17 */
+const GG_PREPARAZIONE = 2, GG_CONSEGNA = 15;
+const geoConsegna = { entro: ggLav(GG_PREPARAZIONE + GG_CONSEGNA), citta: "" };
+function consegnaTesto(){
+  const c = (geoConsegna.citta || "").trim();
+  return (c ? `a ${c} ` : "") + `entro il ${geoConsegna.entro}`;
+}
 
 function renderConsegna(){
-  const testo = `entro il ${geoConsegna.entro}`;
+  const testo = consegnaTesto();
   const strip = document.getElementById("stripShip");
   const ship = document.getElementById("shipBox");
   const cartShip = document.getElementById("cartShipBox");
   window._stripConsegna = `Spedizione gratuita · Consegna ${testo}`;
-  if (ship)     ship.textContent  = `🚚 Spedizione gratuita · Consegna ${testo}`;
-  if (cartShip) cartShip.textContent = `🚚 Spedizione gratuita · Consegna ${testo}`;
+  if (ship)     ship.textContent  = `Spedizione gratuita · Consegna ${testo}`;
+  if (cartShip) cartShip.textContent = `Spedizione gratuita · Consegna ${testo}`;
 }
 renderConsegna();
+/* Citta del visitante dalla sua posizione approssimativa (IP), solo se in Italia; se qualcosa non va resta il testo generico.
+   Nel carrello, appena scrive la citta di spedizione, si aggiorna con quella (piu precisa). */
+(function(){
+  function applica(c){ geoConsegna.citta = c || ""; renderConsegna(); var st=document.getElementById("stripShip"); if (st && (st.textContent||"").indexOf("Consegna")===0) st.textContent = window._stripConsegna; }
+  try{ var c0 = sessionStorage.getItem("geoCitta"); if (c0 !== null){ applica(c0); } }catch(e){}
+  try{
+    if (sessionStorage.getItem("geoCitta") === null){
+      fetch("https://ipwho.is/?fields=success,city,country_code")
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          var IT = {"Naples":"Napoli","Rome":"Roma","Milan":"Milano","Turin":"Torino","Florence":"Firenze","Venice":"Venezia","Genoa":"Genova","Padua":"Padova","Mantua":"Mantova","Syracuse":"Siracusa","Bolzano":"Bolzano","Leghorn":"Livorno","Cagliari":"Cagliari","Bari":"Bari"};
+          var c = (d && d.success && d.country_code === "IT" && d.city) ? (IT[d.city] || d.city) : "";
+          try{ sessionStorage.setItem("geoCitta", c); }catch(e){}
+          applica(c);
+        }).catch(function(){});
+    }
+  }catch(e){}
+  var inp = document.getElementById("orderCitta");
+  if (inp) inp.addEventListener("input", function(){ var v = inp.value.trim(); if (v.length >= 3){ geoConsegna.citta = v; renderConsegna(); } });
+})();
 /* Barra in alto: un'offerta alla volta, a rotazione (12/11/26) */
 (function(){
   var el=document.getElementById("stripShip"); if(!el) return;
