@@ -996,6 +996,21 @@ html[data-tema="stadio"] .hero .stat b{color:#fff;font-size:32px}
 html[data-tema="stadio"] .hero .stat span{color:rgba(246,241,228,.65);font-size:11.5px}
 html[data-tema="stadio"] .pitch svg{left:50%!important;right:auto!important;top:50%!important;transform:translate(-50%,-50%)!important;opacity:.22}
 html[data-tema="stadio"] .pitch{background:radial-gradient(700px 420px at 50% 40%,rgba(242,183,5,.22),transparent 65%),radial-gradient(900px 500px at 50% 110%,rgba(242,183,5,.10),transparent 60%),linear-gradient(180deg,#050505 0%,#101012 60%,#17120a 100%)}
+/* Stadio: ordine su telefono (12/11/26) - righe di filtri su una sola riga che scorre, chip in oro, barra offerte piu compatta */
+html[data-tema="stadio"] .chip-q{background:rgba(242,183,5,.08);color:#ffd54a;border:1px solid rgba(242,183,5,.35)}
+html[data-tema="stadio"] .chip-q:hover{background:#f2b705;color:#111;border-color:#f2b705}
+html[data-tema="stadio"] .chip-t.active,html[data-tema="stadio"] .chip-p.active{border-color:#f2b705;color:#ffd54a;background:rgba(242,183,5,.10)}
+@media (max-width:700px){
+html[data-tema="stadio"] .strip{font-size:11px;padding:7px 12px;letter-spacing:.02em;line-height:1.45}
+html[data-tema="stadio"] .cat-tabs,html[data-tema="stadio"] .quick-teams,html[data-tema="stadio"] .price-chips{flex-wrap:nowrap;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-right:-16px;padding-right:16px;padding-bottom:6px;-webkit-mask-image:linear-gradient(to right,#000 90%,transparent);mask-image:linear-gradient(to right,#000 90%,transparent)}
+html[data-tema="stadio"] .cat-tabs::-webkit-scrollbar,html[data-tema="stadio"] .quick-teams::-webkit-scrollbar,html[data-tema="stadio"] .price-chips::-webkit-scrollbar{display:none}
+html[data-tema="stadio"] .quick-teams>*,html[data-tema="stadio"] .cat-tabs>*,html[data-tema="stadio"] .price-chips>*{flex:none}
+html[data-tema="stadio"] .price-chips,html[data-tema="stadio"] .quick-teams,html[data-tema="stadio"] .cat-tabs{min-width:0;max-width:calc(100% + 16px)}
+html[data-tema="stadio"] .cat-tabs{margin-bottom:12px;gap:8px}
+html[data-tema="stadio"] .tab{padding:9px 15px;font-size:13px}
+html[data-tema="stadio"] .quick-teams{margin-bottom:12px}
+html[data-tema="stadio"] .filters-bar{gap:10px;margin-bottom:16px}
+}
 </style>
 </head>
 <body>
