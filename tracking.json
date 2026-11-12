@@ -7143,6 +7143,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-12 18:25:23",
+        "luogo": "Nettuno (rm)",
+        "stato": "In consegna, la spedizione è in consegna"
+      },
+      {
+        "data": "2026-11-12 11:36:20",
+        "luogo": "Fiumicino (rm)",
+        "stato": "In transito"
+      },
+      {
         "data": "2026-11-12 11:36:20",
         "luogo": "Fiumicino (rm)",
         "stato": "In transito, la spedizione è in transito"
