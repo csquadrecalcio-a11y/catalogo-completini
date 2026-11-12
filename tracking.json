@@ -6879,9 +6879,9 @@
     ]
   },
   "CSC-2026-0443": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-01",
-    "data_consegna": "",
+    "data_consegna": "2026-11-12 12:09:40",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J225948",
     "corriere_2": "",
