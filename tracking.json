@@ -7143,6 +7143,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-12 11:36:20",
+        "luogo": "Fiumicino (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-11-11 15:42:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
@@ -7200,8 +7205,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-11 08:42",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-11-12 04:36",
+        "luogo": "FIUMICINO (RM)",
         "stato": "La spedizione è in transito"
       }
     ]
