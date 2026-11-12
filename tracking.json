@@ -7800,6 +7800,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-11 23:19:00",
+        "luogo": "Fiumicino",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-11-11 06:04:15",
         "luogo": "Fiumicino (rm)",
         "stato": "In transito, la spedizione è in transito"
@@ -7816,13 +7821,13 @@
       },
       {
         "data": "2026-11-10 10:02:00",
-        "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-10 10:02:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-11-06 10:38:11",
