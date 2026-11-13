@@ -8544,9 +8544,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0458": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-29",
-    "data_consegna": "",
+    "data_consegna": "2026-11-13 16:24:19",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J200166",
     "corriere_2": "",
@@ -8657,8 +8657,18 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-12 15:21",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-11-13 13:47",
+        "luogo": "dalla sede operativa di ROMA (RM)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-13 11:43",
+        "luogo": "ROMA (RM)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-11-13 09:42",
+        "luogo": "ROMA (RM)",
         "stato": "La spedizione è in transito"
       }
     ]
