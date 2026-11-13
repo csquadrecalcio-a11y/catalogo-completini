@@ -7864,9 +7864,9 @@
     ]
   },
   "CSC-2026-0453": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-28",
-    "data_consegna": "",
+    "data_consegna": "2026-11-13 16:24:12",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J133529",
     "corriere_2": "",
@@ -8006,6 +8006,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-13 15:53",
+        "luogo": "dalla sede operativa di QUARTUCCIU (CA)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-13 11:04",
+        "luogo": "QUARTUCCIU (CA)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-13 06:57",
         "luogo": "CAGLIARI (CA)",
