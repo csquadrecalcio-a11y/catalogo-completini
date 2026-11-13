@@ -8819,9 +8819,9 @@
     ]
   },
   "CSC-2026-0459": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-01",
-    "data_consegna": "",
+    "data_consegna": "2026-11-13 16:24:23",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J200186",
     "corriere_2": "",
@@ -8951,6 +8951,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-13 13:05",
+        "luogo": "dalla sede operativa di BARI (BA)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-13 10:27",
+        "luogo": "BARI (BA)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-13 05:39",
         "luogo": "BARI (BA)",
