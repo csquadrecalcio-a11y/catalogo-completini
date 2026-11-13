@@ -8421,6 +8421,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-12 09:38:00",
+        "luogo": "",
+        "stato": "The shipment has been processed in the delivery depot."
+      },
+      {
+        "data": "2026-11-12 09:33:00",
+        "luogo": "",
+        "stato": "In preparazione per la consegna"
+      },
+      {
         "data": "2026-11-11 17:15:00",
         "luogo": "",
         "stato": "Arrivato in Italia"
