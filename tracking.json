@@ -9429,7 +9429,13 @@
         "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-11-13 14:32",
+        "luogo": "FARA IN SABINA (RI)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0469": {
     "stato": "spedito",
