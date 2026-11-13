@@ -8420,9 +8420,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0457": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-01",
-    "data_consegna": "",
+    "data_consegna": "2026-11-13 16:27:16",
     "corriere": "DHL",
     "tracking": "CP043982751DE",
     "corriere_2": "",
