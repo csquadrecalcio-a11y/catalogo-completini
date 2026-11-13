@@ -7875,6 +7875,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-13 07:56:22",
+        "luogo": "Elmas (ca)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-12 23:28:44",
+        "luogo": "Elmas (ca)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-11-11 23:19:00",
         "luogo": "Fiumicino",
         "stato": "In transito nella rete di Poste Italiane"
@@ -7972,12 +7982,12 @@
       {
         "data": "2026-10-27 18:32:40",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-10-27 18:32:40",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Ordine registrato, in attesa del pacco"
       },
       {
         "data": "2026-10-27 18:32:40",
@@ -7987,8 +7997,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-13 00:56",
-        "luogo": "ELMAS (CA)",
+        "data": "2026-11-13 06:57",
+        "luogo": "CAGLIARI (CA)",
         "stato": "La spedizione è in transito"
       }
     ]
