@@ -7704,9 +7704,9 @@
     ]
   },
   "CSC-2026-0451": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-10-28",
-    "data_consegna": "",
+    "data_consegna": "2026-11-13 01:47:41",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J133499",
     "corriere_2": "",
@@ -7841,6 +7841,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-12 19:00",
+        "luogo": "dalla sede operativa di NERVIANO (MI)",
+        "stato": "La spedizione è stata consegnata"
+      },
       {
         "data": "2026-11-12 00:19",
         "luogo": "PESCHIERA BORROMEO (MI)",
