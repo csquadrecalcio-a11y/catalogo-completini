@@ -9445,6 +9445,11 @@
         "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
+        "data": "2026-11-13 16:27:05",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-11-12 18:31:49",
         "luogo": "",
         "stato": "Il volo è decollato"
@@ -9492,12 +9497,12 @@
       {
         "data": "2026-11-06 22:35:10",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-11-06 22:35:10",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
     "eventi_corriere": []
