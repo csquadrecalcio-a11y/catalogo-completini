@@ -36,10 +36,8 @@
     "foto": [
       "pronta-consegna/capo7_0.jpg"
     ],
-    "taglie": [
-      "M"
-    ],
-    "esaurito": false
+    "taglie": [],
+    "esaurito": true
   },
   {
     "id": "mag6",
