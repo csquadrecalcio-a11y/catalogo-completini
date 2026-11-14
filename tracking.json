@@ -10107,6 +10107,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-14 20:25:24",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
         "data": "2026-11-12 19:43:41",
         "luogo": "",
         "stato": "Merce consegnata alla compagnia aerea"
@@ -10144,7 +10149,7 @@
       {
         "data": "2026-11-11 10:52:21",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-11-11 10:52:21",
@@ -10154,7 +10159,7 @@
       {
         "data": "2026-11-11 10:52:21",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
     "eventi_corriere": []
