@@ -1002,6 +1002,24 @@ gtag('config', 'G-SYPQZL1L7W');
   .hbf-count .cd{min-width:0;flex:1}
 }
 @media (prefers-reduced-motion:reduce){.hbf-off b{animation:none}}
+/* Conto alla rovescia PRIMA del Black Friday: fascia sotto l'intestazione (13/11/26) */
+.bf-pre{background:linear-gradient(90deg,#120509,#2b0b12 50%,#120509);border-bottom:1px solid rgba(242,183,5,.4);box-shadow:0 12px 40px rgba(0,0,0,.45)}
+.bf-pre-in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0;flex-wrap:wrap}
+.bf-pre-t b{display:block;font:900 clamp(24px,3.4vw,38px)/1 'Archivo Black',Inter,sans-serif;text-transform:uppercase;color:#fff;letter-spacing:.01em}
+.bf-pre-t b i{font-style:normal;background:linear-gradient(180deg,#ffe27a,#f2b705 60%,#b88300);-webkit-background-clip:text;background-clip:text;color:transparent}
+.bf-pre-t span{display:block;margin-top:6px;font:700 clamp(12.5px,1.5vw,15px) Inter,sans-serif;color:rgba(246,241,228,.85);letter-spacing:.02em}
+.bf-pre-t em{font-style:normal;background:#d62839;color:#fff;font-weight:900;padding:2px 9px;border-radius:999px;margin-right:4px}
+.bf-pre-c{display:flex;align-items:center;gap:14px}
+.bf-pre-c small{font:800 11px Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#ffd54a}
+.bf-pre-c .hbf-count{margin:0}
+.bf-pre-c .hbf-count .cd{min-width:58px;padding:8px 6px}
+.bf-pre-c .hbf-count .cd b{font-size:clamp(20px,2.4vw,28px)}
+@media (max-width:700px){
+  .bf-pre-in{flex-direction:column;align-items:stretch;gap:10px;padding:12px 0 14px;text-align:center}
+  .bf-pre-c{flex-direction:column;gap:6px}
+  .bf-pre-c .hbf-count{width:100%}
+  .bf-pre-c .hbf-count .cd{flex:1;min-width:0}
+}
 </style>
 <style id="tema-stadio">
 /* Tema Stadio (nero e oro), attivo dal 12/11/26. Per tornare al blu: nello script in alto rimettere t="" */
@@ -1185,6 +1203,16 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
     </button>
   </div>
 </header>
+<div class="bf-pre" id="bfPre" style="display:none" role="region" aria-label="Conto alla rovescia Black Friday">
+  <div class="container bf-pre-in">
+    <div class="bf-pre-t">
+      <b>Black <i>Friday</i></b>
+      <span><em data-bf="pct">−15%</em> su tutto il catalogo · dal <span data-bf="inizio">20 novembre</span></span>
+    </div>
+    <div class="bf-pre-c"><small>Mancano</small><div class="hbf-count" id="bfPreCount"></div></div>
+  </div>
+</div>
+
 
 <!-- ============ HERO ============ -->
 <section class="hero-bf" id="top-bf" style="display:none" aria-label="Black Friday">
@@ -3636,7 +3664,7 @@ document.getElementById("qtyPlus").onclick  = ()=>{
 /* Fasi del Black Friday: dal-al (compresi) e percentuale. Si puo fare piu di una fase (es. 10% la prima settimana, 15% dal 27).
    Il giorno vero e venerdi 27/11/2026, il Cyber Monday e lunedi 30/11. Stessa tabella nel gestionale (BLACK_FRIDAY_FASI). */
 const BF_FASI = [ {dal:"2026-11-20", al:"2026-11-30", pct:15} ];
-const BF_TEASER_GIORNI = 3;   // da quanti giorni prima compare l'annuncio nella barra in alto
+const BF_TEASER_GIORNI = 7;   // da quanti giorni prima compare l'annuncio nella barra in alto
 function _oggiISO(){ const d = new Date(), p2 = n => String(n).padStart(2,"0"); return d.getFullYear() + "-" + p2(d.getMonth()+1) + "-" + p2(d.getDate()); }
 function bfPct(){
   try{
@@ -4519,24 +4547,42 @@ renderConsegna();
 })();
 /* Durante il Black Friday la scritta sopra il titolo diventa l'annuncio (13/11/26) */
 (function(){
+  var f0 = BF_FASI[0], f1 = BF_FASI[BF_FASI.length-1];
+  var fmt = function(d){ return new Date(d + "T12:00:00").toLocaleDateString("it-IT", {day:"numeric", month:"long"}); };
+  var p2 = function(n){ return String(n).padStart(2,"0"); };
+  // Conto alla rovescia generico: scrive giorni/ore/minuti/secondi dentro "box" fino a "quando" (in millisecondi)
+  function conto(box, quando, alFinire){
+    function tic(){
+      var ms = quando - Date.now();
+      if (ms <= 0){ if (alFinire) alFinire(); return false; }
+      var g = Math.floor(ms/86400000), o = Math.floor(ms/3600000)%24, m = Math.floor(ms/60000)%60, sec = Math.floor(ms/1000)%60;
+      box.innerHTML = '<div class="cd"><b>'+p2(g)+'</b><span>giorni</span></div><div class="cd"><b>'+p2(o)+'</b><span>ore</span></div><div class="cd"><b>'+p2(m)+'</b><span>minuti</span></div><div class="cd"><b>'+p2(sec)+'</b><span>secondi</span></div>';
+      return true;
+    }
+    if (tic()) { var id = setInterval(function(){ if (!tic()) clearInterval(id); }, 1000); }
+  }
+  // PRIMA dello sconto: fascia con i giorni che mancano all'inizio
+  var inizio = new Date(f0.dal + "T00:00:00").getTime();
+  if (!bfAttivo() && Date.now() < inizio){
+    var pre = document.getElementById("bfPre");
+    if (pre){
+      pre.style.display = "";
+      pre.querySelector('[data-bf="pct"]').textContent = "−" + f0.pct + "%";
+      pre.querySelector('[data-bf="inizio"]').textContent = fmt(f0.dal);
+      conto(document.getElementById("bfPreCount"), inizio, function(){ location.reload(); });
+    }
+    return;
+  }
+  // DURANTE lo sconto: copertina grande con il conto alla rovescia alla fine
   if (!bfAttivo()) return;
   var e = document.querySelector(".hero .eyebrow"); if (e) e.textContent = "Black Friday · −" + bfPct() + "% su tutto fino al " + bfFine();
   var h = document.getElementById("top"), b = document.getElementById("top-bf");
   if (!h || !b) return;
   h.style.display = "none"; h.id = "top-normale"; b.style.display = ""; b.id = "top";
-  var f0 = BF_FASI[0], f1 = BF_FASI[BF_FASI.length-1];
-  var fmt = function(d){ return new Date(d + "T12:00:00").toLocaleDateString("it-IT", {day:"numeric", month:"long"}); };
   b.querySelector('[data-bf="periodo"]').textContent = "Dal " + fmt(f0.dal) + " al " + fmt(f1.al);
   b.querySelector('[data-bf="pct"]').textContent = "−" + bfPct() + "%";
-  var box = document.getElementById("bfCount"), fine = new Date(f1.al + "T23:59:59").getTime();
-  function tic(){
-    var ms = fine - Date.now();
-    if (ms <= 0){ box.style.display = "none"; return; }
-    var g = Math.floor(ms/86400000), o = Math.floor(ms/3600000)%24, m = Math.floor(ms/60000)%60, sec = Math.floor(ms/1000)%60;
-    var p2 = function(n){ return String(n).padStart(2,"0"); };
-    box.innerHTML = '<div class="cd"><b>'+p2(g)+'</b><span>giorni</span></div><div class="cd"><b>'+p2(o)+'</b><span>ore</span></div><div class="cd"><b>'+p2(m)+'</b><span>minuti</span></div><div class="cd"><b>'+p2(sec)+'</b><span>secondi</span></div>';
-  }
-  tic(); setInterval(tic, 1000);
+  var box = document.getElementById("bfCount");
+  conto(box, new Date(f1.al + "T23:59:59").getTime(), function(){ box.style.display = "none"; });
 })();
 /* Barra in alto: un'offerta alla volta, a rotazione (12/11/26) */
 (function(){
