@@ -3684,7 +3684,9 @@ function bfTeaser(){
   const gg = Math.round((inizio - t) / 86400000);
   return gg > 0 && gg <= BF_TEASER_GIORNI;
 }
-function bfPrezzo(l){ return Math.round(l * (100 - bfPct())) / 100; }
+/* Prezzi scontati sempre a multipli di 50 centesimi (niente 25 o 75: il cliente ricarica la PostePay a cifre tonde).
+   Si arrotonda per difetto, cosi lo sconto reale non e mai sotto la percentuale annunciata. (14/11/26) */
+function bfPrezzo(l){ return Math.floor(l * (100 - bfPct()) / 50 + 1e-9) / 2; }
 function fmtE(n){ const x = (Math.round(n*100)/100).toFixed(2); return (x.endsWith(".00") ? x.slice(0,-3) : x).replace(".", ","); }
 function prezzoBfHtml(l){
   if (!bfAttivo()) return fmtE(l) + "€";
@@ -3851,7 +3853,7 @@ function cartTotals(){
   });
   totalQty = Math.round(totalQty * 100) / 100;
   const codicePct = codiceScontoApplicato ? codiceScontoPercentuale : 0;
-  const codiceDiscount = Math.round(totalQty * codicePct) / 100;
+  const codiceDiscount = Math.round(totalQty * codicePct / 50) / 2;   // sconto codice a multipli di 50 centesimi (14/11/26)
   // La pronta consegna parte da noi: 8€ di spedizione, una volta sola per ordine
   const spedizione = prontaSpedizione(cart);
   const total = Math.round((totalQty - codiceDiscount + spedizione) * 100) / 100;
