@@ -953,6 +953,14 @@ gtag('config', 'G-SYPQZL1L7W');
     .header-search{margin:0 8px}
   }
 
+/* Banner VENDUTO sulle foto (14/11/26) */
+.sold-banner{position:absolute;left:-8%;right:-8%;top:30%;z-index:4;transform:rotate(-9deg);text-align:center;pointer-events:none;
+  background:linear-gradient(90deg,#8e1220,#d62839 50%,#8e1220);color:#fff;font:900 clamp(17px,2.6vw,24px) 'Archivo Black',Inter,sans-serif;letter-spacing:.2em;
+  padding:9px 0;border-top:2px solid rgba(255,255,255,.4);border-bottom:2px solid rgba(255,255,255,.4);box-shadow:0 10px 28px rgba(0,0,0,.6)}
+.card:has(.sold-banner) img.ph,.pc-card.pc-sold img{filter:grayscale(.7) brightness(.55)}
+.card:has(.sold-banner) .avail{display:none}
+.pc-card.pc-sold{overflow:hidden;cursor:default}
+.pc-card.pc-sold .pc-foot span:first-child{opacity:.55}
 </style>
 <style id="tema-stadio">
 /* Tema Stadio (nero e oro), attivo dal 12/11/26. Per tornare al blu: nello script in alto rimettere t="" */
@@ -1248,21 +1256,24 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
 /* Vetrina pronta consegna in home: le maglie del magazzino subito sotto la copertina */
 window.addEventListener("load", function(){
   fetch("pronta-consegna.json?v=" + Date.now()).then(function(r){ return r.ok ? r.json() : []; }).then(function(capi){
+    var venduti = (capi || []).filter(function(c){ return c.esaurito; }).slice(0, 3);
     capi = (capi || []).filter(function(c){ return !c.esaurito && c.taglie && c.taglie.length; });
     if (!capi.length) return;
     var row = document.getElementById("pcRow"), tot = 0;
     var pulisci = function(t){ return String(t || "").replace(/^Maglia\s+/i, ""); };
     var lab = function(sz){ var m = /^(\S+)\s*\((.+)\)$/.exec(sz); return m ? m[1] + " · " + m[2] : sz; };
-    capi.forEach(function(c){
-      tot += c.taglie.length;
+    capi.concat(venduti).forEach(function(c){
+      var sold = !!c.esaurito;
+      if (!sold) tot += c.taglie.length;
       var a = document.createElement("a");
       a.className = "pc-card";
       a.href = "?cat=Pronta%20Consegna&photo=" + encodeURIComponent((c.foto && c.foto[0]) || "");
-      var ult = c.taglie.length <= 2 ? '<span class="pc-ult">' + (c.taglie.length === 1 ? "Ultimo pezzo" : "Ultimi 2 pezzi") + "</span>" : "";
-      a.innerHTML = '<img src="' + ((c.foto && c.foto[0]) || "") + '" alt="' + pulisci(c.titolo).replace(/"/g, "") + '" loading="lazy">' + ult +
+      var ult = (!sold && c.taglie.length <= 2) ? '<span class="pc-ult">' + (c.taglie.length === 1 ? "Ultimo pezzo" : "Ultimi 2 pezzi") + "</span>" : "";
+      if (sold) a.className += " pc-sold";
+      a.innerHTML = '<img src="' + ((c.foto && c.foto[0]) || "") + '" alt="' + pulisci(c.titolo).replace(/"/g, "") + '" loading="lazy">' + ult + (sold ? '<span class="sold-banner">VENDUTO</span>' : "") +
         '<div class="pc-body"><h3>' + pulisci(c.titolo) + '</h3><div class="pc-tg">' +
-        c.taglie.map(function(sz){ return '<span' + (/\(.+\)/.test(sz) ? ' class="nome"' : "") + ">" + lab(sz) + "</span>"; }).join("") +
-        '</div><div class="pc-foot"><span>' + c.prezzo + '€ <small>spedizione gratis</small></span><span style="color:var(--volt)">Apri →</span></div></div>';
+        (sold ? "" : c.taglie.map(function(sz){ return '<span' + (/\(.+\)/.test(sz) ? ' class="nome"' : "") + ">" + lab(sz) + "</span>"; }).join("")) +
+        '</div><div class="pc-foot"><span>' + c.prezzo + '€ <small>spedizione gratis</small></span><span style="color:' + (sold ? "#d62839" : "var(--volt)") + '">' + (sold ? "Venduto" : "Apri →") + '</span></div></div>';
       row.appendChild(a);
     });
     document.getElementById("pcTutte").textContent = "Vedi tutte le " + tot + " maglie pronte →";
@@ -2788,7 +2799,7 @@ function renderSearchResults(items){
     card.innerHTML = `
       <img class="ph" src="${thumbUrl(it.id)}" alt="${cleanName(it.name)}" loading="lazy" decoding="async"
            onerror="this.style.opacity=.15">
-      <span class="avail"${statoPronta(it.id, it) === "venduto" ? ' style="background:#c62828;color:#fff"' : ""}>${statoPronta(it.id, it) === "venduto" ? "VENDUTO" : "Disponibile"}</span>
+      <span class="avail"${statoPronta(it.id, it) === "venduto" ? ' style="background:#c62828;color:#fff"' : ""}>${statoPronta(it.id, it) === "venduto" ? "VENDUTO" : "Disponibile"}</span>${statoPronta(it.id, it) === "venduto" ? '<span class="sold-banner">VENDUTO</span>' : ""}
       <h3>${cleanName(it.name)}</h3>
       <div class="team">${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
       ${taglieVetrinaHtml(it)}
@@ -2907,7 +2918,7 @@ function renderGrid(){
     card.innerHTML = `
       <img class="ph" src="${thumbUrl(it.id)}" alt="${cleanName(it.name)}" loading="lazy" decoding="async"
            onerror="this.style.opacity=.15">
-      <span class="avail"${statoPronta(it.id, it) === "venduto" ? ' style="background:#c62828;color:#fff"' : ""}>${statoPronta(it.id, it) === "venduto" ? "VENDUTO" : "Disponibile"}</span>
+      <span class="avail"${statoPronta(it.id, it) === "venduto" ? ' style="background:#c62828;color:#fff"' : ""}>${statoPronta(it.id, it) === "venduto" ? "VENDUTO" : "Disponibile"}</span>${statoPronta(it.id, it) === "venduto" ? '<span class="sold-banner">VENDUTO</span>' : ""}
       <h3>${kits.length > 1 ? cleanName(it.team || it.name) : cleanName(it.name)}</h3>
       <div class="team">${it.team ? cleanName(it.team) : activeCat.name}${
         kits.length > 1 ? ` <span class="nkit">${kits.length} ${gruppoConKit(kits) ? "kit" : "maglie"}</span>` : ""}</div>
