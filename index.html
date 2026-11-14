@@ -961,6 +961,14 @@ gtag('config', 'G-SYPQZL1L7W');
 .card:has(.sold-banner) .avail{display:none}
 .pc-card.pc-sold{overflow:hidden;cursor:default}
 .pc-card.pc-sold .pc-foot span:first-child{opacity:.55}
+/* Black Friday: prezzo barrato, percentuale e prezzo da pagare (13/11/26) */
+.bf-top{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:700;color:var(--muted);line-height:1.1}
+.bf-top s{text-decoration-thickness:2px;opacity:.85}
+.bf-tag{font-style:normal;background:#d62839;color:#fff;font-size:11px;font-weight:900;padding:2px 7px;border-radius:999px;letter-spacing:.02em}
+.bf-new{display:block;color:#ffd54a;font-size:1.12em;line-height:1.15}
+.bf-pill{color:#ffd54a;font-weight:900}
+.bf-old-tot{opacity:.6;font-size:.8em;margin-right:4px}
+.pc-foot .bf-top{font-size:12px}
 </style>
 <style id="tema-stadio">
 /* Tema Stadio (nero e oro), attivo dal 12/11/26. Per tornare al blu: nello script in alto rimettere t="" */
@@ -1273,7 +1281,7 @@ window.addEventListener("load", function(){
       a.innerHTML = '<img src="' + ((c.foto && c.foto[0]) || "") + '" alt="' + pulisci(c.titolo).replace(/"/g, "") + '" loading="lazy">' + ult + (sold ? '<span class="sold-banner">VENDUTO</span>' : "") +
         '<div class="pc-body"><h3>' + pulisci(c.titolo) + '</h3><div class="pc-tg">' +
         (sold ? "" : c.taglie.map(function(sz){ return '<span' + (/\(.+\)/.test(sz) ? ' class="nome"' : "") + ">" + lab(sz) + "</span>"; }).join("")) +
-        '</div><div class="pc-foot"><span>' + c.prezzo + '€ <small>spedizione gratis</small></span><span style="color:' + (sold ? "#d62839" : "var(--volt)") + '">' + (sold ? "Venduto" : "Apri →") + '</span></div></div>';
+        '</div><div class="pc-foot"><span>' + prezzoBfHtml(c.prezzo) + ' <small>spedizione gratis</small></span><span style="color:' + (sold ? "#d62839" : "var(--volt)") + '">' + (sold ? "Venduto" : "Apri →") + '</span></div></div>';
       row.appendChild(a);
     });
     document.getElementById("pcTutte").textContent = "Vedi tutte le " + tot + " maglie pronte →";
@@ -2804,7 +2812,7 @@ function renderSearchResults(items){
       <div class="team">${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
       ${taglieVetrinaHtml(it)}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "spedizione gratis · 24-48h" : "spedizione inclusa"}</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${prezzoBfHtml(minPrice)}<small>${activeCat && activeCat.pronta ? "spedizione gratis · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -2929,7 +2937,7 @@ function renderGrid(){
          </button>`).join("")}</div>` : ""}
       ${taglieVetrinaHtml(it)}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${minPrice}€<small>${activeCat && activeCat.pronta ? "spedizione gratis · 24-48h" : "spedizione inclusa"}</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${prezzoBfHtml(minPrice)}<small>${activeCat && activeCat.pronta ? "spedizione gratis · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -3448,7 +3456,7 @@ function buildVersionPills(){
       return;
     }
     b.className = "pill" + (S.version===v.id ? " on" : "");
-    b.innerHTML = `${v.label}<small>${v.price}€</small>`;
+    b.innerHTML = `${v.label}<small>${prezzoPillHtml(v.price)}</small>`;
     b.onclick = ()=>{
       S.version = v.id;
       S.size = v.shoe ? "42" : (v.kid ? "24" : "M");
@@ -3567,6 +3575,41 @@ document.getElementById("qtyPlus").onclick  = ()=>{
    (bambino/adulto) partecipano allo sconto, con prezzi fissi per fascia.
    Tutto il resto (Player Version, Vintage, Tute, Estivi, Scarpe) resta
    SEMPRE a prezzo pieno e non conta nemmeno per raggiungere la fascia. */
+/* ===== BLACK FRIDAY (13/11/26) =====
+   Sconto automatico su tutto il catalogo dal 26 al 30 novembre. Si applica al carrello da solo e sui prodotti compare
+   il prezzo barrato, il -% e il prezzo da pagare. Per ogni prodotto vale il piu conveniente fra sconto quantita e
+   Black Friday (mai tutti e due). Stessa regola nel gestionale (BLACK_FRIDAY_*). Per cambiare: percentuale e date qui sotto.
+   Prova in locale: localhost/?bf=1 */
+/* Fasi del Black Friday: dal-al (compresi) e percentuale. Si puo fare piu di una fase (es. 10% la prima settimana, 15% dal 27).
+   Il giorno vero e venerdi 27/11/2026, il Cyber Monday e lunedi 30/11. Stessa tabella nel gestionale (BLACK_FRIDAY_FASI). */
+const BF_FASI = [ {dal:"2026-11-20", al:"2026-11-30", pct:15} ];
+const BF_TEASER_GIORNI = 3;   // da quanti giorni prima compare l'annuncio nella barra in alto
+function _oggiISO(){ const d = new Date(), p2 = n => String(n).padStart(2,"0"); return d.getFullYear() + "-" + p2(d.getMonth()+1) + "-" + p2(d.getDate()); }
+function bfPct(){
+  try{
+    if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)){
+      if (new URLSearchParams(location.search).get("bf") === "1") sessionStorage.setItem("bf_test", "1");
+      if (sessionStorage.getItem("bf_test") === "1") return BF_FASI[BF_FASI.length-1].pct;
+    }
+  }catch(e){}
+  const t = _oggiISO();
+  for (const f of BF_FASI){ if (t >= f.dal && t <= f.al) return f.pct; }
+  return 0;
+}
+function bfAttivo(){ return bfPct() > 0; }
+function bfFine(){ const f = BF_FASI[BF_FASI.length-1]; return new Date(f.al + "T12:00:00").toLocaleDateString("it-IT", {day:"numeric", month:"long"}); }
+function bfTeaser(){
+  const f = BF_FASI[0], t = new Date(_oggiISO() + "T12:00:00"), inizio = new Date(f.dal + "T12:00:00");
+  const gg = Math.round((inizio - t) / 86400000);
+  return gg > 0 && gg <= BF_TEASER_GIORNI;
+}
+function bfPrezzo(l){ return Math.round(l * (100 - bfPct())) / 100; }
+function fmtE(n){ const x = (Math.round(n*100)/100).toFixed(2); return (x.endsWith(".00") ? x.slice(0,-3) : x).replace(".", ","); }
+function prezzoBfHtml(l){
+  if (!bfAttivo()) return fmtE(l) + "€";
+  return `<span class="bf-top"><s>${fmtE(l)}€</s><i class="bf-tag">−${bfPct()}%</i></span><span class="bf-new">${fmtE(bfPrezzo(l))}€</span>`;
+}
+function prezzoPillHtml(l){ return bfAttivo() ? `<s>${fmtE(l)}€</s> <b class="bf-pill">${fmtE(bfPrezzo(l))}€</b>` : fmtE(l) + "€"; }
 const TIER_PRICE = {
   maglia: [30, 25, 20],
   kitb:   [35, 30, 25],
@@ -3577,7 +3620,12 @@ function isQualifying(it){ return Object.prototype.hasOwnProperty.call(TIER_PRIC
 // lo sconto pero si applica solo a maglie e kit, il resto resta a prezzo pieno (27/10/26)
 function qualifyingCount(){ return cart.reduce((n,i)=> n + (parseInt(i.qty)||1), 0); }
 function tierFor(n){ return n>=10 ? 2 : n>=5 ? 1 : 0; }
-function unitPriceFor(it, tier){ return isQualifying(it) ? TIER_PRICE[it.versionId][tier] : it.price; }
+function unitPriceFor(it, tier){
+  const base = isQualifying(it) ? TIER_PRICE[it.versionId][tier] : it.price;
+  if (!bfAttivo()) return base;
+  const listino = isQualifying(it) ? TIER_PRICE[it.versionId][0] : it.price;
+  return Math.min(base, bfPrezzo(listino));
+}
 
 function currentPatch(){
   if (!S.type.pers) return "";
@@ -3604,9 +3652,12 @@ function syncSheet(){
   const qualifying = isQualifying({versionId:v.id});
   const projectedQCount = qualifyingCount() + S.qty;   // contano tutti i pezzi, anche le tute
   const projectedTier = tierFor(projectedQCount);
-  const unit = qualifying ? TIER_PRICE[v.id][projectedTier] : v.price;
+  const unitBase = qualifying ? TIER_PRICE[v.id][projectedTier] : v.price;
+  const unit = unitPriceFor({versionId:v.id, price:v.price}, projectedTier);
   const nTaglie = (S.type && S.type.pronta && Array.isArray(S.sel) && S.sel.length) ? S.sel.length : 1;
-  document.getElementById("totVal").textContent = `${unit * S.qty * nTaglie}€`;
+  document.getElementById("totVal").innerHTML = (unit !== unitBase)
+    ? `<s class="bf-old-tot">${fmtE(unitBase * S.qty * nTaglie)}€</s> ${fmtE(unit * S.qty * nTaglie)}€`
+    : `${fmtE(unit * S.qty * nTaglie)}€`;
 
   if (qualifying){
     const p = discountProgress(projectedQCount);
@@ -3717,14 +3768,15 @@ function cartTotals(){
     sub += i.price * i.qty;                  // prezzo pieno originale
     totalQty += unitPriceFor(i, tier) * i.qty; // prezzo effettivo alla fascia raggiunta
   });
+  totalQty = Math.round(totalQty * 100) / 100;
   const codicePct = codiceScontoApplicato ? codiceScontoPercentuale : 0;
   const codiceDiscount = Math.round(totalQty * codicePct) / 100;
   // La pronta consegna parte da noi: 8€ di spedizione, una volta sola per ordine
   const spedizione = prontaSpedizione(cart);
-  const total = totalQty - codiceDiscount + spedizione;
+  const total = Math.round((totalQty - codiceDiscount + spedizione) * 100) / 100;
   return {
     sub, n: cartCount(), qCount, tier, total, spedizione,
-    discount: sub - totalQty,
+    discount: Math.round((sub - totalQty) * 100) / 100,
     codiceSconto: codicePct ? codiceScontoApplicato : null,
     codicePct, codiceDiscount,
   };
@@ -3836,7 +3888,7 @@ function renderCart(){
           <div class="ci-qty">
             <button data-a="minus">−</button><span>${it.qty}</span><button data-a="plus">+</button>
           </div>
-          <div class="ci-price">${eff*it.qty}€${eff!==it.price ? ` <s style="color:var(--muted);font-size:12px">${it.price*it.qty}€</s>` : ""}</div>
+          <div class="ci-price">${fmtE(eff*it.qty)}€${eff!==it.price ? ` <s style="color:var(--muted);font-size:12px">${fmtE(it.price*it.qty)}€</s>` : ""}</div>
         </div>
         <button class="ci-remove" data-a="rm">Rimuovi</button>
       </div>`;
@@ -3846,7 +3898,7 @@ function renderCart(){
     wrap.appendChild(row);
   });
   document.getElementById("cartCount").textContent = n;
-  document.getElementById("cartSub").textContent = `${sub}€`;
+  document.getElementById("cartSub").textContent = `${fmtE(sub)}€`;
   const shipRow = document.getElementById("cartShipRow");
   if (shipRow){
     const nPronta = cart.filter(i=>i.pronta).reduce((a,i)=>a+(parseInt(i.qty)||1),0);
@@ -3856,15 +3908,15 @@ function renderCart(){
   const discRow = document.getElementById("cartDiscRow");
   if (discount > 0){
     discRow.style.display = "flex";
-    document.getElementById("cartDiscLbl").textContent = "Sconto quantità applicato";
-    document.getElementById("cartDisc").textContent = `−${discount}€`;
+    document.getElementById("cartDiscLbl").textContent = bfAttivo() ? "Sconto Black Friday / quantità applicato" : "Sconto quantità applicato";
+    document.getElementById("cartDisc").textContent = `−${fmtE(discount)}€`;
   } else discRow.style.display = "none";
   const codiceDiscRow = document.getElementById("cartCodiceDiscRow");
   if (codiceDiscount > 0){
     codiceDiscRow.style.display = "flex";
-    document.getElementById("cartCodiceDisc").textContent = `−${codiceDiscount}€`;
+    document.getElementById("cartCodiceDisc").textContent = `−${fmtE(codiceDiscount)}€`;
   } else codiceDiscRow.style.display = "none";
-  document.getElementById("cartTotal").textContent = `${total}€`;
+  document.getElementById("cartTotal").textContent = `${fmtE(total)}€`;
   const p = discountProgress(qCount);
   document.getElementById("cartProgFill").style.width = p.pct + "%";
   document.getElementById("cartHint").textContent = p.text;
@@ -4078,9 +4130,9 @@ document.getElementById("cartCheckout").onclick = async ()=>{
   });
   lines.push("");
   if (discount > 0 || codiceSconto) {
-    lines.push(`💰 *${total}€* (sconto −${discount + (codiceDiscount||0)}€) · ${order.pagamento}`);
+    lines.push(`💰 *${fmtE(total)}€* (sconto −${fmtE(discount + (codiceDiscount||0))}€) · ${order.pagamento}`);
   } else {
-    lines.push(`💰 *${total}€* · ${order.pagamento}`);
+    lines.push(`💰 *${fmtE(total)}€* · ${order.pagamento}`);
   }
   lines.push("");
   lines.push(`📦 *${order.nome} ${order.cognome}*`);
@@ -4139,6 +4191,7 @@ function buildOrdinePayload(order, cartItems, tier, sconto){
     metodo_pagamento: order.pagamento, note: order.note, articoli,
     consigliato_da: order.consigliato,
     spedizione: prontaSpedizione(cartItems),
+    bf: bfPct(),
     sconto_codice: (sconto && sconto.codiceSconto) || "",
     sconto_importo: (sconto && sconto.codiceDiscount) || 0,
   };
@@ -4411,12 +4464,14 @@ renderConsegna();
   var inp = document.getElementById("orderCitta");
   if (inp) inp.addEventListener("input", function(){ var v = inp.value.trim(); if (v.length >= 3){ geoConsegna.citta = v; renderConsegna(); } });
 })();
+/* Durante il Black Friday la scritta sopra il titolo diventa l'annuncio (13/11/26) */
+(function(){ if (!bfAttivo()) return; var e = document.querySelector(".hero .eyebrow"); if (e) e.textContent = "Black Friday · −" + bfPct() + "% su tutto fino al " + bfFine(); })();
 /* Barra in alto: un'offerta alla volta, a rotazione (12/11/26) */
 (function(){
   var el=document.getElementById("stripShip"); if(!el) return;
   var i=0;
-  function msgs(){ return [window._stripConsegna||"Spedizione gratuita in tutta Italia","Nome e numero gratis","100+ recensioni 5 stelle su Google","Da 5 pezzi −17% · Da 10 pezzi −33%"]; }
-  function show(){ el.textContent=msgs()[i%4]; }
+  function msgs(){ var m = [window._stripConsegna||"Spedizione gratuita in tutta Italia","Nome e numero gratis","100+ recensioni 5 stelle su Google","Da 5 pezzi −17% · Da 10 pezzi −33%"]; if (bfAttivo()) m.unshift("BLACK FRIDAY · −" + bfPct() + "% su tutto fino al " + bfFine()); else if (bfTeaser()) m.unshift("Dal " + new Date(BF_FASI[0].dal + "T12:00:00").toLocaleDateString("it-IT", {day:"numeric", month:"long"}) + " BLACK FRIDAY · −" + BF_FASI[0].pct + "% su tutto"); return m; }
+  function show(){ var m = msgs(); el.textContent = m[i % m.length]; }
   show();
   if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   el.style.transition="opacity .35s ease";
