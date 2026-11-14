@@ -969,6 +969,39 @@ gtag('config', 'G-SYPQZL1L7W');
 .bf-pill{color:#ffd54a;font-weight:900}
 .bf-old-tot{opacity:.6;font-size:.8em;margin-right:4px}
 .pc-foot .bf-top{font-size:12px}
+/* ===== Black Friday: copertina grande (13/11/26). Compare da sola nei giorni dello sconto al posto del titolo normale ===== */
+.hero-bf{position:relative;overflow:hidden;background:#060608 url(hero/bf-bg.jpg) center/cover no-repeat;padding:64px 0 76px;min-height:min(88svh,800px);display:flex;align-items:center;border-bottom:1px solid rgba(242,183,5,.3)}
+.hbf-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+.hbf-kick{display:inline-block;font:800 12.5px Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#ffd54a;border:1px solid rgba(242,183,5,.5);padding:8px 16px;border-radius:999px;background:rgba(242,183,5,.08);margin-bottom:16px}
+.hbf-title{font-size:clamp(54px,9.6vw,148px);line-height:.88;letter-spacing:-.01em;text-transform:uppercase;color:#fff;margin:0 0 20px;text-shadow:0 8px 40px rgba(0,0,0,.6)}
+.hbf-title span{display:block}
+.hbf-title .g{background:linear-gradient(180deg,#ffe27a 0%,#f2b705 55%,#b88300 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 28px rgba(242,183,5,.4))}
+.hbf-off{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.hbf-off b{display:inline-block;font:900 clamp(40px,6.6vw,92px)/1 'Archivo Black',Inter,sans-serif;color:#fff;background:linear-gradient(135deg,#e5324a,#b81c31);padding:8px 24px 10px;border-radius:16px;transform:rotate(-4deg);box-shadow:0 14px 40px rgba(214,40,57,.5),inset 0 2px 0 rgba(255,255,255,.3);animation:bfPulse 2.4s ease-in-out infinite}
+.hbf-off span{font:800 clamp(15px,2.2vw,24px)/1.15 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#f6f1e4}
+@keyframes bfPulse{0%,100%{transform:rotate(-4deg) scale(1)}50%{transform:rotate(-4deg) scale(1.05)}}
+.hbf-sub{font-size:clamp(15px,1.7vw,18px);line-height:1.6;color:rgba(246,241,228,.85);max-width:520px;margin:0 0 20px}
+.hbf-sub b{color:#ffd54a}
+.hbf-count{display:flex;gap:10px;margin-bottom:24px}
+.hbf-count .cd{min-width:62px;text-align:center;background:rgba(255,255,255,.06);border:1px solid rgba(242,183,5,.32);border-radius:14px;padding:10px 8px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.hbf-count .cd b{display:block;font:900 clamp(22px,3vw,32px)/1 'Archivo Black',Inter,sans-serif;color:#ffd54a;font-variant-numeric:tabular-nums}
+.hbf-count .cd span{display:block;margin-top:4px;font:700 9.5px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,241,228,.65)}
+.hbf-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hbf-photos{position:relative;height:clamp(300px,42vw,500px)}
+.hbf-p{position:absolute;display:block;width:56%;aspect-ratio:1/1;border-radius:20px;overflow:hidden;border:1px solid rgba(242,183,5,.5);box-shadow:0 26px 60px rgba(0,0,0,.7),0 0 70px rgba(242,183,5,.18);background:#111;transition:transform .3s ease}
+.hbf-p img{width:100%;height:100%;object-fit:cover;display:block}
+.hbf-p1{left:0;top:14%;transform:rotate(-8deg)}
+.hbf-p3{right:0;top:20%;transform:rotate(8deg)}
+.hbf-p2{left:22%;top:0;z-index:2;transform:rotate(0) scale(1.06)}
+.hbf-p:hover{transform:translateY(-8px) rotate(0) scale(1.06);z-index:3}
+@media (max-width:860px){
+  .hero-bf{padding:40px 0 48px;min-height:0;background-position:70% center}
+  .hbf-grid{grid-template-columns:1fr;gap:26px}
+  .hbf-photos{height:clamp(240px,62vw,360px)}
+  .hbf-p{width:54%}
+  .hbf-count .cd{min-width:0;flex:1}
+}
+@media (prefers-reduced-motion:reduce){.hbf-off b{animation:none}}
 </style>
 <style id="tema-stadio">
 /* Tema Stadio (nero e oro), attivo dal 12/11/26. Per tornare al blu: nello script in alto rimettere t="" */
@@ -1154,6 +1187,26 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
 </header>
 
 <!-- ============ HERO ============ -->
+<section class="hero-bf" id="top-bf" style="display:none" aria-label="Black Friday">
+  <div class="container hbf-grid">
+    <div class="hbf-text">
+      <span class="hbf-kick"><span data-bf="periodo">Dal 20 al 30 novembre</span></span>
+      <h1 class="display hbf-title"><span>Black</span><span class="g">Friday</span></h1>
+      <div class="hbf-off"><b data-bf="pct">−15%</b><span>su tutto<br>il catalogo</span></div>
+      <p class="hbf-sub">Il prezzo è già scontato su ogni prodotto. <b>Spedizione gratuita</b> e <b>nome e numero gratis</b>.</p>
+      <div class="hbf-count" id="bfCount" aria-live="off"></div>
+      <div class="hbf-ctas">
+        <a class="btn btn-volt" href="#catalogo">Scopri le offerte</a>
+        <a class="btn btn-ghost" href="?cat=Pronta%20Consegna">Pronta consegna</a>
+      </div>
+    </div>
+    <div class="hbf-photos">
+      <a class="hbf-p hbf-p1" href="#catalogo" aria-label="Maglia Inter"><img src="hero/inter.jpg" alt="Maglia Inter Home" width="640" height="640"></a>
+      <a class="hbf-p hbf-p3" href="#catalogo" aria-label="Maglia Barcellona"><img src="hero/barcellona.jpg" alt="Maglia Barcellona Home" width="640" height="640"></a>
+      <a class="hbf-p hbf-p2" href="#catalogo" aria-label="Maglia Juventus"><img src="hero/juventus.jpg" alt="Maglia Juventus Home" width="640" height="640"></a>
+    </div>
+  </div>
+</section>
 <section class="hero" id="top">
   <div class="pitch">
     <svg width="900" height="900" viewBox="0 0 900 900" fill="none" stroke="#fff" stroke-width="2">
@@ -4465,7 +4518,26 @@ renderConsegna();
   if (inp) inp.addEventListener("input", function(){ var v = inp.value.trim(); if (v.length >= 3){ geoConsegna.citta = v; renderConsegna(); } });
 })();
 /* Durante il Black Friday la scritta sopra il titolo diventa l'annuncio (13/11/26) */
-(function(){ if (!bfAttivo()) return; var e = document.querySelector(".hero .eyebrow"); if (e) e.textContent = "Black Friday · −" + bfPct() + "% su tutto fino al " + bfFine(); })();
+(function(){
+  if (!bfAttivo()) return;
+  var e = document.querySelector(".hero .eyebrow"); if (e) e.textContent = "Black Friday · −" + bfPct() + "% su tutto fino al " + bfFine();
+  var h = document.getElementById("top"), b = document.getElementById("top-bf");
+  if (!h || !b) return;
+  h.style.display = "none"; h.id = "top-normale"; b.style.display = ""; b.id = "top";
+  var f0 = BF_FASI[0], f1 = BF_FASI[BF_FASI.length-1];
+  var fmt = function(d){ return new Date(d + "T12:00:00").toLocaleDateString("it-IT", {day:"numeric", month:"long"}); };
+  b.querySelector('[data-bf="periodo"]').textContent = "Dal " + fmt(f0.dal) + " al " + fmt(f1.al);
+  b.querySelector('[data-bf="pct"]').textContent = "−" + bfPct() + "%";
+  var box = document.getElementById("bfCount"), fine = new Date(f1.al + "T23:59:59").getTime();
+  function tic(){
+    var ms = fine - Date.now();
+    if (ms <= 0){ box.style.display = "none"; return; }
+    var g = Math.floor(ms/86400000), o = Math.floor(ms/3600000)%24, m = Math.floor(ms/60000)%60, sec = Math.floor(ms/1000)%60;
+    var p2 = function(n){ return String(n).padStart(2,"0"); };
+    box.innerHTML = '<div class="cd"><b>'+p2(g)+'</b><span>giorni</span></div><div class="cd"><b>'+p2(o)+'</b><span>ore</span></div><div class="cd"><b>'+p2(m)+'</b><span>minuti</span></div><div class="cd"><b>'+p2(sec)+'</b><span>secondi</span></div>';
+  }
+  tic(); setInterval(tic, 1000);
+})();
 /* Barra in alto: un'offerta alla volta, a rotazione (12/11/26) */
 (function(){
   var el=document.getElementById("stripShip"); if(!el) return;
