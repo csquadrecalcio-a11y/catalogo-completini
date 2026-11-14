@@ -1333,8 +1333,8 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
       <div>
         <div class="pc-kick"><i></i> Pronta consegna</div>
         <h2 class="display">Non vuoi aspettare?</h2>
-        <p><b>Maglie già in magazzino, pronte a partire.</b> Spedizione in <b>24-48 ore</b> e <b>spedizione gratuita</b>. Sono <b>pezzi unici</b>: quando una taglia finisce, finisce.</p>
-        <p style="margin-top:10px"><b>Spedizione gratis</b> su tutte le maglie in pronta consegna.</p>
+        <p><b>Maglie già in magazzino, pronte a partire.</b> Spedizione in <b>24-48 ore</b>: 8€, <b>gratis da 2 maglie</b>. Sono <b>pezzi unici</b>: quando una taglia finisce, finisce.</p>
+        <p style="margin-top:10px"><b>Prendine 2 e la spedizione è gratis.</b></p>
       </div>
       <a class="btn btn-volt pc-cta" id="pcTutte" href="?cat=Pronta%20Consegna">Vedi tutta la pronta consegna →</a>
     </div>
@@ -1362,7 +1362,7 @@ window.addEventListener("load", function(){
       a.innerHTML = '<img src="' + ((c.foto && c.foto[0]) || "") + '" alt="' + pulisci(c.titolo).replace(/"/g, "") + '" loading="lazy">' + ult + (sold ? '<span class="sold-banner">VENDUTO</span>' : "") +
         '<div class="pc-body"><h3>' + pulisci(c.titolo) + '</h3><div class="pc-tg">' +
         (sold ? "" : c.taglie.map(function(sz){ return '<span' + (/\(.+\)/.test(sz) ? ' class="nome"' : "") + ">" + lab(sz) + "</span>"; }).join("")) +
-        '</div><div class="pc-foot"><span>' + (sold ? fmtE(c.prezzo) + '€' : prezzoBfHtml(c.prezzo)) + ' <small>spedizione gratis</small></span><span style="color:' + (sold ? "#d62839" : "var(--volt)") + '">' + (sold ? "Venduto" : "Apri →") + '</span></div></div>';
+        '</div><div class="pc-foot"><span>' + (sold ? fmtE(c.prezzo) + '€' : prezzoBfHtml(c.prezzo)) + ' <small>+ 8€ sped. · gratis da 2</small></span><span style="color:' + (sold ? "#d62839" : "var(--volt)") + '">' + (sold ? "Venduto" : "Apri →") + '</span></div></div>';
       row.appendChild(a);
     });
     document.getElementById("pcTutte").textContent = "Vedi tutte le " + tot + " maglie pronte →";
@@ -2143,12 +2143,12 @@ const SENZA_PERSONALIZZAZIONE = /\b(solo\s*taglia|nopers|no\s*pers)\b/i;
    Il capo parte da noi in 2/3 giorni e la spedizione e gratis. Niente nome e numero: il capo e gia fatto.
    Quando si vende, si sposta la foto nella sottocartella "Venduti" oppure
    si aggiunge "venduto" al nome: sparisce dal sito da solo. */
-const PRONTA_GRATIS_DA = 3;    // con 3 o piu maglie in pronta consegna la spedizione e gratis (14/10/26)
+const PRONTA_GRATIS_DA = 2;    // dal 14/11/26: con 2 o piu maglie in pronta consegna la spedizione e gratis; con una sola si pagano 8€ (per 8€ di spedizione una sola maglia non rende)
 function prontaSpedizione(items){
   const n = (items||[]).filter(i=>i.pronta).reduce((a,i)=>a+(parseInt(i.qty)||1),0);
   return n === 0 ? 0 : (n >= PRONTA_GRATIS_DA ? 0 : PRONTA_SPEDIZIONE);
 }
-const PRONTA_SPEDIZIONE = 0;   // dal 12/11/26: spedizione GRATIS sulla pronta consegna (prima 8€, una volta per ordine). Per tornare a pagamento rimettere 8 e i testi qui sotto
+const PRONTA_SPEDIZIONE = 8;   // 8€ di spedizione, una volta per ordine, se in pronta consegna c'e un solo pezzo (14/11/26)
 // I pezzi gia venduti: il gestionale li scrive qui appena arriva l'ordine.
 // Restano in vetrina col bollino VENDUTO per qualche giorno, poi spariscono.
 const PRONTA_GIORNI_VETRINA = 3;
@@ -2893,7 +2893,7 @@ function renderSearchResults(items){
       <div class="team">${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
       ${taglieVetrinaHtml(it)}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${statoPronta(it.id, it) === "venduto" ? fmtE(minPrice) + "€" : prezzoBfHtml(minPrice)}<small>${activeCat && activeCat.pronta ? "spedizione gratis · 24-48h" : "spedizione inclusa"}</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${statoPronta(it.id, it) === "venduto" ? fmtE(minPrice) + "€" : prezzoBfHtml(minPrice)}<small>${activeCat && activeCat.pronta ? "+ 8€ sped. · gratis da 2 · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -3018,7 +3018,7 @@ function renderGrid(){
          </button>`).join("")}</div>` : ""}
       ${taglieVetrinaHtml(it)}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${statoPronta(it.id, it) === "venduto" ? fmtE(minPrice) + "€" : prezzoBfHtml(minPrice)}<small>${activeCat && activeCat.pronta ? "spedizione gratis · 24-48h" : "spedizione inclusa"}</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${statoPronta(it.id, it) === "venduto" ? fmtE(minPrice) + "€" : prezzoBfHtml(minPrice)}<small>${activeCat && activeCat.pronta ? "+ 8€ sped. · gratis da 2 · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -3450,8 +3450,8 @@ function openProduct(item){
   const qtyRow = document.getElementById("qtyRow");
   const qtyLbl = document.getElementById("qtyLabel");
   if (S.type.pronta){
-    if (boxSped) boxSped.textContent = "Pronta consegna · pezzo unico, 24-48h · spedizione gratis";
-    if (lblTot)  lblTot.textContent = "Prezzo · spedizione gratis";
+    if (boxSped) boxSped.textContent = "Pronta consegna · pezzo unico, 24-48h · 8€ di spedizione, gratis da 2 maglie";
+    if (lblTot)  lblTot.textContent = "Prezzo · + 8€ di spedizione (gratis da 2 maglie)";
     // niente selettore quantita: di quel capo ce n'e uno solo
     S.qty = 1;
     if (qtyRow) qtyRow.style.display = "none";
