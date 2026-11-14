@@ -9618,6 +9618,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-13 14:27:40",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-11-12 18:32:07",
         "luogo": "FCO",
         "stato": "Arrivato all'aeroporto di destinazione"
