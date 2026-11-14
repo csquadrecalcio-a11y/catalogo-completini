@@ -1362,7 +1362,7 @@ window.addEventListener("load", function(){
       a.innerHTML = '<img src="' + ((c.foto && c.foto[0]) || "") + '" alt="' + pulisci(c.titolo).replace(/"/g, "") + '" loading="lazy">' + ult + (sold ? '<span class="sold-banner">VENDUTO</span>' : "") +
         '<div class="pc-body"><h3>' + pulisci(c.titolo) + '</h3><div class="pc-tg">' +
         (sold ? "" : c.taglie.map(function(sz){ return '<span' + (/\(.+\)/.test(sz) ? ' class="nome"' : "") + ">" + lab(sz) + "</span>"; }).join("")) +
-        '</div><div class="pc-foot"><span>' + prezzoBfHtml(c.prezzo) + ' <small>spedizione gratis</small></span><span style="color:' + (sold ? "#d62839" : "var(--volt)") + '">' + (sold ? "Venduto" : "Apri →") + '</span></div></div>';
+        '</div><div class="pc-foot"><span>' + (sold ? fmtE(c.prezzo) + '€' : prezzoBfHtml(c.prezzo)) + ' <small>spedizione gratis</small></span><span style="color:' + (sold ? "#d62839" : "var(--volt)") + '">' + (sold ? "Venduto" : "Apri →") + '</span></div></div>';
       row.appendChild(a);
     });
     document.getElementById("pcTutte").textContent = "Vedi tutte le " + tot + " maglie pronte →";
@@ -2893,7 +2893,7 @@ function renderSearchResults(items){
       <div class="team">${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
       ${taglieVetrinaHtml(it)}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${prezzoBfHtml(minPrice)}<small>${activeCat && activeCat.pronta ? "spedizione gratis · 24-48h" : "spedizione inclusa"}</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${statoPronta(it.id, it) === "venduto" ? fmtE(minPrice) + "€" : prezzoBfHtml(minPrice)}<small>${activeCat && activeCat.pronta ? "spedizione gratis · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -3018,7 +3018,7 @@ function renderGrid(){
          </button>`).join("")}</div>` : ""}
       ${taglieVetrinaHtml(it)}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${prezzoBfHtml(minPrice)}<small>${activeCat && activeCat.pronta ? "spedizione gratis · 24-48h" : "spedizione inclusa"}</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${statoPronta(it.id, it) === "venduto" ? fmtE(minPrice) + "€" : prezzoBfHtml(minPrice)}<small>${activeCat && activeCat.pronta ? "spedizione gratis · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
