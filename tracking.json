@@ -9082,6 +9082,21 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-13 21:32:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-13 21:32:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-13 21:32:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
         "data": "2026-11-12 12:39:36",
         "luogo": "",
         "stato": "Consegnato al corriere finale"
@@ -9159,8 +9174,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-13 14:32",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-11-14 09:54",
+        "luogo": "LUCERA (FG)",
         "stato": "La spedizione è in transito"
       }
     ]
@@ -10297,7 +10312,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0488": {
-    "stato": "attesa_pagamento",
+    "stato": "in_lavorazione",
     "data_spedizione": "",
     "data_consegna": "",
     "corriere": "",
