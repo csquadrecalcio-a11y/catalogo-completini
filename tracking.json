@@ -9534,6 +9534,11 @@
         "stato": "Arrivato all'aeroporto di destinazione"
       },
       {
+        "data": "2026-11-13 16:27:05",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-11-12 18:31:49",
         "luogo": "",
         "stato": "Il volo è decollato"
