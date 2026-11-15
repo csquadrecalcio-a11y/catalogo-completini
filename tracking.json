@@ -8500,14 +8500,34 @@
     "fornitore": "",
     "eventi_cina": [
       {
-        "data": "2026-11-13 21:32:00",
-        "luogo": "Fara in sabina (ri)",
+        "data": "2026-11-14 17:13:00",
+        "luogo": "Lucera",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-14 16:54:21",
+        "luogo": "Lucera (fg)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-14 16:22:00",
+        "luogo": "Foggia",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-14 12:17:19",
+        "luogo": "Foggia (fg)",
         "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-13 21:32:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-13 21:32:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-13 21:32:00",
@@ -8582,12 +8602,12 @@
       {
         "data": "2026-11-04 18:54:53",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Ordine registrato, in attesa del pacco"
       },
       {
         "data": "2026-11-04 18:54:53",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": [
