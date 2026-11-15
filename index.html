@@ -2485,14 +2485,14 @@ async function loadTeamPhotos(team, tuttaLaCategoria){
   // "+kit" sulla cartella della lega vale per tutte le squadre che contiene
   const raggruppa = tuttaLaCategoria || vuoleKit(team.name);
   const nome = nomeSquadra(team.name);
-  const direct = await drive(`'${team.id}' in parents and ${IMG_Q}`,"files(id,name)","name").catch(()=>[]);
-  if (direct.length) return direct.map(f=>({id:f.id, name:f.name, team:nome, raggruppa}));
+  const direct = await drive(`'${team.id}' in parents and ${IMG_Q}`,"files(id,name,createdTime)","name").catch(()=>[]);
+  if (direct.length) return direct.map(f=>({id:f.id, name:f.name, ct:f.createdTime, team:nome, raggruppa}));
 
   const subs = await drive(`'${team.id}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`,"files(id,name)","name").catch(()=>[]);
   if (!subs.length) return [];
   const perSub = await Promise.all(subs.map(s =>
-    drive(`'${s.id}' in parents and ${IMG_Q}`,"files(id,name)","name")
-      .then(files => files.map(f=>({id:f.id, name:f.name,
+    drive(`'${s.id}' in parents and ${IMG_Q}`,"files(id,name,createdTime)","name")
+      .then(files => files.map(f=>({id:f.id, name:f.name, ct:f.createdTime,
                                     team:nomeSquadra(s.name),
                                     raggruppa: raggruppa || vuoleKit(s.name)})))
       .catch(()=>[])
@@ -2629,14 +2629,45 @@ function raggruppaKit(items){
       .sort((a,b) => rango(a.etichetta) - rango(b.etichetta) || a.etichetta.localeCompare(b.etichetta));
     // il riquadro del catalogo mostra il primo kit (di solito Home)
     fusi.push({ ...varianti[0].scatti[0], varianti,
+                ct: gruppo.map(g => g.ct || "").sort().pop(),
                 cerca: gruppo.map(g => g.name).join(" ") });
   }
   const raggruppati = new Set(daRaggruppare);
   return [...items.filter(i => !raggruppati.has(i)), ...fusi];
 }
 
-async function loadCategory(cat){
-  if (cache[cat.id]) return cache[cat.id];
+/* NUOVI ARRIVI AUTOMATICO (15/11/26)
+   Non si carica piu a mano: la categoria prende da sola maglie, kit e tute
+   caricati su Drive negli ultimi NUOVI_GIORNI giorni, guardando la data di
+   caricamento di ogni foto. Passato il periodo escono da sole, quindi la
+   lista non si riempie. Fuori restano Vintage, Pronta consegna, scarpe e
+   completi estivi. Per cambiare il periodo basta cambiare il numero. */
+const NUOVI_GIORNI = 30;
+const NON_NOVITA = /scarp|sneaker|estiv|\bpolo\b|canotta|t.?shirt|jordan/i;
+async function caricaNuoviArrivi(){
+  const limite = Date.now() - NUOVI_GIORNI * 86400000;
+  const fonti = CATALOG.filter(c => c.name !== "Nuovi Arrivi" && !c.pronta && c.name !== "Vintage");
+  const tutte = await Promise.all(fonti.map(c => loadCategory(c).then(d => d.items).catch(()=>[])));
+  const items = tutte.flat()
+    .filter(i => i.ct && Date.parse(i.ct) >= limite && !NON_NOVITA.test(i.name))
+    .sort((a,b) => Date.parse(b.ct) - Date.parse(a.ct));
+  return {items, teams: []};
+}
+
+const _inCorso = {};
+function loadCategory(cat){
+  if (cache[cat.id]) return Promise.resolve(cache[cat.id]);
+  // due richieste insieme (catalogo + ricerca) condividono la stessa attesa
+  if (!_inCorso[cat.id]) _inCorso[cat.id] = caricaCategoria(cat).finally(()=>{ delete _inCorso[cat.id]; });
+  return _inCorso[cat.id];
+}
+async function caricaCategoria(cat){
+  if (cat.name === "Nuovi Arrivi"){
+    try{
+      cache[cat.id] = await caricaNuoviArrivi();
+      return cache[cat.id];
+    }catch(e){ /* se qualcosa va storto si ripiega sulla cartella a mano */ }
+  }
   let items = [], teams = [];
   if (cat.subs){
     teams = await drive(`'${cat.id}' in parents and mimeType='application/vnd.google-apps.folder' and trashed=false`,"files(id,name)","name");
@@ -2678,11 +2709,11 @@ async function loadCategory(cat){
     cache[cat.id] = {items, teams: []};
     return cache[cat.id];
   } else {
-    const files = await drive(`'${cat.id}' in parents and ${IMG_Q}`,"files(id,name)","createdTime desc");
+    const files = await drive(`'${cat.id}' in parents and ${IMG_Q}`,"files(id,name,createdTime)","createdTime desc");
     // Pronta consegna: il pezzo venduto sparisce dal sito (22/09/26)
     items = files.filter(f => !(cat.pronta && PRONTA_VENDUTO.test(f.name)))
                  .filter(f => !(cat.pronta && statoPronta(f.id, {id:f.id, name:f.name}) === "sparito"))
-                 .map(f=>({id:f.id, name:f.name, team:""}));
+                 .map(f=>({id:f.id, name:f.name, ct:f.createdTime, team:""}));
   }
   items = raggruppaKit(raggruppaAngolazioni(items));
   cache[cat.id] = {items, teams};
