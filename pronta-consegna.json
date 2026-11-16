@@ -1,5 +1,18 @@
 [
   {
+    "id": "mag11",
+    "titolo": "Kit Barcellona Home Lamine Yamal 10 Bambino",
+    "tipo": "Kit Bambino",
+    "prezzo": 35.0,
+    "foto": [
+      "pronta-consegna/capo11_0.png"
+    ],
+    "taglie": [
+      "28 (LAMINE YAMAL 10)"
+    ],
+    "esaurito": false
+  },
+  {
     "id": "mag10",
     "titolo": "Maglia Barcellona Home Patch Liga",
     "tipo": "Maglia",
