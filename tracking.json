@@ -9802,11 +9802,11 @@
     "eventi_corriere": []
   },
   "CSC-2026-0492": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-11-16",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "Poste Italiane",
+    "tracking": "1UW0E9U032220",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
