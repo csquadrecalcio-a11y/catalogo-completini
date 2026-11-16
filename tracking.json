@@ -9946,7 +9946,18 @@
     "tracking_cina": "",
     "fornitore": "",
     "eventi_cina": [],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-11-16 17:03",
+        "luogo": "MADDALONI (CE)",
+        "stato": "La spedizione è in transito"
+      },
+      {
+        "data": "2026-11-16 13:15",
+        "luogo": "MADDALONI (CE)",
+        "stato": "La spedizione è stata presa in carico da un nostro operatore presso il domicilio del mittente"
+      }
+    ]
   },
   "CSC-2026-0493": {
     "stato": "in_lavorazione",
