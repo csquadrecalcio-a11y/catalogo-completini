@@ -8171,7 +8171,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0468": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-11-04",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -8303,6 +8303,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-16 13:02",
+        "luogo": "LUCERA (FG)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-14 09:54",
         "luogo": "LUCERA (FG)",
