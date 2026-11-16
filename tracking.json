@@ -9853,7 +9853,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0495": {
-    "stato": "in_lavorazione",
+    "stato": "attesa_pagamento",
     "data_spedizione": "",
     "data_consegna": "",
     "corriere": "",
