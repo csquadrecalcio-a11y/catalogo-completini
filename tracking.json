@@ -9470,6 +9470,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-15 15:12:24",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
         "data": "2026-11-14 14:22:27",
         "luogo": "",
         "stato": "Arrivo in Italia previsto: 16 novembre"
@@ -9505,9 +9510,19 @@
         "stato": "Arrivato al punto di raccolta"
       },
       {
+        "data": "2026-11-11 10:54:23",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
+      },
+      {
         "data": "2026-11-11 10:54:22",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
+      },
+      {
+        "data": "2026-11-11 10:54:22",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": []
