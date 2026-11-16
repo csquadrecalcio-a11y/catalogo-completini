@@ -8549,7 +8549,7 @@
     "data_spedizione": "2026-11-04",
     "data_consegna": "",
     "corriere": "Poste Italiane",
-    "tracking": "9C2307J358484",
+    "tracking": "9C2307J421777",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -8566,7 +8566,77 @@
     "fornitore": "",
     "eventi_cina": [
       {
-        "data": "2026-11-04 18:56:52",
+        "data": "2026-11-14 14:17:21",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-11-13 20:16:56",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
+        "data": "2026-11-13 19:30:45",
+        "luogo": "FCO",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
+        "data": "2026-11-13 16:27:05",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
+        "data": "2026-11-12 18:31:49",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-11-10 15:10:02",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 13 novembre"
+      },
+      {
+        "data": "2026-11-10 15:09:07",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 12 novembre"
+      },
+      {
+        "data": "2026-11-10 03:32:39",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-11-10 02:33:15",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-11-10 02:32:39",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
+        "data": "2026-11-09 18:32:39",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-11-07 01:56:35",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-11-06 22:34:05",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
+      },
+      {
+        "data": "2026-11-06 22:34:04",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-11-06 22:34:04",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
       }
