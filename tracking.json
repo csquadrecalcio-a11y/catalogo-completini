@@ -8701,6 +8701,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-16 10:02:07",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-11-14 22:01:36",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
         "data": "2026-11-14 14:17:21",
         "luogo": "FCO",
         "stato": "Sdoganamento completato"
@@ -8763,7 +8773,7 @@
       {
         "data": "2026-11-06 22:35:10",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Ordine registrato, in attesa del pacco"
       },
       {
         "data": "2026-11-06 22:35:10",
@@ -8773,7 +8783,7 @@
       {
         "data": "2026-11-06 22:35:10",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": []
