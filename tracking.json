@@ -5349,6 +5349,21 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-17 08:43:37",
+        "luogo": "Torino (to)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-17 00:56:33",
+        "luogo": "Torino (to)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-17 00:56:00",
+        "luogo": "Torino",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-11-11 13:48:45",
         "luogo": "Torino (to)",
         "stato": "In transito, la spedizione è in transito"
@@ -5471,7 +5486,7 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-16 17:56",
+        "data": "2026-11-17 01:43",
         "luogo": "TORINO (TO)",
         "stato": "La spedizione è in transito"
       }
