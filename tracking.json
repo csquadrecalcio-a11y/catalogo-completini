@@ -8318,6 +8318,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-16 10:02:07",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-11-14 22:01:36",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
         "data": "2026-11-14 14:17:21",
         "luogo": "FCO",
         "stato": "Sdoganamento completato"
@@ -8385,12 +8395,12 @@
       {
         "data": "2026-11-06 22:34:04",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-11-06 22:34:04",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": []
