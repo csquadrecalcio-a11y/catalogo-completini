@@ -9246,6 +9246,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-16 12:58:38",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
         "data": "2026-11-15 20:13:20",
         "luogo": "FCO",
         "stato": "Arrivato all'aeroporto di destinazione"
@@ -9293,17 +9298,17 @@
       {
         "data": "2026-11-11 10:52:21",
         "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
+      },
+      {
+        "data": "2026-11-11 10:52:21",
+        "luogo": "",
         "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-11-11 10:52:21",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
-      },
-      {
-        "data": "2026-11-11 10:52:21",
-        "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
     "eventi_corriere": []
