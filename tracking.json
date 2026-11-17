@@ -7784,6 +7784,26 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-17 09:09:58",
+        "luogo": "Roma (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-16 22:22:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-16 22:22:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-16 22:22:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
         "data": "2026-11-15 15:20:52",
         "luogo": "FCO",
         "stato": "Sdoganamento completato"
