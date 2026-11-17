@@ -7904,6 +7904,26 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-17 01:47:23",
+        "luogo": "Lucera (fg)",
+        "stato": "In consegna, consegna non andata a buon fine per destinatario assente. Qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
+      },
+      {
+        "data": "2026-11-17 01:47:00",
+        "luogo": "Lucera",
+        "stato": "Consegna non riuscita: destinatario assente"
+      },
+      {
+        "data": "2026-11-16 20:02:51",
+        "luogo": "Lucera (fg)",
+        "stato": "In consegna, la spedizione è in consegna"
+      },
+      {
+        "data": "2026-11-16 20:02:00",
+        "luogo": "Lucera",
+        "stato": "In consegna"
+      },
+      {
         "data": "2026-11-14 17:13:00",
         "luogo": "Lucera",
         "stato": "In transito nella rete di Poste Italiane"
@@ -7912,6 +7932,11 @@
         "data": "2026-11-14 16:54:21",
         "luogo": "Lucera (fg)",
         "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-14 16:54:21",
+        "luogo": "Lucera (fg)",
+        "stato": "In transito"
       },
       {
         "data": "2026-11-14 16:22:00",
@@ -7925,13 +7950,13 @@
       },
       {
         "data": "2026-11-13 21:32:00",
-        "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-13 21:32:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-11-13 21:32:00",
@@ -8006,12 +8031,12 @@
       {
         "data": "2026-11-04 18:54:53",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-11-04 18:54:53",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
     "eventi_corriere": [
