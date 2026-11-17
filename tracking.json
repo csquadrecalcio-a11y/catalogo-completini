@@ -9798,6 +9798,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-17 10:48:06",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
         "data": "2026-11-17 02:03:59",
         "luogo": "",
         "stato": "Arrivato al punto di raccolta"
