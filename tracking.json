@@ -8523,9 +8523,9 @@
     ]
   },
   "CSC-2026-0472": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-09",
-    "data_consegna": "",
+    "data_consegna": "2026-11-18 18:33:43",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J421799",
     "corriere_2": "",
