@@ -9956,7 +9956,17 @@
       {
         "data": "2026-11-14 11:40:32",
         "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
+      },
+      {
+        "data": "2026-11-14 11:40:32",
+        "luogo": "",
         "stato": "Dati della spedizione ricevuti"
+      },
+      {
+        "data": "2026-11-14 11:40:32",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": []
