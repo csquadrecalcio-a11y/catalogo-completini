@@ -7820,6 +7820,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-18 07:55:11",
+        "luogo": "Roma (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-11-17 09:09:58",
         "luogo": "Roma (rm)",
         "stato": "In transito, la spedizione è in transito"
@@ -7902,17 +7907,17 @@
       {
         "data": "2026-11-01 14:09:31",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-11-01 14:09:31",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-17 02:09",
+        "data": "2026-11-18 00:55",
         "luogo": "ROMA (RM)",
         "stato": "La spedizione è in transito"
       }
