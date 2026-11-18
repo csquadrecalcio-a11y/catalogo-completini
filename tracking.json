@@ -9477,6 +9477,41 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-18 08:21:00",
+        "luogo": "Maddaloni (ce)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-17 19:02:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-11-17 19:02:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-17 19:02:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-17 17:23:19",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-11-17 00:23:44",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-11-16 20:24:04",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
         "data": "2026-11-16 12:58:38",
         "luogo": "FCO",
         "stato": "Arrivato al deposito doganale"
@@ -9534,18 +9569,18 @@
       {
         "data": "2026-11-11 10:52:21",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-11-11 10:52:21",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-17 12:02",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-11-18 01:21",
+        "luogo": "MADDALONI (CE)",
         "stato": "La spedizione è in transito"
       }
     ]
