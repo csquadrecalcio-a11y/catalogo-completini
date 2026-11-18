@@ -8119,9 +8119,9 @@
     ]
   },
   "CSC-2026-0469": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-04",
-    "data_consegna": "",
+    "data_consegna": "2026-11-18 14:39",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J358452",
     "corriere_2": "",
@@ -8226,6 +8226,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-18 14:39",
+        "luogo": "dalla sede operativa di MODUGNO (BA)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-18 14:06",
+        "luogo": "MODUGNO (BA)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-18 07:33",
         "luogo": "MODUGNO (BA)",
