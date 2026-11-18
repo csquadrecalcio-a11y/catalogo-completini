@@ -7678,9 +7678,9 @@
     ]
   },
   "CSC-2026-0466": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-02",
-    "data_consegna": "",
+    "data_consegna": "2026-11-18 11:47:54",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J262196",
     "corriere_2": "",
@@ -7790,6 +7790,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-18 11:32",
+        "luogo": "dalla sede operativa di MONDRAGONE (CE)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-18 11:12",
+        "luogo": "MONDRAGONE (CE)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-17 13:23",
         "luogo": "FARA IN SABINA (RI)",
