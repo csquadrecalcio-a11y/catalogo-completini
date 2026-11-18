@@ -9128,6 +9128,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-18 14:57:20",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
         "data": "2026-11-16 12:58:38",
         "luogo": "FCO",
         "stato": "Arrivato al deposito doganale"
