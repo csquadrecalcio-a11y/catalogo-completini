@@ -10258,7 +10258,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0492": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-11-16",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -10277,8 +10277,13 @@
     "eventi_cina": [],
     "eventi_corriere": [
       {
-        "data": "2026-11-17 13:23",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-11-18 11:09",
+        "luogo": "SANTA PALOMBA (RM)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-11-18 09:48",
+        "luogo": "SANTA PALOMBA (RM)",
         "stato": "La spedizione è in transito"
       },
       {
