@@ -8518,7 +8518,7 @@
     ]
   },
   "CSC-2026-0472": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-11-09",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -8645,6 +8645,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-18 14:03",
+        "luogo": "ROMA (RM)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-18 06:35",
         "luogo": "ROMA (RM)",
