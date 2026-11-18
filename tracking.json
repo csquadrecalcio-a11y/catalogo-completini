@@ -8509,6 +8509,26 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-18 07:38:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-17 22:10:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-17 22:10:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-17 22:10:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
         "data": "2026-11-16 10:02:07",
         "luogo": "",
         "stato": "Consegnato al corriere finale"
@@ -8596,8 +8616,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-17 15:11",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-11-18 06:35",
+        "luogo": "ROMA (RM)",
         "stato": "La spedizione è in transito"
       }
     ]
