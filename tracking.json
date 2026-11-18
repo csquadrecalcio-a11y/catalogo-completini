@@ -8389,7 +8389,7 @@
     ]
   },
   "CSC-2026-0471": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-11-04",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -8510,6 +8510,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-18 13:17",
+        "luogo": "VERONA (VR)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-18 11:19",
         "luogo": "VERONA (VR)",
