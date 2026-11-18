@@ -10278,9 +10278,9 @@
     "eventi_corriere": []
   },
   "CSC-2026-0492": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-16",
-    "data_consegna": "",
+    "data_consegna": "2026-11-18 13:41",
     "corriere": "Poste Italiane",
     "tracking": "1UW0E9U032220",
     "corriere_2": "",
@@ -10296,6 +10296,11 @@
     "fornitore": "",
     "eventi_cina": [],
     "eventi_corriere": [
+      {
+        "data": "2026-11-18 13:41",
+        "luogo": "dalla sede operativa di SANTA PALOMBA (RM)",
+        "stato": "La spedizione è stata consegnata"
+      },
       {
         "data": "2026-11-18 11:09",
         "luogo": "SANTA PALOMBA (RM)",
