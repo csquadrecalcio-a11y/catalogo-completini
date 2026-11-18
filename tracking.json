@@ -9186,7 +9186,7 @@
     ]
   },
   "CSC-2026-0481": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-11-11",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -9206,6 +9206,36 @@
     "tracking_cina": "",
     "fornitore": "",
     "eventi_cina": [
+      {
+        "data": "2026-11-17 19:08:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-17 19:08:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-17 19:08:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-11-17 17:23:19",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-11-17 00:23:44",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-11-16 20:24:04",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
       {
         "data": "2026-11-16 12:58:38",
         "luogo": "FCO",
@@ -9264,18 +9294,23 @@
       {
         "data": "2026-11-11 10:51:42",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-11-11 10:51:42",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-17 12:09",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-11-18 10:03",
+        "luogo": "ROZZANO (MI)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-11-18 06:04",
+        "luogo": "PESCHIERA BORROMEO (MI)",
         "stato": "La spedizione è in transito"
       }
     ]
@@ -10099,7 +10134,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0498": {
-    "stato": "attesa_pagamento",
+    "stato": "in_lavorazione",
     "data_spedizione": "",
     "data_consegna": "",
     "corriere": "",
