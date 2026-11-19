@@ -8684,14 +8684,24 @@
     "fornitore": "",
     "eventi_cina": [
       {
-        "data": "2026-11-16 20:22:00",
-        "luogo": "Fara in sabina (ri)",
+        "data": "2026-11-18 11:56:27",
+        "luogo": "Verona (vr)",
         "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-18 11:56:00",
+        "luogo": "Verona",
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-11-16 20:22:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-16 20:22:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-16 20:22:00",
@@ -8786,8 +8796,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-18 04:56",
-        "luogo": "VERONA (VR)",
+        "data": "2026-11-19 06:09",
+        "luogo": "MANTOVA (MN)",
         "stato": "La spedizione è in transito"
       }
     ]
