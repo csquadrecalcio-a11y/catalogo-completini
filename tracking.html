@@ -657,13 +657,23 @@ function buildCard(cod, o){
   }
 
   // foto
-  const foto = (o.foto||[]).filter(Boolean);
+  // Le foto dei pacchi sono cifrate (file .enc): si aprono solo col link completo che
+  // il cliente riceve su WhatsApp, perche la chiave sta dopo il "#" e non va a nessun
+  // server (19/11/26). Le vecchie foto in chiaro dei pacchi gia in viaggio si vedono come prima.
+  const fotoTutte = (o.foto||[]).filter(Boolean);
+  const chiaveFoto = _chiaveFoto();
+  const foto = fotoTutte.filter(f => !/\.enc$/i.test(f) || chiaveFoto);
+  const fotoBloccate = fotoTutte.length > foto.length;
+  const PLACEHOLDER = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+  const srcFoto = f => /\.enc$/i.test(f) ? `src="${PLACEHOLDER}" data-enc="foto_tracking/${f}"` : `src="foto_tracking/${f}"`;
   let fotoHtml = "";
   if(foto.length){
     const openLb = `document.getElementById('lbImg').src=this.src;document.getElementById('lb').classList.add('open')`;
-    const featured = `<img class="foto-featured" src="foto_tracking/${foto[0]}" alt="foto merce" loading="lazy" onclick="${openLb}">`;
-    const rest = foto.slice(1).map(f=>`<img src="foto_tracking/${f}" alt="foto merce" loading="lazy" onclick="${openLb}">`).join("");
+    const featured = `<img class="foto-featured" ${srcFoto(foto[0])} alt="foto merce" loading="lazy" onclick="${openLb}">`;
+    const rest = foto.slice(1).map(f=>`<img ${srcFoto(f)} alt="foto merce" loading="lazy" onclick="${openLb}">`).join("");
     fotoHtml = `<div class="foto-section"><div class="foto-lbl">📸 Foto merce</div>${featured}${rest ? `<div class="foto-grid">${rest}</div>` : ""}</div>`;
+  } else if(fotoBloccate){
+    fotoHtml = `<div class="foto-section"><div class="foto-lbl">📸 Foto merce</div><div style="padding:14px 16px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:13px;line-height:1.5">🔒 Le foto del tuo pacco sono <b>private</b>: si vedono solo aprendo il <b>link completo</b> che ti abbiamo mandato su WhatsApp. Se non lo trovi, scrivici e te lo rimandiamo.</div></div>`;
   }
 
   const lavorazioneBanner = (o.stato === "in_lavorazione" || o.stato === "lavorazione" || o.stato === "attesa_pagamento")
@@ -1101,6 +1111,37 @@ else if(installata){
        le prossime volte si aprirà da solo.
      </div>`;
 }
+</script>
+<script>
+/* Foto private (19/11/26): decifra le foto .enc con la chiave che sta nel link (#k=...) */
+function _chiaveFoto(){
+  const m = (location.hash || "").match(/[#&]k=([A-Za-z0-9_-]{22})/);
+  return m ? m[1] : "";
+}
+async function _importaChiave(k){
+  const b = atob(k.replace(/-/g, "+").replace(/_/g, "/") + "==");
+  const raw = Uint8Array.from(b, c => c.charCodeAt(0));
+  return crypto.subtle.importKey("raw", raw, "AES-GCM", false, ["decrypt"]);
+}
+async function decifraFoto(){
+  const k = _chiaveFoto();
+  if(!k || !window.crypto || !crypto.subtle) return;
+  const imgs = [...document.querySelectorAll("img[data-enc]")].filter(i => !i.dataset.fatto);
+  if(!imgs.length) return;
+  let chiave; try{ chiave = await _importaChiave(k); }catch(e){ return; }
+  for(const img of imgs){
+    img.dataset.fatto = "1";
+    try{
+      const r = await fetch(img.dataset.enc);
+      if(!r.ok) continue;
+      const buf = new Uint8Array(await r.arrayBuffer());
+      const chiaro = await crypto.subtle.decrypt({name:"AES-GCM", iv: buf.slice(0,12)}, chiave, buf.slice(12));
+      img.src = URL.createObjectURL(new Blob([chiaro], {type:"image/jpeg"}));
+    }catch(e){ /* chiave sbagliata o file mancante: resta il segnaposto */ }
+  }
+}
+new MutationObserver(() => { decifraFoto(); }).observe(document.documentElement, {childList:true, subtree:true});
+window.addEventListener("hashchange", () => location.reload());
 </script>
 </body>
 </html>
