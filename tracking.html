@@ -1126,19 +1126,28 @@ async function _importaChiave(k){
 async function decifraFoto(){
   const k = _chiaveFoto();
   if(!k || !window.crypto || !crypto.subtle) return;
-  const imgs = [...document.querySelectorAll("img[data-enc]")].filter(i => !i.dataset.fatto);
-  if(!imgs.length) return;
-  let chiave; try{ chiave = await _importaChiave(k); }catch(e){ return; }
-  for(const img of imgs){
-    img.dataset.fatto = "1";
-    try{
-      const r = await fetch(img.dataset.enc);
-      if(!r.ok) continue;
-      const buf = new Uint8Array(await r.arrayBuffer());
-      const chiaro = await crypto.subtle.decrypt({name:"AES-GCM", iv: buf.slice(0,12)}, chiave, buf.slice(12));
-      img.src = URL.createObjectURL(new Blob([chiaro], {type:"image/jpeg"}));
-    }catch(e){ /* chiave sbagliata o file mancante: resta il segnaposto */ }
-  }
+  if(window.__decifrando) return;           // un giro alla volta
+  window.__decifrando = true;
+  try{
+    const imgs = [...document.querySelectorAll("img[data-enc]")].filter(i => !i.dataset.fatto && (+i.dataset.prove||0) < 4);
+    if(!imgs.length) return;
+    let chiave; try{ chiave = await _importaChiave(k); }catch(e){ return; }
+    let daRiprovare = false;
+    for(const img of imgs){
+      try{
+        const r = await fetch(img.dataset.enc, {cache:"no-store"});
+        if(!r.ok) throw new Error("http " + r.status);
+        const buf = new Uint8Array(await r.arrayBuffer());
+        const chiaro = await crypto.subtle.decrypt({name:"AES-GCM", iv: buf.slice(0,12)}, chiave, buf.slice(12));
+        img.src = URL.createObjectURL(new Blob([chiaro], {type:"image/jpeg"}));
+        img.dataset.fatto = "1";
+      }catch(e){
+        img.dataset.prove = String((+img.dataset.prove||0) + 1);   // riprova (max 4 volte)
+        daRiprovare = true;
+      }
+    }
+    if(daRiprovare) setTimeout(decifraFoto, 1500);
+  } finally { window.__decifrando = false; }
 }
 new MutationObserver(() => { decifraFoto(); }).observe(document.documentElement, {childList:true, subtree:true});
 window.addEventListener("hashchange", () => location.reload());
