@@ -9307,7 +9307,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0480": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-11-11",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -9429,6 +9429,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-19 15:06",
+        "luogo": "",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-19 07:13",
         "luogo": "VARESE (VA)",
