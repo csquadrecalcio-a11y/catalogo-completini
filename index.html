@@ -2055,8 +2055,18 @@ async function nomeNoto(nome){
 async function telefonoNoto(tel){
   const c = (tel||"").replace(/\D/g,"").slice(-9);
   if (c.length < 9) return false;
-  const d = await _chiediGestionale("/api/cliente-noto?tel=" + c);
-  return !!(d && d.noto);
+  // Si chiede al servizio sempre acceso (Cloudflare), NON al gestionale: con il Mac spento il gestionale non
+  // risponde e i clienti noti finivano sul numero business (successo il 19/11/26, ordine Bonaldo).
+  const chiave = "worker:" + c;
+  if (_cacheNoto.has(chiave)) return _cacheNoto.get(chiave);
+  let noto = false;
+  try{
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 4000);
+    const r = await fetch("https://csc-gruppi.worker-gruppi.workers.dev/noto?tel=" + c, {signal: ctl.signal});
+    clearTimeout(t);
+    if (r.ok){ const d = await r.json(); noto = !!(d && d.noto); _cacheNoto.set(chiave, noto); }
+  }catch(e){ noto = false; }
+  return noto;
 }
 function _stessiNomi(a,b){
   const ka=_chiaviNome(a), kb=_chiaviNome(b);
