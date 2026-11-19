@@ -8663,9 +8663,9 @@
     ]
   },
   "CSC-2026-0473": {
-    "stato": "spedito",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-09",
-    "data_consegna": "",
+    "data_consegna": "2026-11-19 15:21:14",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J358550",
     "corriere_2": "",
@@ -8677,8 +8677,8 @@
     "corriere_5": "",
     "tracking_5": "",
     "foto": [
-      "sped_473_1_8e2de87f.jpg",
-      "sped_473_2_a8443ada.jpg"
+      "336a8c31700abdd2a7ab2fc2.enc",
+      "75bcd40b35844581bb6efec9.enc"
     ],
     "tracking_cina": "",
     "fornitore": "",
@@ -8795,6 +8795,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-19 14:42",
+        "luogo": "dalla sede operativa di CANNETO SULL'OGLIO (MN)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-19 11:50",
+        "luogo": "CANNETO SULL'OGLIO (MN)",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-19 06:09",
         "luogo": "MANTOVA (MN)",
