@@ -1915,6 +1915,7 @@ window.addEventListener("load", function(){
       <div class="checkout-box">
         <div class="checkout-title">Dati spedizione</div>
         <div class="checkout-grid">
+          <input id="sito_url_extra" type="text" name="sito_url_extra" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <input id="orderNome" type="text" placeholder="Nome *" autocomplete="given-name">
           <input id="orderCognome" type="text" placeholder="Cognome *" autocomplete="family-name">
           <input id="orderIndirizzo" class="wide" type="text" placeholder="Via e numero civico *" autocomplete="street-address">
@@ -2016,10 +2017,23 @@ const PRESENTAZIONE_OBBLIGATORIA = false;
 const WA_BUSINESS  = "447727750265";
 /* Elenchi dei clienti veri: solo impronte cifrate (telefoni e nomi), mai i dati in chiaro (29/10/26).
    Servono a due cose: smistare il WhatsApp e controllare chi ha presentato un nuovo cliente. */
-let _clientiNoti = null;      // impronte dei telefoni
-let _nomiNoti = null;         // impronte dei nomi (null = elenco non caricato: il controllo non blocca)
-fetch("/clienti_noti.json?v="+Date.now()).then(r=>r.json()).then(d=>{ _clientiNoti=new Set(d); }).catch(()=>{ _clientiNoti=new Set(); });
-fetch("/clienti-nomi.json?v="+Date.now()).then(r=>r.ok?r.json():null).then(d=>{ _nomiNoti = d ? new Set(d) : null; }).catch(()=>{ _nomiNoti=null; });
+/* 19/11/26: gli elenchi pubblici di impronte (clienti_noti.json, clienti-nomi.json) sono stati tolti: i numeri
+   si potevano ricostruire. Ora si chiede al gestionale un numero/nome per volta (con limite di richieste);
+   se il gestionale non risponde (Mac spento) si ripiega sul numero business e il controllo non blocca. */
+const _cacheNoto = new Map();
+async function _chiediGestionale(percorso){
+  if (_cacheNoto.has(percorso)) return _cacheNoto.get(percorso);
+  let esito = null;
+  try{
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 4000);
+    const r = await fetch("https://mosaic-possum-crisping.ngrok-free.dev" + percorso,
+                          {signal: ctl.signal, headers: {"ngrok-skip-browser-warning": "1"}});
+    clearTimeout(t);
+    if (r.ok) esito = await r.json();
+  }catch(e){ esito = null; }
+  if (esito !== null) _cacheNoto.set(percorso, esito);
+  return esito;
+}
 async function _sha256Hex(t){
   const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(t));
   return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, "0")).join("");
@@ -2033,16 +2047,16 @@ function _chiaviNome(nome){
   return out;
 }
 async function nomeNoto(nome){
-  if (_nomiNoti === null) return null;           // elenco non disponibile
-  for (const k of _chiaviNome(nome)){
-    if (_nomiNoti.has(await _sha256Hex("csc-nome:" + k))) return true;
-  }
-  return false;
+  if (_tokenNome(nome).length < 2) return false;
+  const d = await _chiediGestionale("/api/nome-noto?n=" + encodeURIComponent((nome||"").trim().slice(0,80)));
+  if (d === null || d.noto === null || d.noto === undefined) return null;   // gestionale non raggiungibile: non blocco
+  return !!d.noto;
 }
 async function telefonoNoto(tel){
   const c = (tel||"").replace(/\D/g,"").slice(-9);
-  if (c.length < 9 || !_clientiNoti) return false;
-  return _clientiNoti.has(await _sha256Hex("csc-tel:" + c));
+  if (c.length < 9) return false;
+  const d = await _chiediGestionale("/api/cliente-noto?tel=" + c);
+  return !!(d && d.noto);
 }
 function _stessiNomi(a,b){
   const ka=_chiaviNome(a), kb=_chiaviNome(b);
@@ -4345,6 +4359,7 @@ function buildOrdinePayload(order, cartItems, tier, sconto){
     metodo_pagamento: order.pagamento, note: order.note, articoli,
     consigliato_da: order.consigliato,
     provenienza: _provenienza(),
+    sito_url_extra: (document.getElementById("sito_url_extra")||{}).value || "",
     spedizione: prontaSpedizione(cartItems),
     bf: bfPct(),
     sconto_codice: (sconto && sconto.codiceSconto) || "",

@@ -973,7 +973,7 @@ async function attivaAvvisi(){
     });
     const r = await fetch(API_NOTIFICHE + "/sub", {
       method:"POST", headers:{"Content-Type":"application/json"},
-      body: JSON.stringify({codice: _codiceCorrente, subscription: sub.toJSON()}),
+      body: JSON.stringify({codice: _codiceCorrente, subscription: sub.toJSON(), k: _chiaveFoto()}),
     });
     if(!r.ok) throw new Error("registrazione non riuscita");
     btn.disabled = false; btn.textContent = '✓ Attive'; btn.classList.add('attivo');
