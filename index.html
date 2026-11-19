@@ -54,6 +54,40 @@ try{ if (localStorage.getItem('cookieConsent') === 'all'){ gtag('consent','updat
 gtag('js', new Date());
 gtag('config', 'G-SYPQZL1L7W');
 </script>
+<script>
+/* Da dove arriva il cliente (19/11/26): ricordo solo UNA parola (instagram, google, tiktok...) per 30 giorni
+   e la mando insieme all'ordine, cosi nel gestionale si vede quali canali portano ordini veri.
+   Vale il link con ?fonte=... (es. completinicalcio.it/?fonte=instagram); senza, guardo da che sito arriva. */
+(function(){
+  try{
+    var q = new URLSearchParams(location.search);
+    var f = (q.get("fonte") || q.get("utm_source") || "").toLowerCase().replace(/[^a-z0-9_.-]/g,"").slice(0,24);
+    if (!f && document.referrer){
+      var h = ""; try{ h = new URL(document.referrer).hostname.toLowerCase(); }catch(e){}
+      if (h && h.indexOf("completinicalcio") < 0){
+        if (/instagram/.test(h)) f = "instagram";
+        else if (/google\./.test(h)) f = "google";
+        else if (/tiktok/.test(h)) f = "tiktok";
+        else if (/facebook|fb\.com/.test(h)) f = "facebook";
+        else if (/whatsapp|wa\.me/.test(h)) f = "whatsapp";
+        else if (/bing\./.test(h)) f = "bing";
+        else if (/youtube|youtu\.be/.test(h)) f = "youtube";
+        else f = h.replace(/^www\./,"").slice(0,24);
+      }
+    }
+    var salvata = null; try{ salvata = JSON.parse(localStorage.getItem("csc-fonte") || "null"); }catch(e){}
+    var valida = salvata && salvata.f && (Date.now() - salvata.t) < 30*24*3600*1000;
+    // una fonte esplicita (?fonte=) vince sempre; altrimenti resta la prima vista nei 30 giorni
+    if (f && (q.get("fonte") || q.get("utm_source") || !valida)){
+      localStorage.setItem("csc-fonte", JSON.stringify({f: f, t: Date.now()}));
+    }
+  }catch(e){}
+})();
+function _provenienza(){
+  try{ var s = JSON.parse(localStorage.getItem("csc-fonte") || "null");
+       return (s && s.f && (Date.now() - s.t) < 30*24*3600*1000) ? s.f : ""; }catch(e){ return ""; }
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -4310,6 +4344,7 @@ function buildOrdinePayload(order, cartItems, tier, sconto){
     },
     metodo_pagamento: order.pagamento, note: order.note, articoli,
     consigliato_da: order.consigliato,
+    provenienza: _provenienza(),
     spedizione: prontaSpedizione(cartItems),
     bf: bfPct(),
     sconto_codice: (sconto && sconto.codiceSconto) || "",
