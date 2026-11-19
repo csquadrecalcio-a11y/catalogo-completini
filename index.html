@@ -4359,7 +4359,6 @@ function buildOrdinePayload(order, cartItems, tier, sconto){
     metodo_pagamento: order.pagamento, note: order.note, articoli,
     consigliato_da: order.consigliato,
     provenienza: _provenienza(),
-    via_whatsapp: true,   // l'ordine conta solo quando arriva anche il messaggio su WhatsApp (19/11/26)
     sito_url_extra: (document.getElementById("sito_url_extra")||{}).value || "",
     spedizione: prontaSpedizione(cartItems),
     bf: bfPct(),
