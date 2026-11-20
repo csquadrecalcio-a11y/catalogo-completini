@@ -8026,14 +8026,39 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-19 23:05:28",
+        "luogo": "",
+        "stato": "In consegna, consegna non andata a buon fine per destinatario assente. Qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
+      },
+      {
+        "data": "2026-11-19 23:05:00",
+        "luogo": "",
+        "stato": "Consegna non riuscita: destinatario assente"
+      },
+      {
+        "data": "2026-11-19 22:06:00",
+        "luogo": "",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-11-19 15:19:00",
+        "luogo": "Varese",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-19 14:13:48",
+        "luogo": "Varese (va)",
+        "stato": "In transito"
+      },
+      {
         "data": "2026-11-19 14:13:48",
         "luogo": "Varese (va)",
         "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-17 23:58:00",
-        "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-17 23:58:00",
@@ -8042,8 +8067,8 @@
       },
       {
         "data": "2026-11-17 23:58:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-11-17 17:23:19",
@@ -8118,12 +8143,12 @@
       {
         "data": "2026-11-11 10:51:04",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-11-11 10:51:04",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": [
