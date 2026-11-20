@@ -3799,7 +3799,7 @@ function qualifyingCount(){ return cart.reduce((n,i)=> n + (parseInt(i.qty)||1),
 function tierFor(n){ return n>=10 ? 2 : n>=5 ? 1 : 0; }
 function unitPriceFor(it, tier){
   const base = isQualifying(it) ? TIER_PRICE[it.versionId][tier] : it.price;
-  if (!bfAttivo()) return base;
+  if (!bfAttivo() || tier > 0) return base;   // dai 5 pezzi in poi niente Black Friday: vale solo lo sconto quantita (20/11/26)
   const listino = isQualifying(it) ? TIER_PRICE[it.versionId][0] : it.price;
   return Math.min(base, bfPrezzo(listino));
 }
