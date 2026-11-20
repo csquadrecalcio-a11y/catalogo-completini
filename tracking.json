@@ -8316,6 +8316,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-19 23:17:00",
+        "luogo": "Maddaloni (ce)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-11-18 08:21:00",
         "luogo": "Maddaloni",
         "stato": "In transito nella rete di Poste Italiane"
@@ -8332,13 +8337,13 @@
       },
       {
         "data": "2026-11-17 19:02:00",
-        "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-17 19:02:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-11-17 17:23:19",
