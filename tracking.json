@@ -8974,6 +8974,21 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-20 12:10:45",
+        "luogo": "Sesto fiorentino (fi)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-20 05:59:00",
+        "luogo": "Sesto fiorentino",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-20 05:28:08",
+        "luogo": "Sesto fiorentino (fi)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-11-19 14:08:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
@@ -8981,12 +8996,12 @@
       {
         "data": "2026-11-18 19:16:00",
         "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-11-18 19:16:00",
         "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-11-18 19:16:00",
@@ -9076,8 +9091,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-19 07:08",
-        "luogo": "FARA IN SABINA (RI)",
+        "data": "2026-11-20 05:10",
+        "luogo": "SESTO FIORENTINO (FI)",
         "stato": "La spedizione è in transito"
       }
     ]
