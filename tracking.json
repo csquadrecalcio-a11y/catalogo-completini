@@ -7764,6 +7764,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-11-20 10:25",
+        "luogo": "",
+        "stato": "Consegna non andata a buon fine per destinatario assente. qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
+      },
+      {
         "data": "2026-11-20 05:10",
         "luogo": "SESTO FIORENTINO (FI)",
         "stato": "La spedizione è in transito"
