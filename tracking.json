@@ -10546,6 +10546,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-20 11:42:47",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
         "data": "2026-11-20 02:13:40",
         "luogo": "",
         "stato": "Arrivato al punto di raccolta"
@@ -10839,6 +10844,26 @@
     "eventi_corriere": []
   },
   "CSC-2026-0520": {
+    "stato": "attesa_pagamento",
+    "data_spedizione": "",
+    "data_consegna": "",
+    "corriere": "",
+    "tracking": "",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "fornitore": "",
+    "eventi_cina": [],
+    "eventi_corriere": []
+  },
+  "CSC-2026-0518": {
     "stato": "attesa_pagamento",
     "data_spedizione": "",
     "data_consegna": "",
