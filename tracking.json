@@ -7210,9 +7210,29 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-20 17:25:19",
+        "luogo": "",
+        "stato": "In consegna, consegna non andata a buon fine per destinatario assente. Qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
+      },
+      {
+        "data": "2026-11-20 17:25:00",
+        "luogo": "",
+        "stato": "Consegna non riuscita: destinatario assente"
+      },
+      {
+        "data": "2026-11-20 17:01:00",
+        "luogo": "",
+        "stato": "In consegna"
+      },
+      {
         "data": "2026-11-20 12:10:45",
         "luogo": "Sesto fiorentino (fi)",
         "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-20 12:10:45",
+        "luogo": "Sesto fiorentino (fi)",
+        "stato": "In transito"
       },
       {
         "data": "2026-11-20 05:59:00",
@@ -7232,12 +7252,12 @@
       {
         "data": "2026-11-18 19:16:00",
         "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-11-18 19:16:00",
         "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-11-18 19:16:00",
