@@ -9113,6 +9113,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-22 01:57:22",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
         "data": "2026-11-19 11:10:40",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
