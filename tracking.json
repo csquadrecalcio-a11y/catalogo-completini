@@ -7614,6 +7614,36 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-21 02:39:00",
+        "luogo": "Cazzago brabbia",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-21 01:17:11",
+        "luogo": "Cazzago brabbia (va)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-20 21:48:09",
+        "luogo": "",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-11-20 21:48:09",
+        "luogo": "",
+        "stato": "In consegna, consegna non andata a buon fine per destinatario assente. Qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
+      },
+      {
+        "data": "2026-11-20 21:48:00",
+        "luogo": "",
+        "stato": "Consegna non riuscita: destinatario assente"
+      },
+      {
+        "data": "2026-11-20 19:24:00",
+        "luogo": "",
+        "stato": "In consegna"
+      },
+      {
         "data": "2026-11-19 23:05:28",
         "luogo": "",
         "stato": "In consegna, consegna non andata a buon fine per destinatario assente. Qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
@@ -7636,17 +7666,12 @@
       {
         "data": "2026-11-19 14:13:48",
         "luogo": "Varese (va)",
-        "stato": "In transito"
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-19 14:13:48",
         "luogo": "Varese (va)",
-        "stato": "In transito, la spedizione è in transito"
-      },
-      {
-        "data": "2026-11-17 23:58:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "stato": "In transito"
       },
       {
         "data": "2026-11-17 23:58:00",
@@ -7657,6 +7682,11 @@
         "data": "2026-11-17 23:58:00",
         "luogo": "Fara in sabina",
         "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-11-17 23:58:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-17 17:23:19",
