@@ -9059,6 +9059,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-21 08:31:37",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
         "data": "2026-11-21 01:41:20",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
@@ -9347,7 +9352,7 @@
     "eventi_corriere": []
   },
   "CSC-2026-0530": {
-    "stato": "attesa_pagamento",
+    "stato": "in_lavorazione",
     "data_spedizione": "",
     "data_consegna": "",
     "corriere": "",
