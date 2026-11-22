@@ -7,10 +7,8 @@
     "foto": [
       "pronta-consegna/capo11_0.png"
     ],
-    "taglie": [
-      "28 (LAMINE YAMAL 10)"
-    ],
-    "esaurito": false
+    "taglie": [],
+    "esaurito": true
   },
   {
     "id": "mag10",
