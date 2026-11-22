@@ -1486,6 +1486,7 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
 /* Vetrina pronta consegna in home: le maglie del magazzino subito sotto la copertina */
 window.addEventListener("load", function(){
   fetch("pronta-consegna.json?v=" + Date.now()).then(function(r){ return r.ok ? r.json() : []; }).then(function(capi){
+    registraSenzaBf(capi);
     var venduti = (capi || []).filter(function(c){ return c.esaurito; }).slice(0, 3);
     capi = (capi || []).filter(function(c){ return !c.esaurito && c.taglie && c.taglie.length; });
     if (!capi.length) return;
@@ -1503,7 +1504,7 @@ window.addEventListener("load", function(){
       a.innerHTML = '<img src="' + ((c.foto && c.foto[0]) || "") + '" alt="' + pulisci(c.titolo).replace(/"/g, "") + '" loading="lazy">' + ult + (sold ? '<span class="sold-banner">VENDUTO</span>' : "") +
         '<div class="pc-body"><h3>' + pulisci(c.titolo) + '</h3><div class="pc-tg">' +
         (sold ? "" : c.taglie.map(function(sz){ return '<span' + (/\(.+\)/.test(sz) ? ' class="nome"' : "") + ">" + lab(sz) + "</span>"; }).join("")) +
-        '</div><div class="pc-foot"><span>' + (sold ? fmtE(c.prezzo) + '€' : prezzoBfHtml(c.prezzo)) + ' <small>+ 8€ sped. · gratis da 2</small></span><span style="color:' + (sold ? "#d62839" : "var(--volt)") + '">' + (sold ? "Venduto" : "Apri →") + '</span></div></div>';
+        '</div><div class="pc-foot"><span>' + ((sold || c.senza_bf) ? fmtE(c.prezzo) + '€' : prezzoBfHtml(c.prezzo)) + ' <small>+ 8€ sped. · gratis da 2</small></span><span style="color:' + (sold ? "#d62839" : "var(--volt)") + '">' + (sold ? "Venduto" : "Apri →") + '</span></div></div>';
       row.appendChild(a);
     });
     document.getElementById("pcTutte").textContent = "Vedi tutte le " + tot + " maglie pronte →";
@@ -2882,6 +2883,7 @@ async function caricaCategoria(cat){
       const r = await fetch("pronta-consegna.json?v=" + Date.now());
       if (r.ok) capi = await r.json();
     }catch(e){}
+    registraSenzaBf(capi);
     if (capi.length){
       items = capi.map(c => ({
         id: (c.foto && c.foto[0]) || "",
@@ -3117,7 +3119,7 @@ function renderSearchResults(items){
       <div class="team">${it._cat.name}${it.team ? " · "+cleanName(it.team) : ""}</div>
       ${taglieVetrinaHtml(it)}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${statoPronta(it.id, it) === "venduto" ? fmtE(minPrice) + "€" : prezzoBfHtml(minPrice)}<small>${activeCat && activeCat.pronta ? "+ 8€ sped. · gratis da 2 · 24-48h" : "spedizione inclusa"}</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${statoPronta(it.id, it) === "venduto" ? fmtE(minPrice) + "€" : (senzaBf(it) ? fmtE(minPrice) + "€" : prezzoBfHtml(minPrice))}<small>${activeCat && activeCat.pronta ? "+ 8€ sped. · gratis da 2 · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -3242,7 +3244,7 @@ function renderGrid(){
          </button>`).join("")}</div>` : ""}
       ${taglieVetrinaHtml(it)}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${statoPronta(it.id, it) === "venduto" ? fmtE(minPrice) + "€" : prezzoBfHtml(minPrice)}<small>${activeCat && activeCat.pronta ? "+ 8€ sped. · gratis da 2 · 24-48h" : "spedizione inclusa"}</small></div>
+        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${statoPronta(it.id, it) === "venduto" ? fmtE(minPrice) + "€" : (senzaBf(it) ? fmtE(minPrice) + "€" : prezzoBfHtml(minPrice))}<small>${activeCat && activeCat.pronta ? "+ 8€ sped. · gratis da 2 · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
@@ -3763,7 +3765,7 @@ function buildVersionPills(){
       return;
     }
     b.className = "pill" + (S.version===v.id ? " on" : "");
-    b.innerHTML = `${v.label}<small>${prezzoPillHtml(v.price)}</small>`;
+    b.innerHTML = `${v.label}<small>${senzaBf(S.item) ? fmtE(v.price) + "€" : prezzoPillHtml(v.price)}</small>`;
     b.onclick = ()=>{
       S.version = v.id;
       S.size = v.shoe ? "42" : (v.kid ? "24" : "M");
@@ -3912,6 +3914,10 @@ function bfTeaser(){
 }
 /* Prezzi scontati sempre a multipli di 50 centesimi (niente 25 o 75: il cliente ricarica la PostePay a cifre tonde).
    Si arrotonda per difetto, cosi lo sconto reale non e mai sotto la percentuale annunciata. (14/11/26) */
+/* Capi del magazzino esclusi dal Black Friday (campo senza_bf del gestionale, 22/11/26): prezzo pieno sempre */
+const SENZA_BF = new Set();
+function registraSenzaBf(capi){ (capi||[]).forEach(function(c){ if (c && c.senza_bf) (c.foto||[]).forEach(function(f){ SENZA_BF.add(f); }); }); }
+function senzaBf(it){ return !!(it && ((it.mag && it.mag.senza_bf) || SENZA_BF.has(it.id))); }
 function bfPrezzo(l){ return Math.floor(l * (100 - bfPct()) / 50 + 1e-9) / 2; }
 function fmtE(n){ const x = (Math.round(n*100)/100).toFixed(2); return (x.endsWith(".00") ? x.slice(0,-3) : x).replace(".", ","); }
 function prezzoBfHtml(l){
@@ -3931,7 +3937,7 @@ function qualifyingCount(){ return cart.reduce((n,i)=> n + (parseInt(i.qty)||1),
 function tierFor(n){ return n>=10 ? 2 : n>=5 ? 1 : 0; }
 function unitPriceFor(it, tier){
   const base = isQualifying(it) ? TIER_PRICE[it.versionId][tier] : it.price;
-  if (!bfAttivo() || tier > 0) return base;   // dai 5 pezzi in poi niente Black Friday: vale solo lo sconto quantita (20/11/26)
+  if (!bfAttivo() || tier > 0 || SENZA_BF.has(it.id)) return base;   // dai 5 pezzi in poi niente Black Friday: vale solo lo sconto quantita (20/11/26)
   const listino = isQualifying(it) ? TIER_PRICE[it.versionId][0] : it.price;
   return Math.min(base, bfPrezzo(listino));
 }
