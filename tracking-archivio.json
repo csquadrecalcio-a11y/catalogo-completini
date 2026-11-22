@@ -30049,5 +30049,175 @@
         "stato": "La spedizione è stata presa in carico da un nostro operatore presso il domicilio del mittente"
       }
     ]
+  },
+  "CSC-2026-0417": {
+    "stato": "consegnato",
+    "data_spedizione": "2026-10-09",
+    "data_consegna": "2026-10-22 13:31:38",
+    "corriere": "Poste Italiane",
+    "tracking": "9C2247J739300",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [
+      "58fefc6906518e8be5bbddc3.enc",
+      "c5750a4f6d5cf78a6cf8af8c.enc"
+    ],
+    "tracking_cina": "",
+    "fornitore": "",
+    "eventi_cina": [
+      {
+        "data": "2026-10-22 11:49:21",
+        "luogo": "Ostuni (br)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-22 11:49:00",
+        "luogo": "Ostuni",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-21 10:30:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-21 10:30:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-10-21 01:47:00",
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-10-21 01:28:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-10-20 22:40:00",
+        "luogo": "FCO",
+        "stato": "Consegnato al corriere locale"
+      },
+      {
+        "data": "2026-10-20 14:10:36",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-10-20 02:15:15",
+        "luogo": "FCO",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
+        "data": "2026-10-20 02:11:09",
+        "luogo": "",
+        "stato": "In transito to final service provider"
+      },
+      {
+        "data": "2026-10-19 21:11:24",
+        "luogo": "",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-10-19 19:15:02",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
+        "data": "2026-10-19 17:11:42",
+        "luogo": "",
+        "stato": "Arrivato al deposito doganale"
+      },
+      {
+        "data": "2026-10-18 20:05:49",
+        "luogo": "FCO",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
+        "data": "2026-10-18 14:05:00",
+        "luogo": "FCO",
+        "stato": "Arrivato all'aeroporto di destinazione"
+      },
+      {
+        "data": "2026-10-17 18:25:14",
+        "luogo": "",
+        "stato": "Il volo è decollato"
+      },
+      {
+        "data": "2026-10-16 17:27:31",
+        "luogo": "",
+        "stato": "Arrivo in Italia previsto: 18 ottobre"
+      },
+      {
+        "data": "2026-10-16 17:27:20",
+        "luogo": "",
+        "stato": "Partenza del volo prevista il 17 ottobre"
+      },
+      {
+        "data": "2026-10-13 20:24:27",
+        "luogo": "",
+        "stato": "Merce consegnata alla compagnia aerea"
+      },
+      {
+        "data": "2026-10-13 19:25:03",
+        "luogo": "",
+        "stato": "Sdoganamento all'export completato"
+      },
+      {
+        "data": "2026-10-13 19:24:27",
+        "luogo": "",
+        "stato": "Pacco imballato e consegnato all'aeroporto"
+      },
+      {
+        "data": "2026-10-13 11:24:27",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
+        "data": "2026-10-13 02:34:03",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-10-10 00:21:13",
+        "luogo": "",
+        "stato": "Ordine registrato, in attesa del pacco"
+      },
+      {
+        "data": "2026-10-10 00:21:12",
+        "luogo": "",
+        "stato": "Informazioni elettroniche della merce ricevute"
+      },
+      {
+        "data": "2026-10-10 00:21:12",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
+    "eventi_corriere": [
+      {
+        "data": "2026-10-22 12:04",
+        "luogo": "dalla sede operativa di FASANO (BR)",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-10-22 09:34",
+        "luogo": "FASANO (BR)",
+        "stato": "La spedizione è in consegna"
+      },
+      {
+        "data": "2026-10-22 05:49",
+        "luogo": "OSTUNI (BR)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   }
 }
