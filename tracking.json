@@ -7380,6 +7380,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-21 14:16:40",
+        "luogo": "Mazara del vallo (tp)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-21 12:06:00",
+        "luogo": "Palermo",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-11-20 10:33:51",
         "luogo": "Palermo (pa)",
         "stato": "In transito, la spedizione è in transito"
