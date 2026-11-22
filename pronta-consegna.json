@@ -10,7 +10,8 @@
     "taglie": [
       "28 (LAMINE YAMAL 10)"
     ],
-    "esaurito": false
+    "esaurito": false,
+    "senza_bf": true
   },
   {
     "id": "mag10",
@@ -24,7 +25,8 @@
     "taglie": [
       "L"
     ],
-    "esaurito": false
+    "esaurito": false,
+    "senza_bf": false
   },
   {
     "id": "mag8",
@@ -39,7 +41,8 @@
       "M",
       "L (YILDIZ 10)"
     ],
-    "esaurito": false
+    "esaurito": false,
+    "senza_bf": false
   },
   {
     "id": "mag6",
@@ -54,7 +57,8 @@
       "M",
       "L"
     ],
-    "esaurito": false
+    "esaurito": false,
+    "senza_bf": false
   },
   {
     "id": "mag3",
@@ -68,7 +72,8 @@
     "taglie": [
       "L"
     ],
-    "esaurito": false
+    "esaurito": false,
+    "senza_bf": false
   },
   {
     "id": "mag2",
@@ -83,6 +88,7 @@
     "taglie": [
       "L"
     ],
-    "esaurito": false
+    "esaurito": false,
+    "senza_bf": false
   }
 ]
