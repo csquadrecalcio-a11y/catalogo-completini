@@ -9167,11 +9167,11 @@
     "eventi_corriere": []
   },
   "CSC-2026-0515": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-11-22",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "Poste Italiane",
+    "tracking": "5P73D10192648",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -9180,10 +9180,18 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": [],
+    "foto": [
+      "e8053e370aa354d30be62bf3.enc"
+    ],
     "tracking_cina": "",
     "fornitore": "",
-    "eventi_cina": [],
+    "eventi_cina": [
+      {
+        "data": "2026-11-22 02:59:50",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
     "eventi_corriere": []
   },
   "CSC-2026-0516": {
