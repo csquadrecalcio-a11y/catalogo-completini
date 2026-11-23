@@ -8,8 +8,10 @@
   var d=new Date(), m=d.getMonth()+1, g=d.getDate(), t="stadio";
   if (m===10) t = g>=20 ? "halloween" : "autunno";
   else if (m===11 && g<=2) t = "halloween";
-  try{ var q=new URLSearchParams(location.search).get("tema"); if (q!==null) t=q; }catch(e){}
+  var festa = (m===12 && g<=23) ? "natale" : "";      // Natale: 1-23 dicembre (23/11/26). Per provarlo: ?tema=natale
+  try{ var q=new URLSearchParams(location.search).get("tema"); if (q==="natale") festa="natale"; else if (q!==null) t=q; }catch(e){}
   if (t) document.documentElement.setAttribute("data-tema", t); else document.documentElement.removeAttribute("data-tema");
+  if (festa) document.documentElement.setAttribute("data-festa", festa);
 })();
 </script>
 <meta charset="UTF-8">
@@ -1163,6 +1165,68 @@ function _provenienza(){
 
 /* iPhone: campi a 16px, altrimenti Safari ingrandisce la pagina quando tocchi un campo */
 @media (max-width:768px){input,select,textarea{font-size:16px !important}}
+
+  /* ---------- NATALE (1-23 dicembre): rosso, verde e oro, neve e luci, sopra il tema normale ---------- */
+  .natale-bar,.luci,#neve{display:none}
+  html[data-festa="natale"] .natale-bar{display:block;background:linear-gradient(90deg,#0b5a32,#c8102e 50%,#0b5a32);color:#fff;text-align:center;
+    font-size:14.5px;font-weight:800;padding:11px 16px;letter-spacing:.01em;border-bottom:3px solid #ffd54a;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+  html[data-festa="natale"] .natale-bar b{color:#ffe27a}
+  html[data-festa="natale"] .natale-bar small{opacity:.95;font-weight:700;margin-left:6px}
+  html[data-festa="natale"] .luci{display:block;position:relative;height:36px;overflow:hidden;background:linear-gradient(#08150e,#0a1a11);border-bottom:1px solid rgba(255,255,255,.05)}
+  .luci::before{content:"";position:absolute;left:0;right:0;top:5px;height:3px;background:linear-gradient(90deg,#14803f,#1fa355 50%,#14803f);border-radius:3px}
+  .luci i{position:absolute;width:12px;height:16px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;animation:lucciTw 2.4s ease-in-out infinite;transform:translateX(-50%)}
+  .luci i::before{content:"";position:absolute;left:50%;top:-5px;width:3px;height:6px;background:#1fa355;transform:translateX(-50%);border-radius:2px}
+  @keyframes lucciTw{0%,100%{opacity:1;filter:brightness(1.3)}50%{opacity:.35;filter:brightness(.7)}}
+  /* striscia a bastoncino di zucchero sotto la barra del menu */
+  html[data-festa="natale"] header{position:relative}
+  html[data-festa="natale"] header::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:6px;z-index:5;
+    background:repeating-linear-gradient(-45deg,#c8102e 0 12px,#fff 12px 24px);box-shadow:0 3px 10px rgba(0,0,0,.45)}
+  html[data-festa="natale"][data-tema="stadio"] .strip{background:linear-gradient(90deg,#8a0f1e,#d62839 50%,#8a0f1e);color:#fff;font-weight:800}
+  html[data-festa="natale"] .strip::before{content:"❄️ "}
+  html[data-festa="natale"] .strip::after{content:" ❄️"}
+  html[data-festa="natale"][data-tema="stadio"] .passaparola{background:#0a1a11;border-bottom:3px solid #1fa355}
+  html[data-festa="natale"][data-tema="stadio"] body{background:radial-gradient(1200px 520px at 50% -80px,rgba(200,16,46,.16),transparent 70%),radial-gradient(900px 500px at 100% 60%,rgba(31,163,85,.10),transparent 70%),#07130d}
+  html[data-festa="natale"][data-tema="stadio"] .nav{background:rgba(7,22,14,.88);border-bottom:1px solid rgba(31,163,85,.45)}
+  html[data-festa="natale"][data-tema="stadio"] .btn-volt,html[data-festa="natale"][data-tema="stadio"] .tab.active{background:linear-gradient(135deg,#ff4d5e 0%,#d62839 55%,#9c0e22 100%);color:#fff!important;box-shadow:0 8px 28px rgba(200,16,46,.45),inset 0 1px 0 rgba(255,255,255,.35)}
+  html[data-festa="natale"][data-tema="stadio"] .btn-volt:hover{box-shadow:0 14px 34px rgba(200,16,46,.6),inset 0 1px 0 rgba(255,255,255,.4)}
+  html[data-festa="natale"][data-tema="stadio"] .btn-ghost{border-color:rgba(94,230,154,.55);color:#eafff3}
+  html[data-festa="natale"][data-tema="stadio"] .btn-ghost:hover{background:rgba(31,163,85,.18)}
+  html[data-festa="natale"][data-tema="stadio"] .pill.active,html[data-festa="natale"][data-tema="stadio"] .chip-p.active{background:#14803f;color:#fff;border-color:#1fa355}
+  html[data-festa="natale"][data-tema="stadio"] .kicker,html[data-festa="natale"][data-tema="stadio"] .sheet-league{color:#5ee69a}
+  html[data-festa="natale"][data-tema="stadio"] .sec-head h2::after{width:90px;height:4px;background:repeating-linear-gradient(-45deg,#c8102e 0 8px,#fff 8px 16px);border-radius:4px}
+  html[data-festa="natale"][data-tema="stadio"] .hero{background:#06100b!important}
+  html[data-festa="natale"][data-tema="stadio"] .hero .eyebrow{border-color:rgba(255,213,74,.7);background:rgba(200,16,46,.22);color:#ffe9a6}
+  html[data-festa="natale"][data-tema="stadio"] .hero .eyebrow::before{content:"🎄";margin-right:6px}
+  html[data-festa="natale"][data-tema="stadio"] .pitch{background:
+      radial-gradient(780px 520px at 86% 12%, rgba(230,40,60,.62), transparent 62%),
+      radial-gradient(760px 520px at 4% 96%, rgba(24,160,86,.55), transparent 60%),
+      radial-gradient(620px 360px at 50% -6%, rgba(255,255,255,.16), transparent 70%),
+      linear-gradient(150deg,#082316 0%,#0c2e1c 45%,#4b0a14 100%)!important}
+  html[data-festa="natale"][data-tema="stadio"] .hero h1 .volt{background:linear-gradient(180deg,#fff0b3 0%,#ffd54a 52%,#d4a017 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  html[data-festa="natale"][data-tema="stadio"] .hero h1::after{background:repeating-linear-gradient(-45deg,#c8102e 0 8px,#fff 8px 16px)!important;height:4px;width:140px;border-radius:4px}
+  html[data-festa="natale"][data-tema="stadio"] .hero .stat{background:rgba(7,40,24,.55);border-color:rgba(94,230,154,.35)}
+  /* palline di Natale appese nella hero */
+  html[data-festa="natale"] .hero::before,html[data-festa="natale"] .hero::after{content:"";position:absolute;top:0;width:64px;height:150px;z-index:2;pointer-events:none;
+    background-repeat:no-repeat;background-size:contain;transform-origin:50% 0;animation:palla 4.2s ease-in-out infinite alternate}
+  html[data-festa="natale"] .hero::before{left:7%;background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='150' viewBox='0 0 64 150'%3E%3Cline x1='32' y1='0' x2='32' y2='78' stroke='%23d9b44a' stroke-width='2'/%3E%3Crect x='25' y='74' width='14' height='9' rx='2' fill='%23d9b44a'/%3E%3Ccircle cx='32' cy='112' r='30' fill='%23c8102e'/%3E%3Ccircle cx='32' cy='112' r='30' fill='url(%23g)'/%3E%3Cdefs%3E%3CradialGradient id='g' cx='36%25' cy='30%25' r='70%25'%3E%3Cstop offset='0' stop-color='white' stop-opacity='.55'/%3E%3Cstop offset='.45' stop-color='white' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M6 112 Q32 126 58 112' stroke='%23ffd54a' stroke-width='3' fill='none'/%3E%3C/svg%3E")}
+  html[data-festa="natale"] .hero::after{right:7%;background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='150' viewBox='0 0 64 150'%3E%3Cline x1='32' y1='0' x2='32' y2='78' stroke='%23d9b44a' stroke-width='2'/%3E%3Crect x='25' y='74' width='14' height='9' rx='2' fill='%23d9b44a'/%3E%3Ccircle cx='32' cy='112' r='30' fill='%230b7a3f'/%3E%3Ccircle cx='32' cy='112' r='30' fill='url(%23g)'/%3E%3Cdefs%3E%3CradialGradient id='g' cx='36%25' cy='30%25' r='70%25'%3E%3Cstop offset='0' stop-color='white' stop-opacity='.55'/%3E%3Cstop offset='.45' stop-color='white' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cpath d='M6 112 Q32 126 58 112' stroke='%23ffd54a' stroke-width='3' fill='none'/%3E%3C/svg%3E");animation-delay:-2.1s}
+  @keyframes palla{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+  @media (max-width:700px){ html[data-festa="natale"] .hero::before,html[data-festa="natale"] .hero::after{width:42px;height:98px;left:auto} html[data-festa="natale"] .hero::before{left:3%} html[data-festa="natale"] .hero::after{right:3%} }
+  html[data-festa="natale"][data-tema="stadio"] .card{position:relative;background:linear-gradient(180deg,#123222,#0b1f15);border:1px solid rgba(94,230,154,.28);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+  html[data-festa="natale"][data-tema="stadio"] .card:hover{border-color:#ff4d5e;box-shadow:0 18px 44px rgba(0,0,0,.6),0 0 0 1px rgba(255,77,94,.4),0 0 28px rgba(200,16,46,.28)}
+  html[data-festa="natale"] .card::after{content:"";position:absolute;left:14px;right:14px;top:-4px;height:9px;border-radius:0 0 14px 14px;
+    background:linear-gradient(#fff,#dcebff);box-shadow:0 2px 8px rgba(255,255,255,.25);pointer-events:none;z-index:3}
+  html[data-festa="natale"][data-tema="stadio"] .stat,html[data-festa="natale"][data-tema="stadio"] .offer,html[data-festa="natale"][data-tema="stadio"] .step,html[data-festa="natale"][data-tema="stadio"] .review,html[data-festa="natale"][data-tema="stadio"] .pc-card{border-color:rgba(94,230,154,.30)}
+  html[data-festa="natale"][data-tema="stadio"] .pc-card:hover,html[data-festa="natale"][data-tema="stadio"] .stat:hover{border-color:#ff4d5e}
+  html[data-festa="natale"][data-tema="stadio"] .pc-home{background:radial-gradient(900px 320px at 50% 0%,rgba(200,16,46,.20),transparent 70%),linear-gradient(180deg,#0f2418,#07130d);border-top:3px solid #c8102e;border-bottom:1px solid rgba(94,230,154,.2)}
+  html[data-festa="natale"][data-tema="stadio"] .marquee{background:linear-gradient(90deg,#0b5a32,#9c0e22 50%,#0b5a32);border-color:#ffd54a}
+  html[data-festa="natale"][data-tema="stadio"] .marquee span{color:rgba(255,255,255,.75)}
+  html[data-festa="natale"][data-tema="stadio"] footer{background:linear-gradient(180deg,#0a1d12,#050e09);border-top:3px solid #1fa355}
+  html[data-festa="natale"][data-tema="stadio"] ::selection{background:#c8102e;color:#fff}
+  html[data-festa="natale"][data-tema="stadio"] ::-webkit-scrollbar-thumb{background:#1f6b40}
+  #neve{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:30}
+  html[data-festa="natale"] #neve{display:block}
+  @media (prefers-reduced-motion:reduce){ #neve{display:none!important} .luci i,html[data-festa="natale"] .hero::before,html[data-festa="natale"] .hero::after{animation:none} }
 </style>
 <style id="tema-stadio">
 /* Tema Stadio (nero e oro), attivo dal 12/11/26. Per tornare al blu: nello script in alto rimettere t="" */
@@ -1316,6 +1380,7 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
 
 
 <div class="halloween-bar" id="halloweenBar" role="button" tabindex="0" title="Tocca per copiare il codice">🎃 Dolcetto o scherzetto? Nel carrello usa il codice <b>DOLCETTO</b> e hai il −10% <small>fino al 2 novembre · tocca per copiare</small></div>
+<div class="natale-bar" id="nataleBar"></div><div class="luci" id="luciNatale" aria-hidden="true"></div><canvas id="neve" aria-hidden="true"></canvas>
 <div class="strip"><span id="stripShip">Spedizione gratuita in tutta Italia</span></div>
 <div class="passaparola"><b>🤝 Servizio riservato ai clienti e alle persone da loro presentate.</b> È nato dal passaparola e va avanti per la nostra cerchia, con una qualità curata: se ti ha presentato qualcuno, scrivi il suo nome e ordini subito.</div>
 
@@ -4955,6 +5020,62 @@ document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
     if(p){ p.addEventListener('click', e=>{ if(e.target.tagName!=='BUTTON') document.getElementById('recensioni')?.scrollIntoView({behavior:'smooth'}); }); }
     setTimeout(()=>{ const p=document.getElementById('reviewPopup'); if(p) p.style.transform='translateX(-50%) translateY(120px)'; setTimeout(()=>p?.remove(),500); }, 5000);
   }, 4000);
+})();
+</script>
+<script>
+/* NATALE: barra con ultima data utile, luci e neve (solo 1-23 dicembre o ?tema=natale) */
+(function(){
+  if (document.documentElement.getAttribute("data-festa") !== "natale") return;
+  // barra con la data limite
+  var bar = document.getElementById("nataleBar");
+  if (bar){
+    var oggi = new Date(), fine = new Date(oggi.getFullYear(), 11, 3, 23, 59, 59);
+    var gg = Math.ceil((fine - oggi) / 86400000);
+    if (oggi <= fine){
+      bar.innerHTML = "🎄 <b>Buon Natale!</b> Ordina <b>entro il 3 dicembre</b> e lo ricevi prima di Natale" +
+        (gg <= 1 ? " <small>· ultimo giorno!</small>" : " <small>· mancano " + gg + " giorni</small>");
+    } else {
+      bar.innerHTML = "🎁 <b>Ultimi giorni per Natale:</b> la <b>Pronta Consegna</b> arriva in 2-3 giorni, in tempo per l'albero";
+    }
+  }
+  // luci appese
+  var luci = document.getElementById("luciNatale");
+  if (luci){
+    var col = ["#ff3b4a","#ffd54a","#35d07f","#4aa8ff","#ff8a3c"];
+    var n = Math.max(10, Math.round(innerWidth / 44));
+    for (var k = 0; k < n; k++){
+      var b = document.createElement("i");
+      b.style.left = ((k + .5) * 100 / n) + "%";
+      b.style.top = (k % 2 ? 11 : 6) + "px";
+      b.style.background = col[k % col.length];
+      b.style.boxShadow = "0 0 14px 3px " + col[k % col.length];
+      b.style.animationDelay = (-(k * 0.37) % 2.4) + "s";
+      luci.appendChild(b);
+    }
+  }
+  // neve
+  var c = document.getElementById("neve");
+  if (!c || (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+  var ctx = c.getContext("2d"), W = 0, H = 0, fl = [], wind = 0, t0 = 0;
+  function size(){ W = c.width = innerWidth; H = c.height = innerHeight; }
+  size(); addEventListener("resize", size);
+  var N = innerWidth < 700 ? 42 : 90;
+  for (var i = 0; i < N; i++) fl.push({x: Math.random()*W, y: Math.random()*H, r: Math.random()*2.6 + .8,
+    v: Math.random()*.7 + .35, s: Math.random()*6.28, a: Math.random()*.45 + .4});
+  function frame(t){
+    if (document.hidden){ requestAnimationFrame(frame); return; }
+    ctx.clearRect(0, 0, W, H);
+    wind = Math.sin(t / 4000) * .35;
+    for (var j = 0; j < fl.length; j++){
+      var f = fl[j];
+      f.y += f.v * (1 + f.r / 4); f.s += .012; f.x += Math.sin(f.s) * .55 + wind;
+      if (f.y > H + 6){ f.y = -6; f.x = Math.random() * W; }
+      if (f.x > W + 6) f.x = -6; else if (f.x < -6) f.x = W + 6;
+      ctx.beginPath(); ctx.arc(f.x, f.y, f.r, 0, 6.283); ctx.fillStyle = "rgba(255,255,255," + f.a + ")"; ctx.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
 })();
 </script>
 </body>
