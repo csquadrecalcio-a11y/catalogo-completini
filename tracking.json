@@ -6603,9 +6603,9 @@
     ]
   },
   "CSC-2026-0475": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-09",
-    "data_consegna": "",
+    "data_consegna": "2026-11-23 15:57:50",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J421888",
     "corriere_2": "",
@@ -6617,8 +6617,8 @@
     "corriere_5": "",
     "tracking_5": "",
     "foto": [
-      "sped_475_1_8781ab0f.jpg",
-      "sped_475_2_73df86cf.jpg"
+      "349633dece7900ef16b76af4.enc",
+      "5e207d902faa29e050c38470.enc"
     ],
     "tracking_cina": "",
     "fornitore": "",
