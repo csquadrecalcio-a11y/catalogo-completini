@@ -2184,8 +2184,22 @@ function _chiaviNome(nome){
 }
 async function nomeNoto(nome){
   if (_tokenNome(nome).length < 2) return false;
-  const d = await _chiediGestionale("/api/nome-noto?n=" + encodeURIComponent((nome||"").trim().slice(0,80)));
-  if (d === null || d.noto === null || d.noto === undefined) return null;   // gestionale non raggiungibile: non blocco
+  const q = encodeURIComponent((nome||"").trim().slice(0,80));
+  // Prima il servizio sempre acceso (Cloudflare): funziona anche col Mac spento (23/11/26).
+  const chiave = "worker-nome:" + q;
+  if (_cacheNoto.has(chiave)) return _cacheNoto.get(chiave);
+  try{
+    const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), 4000);
+    const r = await fetch("https://csc-gruppi.worker-gruppi.workers.dev/nome-noto?n=" + q, {signal: ctl.signal});
+    clearTimeout(t);
+    if (r.ok){
+      const w = await r.json();
+      if (w && (w.noto === true || w.noto === false)){ _cacheNoto.set(chiave, !!w.noto); return !!w.noto; }
+    }
+  }catch(e){}
+  // Ripiego: il gestionale (solo se acceso)
+  const d = await _chiediGestionale("/api/nome-noto?n=" + q);
+  if (d === null || d.noto === null || d.noto === undefined) return null;   // nessuno raggiungibile: non blocco
   return !!d.noto;
 }
 async function telefonoNoto(tel){
