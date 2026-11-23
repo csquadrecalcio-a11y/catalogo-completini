@@ -1315,6 +1315,7 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
 
 <div class="halloween-bar" id="halloweenBar" role="button" tabindex="0" title="Tocca per copiare il codice">🎃 Dolcetto o scherzetto? Nel carrello usa il codice <b>DOLCETTO</b> e hai il −10% <small>fino al 2 novembre · tocca per copiare</small></div>
 <div class="strip"><span id="stripShip">Spedizione gratuita in tutta Italia</span></div>
+<div class="passaparola"><b>🤝 Servizio riservato ai clienti e agli amici dei clienti.</b> Per ordinare indica chi ti ha presentato. Hai dubbi? <a href="https://wa.me/447727750265?text=Ciao!%20Vorrei%20qualche%20informazione" target="_blank" rel="noopener">Scrivici su WhatsApp</a></div>
 
 
 <header>
@@ -2056,6 +2057,8 @@ window.addEventListener("load", function(){
           <input id="orderProvincia" type="text" maxlength="2" placeholder="Provincia *" autocomplete="address-level1">
           <input id="orderCap" type="text" inputmode="numeric" maxlength="5" placeholder="CAP *" autocomplete="postal-code">
           <input id="orderTel" type="tel" placeholder="Telefono *" autocomplete="tel">
+          <input id="orderConsigliato" class="wide" type="text" placeholder="Presentato da (nome e cognome del cliente) *" autocomplete="off">
+          <div id="presentatoMsg" class="wide" style="display:none;font-size:13px;line-height:1.45;padding:2px 2px 6px"></div>
           <input id="orderSquadraCuore" class="wide" type="text" placeholder="Squadra del cuore (facoltativo)" autocomplete="off">
         </div>
       </div>
@@ -2070,7 +2073,7 @@ window.addEventListener("load", function(){
           </select>
           <textarea id="orderNote" class="wide" placeholder="Note per l'ordine (opzionale)"></textarea>
         </div>
-        <p class="checkout-note">Il pagamento si conferma in chat: il sito prepara il riepilogo completo e lo invia su WhatsApp.<br><b>Pagamenti accettati:</b> bonifico, PostePay e PayPal Amici e Familiari (senza protezione acquisti).<br><b>Spedizione sempre a nostro carico.</b> Niente cambi taglia: sostituiamo solo se arriva una taglia diversa da quella ordinata o con difetti di fabbrica.</p>
+        <p class="checkout-note">Il pagamento si conferma in chat: il sito prepara il riepilogo completo e lo invia su WhatsApp.<br><b>Pagamenti accettati:</b> bonifico, PostePay e PayPal Amici e Familiari (senza protezione acquisti). Il nostro servizio è riservato ai clienti e agli amici dei clienti.<br><b>Spedizione sempre a nostro carico.</b> Niente cambi taglia: sostituiamo solo se arriva una taglia diversa da quella ordinata o con difetti di fabbrica.</p>
       </div>
       <label class="privacy-check" id="privacyCheckWrap">
         <input type="checkbox" id="orderPrivacy">
@@ -2145,8 +2148,8 @@ window.addEventListener("load", function(){
 const API_KEY = "AIzaSyBFjNAIrUyOZeI7c3OxdD1gOtUeHlMjRjk";
 const WA = "https://wa.me/447727750265?text=";
 const WA_PERSONALE = "393792126743";
-/* 2/11/26: sito aperto a tutti. Mettere true per tornare a "solo clienti e amici" (campo obbligatorio + controllo nome). */
-const PRESENTAZIONE_OBBLIGATORIA = false;
+/* 23/11/26: sito di nuovo riservato a clienti e amici dei clienti (campo "Presentato da" obbligatorio + controllo nome). Mettere false per riaprire a tutti. */
+const PRESENTAZIONE_OBBLIGATORIA = true;
 const WA_BUSINESS  = "447727750265";
 /* Elenchi dei clienti veri: solo impronte cifrate (telefoni e nomi), mai i dati in chiaro (29/10/26).
    Servono a due cose: smistare il WhatsApp e controllare chi ha presentato un nuovo cliente. */
@@ -4058,7 +4061,7 @@ function updateBadge(){
   b.classList.toggle("empty", n === 0);
 }
 
-const ORDER_FIELDS = ["orderNome","orderCognome","orderIndirizzo","orderCitta","orderProvincia","orderCap","orderTel","orderPagamento"];
+const ORDER_FIELDS = ["orderNome","orderCognome","orderIndirizzo","orderCitta","orderProvincia","orderCap","orderTel","orderConsigliato","orderPagamento"];
 ORDER_FIELDS.concat(["orderNote"]).forEach(id=>{
   const el = document.getElementById(id);
   if (el) el.addEventListener("input", ()=>el.classList.remove("field-error"));
