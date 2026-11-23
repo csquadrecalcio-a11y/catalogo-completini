@@ -4069,7 +4069,7 @@ function changeQty(i, d){
   saveCart(); renderCart();
 }
 function removeItem(i){ cart.splice(i,1); saveCart(); renderCart(); }
-function clearCart(){ cart = []; codiceScontoApplicato = null; codiceScontoPercentuale = 0; saveCart(); renderCart(); }
+function clearCart(){ cart = []; codiceScontoApplicato = null; codiceScontoPercentuale = 0; codiceScontoEuro = 0; saveCart(); renderCart(); }
 
 function updateBadge(){
   const b = document.getElementById("cartBadge");
@@ -4094,6 +4094,7 @@ document.getElementById("orderIndirizzo")?.addEventListener("blur", e=>{
    iscrive alla newsletter, verificati qui via API (non un elenco fisso). */
 let codiceScontoApplicato = null;
 let codiceScontoPercentuale = 0;
+let codiceScontoEuro = 0;   // codici personali a cifra fissa (grazie passaparola), 23/11/26
 
 function cartTotals(){
   const qCount = qualifyingCount();
@@ -4105,15 +4106,17 @@ function cartTotals(){
   });
   totalQty = Math.round(totalQty * 100) / 100;
   const codicePct = codiceScontoApplicato ? codiceScontoPercentuale : 0;
-  const codiceDiscount = Math.round(totalQty * codicePct / 50) / 2;   // sconto codice a multipli di 50 centesimi (14/11/26)
+  const codiceEuro = codiceScontoApplicato ? codiceScontoEuro : 0;
+  // codice a cifra fissa: mai piu del totale; percentuale: a multipli di 50 centesimi (14/11/26)
+  const codiceDiscount = codiceEuro > 0 ? Math.min(codiceEuro, totalQty) : Math.round(totalQty * codicePct / 50) / 2;
   // La pronta consegna parte da noi: 8€ di spedizione, una volta sola per ordine
   const spedizione = prontaSpedizione(cart);
   const total = Math.round((totalQty - codiceDiscount + spedizione) * 100) / 100;
   return {
     sub, n: cartCount(), qCount, tier, total, spedizione,
     discount: Math.round((sub - totalQty) * 100) / 100,
-    codiceSconto: codicePct ? codiceScontoApplicato : null,
-    codicePct, codiceDiscount,
+    codiceSconto: (codicePct || codiceEuro) ? codiceScontoApplicato : null,
+    codicePct, codiceEuro, codiceDiscount,
   };
 }
 
@@ -4288,6 +4291,7 @@ async function applicaCodiceSconto(){
     codiceErroreRete = false;
     codiceScontoApplicato = code;
     codiceScontoPercentuale = locale.pct;
+    codiceScontoEuro = 0;
     msg.style.color = "var(--volt)";
     msg.textContent = `✅ Codice applicato: −${locale.pct}%`;
     renderCart();
@@ -4305,12 +4309,21 @@ async function applicaCodiceSconto(){
     btn.disabled = false;
     if (data.ok){
       codiceScontoApplicato = code;
-      codiceScontoPercentuale = data.percentuale;
-      msg.style.color = "var(--volt)";
-      msg.textContent = `✅ Codice applicato: −${data.percentuale}%`;
+      if (data.euro && data.euro > 0){
+        codiceScontoPercentuale = 0;
+        codiceScontoEuro = data.euro;
+        msg.style.color = "var(--volt)";
+        msg.textContent = `✅ Codice applicato: −${fmtE(data.euro)}€`;
+      } else {
+        codiceScontoPercentuale = data.percentuale;
+        codiceScontoEuro = 0;
+        msg.style.color = "var(--volt)";
+        msg.textContent = `✅ Codice applicato: −${data.percentuale}%`;
+      }
     } else {
       codiceScontoApplicato = null;
       codiceScontoPercentuale = 0;
+      codiceScontoEuro = 0;
       msg.style.color = "#ff6b6b";
       msg.textContent = data.error || "Codice non valido.";
     }
