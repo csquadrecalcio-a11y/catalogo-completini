@@ -7703,7 +7703,13 @@
         "stato": "Dati della spedizione ricevuti"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-11-23 12:31",
+        "luogo": "FARA IN SABINA (RI)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0485": {
     "stato": "spedito",
