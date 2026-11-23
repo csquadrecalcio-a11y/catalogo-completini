@@ -7,10 +7,8 @@
     "foto": [
       "pronta-consegna/capo13_0.jpg"
     ],
-    "taglie": [
-      "XL"
-    ],
-    "esaurito": false,
+    "taglie": [],
+    "esaurito": true,
     "senza_bf": false
   },
   {
@@ -21,10 +19,8 @@
     "foto": [
       "pronta-consegna/capo12_0.jpg"
     ],
-    "taglie": [
-      "XL"
-    ],
-    "esaurito": false,
+    "taglie": [],
+    "esaurito": true,
     "senza_bf": false
   },
   {
