@@ -1,5 +1,33 @@
 [
   {
+    "id": "mag13",
+    "titolo": "Tuta Napoli con Cappuccio Bianca",
+    "tipo": "Tuta",
+    "prezzo": 65.0,
+    "foto": [
+      "pronta-consegna/capo13_0.jpg"
+    ],
+    "taglie": [
+      "XL"
+    ],
+    "esaurito": false,
+    "senza_bf": false
+  },
+  {
+    "id": "mag12",
+    "titolo": "Tuta Napoli con Cappuccio Azzurra",
+    "tipo": "Tuta",
+    "prezzo": 65.0,
+    "foto": [
+      "pronta-consegna/capo12_0.jpg"
+    ],
+    "taglie": [
+      "XL"
+    ],
+    "esaurito": false,
+    "senza_bf": false
+  },
+  {
     "id": "mag10",
     "titolo": "Maglia Barcellona Home Patch Liga",
     "tipo": "Maglia",
