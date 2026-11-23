@@ -6603,7 +6603,7 @@
     ]
   },
   "CSC-2026-0475": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-11-09",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -6761,9 +6761,9 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-20 10:25",
+        "data": "2026-11-23 10:24",
         "luogo": "",
-        "stato": "Consegna non andata a buon fine per destinatario assente. qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
+        "stato": "La spedizione è in consegna"
       },
       {
         "data": "2026-11-20 05:10",
