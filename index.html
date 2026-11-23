@@ -1315,7 +1315,7 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
 
 <div class="halloween-bar" id="halloweenBar" role="button" tabindex="0" title="Tocca per copiare il codice">🎃 Dolcetto o scherzetto? Nel carrello usa il codice <b>DOLCETTO</b> e hai il −10% <small>fino al 2 novembre · tocca per copiare</small></div>
 <div class="strip"><span id="stripShip">Spedizione gratuita in tutta Italia</span></div>
-<div class="passaparola"><b>🤝 Servizio riservato ai clienti e agli amici dei clienti.</b> È nato tra amici e va avanti per la nostra cerchia: se ti ha presentato qualcuno, scrivi il suo nome e ordini subito.</div>
+<div class="passaparola"><b>🤝 Servizio riservato ai clienti e agli amici dei clienti.</b> È nato tra amici e va avanti per la nostra cerchia, con una qualità curata: se ti ha presentato qualcuno, scrivi il suo nome e ordini subito.</div>
 
 
 <header>
@@ -2250,7 +2250,7 @@ async function verificaPresentazione(mostra){
   const noto = await nomeNoto(pres);
   if (noto === null) return "ok";                // elenco non caricato: non blocco, il gestionale segna da verificare
   if (noto){ say("✅ Cliente riconosciuto, grazie!", "#15803d"); return "ok"; }
-  say("Non troviamo questo nome. Lavoriamo da anni con la nostra <b>cerchia di clienti e amici</b> e abbiamo scelto di restare piccoli, per curare ogni ordine di persona. Se ti ha consigliato qualcuno, controlla nome e cognome. Altrimenti <a href=\"" + _waVerifica() + "\" target=\"_blank\" rel=\"noopener\"><b>scrivici su WhatsApp</b></a>: ci presentiamo e vediamo come fare.", "#b45309");
+  say("Non troviamo questo nome. Lavoriamo da anni con la nostra <b>cerchia di clienti e amici</b> e abbiamo scelto di restare piccoli: puntiamo sulla <b>qualità</b>, non sul prezzo più basso a tutti i costi, e curiamo ogni ordine di persona. Se ti ha consigliato qualcuno, controlla nome e cognome. Altrimenti <a href=\"" + _waVerifica() + "\" target=\"_blank\" rel=\"noopener\"><b>scrivici su WhatsApp</b></a>: ci presentiamo e vediamo come fare.", "#b45309");
   return "no";
 }
 (function(){
