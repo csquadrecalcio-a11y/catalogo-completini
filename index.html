@@ -1317,7 +1317,7 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
 
 <div class="halloween-bar" id="halloweenBar" role="button" tabindex="0" title="Tocca per copiare il codice">🎃 Dolcetto o scherzetto? Nel carrello usa il codice <b>DOLCETTO</b> e hai il −10% <small>fino al 2 novembre · tocca per copiare</small></div>
 <div class="strip"><span id="stripShip">Spedizione gratuita in tutta Italia</span></div>
-<div class="passaparola"><b>🤝 Servizio riservato ai clienti e agli amici dei clienti.</b> È nato tra amici e va avanti per la nostra cerchia, con una qualità curata: se ti ha presentato qualcuno, scrivi il suo nome e ordini subito.</div>
+<div class="passaparola"><b>🤝 Servizio riservato ai clienti e alle persone da loro presentate.</b> È nato dal passaparola e va avanti per la nostra cerchia, con una qualità curata: se ti ha presentato qualcuno, scrivi il suo nome e ordini subito.</div>
 
 
 <header>
@@ -2048,7 +2048,7 @@ window.addEventListener("load", function(){
         <div class="prog-text" id="cartHint"></div>
       </div>
       <div class="cart-ship" id="cartShipBox">🚚 Spedizione gratuita · Consegna stimata…</div>
-      <div class="avviso-riservato">🤝 <b>Prima di ordinare:</b> il nostro è un servizio riservato ai <b>clienti e agli amici dei clienti</b>. Se è il tuo primo ordine, ti serve il <b>nome e cognome di chi ti ha presentato</b> (campo "Presentato da" qui sotto). Se non ci conosciamo ancora, <a href="https://wa.me/447727750265?text=Ciao!%20Vorrei%20qualche%20informazione" target="_blank" rel="noopener" style="color:#c6ff2e;text-decoration:underline">scrivici su WhatsApp</a>.</div>
+      <div class="avviso-riservato">🤝 <b>Prima di ordinare:</b> il nostro è un servizio riservato ai <b>clienti e alle persone da loro presentate</b>. Se è il tuo primo ordine, ti serve il <b>nome e cognome di chi ti ha presentato</b> (campo "Presentato da" qui sotto). Se non ci conosciamo ancora, <a href="https://wa.me/447727750265?text=Ciao!%20Vorrei%20qualche%20informazione" target="_blank" rel="noopener" style="color:#c6ff2e;text-decoration:underline">scrivici su WhatsApp</a>.</div>
       <div class="checkout-box">
         <div class="checkout-title">Dati spedizione</div>
         <div class="checkout-grid">
@@ -2076,7 +2076,7 @@ window.addEventListener("load", function(){
           </select>
           <textarea id="orderNote" class="wide" placeholder="Note per l'ordine (opzionale)"></textarea>
         </div>
-        <p class="checkout-note">Il pagamento si conferma in chat: il sito prepara il riepilogo completo e lo invia su WhatsApp.<br><b>Pagamenti accettati:</b> bonifico, PostePay e PayPal Amici e Familiari (senza protezione acquisti). Il nostro servizio è riservato ai clienti e agli amici dei clienti.<br><b>Spedizione sempre a nostro carico.</b> Niente cambi taglia: sostituiamo solo se arriva una taglia diversa da quella ordinata o con difetti di fabbrica.</p>
+        <p class="checkout-note">Il pagamento si conferma in chat: il sito prepara il riepilogo completo e lo invia su WhatsApp.<br><b>Pagamenti accettati:</b> bonifico, PostePay e PayPal Amici e Familiari (senza protezione acquisti). Il nostro servizio è riservato ai clienti e alle persone da loro presentate.<br><b>Spedizione sempre a nostro carico.</b> Niente cambi taglia: sostituiamo solo se arriva una taglia diversa da quella ordinata o con difetti di fabbrica.</p>
       </div>
       <label class="privacy-check" id="privacyCheckWrap">
         <input type="checkbox" id="orderPrivacy">
@@ -2151,7 +2151,7 @@ window.addEventListener("load", function(){
 const API_KEY = "AIzaSyBFjNAIrUyOZeI7c3OxdD1gOtUeHlMjRjk";
 const WA = "https://wa.me/447727750265?text=";
 const WA_PERSONALE = "393792126743";
-/* 23/11/26: sito di nuovo riservato a clienti e amici dei clienti (campo "Presentato da" obbligatorio + controllo nome). Mettere false per riaprire a tutti. */
+/* 23/11/26: sito di nuovo riservato ai clienti e alle persone da loro presentate (campo "Presentato da" obbligatorio + controllo nome). Mettere false per riaprire a tutti. */
 const PRESENTAZIONE_OBBLIGATORIA = true;
 const WA_BUSINESS  = "447727750265";
 /* Elenchi dei clienti veri: solo impronte cifrate (telefoni e nomi), mai i dati in chiaro (29/10/26).
@@ -2253,7 +2253,7 @@ async function verificaPresentazione(mostra){
   const noto = await nomeNoto(pres);
   if (noto === null) return "ok";                // elenco non caricato: non blocco, il gestionale segna da verificare
   if (noto){ say("✅ Cliente riconosciuto, grazie!", "#15803d"); return "ok"; }
-  say("Non troviamo questo nome. Lavoriamo da anni con la nostra <b>cerchia di clienti e amici</b> e abbiamo scelto di restare piccoli: puntiamo sulla <b>qualità</b>, non sul prezzo più basso a tutti i costi, e curiamo ogni ordine di persona. Se ti ha consigliato qualcuno, controlla nome e cognome. Altrimenti <a href=\"" + _waVerifica() + "\" target=\"_blank\" rel=\"noopener\"><b>scrivici su WhatsApp</b></a>: ci presentiamo e vediamo come fare.", "#b45309");
+  say("Non troviamo questo nome. Lavoriamo da anni con la nostra <b>cerchia di clienti</b> e delle persone da loro presentate e abbiamo scelto di restare piccoli: puntiamo sulla <b>qualità</b>, non sul prezzo più basso a tutti i costi, e curiamo ogni ordine di persona. Se ti ha consigliato qualcuno, controlla nome e cognome. Altrimenti <a href=\"" + _waVerifica() + "\" target=\"_blank\" rel=\"noopener\"><b>scrivici su WhatsApp</b></a>: ci presentiamo e vediamo come fare.", "#b45309");
   return "no";
 }
 (function(){
