@@ -2048,7 +2048,7 @@ window.addEventListener("load", function(){
         <div class="prog-text" id="cartHint"></div>
       </div>
       <div class="cart-ship" id="cartShipBox">🚚 Spedizione gratuita · Consegna stimata…</div>
-      <div class="avviso-riservato">🤝 <b>Prima di ordinare:</b> il nostro è un servizio riservato ai <b>clienti e alle persone da loro presentate</b>. Se è il tuo primo ordine, ti serve il <b>nome e cognome di chi ti ha presentato</b> (campo "Presentato da" qui sotto). Se non ci conosciamo ancora, <a href="https://wa.me/447727750265?text=Ciao!%20Vorrei%20qualche%20informazione" target="_blank" rel="noopener" style="color:#c6ff2e;text-decoration:underline">scrivici su WhatsApp</a>.</div>
+      <div class="avviso-riservato">🤝 <b>Prima di ordinare:</b> il nostro è un servizio riservato ai <b>clienti e alle persone da loro presentate</b>. Se è il tuo primo ordine, ti serve il <b>nome e cognome di chi ti ha presentato</b> (campo "Presentato da" qui sotto). Se sei già nostro cliente e il sito non ti riconosce, o non trovi il nome di chi ti ha presentato, <a href="https://wa.me/447727750265?text=Ciao!%20Sono%20gi%C3%A0%20vostro%20cliente%20ma%20il%20sito%20non%20mi%20riconosce" target="_blank" rel="noopener" style="color:#c6ff2e;text-decoration:underline">scrivici su WhatsApp</a> e verifichiamo.</div>
       <div class="checkout-box">
         <div class="checkout-title">Dati spedizione</div>
         <div class="checkout-grid">
@@ -2229,8 +2229,8 @@ function _stessiNomi(a,b){
 function _waVerifica(){
   const nome = ((document.getElementById("orderNome")||{}).value||"") + " " + ((document.getElementById("orderCognome")||{}).value||"");
   const pres = (document.getElementById("orderConsigliato")||{}).value||"";
-  const t = "Ciao! Ho provato a ordinare dal sito ma non riesco a indicare chi mi ha consigliato." +
-    (pres.trim() ? " Ho scritto: " + pres.trim() + "." : "") +
+  const t = "Ciao! Ho provato a ordinare dal sito ma non vengo riconosciuto." +
+    (pres.trim() ? " Come presentatore ho scritto: " + pres.trim() + "." : "") +
     (nome.trim() ? " Mi chiamo " + nome.trim() + "." : "") + " Potete verificare?";
   return "https://wa.me/" + WA_BUSINESS + "?text=" + encodeURIComponent(t);
 }
@@ -2253,7 +2253,7 @@ async function verificaPresentazione(mostra){
   const noto = await nomeNoto(pres);
   if (noto === null) return "ok";                // elenco non caricato: non blocco, il gestionale segna da verificare
   if (noto){ say("✅ Cliente riconosciuto, grazie!", "#15803d"); return "ok"; }
-  say("Non troviamo questo nome. Lavoriamo da anni con la nostra <b>cerchia di clienti</b> e delle persone da loro presentate e abbiamo scelto di restare piccoli: puntiamo sulla <b>qualità</b>, non sul prezzo più basso a tutti i costi, e curiamo ogni ordine di persona. Se ti ha consigliato qualcuno, controlla nome e cognome. Altrimenti <a href=\"" + _waVerifica() + "\" target=\"_blank\" rel=\"noopener\"><b>scrivici su WhatsApp</b></a>: ci presentiamo e vediamo come fare.", "#b45309");
+  say("Non troviamo questo nome. Lavoriamo da anni con la nostra <b>cerchia di clienti</b> e delle persone da loro presentate e abbiamo scelto di restare piccoli: puntiamo sulla <b>qualità</b>, non sul prezzo più basso a tutti i costi, e curiamo ogni ordine di persona. Se ti ha consigliato qualcuno, controlla nome e cognome. Se pensi di essere già un nostro cliente, o il nome è scritto in modo diverso, <a href=\"" + _waVerifica() + "\" target=\"_blank\" rel=\"noopener\"><b>scrivici su WhatsApp</b></a> e verifichiamo.", "#b45309");
   return "no";
 }
 (function(){
