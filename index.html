@@ -1315,7 +1315,7 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
 
 <div class="halloween-bar" id="halloweenBar" role="button" tabindex="0" title="Tocca per copiare il codice">🎃 Dolcetto o scherzetto? Nel carrello usa il codice <b>DOLCETTO</b> e hai il −10% <small>fino al 2 novembre · tocca per copiare</small></div>
 <div class="strip"><span id="stripShip">Spedizione gratuita in tutta Italia</span></div>
-<div class="passaparola"><b>🤝 Servizio riservato ai clienti e agli amici dei clienti.</b> Per ordinare indica chi ti ha presentato. Hai dubbi? <a href="https://wa.me/447727750265?text=Ciao!%20Vorrei%20qualche%20informazione" target="_blank" rel="noopener">Scrivici su WhatsApp</a></div>
+<div class="passaparola"><b>🤝 Servizio riservato ai clienti e agli amici dei clienti.</b> È nato tra amici e va avanti per la nostra cerchia: se ti ha presentato qualcuno, scrivi il suo nome e ordini subito.</div>
 
 
 <header>
@@ -2250,7 +2250,7 @@ async function verificaPresentazione(mostra){
   const noto = await nomeNoto(pres);
   if (noto === null) return "ok";                // elenco non caricato: non blocco, il gestionale segna da verificare
   if (noto){ say("✅ Cliente riconosciuto, grazie!", "#15803d"); return "ok"; }
-  say("Non trovo questo nome tra i nostri clienti. Controlla nome e cognome. <a href=\"" + _waVerifica() + "\" target=\"_blank\" rel=\"noopener\"><b>Non lo trovi? Scrivici su WhatsApp</b></a> e lo verifichiamo insieme.", "#b45309");
+  say("Non troviamo questo nome. Lavoriamo da anni con la nostra <b>cerchia di clienti e amici</b> e abbiamo scelto di restare piccoli, per curare ogni ordine di persona. Se ti ha consigliato qualcuno, controlla nome e cognome. Altrimenti <a href=\"" + _waVerifica() + "\" target=\"_blank\" rel=\"noopener\"><b>scrivici su WhatsApp</b></a>: ci presentiamo e vediamo come fare.", "#b45309");
   return "no";
 }
 (function(){
