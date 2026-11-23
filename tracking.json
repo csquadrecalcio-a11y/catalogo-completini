@@ -9049,6 +9049,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-23 09:41:48",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
         "data": "2026-11-22 03:03:24",
         "luogo": "",
         "stato": "Dati della spedizione ricevuti"
