@@ -7094,9 +7094,24 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-23 20:43:43",
+        "luogo": "",
+        "stato": "In consegna, disponibile per il ritiro dal giorno lavorativo successivo alla data indicata"
+      },
+      {
+        "data": "2026-11-23 20:43:00",
+        "luogo": "Ternate,piazza liberta 19,21020,ternate,va(ternate)",
+        "stato": "Parcel available for recipient Pick Up at Post Office or Collect Point"
+      },
+      {
         "data": "2026-11-21 02:39:00",
         "luogo": "Cazzago brabbia",
         "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-21 01:17:11",
+        "luogo": "Cazzago brabbia (va)",
+        "stato": "In transito"
       },
       {
         "data": "2026-11-21 01:17:11",
@@ -7146,17 +7161,17 @@
       {
         "data": "2026-11-19 14:13:48",
         "luogo": "Varese (va)",
-        "stato": "In transito, la spedizione è in transito"
+        "stato": "In transito"
       },
       {
         "data": "2026-11-19 14:13:48",
         "luogo": "Varese (va)",
-        "stato": "In transito"
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-17 23:58:00",
-        "luogo": "Fara in sabina",
-        "stato": "In transito nella rete di Poste Italiane"
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-17 23:58:00",
@@ -7165,8 +7180,8 @@
       },
       {
         "data": "2026-11-17 23:58:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "luogo": "Fara in sabina",
+        "stato": "In transito nella rete di Poste Italiane"
       },
       {
         "data": "2026-11-17 17:23:19",
