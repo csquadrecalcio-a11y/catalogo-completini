@@ -6794,6 +6794,26 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-23 22:50:33",
+        "luogo": "Partanna (tp)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-23 22:50:00",
+        "luogo": "Partanna",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-23 14:47:58",
+        "luogo": "Mazara del vallo (tp)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-23 14:47:00",
+        "luogo": "Mazara del vallo",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-11-21 14:16:40",
         "luogo": "Mazara del vallo (tp)",
         "stato": "In transito, la spedizione è in transito"
@@ -6820,13 +6840,13 @@
       },
       {
         "data": "2026-11-17 19:41:00",
-        "luogo": "Fara in sabina (ri)",
-        "stato": "In transito, la spedizione è in transito"
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-11-17 19:41:00",
-        "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-17 19:41:00",
