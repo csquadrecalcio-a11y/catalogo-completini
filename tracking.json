@@ -6948,7 +6948,7 @@
     ]
   },
   "CSC-2026-0479": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-11-11",
     "data_consegna": "",
     "corriere": "Poste Italiane",
@@ -7070,6 +7070,11 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-24 15:52",
+        "luogo": "",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-24 04:06",
         "luogo": "ROMA (RM)",
