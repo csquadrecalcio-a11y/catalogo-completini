@@ -7499,6 +7499,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-24 22:02:05",
+        "luogo": "Avellino (av)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-24 20:12:00",
+        "luogo": "Napoli",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-11-19 23:17:00",
         "luogo": "Maddaloni (ce)",
         "stato": "In transito, la spedizione è in transito"
@@ -7596,7 +7606,7 @@
       {
         "data": "2026-11-11 10:52:21",
         "luogo": "",
-        "stato": "Ordine registrato, in attesa del pacco"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-11-11 10:52:21",
@@ -7606,12 +7616,12 @@
       {
         "data": "2026-11-11 10:52:21",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Ordine registrato, in attesa del pacco"
       }
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-24 15:02",
+        "data": "2026-11-25 08:37",
         "luogo": "AVELLINO (AV)",
         "stato": "La spedizione è in transito"
       }
