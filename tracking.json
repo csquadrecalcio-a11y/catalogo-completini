@@ -10453,5 +10453,36 @@
     "fornitore": "",
     "eventi_cina": [],
     "eventi_corriere": []
+  },
+  "CSC-2026-0563": {
+    "stato": "spedito",
+    "data_spedizione": "2026-11-25",
+    "data_consegna": "",
+    "corriere": "DHL",
+    "tracking": "CR439349186DE",
+    "corriere_2": "",
+    "tracking_2": "",
+    "corriere_3": "",
+    "tracking_3": "",
+    "corriere_4": "",
+    "tracking_4": "",
+    "corriere_5": "",
+    "tracking_5": "",
+    "foto": [],
+    "tracking_cina": "",
+    "fornitore": "",
+    "eventi_cina": [
+      {
+        "data": "2026-11-25 08:17:00",
+        "luogo": "",
+        "stato": "Arrivato al punto di raccolta"
+      },
+      {
+        "data": "2026-11-25 03:24:24",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
+    "eventi_corriere": []
   }
 }
