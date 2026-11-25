@@ -7628,7 +7628,7 @@
     ]
   },
   "CSC-2026-0483": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-11-12",
     "data_consegna": "",
     "corriere": "Poste Italiane",
