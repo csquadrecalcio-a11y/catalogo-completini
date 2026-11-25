@@ -808,6 +808,10 @@ function _provenienza(){
   .pg-corpo{padding-top:20px;padding-bottom:70px}
   #paginaCat{overflow-x:hidden}
   .pg-prodotti .filters-bar>*{min-width:0;max-width:100%}
+  @media(max-width:600px){
+    html body .card .card-foot{flex-direction:column;align-items:stretch;gap:8px}
+    html body .card .card-foot .go{width:100%}
+  }
   @media(max-width:600px){#paginaCat .pg-prodotti .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#paginaCat .pg-prodotti .card{min-width:0}#paginaCat .pg-prodotti .card-foot{flex-direction:column;align-items:stretch;gap:8px}}
   .pg-cerca input{display:block;width:100%;max-width:520px;margin:0 auto 22px;font:600 16px Inter,sans-serif;color:#fff;background:#17171a;border:1px solid rgba(242,183,5,.35);border-radius:999px;padding:14px 20px}
   .pg-cerca input:focus{outline:2px solid #f2b705}
@@ -1208,6 +1212,7 @@ function _provenienza(){
   .natale-bar,.luci,#neve{display:none}
   .natale-limite{background:linear-gradient(90deg,#0b5a32,#a30d26 50%,#0b5a32);color:#fff;text-align:center;font-size:14px;font-weight:700;padding:10px 16px;border-bottom:2px solid #ffd54a;line-height:1.4}
   .natale-limite b{color:#ffe27a}
+  html body .passaparola{font-size:12.5px;line-height:1.4;padding:8px 12px;border-bottom-width:2px}
   html[data-festa="natale"] .natale-bar{display:block;background:linear-gradient(90deg,#0b5a32,#c8102e 50%,#0b5a32);color:#fff;text-align:center;
     font-size:14.5px;font-weight:800;padding:11px 16px;letter-spacing:.01em;border-bottom:3px solid #ffd54a;text-shadow:0 1px 2px rgba(0,0,0,.35)}
   html[data-festa="natale"] .natale-bar b{color:#ffe27a}
@@ -1428,7 +1433,7 @@ if (new Date() <= new Date(2026, 10, 30, 23, 59, 59) && document.documentElement
   document.getElementById("nataleLimite").style.display = "block";
 </script>
 <div class="strip"><span id="stripShip">Spedizione gratuita in tutta Italia</span></div>
-<div class="passaparola"><b>🤝 Servizio riservato ai clienti e alle persone da loro presentate.</b> È nato dal passaparola e va avanti per la nostra cerchia, con una qualità curata: se ti ha presentato qualcuno, scrivi il suo nome e ordini subito.</div>
+<div class="passaparola"><b>🤝 Solo clienti e persone presentate da loro.</b> Scrivi il nome di chi ti manda e ordini.</div>
 
 
 <header>
@@ -2790,7 +2795,23 @@ const TUTA_KID_SIZES = ["10","12","14","16","18"];
 const TUTA_KID_ETA = {"10":"7-8 anni","12":"8-9 anni","14":"10-11 anni","16":"12-13 anni","18":"13-14 anni"};
 const SHOE_SIZES  = ["39","40","41","42","43","44","45"];
 
+/* Le storiche da bambino hanno nomi tradotti a macchina ("00-02 Abbigliamento bambino casalingo dell'Arsenal 16-28"):
+   si mostrano come le altre, "Kit Bambino Arsenal Home 00/02". Il file su Drive resta com'e (25/11/26) */
+function nomeStorico(fn){
+  const t = String(fn).replace(/\.(jpe?g|png|webp)$/i, "").replace(/kids\s*kit/ig, " ").replace(/16\s*[-\/]\s*28/g, " ");
+  const squadra = squadraDaNome(t);
+  if (!squadra) return "";
+  const anni = t.match(/(?:^|\D)(\d{4}|\d{2}\s*[-\/]\s*\d{2}|\d{2})(?!\d)/);
+  let anno = anni ? anni[1].replace(/\s/g, "").replace("-", "/") : "";
+  if (anno === "0708") anno = "07/08";
+  const tipo = /trasferta|away|ospite/i.test(t) ? "Away" : /terz|third/i.test(t) ? "Third" : /seconda/i.test(t) ? "Away"
+             : /casa|home|domestic|domicilio|principale/i.test(t) ? "Home" : "";
+  const extra = [["reversibile","Reversibile"],["centenario","Centenario"],["commemorativa","Commemorativa"],["maradona","Maradona"],["rossoblu","Rossoblù"]]
+    .filter(([k]) => t.toLowerCase().includes(k)).map(([,v]) => v);
+  return ["Kit Bambino", squadra, tipo, ...extra, anno].filter(Boolean).join(" ");
+}
 function cleanName(fn){
+  if (/abbigliamento|squadra di casa/i.test(fn)){ const n = nomeStorico(fn); if (n) return n; }
   let s = fn.replace(/\.(jpe?g|png|webp)$/i,"");
   s = s.replace(/\b(solo\s*taglia|nopers|no\s*pers)\b/gi, "");   // marcatore interno
   s = s.replace(PULISCI_NON_DISP, "");                             // "adulto non disponibile"
@@ -3649,8 +3670,10 @@ function renderGrid(){
   let priced = items.map(it=>{
     const prof = productProfile(it);
     const ordinabili = prof.versions.filter(v=>!v.soldOut);
-    const minPrice = Math.min(...(ordinabili.length ? ordinabili : prof.versions).map(v=>v.price));
-    return { it, prof, minPrice };
+    // in Kit Bambini e Kit Adulti il prezzo in vista e quello del kit, non della sola maglia
+    const kit = activeCat.raccolta ? ordinabili.find(v => /^(kita|kitb|vintage_kid)$/.test(v.id)) : null;
+    const minPrice = kit ? kit.price : Math.min(...(ordinabili.length ? ordinabili : prof.versions).map(v=>v.price));
+    return { it, prof, minPrice, kit };
   });
   priced = applyPriceSort(priced);
 
@@ -3663,7 +3686,7 @@ function renderGrid(){
   }
   noteEl.style.display = "none";
 
-  priced.slice(0, renderLimit).forEach(({it,prof,minPrice},i)=>{
+  priced.slice(0, renderLimit).forEach(({it,prof,minPrice,kit},i)=>{
     const card = document.createElement("div");
     card.className = "card";
     card.style.animationDelay = `${Math.min(i,10)*40}ms`;
@@ -3684,7 +3707,7 @@ function renderGrid(){
          </button>`).join("")}</div>` : ""}
       ${taglieVetrinaHtml(it)}
       <div class="card-foot">
-        <div class="price">${(prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${statoPronta(it.id, it) === "venduto" ? fmtE(minPrice) + "€" : (senzaBf(it) ? fmtE(minPrice) + "€" : prezzoBfHtml(minPrice))}<small>${activeCat && activeCat.pronta ? "+ 8€ sped. · gratis da 2 · 24-48h" : "spedizione inclusa"}</small></div>
+        <div class="price">${!kit && (prof.versions.filter(v=>!v.soldOut).length||1)>1?"da ":""}${statoPronta(it.id, it) === "venduto" ? fmtE(minPrice) + "€" : (senzaBf(it) ? fmtE(minPrice) + "€" : prezzoBfHtml(minPrice))}<small>${activeCat && activeCat.pronta ? "+ 8€ sped. · gratis da 2 · 24-48h" : "spedizione inclusa"}</small></div>
         <button class="go">Apri</button>
       </div>`;
     card.onclick = ()=>{
