@@ -9840,11 +9840,11 @@
     "eventi_corriere": []
   },
   "CSC-2026-0529": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-11-25",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "Poste Italiane",
+    "tracking": "5P73D10226815ł",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -9853,7 +9853,9 @@
     "tracking_4": "",
     "corriere_5": "",
     "tracking_5": "",
-    "foto": [],
+    "foto": [
+      "13e10bc8a9b2c9087333696e.enc"
+    ],
     "tracking_cina": "",
     "fornitore": "",
     "eventi_cina": [],
