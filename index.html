@@ -788,6 +788,16 @@ function _provenienza(){
   .pills{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
 
   /* ---------- pronta consegna in evidenza (05/10/26) ---------- */
+  .scelte{padding:44px 0 40px;border-bottom:1px solid var(--line)}
+  .scelte h2{font-size:clamp(26px,4vw,44px);margin:0 0 22px;text-align:center}
+  .scelte-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1120px;margin:0 auto}
+  .scelta{display:flex;flex-direction:column;border-radius:18px;overflow:hidden;border:1px solid rgba(242,183,5,.28);text-decoration:none;background:#14100a;transition:transform .25s ease,border-color .25s ease}
+  .scelta:hover,.scelta:focus-visible{transform:translateY(-4px);border-color:#f2b705}
+  .scelta img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:cover}
+  .scelta span{display:flex;flex-direction:column;align-items:center;gap:5px;padding:16px 8px 18px;text-align:center;border-top:2px solid #f2b705}
+  .scelta b{font:900 clamp(15px,1.8vw,21px)/1.05 'Archivo Black',Inter,sans-serif;text-transform:uppercase;color:#fff}
+  .scelta small{font-size:13px;font-weight:800;color:#ffd54a}
+  @media(max-width:600px){.scelte{padding:30px 0 28px}.scelte-row{grid-template-columns:repeat(2,1fr);gap:10px}.scelta{border-radius:12px}.scelta span{padding:11px 4px 12px}.scelta b{font-size:14.5px}.scelta small{display:none}}
   .pc-home{padding:56px 0 48px;background:linear-gradient(180deg,rgba(255,180,0,.10),rgba(255,180,0,0) 70%);
            border-bottom:1px solid var(--line)}
   .pc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:22px}
@@ -1543,6 +1553,19 @@ if (new Date() <= new Date(2026, 10, 30, 23, 59, 59) && document.documentElement
   </div>
 </section>
 
+<!-- ============ SCEGLI DA DOVE PARTIRE (25/11/26) ============ -->
+<section class="scelte" aria-label="Categorie principali">
+  <div class="container">
+    <h2 class="display">Cosa stai cercando?</h2>
+    <div class="scelte-row">
+      <a class="scelta" data-cat="Kit Bambini" href="?cat=Kit%20Bambini#catalogo"><img src="card/bambini.jpg" alt="Completino calcio bambino" width="600" height="900" loading="lazy"><span><b>Kit Bambini</b><small>Scegli la squadra →</small></span></a>
+      <a class="scelta" data-cat="Kit Adulti" href="?cat=Kit%20Adulti#catalogo"><img src="card/adulti.jpg" alt="Kit calcio adulto" width="600" height="900" loading="lazy"><span><b>Kit Adulti</b><small>Scegli la squadra →</small></span></a>
+      <a class="scelta" data-cat="Tute Bambini" href="?cat=Tute%20Bambini#catalogo"><img src="card/tute-bambini.jpg" alt="Tuta della squadra bambino" width="600" height="900" loading="lazy"><span><b>Tute Bambini</b><small>Scegli la squadra →</small></span></a>
+      <a class="scelta" data-cat="Tute Adulti" href="?cat=Tute%20Adulti#catalogo"><img src="card/tute.jpg" alt="Tuta della squadra adulto" width="600" height="900" loading="lazy"><span><b>Tute Adulti</b><small>Scegli la squadra →</small></span></a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PRONTA CONSEGNA IN EVIDENZA ============ -->
 <section class="pc-home" id="pronta-home" style="display:none">
   <div class="container">
@@ -1617,6 +1640,7 @@ window.addEventListener("load", function(){
     </div>
     <div class="cat-tabs reveal" id="tabs"></div>
     <div class="toolbar reveal">
+      <div class="team-chips" id="tipiRaccolta" style="display:none;flex-basis:100%"></div>
       <div class="team-chips" id="teamChips"></div>
       <div class="search">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
@@ -2372,6 +2396,14 @@ const CATALOG = [
   { name:"Pronta Consegna",  flag:"⚡", id:"1q5L6UkE7C5Dma_6dih5MIZ-8I4BiBfWd", subs:false, pronta:true },
 ];
 
+/* ---- BAMBINI e KIT ADULTI (25/11/26) ----
+   Categorie "finte": non hanno una cartella su Drive, raccolgono dalle altre solo cio che si ordina in quella taglia. */
+CATALOG.splice(1, 0,
+  { name:"Kit Bambini",  flag:"🧒", id:"kit-bambini",  subs:false, raccolta:"bambino", tipi:["stagione","storiche"] },
+  { name:"Kit Adulti",   flag:"👕", id:"kit-adulti",   subs:false, raccolta:"adulto",  tipi:["stagione","storiche"] },
+  { name:"Tute Bambini", flag:"🧒", id:"tute-bambini", subs:false, raccolta:"bambino", tipi:["tute"] },
+  { name:"Tute Adulti",  flag:"🏃", id:"tute-adulti",  subs:false, raccolta:"adulto",  tipi:["tute"] });
+
 /* -------- prezzi e opzioni per categoria (identici al sito live) --------
    Maglia 30 / Player 35 / Kit Bambino 35 / Kit Adulto 40
    Tuta: Allenamento 50 / Passeggio 60 / Cappuccio 65 (solo adulti)
@@ -2596,6 +2628,30 @@ function versioniNominate(testo, tabella){
 }
 
 function productProfile(item){
+  if (!item || !item.solo) return profiloBase(item);
+  // le opzioni si calcolano come nella categoria di origine, poi restano solo quelle della taglia scelta
+  const prima = activeCat; activeCat = item._cat;
+  const p = profiloBase(item);
+  activeCat = prima;
+  // "kit adulto" o "bambini non disponibile" nel nome: quel capo in taglia bambino non esiste
+  const nome = String(item.name || "").toLowerCase();
+  if (item.solo === "bambino" && (/\badult[oi]\b/.test(nome.replace(PULISCI_NON_DISP, " ")) && !/bambin|\bkids?\b/.test(nome.replace(PULISCI_NON_DISP, " ")) || bambinoNonDisponibile(nome)))
+    return { ...p, versions: [] };
+  return { ...p, versions: (item.solo === "bambino" ? versioniBambino : versioniAdulto)(p.versions) };
+}
+function versioniBambino(versions){
+  const v = versions.filter(x => x.kid && !x.soldOut);
+  // la "Maglia" normale ha dentro anche le taglie bambino: qui diventa "Maglia Bambino"
+  if (versions.some(x => x.id === "maglia" && !x.soldOut) && !v.some(x => x.id === "maglia_kid")) v.push(OPT_MAGLIA_KID);
+  return v;
+}
+function versioniAdulto(versions){
+  // il kit per primo; la maglia da sola qui offre solo le taglie adulto
+  return versions.filter(x => !x.kid && !x.soldOut)
+    .map(x => x.bothSizes ? { ...x, bothSizes:false } : x)
+    .sort((a,b) => (b.id === "kita") - (a.id === "kita"));
+}
+function profiloBase(item){
   const cat = (typeof activeCat !== "undefined" && activeCat) ? activeCat.name : "";
   // Pronta consegna: pezzo unico gia pronto, una versione e una taglia sola
   if (item && item.mag){
@@ -2933,7 +2989,7 @@ const NUOVI_GIORNI = 30;
 const NON_NOVITA = /scarp|sneaker|estiv|\bpolo\b|canotta|t.?shirt|jordan/i;
 async function caricaNuoviArrivi(){
   const limite = Date.now() - NUOVI_GIORNI * 86400000;
-  const fonti = CATALOG.filter(c => c.name !== "Nuovi Arrivi" && !c.pronta && c.name !== "Vintage");
+  const fonti = CATALOG.filter(c => c.name !== "Nuovi Arrivi" && !c.pronta && !c.raccolta && c.name !== "Vintage");
   const tutte = await Promise.all(fonti.map(c => loadCategory(c).then(d => d.items).catch(()=>[])));
   const items = tutte.flat()
     .filter(i => i.ct && Date.parse(i.ct) >= limite && !NON_NOVITA.test(i.name))
@@ -2948,7 +3004,106 @@ function loadCategory(cat){
   if (!_inCorso[cat.id]) _inCorso[cat.id] = caricaCategoria(cat).finally(()=>{ delete _inCorso[cat.id]; });
   return _inCorso[cat.id];
 }
+/* Squadra scritta nel nome del file o della cartella: serve a mettere insieme maglie, storiche e tute.
+   L'ordine conta: i nomi piu lunghi prima ("inter miami" prima di "inter"). */
+const SQUADRE_NOMI = [
+  ["Inter Miami","inter miami|miami"],["Inter","inter|internazionale"],["Juventus","juventus|juve"],["Milan","milan|ac"],
+  ["Napoli","napoli"],["Roma","roma"],["Lazio","lazio"],["Fiorentina","fiorentina"],["Atalanta","atalanta"],["Bologna","bologna"],
+  ["Torino","torino"],["Genoa","genoa"],["Como","como"],["Parma","parma"],["Cagliari","cagliari"],["Lecce","lecce"],["Udinese","udinese"],
+  ["Sampdoria","sampdoria"],["Palermo","palermo"],["Verona","verona|hellas"],["Venezia","venezia"],["Sassuolo","sassuolo"],
+  ["Real Madrid","real madrid"],["Atletico Madrid","atletico madrid|atl[eé]tico"],["Barcellona","barcellona|barcelona|barca|barça"],
+  ["Real Betis","betis"],["Siviglia","siviglia|sevilla"],["Valencia","valencia"],["Athletic Bilbao","bilbao|athletic"],
+  ["Manchester United","manchester united|manchester uni|man united|man utd"],["Manchester City","manchester city|man city"],
+  ["Liverpool","liverpool"],["Arsenal","arsenal"],["Chelsea","chelsea"],["Tottenham","tottenham"],["Newcastle","newcastle"],
+  ["Aston Villa","aston villa"],["West Ham","west ham"],["Everton","everton"],["Leicester","leicester"],["Leeds","leeds"],
+  ["PSG","psg|paris saint[ -]germain|paris"],["Marsiglia","marsiglia|marseille"],["Lione","lione|lyon"],["Monaco","as monaco"],
+  ["Bayern Monaco","bayern"],["Borussia Dortmund","dortmund|dortmunf|bvb"],["Bayer Leverkusen","leverkusen"],
+  ["Ajax","ajax"],["PSV","psv"],["Feyenoord","feyenoord"],["Benfica","benfica"],["Porto","porto"],["Sporting Lisbona","sporting|lisbona"],
+  ["Celtic","celtics?"],["Rangers","rangers"],["Galatasaray","galatasaray"],["Fenerbahce","fenerbah[cç]e"],
+  ["Boca Juniors","boca"],["River Plate","river plate"],["Santos","santos"],["Flamengo","flamengo"],["Al Nassr","al[ -]nassr"],["Al Hilal","al[ -]hilal"],
+  ["Italia","italia"],["Argentina","argentina"],["Brasile","brasile|brazil"],["Francia","francia|france"],["Germania","germania|germany|tedesco"],
+  ["Spagna","spagna|spain"],["Portogallo","portogallo|portugal"],["Inghilterra","inghilterra|inghiterra|england"],["Olanda","olanda|paesi bassi|netherlands"],
+  ["Belgio","belgio"],["Croazia","croazia"],["Messico","messico|mexico"],["Giappone","giappone|japan"],["Marocco","marocco"],
+  ["Colombia","colombia"],["Uruguay","uruguay"],["Norvegia","norvegia|norway"],["Senegal","senegal"],["Nigeria","nigeria"],["Albania","albania"],
+  ["Algeria","algeria"],["Arabia Saudita","arabia saudita"],["Austria","austria"],["Bosnia","bosnia"],["Canada","canada"],["Capo Verde","capo verde"],
+  ["Congo","congo"],["Corea","corea|korea"],["Costa d'Avorio","costa d.?avorio"],["Curaçao","curacao|cura[cç]ao"],["Ecuador","ecuador|equador"],
+  ["Egitto","egitto"],["Ghana","ghana"],["Giamaica","giamaica|jamaica"],["Haiti","haiti"],["Iran","iran"],["Iraq","iraq"],["Nuova Zelanda","nuova zelanda|nuova zelandia"],
+  ["Panama","panama"],["Paraguay","paraguay|paraguai"],["Qatar","qatar"],["Repubblica Ceca","repubblica ceca"],["Scozia","scozia"],["Sudafrica","sud ?africa"],
+  ["Svezia","svezia"],["Svizzera","svizzera"],["Tunisia","tunisia"],["Turchia","turchia"],["USA","usa"],["Uzbekistan","uzbekistan"],
+  ["Botafogo","botafogo"],["Club America","club america"],["Corinthians","corinthians|corinthias"],["Deportivo La Coruna","deportivo"],["Galles","galles|wales"],
+  ["Fluminense","fluminense"],["Gremio","gremio"],["Sunderland","sunderland"],
+].map(([nome, alias]) => ({ nome, re: new RegExp("(^|[^a-zà-ú])(" + alias + ")($|[^a-zà-ú])", "i") }));
+function squadraDaNome(testo){
+  const s = SQUADRE_NOMI.find(x => x.re.test(String(testo || "")));
+  return s ? s.nome : "";
+}
+const TIPI_RACCOLTA = [ {id:"stagione", label:"⚽ Di quest'anno"}, {id:"storiche", label:"🏆 Storiche"}, {id:"tute", label:"🏃 Tute"} ];
+let tipoRaccolta = "stagione";
+const maiuscola = t => t ? t.charAt(0).toUpperCase() + t.slice(1) : "";
+async function caricaRaccolta(cat){
+  const taglia = cat.raccolta;
+  const tipoDi = c => c.name === "Vintage" ? "storiche" : (c.name === "Tute" ? "tute" : "stagione");
+  const fonti = CATALOG.filter(c => !c.raccolta && !c.pronta && c.name !== "Nuovi Arrivi" && cat.tipi.includes(tipoDi(c)));
+  let errori = 0;
+  const liste = await Promise.all(fonti.map(async c => {
+    let d;
+    try{ d = await loadCategory(c); }catch(e){ errori++; return []; }
+    const tipo = tipoDi(c);
+    // le foto salvate male su Drive (nome "Error 500") restano fuori
+    return d.items.filter(it => !/error 500|server error/i.test(it.name)).map(it => {
+      const segna = x => ({ ...x, _cat:c, solo:taglia });
+      let voce = segna(it);
+      if (it.varianti){
+        // dentro un riquadro Home/Away/Third restano solo i kit ordinabili in questa taglia
+        const varianti = it.varianti
+          .map(v => ({ etichetta:v.etichetta, scatti:v.scatti.map(segna).filter(x => productProfile(x).versions.length) }))
+          .filter(v => v.scatti.length);
+        if (!varianti.length) return null;
+        voce = { ...segna(varianti[0].scatti[0]), cerca:it.cerca, ct:it.ct,
+                 varianti: varianti.length > 1 ? varianti : undefined };
+      }
+      if (!productProfile(voce).versions.length) return null;
+      const squadra = squadraDaNome(it.team) || squadraDaNome(it.name) || (tipo === "stagione" ? it.team : "") || "Altre";
+      // "gruppo" serve ai filtri; "team" resta quello vero, usato da rose e patch
+      return { ...voce, tipoR:tipo, gruppo:maiuscola(squadra) };
+    }).filter(Boolean);
+  }));
+  if (errori === fonti.length) throw new Error("catalogo non raggiungibile");
+  return { items: liste.flat(), teams: [] };
+}
+/* prima le squadre piu richieste, poi le altre in ordine alfabetico, "Altre" in fondo */
+const SQUADRE_PRIME = ["Juventus","Inter","Milan","Napoli","Roma","Barcellona","Real Madrid","Italia","Argentina"];
+function ordinaSquadre(nomi){
+  const rango = n => n === "Altre" ? 999 : (SQUADRE_PRIME.indexOf(n) < 0 ? 100 : SQUADRE_PRIME.indexOf(n));
+  return nomi.sort((a,b) => rango(a) - rango(b) || a.localeCompare(b));
+}
+/* Due file di bottoni: che cosa (di quest'anno, storiche, tute) e quale squadra */
+function chipRaccolta(data){
+  const riga = document.getElementById("tipiRaccolta");
+  riga.innerHTML = ""; chipsEl.innerHTML = "";
+  const bottone = (dove, testo, attivo, fai) => {
+    const b = document.createElement("button");
+    b.className = "chip-t" + (attivo ? " active" : "");
+    b.textContent = testo;
+    b.onclick = () => { fai(); renderLimit = 24; chipRaccolta(data); renderGrid(); };
+    dove.appendChild(b);
+  };
+  const tipi = TIPI_RACCOLTA.filter(t => activeCat.tipi.includes(t.id));
+  if (!tipi.some(t => t.id === tipoRaccolta)) tipoRaccolta = tipi[0].id;
+  riga.style.display = tipi.length > 1 ? "" : "none";
+  if (tipi.length > 1) tipi.forEach(t => bottone(riga, t.label, t.id === tipoRaccolta, () => { tipoRaccolta = t.id; activeTeam = ""; }));
+  const delTipo = data.items.filter(i => i.tipoR === tipoRaccolta);
+  const conta = {};
+  delTipo.forEach(i => { conta[i.gruppo] = (conta[i.gruppo] || 0) + 1; });
+  bottone(chipsEl, `Tutte (${delTipo.length})`, !activeTeam, () => { activeTeam = ""; });
+  ordinaSquadre(Object.keys(conta))
+    .forEach(n => bottone(chipsEl, `${n} (${conta[n]})`, activeTeam === n, () => { activeTeam = n; }));
+}
 async function caricaCategoria(cat){
+  if (cat.raccolta){
+    cache[cat.id] = await caricaRaccolta(cat);
+    return cache[cat.id];
+  }
   if (cat.name === "Nuovi Arrivi"){
     try{
       cache[cat.id] = await caricaNuoviArrivi();
@@ -3002,6 +3157,11 @@ async function caricaCategoria(cat){
     items = files.filter(f => !(cat.pronta && PRONTA_VENDUTO.test(f.name)))
                  .filter(f => !(cat.pronta && statoPronta(f.id, {id:f.id, name:f.name}) === "sparito"))
                  .map(f=>({id:f.id, name:f.name, ct:f.createdTime, team:""}));
+    if (cat.name === "Tute"){
+      // la cartella e unica: la squadra si legge dal nome della foto, cosi compaiono i filtri (25/11/26)
+      items = items.map(i => ({ ...i, team: squadraDaNome(i.name) }));
+      teams = ordinaSquadre([...new Set(items.map(i => i.team).filter(Boolean))]).map(n => ({ id:n, name:n }));
+    }
   }
   items = raggruppaKit(raggruppaAngolazioni(items));
   cache[cat.id] = {items, teams};
@@ -3058,6 +3218,8 @@ CATALOG.forEach((c,i)=>{
   const b = document.createElement("button");
   b.className = "tab" + (i===0 ? " active" : "");
   b.textContent = c.name;
+  // "Tute" resta (link diretti e raccolte la usano) ma nelle linguette ci sono gia Tute Bambini e Tute Adulti
+  if (c.name === "Tute") b.style.display = "none";
   if (c.pronta) b.classList.add("tab-pc");
   b.onclick = ()=>{
     document.querySelectorAll("#tabs .tab").forEach(t=>t.classList.remove("active"));
@@ -3077,7 +3239,9 @@ CATALOG.forEach((c,i)=>{
   if (cercaParam) window._cercaIniziale = cercaParam;
   const catParam = (p.get('cat')||'').toLowerCase().replace(/[-_ ]/g,'');
   if(catParam){
-    const match = CATALOG.findIndex(c => c.name.toLowerCase().replace(/[-_ ]/g,'').includes(catParam));
+    const piatto = c => c.name.toLowerCase().replace(/[-_ ]/g,'');
+    const esatto = CATALOG.findIndex(c => piatto(c) === catParam);   // "tute" non deve diventare "tutebambini"
+    const match = esatto >= 0 ? esatto : CATALOG.findIndex(c => piatto(c).includes(catParam));
     if(match >= 0){
       activeCat = CATALOG[match];
       document.querySelectorAll("#tabs .tab").forEach((t,i)=>t.classList.toggle("active", i===match));
@@ -3091,6 +3255,7 @@ let searchAllCache = null;
 searchInp.addEventListener("input", ()=>{
   renderLimit = 24;
   const q = searchInp.value.trim();
+  if (activeCat.raccolta){ searchMode = false; renderGrid(); return; }
   if (q){
     searchMode = true;
     doGlobalSearch(q);
@@ -3102,6 +3267,17 @@ searchInp.addEventListener("input", ()=>{
   }
 });
 moreBtn.onclick = ()=>{ renderLimit += 24; if (searchMode) renderSearchResults(searchAllResults); else renderGrid(); };
+
+/* Apre una categoria dalla home (riquadri con le foto e scorciatoie) e porta li il cliente */
+function apriCategoria(nome){
+  searchInp.value = ""; headerSearchInp.value = ""; searchMode = false;
+  tipoRaccolta = "stagione";
+  // prima si va al catalogo, poi arrivano le foto: il tocco ha subito risposta
+  goToCategoryByName(nome);
+  // si lascia spazio all'intestazione fissa, cosi si vedono i bottoni appena sopra le foto
+  window.scrollTo({ top: document.getElementById("tabs").getBoundingClientRect().top + window.scrollY - 90, behavior:"smooth" });
+}
+document.querySelectorAll(".scelta").forEach(a => a.onclick = e => { e.preventDefault(); apriCategoria(a.dataset.cat); });
 
 /* Scorciatoie squadre: portano dritti ai prodotti di quella squadra, senza
    passare per lega → squadra. Usano la ricerca globale, che guarda in tutte
@@ -3116,6 +3292,8 @@ document.querySelectorAll("#quickTeams .chip-q").forEach(b=>{
   b.onclick = ()=>{
     document.querySelectorAll("#quickTeams .chip-q").forEach(x=>x.classList.remove("active"));
     b.classList.add("active");
+    // il bottone "Bambino" porta alla categoria Kit Bambini
+    if (b.dataset.squadra === "bambino"){ apriCategoria("Kit Bambini"); return; }
     vaiAllaSquadra(b.dataset.squadra);
   };
 });
@@ -3133,7 +3311,7 @@ chipsEl.addEventListener("wheel", e=>{
 /* -------- ricerca su TUTTE le categorie, non solo quella aperta -------- */
 async function ensureAllCategoriesLoaded(){
   if (searchAllCache) return searchAllCache;
-  const all = await Promise.all(CATALOG.map(async c=>{
+  const all = await Promise.all(CATALOG.filter(c => !c.raccolta).map(async c=>{
     try{
       const d = await loadCategory(c);
       return d.items.map(it => ({ ...it, _cat:c }));
@@ -3152,6 +3330,7 @@ function corrisponde(testo, q){
 }
 
 async function doGlobalSearch(q){
+  document.getElementById("tipiRaccolta").style.display = "none";
   skeletons();
   chipsEl.innerHTML = "";
   const all = await ensureAllCategoriesLoaded();
@@ -3247,8 +3426,12 @@ function skeletons(n=8){
 async function showCategory(){
   skeletons();
   chipsEl.innerHTML = "";
+  document.getElementById("tipiRaccolta").style.display = "none";
+  const richiesta = activeCat;
   try{
     const data = await loadCategory(activeCat);
+    if (richiesta !== activeCat) return;   // nel frattempo si e passati a un'altra categoria
+    if (activeCat.raccolta) chipRaccolta(data);
     if (data.teams.length){
       const all = document.createElement("button");
       all.className = "chip-t active";
@@ -3296,7 +3479,8 @@ function renderGrid(){
   if (!data) return;
   const q = searchInp.value.trim().toLowerCase();
   let items = data.items;
-  if (activeTeam) items = items.filter(i=>i.team===activeTeam);
+  if (activeCat.raccolta) items = items.filter(i=>i.tipoR===tipoRaccolta);
+  if (activeTeam) items = items.filter(i=>(activeCat.raccolta ? i.gruppo : i.team)===activeTeam);
   if (q) items = items.filter(i=>corrisponde(i.name+" "+i.team+" "+(i.cerca||""), q));
 
   let priced = items.map(it=>{
@@ -3612,7 +3796,8 @@ function isNazionale(hay){
 }
 
 function patchConfigFor(item){
-  const hay = ((item.team||"") + " " + (item.name||"") + " " + (activeCat ? activeCat.name : "")).toLowerCase();
+  const cat = item._cat || activeCat;   // in "Bambini" valgono le patch della categoria di origine
+  const hay = ((item.team||"") + " " + (item.name||"") + " " + (cat ? cat.name : "")).toLowerCase();
   if (isNazionale(hay)) return { none:"No", opts:["World Cup 2026 + Unite for Peace"], allowCustom:false };
   for (const set of PATCH_SETS){
     if (set.no && set.no.some(n=>hay.includes(n))) continue;
@@ -3913,6 +4098,8 @@ function buildSizePills(){
     return;
   }
   if (v.id === "tuta_kid"){
+    // le tute bambino hanno taglie loro: la "24" delle maglie qui non esiste (25/11/26)
+    if (!TUTA_KID_SIZES.includes(S.size)) S.size = TUTA_KID_SIZES[0];
     TUTA_KID_SIZES.forEach(sz => el.appendChild(sizePill(sz, `${sz} · ${TUTA_KID_ETA[sz]}`)));
     return;
   }
