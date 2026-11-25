@@ -7638,9 +7638,9 @@
     ]
   },
   "CSC-2026-0483": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-12",
-    "data_consegna": "",
+    "data_consegna": "2026-11-25 14:38:14",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J546764",
     "corriere_2": "",
@@ -7652,8 +7652,8 @@
     "corriere_5": "",
     "tracking_5": "",
     "foto": [
-      "sped_483_1_b9b18520.jpg",
-      "sped_483_2_8a08c5c7.jpg"
+      "947cbce4a87ae89efa56fdf8.enc",
+      "71e1ffb6673e7a26847fc894.enc"
     ],
     "tracking_cina": "",
     "fornitore": "",
