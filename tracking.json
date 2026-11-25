@@ -7761,6 +7761,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-11-25 10:16",
+        "luogo": "",
+        "stato": "La spedizione è in consegna"
+      },
+      {
         "data": "2026-11-25 01:40",
         "luogo": "SESTO FIORENTINO (FI)",
         "stato": "La spedizione è in transito"
