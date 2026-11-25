@@ -1168,6 +1168,8 @@ function _provenienza(){
 
   /* ---------- NATALE (1-23 dicembre): rosso, verde e oro, neve e luci, sopra il tema normale ---------- */
   .natale-bar,.luci,#neve{display:none}
+  .natale-limite{background:linear-gradient(90deg,#0b5a32,#a30d26 50%,#0b5a32);color:#fff;text-align:center;font-size:14px;font-weight:700;padding:10px 16px;border-bottom:2px solid #ffd54a;line-height:1.4}
+  .natale-limite b{color:#ffe27a}
   html[data-festa="natale"] .natale-bar{display:block;background:linear-gradient(90deg,#0b5a32,#c8102e 50%,#0b5a32);color:#fff;text-align:center;
     font-size:14.5px;font-weight:800;padding:11px 16px;letter-spacing:.01em;border-bottom:3px solid #ffd54a;text-shadow:0 1px 2px rgba(0,0,0,.35)}
   html[data-festa="natale"] .natale-bar b{color:#ffe27a}
@@ -1381,6 +1383,12 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
 
 <div class="halloween-bar" id="halloweenBar" role="button" tabindex="0" title="Tocca per copiare il codice">🎃 Dolcetto o scherzetto? Nel carrello usa il codice <b>DOLCETTO</b> e hai il −10% <small>fino al 2 novembre · tocca per copiare</small></div>
 <div class="natale-bar" id="nataleBar"></div><div class="luci" id="luciNatale" aria-hidden="true"></div><canvas id="neve" aria-hidden="true"></canvas>
+<div class="natale-limite" id="nataleLimite" style="display:none">🎄 Per ricevere entro Natale, <b>ordina entro lunedì 30 novembre</b>. Dopo questa data non possiamo assicurare la consegna prima delle feste.</div>
+<script>
+/* Ultima data utile per Natale (25/11/26): si vede fino al 30 novembre compreso; da dicembre ci pensa la barra di Natale */
+if (new Date() <= new Date(2026, 10, 30, 23, 59, 59) && document.documentElement.getAttribute("data-festa") !== "natale")
+  document.getElementById("nataleLimite").style.display = "block";
+</script>
 <div class="strip"><span id="stripShip">Spedizione gratuita in tutta Italia</span></div>
 <div class="passaparola"><b>🤝 Servizio riservato ai clienti e alle persone da loro presentate.</b> È nato dal passaparola e va avanti per la nostra cerchia, con una qualità curata: se ti ha presentato qualcuno, scrivi il suo nome e ordini subito.</div>
 
@@ -5029,11 +5037,12 @@ document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
   // barra con la data limite
   var bar = document.getElementById("nataleBar");
   if (bar){
-    var oggi = new Date(), fine = new Date(oggi.getFullYear(), 11, 3, 23, 59, 59);
-    var gg = Math.ceil((fine - oggi) / 86400000);
-    if (oggi <= fine){
-      bar.innerHTML = "🎄 <b>Buon Natale!</b> Ordina <b>entro il 3 dicembre</b> e lo ricevi prima di Natale" +
-        (gg <= 1 ? " <small>· ultimo giorno!</small>" : " <small>· mancano " + gg + " giorni</small>");
+    // Date decise il 25/11/26: garantiti-in-tempo gli ordini entro il 30/11; 1 e 2 dicembre si accettano senza promessa
+    var oggi = new Date(), a = oggi.getFullYear();
+    if (oggi <= new Date(a, 10, 30, 23, 59, 59)){
+      bar.innerHTML = "🎄 <b>Buon Natale!</b> Per riceverlo entro le feste <b>ordina entro lunedì 30 novembre</b>";
+    } else if (oggi <= new Date(a, 11, 2, 23, 59, 59)){
+      bar.innerHTML = "🎄 <b>Ordini di Natale:</b> fino al <b>2 dicembre</b> proviamo a consegnare in tempo, ma non possiamo assicurarlo";
     } else {
       bar.innerHTML = "🎁 <b>Ultimi giorni per Natale:</b> la <b>Pronta Consegna</b> arriva in 2-3 giorni, in tempo per l'albero";
     }
