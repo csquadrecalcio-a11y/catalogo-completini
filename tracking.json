@@ -6773,7 +6773,7 @@
     ]
   },
   "CSC-2026-0477": {
-    "stato": "spedito",
+    "stato": "in_consegna",
     "data_spedizione": "2026-11-09",
     "data_consegna": "",
     "corriere": "Poste Italiane",
