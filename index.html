@@ -798,6 +798,34 @@ function _provenienza(){
   .scelta b{font:900 clamp(15px,1.8vw,21px)/1.05 'Archivo Black',Inter,sans-serif;text-transform:uppercase;color:#fff}
   .scelta small{font-size:13px;font-weight:800;color:#ffd54a}
   @media(max-width:600px){.scelte{padding:30px 0 28px}.scelte-row{grid-template-columns:repeat(2,1fr);gap:10px}.scelta{border-radius:12px}.scelta span{padding:11px 4px 12px}.scelta b{font-size:14.5px}.scelta small{display:none}}
+  /* pagina di categoria */
+  #paginaCat{position:fixed;inset:0;z-index:90;background:#0a0a0b;overflow-y:auto;display:none;overscroll-behavior:contain}
+  #paginaCat.aperta{display:block}
+  html.pagina-aperta,html.pagina-aperta body{overflow:hidden}
+  .pg-testa{position:sticky;top:0;z-index:5;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;padding:12px 16px;background:rgba(10,10,11,.96);border-bottom:1px solid rgba(242,183,5,.3)}
+  .pg-testa button{font:800 13.5px Inter,sans-serif;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:10px 14px;cursor:pointer;white-space:nowrap}
+  .pg-titolo{text-align:center;font:900 clamp(15px,2.6vw,24px)/1.15 'Archivo Black',Inter,sans-serif;text-transform:uppercase;color:#fff}
+  .pg-corpo{padding-top:20px;padding-bottom:70px}
+  #paginaCat{overflow-x:hidden}
+  .pg-prodotti .filters-bar>*{min-width:0;max-width:100%}
+  @media(max-width:600px){#paginaCat .pg-prodotti .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#paginaCat .pg-prodotti .card{min-width:0}#paginaCat .pg-prodotti .card-foot{flex-direction:column;align-items:stretch;gap:8px}}
+  .pg-cerca input{display:block;width:100%;max-width:520px;margin:0 auto 22px;font:600 16px Inter,sans-serif;color:#fff;background:#17171a;border:1px solid rgba(242,183,5,.35);border-radius:999px;padding:14px 20px}
+  .pg-cerca input:focus{outline:2px solid #f2b705}
+  .pg-scelte h3{font:900 14px 'Archivo Black',Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#ffd54a;margin:6px 0 14px;text-align:center}
+  .pg-griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:30px}
+  .pg-squadra{display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 0 12px;background:#141417;border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;cursor:pointer;color:#fff;font-family:Inter,sans-serif;transition:transform .2s ease,border-color .2s ease}
+  .pg-squadra:hover,.pg-squadra:focus-visible{transform:translateY(-3px);border-color:#f2b705}
+  .pg-squadra img{width:100%;aspect-ratio:1/1;object-fit:cover;margin-bottom:6px;background:#1c1c20}
+  .pg-squadra b{font-size:15px;font-weight:800;text-align:center;padding:0 6px}
+  .pg-squadra small{font-size:12px;color:#9a968c}
+  .pg-campionati{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+  .pg-campionati button{display:flex;flex-direction:column;align-items:center;gap:5px;padding:18px 8px;background:#141417;border:1px solid rgba(242,183,5,.25);border-radius:16px;cursor:pointer;color:#fff;font-family:Inter,sans-serif}
+  .pg-campionati button:hover,.pg-campionati button:focus-visible{border-color:#f2b705}
+  .pg-campionati i{font-style:normal;font-size:28px}
+  .pg-campionati b{font-size:14.5px;font-weight:800}
+  .pg-campionati small{font-size:12px;color:#9a968c}
+  .pg-vuoto{text-align:center;color:#9a968c;padding:30px 10px;line-height:1.6}
+  @media(max-width:600px){.pg-griglia,.pg-campionati{grid-template-columns:repeat(2,1fr)}.pg-testa{padding:10px;gap:8px}.pg-testa button{padding:9px 11px;font-size:12.5px}}
   .pc-home{padding:56px 0 48px;background:linear-gradient(180deg,rgba(255,180,0,.10),rgba(255,180,0,0) 70%);
            border-bottom:1px solid var(--line)}
   .pc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:22px}
@@ -1640,7 +1668,6 @@ window.addEventListener("load", function(){
     </div>
     <div class="cat-tabs reveal" id="tabs"></div>
     <div class="toolbar reveal">
-      <div class="team-chips" id="tipiRaccolta" style="display:none;flex-basis:100%"></div>
       <div class="team-chips" id="teamChips"></div>
       <div class="search">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
@@ -2375,7 +2402,8 @@ const fullUrl  = id => fotoNostra(id) ? id : `https://drive.google.com/thumbnail
 if (!history.state || !history.state.cscBuffer){
   history.pushState({ cscBuffer: true }, "", location.href);
 }
-window.addEventListener("popstate", ()=>{
+window.addEventListener("popstate", (e)=>{
+  if (typeof paginaIndietro === "function" && paginaIndietro(e)) return;
   if (typeof closeProduct === "function") closeProduct();
   if (typeof closeCart === "function") closeCart();
 });
@@ -3037,8 +3065,6 @@ function squadraDaNome(testo){
   const s = SQUADRE_NOMI.find(x => x.re.test(String(testo || "")));
   return s ? s.nome : "";
 }
-const TIPI_RACCOLTA = [ {id:"stagione", label:"⚽ Di quest'anno"}, {id:"storiche", label:"🏆 Storiche"}, {id:"tute", label:"🏃 Tute"} ];
-let tipoRaccolta = "stagione";
 const maiuscola = t => t ? t.charAt(0).toUpperCase() + t.slice(1) : "";
 async function caricaRaccolta(cat){
   const taglia = cat.raccolta;
@@ -3076,28 +3102,6 @@ const SQUADRE_PRIME = ["Juventus","Inter","Milan","Napoli","Roma","Barcellona","
 function ordinaSquadre(nomi){
   const rango = n => n === "Altre" ? 999 : (SQUADRE_PRIME.indexOf(n) < 0 ? 100 : SQUADRE_PRIME.indexOf(n));
   return nomi.sort((a,b) => rango(a) - rango(b) || a.localeCompare(b));
-}
-/* Due file di bottoni: che cosa (di quest'anno, storiche, tute) e quale squadra */
-function chipRaccolta(data){
-  const riga = document.getElementById("tipiRaccolta");
-  riga.innerHTML = ""; chipsEl.innerHTML = "";
-  const bottone = (dove, testo, attivo, fai) => {
-    const b = document.createElement("button");
-    b.className = "chip-t" + (attivo ? " active" : "");
-    b.textContent = testo;
-    b.onclick = () => { fai(); renderLimit = 24; chipRaccolta(data); renderGrid(); };
-    dove.appendChild(b);
-  };
-  const tipi = TIPI_RACCOLTA.filter(t => activeCat.tipi.includes(t.id));
-  if (!tipi.some(t => t.id === tipoRaccolta)) tipoRaccolta = tipi[0].id;
-  riga.style.display = tipi.length > 1 ? "" : "none";
-  if (tipi.length > 1) tipi.forEach(t => bottone(riga, t.label, t.id === tipoRaccolta, () => { tipoRaccolta = t.id; activeTeam = ""; }));
-  const delTipo = data.items.filter(i => i.tipoR === tipoRaccolta);
-  const conta = {};
-  delTipo.forEach(i => { conta[i.gruppo] = (conta[i.gruppo] || 0) + 1; });
-  bottone(chipsEl, `Tutte (${delTipo.length})`, !activeTeam, () => { activeTeam = ""; });
-  ordinaSquadre(Object.keys(conta))
-    .forEach(n => bottone(chipsEl, `${n} (${conta[n]})`, activeTeam === n, () => { activeTeam = n; }));
 }
 async function caricaCategoria(cat){
   if (cat.raccolta){
@@ -3218,8 +3222,8 @@ CATALOG.forEach((c,i)=>{
   const b = document.createElement("button");
   b.className = "tab" + (i===0 ? " active" : "");
   b.textContent = c.name;
-  // "Tute" resta (link diretti e raccolte la usano) ma nelle linguette ci sono gia Tute Bambini e Tute Adulti
-  if (c.name === "Tute") b.style.display = "none";
+  // Kit e Tute per bambini/adulti non hanno la linguetta: si aprono dai riquadri, in una pagina a parte
+  if (c.raccolta) b.style.display = "none";
   if (c.pronta) b.classList.add("tab-pc");
   b.onclick = ()=>{
     document.querySelectorAll("#tabs .tab").forEach(t=>t.classList.remove("active"));
@@ -3242,7 +3246,11 @@ CATALOG.forEach((c,i)=>{
     const piatto = c => c.name.toLowerCase().replace(/[-_ ]/g,'');
     const esatto = CATALOG.findIndex(c => piatto(c) === catParam);   // "tute" non deve diventare "tutebambini"
     const match = esatto >= 0 ? esatto : CATALOG.findIndex(c => piatto(c).includes(catParam));
-    if(match >= 0){
+    if(match >= 0 && CATALOG[match].raccolta){
+      // link diretto a una categoria con pagina propria (con ?photo= apre anche il prodotto)
+      const foto = p.get('photo'), cat = CATALOG[match];
+      setTimeout(()=>apriPagina(cat.name, foto), 0);
+    } else if(match >= 0){
       activeCat = CATALOG[match];
       document.querySelectorAll("#tabs .tab").forEach((t,i)=>t.classList.toggle("active", i===match));
       setTimeout(()=>document.getElementById("catalogo").scrollIntoView({behavior:"smooth"}), 400);
@@ -3255,7 +3263,7 @@ let searchAllCache = null;
 searchInp.addEventListener("input", ()=>{
   renderLimit = 24;
   const q = searchInp.value.trim();
-  if (activeCat.raccolta){ searchMode = false; renderGrid(); return; }
+  if (activeCat.raccolta){ searchMode = false; renderGrid(); return; }   // dentro la pagina di categoria si cerca solo li
   if (q){
     searchMode = true;
     doGlobalSearch(q);
@@ -3268,16 +3276,174 @@ searchInp.addEventListener("input", ()=>{
 });
 moreBtn.onclick = ()=>{ renderLimit += 24; if (searchMode) renderSearchResults(searchAllResults); else renderGrid(); };
 
-/* Apre una categoria dalla home (riquadri con le foto e scorciatoie) e porta li il cliente */
-function apriCategoria(nome){
-  searchInp.value = ""; headerSearchInp.value = ""; searchMode = false;
-  tipoRaccolta = "stagione";
-  // prima si va al catalogo, poi arrivano le foto: il tocco ha subito risposta
-  goToCategoryByName(nome);
-  // si lascia spazio all'intestazione fissa, cosi si vedono i bottoni appena sopra le foto
-  window.scrollTo({ top: document.getElementById("tabs").getBoundingClientRect().top + window.scrollY - 90, behavior:"smooth" });
+/* ================= PAGINA DI CATEGORIA (25/11/26) =================
+   Toccando un riquadro si apre una pagina a parte: prima la squadra (o il campionato), poi solo i suoi prodotti.
+   La griglia e i filtri sono quelli del catalogo, spostati qui dentro e rimessi al loro posto alla chiusura. */
+let filtroPagina = null;
+const pagina = { stato:null, dati:null, cat:null, prima:null, segnaposto:[] };
+const CAMPIONATI = [ ["Serie A","🇮🇹"], ["Premier League","🏴󠁧󠁢󠁥󠁮󠁧󠁿"], ["Liga Spagnola","🇪🇸"], ["Bundesliga","🇩🇪"], ["Ligue 1","🇫🇷"], ["Nazionali","🌍"], ["Eredivisie","🇳🇱"], ["Resto del Mondo","🌐"], ["Storiche","🏆"] ];
+const campionatoDi = i => i.tipoR === "storiche" ? "Storiche" : i._cat.name;
+
+function creaPagina(){
+  if (pagina.el) return pagina.el;
+  const el = document.createElement("div");
+  el.id = "paginaCat"; el.setAttribute("role","dialog"); el.setAttribute("aria-modal","true");
+  el.innerHTML = '<div class="pg-testa"><button type="button" class="pg-indietro">← Indietro</button><b class="pg-titolo"></b>'
+    + '<button type="button" class="pg-carrello" aria-label="Apri carrello">🛒 <span>0</span></button></div>'
+    + '<div class="container pg-corpo"><div class="pg-cerca"><input type="text" placeholder="🔍 Cerca la tua squadra…" aria-label="Cerca la tua squadra"></div>'
+    + '<div class="pg-scelte"></div><div class="pg-prodotti"></div></div>';
+  document.body.appendChild(el);
+  el.querySelector(".pg-indietro").onclick = () => history.back();
+  el.querySelector(".pg-carrello").onclick = () => document.getElementById("cartBtn").click();
+  el.querySelector(".pg-cerca input").oninput = () => disegnaScelte();
+  const badge = document.getElementById("cartBadge");
+  const conta = () => { el.querySelector(".pg-carrello span").textContent = badge.textContent; };
+  new MutationObserver(conta).observe(badge, { childList:true, characterData:true, subtree:true }); conta();
+  return pagina.el = el;
 }
-document.querySelectorAll(".scelta").forEach(a => a.onclick = e => { e.preventDefault(); apriCategoria(a.dataset.cat); });
+/* sposta griglia, filtri e "mostra altri" nella pagina (e li riporta indietro) */
+function spostaGriglia(dentro){
+  const pezzi = [document.querySelector(".filters-bar"), catEl, noteEl, moreBtn.parentNode];
+  if (dentro && !pagina.segnaposto.length){
+    pezzi.forEach(x => { const q = document.createComment("griglia"); x.before(q); pagina.segnaposto.push([q,x]); });
+    const dove = pagina.el.querySelector(".pg-prodotti");
+    pezzi.forEach(x => { x.classList.add("in","visible"); dove.appendChild(x); });
+  } else if (!dentro){
+    pagina.segnaposto.forEach(([q,x]) => { q.replaceWith(x); });
+    pagina.segnaposto = [];
+  }
+}
+async function apriPagina(nome, foto){
+  const cat = CATALOG.find(c => c.name === nome);
+  if (!cat) return;
+  if (!cat.raccolta) return goToCategoryByName(nome);
+  const el = creaPagina();
+  if (!el.classList.contains("aperta")) pagina.prima = { cat:activeCat, team:activeTeam };
+  pagina.cat = cat; pagina.dati = null;
+  activeCat = cat; activeTeam = ""; searchMode = false; searchInp.value = ""; if (headerSearchInp) headerSearchInp.value = "";
+  el.classList.add("aperta");
+  document.documentElement.classList.add("pagina-aperta");
+  el.querySelector(".pg-titolo").textContent = cat.name;
+  history.pushState({ cscBuffer:true, pagina:{ cat:cat.name, passo:"inizio" } }, "", "?cat=" + encodeURIComponent(cat.name));
+  mostraPasso({ cat:cat.name, passo:"inizio" });
+  try{ pagina.dati = await loadCategory(cat); }
+  catch(e){ el.querySelector(".pg-scelte").innerHTML = '<p class="pg-vuoto">Catalogo momentaneamente non raggiungibile.<br>Riprova tra qualche minuto ⚽</p>'; return; }
+  if (pagina.cat !== cat || !pagina.stato) return;
+  mostraPasso(pagina.stato);
+  if (foto){
+    const it = pagina.dati.items.find(i => i.id === foto || (i.varianti || []).some(v => v.scatti.some(x => x.id === foto)));
+    if (it) openProduct(it);
+  }
+}
+function vaiPasso(stato){
+  history.pushState({ cscBuffer:true, pagina:stato }, "", "?cat=" + encodeURIComponent(stato.cat));
+  pagina.el.querySelector(".pg-cerca input").value = "";
+  mostraPasso(stato);
+}
+function mostraPasso(stato){
+  const el = pagina.el;
+  pagina.stato = stato; activeCat = pagina.cat;
+  const prodotti = stato.passo === "prodotti";
+  el.querySelector(".pg-titolo").textContent = prodotti ? stato.squadra + " · " + stato.cat : (stato.passo === "campionato" ? stato.campionato : stato.cat);
+  el.querySelector(".pg-cerca").style.display = prodotti ? "none" : "";
+  el.querySelector(".pg-scelte").style.display = prodotti ? "none" : "";
+  el.querySelector(".pg-prodotti").style.display = prodotti ? "" : "none";
+  el.scrollTop = 0;
+  if (prodotti && pagina.dati){
+    spostaGriglia(true);
+    filtroPagina = i => i.gruppo === stato.squadra && (stato.campionato ? campionatoDi(i) === stato.campionato : i.tipoR !== "storiche" || stato.tutte);
+    activeTeam = ""; renderLimit = 24;
+    renderGrid();
+  } else disegnaScelte();
+}
+function riquadroSquadra(nome, items, campionato){
+  // la copertina della squadra: prima la maglia di casa di quest'anno
+  const voto = i => (i.tipoR === "storiche" ? 0 : 1) + (/home|casa/i.test(i.name) ? 4 : 0) + (/2[56]\s*[\/.:_-]\s*2[67]/.test(i.name) ? 8 : 0);
+  const foto = items.slice().sort((a,b) => voto(b) - voto(a))[0];
+  const b = document.createElement("button");
+  b.type = "button"; b.className = "pg-squadra";
+  b.innerHTML = `<img src="${thumbUrl(foto.id)}" alt="" loading="lazy" decoding="async" onerror="this.style.opacity=.15"><b>${nome}</b><small>${items.length} ${items.length === 1 ? "prodotto" : "prodotti"}</small>`;
+  const soloStoriche = items.every(i => i.tipoR === "storiche");
+  b.onclick = () => vaiPasso({ cat:pagina.cat.name, passo:"prodotti", squadra:nome, campionato:campionato || "", tutte:soloStoriche });
+  return b;
+}
+function disegnaScelte(){
+  const box = pagina.el.querySelector(".pg-scelte"), stato = pagina.stato;
+  if (!pagina.dati){ box.innerHTML = '<p class="pg-vuoto">Carico le squadre…</p>'; return; }
+  box.innerHTML = "";
+  const q = pagina.el.querySelector(".pg-cerca input").value.trim().toLowerCase();
+  const kit = !pagina.cat.tipi.includes("tute");
+  const perSquadra = lista => lista.reduce((m,i) => ((m[i.gruppo] = m[i.gruppo] || []).push(i), m), {});
+  const titolo = t => { const h = document.createElement("h3"); h.textContent = t; box.appendChild(h); };
+  const griglia = (nomi, mappa, campionato) => {
+    const g = document.createElement("div"); g.className = "pg-griglia";
+    nomi.forEach(n => g.appendChild(riquadroSquadra(n, mappa[n], campionato)));
+    box.appendChild(g);
+  };
+  const tutti = pagina.dati.items;
+  if (stato.passo === "campionato"){
+    const m = perSquadra(tutti.filter(i => campionatoDi(i) === stato.campionato));
+    const nomi = ordinaSquadre(Object.keys(m)).filter(n => !q || n.toLowerCase().includes(q));
+    if (nomi.length) griglia(nomi, m, stato.campionato); else box.innerHTML = '<p class="pg-vuoto">Nessuna squadra con questo nome qui.</p>';
+    return;
+  }
+  // primo passo: per le squadre "di quest'anno" contano i prodotti attuali; chi ha solo storiche si trova in Storiche
+  const m = perSquadra(tutti.filter(i => i.tipoR !== "storiche"));
+  if (q){
+    const mt = perSquadra(tutti);
+    Object.keys(mt).forEach(n => { if (!m[n]) m[n] = mt[n]; });
+    const nomi = ordinaSquadre(Object.keys(m)).filter(n => n.toLowerCase().includes(q));
+    if (nomi.length) griglia(nomi, m); else box.innerHTML = '<p class="pg-vuoto">Nessuna squadra con questo nome.<br>Controlla come l\'hai scritta.</p>';
+    return;
+  }
+  if (!kit){ griglia(ordinaSquadre(Object.keys(m)), m); return; }
+  titolo("Le più richieste");
+  griglia(SQUADRE_PRIME.filter(n => m[n]), m);
+  titolo("Oppure scegli il campionato");
+  const riga = document.createElement("div"); riga.className = "pg-campionati";
+  CAMPIONATI.forEach(([nome, bandiera]) => {
+    const n = new Set(tutti.filter(i => campionatoDi(i) === nome).map(i => i.gruppo)).size;
+    if (!n) return;
+    const b = document.createElement("button"); b.type = "button";
+    b.innerHTML = `<i>${bandiera}</i><b>${nome}</b><small>${n} squadre</small>`;
+    b.onclick = () => vaiPasso({ cat:pagina.cat.name, passo:"campionato", campionato:nome });
+    riga.appendChild(b);
+  });
+  box.appendChild(riga);
+}
+function chiudiPagina(){
+  if (!pagina.el || !pagina.el.classList.contains("aperta")) return;
+  pagina.el.classList.remove("aperta");
+  document.documentElement.classList.remove("pagina-aperta");
+  spostaGriglia(false);
+  filtroPagina = null; pagina.stato = null; pagina.cat = null;
+  activeCat = pagina.prima ? pagina.prima.cat : CATALOG[0]; activeTeam = pagina.prima ? pagina.prima.team : ""; renderLimit = 24;
+  showCategory();
+}
+/* tasto Indietro (nostro o del telefono). Restituisce true se se n'e occupata la pagina di categoria */
+function paginaIndietro(e){
+  if (!pagina.el || !pagina.el.classList.contains("aperta")){
+    return false;
+  }
+  const prodottoAperto = overlay.classList.contains("open");
+  const carrelloAperto = document.getElementById("cartOverlay").classList.contains("open");
+  if (prodottoAperto || carrelloAperto){
+    // Indietro chiude la scheda o il carrello e si resta dove si era
+    if (prodottoAperto){ overlay.classList.remove("open"); document.body.style.overflow = ""; }
+    if (carrelloAperto) closeCart();
+    history.pushState({ cscBuffer:true, pagina:pagina.stato }, "", "?cat=" + encodeURIComponent(pagina.cat.name));
+    return true;
+  }
+  if (e.state && e.state.pagina && e.state.pagina.cat === pagina.cat.name){
+    pagina.el.querySelector(".pg-cerca input").value = "";
+    mostraPasso(e.state.pagina);
+  } else {
+    chiudiPagina();
+    history.replaceState({ cscBuffer:true }, "", location.pathname);
+  }
+  return true;
+}
+document.querySelectorAll(".scelta").forEach(a => a.onclick = e => { e.preventDefault(); apriPagina(a.dataset.cat); });
 
 /* Scorciatoie squadre: portano dritti ai prodotti di quella squadra, senza
    passare per lega → squadra. Usano la ricerca globale, che guarda in tutte
@@ -3293,7 +3459,7 @@ document.querySelectorAll("#quickTeams .chip-q").forEach(b=>{
     document.querySelectorAll("#quickTeams .chip-q").forEach(x=>x.classList.remove("active"));
     b.classList.add("active");
     // il bottone "Bambino" porta alla categoria Kit Bambini
-    if (b.dataset.squadra === "bambino"){ apriCategoria("Kit Bambini"); return; }
+    if (b.dataset.squadra === "bambino"){ apriPagina("Kit Bambini"); return; }
     vaiAllaSquadra(b.dataset.squadra);
   };
 });
@@ -3330,7 +3496,6 @@ function corrisponde(testo, q){
 }
 
 async function doGlobalSearch(q){
-  document.getElementById("tipiRaccolta").style.display = "none";
   skeletons();
   chipsEl.innerHTML = "";
   const all = await ensureAllCategoriesLoaded();
@@ -3426,12 +3591,10 @@ function skeletons(n=8){
 async function showCategory(){
   skeletons();
   chipsEl.innerHTML = "";
-  document.getElementById("tipiRaccolta").style.display = "none";
   const richiesta = activeCat;
   try{
     const data = await loadCategory(activeCat);
     if (richiesta !== activeCat) return;   // nel frattempo si e passati a un'altra categoria
-    if (activeCat.raccolta) chipRaccolta(data);
     if (data.teams.length){
       const all = document.createElement("button");
       all.className = "chip-t active";
@@ -3479,8 +3642,8 @@ function renderGrid(){
   if (!data) return;
   const q = searchInp.value.trim().toLowerCase();
   let items = data.items;
-  if (activeCat.raccolta) items = items.filter(i=>i.tipoR===tipoRaccolta);
-  if (activeTeam) items = items.filter(i=>(activeCat.raccolta ? i.gruppo : i.team)===activeTeam);
+  if (activeCat.raccolta && filtroPagina) items = items.filter(filtroPagina);
+  if (activeTeam) items = items.filter(i=>i.team===activeTeam);
   if (q) items = items.filter(i=>corrisponde(i.name+" "+i.team+" "+(i.cerca||""), q));
 
   let priced = items.map(it=>{
@@ -3616,7 +3779,7 @@ async function goToTeamByHint(catName, hints){
     goToTeamByHint(catName, hints).then(()=>{
       document.getElementById("catalogo").scrollIntoView({behavior:"instant"});
     });
-  } else if (cat){
+  } else if (cat && !CATALOG.some(c => c.raccolta && c.name.toLowerCase() === cat.toLowerCase())){
     goToCategoryByName(cat).then(()=>{
       document.getElementById("catalogo").scrollIntoView({behavior:"instant"});
       // link diretto a un prodotto preciso (condiviso col bottone "Condividi")
