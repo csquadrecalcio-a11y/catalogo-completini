@@ -6989,6 +6989,36 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-24 22:52:28",
+        "luogo": "",
+        "stato": "In consegna, la spedizione è in consegna"
+      },
+      {
+        "data": "2026-11-24 22:52:00",
+        "luogo": "",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-11-24 13:24:00",
+        "luogo": "Roma",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-24 11:06:02",
+        "luogo": "Roma (rm)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-24 11:06:02",
+        "luogo": "Roma (rm)",
+        "stato": "In transito"
+      },
+      {
+        "data": "2026-11-24 10:10:00",
+        "luogo": "Roma",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-11-24 08:52:07",
         "luogo": "Roma (rm)",
         "stato": "In transito, la spedizione è in transito"
@@ -7081,12 +7111,12 @@
       {
         "data": "2026-11-11 10:50:26",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       },
       {
         "data": "2026-11-11 10:50:26",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       }
     ],
     "eventi_corriere": [
