@@ -6773,9 +6773,9 @@
     ]
   },
   "CSC-2026-0477": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-09",
-    "data_consegna": "",
+    "data_consegna": "2026-11-25 12:43:24",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J459436",
     "corriere_2": "",
@@ -6787,8 +6787,8 @@
     "corriere_5": "",
     "tracking_5": "",
     "foto": [
-      "sped_477_1_522aa2e2.jpg",
-      "sped_477_2_4c7d28d9.jpg"
+      "f0612df458c6be05254cba98.enc",
+      "9d8a3d18d362cd68254be3fc.enc"
     ],
     "tracking_cina": "",
     "fornitore": "",
