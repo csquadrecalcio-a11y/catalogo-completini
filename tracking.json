@@ -7789,6 +7789,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-25 06:00:36",
+        "luogo": "Ancona (an)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-25 03:11:00",
+        "luogo": "Bologna",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-11-23 19:31:00",
         "luogo": "Fara in sabina",
         "stato": "Prima scansione Poste Italiane"
@@ -7876,18 +7886,18 @@
       {
         "data": "2026-11-11 10:54:22",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-11-11 10:54:22",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-24 17:49",
-        "luogo": "BOLOGNA (BO)",
+        "data": "2026-11-24 23:00",
+        "luogo": "ANCONA (AN)",
         "stato": "La spedizione è in transito"
       }
     ]
