@@ -788,6 +788,16 @@ function _provenienza(){
   .pills{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
 
   /* ---------- pronta consegna in evidenza (05/10/26) ---------- */
+  .regali{padding:44px 0;border-bottom:1px solid var(--line)}
+  .reg-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .reg{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid var(--line);border-radius:16px;text-decoration:none;color:var(--text);background:rgba(var(--fg-rgb),.03);transition:transform .2s ease,border-color .2s ease}
+  .reg:hover{transform:translateY(-3px);border-color:#ffb400}
+  .reg i{font-style:normal;font-size:34px}
+  .reg b{font-size:17px}
+  .reg span{font-size:13.5px;color:var(--muted);line-height:1.45;flex:1}
+  .reg em{font-style:normal;font-weight:800;font-size:15px;color:#ffb400}
+  .reg em u{text-decoration:none}
+  @media(max-width:820px){.reg-row{grid-template-columns:repeat(2,1fr)}.reg{padding:14px}}
   .pc-home{padding:56px 0 48px;background:linear-gradient(180deg,rgba(255,180,0,.10),rgba(255,180,0,0) 70%);
            border-bottom:1px solid var(--line)}
   .pc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:22px}
@@ -1125,6 +1135,7 @@ function _provenienza(){
 .hbf-sub{font-size:clamp(15px,1.7vw,18px);line-height:1.6;color:rgba(246,241,228,.85);max-width:520px;margin:0 0 20px}
 .hbf-sub b{color:#ffd54a}
 .hbf-count{display:flex;gap:10px;margin-bottom:24px}
+.hbf-eti{font:800 13px Inter,sans-serif;color:#ffd54a;margin-bottom:10px;letter-spacing:.02em}
 .hbf-count .cd{min-width:62px;text-align:center;background:rgba(255,255,255,.06);border:1px solid rgba(242,183,5,.32);border-radius:14px;padding:10px 8px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .hbf-count .cd b{display:block;font:900 clamp(22px,3vw,32px)/1 'Archivo Black',Inter,sans-serif;color:#ffd54a;font-variant-numeric:tabular-nums}
 .hbf-count .cd span{display:block;margin-top:4px;font:700 9.5px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,241,228,.65)}
@@ -1386,8 +1397,13 @@ html[data-tema="stadio"] .reveal{transition:opacity .7s ease,transform .7s ease}
 <div class="natale-limite" id="nataleLimite" style="display:none">🎄 Per ricevere entro Natale, <b>ordina entro lunedì 30 novembre</b>. Dopo questa data non possiamo assicurare la consegna prima delle feste.</div>
 <script>
 /* Ultima data utile per Natale (25/11/26): si vede fino al 30 novembre compreso; da dicembre ci pensa la barra di Natale */
-if (new Date() <= new Date(2026, 10, 30, 23, 59, 59) && document.documentElement.getAttribute("data-festa") !== "natale")
-  document.getElementById("nataleLimite").style.display = "block";
+(function(){
+  var ora = new Date(), box = document.getElementById("nataleLimite");
+  if (ora > new Date(2026, 10, 30, 23, 59, 59) || document.documentElement.getAttribute("data-festa") === "natale") return;
+  if (ora >= new Date(2026, 10, 20))
+    box.innerHTML = "🎄 <b>Lunedì 30 novembre</b> finisce il Black Friday −15% ed è l'ultimo giorno per ricevere entro Natale. Dopo non possiamo assicurare la consegna prima delle feste.";
+  box.style.display = "block";
+})();
 </script>
 <div class="strip"><span id="stripShip">Spedizione gratuita in tutta Italia</span></div>
 <div class="passaparola"><b>🤝 Servizio riservato ai clienti e alle persone da loro presentate.</b> È nato dal passaparola e va avanti per la nostra cerchia, con una qualità curata: se ti ha presentato qualcuno, scrivi il suo nome e ordini subito.</div>
@@ -1588,6 +1604,24 @@ window.addEventListener("load", function(){
   }).catch(function(){});
 });
 </script>
+
+<!-- ============ IDEE REGALO (25/11/26): si vede fino al 24 dicembre ============ -->
+<section class="regali" id="idee-regalo" style="display:none">
+  <div class="container">
+    <div class="pc-head">
+      <div>
+        <h2 class="display">Idee regalo</h2>
+        <p>Non sai cosa scegliere? Parti da qui.</p>
+      </div>
+    </div>
+    <div class="reg-row">
+      <a class="reg" href="?cat=Serie%20A#catalogo"><i>🧒</i><b>Completino bambino</b><span>Scegli la maglia, poi seleziona «Kit Bambino». Nome e numero gratis</span><em>da <u data-reg="35"></u></em></a>
+      <a class="reg" href="?cat=Tute#catalogo"><i>🏃</i><b>Tuta della squadra</b><span>Per grandi e bambini</span><em>da <u data-reg="45"></u></em></a>
+      <a class="reg" href="?cat=Vintage#catalogo"><i>🏆</i><b>Maglia vintage</b><span>Per chi ama le maglie storiche</span><em>da <u data-reg="35"></u></em></a>
+      <a class="reg" href="?cat=Pronta%20Consegna"><i>⚡</i><b>Pronta consegna</b><span>Già in magazzino: la scelta più sicura se hai fretta</span><em>Guarda cosa c'è →</em></a>
+    </div>
+  </div>
+</section>
 
 <!-- ============ MARQUEE ============ -->
 <div class="marquee"><div class="marquee-track" id="marquee"></div></div>
@@ -4944,7 +4978,21 @@ renderConsegna();
   b.querySelector('[data-bf="periodo"]').textContent = "Dal " + fmt(f0.dal) + " al " + fmt(f1.al);
   b.querySelector('[data-bf="pct"]').textContent = "−" + bfPct() + "%";
   var box = document.getElementById("bfCount");
-  conto(box, new Date(f1.al + "T23:59:59").getTime(), function(){ box.style.display = "none"; });
+  // Se lo sconto finisce il giorno dell'ultima data utile per Natale, il conto alla rovescia vale per tutti e due (25/11/26)
+  var et = null;
+  if (f1.al === "2026-11-30"){
+    et = document.createElement("div"); et.className = "hbf-eti";
+    et.textContent = "⏳ Al termine di Black Friday e ordini di Natale mancano";
+    box.parentNode.insertBefore(et, box);
+  }
+  conto(box, new Date(f1.al + "T23:59:59").getTime(), function(){ box.style.display = "none"; if (et) et.style.display = "none"; });
+})();
+/* Idee regalo: prezzi con l'eventuale sconto Black Friday (25/11/26) */
+(function(){
+  var sez = document.getElementById("idee-regalo");
+  if (!sez || new Date() > new Date(2026, 11, 24, 23, 59, 59)) return;
+  sez.querySelectorAll("[data-reg]").forEach(function(u){ u.innerHTML = prezzoPillHtml(Number(u.dataset.reg)); });
+  sez.style.display = "";
 })();
 /* Barra in alto: un'offerta alla volta, a rotazione (12/11/26) */
 (function(){
