@@ -8034,6 +8034,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-25 17:56:22",
+        "luogo": "FCO",
+        "stato": "Sdoganamento completato"
+      },
+      {
         "data": "2026-11-23 10:33:58",
         "luogo": "FCO",
         "stato": "Arrivato al deposito doganale"
