@@ -7649,14 +7649,19 @@
     "fornitore": "",
     "eventi_cina": [
       {
-        "data": "2026-11-24 09:16:00",
-        "luogo": "Fara in sabina (ri)",
+        "data": "2026-11-25 05:04:00",
+        "luogo": "Sesto fiorentino",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-24 21:43:49",
+        "luogo": "Sesto fiorentino (fi)",
         "stato": "In transito, la spedizione è in transito"
       },
       {
-        "data": "2026-11-23 21:06:00",
-        "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
+        "data": "2026-11-24 09:16:00",
+        "luogo": "Fara in sabina (ri)",
+        "stato": "In transito, la spedizione è in transito"
       },
       {
         "data": "2026-11-23 21:06:00",
@@ -7667,6 +7672,11 @@
         "data": "2026-11-23 21:06:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-23 21:06:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-11-22 12:37:12",
@@ -7741,17 +7751,17 @@
       {
         "data": "2026-11-11 10:53:40",
         "luogo": "",
-        "stato": "Informazioni elettroniche della merce ricevute"
+        "stato": "Dati della spedizione ricevuti"
       },
       {
         "data": "2026-11-11 10:53:40",
         "luogo": "",
-        "stato": "Dati della spedizione ricevuti"
+        "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-24 14:43",
+        "data": "2026-11-25 01:40",
         "luogo": "SESTO FIORENTINO (FI)",
         "stato": "La spedizione è in transito"
       }
