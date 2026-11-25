@@ -7478,9 +7478,9 @@
     ]
   },
   "CSC-2026-0482": {
-    "stato": "in_consegna",
+    "stato": "consegnato",
     "data_spedizione": "2026-11-11",
-    "data_consegna": "",
+    "data_consegna": "2026-11-25 12:40",
     "corriere": "Poste Italiane",
     "tracking": "9C2307J546749",
     "corriere_2": "",
@@ -7492,8 +7492,8 @@
     "corriere_5": "",
     "tracking_5": "",
     "foto": [
-      "sped_482_1_465ff20f.jpg",
-      "sped_482_2_16d6b047.jpg"
+      "52799ee7b4b832ba96964464.enc",
+      "97bd2c94b5d89db5b2c25709.enc"
     ],
     "tracking_cina": "",
     "fornitore": "",
@@ -7620,6 +7620,16 @@
       }
     ],
     "eventi_corriere": [
+      {
+        "data": "2026-11-25 12:40",
+        "luogo": "",
+        "stato": "La spedizione è stata consegnata"
+      },
+      {
+        "data": "2026-11-25 11:26",
+        "luogo": "",
+        "stato": "La spedizione è in consegna"
+      },
       {
         "data": "2026-11-25 08:37",
         "luogo": "AVELLINO (AV)",
