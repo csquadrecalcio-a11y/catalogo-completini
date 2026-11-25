@@ -6794,6 +6794,26 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-24 18:42:51",
+        "luogo": "",
+        "stato": "In consegna, consegna non andata a buon fine per destinatario assente. Qualora previsto, sarà effettuato un nuovo tentativo di consegna il giorno lavorativo successivo."
+      },
+      {
+        "data": "2026-11-24 18:42:00",
+        "luogo": "",
+        "stato": "Consegna non riuscita: destinatario assente"
+      },
+      {
+        "data": "2026-11-24 17:32:00",
+        "luogo": "",
+        "stato": "In consegna"
+      },
+      {
+        "data": "2026-11-23 22:50:33",
+        "luogo": "Partanna (tp)",
+        "stato": "In transito"
+      },
+      {
         "data": "2026-11-23 22:50:33",
         "luogo": "Partanna (tp)",
         "stato": "In transito, la spedizione è in transito"
@@ -6840,11 +6860,6 @@
       },
       {
         "data": "2026-11-17 19:41:00",
-        "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
-      },
-      {
-        "data": "2026-11-17 19:41:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
       },
@@ -6852,6 +6867,11 @@
         "data": "2026-11-17 19:41:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-17 19:41:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
       },
       {
         "data": "2026-11-17 17:23:19",
