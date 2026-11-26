@@ -7611,6 +7611,11 @@
     ],
     "eventi_corriere": [
       {
+        "data": "2026-11-26 12:07",
+        "luogo": "",
+        "stato": "La spedizione è in consegna"
+      },
+      {
         "data": "2026-11-26 09:28",
         "luogo": "TERAMO (TE)",
         "stato": "La spedizione è in transito"
