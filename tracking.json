@@ -10341,6 +10341,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-26 20:05:00",
+        "luogo": "",
+        "stato": "Volo programmato, previsto il 28"
+      },
+      {
         "data": "2026-11-26 18:30:00",
         "luogo": "",
         "stato": "Aggiornamento dal corriere"
