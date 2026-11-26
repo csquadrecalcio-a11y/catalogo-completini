@@ -7804,6 +7804,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-26 01:12:50",
+        "luogo": "Ancona (an)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
+        "data": "2026-11-26 01:12:00",
+        "luogo": "Ancona",
+        "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
         "data": "2026-11-25 06:00:36",
         "luogo": "Ancona (an)",
         "stato": "In transito, la spedizione è in transito"
@@ -7815,11 +7825,6 @@
       },
       {
         "data": "2026-11-23 19:31:00",
-        "luogo": "Fara in sabina",
-        "stato": "Prima scansione Poste Italiane"
-      },
-      {
-        "data": "2026-11-23 19:31:00",
         "luogo": "Fara in sabina (ri)",
         "stato": "In transito, la spedizione è in transito"
       },
@@ -7827,6 +7832,16 @@
         "data": "2026-11-23 19:31:00",
         "luogo": "Fara in sabina",
         "stato": "In transito nella rete di Poste Italiane"
+      },
+      {
+        "data": "2026-11-23 19:31:00",
+        "luogo": "Fara in sabina",
+        "stato": "Prima scansione Poste Italiane"
+      },
+      {
+        "data": "2026-11-23 19:05:00",
+        "luogo": "",
+        "stato": "Consegnato al corriere locale"
       },
       {
         "data": "2026-11-22 12:37:12",
@@ -7911,8 +7926,8 @@
     ],
     "eventi_corriere": [
       {
-        "data": "2026-11-25 18:12",
-        "luogo": "ANCONA (AN)",
+        "data": "2026-11-26 09:28",
+        "luogo": "TERAMO (TE)",
         "stato": "La spedizione è in transito"
       }
     ]
