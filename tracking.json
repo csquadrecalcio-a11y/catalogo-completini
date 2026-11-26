@@ -9753,6 +9753,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-26 11:06:53",
+        "luogo": "",
+        "stato": "Pacco in uscita dal centro operativo"
+      },
+      {
         "data": "2026-11-26 03:56:32",
         "luogo": "",
         "stato": "Arrivato al punto di raccolta"
