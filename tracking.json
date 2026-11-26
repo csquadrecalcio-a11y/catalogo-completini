@@ -10478,11 +10478,11 @@
     "eventi_corriere": []
   },
   "CSC-2026-0553": {
-    "stato": "in_lavorazione",
-    "data_spedizione": "",
+    "stato": "spedito",
+    "data_spedizione": "2026-11-27",
     "data_consegna": "",
-    "corriere": "",
-    "tracking": "",
+    "corriere": "DHL",
+    "tracking": "CR439413936DE",
     "corriere_2": "",
     "tracking_2": "",
     "corriere_3": "",
@@ -10494,7 +10494,13 @@
     "foto": [],
     "tracking_cina": "",
     "fornitore": "",
-    "eventi_cina": [],
+    "eventi_cina": [
+      {
+        "data": "2026-11-27 04:15:35",
+        "luogo": "",
+        "stato": "Dati della spedizione ricevuti"
+      }
+    ],
     "eventi_corriere": []
   },
   "CSC-2026-0554": {
