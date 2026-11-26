@@ -9204,6 +9204,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-25 15:06:12",
+        "luogo": "AMS",
+        "stato": "Trasferito al corriere destinazionetransferred"
+      },
+      {
         "data": "2026-11-24 02:18:26",
         "luogo": "AMS",
         "stato": "Sdoganamento completato"
