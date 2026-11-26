@@ -8059,6 +8059,16 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-25 19:11:51",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
+        "data": "2026-11-25 18:11:27",
+        "luogo": "FCO",
+        "stato": "In transito to final service provider"
+      },
+      {
         "data": "2026-11-25 17:56:22",
         "luogo": "FCO",
         "stato": "Sdoganamento completato"
@@ -8129,7 +8139,13 @@
         "stato": "Informazioni elettroniche della merce ricevute"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-11-26 02:16",
+        "luogo": "FARA IN SABINA (RI)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0487": {
     "stato": "spedito",
