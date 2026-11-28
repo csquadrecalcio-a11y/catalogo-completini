@@ -8651,6 +8651,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-28 09:35:00",
+        "luogo": "Bentivoglio (bo)",
+        "stato": "In transito, la spedizione è in transito"
+      },
+      {
         "data": "2026-11-25 15:06:12",
         "luogo": "AMS",
         "stato": "Trasferito al corriere destinazionetransferred"
@@ -8696,7 +8701,13 @@
         "stato": "Dati della spedizione ricevuti"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-11-28 02:35",
+        "luogo": "BENTIVOGLIO (BO)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0505": {
     "stato": "attesa_pagamento",
