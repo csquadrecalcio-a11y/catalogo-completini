@@ -7188,7 +7188,13 @@
         "stato": "Dati della spedizione ricevuti"
       }
     ],
-    "eventi_corriere": []
+    "eventi_corriere": [
+      {
+        "data": "2026-11-28 16:25",
+        "luogo": "LONATE POZZOLO (VA)",
+        "stato": "La spedizione è in transito"
+      }
+    ]
   },
   "CSC-2026-0494": {
     "stato": "spedito",
