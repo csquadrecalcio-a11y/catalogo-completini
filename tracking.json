@@ -8083,6 +8083,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-26 13:08:28",
+        "luogo": "",
+        "stato": "Consegnato al corriere finale"
+      },
+      {
         "data": "2026-11-26 11:07:53",
         "luogo": "FCO",
         "stato": "In transito to final service provider"
