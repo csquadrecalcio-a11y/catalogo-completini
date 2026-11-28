@@ -8624,6 +8624,11 @@
     "fornitore": "",
     "eventi_cina": [
       {
+        "data": "2026-11-27 12:55:00",
+        "luogo": "AMS",
+        "stato": "Sdoganamento in corso"
+      },
+      {
         "data": "2026-11-27 07:29:00",
         "luogo": "AMS",
         "stato": "Aggiornamento dal corriere"
